@@ -16,8 +16,8 @@ public class ConnectionConfig extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String user = "postgres";
-		String pass = "1706";
-		String jdbcURL = "jdbc:postgresql://localhost:5432/rsia_hikmah";
+		String pass = "postgres";
+		String jdbcURL = "jdbc:postgresql://localhost:5433/rsia_hikmah";
 		
 		String driverDB = "org.postgresql.Driver";
 		

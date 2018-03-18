@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,7 +12,11 @@
 <link href="<c:url value="/resources/css/app.css "/>" rel="stylesheet" type="text/css"/>
 <link href="<c:url value="/resources/css/vendor.css "/>" rel="stylesheet" type="text/css"/>
 <link href="<c:url value="/resources/css/bootstrap.min.css "/>" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/resources/css/select2.css "/>" rel="stylesheet" type="text/css"/>
 <link href="<c:url value="/resources/css/gh-pages.css "/>" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/resources/css/select2.min.css "/>" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="//select2.github.io/select2/select2-3.5.2/select2.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 	<div class="main-wrapper">
@@ -102,143 +106,154 @@
 					</div>
 				</header>
 				<aside class="sidebar">
-					<div class="sidebar-container">
-						<div class="sidebar-header">
-							<div class="brand">
-								<div class="logo">
-									<span class="l l1"></span>
-									<span class="l l2"></span>
-									<span class="l l3"></span>
-									<span class="l l4"></span>
-									<span class="l l5"></span>
-								</div> RSIA Hikmah </div>
-						</div>
-						<nav class="menu">
-							<ul class="sidebar-menu metismenu" id="sidebar-menu">
-								<li>
-									<a href="index.html">
-										<i class="fa fa-home"></i> Dashboard </a>
-								</li>
-								<li class="active">
-									<a href="../../provinsi/tambah/?page=1&limit=10">
-										<i class="fa fa-user"></i> Provinsi </a>
-								</li>
-								<li>
-									<a href="../../kota/tambah/?page=1&limit=10">
-										<i class="fa fa-home"></i> Kota </a>
-								</li>
-								<li>
-									<a href="../../kecamatan/tambah/?page=1&limit=10">
-										<i class="fa fa-user"></i> Kecamatan </a>
-								</li>
-								<li>
-									<a href="../../kelurahan/tambah/?page=1&limit=10">
-										<i class="fa fa-user"></i> Kelurahan </a>
-								</li>
-								<li>
-									<a href="../../jenis-pegawai/tambah">
-										<i class="fa fa-user"></i> Jenis Pegawai </a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-					<footer class="sidebar-footer">
-						<ul class="sidebar-menu metismenu" id="customize-menu">
-							<li>
-								<ul>
-									<li class="customize">
-										<div class="customize-item">
-											<div class="row customize-header">
-												<div class="col-4"> </div>
-												<div class="col-4">
-													<label class="title">fixed</label>
-												</div>
-												<div class="col-4">
-													<label class="title">static</label>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-4">
-													<label class="title">Sidebar:</label>
-												</div>
-												<div class="col-4">
-													<label>
-														<input class="radio" name="sidebarPosition" value="sidebar-fixed" type="radio">
-														<span></span>
-													</label>
-												</div>
-												<div class="col-4">
-													<label>
-														<input class="radio" name="sidebarPosition" value="" type="radio">
-														<span></span>
-													</label>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-4">
-													<label class="title">Header:</label>
-												</div>
-												<div class="col-4">
-													<label>
-														<input class="radio" name="headerPosition" value="header-fixed" type="radio">
-														<span></span>
-													</label>
-												</div>
-												<div class="col-4">
-													<label>
-														<input class="radio" name="headerPosition" value="" type="radio">
-														<span></span>
-													</label>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-4">
-													<label class="title">Footer:</label>
-												</div>
-												<div class="col-4">
-													<label>
-														<input class="radio" name="footerPosition" value="footer-fixed" type="radio">
-														<span></span>
-													</label>
-												</div>
-												<div class="col-4">
-													<label>
-														<input class="radio" name="footerPosition" value="" type="radio">
-														<span></span>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="customize-item">
-											<ul class="customize-colors">
-												<li>
-													<span class="color-item color-red" data-theme="red"></span>
-												</li>
-												<li>
-													<span class="color-item color-orange" data-theme="orange"></span>
-												</li>
-												<li>
-													<span class="color-item color-green active" data-theme=""></span>
-												</li>
-												<li>
-													<span class="color-item color-seagreen" data-theme="seagreen"></span>
-												</li>
-												<li>
-													<span class="color-item color-blue" data-theme="blue"></span>
-												</li>
-												<li>
-													<span class="color-item color-purple" data-theme="purple"></span>
-												</li>
-											</ul>
-										</div>
-									</li>
-								</ul>
-								<a href="">
-									<i class="fa fa-cog"></i> Customize </a>
-							</li>
-						</ul>
-					</footer>
-				</aside>
+                    <div class="sidebar-container">
+                        <div class="sidebar-header">
+                            <div class="brand">
+                                <div class="logo">
+                                    <span class="l l1"></span>
+                                    <span class="l l2"></span>
+                                    <span class="l l3"></span>
+                                    <span class="l l4"></span>
+                                    <span class="l l5"></span>
+                                </div> RSIA Hikmah </div>
+                        </div>
+                        <nav class="menu">
+                            <ul class="sidebar-menu metismenu" id="sidebar-menu">
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-desktop"></i> Transaksi
+                                        <i class="fa arrow"></i>
+                                    </a>
+                                    <ul class="sidebar-nav">
+                                        <li>
+                                            <a href="pendaftaran.html">
+                                            <i class="fa fa-users"></i> Pendaftaran
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="pelayanan.html">
+                                                <i class="fa fa-user-md"></i> &nbsp;Pelayanan
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="fa fa-user-md"> &nbsp;Pembayaran
+                                                <i class="fa arrow"></i>
+                                            </a>
+                                            <ul class="sidebar-nav">
+                                                <li>
+                                                    <a href="#"> Kasir </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"> Gaji </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-medkit"></i> Master Rekam Medis
+                                        <i class="fa arrow"></i>
+                                    </a>
+                                    <ul class="sidebar-nav">
+                                        <li>
+                                            <a href="/com.rsia.modura/Pasien/tambah">
+                                            <i class="fa fa-users"></i> Pasien
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/Tindakan/tambah">
+                                            <i class="fa fa-users"></i> Tindakan
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/Kamar/list">
+                                            <i class="fa fa-users"></i> Kamar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/Ruang/list">
+                                            <i class="fa fa-users"></i> Ruang
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/Paket/list">
+                                            <i class="fa fa-users"></i> Paket
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/Rujukan/tambah">
+                                            <i class="fa fa-users"></i> Rujukan
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/History/list">
+                                            <i class="fa fa-users"></i> History Pasien
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-map-marker"></i> Master Wilayah
+                                        <i class="fa arrow"></i>
+                                    </a>
+                                    <ul class="sidebar-nav">
+                                        <li>
+                                            <a href="/com.rsia.modura/provinsi/tambah/?page=1&limit=10">
+                                            <i class="fa fa-users"></i> Propinsi
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/kota/tambah/?page=1&limit=10">
+                                            <i class="fa fa-users"></i> Kota
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/kecamatan/tambah/?page=1&limit=10">
+                                            <i class="fa fa-users"></i> Kecamatan
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/kelurahan/tambah/?page=1&limit=10">
+                                            <i class="fa fa-users"></i> Kelurahan
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-plus-square"></i> Master Pelengkap
+                                        <i class="fa arrow"></i>
+                                    </a>
+                                    <ul class="sidebar-nav">
+                                        <li>
+                                            <a href="/com.rsia.modura/Kondisi/list">
+                                            <i class="fa fa-users"></i> Kondisi Pasien
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/pegawai/tambah">
+                                            <i class="fa fa-users"></i> Pegawai
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/Agama/list">
+                                            <i class="fa fa-users"></i> Agama
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/com.rsia.modura/Kelas/list">
+                                            <i class="fa fa-users"></i> Kelas
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                </aside>
 				<div class="sidebar-overlay" id="sidebar-overlay"></div>
 				<div class="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle"></div>
 				<div class="mobile-menu-handle"></div>
@@ -337,7 +352,7 @@
 							<div class="modal-header">
 								<h4 class="modal-title">Media Library</h4>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">×</span>
+									<span aria-hidden="true">ï¿½</span>
 									<span class="sr-only">Close</span>
 								</button>
 							</div>
@@ -386,7 +401,7 @@
 								<h4 class="modal-title">
 									<i class="fa fa-warning"></i> Alert</h4>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">×</span>
+									<span aria-hidden="true">ï¿½</span>
 								</button>
 							</div>
 							<div class="modal-body">
@@ -404,7 +419,7 @@
 				<!-- /.modal -->
 			</div>
 		</div>
-   <script src="<c:url value="/resources/js/app.js "/>" /></script>
-   <script src="<c:url value="/resources/js/vendor.js "/>" /></script>
+		<script src="<c:url value="/resources/js/vendor.js" />"></script>
+		<script src="<c:url value="/resources/js/app.js" />"></script>
 </body>
 </html>

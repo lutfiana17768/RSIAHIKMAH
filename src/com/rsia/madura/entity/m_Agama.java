@@ -68,10 +68,12 @@ public class m_Agama {
 		this.agamaKeterangan = agamaKeterangan;
 	}
 
-	 
+	public String getAgamaAktif() {
+		return agamaAktif;
+	}
 
-	public void setAgamaAktif(String string) {
-		this.agamaAktif = string;
+	public void setAgamaAktif(String agamaAktif) {
+		this.agamaAktif = agamaAktif;
 	}
 
 	public String getAgamaCreatedBy() {
@@ -121,28 +123,5 @@ public class m_Agama {
 	public void setAgamaDeletedDate(Timestamp agamaDeletedDate) {
 		this.agamaDeletedDate = agamaDeletedDate;
 	}
-
-	@Override
-	public String toString() {
-		return "m_Agama [agama_id=" + agama_id + ", agamaNama=" + agamaNama + ", agamaKeterangan=" + agamaKeterangan
-				+ ", agamaAktif=" + agamaAktif + ", agamaCreatedBy=" + agamaCreatedBy + ", agamacreatedDate="
-				+ agamacreatedDate + ", agamaUpdatedBy=" + agamaUpdatedBy + ", agamaUpdatedDate=" + agamaUpdatedDate
-				+ ", agamaRevised=" + agamaRevised + ", agamaDeletedDate=" + agamaDeletedDate + "]";
-	}
-
-	public void setagamaAktif(char c) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void setAgamaAktif(char c) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	 
-
-	 
-	
 	
 }

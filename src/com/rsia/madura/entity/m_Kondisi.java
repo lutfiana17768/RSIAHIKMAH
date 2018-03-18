@@ -24,7 +24,7 @@ public class m_Kondisi {
 	private String kondisi_nama;
 	
 	@Column(name="kondisi_aktif")
-	private char kondisi_aktif;
+	private String kondisi_aktif;
 	
 	@Column(name="kondisi_created_by")
 	private String kondisi_created_by;
@@ -71,8 +71,11 @@ public class m_Kondisi {
 		this.kondisi_nama = kondisi_nama;
 	}
 
-	 
-	public void setKondisi_aktif(char c) {
+	public String getKondisi_aktif() {
+		return kondisi_aktif;
+	}
+	
+	public void setKondisi_aktif(String c) {
 		this.kondisi_aktif = c;
 	}
 

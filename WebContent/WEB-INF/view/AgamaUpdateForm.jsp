@@ -17,16 +17,16 @@
 <link href="<c:url value="/resources/css/select2.min.css "/>" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="//select2.github.io/select2/select2-3.5.2/select2.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script type="text/javascript">
-		$(document).ready(function(){
-			$("#add_kamar").click(function(){
-			    $("#add_kamar_form").slideToggle('slow');
-			});
-		});
-		</script>
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<link href="<c:url value="/resources/css/app.css "/>" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/resources/css/vendor.css "/>" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/resources/css/bootstrap.min.css "/>" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/resources/css/gh-pages.css "/>" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-		<div class="main-wrapper">
+	<div class="main-wrapper">
 			<div class="app" id="app">
 				<header class="header">
 					<div class="header-block header-block-collapse d-lg-none d-xl-none">
@@ -94,7 +94,7 @@
 							</li>
 							<li class="profile dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-									<div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')"> </div>
+									<div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&amp;s=40')"> </div>
 									<span class="name"> John Doe </span>
 								</a>
 								<div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -271,37 +271,41 @@
 							<div class="col-md-6">
 								<div class="card card-block sameheight-item">
 									<div class="title-block">
-										<h3 class="title"> Master Kondisi Pasien </h3>
+										<h3 class="title"> Data Kondisi </h3>
 									</div>
-									<form:form modelAttribute="kondisiModel" method="POST" action="../Kondisi/store">
+									<form:form modelAttribute="agamaModel" method="POST" action="update">
+										<form:hidden path="agama_id" />
+										
 										<div class="form-group">
-											<label for="exampleInputEmail1">Nama Kondisi Pasien</label>
-											<input type="text" class="form-control boxed" id="exampleInputEmail1" placeholder="Masukan Nama Kondisi Pasien"> </div>
+											<label for="exampleInputPassword1">Nama</label>
+											<form:input path="agamaNama" class="form-control"/>
+										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword1">Keterangan</label>
-											<input type="text" class="form-control boxed" id="exampleInputPassword1" placeholder="Masukan Keterangan"> </div>
-										<div class="form-group">
-											<button type="submit" class="btn btn-primary">Simpan</button>
-											<button type="button" class="btn btn-danger d_pasien-button"><a href="http://localhost:8080/com.rsia.modura/Kondisi/list"/>Batal</a></button>
+											<form:input path="agamaKeterangan" class="form-control"/>
+										</div>
 										
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary">Update</button>
 										</div>
 									</form:form>
+									
 								</div>
 							</div>
 						</div>
 					</section>
-					 
 				</article>
 				<footer class="footer">
 					
 				</footer>
+				
 				<div class="modal fade" id="modal-media">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h4 class="modal-title">Media Library</h4>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
+									<span aria-hidden="true">×</span>
 									<span class="sr-only">Close</span>
 								</button>
 							</div>
@@ -350,7 +354,7 @@
 								<h4 class="modal-title">
 									<i class="fa fa-warning"></i> Alert</h4>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
+									<span aria-hidden="true">×</span>
 								</button>
 							</div>
 							<div class="modal-body">
@@ -368,33 +372,7 @@
 				<!-- /.modal -->
 			</div>
 		</div>
-		<!-- Reference block for JS -->
-		<div class="ref" id="ref">
-			<div class="color-primary"></div>
-			<div class="chart">
-				<div class="color-primary"></div>
-				<div class="color-secondary"></div>
-			</div>
-		</div>
-		<script>
-			(function(i, s, o, g, r, a, m)
-			{
-				i['GoogleAnalyticsObject'] = r;
-				i[r] = i[r] || function()
-				{
-					(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date();
-				a = s.createElement(o),
-					m = s.getElementsByTagName(o)[0];
-				a.async = 1;
-				a.src = g;
-				m.parentNode.insertBefore(a, m)
-			})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-			ga('create', 'UA-80463319-4', 'auto');
-			ga('send', 'pageview');
-		</script>
-
 		<script src="<c:url value="/resources/js/vendor.js" />"></script>
 		<script src="<c:url value="/resources/js/app.js" />"></script>
-	</body>
+</body>
 </html>
