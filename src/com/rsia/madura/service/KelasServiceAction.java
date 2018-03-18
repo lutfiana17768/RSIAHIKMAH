@@ -12,17 +12,57 @@ import com.rsia.madura.entity.m_Kelas;
 @Service
 public class KelasServiceAction implements KelasService {
 	@Autowired
-	private KelasDAO KelasDAO;
-	
-	@Transactional
+	private KelasDAO kelasDAO;
+
 	@Override
-	public List<m_Kelas> getKelas() {
-		return KelasDAO.getKelas();
+	@Transactional
+	public List<m_Kelas> getKelases() {
+		// TODO Auto-generated method stub
+		return kelasDAO.getKelases();
 	}
 
 	@Override
-	public void simpan(m_Kelas kelasModel) {
+	@Transactional
+	public List<m_Kelas> getKelases(int page, int limit) {
 		// TODO Auto-generated method stub
+		return kelasDAO.getKelases(page, limit);
+	}
+
+	@Override
+	@Transactional
+	public String createLinks(int page, int limit) {
+		// TODO Auto-generated method stub
+		return kelasDAO.createLinks(page, limit);
+	}
+
+	@Override
+	@Transactional
+	public m_Kelas getKelas(int id) {
+		// TODO Auto-generated method stub
+		return kelasDAO.getKelas(id);
+	}
+
+	@Override
+	@Transactional
+	public void store(m_Kelas data) {
+		// TODO Auto-generated method stub
+		kelasDAO.KelasStore(data);
 		
 	}
+
+	@Override
+	@Transactional
+	public void update(m_Kelas data) {
+		// TODO Auto-generated method stub
+		kelasDAO.KelasUpdate(data);
+		
+	}
+
+	@Override
+	@Transactional
+	public void delete(m_Kelas data) {
+		// TODO Auto-generated method stub
+		kelasDAO.KelasDelete(data);
+	}
+
 }

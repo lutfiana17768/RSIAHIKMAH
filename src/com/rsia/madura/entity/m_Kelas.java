@@ -13,38 +13,38 @@ import javax.persistence.Table;
 @Table(name="m_kelas")
 public class m_Kelas {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="kelas_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "kelas_id")
 	private int kelas_id;
-	
-	@Column(name="kelas_kode")
+
+	@Column(name = "kelas_kode")
 	private String kelas_kode;
-	
-	@Column(name="kelas_nama")
+
+	@Column(name = "kelas_nama")
 	private String kelas_nama;
-	
-	@Column(name="kelas_keterangan")
+
+	@Column(name = "kelas_keterangan")
 	private String kelas_keterangan;
-	
-	@Column(name="kelas_aktif")
+
+	@Column(name = "kelas_aktif")
 	private String kelas_aktif;
-	
-	@Column(name="kelas_created_by")
+
+	@Column(name = "kelas_created_by")
 	private String kelas_created_by;
-	
-	@Column(name="kelas_created_date")
+
+	@Column(name = "kelas_created_date")
 	private Timestamp kelas_created_date;
-	
-	@Column(name="kelas_updated_by")
+
+	@Column(name = "kelas_updated_by")
 	private String kelas_updated_by;
-	
-	@Column(name="kelas_updated_date")
+
+	@Column(name = "kelas_updated_date")
 	private Timestamp kelas_updated_date;
-	
-	@Column(name="kelas_revised")
-	private String kelas_revised;
-	
-	@Column(name="kelas_deleted_date")
+
+	@Column(name = "kelas_revised")
+	private int kelas_revised;
+
+	@Column(name = "kelas_deleted_date")
 	private Timestamp kelas_deleted_date;
 
 	public int getKelas_id() {
@@ -119,11 +119,11 @@ public class m_Kelas {
 		this.kelas_updated_date = kelas_updated_date;
 	}
 
-	public String getKelas_revised() {
+	public int getKelas_revised() {
 		return kelas_revised;
 	}
 
-	public void setKelas_revised(String kelas_revised) {
+	public void setKelas_revised(int kelas_revised) {
 		this.kelas_revised = kelas_revised;
 	}
 
@@ -134,22 +134,5 @@ public class m_Kelas {
 	public void setKelas_deleted_date(Timestamp kelas_deleted_date) {
 		this.kelas_deleted_date = kelas_deleted_date;
 	}
-
-	@Override
-	public String toString() {
-		return "m_Kelas [kelas_id=" + kelas_id + ", kelas_kode=" + kelas_kode + ", kelas_nama=" + kelas_nama
-				+ ", kelas_keterangan=" + kelas_keterangan + ", kelas_aktif=" + kelas_aktif + ", kelas_created_by="
-				+ kelas_created_by + ", kelas_created_date=" + kelas_created_date + ", kelas_updated_by="
-				+ kelas_updated_by + ", kelas_updated_date=" + kelas_updated_date + ", kelas_revised=" + kelas_revised
-				+ ", kelas_deleted_date=" + kelas_deleted_date + "]";
-	}
- 
-
-	public void setKelas_aktif(char c) {
-		// TODO Auto-generated method stub
-		
-	}
-  
-	
 
 }
