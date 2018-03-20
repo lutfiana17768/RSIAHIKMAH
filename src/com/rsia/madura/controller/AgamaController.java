@@ -40,8 +40,6 @@ public class AgamaController {
 
 	@RequestMapping(value="/store", method=RequestMethod.POST)
 	public String Store(@ModelAttribute("agamaModel") m_Agama agamaModel) {
-		System.out.println(agamaModel);
-		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
 		agamaModel.setAgamaAktif("Y");

@@ -179,19 +179,5 @@ public class m_Tindakan {
 		this.harga_tindakan = harga_tindakan;
 	}
 
-	@Override
-	public String toString() {
-		return "m_Tindakan [tindakan_id=" + tindakan_id + ", tindakan_kode=" + tindakan_kode + ", tindakan_nama="
-				+ tindakan_nama + ", tindakan_keterangan=" + tindakan_keterangan + ", tindakan_aktif=" + tindakan_aktif
-				+ ", tindakan_created_by=" + tindakan_created_by + ", tindakan_created_date=" + tindakan_created_date
-				+ ", tindakan_updated_by=" + tindakan_updated_by + ", tindakan_updated_date=" + tindakan_updated_date
-				+ ", tindakan_revised=" + tindakan_revised + ", tindakan_jenis=" + tindakan_jenis
-				+ ", tindakan_kategori=" + tindakan_kategori + ", tindakan_deleted_date=" + tindakan_deleted_date
-				+ ", kelas_id=" + kelas_id + ", harga_tindakan=" + harga_tindakan + "]";
-	}
-	
-	
- 
-
 
 }

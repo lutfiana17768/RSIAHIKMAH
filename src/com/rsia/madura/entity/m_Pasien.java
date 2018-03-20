@@ -10,104 +10,107 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="m_pasien")
+@Table(name = "m_pasien")
 public class m_Pasien {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="pasien_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "pasien_id")
 	private int pasien_id;
-	
-	@Column(name="pasien_norm")
+
+	@Column(name = "pasien_norm")
 	private String pasien_norm;
-	
-	@Column(name="pasien_nik")
+
+	@Column(name = "pasien_sebut")
+	private String pasien_sebut;
+
+	@Column(name = "pasien_nik")
 	private String pasien_nik;
-	
-	@Column(name="pasien_nama")
+
+	@Column(name = "pasien_nama")
 	private String pasien_nama;
-	
-	@Column(name="pasien_kelamin")
+
+	@Column(name = "pasien_kelamin")
 	private String pasien_kelamin;
-	
-	@Column(name="pasien_alamat")
+
+	@Column(name = "pasien_alamat")
 	private String pasien_alamat;
-	
-	@Column(name="m_kecamatan_id")
+
+	@Column(name = "m_kecamatan_id")
 	private int m_kecamatan_id;
-	
-	@Column(name="m_kota_id")
+
+	@Column(name = "m_kota_id")
 	private int m_kota_id;
-	
-	@Column(name="m_propinsi_id")
+
+	@Column(name = "m_propinsi_id")
 	private int m_propinsi_id;
-	
-	@Column(name="pasien_notelp")
+
+	@Column(name = "pasien_notelp")
 	private String pasien_notelp;
-	
-	@Column(name="pasien_nohp")
+
+	@Column(name = "pasien_nohp")
 	private String pasien_nohp;
-	
-	@Column(name="pasien_goldarah")
+
+	@Column(name = "pasien_goldarah")
 	private String pasien_goldarah;
-	
-	@Column(name="pasien_bb")
+
+	@Column(name = "pasien_bb")
 	private String pasien_bb;
-	
-	@Column(name="pasien_tb")
+
+	@Column(name = "pasien_tb")
 	private String pasien_tb;
-	
-	@Column(name="pasien_aktif")
+
+	@Column(name = "pasien_aktif")
 	private String pasien_aktif;
-	
-	@Column(name="pasien_created_by")
+
+	@Column(name = "pasien_created_by")
 	private String pasien_created_by;
-	
-	@Column(name="pasien_created_date")
+
+	@Column(name = "pasien_created_date")
 	private Timestamp pasien_created_date;
-	
-	@Column(name="pasien_updated_by")
+
+	@Column(name = "pasien_updated_by")
 	private String pasien_updated_by;
-	
-	@Column(name="pasien_updated_date")
+
+	@Column(name = "pasien_updated_date")
 	private Timestamp pasien_updated_date;
-	
-	@Column(name="m_kota_id_tempatlahir")
+
+	@Column(name = "m_kota_id_tempatlahir")
 	private int m_kota_id_tempatlahir;
-	
-	@Column(name="pasien_tanggallahir")
+
+	@Column(name = "pasien_tanggallahir")
 	private Timestamp pasien_tanggallahir;
-	
-	@Column(name="m_kelurahan_id")
+
+	@Column(name = "m_kelurahan_id")
 	private int m_kelurahan_id;
-	
-	@Column(name="m_status_id")
+
+	@Column(name = "m_status_id")
 	private int m_status_id;
-	
-	@Column(name="pasien_keterangan")
+
+	@Column(name = "pasien_keterangan")
 	private String pasien_keterangan;
-	
-	@Column(name="pasien_domisili")
+
+	@Column(name = "pasien_domisili")
 	private String pasien_domisili;
-	
-	@Column(name="pasien_pekerjaan")
+
+	@Column(name = "pasien_pekerjaan")
 	private String pasien_pekerjaan;
-	
-	@Column(name="pasien_statusnikah")
+
+	@Column(name = "pasien_statusnikah")
 	private String pasien_statusnikah;
-	
-	@Column(name="m_agama_id")
+
+	@Column(name = "m_agama_id")
 	private int m_agama_id;
-	
-	@Column(name="m_pendidikan_id")
+
+	@Column(name = "m_pendidikan_id")
 	private int m_pendidikan_id;
-	
-	@Column(name="m_pekerjaan_id")
+
+	@Column(name = "m_pekerjaan_id")
 	private int m_pekerjaan_id;
-	
-	@Column(name="pasien_alergi")
+
+	@Column(name = "pasien_alergi")
 	private String pasien_alergi;
-	
-	@Column(name="pasien_deleted_date")
+
+	@Column(name = "pasien_deleted_date")
 	private Timestamp pasien_deleted_date;
 
 	public int getPasien_id() {
@@ -360,6 +363,14 @@ public class m_Pasien {
 
 	public Timestamp getPasien_deleted_date() {
 		return pasien_deleted_date;
+	}
+
+	public String getPasien_sebut() {
+		return pasien_sebut;
+	}
+
+	public void setPasien_sebut(String pasien_sebut) {
+		this.pasien_sebut = pasien_sebut;
 	}
 
 	public void setPasien_deleted_date(Timestamp pasien_deleted_date) {

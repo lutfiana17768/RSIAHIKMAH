@@ -28,6 +28,7 @@ public class KotaController {
 		@RequestMapping(value="/tambah", method=RequestMethod.GET)
 		public String KotaFormView(Model model, @RequestParam(value="page", required=false) int page, 
 				@RequestParam(value="limit", required=false) int limit){
+		
 			List<m_Kota> resultKota = kotaService.getKotas(page, limit);
 			List<m_Provinsi> resultProvinsi = provinsiService.getProvinsis();
 			String links = kotaService.createLinks(page, limit);

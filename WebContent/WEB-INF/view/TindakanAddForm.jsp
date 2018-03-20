@@ -17,21 +17,18 @@
 <link href="<c:url value="/resources/css/select2.min.css "/>" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="//select2.github.io/select2/select2-3.5.2/select2.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script type="text/javascript">
-		$(document).ready(function(){
-			$("#add_pasien").click(function(){
-			    $("#add_pasien_form").slideToggle('slow');
-			});
-		});
-		</script>
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<link href="<c:url value="/resources/css/app.css "/>" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/resources/css/vendor.css "/>" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/resources/css/bootstrap.min.css "/>" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/resources/css/gh-pages.css "/>" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-		<div class="main-wrapper">
+	<div class="main-wrapper">
 			<div class="app" id="app">
 				<header class="header">
-					<div class="nav-title">
-						<h3 class="title">Pendaftaran Pasien</h3>
-					</div>
 					<div class="header-block header-block-collapse d-lg-none d-xl-none">
 						<button class="collapse-btn" id="sidebar-collapse-btn">
 							<i class="fa fa-bars"></i>
@@ -60,6 +57,31 @@
 												</div>
 											</a>
 										</li>
+										<li>
+											<a href="" class="notification-item">
+												<div class="img-col">
+													<div class="img" style="background-image: url('assets/faces/5.jpg')"></div>
+												</div>
+												<div class="body-col">
+													<p>
+														<span class="accent">Amaya Hatsumi</span> started new task:
+														<span class="accent">Dashboard UI design.</span>. </p>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="" class="notification-item">
+												<div class="img-col">
+													<div class="img" style="background-image: url('assets/faces/8.jpg')"></div>
+												</div>
+												<div class="body-col">
+													<p>
+														<span class="accent">Andy Nouman</span> deployed new version of
+														<span class="accent">NodeJS REST Api V3</span>
+													</p>
+												</div>
+											</a>
+										</li>
 									</ul>
 									<footer>
 										<ul>
@@ -72,7 +94,7 @@
 							</li>
 							<li class="profile dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-									<div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')"> </div>
+									<div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&amp;s=40')"> </div>
 									<span class="name"> John Doe </span>
 								</a>
 								<div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -223,8 +245,8 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/com.rsia.modura/Agama/list">
-                                            <i class="fa fa-users"></i> Agama
+                                            <a href="/com.rsia.modura/tindakan/list">
+                                            <i class="fa fa-users"></i> tindakan
                                             </a>
                                         </li>
                                         <li>
@@ -244,171 +266,127 @@
 				<div class="mobile-menu-handle"></div>
 				<article class="content forms-page">
 					<section class="section">
-						<div class="container"   id="add_passien_form">
-							<div class="card card-primary  col-md-10">
-								<div class="row card-header" style="min-height:0; padding:-10px">
-									<div class="header-block" style="padding: 5px 20px">
-										<p class="title"> Tambah Pasien </p>
+						<div class="row sameheight-container">
+							<div class="col-md-3"></div>
+							<div class="col-md-6">
+								<div class="card card-block sameheight-item">
+									<div class="title-block">
+										<h3 class="title"> Tambah Tindakan </h3>
 									</div>
+									<form:form modelAttribute="tindakanModel" method="POST" action="../store">
+                                       
+                                        <div class="form-group">
+                                            <label>Kode</label>
+                                            <form:input path="tindakan_kode" placeholder="Masukan Kode" class="form-control"/>
+                                         </div>
+
+                                        <div class="form-group">
+                                            <label>Nama</label>
+                                            <form:input path="tindakan_nama" placeholder="Masukan Nama" class="form-control"/>
+                                         </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Keterangan</label>
+                                            <form:input path="tindakan_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
+                                         </div>
+
+                                         <div class="form-group">
+                                            <label>Harga</label>
+                                            <form:input path="harga_tindakan" placeholder="Masukan Harga" class="form-control"/>
+                                         </div>
+
+                                         <div class="form-group">
+                                            <label>Kelas</label>
+                                            <form:input path="kelas_id" placeholder="Masukan Kelas" class="form-control"/>
+                                         </div>
+                                    
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                        </div>
+                                    </form:form>    
 								</div>
-								<form:form modelAttribute="pasienModel" method="POST" action="../Pasien/store">
-								<div class="row sameheight-container" style="background: white">
-									<div class="col-md-6 d_pasien-content">
-										<div class="card card-block sameheight-item d_pasien-form">
-
-												<div class="form-group">
-		                                            <label>No RM</label>
-		                                            <form:input path="Pasien_norm" placeholder="Masukan No RM" class="form-control"/>
-		                                         </div>
-
-		                                        <div class="form-group">
-		                                            <label>NIK</label>
-		                                            <form:input path="Pasien_nik" placeholder="Masukan NIK" class="form-control"/>
-		                                        </div>
-
-		                                        <div class="form-group">
-		                                            <label>Sebutan</label>
-		                                            <form:input path="pasien_sebut" placeholder="Tuan/Nona/Nyonya/Anak" class="form-control" maxlength="5"/>
-		                                        </div>
-
-		                                        <div class="form-group">
-		                                            <label>Nama</label>
-		                                            <form:input path="pasien_nama" placeholder="Masukan Nama" class="form-control"/>
-		                                        </div>
-
-		                                        <div class="form-group">
-													<label for="exampleInputPassword1">Golongan Darah</label>
-													<div class="select2-wrapper">
-														<form:select path="pasien_goldarah" class="form-control input-lg select2-single">
-															<c:forEach var="Goldar" items="${Goldar}">
-					                                         	<form:option value="${Goldar.kota_id }" label="${Goldar.kotaNama }" />
-					                                         </c:forEach>
-														</form:select>
+							</div>
+						</div>
+					</section>
+				</article>
+				<footer class="footer">
+					
+				</footer>
+				
+				<div class="modal fade" id="modal-media">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">Media Library</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">×</span>
+									<span class="sr-only">Close</span>
+								</button>
+							</div>
+							<div class="modal-body modal-tab-container">
+								<ul class="nav nav-tabs modal-tabs" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link" href="#gallery" data-toggle="tab" role="tab">Gallery</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link active" href="#upload" data-toggle="tab" role="tab">Upload</a>
+									</li>
+								</ul>
+								<div class="tab-content modal-tab-content">
+									<div class="tab-pane fade" id="gallery" role="tabpanel">
+										<div class="images-container">
+											<div class="row"> </div>
+										</div>
+									</div>
+									<div class="tab-pane fade active in" id="upload" role="tabpanel">
+										<div class="upload-container">
+											<div id="dropzone">
+												<form action="/" method="POST" enctype="multipart/form-data" class="dropzone needsclick dz-clickable" id="demo-upload">
+													<div class="dz-message-block">
+														<div class="dz-message needsclick"> Drop files here or click to upload. </div>
 													</div>
-		                                        </div>
-												
-												<div class="form-group">
-													<label for="exampleInputPassword1">Tgl Lahir/Umur</label>
-													<input type="date" name="pasien_tanggallahir" id="pasien_tanggallahir" class="form-control">
-			                                        </div>
-												</div>
-
-												<div class="form-group">
-		                                            <label>Telepon</label>
-		                                            <form:input path="pasien_notelp" placeholder="Masukan Nama" class="form-control"/>
-		                                        </div>
-
-		                                        <div class="form-group">
-		                                            <label>Hp</label>
-		                                            <form:input path="pasien_nohp" placeholder="Masukan Nama" class="form-control"/>
-		                                        </div>
-
-												<div class="form-group">
-		                                            <label>Alamat</label>
-		                                            <form:input path="pasien_alamat" placeholder="Masukan Nama" class="form-control"/>
-		                                        </div>
-
-												<div class="form-group">
-													<label for="exampleInputPassword1">Kota</label>
-													<div class="select2-wrapper">
-														<form:select path="m_kota_id" class="form-control input-lg select2-single">
-															<c:forEach var="tempKota" items="${Kota}">
-					                                         	<form:option value="${tempKota.kota_id }" label="${tempKota.kotaNama }" />
-					                                         </c:forEach>
-														</form:select>
-													</div>
-		                                        </div>
-												
-												<div class="form-group">
-													<label for="exampleInputPassword1">Kecamatan</label>
-													<div class="select2-wrapper">
-														<form:select path="m_kecamatan_id" class="form-control input-lg select2-single">
-															<c:forEach var="Kecamatan" items="${Kecamatan}">
-					                                         	<form:option value="${Kecamatan.kecamatan_id }" label="${Kecamatan.kecamatanNama }" />
-					                                         </c:forEach>
-														</form:select>
-													</div>
-		                                        </div>
-
-												<div class="form-group">
-													<label for="exampleInputPassword1">Kelurahan</label>
-													<div class="select2-wrapper">
-														<form:select path="m_kelurahan_id" class="form-control input-lg select2-single">
-															<c:forEach var="Kelurahan" items="${Kelurahan}">
-					                                         	<form:option value="${Kelurahan.Kelurahan_id }" label="${Kelurahan.KelurahanNama }" />
-					                                         </c:forEach>
-														</form:select>
-													</div>
-		                                        </div>
-
-												<div class="form-group">
-		                                            <label>Domisili</label>
-		                                            <form:input path="pasien_domisili" placeholder="Masukan Nama" class="form-control"/>
-		                                        </div>
-
-												<div class="form-group">
-													<label for="exampleInputPassword1">Agama</label>
-		                                        </div>
-
-												<div class="form-group">
-													<label class="control-label" id="m_pendidikan_id">Pendidikan</label>
-												</div>
-
-												<div class="form-group">
-													<label class="control-label" id="m_pekerjaan_id">Pendidikan</label>
-												</div>
-
-												<div class="form-group">
-													<label class="control-label" id="pasien_statusnikah">Status Nikah</label>
-												</div>
-
-												<div class="form-group">
-		                                            <label>Keterangan</label>
-		                                            <form:input path="pasien_keterangan" placeholder="Masukan Nama" class="form-control"/>
-		                                        </div>	   
-
-		                                        <div class="form-group">
-													<button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
-													<button type="button" class="btn btn-danger d_pasien-button"><a href="http://localhost:8080/com.rsia.modura/Pasien/list"/>Batal</a></button>
-												</div>                                     
+												</form>
+											</div>
 										</div>
 									</div>
 								</div>
-								</form:form>
 							</div>
-						</div>	
-					</section>
-				</article>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Insert Selected</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
+				<div class="modal fade" id="confirm-modal">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">
+									<i class="fa fa-warning"></i> Alert</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>Are you sure want to do this?</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button>
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
 			</div>
 		</div>
-		<!-- Reference block for JS -->
-		<div class="ref" id="ref">
-			<div class="color-primary"></div>
-			<div class="chart">
-				<div class="color-primary"></div>
-				<div class="color-secondary"></div>
-			</div>
-		</div>
-
-		<script>
-			(function(i, s, o, g, r, a, m)
-			{
-				i['GoogleAnalyticsObject'] = r;
-				i[r] = i[r] || function()
-				{
-					(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date();
-				a = s.createElement(o),
-					m = s.getElementsByTagName(o)[0];
-				a.async = 1;
-				a.src = g;
-				m.parentNode.insertBefore(a, m)
-			})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-			ga('create', 'UA-80463319-4', 'auto');
-			ga('send', 'pageview');
-		</script>
 		<script src="<c:url value="/resources/js/vendor.js" />"></script>
 		<script src="<c:url value="/resources/js/app.js" />"></script>
-		<script src="<c:url value="/resources/js/jquery.js" />"></script>
-	</body>
+</body>
 </html>
