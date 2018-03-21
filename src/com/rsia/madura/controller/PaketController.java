@@ -10,35 +10,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.rsia.madura.entity.m_Ruang;
-import com.rsia.madura.service.RuanganService;
+import com.rsia.madura.entity.m_Paket;
+import com.rsia.madura.service.PaketService;
 
 @Controller
-@RequestMapping("/Ruang")
-public class RuanganController {
+@RequestMapping("/Paket")
+public class PaketController {
 	@Autowired
-	private RuanganService ruangService;
+	private PaketService paketService;
 	
-	private String uri ="redirect:http://localhost:8080/com.rsia.modura/Ruang/tambah/" ;
+	private String uri ="redirect:http://localhost:8080/com.rsia.modura/Paket/tambah/" ;
 	
 	@RequestMapping("/tambah")
 	public String addForm(Model model) {
-		m_Ruang ruangModel = new m_Ruang();
+		m_Paket paketModel = new m_Paket();
 
-		model.addAttribute("ruangModel", ruangModel);
+		model.addAttribute("paketModel", paketModel);
 
-		return "RuangAddForm";
+		return "PaketAddForm";
 	}
 
-	@RequestMapping(value="/store", method=RequestMethod.POST)
-	public String Store(@ModelAttribute("ruangModel") m_Ruang ruangModel) {
+	@RequestMapping(value="/tambah/store", method=RequestMethod.POST)
+	public String Store(@ModelAttribute("paketModel") m_Paket paketModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		ruangModel.setRuang_aktif("Y");
-		ruangModel.setRuang_created_by("Admin");	
-		ruangModel.setRuang_created_date(currentTime);
+		paketModel.setPaket_aktif("Y");
+		paketModel.setPaket_created_by("Admin");	
+		paketModel.setPaket_created_date(currentTime);
 		
-		ruangService.store(ruangModel);
+		paketService.store(paketModel);
 		
 		return this.uri;
 	}
@@ -48,12 +48,12 @@ public class RuanganController {
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		m_Ruang ruangModel = ruangService.getRuang(id);
+		m_Paket paketModel = paketService.getPaket(id);
 		
-		ruangModel.setRuang_aktif("T");
-		ruangModel.setRuang_deleted_date(currentTime);
+		paketModel.setPaket_aktif("T");
+		paketModel.setPaket_deleted_date(currentTime);
 		
-		ruangService.delete(ruangModel);
+		paketService.delete(paketModel);
 		
 		return this.uri;
 	}
@@ -61,22 +61,22 @@ public class RuanganController {
 	@RequestMapping(value="/form-update", method=RequestMethod.GET)
 	public String UpdateFormView(Model model, @RequestParam(value="Id", required=false) int id){
 		
-		m_Ruang result = ruangService.getRuang(id);
+		m_Paket result = paketService.getPaket(id);
 		
-		model.addAttribute("ruangModel", result);
+		model.addAttribute("paketModel", result);
 		
-		return "RuangUpdateForm";
+		return "PaketUpdateForm";
 	}
 	
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String Update(@ModelAttribute("ruangModel") m_Ruang ruangModel) {
+	public String Update(@ModelAttribute("paketModel") m_Paket paketModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		ruangModel.setRuang_aktif("Y");
-		ruangModel.setRuang_updated_by("Admin");
-		ruangModel.setRuang_updated_date(currentTime);;
+		paketModel.setPaket_aktif("Y");
+		paketModel.setPaket_updated_by("Admin");
+		paketModel.setPaket_updated_date(currentTime);;
 		
-		ruangService.update(ruangModel);
+		paketService.update(paketModel);
 		
 		return this.uri;
 	}

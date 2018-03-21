@@ -8,44 +8,43 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Ruang;
-import com.rsia.madura.entity.m_Ruang;
+import com.rsia.madura.entity.m_Paket;
 
 @Repository
-public class RuanganAction implements RuanganDAO {
+public class PaketAction implements PaketDAO{
 	@Autowired
 	private SessionFactory sessionFactory;
 	public int total;
 
 	@Override
-	public List<m_Ruang> getRuangs() {
+	public List<m_Paket> getPakets() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Ruang> query = current.createQuery("from m_ruang", m_Ruang.class);
+		Query<m_Paket> query = current.createQuery("from m_Paket", m_Paket.class);
 
-		List<m_Ruang> ruang = query.getResultList();
+		List<m_Paket> agama = query.getResultList();
 
-		return ruang;
+		return agama;
 	}
 
 	@Override
-	public List<m_Ruang> getRuangs(int page, int limit) {
+	public List<m_Paket> getPakets(int page, int limit) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Ruang> query = current.createQuery("from m_Ruang", m_Ruang.class);
-		List<m_Ruang> ruang = query.getResultList();
-		this.total = ruang.size();
-		ruang = this.getData(page, limit);
+		Query<m_Paket> query = current.createQuery("from m_Paket", m_Paket.class);
+		List<m_Paket> agama = query.getResultList();
+		this.total = agama.size();
+		agama = this.getData(page, limit);
 
-		return ruang;
+		return agama;
 	}
 
-	public List<m_Ruang> getData(int page, int limit) {
+	public List<m_Paket> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Ruang> query = current.createQuery("from m_Ruang", m_Ruang.class).setFirstResult((page - 1) * limit)
+		Query<m_Paket> query = current.createQuery("from m_Paket", m_Paket.class).setFirstResult((page - 1) * limit)
 				.setMaxResults(limit);
-		List<m_Ruang> Result = query.getResultList();
+		List<m_Paket> Result = query.getResultList();
 
 		return Result;
 	}
@@ -91,17 +90,17 @@ public class RuanganAction implements RuanganDAO {
 	}
 
 	@Override
-	public m_Ruang getRuang(int ruangId) {
+	public m_Paket getPaket(int id) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		m_Ruang result = current.get(m_Ruang.class, ruangId);
+		m_Paket result = current.get(m_Paket.class, id);
 
 		return result;
 	}
 
 	@Override
-	public void Store(m_Ruang data) {
+	public void Store(m_Paket data) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.save(data);
@@ -109,18 +108,20 @@ public class RuanganAction implements RuanganDAO {
 	}
 
 	@Override
-	public void Update(m_Ruang data) {
+	public void Update(m_Paket data) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(data);
 	}
 
 	@Override
-	public void Delete(m_Ruang data) {
+	public void Delete(m_Paket data) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(data);
 
 	}
+
+
 
 }

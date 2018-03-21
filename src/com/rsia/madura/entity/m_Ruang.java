@@ -27,7 +27,7 @@ public class m_Ruang {
 	private String ruang_keterangan;
 	
 	@Column(name="ruang_kepala")
-	private String ruang_kepala;
+	private int ruang_kepala;
 	
 	@Column(name="ruang_aktif")
 	private String ruang_aktif;
@@ -47,7 +47,7 @@ public class m_Ruang {
 	private Timestamp ruang_updated_date;
 	
 	@Column(name="ruang_revised")
-	private String ruang_revised;
+	private int ruang_revised;
 	
 	
 	@Column(name="ruang_deleted_date")
@@ -94,12 +94,12 @@ public class m_Ruang {
 	}
 
 
-	public String getRuang_kepala() {
+	public int getRuang_kepala() {
 		return ruang_kepala;
 	}
 
 
-	public void setRuang_kepala(String ruang_kepala) {
+	public void setRuang_kepala(int ruang_kepala) {
 		this.ruang_kepala = ruang_kepala;
 	}
 
@@ -154,12 +154,12 @@ public class m_Ruang {
 	}
 
 
-	public String getRuang_revised() {
+	public int getRuang_revised() {
 		return ruang_revised;
 	}
 
 
-	public void setRuang_revised(String ruang_revised) {
+	public void setRuang_revised(int ruang_revised) {
 		this.ruang_revised = ruang_revised;
 	}
 
@@ -171,20 +171,6 @@ public class m_Ruang {
 
 	public void setRuang_deleted_date(Timestamp ruang_deleted_date) {
 		this.ruang_deleted_date = ruang_deleted_date;
-	}
-
-
-	@Override
-	public String toString() {
-		return "m_Ruang [ruang_id=" + ruang_id + ", ruang_kode=" + ruang_kode + ", ruang_nama=" + ruang_nama
-				+ ", ruang_keterangan=" + ruang_keterangan + ", ruang_kepala=" + ruang_kepala + ", ruang_aktif="
-				+ ruang_aktif + ", ruang_created_by=" + ruang_created_by + ", ruang_created_date=" + ruang_created_date
-				+ ", ruang_updated_by=" + ruang_updated_by + ", ruang_updated_date=" + ruang_updated_date
-				+ ", ruang_revised=" + ruang_revised + ", ruang_deleted_date=" + ruang_deleted_date + "]";
-	}
-
-	
-	
-		
+	}		
 
 }

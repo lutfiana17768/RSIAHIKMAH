@@ -6,63 +6,63 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rsia.madura.entity.m_Rujukan;
-import com.rsia.madura.dao.RujukanDAO;
+import com.rsia.madura.dao.PaketDAO;
+import com.rsia.madura.entity.m_Paket;
 
 @Service
-public class RujukanServiceAction implements RujukanService {
+public class PaketServiceAction implements PaketService {
 	@Autowired
-	private RujukanDAO rujukanDAO;
+	private PaketDAO paketDAO;
 
 	@Override
 	@Transactional
-	public List<m_Rujukan> getRujukans() {
+	public List<m_Paket> getPakets() {
 		// TODO Auto-generated method stub
-		return rujukanDAO.getRujukans();
+		return paketDAO.getPakets();
 	}
 
 	@Override
 	@Transactional
-	public List<m_Rujukan> getRujukans(int page, int limit) {
+	public List<m_Paket> getPakets(int page, int limit) {
 		// TODO Auto-generated method stub
-		return rujukanDAO.getRujukans(page, limit);
+		return paketDAO.getPakets(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public String createLinks(int page, int limit) {
 		// TODO Auto-generated method stub
-		return rujukanDAO.createLinks(page, limit);
+		return paketDAO.createLinks(page, limit);
 	}
 
 	@Override
 	@Transactional
-	public m_Rujukan getRujukan(int id) {
+	public m_Paket getPaket(int id) {
 		// TODO Auto-generated method stub
-		return rujukanDAO.getRujukan(id);
+		return paketDAO.getPaket(id);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_Rujukan data) {
+	public void store(m_Paket data) {
 		// TODO Auto-generated method stub
-		rujukanDAO.Store(data);
-
-	}
-
-	@Override
-	@Transactional
-	public void update(m_Rujukan data) {
-		// TODO Auto-generated method stub
-		rujukanDAO.Update(data);
+		paketDAO.Store(data);
 
 	}
 
 	@Override
 	@Transactional
-	public void delete(m_Rujukan data) {
+	public void update(m_Paket data) {
 		// TODO Auto-generated method stub
-		rujukanDAO.Delete(data);
+		paketDAO.Update(data);
+
+	}
+
+	@Override
+	@Transactional
+	public void delete(m_Paket data) {
+		// TODO Auto-generated method stub
+		paketDAO.Delete(data);
 	}
 
 }

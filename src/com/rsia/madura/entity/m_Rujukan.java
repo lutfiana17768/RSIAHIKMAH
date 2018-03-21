@@ -232,20 +232,5 @@ public class m_Rujukan {
 
 	public void setRujukan_deleted_date(Timestamp rujukan_deleted_date) {
 		this.rujukan_deleted_date = rujukan_deleted_date;
-	}
-
-	@Override
-	public String toString() {
-		return "m_Rujukan [rujukan_id=" + rujukan_id + ", rujukan_jenis=" + rujukan_jenis + ", rujukan_nama="
-				+ rujukan_nama + ", rujukan_alamat=" + rujukan_alamat + ", rujukan_kecamatan=" + rujukan_kecamatan
-				+ ", rujukan_kota=" + rujukan_kota + ", rujukan_propinsi=" + rujukan_propinsi + ", rujukan_telp="
-				+ rujukan_telp + ", rujukan_email=" + rujukan_email + ", rujukan_fax=" + rujukan_fax + ", rujukan_cp="
-				+ rujukan_cp + ", rujukan_cp_telp=" + rujukan_cp_telp + ", rujukan_aktif=" + rujukan_aktif
-				+ ", rujukan_revised=" + rujukan_revised + ", rujukan_created_by=" + rujukan_created_by
-				+ ", rujukan_updated_by=" + rujukan_updated_by + ", rujukan_created_date=" + rujukan_created_date
-				+ ", rujukan_updated_date=" + rujukan_updated_date + ", rujukan_kode=" + rujukan_kode
-				+ ", rujukan_deleted_date=" + rujukan_deleted_date + "]";
-	}
- 
-	
+	}	
 }

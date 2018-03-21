@@ -21,7 +21,7 @@ public class m_Kamar {
 	private String kamar_no;
 	
 	@Column(name="m_ruang_id")
-	private Integer m_ruang_id;
+	private int m_ruang_id;
 	
 	@Column(name="m_kelas_id")
 	private int m_kelas_id;
@@ -156,21 +156,4 @@ public class m_Kamar {
 	public void setKamar_deleted_date(Timestamp kamar_deleted_date) {
 		this.kamar_deleted_date = kamar_deleted_date;
 	}
-
-	@Override
-	public String toString() {
-		return "m_Kamar [kamar_id=" + kamar_id + ", kamar_no=" + kamar_no + ", m_ruang_id=" + m_ruang_id
-				+ ", m_kelas_id=" + m_kelas_id + ", kamar_keterangan=" + kamar_keterangan + ", kamar_aktif="
-				+ kamar_aktif + ", kamar_created_by=" + kamar_created_by + ", kamar_created_date=" + kamar_created_date
-				+ ", kamar_updated_by=" + kamar_updated_by + ", kamar_updated_date=" + kamar_updated_date
-				+ ", kamar_revised=" + kamar_revised + ", kamar_kategori=" + kamar_kategori + ", kamar_deleted_date="
-				+ kamar_deleted_date + "]";
-	}
-
-	public void setkamar_aktif(char c) {
-		// TODO Auto-generated method stub
-		
-	}
- 
-	
 }

@@ -249,18 +249,28 @@
 							<div class="col-md-6">
 								<div class="card card-block sameheight-item">
 									<div class="title-block">
-										<h3 class="title"> Data Agama </h3>
+										<h3 class="title"> Data Ruang </h3>
 									</div>
-									<form:form modelAttribute="agamaModel" method="POST" action="../store">
+									<form:form modelAttribute="ruangModel" method="POST" action="store">
                                        
+                                       <div class="form-group">
+                                            <label>Kode</label>
+                                            <form:input path="ruang_kode" placeholder="Masukan Kode" class="form-control"/>
+                                         </div>
+                                         
                                         <div class="form-group">
                                             <label>Nama</label>
-                                            <form:input path="agamaNama" placeholder="Masukan Nama" class="form-control"/>
+                                            <form:input path="ruang_nama" placeholder="Masukan Nama" class="form-control"/>
                                          </div>
                                         
                                         <div class="form-group">
                                             <label>Keterangan</label>
-                                            <form:input path="agamaKeterangan" placeholder="Masukan Keterangan" class="form-control"/>
+                                            <form:input path="ruang_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
+                                         </div>
+                                         
+                                         <div class="form-group">
+                                            <label>Kepala</label>
+                                            <form:input path="ruang_kepala" placeholder="Masukan Kepala" class="form-control"/>
                                          </div>
                                     
                                         <div class="form-group">
@@ -271,61 +281,7 @@
 							</div>
 						</div>
 					</section>
-					<section class="section">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-block">
-                                        <div class="card-title-block">
-                                            <h3 class="title"> List Agama </h3>
-                                        </div>
-                                        <section class="example">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped table-bordered table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Nama</th>
-                                                            <th>Keterangan</th>
-                                                            <th colspan="2">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <c:forEach var="temp" items="${agama}">
-                                                        <c:choose>
-                                                        	<c:when test="${temp.agamaAktif  == 'Y' }">
-	                                                        	<c:url var="updateLink" value="../form-update">
-	                                                        		<c:param name="Id" value="${temp.agama_id}" />
-	                                                        	</c:url>
-	                                                        	<c:url var="deleteLink" value="../delete">
-	                                                        		<c:param name="Id" value="${temp.agama_id}" />
-	                                                        	</c:url>
-	                                                        	<tr>
-	                                                        		<td> ${temp.agamaNama } </td>
-	                                                        		<td> ${temp.agamaKeterangan } </td>
-	                                                        		<td> <a href="${updateLink }" class="btn btn-info">Update</a>
-	                                                        		 <a href="${deleteLink }" class="btn btn-warning">Delete</a></td>
-	                                                        	</tr>
-                                                        	</c:when>
-                                                        </c:choose>
-                                                        
-                                                        </c:forEach>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fixed-table-pagination" style="display: block; margin-top:25px">
-                             <form action="" method="get">
-                                    <div class="pull-right pagination" style="margin-right: 20px;">
-                                         
-                                    </div>
-                              </form>
-                        </div>
-                                <div class="clearfix"></div>
-                    </section>
+					
 				</article>
 				<footer class="footer">
 					

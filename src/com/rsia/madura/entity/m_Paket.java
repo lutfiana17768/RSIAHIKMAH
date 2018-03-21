@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="m_paket")
-public class m_paket {
+public class m_Paket {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="paket_id")
@@ -26,7 +26,7 @@ public class m_paket {
 	private String paket_keterangan;
 	
 	@Column(name="paket_harga")
-	private String paket_harga;
+	private Double paket_harga;
 	
 	@Column(name="paket_aktif")
 	private String paket_aktif;
@@ -84,11 +84,11 @@ public class m_paket {
 		this.paket_keterangan = paket_keterangan;
 	}
 
-	public String getPaket_harga() {
+	public Double getPaket_harga() {
 		return paket_harga;
 	}
 
-	public void setPaket_harga(String paket_harga) {
+	public void setPaket_harga(Double paket_harga) {
 		this.paket_harga = paket_harga;
 	}
 
@@ -155,16 +155,5 @@ public class m_paket {
 	public void setPaket_deleted_date(Timestamp paket_deleted_date) {
 		this.paket_deleted_date = paket_deleted_date;
 	}
-
-	@Override
-	public String toString() {
-		return "m_paket [paket_id=" + paket_id + ", paket_nama=" + paket_nama + ", paket_kelas=" + paket_kelas
-				+ ", paket_keterangan=" + paket_keterangan + ", paket_harga=" + paket_harga + ", paket_aktif="
-				+ paket_aktif + ", paket_created_by=" + paket_created_by + ", paket_created_date=" + paket_created_date
-				+ ", paket_updated_by=" + paket_updated_by + ", paket_updated_date=" + paket_updated_date
-				+ ", paket_jenis=" + paket_jenis + ", paket_revised=" + paket_revised + ", paket_deleted_date="
-				+ paket_deleted_date + "]";
-	}
-	
 	
 }

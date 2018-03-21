@@ -23,7 +23,7 @@ public class AgamaController {
 	private String uri ="redirect:http://localhost:8080/com.rsia.modura/Agama/tambah/?page=1&limit=10" ;
 		
 	@RequestMapping(value="/tambah", method=RequestMethod.GET)
-	public String AgamaFormView(Model model, 
+	public String FormView(Model model, 
 			@RequestParam(value="page", required=false) int page, 
 			@RequestParam(value="limit", required=false) int limit){
 		

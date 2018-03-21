@@ -12,17 +12,56 @@ import com.rsia.madura.entity.m_Kamar;
 @Service
 public class KamarServiceAction implements KamarService{
 	@Autowired
-	private KamarDAO KamarDAO;
-	
-	@Transactional
+	private KamarDAO kamarDAO;
 	@Override
-	public List<m_Kamar> getKamar() {
-		return KamarDAO.getKamar();
+	@Transactional
+	public List<m_Kamar> getKamars() {
+		// TODO Auto-generated method stub
+		return kamarDAO.getKamars();
 	}
 
 	@Override
-	public void simpan(m_Kamar kamarModel) {
+	@Transactional
+	public List<m_Kamar> getKamars(int page, int limit) {
 		// TODO Auto-generated method stub
+		return kamarDAO.getKamars(page, limit);
+	}
+
+	@Override
+	@Transactional
+	public String createLinks(int page, int limit) {
+		// TODO Auto-generated method stub
+		return kamarDAO.createLinks(page, limit);
+	}
+
+	@Override
+	@Transactional
+	public m_Kamar getKamar(int id) {
+		// TODO Auto-generated method stub
+		return kamarDAO.getKamar(id);
+	}
+
+	@Override
+	@Transactional
+	public void store(m_Kamar data) {
+		// TODO Auto-generated method stub
+		kamarDAO.Store(data);
 		
 	}
+
+	@Override
+	@Transactional
+	public void update(m_Kamar data) {
+		// TODO Auto-generated method stub
+		kamarDAO.Update(data);
+		
+	}
+
+	@Override
+	@Transactional
+	public void delete(m_Kamar data) {
+		// TODO Auto-generated method stub
+		kamarDAO.Delete(data);
+	}
+
 }

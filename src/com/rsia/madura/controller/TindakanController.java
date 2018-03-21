@@ -9,7 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.rsia.madura.entity.m_Tindakan;
+import com.rsia.madura.entity.m_Tindakan;
 import com.rsia.madura.entity.m_Tindakan;
 import com.rsia.madura.service.TindakanService;
 
@@ -19,7 +22,7 @@ public class TindakanController {
 	@Autowired
 	private TindakanService tindakanService;
 
-	private String uri = "redirect:http://localhost:8080/com.rsia.modura/Agama/tambah/?page=1&limit=10";
+	private String uri = "redirect:http://localhost:8080/com.rsia.modura/Tindakan/tambah";
 
 	@RequestMapping("/list")
 	public String viewForm(Model model) {
@@ -39,9 +42,8 @@ public class TindakanController {
 		return "TindakanAddForm";
 	}
 
-	@RequestMapping(value = "/store", method = RequestMethod.POST)
+	@RequestMapping(value="/store", method=RequestMethod.POST)
 	public String Store(@ModelAttribute("tindakanModel") m_Tindakan tindakanModel) {
-		System.out.println("ccccc");
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		tindakanModel.setTindakan_aktif("Y");
@@ -50,6 +52,44 @@ public class TindakanController {
 
 		tindakanService.store(tindakanModel);
 
+		return this.uri;
+	}
+	
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public String DeleteUpdate(Model model, @RequestParam(value="Id", required=false) int id) {
+		
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		m_Tindakan tindakanModel = tindakanService.getTindakan(id);
+		
+		tindakanModel.setTindakan_aktif("T");
+		tindakanModel.setTindakan_deleted_date(currentTime);
+		
+		tindakanService.delete(tindakanModel);
+		
+		return this.uri;
+	}
+	
+	@RequestMapping(value="/form-update", method=RequestMethod.GET)
+	public String UpdateFormView(Model model, @RequestParam(value="Id", required=false) int id){
+		
+		m_Tindakan result = tindakanService.getTindakan(id);
+		
+		model.addAttribute("tindakanModel", result);
+		
+		return "TindakanUpdateForm";
+	}
+	
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public String Update(@ModelAttribute("tindakanModel") m_Tindakan tindakanModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		tindakanModel.setTindakan_aktif("Y");
+		tindakanModel.setTindakan_updated_by("Admin");
+		tindakanModel.setTindakan_updated_date(currentTime);;
+		
+		tindakanService.update(tindakanModel);
+		
 		return this.uri;
 	}
 
