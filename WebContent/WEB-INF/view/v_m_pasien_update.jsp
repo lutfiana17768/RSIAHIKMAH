@@ -255,12 +255,11 @@
 								<div class="row sameheight-container" style="background: white">
 									<div class="col-md-6 d_pasien-content">
 										<div class="card card-block sameheight-item d_pasien-form">
-
+												<form:hidden path="pasien_id" />
 												<div class="form-group">
 		                                            <label>No RM</label>
 		                                            <form:input path="pasien_norm" placeholder="Masukan No RM" class="form-control" readonly="true"/>
-		                                         </div>
-		                                         
+		                                         </div>		                                         
 		                                         
 		                                        <div class="form-group">
 		                                            <label>NIK</label>

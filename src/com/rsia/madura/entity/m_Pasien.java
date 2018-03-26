@@ -11,13 +11,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "m_pasien")
+
 public class m_Pasien {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pasien_id")
 	private int pasien_id;
 
-	@Column(name = "pasien_norm")
+	@Column(name = "pasien_norm", unique = true,updatable = true)
 	private String pasien_norm;
 
 	@Column(name = "pasien_nik")

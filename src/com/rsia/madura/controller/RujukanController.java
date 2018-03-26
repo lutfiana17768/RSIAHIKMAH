@@ -22,6 +22,15 @@ public class RujukanController {
 
 	private String uri = "redirect:http://localhost:8080/com.rsia.modura/Rujukan/tambah/";
 
+	@RequestMapping("/list")
+	public String viewFormPasien(Model model) {
+		List<m_Rujukan> result = rujukanService.getRujukans();
+		
+		model.addAttribute("rujukan", result);
+
+		return "v_rujukan";
+	}
+
 	@RequestMapping("/tambah")
 	public String addForm(Model model) {
 		m_Rujukan rujukanModel = new m_Rujukan();

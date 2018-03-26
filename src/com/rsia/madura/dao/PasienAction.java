@@ -113,24 +113,20 @@ public class PasienAction implements PasienDAO {
 	@Override
 	public void PasienStore(m_Pasien PasienModel) {
 		Session current = sessionFactory.getCurrentSession();
-
 		current.save(PasienModel);
-
 	}
 
 	@Override
 	public void PasienUpdate(m_Pasien PasienModel) {
 		Session current = sessionFactory.getCurrentSession();
-
 		current.saveOrUpdate(PasienModel);
+
 	}
 
 	@Override
 	public void PasienDelete(m_Pasien PasienModel) {
 		Session current = sessionFactory.getCurrentSession();
-		
-		current.update(PasienModel);
-
+		current.saveOrUpdate(PasienModel);
 	}
 
 }

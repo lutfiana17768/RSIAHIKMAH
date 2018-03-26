@@ -106,31 +106,31 @@ public class PasienController {
 		pasienModel.setPasien_created_by("Admin");
 		pasienModel.setPasien_created_date(currentTime);
 		pasienModel.setM_status_id(1);
-		
+
 		pasienModel.setPasien_tanggallahir(currentTime);
 
 		PasienService.store(pasienModel);
 
 		return this.uri;
 	}
-	
-	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public String DeleteUpdate(Model model, @RequestParam(value="Id", required=false) int id) {
-		
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String DeleteUpdate(Model model, @RequestParam(value = "Id", required = false) int id) {
+
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
+
 		m_Pasien pasienModel = PasienService.getPasien(id);
-		
+
 		pasienModel.setPasien_aktif("T");
 		pasienModel.setPasien_deleted_date(currentTime);
-		
+
 		PasienService.delete(pasienModel);
-		
+
 		return this.uri;
 	}
-	
-	@RequestMapping(value="/form-update", method=RequestMethod.GET)
-	public String UpdateFormView(Model model, @RequestParam(value="Id", required=false) int id){
+
+	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
+	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
 		List<m_Provinsi> provinsi = ProvinsiService.getProvinsis();
 		List<m_Kota> kota = KotaService.getKotas();
 		List<m_Kecamatan> kecamatan = KecamatanService.getKecamatans();
@@ -148,7 +148,7 @@ public class PasienController {
 		Map<String, String> agama = new HashMap<String, String>();
 		agama.put("1", "Islam");
 		agama.put("2", "Non Islam");
-		
+
 		model.addAttribute("provinsi", provinsi);
 		model.addAttribute("Kota", kota);
 		model.addAttribute("Kecamatan", kecamatan);
@@ -157,25 +157,40 @@ public class PasienController {
 		model.addAttribute("Goldar", goldar);
 		model.addAttribute("Agama", agama);
 		model.addAttribute("Pendidikan", pendidikan);
-		
+
 		m_Pasien result = PasienService.getPasien(id);
 		model.addAttribute("pasienModel", result);
 
 		return "v_m_pasien_update";
 	}
-	
-	@RequestMapping(value="/form-update/update", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/form-update/update", method = RequestMethod.POST)
 	public String Update(@ModelAttribute("pasienModel") m_Pasien pasienModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
+
 		pasienModel.setPasien_aktif("Y");
 		pasienModel.setPasien_updated_by("Admin");
 		pasienModel.setPasien_updated_date(currentTime);
 		pasienModel.setM_status_id(1);
-		
+
 		pasienModel.setPasien_tanggallahir(currentTime);
-		
+
 		PasienService.update(pasienModel);
 		return this.uri;
+	}
+
+	@RequestMapping("/todaftar")
+	public String toDaftar(Model model) {
+		return "v_daftar";
+	}
+
+	@RequestMapping("/todaftarrj")
+	public String toDaftarRj(Model model) {
+		return "v_daftar_rj";
+	}
+
+	@RequestMapping("/todaftarrjtambah")
+	public String toDaftarRjtambah(Model model) {
+		return "v_DaftarRJ_tambah";
 	}
 }

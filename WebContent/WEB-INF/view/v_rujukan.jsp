@@ -334,18 +334,7 @@
 														<th>Aksi</th>
 													</tr>
 												</thead>
-												<tbody>
-													<c:forEach var="temprujukan" items="${rujukan}">
-                                                        	<tr>
-                                                        		<td> ${temprujukan.rujukan_jenis} </td>
-                                                        		<td> ${temprujukan.rujukan_nama } </td>
-                                                        		<td> ${temprujukan.rujukan_alamat } </td> 
-                                                        		<td> <button type="button" class="fa fa-trash-o"></button>&nbsp
-                                                              <button type="button" class="fa fa-pencil"></button></td>
-                                                        	</tr>
-                                                        </c:forEach>
-													
-												</tbody>
+												
 											</table>
 										</div>
 									</div>

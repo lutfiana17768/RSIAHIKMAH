@@ -56,8 +56,7 @@ public class PasienServiceAction implements PasienService {
 	@Transactional
 	public void update(m_Pasien data) {
 		// TODO Auto-generated method stub
-		PasienDAO.PasienUpdate(data);
-
+		PasienDAO.PasienUpdate(data);		
 	}
 
 	@Override
