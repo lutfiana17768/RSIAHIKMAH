@@ -124,4 +124,10 @@ public class m_Agama {
 		this.agamaDeletedDate = agamaDeletedDate;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
 }

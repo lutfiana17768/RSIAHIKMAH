@@ -20,11 +20,11 @@ public class m_Pasien {
 	@Column(name = "pasien_norm")
 	private String pasien_norm;
 
-	@Column(name = "pasien_sebut")
-	private String pasien_sebut;
-
 	@Column(name = "pasien_nik")
 	private String pasien_nik;
+
+	@Column(name = "pasien_sebut")
+	private String pasien_sebut;
 
 	@Column(name = "pasien_nama")
 	private String pasien_nama;
@@ -54,10 +54,10 @@ public class m_Pasien {
 	private String pasien_goldarah;
 
 	@Column(name = "pasien_bb")
-	private String pasien_bb;
+	private Double pasien_bb;
 
 	@Column(name = "pasien_tb")
-	private String pasien_tb;
+	private Double pasien_tb;
 
 	@Column(name = "pasien_aktif")
 	private String pasien_aktif;
@@ -113,14 +113,6 @@ public class m_Pasien {
 	@Column(name = "pasien_deleted_date")
 	private Timestamp pasien_deleted_date;
 
-	public int getPasien_id() {
-		return pasien_id;
-	}
-
-	public void setPasien_id(int pasien_id) {
-		this.pasien_id = pasien_id;
-	}
-
 	public String getPasien_norm() {
 		return pasien_norm;
 	}
@@ -135,6 +127,14 @@ public class m_Pasien {
 
 	public void setPasien_nik(String pasien_nik) {
 		this.pasien_nik = pasien_nik;
+	}
+
+	public String getPasien_sebut() {
+		return pasien_sebut;
+	}
+
+	public void setPasien_sebut(String pasien_sebut) {
+		this.pasien_sebut = pasien_sebut;
 	}
 
 	public String getPasien_nama() {
@@ -209,19 +209,19 @@ public class m_Pasien {
 		this.pasien_goldarah = pasien_goldarah;
 	}
 
-	public String getPasien_bb() {
+	public Double getPasien_bb() {
 		return pasien_bb;
 	}
 
-	public void setPasien_bb(String pasien_bb) {
+	public void setPasien_bb(Double pasien_bb) {
 		this.pasien_bb = pasien_bb;
 	}
 
-	public String getPasien_tb() {
+	public Double getPasien_tb() {
 		return pasien_tb;
 	}
 
-	public void setPasien_tb(String pasien_tb) {
+	public void setPasien_tb(Double pasien_tb) {
 		this.pasien_tb = pasien_tb;
 	}
 
@@ -365,16 +365,16 @@ public class m_Pasien {
 		return pasien_deleted_date;
 	}
 
-	public String getPasien_sebut() {
-		return pasien_sebut;
-	}
-
-	public void setPasien_sebut(String pasien_sebut) {
-		this.pasien_sebut = pasien_sebut;
-	}
-
 	public void setPasien_deleted_date(Timestamp pasien_deleted_date) {
 		this.pasien_deleted_date = pasien_deleted_date;
+	}
+
+	public void setPasien_id(int pasien_id) {
+		this.pasien_id = pasien_id;
+	}
+
+	public int getPasien_id() {
+		return pasien_id;
 	}
 
 	@Override

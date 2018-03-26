@@ -10,7 +10,7 @@ public interface AgamaDAO {
 	public String createLinks(int page, int limit);
 	public m_Agama getAgama(int AgamaId);
 	
-	public void AgamaStore(m_Agama AgamaModel);
+	public int AgamaStore(m_Agama AgamaModel);
 	public void AgamaUpdate(m_Agama AgamaModel);
 	public void AgamaDelete(m_Agama AgamaModel);
 }

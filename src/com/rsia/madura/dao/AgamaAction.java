@@ -101,10 +101,10 @@ public class AgamaAction implements AgamaDAO {
 	}
 
 	@Override
-	public void AgamaStore(m_Agama AgamaModel) {
+	public int AgamaStore(m_Agama AgamaModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.save(AgamaModel);
+		return (int)current.save(AgamaModel);
 
 	}
 

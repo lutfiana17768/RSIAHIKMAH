@@ -128,8 +128,8 @@ public class PasienAction implements PasienDAO {
 	@Override
 	public void PasienDelete(m_Pasien PasienModel) {
 		Session current = sessionFactory.getCurrentSession();
-
-		current.saveOrUpdate(PasienModel);
+		
+		current.update(PasienModel);
 
 	}
 

@@ -6,8 +6,6 @@ import com.rsia.madura.entity.m_Pasien;
 
 public interface PasienService {
 	public List<m_Pasien> getPasien();
-	
-	public List<m_Pasien> getPasiens();
 	public List<m_Pasien> getPasiens(int page, int limit);
 	public String createLinks(int page, int limit);
 	public m_Pasien getPasien(int id);

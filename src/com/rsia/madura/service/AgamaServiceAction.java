@@ -44,9 +44,8 @@ public class AgamaServiceAction implements AgamaService {
 
 	@Override
 	@Transactional
-	public void store(m_Agama data) {
-		// TODO Auto-generated method stub
-		agamaDAO.AgamaStore(data);
+	public int store(m_Agama data) {
+		return agamaDAO.AgamaStore(data);
 		
 	}
 
