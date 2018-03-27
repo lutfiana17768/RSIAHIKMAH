@@ -10,54 +10,63 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="m_kamar")
+@Table(name = "m_kamar")
 public class m_Kamar {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="kamar_id")
-	private int kamar_id;
-	
-	@Column(name="kamar_no")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "kamar_id")
+	private Integer kamar_id;
+
+	@Column(name = "kamar_no")
 	private String kamar_no;
-	
-	@Column(name="m_ruang_id")
-	private int m_ruang_id;
-	
-	@Column(name="m_kelas_id")
-	private int m_kelas_id;
-	 
-	@Column(name="kamar_keterangan")
+
+	@Column(name = "m_ruang_id")
+	private Integer m_ruang_id;
+
+	@Column(name = "m_kelas_id")
+	private Integer m_kelas_id;
+
+	@Column(name = "kamar_keterangan")
 	private String kamar_keterangan;
-	
-	@Column(name="kamar_aktif")
+
+	@Column(name = "kamar_aktif")
 	private String kamar_aktif;
-	
-	@Column(name="kamar_created_by")
+
+	@Column(name = "kamar_created_by")
 	private String kamar_created_by;
-	 
-	@Column(name="kamar_created_date")
+
+	@Column(name = "kamar_created_date")
 	private Timestamp kamar_created_date;
-	 
-	@Column(name="kamar_updated_by")
+
+	@Column(name = "kamar_updated_by")
 	private String kamar_updated_by;
-	 
-	@Column(name="kamar_updated_date")
+
+	@Column(name = "kamar_updated_date")
 	private Timestamp kamar_updated_date;
-	 
-	@Column(name="kamar_revised")
-	private int kamar_revised;
-	 
-	@Column(name="kamar_kategori")
+
+	@Column(name = "kamar_revised")
+	private Integer kamar_revised;
+
+	@Column(name = "kamar_kategori")
 	private String kamar_kategori;
-	 
-	@Column(name="kamar_deleted_date")
+
+	@Column(name = "kamar_deleted_date")
 	private Timestamp kamar_deleted_date;
 
-	public int getKamar_id() {
+	@Column(name = "jumlah_bed")
+	private Integer jumlah_bed;
+
+	@Column(name = "tarif")
+	private Integer tarif;
+
+	@Column(name = "jenis_pelayanan")
+	private String jenis_pelayanan;
+
+	public Integer getKamar_id() {
 		return kamar_id;
 	}
 
-	public void setKamar_id(int kamar_id) {
+	public void setKamar_id(Integer kamar_id) {
 		this.kamar_id = kamar_id;
 	}
 
@@ -69,19 +78,19 @@ public class m_Kamar {
 		this.kamar_no = kamar_no;
 	}
 
-	public int getM_ruang_id() {
+	public Integer getM_ruang_id() {
 		return m_ruang_id;
 	}
 
-	public void setM_ruang_id(int m_ruang_id) {
+	public void setM_ruang_id(Integer m_ruang_id) {
 		this.m_ruang_id = m_ruang_id;
 	}
 
-	public int getM_kelas_id() {
+	public Integer getM_kelas_id() {
 		return m_kelas_id;
 	}
 
-	public void setM_kelas_id(int m_kelas_id) {
+	public void setM_kelas_id(Integer m_kelas_id) {
 		this.m_kelas_id = m_kelas_id;
 	}
 
@@ -133,11 +142,11 @@ public class m_Kamar {
 		this.kamar_updated_date = kamar_updated_date;
 	}
 
-	public int getKamar_revised() {
+	public Integer getKamar_revised() {
 		return kamar_revised;
 	}
 
-	public void setKamar_revised(int kamar_revised) {
+	public void setKamar_revised(Integer kamar_revised) {
 		this.kamar_revised = kamar_revised;
 	}
 
@@ -156,4 +165,29 @@ public class m_Kamar {
 	public void setKamar_deleted_date(Timestamp kamar_deleted_date) {
 		this.kamar_deleted_date = kamar_deleted_date;
 	}
+
+	public Integer getJumlah_bed() {
+		return jumlah_bed;
+	}
+
+	public void setJumlah_bed(Integer jumlah_bed) {
+		this.jumlah_bed = jumlah_bed;
+	}
+
+	public Integer getTarif() {
+		return tarif;
+	}
+
+	public void setTarif(Integer tarif) {
+		this.tarif = tarif;
+	}
+
+	public String getJenis_pelayanan() {
+		return jenis_pelayanan;
+	}
+
+	public void setJenis_pelayanan(String jenis_pelayanan) {
+		this.jenis_pelayanan = jenis_pelayanan;
+	}
+
 }

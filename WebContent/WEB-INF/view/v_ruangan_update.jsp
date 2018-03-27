@@ -211,7 +211,9 @@
 							<p class="title">Tambah Ruangan</p>
 						</div>
 					</div>
-					<form:form modelAttribute="ruangModel" method="POST" action="../store">
+					<form:form modelAttribute="ruangModel" method="POST" action="update">
+						<form:hidden path="ruang_id" />
+					
 						<div class="card-block row">
 							<div class="col-6">
 								<div class="form-group">
@@ -231,8 +233,7 @@
 										<form:select path="m_kelas_id"
 											class="form-control input-lg select2-single">
 											<c:forEach var="kelas" items="${kelas}">
-												<form:option value="${kelas.kelas_id }"
-													label="${kelas.kelas_nama }" />
+												<form:option value="${kelas.kelas_id }" label="${kelas.kelas_nama }" />
 											</c:forEach>
 										</form:select>
 									</div>

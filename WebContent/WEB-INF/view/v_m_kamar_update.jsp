@@ -39,7 +39,7 @@
 		<div class="app" id="app">
 			<header class="header">
 			<div class="nav-title">
-				<h3 class="title">Master Ruangan</h3>
+				<h3 class="title">Master Kamar</h3>
 			</div>
 			<div class="header-block header-block-collapse d-lg-none d-xl-none">
 				<button class="collapse-btn" id="sidebar-collapse-btn">
@@ -204,87 +204,93 @@
 			<div class="mobile-menu-handle"></div>
 			<article class="content forms-page"> <section
 				class="section">
-			<div class="container" id="add_Ruangan_form">
-				<div class="card card-success">
-					<div class="card-header" style="min-height: 0">
-						<div class="header-block " style="padding: 5px 20px">
-							<p class="title">Tambah Ruangan</p>
+			<div class="container">
+				<div class="container" id="add_kamar_form">
+					<div class="card card-success">
+						<div class="card-header" style="min-height: 0">
+							<div class="header-block " style="padding: 5px 20px">
+								<p class="title">Tambah Kamar</p>
+							</div>
 						</div>
+
+						<form:form modelAttribute="kamarModel" method="POST"
+							action="update">
+							<form:hidden path="kamar_id" />
+
+							<div class="card-block row" style="background-color: #f4f4f4">
+
+								<div class="col-6">
+									<div class="form-group">
+										<label class="control-label">Ruang</label>
+										<div class="select2-wrapper">
+											<form:select path="m_ruang_id"
+												class="form-control input-lg select2-single">
+												<c:forEach var="ruang" items="${ruang}">
+													<form:option value="${ruang.ruang_id }"
+														label="${ruang.ruang_nama }" />
+												</c:forEach>
+											</form:select>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>No / Nama Kamar</label>
+										<form:input path="kamar_no" placeholder="Masukan No Kamar"
+											class="form-control" />
+									</div>
+
+									<div class="form-group">
+										<label class="control-label">Kelas Ruangan</label>
+										<div class="select2-wrapper">
+											<form:select path="m_kelas_id"
+												class="form-control input-lg select2-single">
+												<c:forEach var="kelas" items="${kelas}">
+													<form:option value="${kelas.kelas_id }"
+														label="${kelas.kelas_nama }" />
+												</c:forEach>
+											</form:select>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label">Jenis Pelayanan</label>
+										<div class="select2-wrapper">
+											<form:select path="jenis_pelayanan" items="${pelayanan}"
+												class="form-control" />
+										</div>
+									</div>
+								</div>
+
+								<div class="col-6">
+									<div class="form-group">
+										<label>Jumlah Bed</label>
+										<form:input path="jumlah_bed" placeholder="Masukan Jumlah Bed"
+											class="form-control" />
+									</div>
+
+									<div class="form-group">
+										<label>Tarif Harian</label>
+										<form:input path="tarif" placeholder="Masukan Harga per Hari"
+											class="form-control" />
+									</div>
+
+									<div class="form-group">
+										<label>Keterangan</label>
+										<form:input path="kamar_keterangan"
+											placeholder="Masukan Keterangan" class="form-control" />
+									</div>
+								</div>
+
+								<div class="container form-group" style="float: right;">
+									<button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
+									<button type="button" class="btn btn-danger d_pasien-button">
+										<a href="http://localhost:8080/com.rsia.modura/Kamar/list">Batal</a>
+									</button>
+								</div>
+
+							</div>
+						</form:form>
 					</div>
-					<form:form modelAttribute="ruangModel" method="POST" action="../store">
-						<div class="card-block row">
-							<div class="col-6">
-								<div class="form-group">
-									<label>Kode</label>
-									<form:input path="ruang_kode" placeholder="Masukan Kode"
-										class="form-control" />
-								</div>
-								<div class="form-group">
-									<label>Nama</label>
-									<form:input path="ruang_nama" placeholder="Masukan Nama"
-										class="form-control" />
-								</div>
-
-								<div class="form-group">
-									<label class="control-label">Kelas Ruangan</label>
-									<div class="select2-wrapper">
-										<form:select path="m_kelas_id"
-											class="form-control input-lg select2-single">
-											<c:forEach var="kelas" items="${kelas}">
-												<form:option value="${kelas.kelas_id }"
-													label="${kelas.kelas_nama }" />
-											</c:forEach>
-										</form:select>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="control-label">Jenis Pelayanan</label>
-									<div class="select2-wrapper">
-										<form:select path="m_pelayanan_id" items="${pelayanan}"
-											class="form-control" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label>Kepala</label>
-									<div class="select2-wrapper">
-										<form:select path="ruang_kepala" items="${kepala}"
-											class="form-control" />
-									</div>
-								</div>
-							</div>
-							<div class="col-6">
-								<div class="form-group">
-									<label for="exampleInputEmail1">Tarif Sarana</label>
-									<form:input path="tarif_sarana" placeholder="Masukan Tarif"
-										class="form-control" />
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Tarif Cetak Kartu</label>
-									<form:input path="tarif_cetak_kartu"
-										placeholder="Masukan Tarif" class="form-control" />
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Tarif Konsultasi</label>
-									<form:input path="tarif_konsultasi" placeholder="Masukan Tarif"
-										class="form-control" />
-								</div>
-
-								<div class="form-group">
-									<label>Keterangan</label>
-									<form:input path="ruang_keterangan"
-										placeholder="Masukan Keterangan" class="form-control" />
-								</div>
-							</div>
-							<div class="container form-group" style="float: right;">
-								<button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
-								<button class="btn btn-primary">
-									<a href="http://localhost:8080/com.rsia.modura/Ruang/list" />Batal</a>
-								</button>
-							</div>
-						</div>
-					</form:form>
 				</div>
 			</div>
 			</section> </article>

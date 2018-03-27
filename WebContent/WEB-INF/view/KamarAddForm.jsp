@@ -251,7 +251,7 @@
 									<div class="title-block">
 										<h3 class="title"> Data Kamar </h3>
 									</div>
-									<form:form modelAttribute="kamarModel" method="POST" action="store">
+									<form:form modelAttribute="kamarModel" method="POST" action="../store">
 									   <div class="form-group">
                                             <label>No Kamar</label>
                                             <form:input path="kamar_no" placeholder="Masukan No Kamar" class="form-control"/>

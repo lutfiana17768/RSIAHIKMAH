@@ -1,0 +1,14 @@
+# table m_ruang
+alter table m_ruang 
+add column m_kelas_id integer,
+add column m_pelayanan_id integer,
+add column tarif_sarana real,
+add column tarif_cetak_kartu real,
+add column tarif_konsultasi real
+
+# table m_kamar
+alter table m_kamar	
+add column jumlah_bed integer,
+add column tarif real,
+add column jenis_pelayanan character(1)
+

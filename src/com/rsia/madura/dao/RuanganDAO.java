@@ -10,7 +10,7 @@ public interface RuanganDAO {
 	public String createLinks(int page, int limit);
 	public m_Ruang getRuang(int RuangId);
 	
-	public void Store(m_Ruang Model);
+	public int Store(m_Ruang Model);
 	public void Update(m_Ruang Model);
 	public void Delete(m_Ruang Model);
 }

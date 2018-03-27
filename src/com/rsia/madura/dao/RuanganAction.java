@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.rsia.madura.entity.m_Ruang;
-import com.rsia.madura.entity.m_Ruang;
 
 @Repository
 public class RuanganAction implements RuanganDAO {
@@ -22,7 +21,7 @@ public class RuanganAction implements RuanganDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Ruang> query = current.createQuery("from m_ruang", m_Ruang.class);
+		Query<m_Ruang> query = current.createQuery("from m_Ruang", m_Ruang.class);
 
 		List<m_Ruang> ruang = query.getResultList();
 
@@ -101,11 +100,10 @@ public class RuanganAction implements RuanganDAO {
 	}
 
 	@Override
-	public void Store(m_Ruang data) {
+	public int Store(m_Ruang data) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.save(data);
-
+		return (int) current.save(data);
 	}
 
 	@Override

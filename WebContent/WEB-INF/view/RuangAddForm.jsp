@@ -253,7 +253,7 @@
 									</div>
 									<form:form modelAttribute="ruangModel" method="POST" action="store">
                                        
-                                       <div class="form-group">
+                                       	<div class="form-group">
                                             <label>Kode</label>
                                             <form:input path="ruang_kode" placeholder="Masukan Kode" class="form-control"/>
                                          </div>

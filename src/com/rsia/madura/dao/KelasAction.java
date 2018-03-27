@@ -22,11 +22,11 @@ public class KelasAction implements KelasDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Kelas> query = current.createQuery("from m_agama", m_Kelas.class);
+		Query<m_Kelas> query = current.createQuery("from m_Kelas", m_Kelas.class);
 
-		List<m_Kelas> agama = query.getResultList();
+		List<m_Kelas> kelas = query.getResultList();
 
-		return agama;
+		return kelas;
 	}
 
 	@Override
@@ -34,11 +34,11 @@ public class KelasAction implements KelasDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 		Query<m_Kelas> query = current.createQuery("from m_Kelas", m_Kelas.class);
-		List<m_Kelas> agama = query.getResultList();
-		this.total = agama.size();
-		agama = this.getData(page, limit);
+		List<m_Kelas> kelas = query.getResultList();
+		this.total = kelas.size();
+		kelas = this.getData(page, limit);
 
-		return agama;
+		return kelas;
 	}
 
 	public List<m_Kelas> getData(int page, int limit) {
