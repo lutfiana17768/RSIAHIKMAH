@@ -122,5 +122,4 @@ public class AgamaAction implements AgamaDAO {
 		current.saveOrUpdate(AgamaModel);
 
 	}
-
 }

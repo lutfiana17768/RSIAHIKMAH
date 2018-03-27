@@ -13,5 +13,4 @@ public interface AgamaService {
 	public int store(m_Agama data);
 	public void update(m_Agama data);
 	public void delete(m_Agama data);
-	
 }

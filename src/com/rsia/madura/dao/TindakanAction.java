@@ -102,10 +102,10 @@ public class TindakanAction implements TindakanDAO {
 	}
 
 	@Override
-	public void TindakanStore(m_Tindakan TindakanModel) {
+	public int TindakanStore(m_Tindakan TindakanModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.save(TindakanModel);
+		return (int)current.save(TindakanModel);
 
 	}
 
@@ -121,6 +121,5 @@ public class TindakanAction implements TindakanDAO {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(TindakanModel);
-
 	}
 }

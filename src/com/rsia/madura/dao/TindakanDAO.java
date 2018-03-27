@@ -10,7 +10,7 @@ public interface TindakanDAO {
 	public String createLinks(int page, int limit);
 	public m_Tindakan getTindakan(int TindakanId);
 	
-	public void TindakanStore(m_Tindakan TindakanModel);
+	public int TindakanStore(m_Tindakan TindakanModel);
 	public void TindakanUpdate(m_Tindakan TindakanModel);
 	public void TindakanDelete(m_Tindakan TindakanModel);
 }
