@@ -1,4 +1,5 @@
 package com.rsia.madura.entity;
+
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -9,51 +10,62 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="m_paket_obat")
+@Table(name = "m_paket_obat")
 public class m_PaketObat {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="paket_barang_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "paket_barang_id")
 	private int paket_barang_id;
-	
-	@Column(name="m_paket_id")
+
+	@Column(name = "paket_nama")
+	private int paket_nama;
+
+	@Column(name = "m_paket_id")
 	private int m_paket_id;
-	
-	@Column(name="m_barang_id")
-	private int m_barang_id;
-	
-	@Column(name="m_kelas_id")
+
+	@Column(name = "m_obat_id")
+	private int m_obat_id;
+
+	@Column(name = "m_kelas_id")
 	private int m_kelas_id;
-	
-	@Column(name="paket_barang_jumlah")
+
+	@Column(name = "paket_barang_jumlah")
 	private int paket_barang_jumlah;
-	
-	@Column(name="paket_barang_created_by")
+
+	@Column(name = "paket_barang_created_by")
 	private String paket_barang_created_by;
-	
-	@Column(name="paket_barang_created_date")
+
+	@Column(name = "paket_barang_created_date")
 	private Timestamp paket_barang_created_date;
-	
-	@Column(name="paket_barang_updated_by")
+
+	@Column(name = "paket_barang_updated_by")
 	private String paket_barang_updated_by;
-	
-	@Column(name="paket_barang_updated_date")
+
+	@Column(name = "paket_barang_updated_date")
 	private Timestamp paket_barang_updated_date;
-	  
-	@Column(name="paket_barang_revised")
+
+	@Column(name = "paket_barang_revised")
 	private int paket_barang_revised;
-	
-	@Column(name="paket_barang_harga")
-	private String paket_barang_harga;
-	
-	@Column(name="paket_barang_aktif")
+
+	@Column(name = "paket_barang_harga")
+	private int paket_barang_harga;
+
+	@Column(name = "paket_barang_aktif")
 	private String paket_barang_aktif;
-	  
-	@Column(name="paket_satuan_id")
+
+	@Column(name = "paket_satuan_id")
 	private int paket_satuan_id;
-	
-	@Column(name="pakeobat_deleted_date")
+
+	@Column(name = "pakeobat_deleted_date")
 	private Timestamp pakeobat_deleted_date;
+
+	public int getPaket_nama() {
+		return paket_nama;
+	}
+
+	public void setPaket_nama(int paket_nama) {
+		this.paket_nama = paket_nama;
+	}
 
 	public int getPaket_barang_id() {
 		return paket_barang_id;
@@ -71,20 +83,20 @@ public class m_PaketObat {
 		this.m_paket_id = m_paket_id;
 	}
 
-	public int getM_barang_id() {
-		return m_barang_id;
-	}
-
-	public void setM_barang_id(int m_barang_id) {
-		this.m_barang_id = m_barang_id;
-	}
-
 	public int getM_kelas_id() {
 		return m_kelas_id;
 	}
 
 	public void setM_kelas_id(int m_kelas_id) {
 		this.m_kelas_id = m_kelas_id;
+	}
+
+	public int getM_obat_id() {
+		return m_obat_id;
+	}
+
+	public void setM_obat_id(int m_obat_id) {
+		this.m_obat_id = m_obat_id;
 	}
 
 	public int getPaket_barang_jumlah() {
@@ -135,11 +147,11 @@ public class m_PaketObat {
 		this.paket_barang_revised = paket_barang_revised;
 	}
 
-	public String getPaket_barang_harga() {
+	public int getPaket_barang_harga() {
 		return paket_barang_harga;
 	}
 
-	public void setPaket_barang_harga(String paket_barang_harga) {
+	public void setPaket_barang_harga(int paket_barang_harga) {
 		this.paket_barang_harga = paket_barang_harga;
 	}
 
@@ -169,8 +181,8 @@ public class m_PaketObat {
 
 	@Override
 	public String toString() {
-		return "m_PaketObat [paket_barang_id=" + paket_barang_id + ", m_paket_id=" + m_paket_id + ", m_barang_id="
-				+ m_barang_id + ", m_kelas_id=" + m_kelas_id + ", paket_barang_jumlah=" + paket_barang_jumlah
+		return "m_PaketObat [paket_barang_id=" + paket_barang_id + ", m_paket_id=" + m_paket_id + ", m_obat_id="
+				+ m_obat_id + ", m_kelas_id=" + m_kelas_id + ", paket_barang_jumlah=" + paket_barang_jumlah
 				+ ", paket_barang_created_by=" + paket_barang_created_by + ", paket_barang_created_date="
 				+ paket_barang_created_date + ", paket_barang_updated_by=" + paket_barang_updated_by
 				+ ", paket_barang_updated_date=" + paket_barang_updated_date + ", paket_barang_revised="
@@ -179,5 +191,4 @@ public class m_PaketObat {
 				+ pakeobat_deleted_date + "]";
 	}
 
-	
 }

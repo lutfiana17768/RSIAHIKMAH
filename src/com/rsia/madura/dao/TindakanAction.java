@@ -23,7 +23,7 @@ public class TindakanAction implements TindakanDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Tindakan> query = current.createQuery("from m_tindakan", m_Tindakan.class);
+		Query<m_Tindakan> query = current.createQuery("from m_Tindakan", m_Tindakan.class);
 
 		List<m_Tindakan> tindakan = query.getResultList();
 

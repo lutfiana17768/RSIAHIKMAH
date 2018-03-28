@@ -209,7 +209,7 @@
 					<div class="card card-success">
 						<div class="card-header" style="min-height: 0">
 							<div class="header-block" style="padding: 5px 20px">
-								<p class="title">Data Tindakan</p>
+								<p class="title">Data Paket</p>
 							</div>
 						</div>
 						<div class="card-block" style="background-color: #f4f4f4">
@@ -217,33 +217,35 @@
 								<table class="table table-striped table-bordered table-hover">
 									<thead>
 										<tr>
-											<th>Kode Tindakan</th>
-											<th>Jenis Tindakan</th>
+											<th>Nama</th>
+											<th>Paket</th>
+											<th>Obat</th>
 											<th>Kelas</th>
-											<th>Nama Tindakan</th>
-											<th>Harga Total</th>
+											<th>Jumlah</th>
+											<th>Harga</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
 
 
 									<tbody>
-										<c:forEach var="temptindakan" items="${tindakan}">
+										<c:forEach var="temp" items="${paketobat}">
 											<c:choose>
-												<c:when test="${temptindakan.tindakan_aktif  == 'Y' }">
-													<c:url var="updateLink" value="form-update">
-														<c:param name="Id" value="${temptindakan.tindakan_id}" />
+												<c:when test="${temp.paket_barang_aktif  == 'Y' }">
+													<c:url var="updateLink" value="../form-update">
+														<c:param name="Id" value="${temp.paket_barang_id}" />
 													</c:url>
-													<c:url var="deleteLink" value="delete">
-														<c:param name="Id" value="${temptindakan.tindakan_id}" />
+													<c:url var="deleteLink" value="../delete">
+														<c:param name="Id" value="${temp.paket_barang_id}" />
 													</c:url>
 
 													<tr>
-														<td>${temptindakan.tindakan_kode}</td>
-														<td>${temptindakan.tindakan_jenis }</td>
-														<td>${temptindakan.kelas_id }</td>
-														<td>${temptindakan.tindakan_nama }</td>
-														<td>${temptindakan.harga_tindakan }</td>
+														<td>${temp.paket_nama}</td>
+														<td>${temp.m_paket_id }</td>
+														<td>${temp.m_obat_id }</td>
+														<td>${temp.m_kelas_id }</td>
+														<td>${temp.paket_barang_jumlah }</td>														
+														<td>${temp.paket_barang_harga }</td>
 														<td><a href="${updateLink }" class="btn btn-info">Update</a>
 															<a href="${deleteLink }" class="btn btn-warning">Delete</a>
 														</td>

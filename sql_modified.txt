@@ -12,3 +12,6 @@ add column jumlah_bed integer,
 add column tarif real,
 add column jenis_pelayanan character(1)
 
+# m_paket_obat
+alter table m_paket_obat add column paket_nama character(200)
+ALTER TABLE m_paket_obat RENAME COLUMN m_barang_id TO m_obat_id;

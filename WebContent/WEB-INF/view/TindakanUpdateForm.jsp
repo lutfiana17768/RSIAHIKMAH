@@ -238,29 +238,56 @@
 							<form:hidden path="tindakan_id" />
 							
 							<div class="form-group">
-                               <label>Kode</label>
-                               <form:input path="tindakan_kode" placeholder="Masukan Kode" class="form-control"/>
-                            </div>
+								<label>Kode</label>
+								<form:input path="tindakan_kode" placeholder="Masukan Kode"
+									class="form-control" />
+							</div>
 
-                           <div class="form-group">
-                               <label>Nama</label>
-                               <form:input path="tindakan_nama" placeholder="Masukan Nama" class="form-control"/>
-                            </div>
-                           
-                           <div class="form-group">
-                               <label>Keterangan</label>
-                               <form:input path="tindakan_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
-                            </div>
+							<div class="form-group">
+								<label>Nama</label>
+								<form:input path="tindakan_nama" placeholder="Masukan Nama"
+									class="form-control" />
+							</div>
 
-                            <div class="form-group">
-                               <label>Harga</label>
-                               <form:input path="harga_tindakan" placeholder="Masukan Harga" class="form-control"/>
-                            </div>
+							<div class="form-group">
+								<label>Keterangan</label>
+								<form:input path="tindakan_keterangan"
+									placeholder="Masukan Keterangan" class="form-control" />
+							</div>
 
-                            <div class="form-group">
-                               <label>Kelas</label>
-                               <form:input path="kelas_id" placeholder="Masukan Kelas" class="form-control"/>
-                            </div>
+							<div class="form-group">
+								<label>Tindakan Kategori</label>
+								<form:input path="tindakan_kategori"
+									placeholder="Masukan Kategori" class="form-control" />
+							</div>
+
+							<div class="form-group">
+								<label>Jenis Tindakan</label>
+								<div class="select2-wrapper">
+									<form:select path="tindakan_jenis" items="${jenistindakan}"
+										class="form-control" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label>Kelas</label>
+								<div class="select2-wrapper">
+									<form:select path="kelas_id"
+										class="form-control input-lg select2-single">
+										<c:forEach var="kelas" items="${kelas}">
+											<form:option value="${kelas.kelas_id }"
+												label="${kelas.kelas_nama }" />
+										</c:forEach>
+									</form:select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label>Harga</label>
+								<form:input path="harga_tindakan" placeholder="Masukan Harga"
+									class="form-control" />
+							</div>
+
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Update</button>
 							</div>

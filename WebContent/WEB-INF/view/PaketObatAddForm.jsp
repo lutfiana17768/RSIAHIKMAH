@@ -1,31 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<link href="<c:url value="/resources/css/app.css "/>" rel="stylesheet"
-	type="text/css" />
-<link href="<c:url value="/resources/css/vendor.css "/>"
-	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/css/bootstrap.min.css "/>"
-	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/css/select2.css "/>"
-	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/css/gh-pages.css "/>"
-	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/css/select2.min.css "/>"
-	rel="stylesheet" type="text/css" />
-<link rel="stylesheet"
-	href="//select2.github.io/select2/select2-3.5.2/select2.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link href="<c:url value="/resources/css/app.css "/>" rel="stylesheet"
@@ -136,92 +117,111 @@
 				</div>
 				<nav class="menu">
 				<ul class="sidebar-menu metismenu" id="sidebar-menu">
-					<li><a href=""> <i class="fa fa-desktop"></i> Transaksi <i
-							class="fa arrow"></i>
-					</a>
-						<ul class="sidebar-nav">
-							<li><a href="pendaftaran.html"> <i class="fa fa-users"></i>
-									Pendaftaran
-							</a></li>
-							<li><a href="pelayanan.html"> <i class="fa fa-user-md"></i>
-									&nbsp;Pelayanan
-							</a></li>
-							<li><a href="#" class="fa fa-user-md"> &nbsp;Pembayaran
-									<i class="fa arrow"></i>
-							</a>
-								<ul class="sidebar-nav">
-									<li><a href="#"> Kasir </a></li>
-									<li><a href="#"> Gaji </a></li>
-								</ul></li>
-						</ul></li>
-					<li><a href=""> <i class="fa fa-medkit"></i> Master Rekam
-							Medis <i class="fa arrow"></i>
-					</a>
-						<ul class="sidebar-nav">
-							<li><a href="/com.rsia.modura/Pasien/tambah"> <i
-									class="fa fa-users"></i> Pasien
-							</a></li>
-							<li><a href="/com.rsia.modura/Tindakan/tambah"> <i
-									class="fa fa-users"></i> Tindakan
-							</a></li>
-							<li><a href="/com.rsia.modura/Kamar/list"> <i
-									class="fa fa-users"></i> Kamar
-							</a></li>
-							<li><a href="/com.rsia.modura/Ruang/list"> <i
-									class="fa fa-users"></i> Ruang
-							</a></li>
-							<li><a href="/com.rsia.modura/Paket/list"> <i
-									class="fa fa-users"></i> Paket
-							</a></li>
-							<li><a href="/com.rsia.modura/Rujukan/tambah"> <i
-									class="fa fa-users"></i> Rujukan
-							</a></li>
-							<li><a href="/com.rsia.modura/History/list"> <i
-									class="fa fa-users"></i> History Pasien
-							</a></li>
-						</ul></li>
-					<li><a href=""> <i class="fa fa-map-marker"></i> Master
-							Wilayah <i class="fa arrow"></i>
-					</a>
-						<ul class="sidebar-nav">
-							<li><a
-								href="/com.rsia.modura/provinsi/tambah/?page=1&limit=10"> <i
-									class="fa fa-users"></i> Propinsi
-							</a></li>
-							<li><a href="/com.rsia.modura/kota/tambah/?page=1&limit=10">
-									<i class="fa fa-users"></i> Kota
-							</a></li>
-							<li><a
-								href="/com.rsia.modura/kecamatan/tambah/?page=1&limit=10"> <i
-									class="fa fa-users"></i> Kecamatan
-							</a></li>
-							<li><a
-								href="/com.rsia.modura/kelurahan/tambah/?page=1&limit=10"> <i
-									class="fa fa-users"></i> Kelurahan
-							</a></li>
-						</ul></li>
-					<li><a href=""> <i class="fa fa-plus-square"></i> Master
-							Pelengkap <i class="fa arrow"></i>
-					</a>
-						<ul class="sidebar-nav">
-							<li><a href="/com.rsia.modura/Kondisi/list"> <i
-									class="fa fa-users"></i> Kondisi Pasien
-							</a></li>
-							<li><a href="/com.rsia.modura/pegawai/tambah"> <i
-									class="fa fa-users"></i> Pegawai
-							</a></li>
-							<li><a href="/com.rsia.modura/tindakan/list"> <i
-									class="fa fa-users"></i> tindakan
-							</a></li>
-							<li><a href="/com.rsia.modura/Kelas/list"> <i
-									class="fa fa-users"></i> Kelas
-							</a></li>
-						</ul></li>
+					<li><a href="index.html"> <i class="fa fa-home"></i>
+							Dashboard
+					</a></li>
+					<li class="active"><a
+						href="../../provinsi/tambah/?page=1&limit=10"> <i
+							class="fa fa-user"></i> Provinsi
+					</a></li>
+					<li><a href="../../kota/tambah/?page=1&limit=10"> <i
+							class="fa fa-home"></i> Kota
+					</a></li>
+					<li><a href="../../kecamatan/tambah/?page=1&limit=10"> <i
+							class="fa fa-user"></i> Kecamatan
+					</a></li>
+					<li><a href="../../kelurahan/tambah/?page=1&limit=10"> <i
+							class="fa fa-user"></i> Kelurahan
+					</a></li>
+					<li><a href="../../jenis-pegawai/tambah"> <i
+							class="fa fa-user"></i> Jenis Pegawai
+					</a></li>
 				</ul>
 				</nav>
 			</div>
-
-			</aside>
+			<footer class="sidebar-footer">
+			<ul class="sidebar-menu metismenu" id="customize-menu">
+				<li>
+					<ul>
+						<li class="customize">
+							<div class="customize-item">
+								<div class="row customize-header">
+									<div class="col-4"></div>
+									<div class="col-4">
+										<label class="title">fixed</label>
+									</div>
+									<div class="col-4">
+										<label class="title">static</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-4">
+										<label class="title">Sidebar:</label>
+									</div>
+									<div class="col-4">
+										<label> <input class="radio" name="sidebarPosition"
+											value="sidebar-fixed" type="radio"> <span></span>
+										</label>
+									</div>
+									<div class="col-4">
+										<label> <input class="radio" name="sidebarPosition"
+											value="" type="radio"> <span></span>
+										</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-4">
+										<label class="title">Header:</label>
+									</div>
+									<div class="col-4">
+										<label> <input class="radio" name="headerPosition"
+											value="header-fixed" type="radio"> <span></span>
+										</label>
+									</div>
+									<div class="col-4">
+										<label> <input class="radio" name="headerPosition"
+											value="" type="radio"> <span></span>
+										</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-4">
+										<label class="title">Footer:</label>
+									</div>
+									<div class="col-4">
+										<label> <input class="radio" name="footerPosition"
+											value="footer-fixed" type="radio"> <span></span>
+										</label>
+									</div>
+									<div class="col-4">
+										<label> <input class="radio" name="footerPosition"
+											value="" type="radio"> <span></span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="customize-item">
+								<ul class="customize-colors">
+									<li><span class="color-item color-red" data-theme="red"></span>
+									</li>
+									<li><span class="color-item color-orange"
+										data-theme="orange"></span></li>
+									<li><span class="color-item color-green active"
+										data-theme=""></span></li>
+									<li><span class="color-item color-seagreen"
+										data-theme="seagreen"></span></li>
+									<li><span class="color-item color-blue" data-theme="blue"></span>
+									</li>
+									<li><span class="color-item color-purple"
+										data-theme="purple"></span></li>
+								</ul>
+							</div>
+						</li>
+					</ul> <a href=""> <i class="fa fa-cog"></i> Customize
+				</a>
+				</li>
+			</ul>
+			</footer> </aside>
 			<div class="sidebar-overlay" id="sidebar-overlay"></div>
 			<div class="sidebar-mobile-menu-handle"
 				id="sidebar-mobile-menu-handle"></div>
@@ -233,47 +233,46 @@
 				<div class="col-md-6">
 					<div class="card card-block sameheight-item">
 						<div class="title-block">
-							<h3 class="title">Tambah Tindakan</h3>
+							<h3 class="title">Data Paket</h3>
 						</div>
-						<form:form modelAttribute="tindakanModel" method="POST"
+						<form:form modelAttribute="paketobatModel" method="POST"
 							action="store">
-
 							<div class="form-group">
-								<label>Kode</label>
-								<form:input path="tindakan_kode" placeholder="Masukan Kode"
-									class="form-control" />
+								<label>Nama Paket</label>
+								<form:input path="paket_nama"
+									placeholder="Masukan Nama Paket Obat" class="form-control" />
 							</div>
 
 							<div class="form-group">
-								<label>Nama</label>
-								<form:input path="tindakan_nama" placeholder="Masukan Nama"
-									class="form-control" />
-							</div>
-
-							<div class="form-group">
-								<label>Keterangan</label>
-								<form:input path="tindakan_keterangan"
-									placeholder="Masukan Keterangan" class="form-control" />
-							</div>
-
-							<div class="form-group">
-								<label>Tindakan Kategori</label>
-								<form:input path="tindakan_kategori"
-									placeholder="Masukan Kategori" class="form-control" />
-							</div>
-
-							<div class="form-group">
-								<label>Jenis Tindakan</label>
+								<label>Paket</label>
 								<div class="select2-wrapper">
-									<form:select path="tindakan_jenis" items="${jenistindakan}"
-										class="form-control" />
+									<form:select path="m_paket_id"
+										class="form-control input-lg select2-single">
+										<c:forEach var="paket" items="${paket}">
+											<form:option value="${paket.paket_id }"
+												label="${paket.paket_nama}" />
+										</c:forEach>
+									</form:select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label>Obat</label>
+								<div class="select2-wrapper">
+									<form:select path="m_obat_id"
+										class="form-control input-lg select2-single">
+										<c:forEach var="obat" items="${obat}">
+											<form:option value="${obat.obat_id }"
+												label="${obat.obat_nama}" />
+										</c:forEach>
+									</form:select>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label>Kelas</label>
 								<div class="select2-wrapper">
-									<form:select path="kelas_id"
+									<form:select path="m_kelas_id"
 										class="form-control input-lg select2-single">
 										<c:forEach var="kelas" items="${kelas}">
 											<form:option value="${kelas.kelas_id }"
@@ -282,11 +281,24 @@
 									</form:select>
 								</div>
 							</div>
+							<div class="form-group">
+								<label>Jumlah Barang</label>
+								<form:input path="paket_barang_jumlah"
+									placeholder="Masukan Jumlah Barang" class="form-control" />
+							</div>
 
 							<div class="form-group">
 								<label>Harga</label>
-								<form:input path="harga_tindakan" placeholder="Masukan Harga"
-									class="form-control" />
+								<form:input path="paket_barang_harga"
+									placeholder="Masukan Harga" class="form-control" />
+							</div>
+
+							<div class="form-group">
+								<label>Satuan</label>
+								<div class="select2-wrapper">
+									<form:select path="paket_satuan_id" items="${satuan}"
+										class="form-control" />
+								</div>
 							</div>
 
 							<div class="form-group">
@@ -378,7 +390,7 @@
 			<!-- /.modal -->
 		</div>
 	</div>
-	<script src="<c:url value="/resources/js/vendor.js" />"></script>
-	<script src="<c:url value="/resources/js/app.js" />"></script>
+	<script src="<c:url value="/resources/js/app.js "/>" /></script>
+	<script src="<c:url value="/resources/js/vendor.js "/>" /></script>
 </body>
 </html>

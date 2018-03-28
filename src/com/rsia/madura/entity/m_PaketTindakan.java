@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="m_paket_tindakan")
-public class m_paket_tindakan {
+@Table(name="m_PaketTindakan")
+public class m_PaketTindakan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="paket_tindakan_id")
@@ -169,7 +169,7 @@ public class m_paket_tindakan {
 
 	@Override
 	public String toString() {
-		return "m_paket_tindakan [paket_tindakan_id=" + paket_tindakan_id + ", m_paket_id=" + m_paket_id
+		return "m_PaketTindakan [paket_tindakan_id=" + paket_tindakan_id + ", m_paket_id=" + m_paket_id
 				+ ", m_tindakan_id=" + m_tindakan_id + ", paket_tindakan_jumlah=" + paket_tindakan_jumlah
 				+ ", paket_tindakan_created_by=" + paket_tindakan_created_by + ", paket_tindakan_created_date="
 				+ paket_tindakan_created_date + ", paket_tindakan_updated_by=" + paket_tindakan_updated_by

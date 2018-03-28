@@ -6,63 +6,63 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rsia.madura.dao.PaketObatDAO;
-import com.rsia.madura.entity.m_PaketObat;
+import com.rsia.madura.dao.ObatDAO;
+import com.rsia.madura.entity.m_Obat;
 
 @Repository
-public class PaketObatServiceAction implements PaketObatService {
+public class ObatServiceAction implements ObatService {
 	@Autowired
-	private PaketObatDAO PaketObatDAO;
+	private ObatDAO ObatDAO;
 
 	@Override
 	@Transactional
-	public List<m_PaketObat> getPaketObats() {
+	public List<m_Obat> getObats() {
 		// TODO Auto-generated method stub
-		return PaketObatDAO.getPaketObats();
+		return ObatDAO.getObats();
 	}
 
 	@Override
 	@Transactional
-	public List<m_PaketObat> getPaketObats(int page, int limit) {
+	public List<m_Obat> getObats(int page, int limit) {
 		// TODO Auto-generated method stub
-		return PaketObatDAO.getPaketObats(page, limit);
+		return ObatDAO.getObats(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public String createLinks(int page, int limit) {
 		// TODO Auto-generated method stub
-		return PaketObatDAO.createLinks(page, limit);
+		return ObatDAO.createLinks(page, limit);
 	}
 
 	@Override
 	@Transactional
-	public m_PaketObat getPaketObat(int id) {
+	public m_Obat getObat(int id) {
 		// TODO Auto-generated method stub
-		return PaketObatDAO.getPaketObat(id);
+		return ObatDAO.getObat(id);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_PaketObat data) {
+	public void store(m_Obat data) {
 		// TODO Auto-generated method stub
-		PaketObatDAO.Store(data);
-
-	}
-
-	@Override
-	@Transactional
-	public void update(m_PaketObat data) {
-		// TODO Auto-generated method stub
-		PaketObatDAO.Update(data);
+		ObatDAO.Store(data);
 
 	}
 
 	@Override
 	@Transactional
-	public void delete(m_PaketObat data) {
+	public void update(m_Obat data) {
 		// TODO Auto-generated method stub
-		PaketObatDAO.Delete(data);
+		ObatDAO.Update(data);
+
+	}
+
+	@Override
+	@Transactional
+	public void delete(m_Obat data) {
+		// TODO Auto-generated method stub
+		ObatDAO.Delete(data);
 	}
 
 }

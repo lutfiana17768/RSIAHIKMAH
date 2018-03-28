@@ -238,30 +238,44 @@
 							<form:hidden path="paket_id" />
 							
 							<div class="form-group">
-                                <label>Nama Paket</label>
-                                <form:input path="paket_nama" placeholder="Masukan Nama Paket" class="form-control"/>
-                             </div>
-                            
-                            <div class="form-group">
-                                <label>Kelas</label>
-                                <form:input path="paket_kelas" placeholder="Masukan Kelas" class="form-control"/>
-                             </div>
-                            
-                            <div class="form-group">
-                                <label>Keterangan</label>
-                                <form:input path="paket_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
-                             </div>
-                             
-                              <div class="form-group">
-                                <label>Harga</label>
-                                <form:input path="paket_harga" placeholder="Masukan Harga" class="form-control"/>
-                             </div>
-                             
-                             <div class="form-group">
-                                <label>Jenis</label>
-                                <form:input path="paket_jenis" placeholder="Masukan Jenis" class="form-control"/>
-                             </div>
-                          
+								<label>Nama Paket</label>
+								<form:input path="paket_nama" placeholder="Masukan Nama Paket"
+									class="form-control" />
+							</div>
+
+							<div class="form-group">
+								<label>Kelas</label>
+								<div class="select2-wrapper">
+									<form:select path="paket_kelas"
+										class="form-control input-lg select2-single">
+										<c:forEach var="kelas" items="${kelas}">
+											<form:option value="${kelas.kelas_id }"
+												label="${kelas.kelas_nama }" />
+										</c:forEach>
+									</form:select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Keterangan</label>
+								<form:input path="paket_keterangan"
+									placeholder="Masukan Keterangan" class="form-control" />
+							</div>
+
+							<div class="form-group">
+								<label>Harga</label>
+								<form:input path="paket_harga" placeholder="Masukan Harga"
+									class="form-control" />
+							</div>
+
+
+							<div class="form-group">
+								<label>Jenis</label>
+								<div class="select2-wrapper">
+									<form:select path="paket_jenis" items="${jenispaket}"
+										class="form-control" />
+								</div>
+							</div>
+
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Update</button>
 							</div>
