@@ -46,7 +46,8 @@ public class PaketObatController {
 //
 //		model.addAttribute("paketobat", result);
 
-		return "PaketObatList";
+		//return "PaketObatList";
+		return "v_paket";
 	}
 
 	@RequestMapping("/tambah")

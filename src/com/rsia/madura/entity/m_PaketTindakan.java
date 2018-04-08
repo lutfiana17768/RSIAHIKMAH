@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="m_PaketTindakan")
+@Table(name="m_Paket_Tindakan")
 public class m_PaketTindakan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -44,11 +44,8 @@ public class m_PaketTindakan {
 	private int m_kelas_id;
 	
 	@Column(name="paket_tindakan_harga")
-	private String paket_tindakan_harga;
-	
-	@Column(name="paket_barang_aktif")
-	private String paket_barang_aktif;
-	  
+	private Float paket_tindakan_harga;
+		  
 	@Column(name="paket_tindakan_aktif")
 	private String paket_tindakan_aktif;
 	
@@ -136,19 +133,11 @@ public class m_PaketTindakan {
 	}
 
 	public String getPaket_tindakan_harga() {
-		return paket_tindakan_harga;
+		return paket_tindakan_harga.toString();
 	}
 
 	public void setPaket_tindakan_harga(String paket_tindakan_harga) {
-		this.paket_tindakan_harga = paket_tindakan_harga;
-	}
-
-	public String getPaket_barang_aktif() {
-		return paket_barang_aktif;
-	}
-
-	public void setPaket_barang_aktif(String paket_barang_aktif) {
-		this.paket_barang_aktif = paket_barang_aktif;
+		this.paket_tindakan_harga = Float.valueOf(paket_tindakan_harga);
 	}
 
 	public String getPaket_tindakan_aktif() {
@@ -175,7 +164,7 @@ public class m_PaketTindakan {
 				+ paket_tindakan_created_date + ", paket_tindakan_updated_by=" + paket_tindakan_updated_by
 				+ ", paket_tindakan_updated_date=" + paket_tindakan_updated_date + ", paket_tindakan_revised="
 				+ paket_tindakan_revised + ", m_kelas_id=" + m_kelas_id + ", paket_tindakan_harga="
-				+ paket_tindakan_harga + ", paket_barang_aktif=" + paket_barang_aktif + ", paket_tindakan_aktif="
+				+ paket_tindakan_harga + ", paket_tindakan_aktif="
 				+ paket_tindakan_aktif + ", paketindakan_deleted_date=" + paketindakan_deleted_date + "]";
 	}
 	

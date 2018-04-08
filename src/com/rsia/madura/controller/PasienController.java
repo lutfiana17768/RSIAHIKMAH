@@ -93,9 +93,11 @@ public class PasienController {
 		model.addAttribute("Agama", agama);
 		model.addAttribute("Pendidikan", pendidikan);
 		model.addAttribute("pasienModel", pasienModel);
-
-		return "v_m_pasien_tambah";
-	}
+		
+		// return "v_m_pasien_tambah";
+// return "v_m_pasien_tambah_old";
+		return "v_pendaftaran";
+	} 
 
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
 	public String Store(@ModelAttribute("pasienModel") m_Pasien pasienModel) {

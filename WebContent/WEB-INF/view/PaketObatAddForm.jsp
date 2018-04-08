@@ -237,7 +237,21 @@
 						</div>
 						<form:form modelAttribute="paketobatModel" method="POST"
 							action="store">
-							<div class="form-group">
+
+							
+							  <div class="clearfix">
+				<ul class="nav nav-tabs">
+				    <li><a href="#nm" data-toggle="tab">Barang</a></li>				  
+					<li><a href="#nmt" data-toggle="tab">Tindakan</a></li>					  
+									  
+					<li><a href="#mi" data-toggle="tab">Unit</a></li>					  
+								  
+				</ul>
+			</div>
+
+			<div class="tab-content">
+				<div id="nm" class="tab-pane">
+												<div class="form-group">
 								<label>Nama Paket</label>
 								<form:input path="paket_nama"
 									placeholder="Masukan Nama Paket Obat" class="form-control" />
@@ -300,7 +314,15 @@
 										class="form-control" />
 								</div>
 							</div>
-
+				</div>
+				<div id="nmt" class="tab-pane">
+				TIndakan
+				</div>
+				<div id="mi" class="tab-pane">
+				Unit
+				</div>
+			</div>
+			
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Simpan</button>
 							</div>

@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="t_pendaftaran")
-public class t_pendaftaran {
+@Table(name="t_Pendaftaran")
+public class t_Pendaftaran {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pendaftaran_id")
@@ -412,7 +412,7 @@ public class t_pendaftaran {
 
 	@Override
 	public String toString() {
-		return "t_pendaftaran [pendaftaran_id=" + pendaftaran_id + ", pendaftaran_no=" + pendaftaran_no
+		return "t_Pendaftaran [pendaftaran_id=" + pendaftaran_id + ", pendaftaran_no=" + pendaftaran_no
 				+ ", pendaftaran_nourut=" + pendaftaran_nourut + ", m_unit_id=" + m_unit_id + ", pendaftaran_mrs="
 				+ pendaftaran_mrs + ", m_pasien_id=" + m_pasien_id + ", m_kondisi_id=" + m_kondisi_id
 				+ ", pendaftaran_krs=" + pendaftaran_krs + ", m_status_id=" + m_status_id + ", m_rujuk_id_keluar="

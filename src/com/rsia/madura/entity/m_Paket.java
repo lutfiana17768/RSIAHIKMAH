@@ -1,12 +1,20 @@
 package com.rsia.madura.entity;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name="m_paket")
@@ -51,7 +59,11 @@ public class m_Paket {
 	  
 	@Column(name="paket_deleted_date")
 	private Timestamp paket_deleted_date;
-
+	
+	@ManyToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="paket_tindakan",joinColumns = {@JoinColumn(name = "m_paket_id")},inverseJoinColumns = {@JoinColumn(name="m_tindakan_id")})
+	private Set<m_PaketTindakan> tindakans = new HashSet<m_PaketTindakan>();
+	
 	public int getPaket_id() {
 		return paket_id;
 	}
@@ -156,4 +168,12 @@ public class m_Paket {
 		this.paket_deleted_date = paket_deleted_date;
 	}
 	
+	public void setTindakans(Set<m_PaketTindakan> Tindakans)
+	{
+		this.tindakans = Tindakans;
+	}
+	public Set<m_PaketTindakan> getTindakans()
+	{
+		return this.tindakans;
+	}
 }
