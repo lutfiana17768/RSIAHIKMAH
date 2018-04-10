@@ -1,16 +1,22 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 01:49:18
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-08 08:16:47
+*/
 package com.rsia.madura.dao;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_Paket;
+import com.rsia.madura.entity.MPaket;
 
 public interface PaketDAO {
-	public List<m_Paket> getPakets();
-	public List<m_Paket> getPakets(int page, int limit);
+	public List<MPaket> getPakets();
+	public List<MPaket> getPakets(int page, int limit);
 	public String createLinks(int page, int limit);
-	public m_Paket getPaket(int PaketId);
-	
-	public void Store(m_Paket PaketModel);
-	public void Update(m_Paket PaketModel);
-	public void Delete(m_Paket PaketModel);
+	public MPaket getPaket(int PaketId);
+
+	public void PaketStore(MPaket PaketModel);
+	public void PaketUpdate(MPaket PaketModel);
+	public void PaketDelete(MPaket PaketModel);
 }

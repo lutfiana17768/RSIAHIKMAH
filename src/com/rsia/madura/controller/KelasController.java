@@ -1,3 +1,9 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 04:10:39
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-08 01:57:26
+*/
 package com.rsia.madura.controller;
 
 import java.sql.Timestamp;
@@ -10,84 +16,69 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import com.rsia.madura.entity.m_Agama;
-import com.rsia.madura.entity.m_Kelas;
+import com.rsia.madura.entity.MKelas;
 import com.rsia.madura.service.KelasService;
 
 @Controller
-@RequestMapping("/Kelas")
+@RequestMapping("/kelas")
 public class KelasController {
 	@Autowired
-	private KelasService KelasService;
-	
-	private String uri ="redirect:http://localhost:8080/com.rsia.modura/Kelas/tambah/?page=1&limit=10" ;
-	
+	private KelasService kelasService;
+
+	private String uri ="redirect: /kelas";
+
+	@RequestMapping(method=RequestMethod.GET)
+	public String IndexView(Model model) {
+		List<MKelas> kelases = kelasService.findAll();
+		model.addAttribute("kelases", kelases);
+		model.addAttribute("footerjs", "");
+		return "kelas/index";
+	}
+
 	@RequestMapping(value="/tambah", method=RequestMethod.GET)
-	public String FormView(Model model, 
-			@RequestParam(value="page", required=false) int page, 
-			@RequestParam(value="limit", required=false) int limit){
-		
-		List<m_Kelas> result = KelasService.getKelases(page, limit);
-		String link = KelasService.createLinks(page, limit);
-		m_Kelas kelasModel = new m_Kelas();
-		
-			model.addAttribute("kelas", result);
-		model.addAttribute("link", link);
+	public String FormView(Model model) {
+		List<MKelas> kelases = kelasService.findAll();
+		MKelas kelasModel = new MKelas();
+
+		model.addAttribute("kelases", kelases);
 		model.addAttribute("kelasModel", kelasModel);
-		
-		return "KelasAddForm";
+		return "kelas/tambah";
 	}
 
 	@RequestMapping(value="/store", method=RequestMethod.POST)
-	public String Store(@ModelAttribute("kelasModel") m_Kelas kelasModel) {
-		
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
-		kelasModel.setKelas_aktif("Y");
-		kelasModel.setKelas_created_by("Admin");	
-		kelasModel.setKelas_created_date(currentTime);
-		
-		KelasService.store(kelasModel);
-		
+	public String Store(@ModelAttribute("kelasModel") MKelas kelasModel) {
+		kelasService.store(kelasModel);
 		return this.uri;
 	}
-	
-	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public String DeleteUpdate(Model model, @RequestParam(value="Id", required=false) int id) {
-		
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
-		m_Kelas agamaModel = KelasService.getKelas(id);
-		
-		agamaModel.setKelas_aktif("T");
-		agamaModel.setKelas_deleted_date(currentTime);
-		
-		KelasService.delete(agamaModel);
-		
-		return this.uri;
+
+	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
+	public String UpdateFormView(Model model, @PathVariable int id){
+		List<MKelas> kelases = kelasService.findAll();
+		MKelas kelasModel = kelasService.getById(id);
+
+		model.addAttribute("kelases", kelases);
+		model.addAttribute("kelasModel", kelasModel);
+
+		return "kelas/update";
 	}
-	
-	@RequestMapping(value="/form-update", method=RequestMethod.GET)
-	public String UpdateFormView(Model model, @RequestParam(value="Id", required=false) int id){
-		
-		m_Kelas result = KelasService.getKelas(id);
-		
-		model.addAttribute("kelasModel", result);
-		
-		return "KelasUpdateForm";
-	}
-	
+
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String Update(@ModelAttribute("agamaModel") m_Kelas agamaModel) {
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
-		agamaModel.setKelas_aktif("Y");
-		agamaModel.setKelas_created_by("Admin");	
-		agamaModel.setKelas_updated_date(currentTime);
-		
-		KelasService.update(agamaModel);
-		
+	public String Update(@ModelAttribute("kelasModel") MKelas kelasModel) {
+		kelasService.update(kelasModel);
 		return this.uri;
 	}
+
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	public String DeleteUpdate(Model model, @PathVariable int id) {
+		MKelas kelas = kelasService.getById(id);
+		kelasService.delete(kelas);
+		return this.uri;
+	}
+
+	@ModelAttribute
+    public void addAttributes(Model model) {
+    	model.addAttribute("pagetitle", "Master Data Kelas");
+    }
 }

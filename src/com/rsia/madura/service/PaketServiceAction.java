@@ -1,13 +1,20 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 04:02:55
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-10 11:29:50
+*/
 package com.rsia.madura.service;
 
 import java.util.List;
+import java.sql.Timestamp;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.PaketDAO;
-import com.rsia.madura.entity.m_Paket;
+import com.rsia.madura.entity.MPaket;
 
 @Service
 public class PaketServiceAction implements PaketService {
@@ -16,14 +23,14 @@ public class PaketServiceAction implements PaketService {
 
 	@Override
 	@Transactional
-	public List<m_Paket> getPakets() {
+	public List<MPaket> findAll() {
 		// TODO Auto-generated method stub
-		return paketDAO.getPakets();
+		return this.paketDAO.getPakets();
 	}
 
 	@Override
 	@Transactional
-	public List<m_Paket> getPakets(int page, int limit) {
+	public List<MPaket> findAll(int page, int limit) {
 		// TODO Auto-generated method stub
 		return paketDAO.getPakets(page, limit);
 	}
@@ -37,32 +44,44 @@ public class PaketServiceAction implements PaketService {
 
 	@Override
 	@Transactional
-	public m_Paket getPaket(int id) {
+	public MPaket getById(int id) {
 		// TODO Auto-generated method stub
 		return paketDAO.getPaket(id);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_Paket data) {
+	public void store(MPaket data) {
 		// TODO Auto-generated method stub
-		paketDAO.Store(data);
-
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		data.setPaket_aktif("Y");
+		data.setPaket_created_by("Admin");	
+		data.setPaket_created_date(currentTime);
+		paketDAO.PaketStore(data);
 	}
 
 	@Override
 	@Transactional
-	public void update(m_Paket data) {
+	public void update(MPaket data) {
 		// TODO Auto-generated method stub
-		paketDAO.Update(data);
-
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		data.setPaket_aktif("Y");
+		data.setPaket_updated_by("Admin");
+		data.setPaket_updated_date(currentTime);
+		paketDAO.PaketUpdate(data);
 	}
 
 	@Override
 	@Transactional
-	public void delete(m_Paket data) {
+	public void delete(MPaket data) {
 		// TODO Auto-generated method stub
-		paketDAO.Delete(data);
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		data.setPaket_aktif("T");
+		data.setPaket_deleted_by("Admin");
+		data.setPaket_deleted_date(currentTime);
+		paketDAO.PaketDelete(data);
 	}
-
 }

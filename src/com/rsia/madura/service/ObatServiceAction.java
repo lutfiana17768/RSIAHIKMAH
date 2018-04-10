@@ -1,68 +1,87 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 04:02:55
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-10 11:14:14
+*/
 package com.rsia.madura.service;
 
 import java.util.List;
+import java.sql.Timestamp;
 
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.ObatDAO;
-import com.rsia.madura.entity.m_Obat;
+import com.rsia.madura.entity.MObat;
 
-@Repository
+@Service
 public class ObatServiceAction implements ObatService {
 	@Autowired
-	private ObatDAO ObatDAO;
+	private ObatDAO obatDAO;
 
 	@Override
 	@Transactional
-	public List<m_Obat> getObats() {
+	public List<MObat> findAll() {
 		// TODO Auto-generated method stub
-		return ObatDAO.getObats();
+		return this.obatDAO.getObats();
 	}
 
 	@Override
 	@Transactional
-	public List<m_Obat> getObats(int page, int limit) {
+	public List<MObat> findAll(int page, int limit) {
 		// TODO Auto-generated method stub
-		return ObatDAO.getObats(page, limit);
+		return obatDAO.getObats(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public String createLinks(int page, int limit) {
 		// TODO Auto-generated method stub
-		return ObatDAO.createLinks(page, limit);
+		return obatDAO.createLinks(page, limit);
 	}
 
 	@Override
 	@Transactional
-	public m_Obat getObat(int id) {
+	public MObat getById(int id) {
 		// TODO Auto-generated method stub
-		return ObatDAO.getObat(id);
+		return obatDAO.getObat(id);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_Obat data) {
+	public void store(MObat data) {
 		// TODO Auto-generated method stub
-		ObatDAO.Store(data);
-
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		data.setObat_aktif("Y");
+		data.setObat_created_by("Admin");	
+		data.setObat_created_date(currentTime);
+		obatDAO.ObatStore(data);
 	}
 
 	@Override
 	@Transactional
-	public void update(m_Obat data) {
+	public void update(MObat data) {
 		// TODO Auto-generated method stub
-		ObatDAO.Update(data);
-
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		data.setObat_aktif("Y");
+		data.setObat_updated_by("Admin");
+		data.setObat_updated_date(currentTime);
+		obatDAO.ObatUpdate(data);
 	}
 
 	@Override
 	@Transactional
-	public void delete(m_Obat data) {
+	public void delete(MObat data) {
 		// TODO Auto-generated method stub
-		ObatDAO.Delete(data);
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		data.setObat_aktif("T");
+		data.setObat_deleted_by("Admin");
+		data.setObat_deleted_date(currentTime);
+		obatDAO.ObatDelete(data);
 	}
-
 }
