@@ -1,3 +1,9 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 01:54:17
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-08 08:38:17
+*/
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,47 +14,39 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Tindakan;
-
+import com.rsia.madura.entity.MTindakan;
 
 @Repository
 public class TindakanAction implements TindakanDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
-	
 	public int total;
 	
+
 	@Override
-	public List<m_Tindakan> getTindakans() {
+	public List<MTindakan> getTindakans() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-
-		Query<m_Tindakan> query = current.createQuery("from m_Tindakan", m_Tindakan.class);
-
-		List<m_Tindakan> tindakan = query.getResultList();
-
-		return tindakan;
+		Query<MTindakan> query = current.createQuery("FROM MTindakan k WHERE k.tindakan_aktif = :tindakan_aktif", MTindakan.class);
+		query.setParameter("tindakan_aktif", "Y");
+		List<MTindakan> result = query.getResultList();
+		return result;
 	}
 
 	@Override
-	public List<m_Tindakan> getTindakans(int page, int limit) {
+	public List<MTindakan> getTindakans(int page, int limit) {
 		// TODO Auto-generated method stub
-		Session current = sessionFactory.getCurrentSession();
-		Query<m_Tindakan> query = current.createQuery("from m_Tindakan", m_Tindakan.class);
-		List<m_Tindakan> tindakan = query.getResultList();
-		this.total = tindakan.size();
-		tindakan = this.getData(page, limit);
-
-		return tindakan;
+		List<MTindakan> result = this.getData(page, limit);
+		this.total = this.getTindakans().size();
+		return result;
 	}
 
-	public List<m_Tindakan> getData(int page, int limit) {
+	public List<MTindakan> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Tindakan> query = current.createQuery("from m_Tindakan", m_Tindakan.class).setFirstResult((page - 1) * limit)
-				.setMaxResults(limit);
-		List<m_Tindakan> Result = query.getResultList();
-
-		return Result;
+		Query<MTindakan> query = current.createQuery("FROM MTindakan k WHERE k.tindakan_aktif = :tindakan_aktif", MTindakan.class).setMaxResults(limit);
+		query.setParameter("tindakan_aktif", "Y");
+		List<MTindakan> result = query.getResultList();
+		return result;
 	}
 
 	@Override
@@ -62,8 +60,7 @@ public class TindakanAction implements TindakanDAO {
 		String html = "<ul class='pagination'>";
 
 		String first = (page == 1) ? "disabled" : "";
-		html = html + "<li class='page-first' " + first + "><a href='?limit=" + limit + "&page=" + (page - 1)
-				+ "'>&laquo;</a></li>";
+		html = html + "<li class='page-first' " + first + "><a href='?limit=" + limit + "&page=" + (page - 1) + "'>&laquo;</a></li>";
 
 		if (start > 1) {
 			html = html + "<li class='page-number'><a href='?limit=" + limit + "&page=1'>1</a></li>";
@@ -72,54 +69,44 @@ public class TindakanAction implements TindakanDAO {
 
 		for (int i = start; i <= end; i++) {
 			String position = (page == i) ? "active" : "";
-			html = html + "<li class='page-number ' " + position + "'><a href='?limit=" + limit + "&page=" + i + "'> "
-					+ i + "</a></li>";
+			html = html + "<li class='page-number ' " + position + "'><a href='?limit=" + limit + "&page=" + i + "'> " + i + "</a></li>";
 		}
 
 		if (end < last) {
 			html = html + "<li class='page-number disabled'><span>...</span></li>";
-			html = html + "<li class='page-number'><a href='?limit=" + limit + "&page=" + (int) last + "'>" + (int) last
-					+ "</a></li>";
+			html = html + "<li class='page-number'><a href='?limit=" + limit + "&page=" + (int) last + "'>" + (int) last + "</a></li>";
 		}
 
 		String status = (page == (int) last) ? "disabled" : "";
-		html = html + "<li class='page-number " + status + "'><a href='?limit=" + limit + "&page=" + (page + 1)
-				+ "'>&raquo;</a></li>";
-
+		html = html + "<li class='page-number " + status + "'><a href='?limit=" + limit + "&page=" + (page + 1) + "'>&raquo;</a></li>";
 		html = html + "</ul>";
 
 		return html;
 	}
 
 	@Override
-	public m_Tindakan getTindakan(int tindakanId) {
+	public MTindakan getTindakan(int Id) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-
-		m_Tindakan result = current.get(m_Tindakan.class, tindakanId);
-
+		MTindakan result = current.get(MTindakan.class, Id);
 		return result;
 	}
 
 	@Override
-	public int TindakanStore(m_Tindakan TindakanModel) {
+	public void TindakanStore(MTindakan TindakanModel) {
 		Session current = sessionFactory.getCurrentSession();
-
-		return (int)current.save(TindakanModel);
-
+		current.save(TindakanModel);
 	}
 
 	@Override
-	public void TindakanUpdate(m_Tindakan TindakanModel) {
+	public void TindakanUpdate(MTindakan TindakanModel) {
 		Session current = sessionFactory.getCurrentSession();
-
 		current.saveOrUpdate(TindakanModel);
 	}
 
 	@Override
-	public void TindakanDelete(m_Tindakan TindakanModel) {
+	public void TindakanDelete(MTindakan TindakanModel) {
 		Session current = sessionFactory.getCurrentSession();
-
 		current.saveOrUpdate(TindakanModel);
 	}
 }

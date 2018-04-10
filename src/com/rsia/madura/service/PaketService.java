@@ -1,16 +1,22 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 03:59:33
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-10 11:10:23
+*/
 package com.rsia.madura.service;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_Paket;
+import com.rsia.madura.entity.MPaket;
 
 public interface PaketService {
-	public List<m_Paket> getPakets();
-	public List<m_Paket> getPakets(int page, int limit);
+	public List<MPaket> findAll();
+	public List<MPaket> findAll(int page, int limit);
 	public String createLinks(int page, int limit);
-	public m_Paket getPaket(int id);
+	public MPaket getById(int id);
 	
-	public void store(m_Paket data);
-	public void update(m_Paket data);
-	public void delete(m_Paket data);
+	public void store(MPaket data);
+	public void update(MPaket data);
+	public void delete(MPaket data);
 }

@@ -1,3 +1,9 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 01:54:17
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-10 11:27:12
+*/
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,45 +14,41 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Paket;
+import com.rsia.madura.entity.MPaket;
 
 @Repository
-public class PaketAction implements PaketDAO{
+public class PaketAction implements PaketDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	public int total;
+	
 
 	@Override
-	public List<m_Paket> getPakets() {
+	public List<MPaket> getPakets() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-
-		Query<m_Paket> query = current.createQuery("from m_Paket", m_Paket.class);
-
-		List<m_Paket> agama = query.getResultList();
-
-		return agama;
+		Query<MPaket> query = current.createQuery("FROM MPaket k WHERE k.paket_aktif = :paket_aktif", MPaket.class);
+		query.setParameter("paket_aktif", "Y");
+		List<MPaket> result = query.getResultList();
+		return result;
 	}
 
 	@Override
-	public List<m_Paket> getPakets(int page, int limit) {
+	public List<MPaket> getPakets(int page, int limit) {
 		// TODO Auto-generated method stub
-		Session current = sessionFactory.getCurrentSession();
-		Query<m_Paket> query = current.createQuery("from m_Paket", m_Paket.class);
-		List<m_Paket> agama = query.getResultList();
-		this.total = agama.size();
-		agama = this.getData(page, limit);
+		List<MPaket> result = this.getData(page, limit);
+		this.total = this.getPakets().size();
 
-		return agama;
+		return result;
 	}
 
-	public List<m_Paket> getData(int page, int limit) {
+	public List<MPaket> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Paket> query = current.createQuery("from m_Paket", m_Paket.class).setFirstResult((page - 1) * limit)
-				.setMaxResults(limit);
-		List<m_Paket> Result = query.getResultList();
+		Query<MPaket> query = current.createQuery("FROM MPaket k WHERE k.paket_aktif = :paket_aktif", MPaket.class).setMaxResults(limit);
+		query.setParameter("paket_aktif", "Y");
+		List<MPaket> result = query.getResultList();
 
-		return Result;
+		return result;
 	}
 
 	@Override
@@ -60,8 +62,7 @@ public class PaketAction implements PaketDAO{
 		String html = "<ul class='pagination'>";
 
 		String first = (page == 1) ? "disabled" : "";
-		html = html + "<li class='page-first' " + first + "><a href='?limit=" + limit + "&page=" + (page - 1)
-				+ "'>&laquo;</a></li>";
+		html = html + "<li class='page-first' " + first + "><a href='?limit=" + limit + "&page=" + (page - 1) + "'>&laquo;</a></li>";
 
 		if (start > 1) {
 			html = html + "<li class='page-number'><a href='?limit=" + limit + "&page=1'>1</a></li>";
@@ -70,58 +71,44 @@ public class PaketAction implements PaketDAO{
 
 		for (int i = start; i <= end; i++) {
 			String position = (page == i) ? "active" : "";
-			html = html + "<li class='page-number ' " + position + "'><a href='?limit=" + limit + "&page=" + i + "'> "
-					+ i + "</a></li>";
+			html = html + "<li class='page-number ' " + position + "'><a href='?limit=" + limit + "&page=" + i + "'> " + i + "</a></li>";
 		}
 
 		if (end < last) {
 			html = html + "<li class='page-number disabled'><span>...</span></li>";
-			html = html + "<li class='page-number'><a href='?limit=" + limit + "&page=" + (int) last + "'>" + (int) last
-					+ "</a></li>";
+			html = html + "<li class='page-number'><a href='?limit=" + limit + "&page=" + (int) last + "'>" + (int) last + "</a></li>";
 		}
 
 		String status = (page == (int) last) ? "disabled" : "";
-		html = html + "<li class='page-number " + status + "'><a href='?limit=" + limit + "&page=" + (page + 1)
-				+ "'>&raquo;</a></li>";
-
+		html = html + "<li class='page-number " + status + "'><a href='?limit=" + limit + "&page=" + (page + 1) + "'>&raquo;</a></li>";
 		html = html + "</ul>";
 
 		return html;
 	}
 
 	@Override
-	public m_Paket getPaket(int id) {
+	public MPaket getPaket(int Id) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-
-		m_Paket result = current.get(m_Paket.class, id);
-
+		MPaket result = current.get(MPaket.class, Id);
 		return result;
 	}
 
 	@Override
-	public void Store(m_Paket data) {
+	public void PaketStore(MPaket PaketModel) {
 		Session current = sessionFactory.getCurrentSession();
-
-		current.save(data);
-
+		current.save(PaketModel);
 	}
 
 	@Override
-	public void Update(m_Paket data) {
+	public void PaketUpdate(MPaket PaketModel) {
 		Session current = sessionFactory.getCurrentSession();
-
-		current.saveOrUpdate(data);
+		current.saveOrUpdate(PaketModel);
 	}
 
 	@Override
-	public void Delete(m_Paket data) {
+	public void PaketDelete(MPaket PaketModel) {
 		Session current = sessionFactory.getCurrentSession();
-
-		current.saveOrUpdate(data);
-
+		current.saveOrUpdate(PaketModel);
 	}
-
-
-
 }

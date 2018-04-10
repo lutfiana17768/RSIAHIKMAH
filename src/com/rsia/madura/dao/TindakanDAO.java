@@ -1,16 +1,22 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 01:49:18
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-08 08:14:16
+*/
 package com.rsia.madura.dao;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_Tindakan;
+import com.rsia.madura.entity.MTindakan;
 
 public interface TindakanDAO {
-	public List<m_Tindakan> getTindakans();
-	public List<m_Tindakan> getTindakans(int page, int limit);
+	public List<MTindakan> getTindakans();
+	public List<MTindakan> getTindakans(int page, int limit);
 	public String createLinks(int page, int limit);
-	public m_Tindakan getTindakan(int TindakanId);
-	
-	public int TindakanStore(m_Tindakan TindakanModel);
-	public void TindakanUpdate(m_Tindakan TindakanModel);
-	public void TindakanDelete(m_Tindakan TindakanModel);
+	public MTindakan getTindakan(int TindakanId);
+
+	public void TindakanStore(MTindakan TindakanModel);
+	public void TindakanUpdate(MTindakan TindakanModel);
+	public void TindakanDelete(MTindakan TindakanModel);
 }

@@ -1,9 +1,12 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 07:50:20
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-10 01:07:14
+*/
 package com.rsia.madura.controller;
 
-import java.sql.Timestamp;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,107 +14,79 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.BindingResult;
 
-import com.rsia.madura.entity.m_Kelas;
-import com.rsia.madura.entity.m_Tindakan;
-
-import com.rsia.madura.service.TindakanService;
+import com.rsia.madura.entity.MKelas;
+import com.rsia.madura.entity.MTindakan;
 import com.rsia.madura.service.KelasService;
+import com.rsia.madura.service.TindakanService;
 
 @Controller
-@RequestMapping("/Tindakan")
+@RequestMapping("/tindakan")
 public class TindakanController {
 	@Autowired
-	private TindakanService TindakanService;
+	private TindakanService tindakanService;
 
 	@Autowired
-	private KelasService KelasService;
+	private KelasService kelasService;
 
-	private String uri = "redirect:http://localhost:8080/com.rsia.modura/Tindakan/list";
+	private String uri ="redirect: /tindakan";
 
-	@RequestMapping("/list")
-	public String viewForm(Model model) {
-		List<m_Tindakan> result = TindakanService.getTindakans();
-
-		model.addAttribute("tindakan", result);
-
-		return "v_m_tindakan";
+	@RequestMapping(method=RequestMethod.GET)
+	public String IndexView(Model model) {
+		List<MTindakan> tindakans = tindakanService.findAll();
+		model.addAttribute("tindakans", tindakans);
+		model.addAttribute("footerjs", "");
+		return "tindakan/index";
 	}
 
-	@RequestMapping("/tambah")
-	public String addForm(Model model) {
-		m_Tindakan tindakanModel = new m_Tindakan();
-		List<m_Kelas> kelas = KelasService.getKelases();
+	@RequestMapping(value="/tambah", method=RequestMethod.GET)
+	public String FormView(Model model) {
+		List<MKelas> kelases = kelasService.findAll();
+		List<MTindakan> tindakans = tindakanService.findAll();
+		MTindakan tindakanModel = new MTindakan();
 
-		Map<String, String> jenistindakan = new HashMap<String, String>();
-		jenistindakan.put("O", "Operatif");
-		jenistindakan.put("N", "Non Operatif");
+		model.addAttribute("tindakans", tindakans);
+		model.addAttribute("kelases", kelases);
+		model.addAttribute("tindakanModel", tindakanModel);
+		return "tindakan/tambah";
+	}
 
-		model.addAttribute("kelas", kelas);
-		model.addAttribute("jenistindakan", jenistindakan);
+	@RequestMapping(value="/store", method=RequestMethod.POST)
+	public String Store(@ModelAttribute("tindakanModel") MTindakan tindakanModel, BindingResult bindingResult) {
+		tindakanService.store(tindakanModel);
+		return this.uri;
+	}
+
+	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
+	public String UpdateFormView(Model model, @PathVariable int id){
+		List<MKelas> kelases = kelasService.findAll();
+		List<MTindakan> tindakans = tindakanService.findAll();
+		MTindakan tindakanModel = tindakanService.getById(id);
+
+		model.addAttribute("tindakans", tindakans);
+		model.addAttribute("kelases", kelases);
 		model.addAttribute("tindakanModel", tindakanModel);
 
-		return "TindakanAddForm";
+		return "tindakan/update";
 	}
 
-	@RequestMapping(value = "/store", method = RequestMethod.POST)
-	public String Store(@ModelAttribute("tindakanModel") m_Tindakan tindakanModel) {
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-
-		tindakanModel.setTindakan_aktif("Y");
-		tindakanModel.setTindakan_created_by("Admin");
-		tindakanModel.setTindakan_created_date(currentTime);
-
-		TindakanService.store(tindakanModel);
-
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public String Update(@ModelAttribute("tindakanModel") MTindakan tindakanModel) {
+		tindakanService.update(tindakanModel);
 		return this.uri;
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String DeleteUpdate(Model model, @RequestParam(value = "Id", required = false) int id) {
-
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-
-		m_Tindakan tindakanModel = TindakanService.getTindakan(id);
-
-		tindakanModel.setTindakan_aktif("T");
-		tindakanModel.setTindakan_deleted_date(currentTime);
-
-		TindakanService.delete(tindakanModel);
-
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	public String DeleteUpdate(Model model, @PathVariable int id) {
+		MTindakan tindakan = tindakanService.getById(id);
+		tindakanService.delete(tindakan);
 		return this.uri;
 	}
 
-	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
-	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
-
-		m_Tindakan result = TindakanService.getTindakan(id);
-		List<m_Kelas> kelas = KelasService.getKelases();
-
-		Map<String, String> jenistindakan = new HashMap<String, String>();
-		jenistindakan.put("O", "Operatif");
-		jenistindakan.put("N", "Non Operatif");
-
-		model.addAttribute("kelas", kelas);
-		model.addAttribute("jenistindakan", jenistindakan);
-
-		model.addAttribute("tindakanModel", result);
-
-		return "TindakanUpdateForm";
-	}
-
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String Update(@ModelAttribute("tindakanModel") m_Tindakan tindakanModel) {
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-
-		tindakanModel.setTindakan_aktif("Y");
-		tindakanModel.setTindakan_updated_by("Admin");
-		tindakanModel.setTindakan_updated_date(currentTime);
-
-		TindakanService.update(tindakanModel);
-
-		return this.uri;
-	}
-
+	@ModelAttribute
+    public void addAttributes(Model model) {
+    	model.addAttribute("pagetitle", "Master Tindakan");
+    }
 }

@@ -1,16 +1,22 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 01:49:18
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-08 08:10:19
+*/
 package com.rsia.madura.dao;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_Obat;
+import com.rsia.madura.entity.MObat;
 
 public interface ObatDAO {
-	public List<m_Obat> getObats();
-	public List<m_Obat> getObats(int page, int limit);
+	public List<MObat> getObats();
+	public List<MObat> getObats(int page, int limit);
 	public String createLinks(int page, int limit);
-	public m_Obat getObat(int PaketObatId);
-	
-	public int Store(m_Obat data);
-	public void Update(m_Obat data);
-	public void Delete(m_Obat data);
+	public MObat getObat(int ObatId);
+
+	public void ObatStore(MObat ObatModel);
+	public void ObatUpdate(MObat ObatModel);
+	public void ObatDelete(MObat ObatModel);
 }

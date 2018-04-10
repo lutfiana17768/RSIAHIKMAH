@@ -1,3 +1,9 @@
+/*
+* @Author: PRADESGA
+* @Date:   2018-04-07 01:54:17
+* @Last Modified by:   PRADESGA
+* @Last Modified time: 2018-04-08 08:29:43
+*/
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,7 +14,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Kelas;
+import com.rsia.madura.entity.MKelas;
 
 @Repository
 public class KelasAction implements KelasDAO {
@@ -18,36 +24,31 @@ public class KelasAction implements KelasDAO {
 	
 
 	@Override
-	public List<m_Kelas> getKelases() {
+	public List<MKelas> getKelases() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-
-		Query<m_Kelas> query = current.createQuery("from m_Kelas", m_Kelas.class);
-
-		List<m_Kelas> kelas = query.getResultList();
-
-		return kelas;
+		Query<MKelas> query = current.createQuery("FROM MKelas k WHERE k.kelas_aktif = :kelas_aktif", MKelas.class);
+		query.setParameter("kelas_aktif", "Y");
+		List<MKelas> result = query.getResultList();
+		return result;
 	}
 
 	@Override
-	public List<m_Kelas> getKelases(int page, int limit) {
+	public List<MKelas> getKelases(int page, int limit) {
 		// TODO Auto-generated method stub
-		Session current = sessionFactory.getCurrentSession();
-		Query<m_Kelas> query = current.createQuery("from m_Kelas", m_Kelas.class);
-		List<m_Kelas> kelas = query.getResultList();
-		this.total = kelas.size();
-		kelas = this.getData(page, limit);
+		List<MKelas> result = this.getData(page, limit);
+		this.total = this.getKelases().size();
 
-		return kelas;
+		return result;
 	}
 
-	public List<m_Kelas> getData(int page, int limit) {
+	public List<MKelas> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Kelas> query = current.createQuery("from m_Kelas", m_Kelas.class).setFirstResult((page - 1) * limit)
-				.setMaxResults(limit);
-		List<m_Kelas> Result = query.getResultList();
+		Query<MKelas> query = current.createQuery("FROM MKelas k WHERE k.kelas_aktif = :kelas_aktif", MKelas.class).setMaxResults(limit);
+		query.setParameter("kelas_aktif", "Y");
+		List<MKelas> result = query.getResultList();
 
-		return Result;
+		return result;
 	}
 
 	@Override
@@ -61,8 +62,7 @@ public class KelasAction implements KelasDAO {
 		String html = "<ul class='pagination'>";
 
 		String first = (page == 1) ? "disabled" : "";
-		html = html + "<li class='page-first' " + first + "><a href='?limit=" + limit + "&page=" + (page - 1)
-				+ "'>&laquo;</a></li>";
+		html = html + "<li class='page-first' " + first + "><a href='?limit=" + limit + "&page=" + (page - 1) + "'>&laquo;</a></li>";
 
 		if (start > 1) {
 			html = html + "<li class='page-number'><a href='?limit=" + limit + "&page=1'>1</a></li>";
@@ -71,56 +71,44 @@ public class KelasAction implements KelasDAO {
 
 		for (int i = start; i <= end; i++) {
 			String position = (page == i) ? "active" : "";
-			html = html + "<li class='page-number ' " + position + "'><a href='?limit=" + limit + "&page=" + i + "'> "
-					+ i + "</a></li>";
+			html = html + "<li class='page-number ' " + position + "'><a href='?limit=" + limit + "&page=" + i + "'> " + i + "</a></li>";
 		}
 
 		if (end < last) {
 			html = html + "<li class='page-number disabled'><span>...</span></li>";
-			html = html + "<li class='page-number'><a href='?limit=" + limit + "&page=" + (int) last + "'>" + (int) last
-					+ "</a></li>";
+			html = html + "<li class='page-number'><a href='?limit=" + limit + "&page=" + (int) last + "'>" + (int) last + "</a></li>";
 		}
 
 		String status = (page == (int) last) ? "disabled" : "";
-		html = html + "<li class='page-number " + status + "'><a href='?limit=" + limit + "&page=" + (page + 1)
-				+ "'>&raquo;</a></li>";
-
+		html = html + "<li class='page-number " + status + "'><a href='?limit=" + limit + "&page=" + (page + 1) + "'>&raquo;</a></li>";
 		html = html + "</ul>";
 
 		return html;
 	}
 
 	@Override
-	public m_Kelas getKelas(int Id) {
+	public MKelas getKelas(int Id) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-
-		m_Kelas result = current.get(m_Kelas.class,Id);
-
+		MKelas result = current.get(MKelas.class, Id);
 		return result;
 	}
 
 	@Override
-	public void KelasStore(m_Kelas KelasModel) {
+	public void KelasStore(MKelas KelasModel) {
 		Session current = sessionFactory.getCurrentSession();
-
 		current.save(KelasModel);
-
 	}
 
 	@Override
-	public void KelasUpdate(m_Kelas KelasModel) {
+	public void KelasUpdate(MKelas KelasModel) {
 		Session current = sessionFactory.getCurrentSession();
-
 		current.saveOrUpdate(KelasModel);
 	}
 
 	@Override
-	public void KelasDelete(m_Kelas KelasModel) {
+	public void KelasDelete(MKelas KelasModel) {
 		Session current = sessionFactory.getCurrentSession();
-
 		current.saveOrUpdate(KelasModel);
-
 	}
-
 }
