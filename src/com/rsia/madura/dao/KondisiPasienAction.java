@@ -23,7 +23,7 @@ public class KondisiPasienAction implements KondisiPasienDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<m_Kondisi> query = current.createQuery("from m_kondisi", m_Kondisi.class);
+		Query<m_Kondisi> query = current.createQuery("from m_Kondisi", m_Kondisi.class);
 		
 		List<m_Kondisi> kondisi = query.getResultList();
 		

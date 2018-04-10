@@ -21,7 +21,7 @@ public class RujukanAction implements RujukanDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Rujukan> query = current.createQuery("from m_rujukan", m_Rujukan.class);
+		Query<m_Rujukan> query = current.createQuery("from m_Rujukan", m_Rujukan.class);
 
 		List<m_Rujukan> rujukan = query.getResultList();
 

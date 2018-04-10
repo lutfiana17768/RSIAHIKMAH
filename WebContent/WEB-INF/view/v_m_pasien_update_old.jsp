@@ -244,23 +244,22 @@
 				<div class="mobile-menu-handle"></div>
 				<article class="content forms-page">
 					<section class="section">
-						<div class="container" id="add_passien_form">
+						<div class="container"   id="add_passien_form">
 							<div class="card card-primary  col-md-10">
 								<div class="row card-header" style="min-height:0; padding:-10px">
 									<div class="header-block" style="padding: 5px 20px">
 										<p class="title"> Tambah Pasien </p>
 									</div>
 								</div>
-								<form:form modelAttribute="pasienModel" method="POST" action="store">
+								<form:form modelAttribute="pasienModel" method="POST" action="update">
 								<div class="row sameheight-container" style="background: white">
 									<div class="col-md-6 d_pasien-content">
 										<div class="card card-block sameheight-item d_pasien-form">
-
+												<form:hidden path="pasien_id" />
 												<div class="form-group">
 		                                            <label>No RM</label>
-		                                            <form:input path="Pasien_norm" placeholder="Masukan No RM" class="form-control"/>
-		                                         </div>
-		                                         
+		                                            <form:input path="pasien_norm" placeholder="Masukan No RM" class="form-control" readonly="true"/>
+		                                         </div>		                                         
 		                                         
 		                                        <div class="form-group">
 		                                            <label>NIK</label>

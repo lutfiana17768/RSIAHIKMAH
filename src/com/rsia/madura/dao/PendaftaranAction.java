@@ -12,7 +12,7 @@ import com.rsia.madura.entity.t_Pendaftaran;
 
 
 @Repository
-public class PendaftaranActionz implements PendaftaranDAO {
+public class PendaftaranAction implements PendaftaranDAO {
 
 	@Override
 	public List<t_Pendaftaran> getPendaftarans() {

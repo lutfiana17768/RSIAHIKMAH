@@ -45,7 +45,6 @@ public class PasienController {
 	private KelurahanService KelurahanService;
 	@Autowired
 	private AgamaService AgamaService;
-
 	@Autowired
 	private PendidikanService PendidikanService;
 
@@ -58,6 +57,7 @@ public class PasienController {
 		model.addAttribute("Pasien", result);
 
 		return "v_m_pasien_list";
+	
 	}
 
 	@RequestMapping(value = "/tambah", method = RequestMethod.GET)
@@ -94,11 +94,50 @@ public class PasienController {
 		model.addAttribute("Pendidikan", pendidikan);
 		model.addAttribute("pasienModel", pasienModel);
 		
-		// return "v_m_pasien_tambah";
-// return "v_m_pasien_tambah_old";
-		return "v_pendaftaran";
+		 return "v_m_pasien_tambah";
+		 // return "v_m_pasien_tambah_old";
+		// return "v_pendaftaran";
 	} 
+	
+	@RequestMapping(value = "/tambahold", method = RequestMethod.GET)
+	public String AddFormOld(Model model) {
 
+		m_Pasien pasienModel = new m_Pasien();
+		List<m_Pasien> pasien = PasienService.getPasien();
+		List<m_Provinsi> provinsi = ProvinsiService.getProvinsis();
+		List<m_Kota> kota = KotaService.getKotas();
+		List<m_Kecamatan> kecamatan = KecamatanService.getKecamatans();
+		List<m_Kelurahan> kelurahan = KelurahanService.getKelurahans();
+		List<m_Pendidikan> pendidikan = PendidikanService.getPendidikan();
+
+		Map<String, String> jeniskelamin = new HashMap<String, String>();
+		jeniskelamin.put("L", "Laki-Laki");
+		jeniskelamin.put("P", "Perempuan");
+
+		Map<String, String> goldar = new HashMap<String, String>();
+		goldar.put("A", "A");
+		goldar.put("AB", "AB");
+
+		Map<String, String> agama = new HashMap<String, String>();
+		agama.put("1", "Islam");
+		agama.put("2", "Non Islam");
+
+		model.addAttribute("Pasien", pasien);
+		model.addAttribute("provinsi", provinsi);
+		model.addAttribute("Kota", kota);
+		model.addAttribute("Kecamatan", kecamatan);
+		model.addAttribute("Kelurahan", kelurahan);
+		model.addAttribute("Jeniskelamin", jeniskelamin);
+		model.addAttribute("Goldar", goldar);
+		model.addAttribute("Agama", agama);
+		model.addAttribute("Pendidikan", pendidikan);
+		model.addAttribute("pasienModel", pasienModel);
+		
+		 // return "v_m_pasien_tambah";
+		 return "v_m_pasien_tambah_old";
+		// return "v_pendaftaran";
+	} 
+	
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
 	public String Store(@ModelAttribute("pasienModel") m_Pasien pasienModel) {
 

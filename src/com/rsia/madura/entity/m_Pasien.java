@@ -18,7 +18,7 @@ public class m_Pasien {
 	@Column(name = "pasien_id")
 	private int pasien_id;
 
-	@Column(name = "pasien_norm", unique = true,updatable = true)
+	@Column(name = "pasien_norm", unique = true, updatable = true)
 	private String pasien_norm;
 
 	@Column(name = "pasien_nik")
@@ -113,6 +113,24 @@ public class m_Pasien {
 
 	@Column(name = "pasien_deleted_date")
 	private Timestamp pasien_deleted_date;
+
+	@Column(name = "wali_nama")
+	private String wali_nama;
+
+	@Column(name = "wali_alamat")
+	private String wali_alamat;
+
+	@Column(name = "wali_hubungan")
+	private String wali_hubungan;
+
+	@Column(name = "wali_telepon")
+	private String wali_telepon;
+
+	@Column(name = "wali_kelamin")
+	private String wali_kelamin;
+
+	@Column(name = "wali_tgllahir")
+	private Timestamp wali_tgllahir;
 
 	public String getPasien_norm() {
 		return pasien_norm;
@@ -360,6 +378,54 @@ public class m_Pasien {
 
 	public void setPasien_alergi(String pasien_alergi) {
 		this.pasien_alergi = pasien_alergi;
+	}
+
+	public String getWali_nama() {
+		return wali_nama;
+	}
+
+	public void setWali_nama(String wali_nama) {
+		this.wali_nama = wali_nama;
+	}
+
+	public String getWali_alamat() {
+		return wali_alamat;
+	}
+
+	public void setWali_alamat(String wali_alamat) {
+		this.wali_alamat = wali_alamat;
+	}
+
+	public String getWali_hubungan() {
+		return wali_hubungan;
+	}
+
+	public void setWali_hubungan(String wali_hubungan) {
+		this.wali_hubungan = wali_hubungan;
+	}
+
+	public String getWali_telepon() {
+		return wali_telepon;
+	}
+
+	public void setWali_telepon(String wali_telepon) {
+		this.wali_telepon = wali_telepon;
+	}
+
+	public String getWali_kelamin() {
+		return wali_kelamin;
+	}
+
+	public void setWali_kelamin(String wali_kelamin) {
+		this.wali_kelamin = wali_kelamin;
+	}
+
+	public Timestamp getWali_tgllahir() {
+		return wali_tgllahir;
+	}
+
+	public void setWali_tgllahir(Timestamp wali_tgllahir) {
+		this.wali_tgllahir = wali_tgllahir;
 	}
 
 	public Timestamp getPasien_deleted_date() {

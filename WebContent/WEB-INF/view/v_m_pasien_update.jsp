@@ -426,6 +426,53 @@
 		                                            <form:input path="pasien_alergi" placeholder="Masukan Alergi" class="form-control"/>
 		                                        </div>	  
 												
+												<div class="card-header" style="min-height: 0">
+										<div class="header-block" style="padding: 5px 20px">
+											<p class="title">Wali Pasien</p>
+										</div>
+									</div>
+									<div class="card-block" style="background-color: #f4f4f4">
+										<div class="form-group">
+											<label>Nama Wali</label>
+											<form:input path="wali_nama" placeholder="Masukan Nama Wali"
+												class="form-control" />
+										</div>
+
+										<div class="form-group">
+											<label>Tanggal Lahir</label>
+											<!-- 
+												<form:input path="wali_tgllahir"
+													class="form-control" type='date'/>
+												 -->
+										</div>
+
+										<div class="form-group">
+											<label>Kelamin</label>
+											<div class="select2-wrapper">
+												<form:select path="wali_kelamin" items="${Jeniskelamin}"
+													class="form-control" />
+
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label>No. Telpon</label>
+											<form:input path="wali_telepon" placeholder="Masukan No Telp"
+												class="form-control" />
+										</div>
+
+										<div class="form-group">
+											<label>Alamat</label>
+											<form:input path="wali_alamat" placeholder="Masukan Alamat"
+												class="form-control" />
+										</div>
+
+										<div class="form-group">
+											<label>Hubungan</label>
+											<form:input path="wali_hubungan"
+												placeholder="Masukan Hubungan" class="form-control" />
+										</div>
+												
 		                                       
 		                                        
 		                                        <div class="form-group">

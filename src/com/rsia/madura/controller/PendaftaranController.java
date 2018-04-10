@@ -14,56 +14,91 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rsia.madura.entity.m_Kelas;
+import com.rsia.madura.entity.m_Pasien;
+import com.rsia.madura.entity.t_Pendaftaran;
+import com.rsia.madura.entity.m_Rujukan;
 import com.rsia.madura.entity.m_Tindakan;
+import com.rsia.madura.entity.m_Kondisi;
+import com.rsia.madura.entity.m_Paket;
 
-import com.rsia.madura.service.TindakanService;
+import com.rsia.madura.service.PendaftaranService;
+import com.rsia.madura.service.PendidikanService;
 import com.rsia.madura.service.KelasService;
+import com.rsia.madura.service.PasienService;
+import com.rsia.madura.service.RujukanService;
+import com.rsia.madura.service.TindakanService;
+import com.rsia.madura.service.KondisiPasienService;
+import com.rsia.madura.service.PaketService;
 
 @Controller
-@RequestMapping("/Tindakan")
+@RequestMapping("/Pendaftaran")
 public class PendaftaranController {
 	@Autowired
-	private TindakanService TindakanService;
-
+	private PendaftaranService PendaftaranService;
+	
 	@Autowired
-	private KelasService KelasService;
+	private PasienService PasienService;
+	
+	@Autowired
+	private RujukanService RujukanService;
+	
+	@Autowired
+	private TindakanService TindakanService;
+	
+	@Autowired
+	private KondisiPasienService KondisiPasienService;
+	
+	@Autowired
+	private PaketService PaketService;
 
-	private String uri = "redirect:http://localhost:8080/com.rsia.modura/Tindakan/list";
+	private String uri = "redirect:http://localhost:8080/com.rsia.modura/Pendaftaran/list";
 
 	@RequestMapping("/list")
 	public String viewForm(Model model) {
-		List<m_Tindakan> result = TindakanService.getTindakans();
+		t_Pendaftaran PendaftaranModel = new t_Pendaftaran();
+		
+		List<t_Pendaftaran> result = PendaftaranService.getPendaftarans();
+		
+		List<m_Pasien> pasien = PasienService.getPasien();
+		List<m_Rujukan> rujukan = RujukanService.getRujukans();
+		List<m_Tindakan> tindakan = TindakanService.getTindakans();
+		List<m_Kondisi> kondisipasien = KondisiPasienService.getKondisis();
+		List<m_Paket> paket = PaketService.getPakets();
 
-		model.addAttribute("tindakan", result);
+		model.addAttribute("pendaftaran", result);
+		model.addAttribute("Pasien", pasien);
+		model.addAttribute("Rujukan", rujukan);
+		model.addAttribute("Tindakan", tindakan);
+		model.addAttribute("Kondisipasien", kondisipasien);
+		model.addAttribute("Paket", paket);
+		model.addAttribute("PendaftaranModel", PendaftaranModel);
 
-		return "v_m_tindakan";
+		return "v_pendaftaran";
 	}
 
 	@RequestMapping("/tambah")
 	public String addForm(Model model) {
-		m_Tindakan tindakanModel = new m_Tindakan();
-		List<m_Kelas> kelas = KelasService.getKelases();
+		t_Pendaftaran pendaftaranModel = new t_Pendaftaran();
 
-		Map<String, String> jenistindakan = new HashMap<String, String>();
-		jenistindakan.put("O", "Operatif");
-		jenistindakan.put("N", "Non Operatif");
+		Map<String, String> jenispendaftaran = new HashMap<String, String>();
+		jenispendaftaran.put("O", "Operatif");
+		jenispendaftaran.put("N", "Non Operatif");
 
-		model.addAttribute("kelas", kelas);
-		model.addAttribute("jenistindakan", jenistindakan);
-		model.addAttribute("tindakanModel", tindakanModel);
+		model.addAttribute("jenispendaftaran", jenispendaftaran);
+		model.addAttribute("pendaftaranModel", pendaftaranModel);
 
-		return "TindakanAddForm";
+		return "PendaftaranAddForm";
 	}
 
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
-	public String Store(@ModelAttribute("tindakanModel") m_Tindakan tindakanModel) {
+	public String Store(@ModelAttribute("pendaftaranModel") t_Pendaftaran pendaftaranModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		tindakanModel.setTindakan_aktif("Y");
-		tindakanModel.setTindakan_created_by("Admin");
-		tindakanModel.setTindakan_created_date(currentTime);
+		pendaftaranModel.setPendaftaran_aktif("Y");
+		pendaftaranModel.setPendaftaran_created_by("Admin");
+		pendaftaranModel.setPendaftaran_created_date(currentTime);
 
-		TindakanService.store(tindakanModel);
+		PendaftaranService.store(pendaftaranModel);
 
 		return this.uri;
 	}
@@ -73,12 +108,12 @@ public class PendaftaranController {
 
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		m_Tindakan tindakanModel = TindakanService.getTindakan(id);
+		t_Pendaftaran pendaftaranModel = PendaftaranService.getPendaftaran(id);
 
-		tindakanModel.setTindakan_aktif("T");
-		tindakanModel.setTindakan_deleted_date(currentTime);
+		pendaftaranModel.setPendaftaran_aktif("T");
+		pendaftaranModel.setPendaftaran_deleted_date(currentTime);
 
-		TindakanService.delete(tindakanModel);
+		PendaftaranService.delete(pendaftaranModel);
 
 		return this.uri;
 	}
@@ -86,30 +121,28 @@ public class PendaftaranController {
 	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
 	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
 
-		m_Tindakan result = TindakanService.getTindakan(id);
-		List<m_Kelas> kelas = KelasService.getKelases();
+		t_Pendaftaran result = PendaftaranService.getPendaftaran(id);
 
-		Map<String, String> jenistindakan = new HashMap<String, String>();
-		jenistindakan.put("O", "Operatif");
-		jenistindakan.put("N", "Non Operatif");
+		Map<String, String> jenispendaftaran = new HashMap<String, String>();
+		jenispendaftaran.put("O", "Operatif");
+		jenispendaftaran.put("N", "Non Operatif");
 
-		model.addAttribute("kelas", kelas);
-		model.addAttribute("jenistindakan", jenistindakan);
+		model.addAttribute("jenispendaftaran", jenispendaftaran);
 
-		model.addAttribute("tindakanModel", result);
+		model.addAttribute("pendaftaranModel", result);
 
-		return "TindakanUpdateForm";
+		return "PendaftaranUpdateForm";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String Update(@ModelAttribute("tindakanModel") m_Tindakan tindakanModel) {
+	public String Update(@ModelAttribute("pendaftaranModel") t_Pendaftaran pendaftaranModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		tindakanModel.setTindakan_aktif("Y");
-		tindakanModel.setTindakan_updated_by("Admin");
-		tindakanModel.setTindakan_updated_date(currentTime);
+		pendaftaranModel.setPendaftaran_aktif("Y");
+		pendaftaranModel.setPendaftaran_updated_by("Admin");
+		pendaftaranModel.setPendaftaran_updated_date(currentTime);
 
-		TindakanService.update(tindakanModel);
+		PendaftaranService.update(pendaftaranModel);
 
 		return this.uri;
 	}

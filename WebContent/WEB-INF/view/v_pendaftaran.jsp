@@ -261,13 +261,123 @@
 										<p class="title"> Tambah Pendaftaran </p>
 									</div>
 								</div>
+								<!-- 
 								<div style="padding-top: 1rem;padding-left: 5px;background-color: #f4f4f4">
 									<a href="v_pasien.html">
 									<button type="button" class="btn btn-sm btn-primary" id="add_passien" ">Tambah Pasien Baru </button>
 									</a>
 								</div>
+								-->
+								
 								<div class="card-block row" style="background-color: #f4f4f4">
 								<div class="col-6">
+									
+									<form:form modelAttribute="PendaftaranModel" method="POST" action="store">
+										<div class="form-group">
+											<label>Nomor Rekam Medis</label>
+											<div class="select2-wrapper">
+												<form:select path="m_pasien_id"
+													class="form-control input-lg select2-single">
+													<c:forEach var="pasien" items="${Pasien}">
+														<form:option value="${pasien.pasien_id}"
+															label="${pasien.pasien_norm} - ${pasien.pasien_nama}"/>
+													</c:forEach>
+												</form:select>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label class="control-label">Kondisi Pasien</label>
+											<div class="select2-wrapper">
+												<form:select path="m_pasien_id"
+													class="form-control input-lg select2-single">
+													<c:forEach var="kondisipasien" items="${Kondisipasien}">
+														<form:option value="${kondisipasien.kondisi_id}"
+															label="${kondisipasien.kondisi_nama}"/>
+													</c:forEach>
+												</form:select>
+											</div>
+										</div>
+										
+										
+										<div class="form-group">
+											<label class="control-label">Kondisi Kedatangan Pasien</label>
+											<select class="form-control boxed form-control-sm" id="kondisi_pasien">
+												<option value="D">Datang Sendiri</option>
+												<option value="R">Rujukan</option>
+											</select>
+										</div>
+										
+										<div class="form-group" id="rujukan_id">
+											<label>Rujukan</label>
+											<div class="select2-wrapper">
+												<form:select path="m_rujukan_id"
+													class="form-control input-lg select2-single">
+													<c:forEach var="rujukan" items="${Rujukan}">
+														<form:option value="${rujukan.rujukan_id}"
+															label="${rujukan.rujukan_nama}"/>
+													</c:forEach>
+												</form:select>
+											</div> 
+											
+											<label>Tindakan</label>
+											<div class="select2-wrapper">
+												<form:select path="m_rujukan_id"
+													class="form-control input-lg select2-single">
+													<c:forEach var="tindakan" items="${Tindakan}">
+														<form:option value="${tindakan.tindakan_id}"
+															label="${tindakan.tindakan_nama}"/>
+													</c:forEach>
+												</form:select>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label class="control-label">Poli</label>
+											<select class="form-control boxed form-control-sm">
+												<option value=O">Obyn</option>
+												<option value="A">Anak</option>
+											</select>
+										</div>
+										
+										<div class="form-group">
+											<label class="control-label">Dokter</label>
+											<select class="form-control boxed form-control-sm">
+													<option>Rahayu</option>
+													<option>Sri</option>
+												</select>
+										</div>
+										
+										<div class="form-group">
+											<label class="control-label">Jenis Pendaftaran</label>
+											<select class="form-control boxed form-control-sm">
+													<option>Rawat Inap</option>
+													<option>Rawat Jalan</option>
+												</select>
+										</div>
+										
+										<div class="form-group">
+											<label class="control-label">Paket</label>
+											<div class="select2-wrapper">
+												<form:select path="m_pasien_id"
+													class="form-control input-lg select2-single">
+													<c:forEach var="paket" items="${Paket}">
+														<form:option value="${paket.paket_id}"
+															label="${paket.paket_nama}"/>
+													</c:forEach>
+												</form:select>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
+											<button type="button" class="btn btn-danger d_pasien-button">
+												<a href="http://localhost:8080/com.rsia.modura/Pasien/list" />Batal</a>
+											</button>
+										</div>
+									</form:form>
+									
+									
 								   <div class="form-group">
 										<label for="exampleInputEmail1">Nomor Rekam medis</label>
 										<input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="Cari Nomer Rekan Medis">
@@ -428,14 +538,30 @@
 			<div class="color-secondary"></div>
 		</div>
 	</div>
-	<script src="js/vendor.js"></script>
-	<script src="js/app.js"></script>
+	
 	<script type="text/javascript">
 		$(document).ready(function(){
-						$("#add_Pendaftaran").click(function(){
-							$("#add_Pendaftaran_form").slideToggle('slow');
-						});
-					});
+			$("#add_Pendaftaran").click(function(){
+				$("#add_Pendaftaran_form").slideToggle('slow');
+			});
+			
+			$('#rujukan_id').hide();
+		});
+		
+		function getDataPasien(id) {
+			console.log();	
+		}
+		
+		$('#kondisi_pasien').on('change', function() {
+		  var kondisi_datang = this.value ;
+		  
+		  if (kondisi_datang == 'D') {
+			  $('#rujukan_id').hide();
+		  } else {
+			  $('#rujukan_id').show();
+		  }
+		})
+		
 	</script>
 </body>
 
