@@ -6,7 +6,7 @@
 				<section class="section">
 					<div class="row">
 						<div class="col-md-12">
-							<a href="/kelas/tambah" class="pull-right btn btn-primary">Tambah</a>
+							<a href="/paket/tambah" class="pull-right btn btn-primary">Tambah</a>
 						</div>
 					</div>
 					<jsp:include page="inc/tabel.jsp" />

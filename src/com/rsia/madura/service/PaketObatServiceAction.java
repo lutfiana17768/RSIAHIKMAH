@@ -6,63 +6,63 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rsia.madura.dao.PaketObatDAO;
-import com.rsia.madura.entity.m_PaketObat;
+import com.rsia.madura.dao.NPaketObatDAO;
+import com.rsia.madura.entity.MPaketObat;
 
 @Repository
 public class PaketObatServiceAction implements PaketObatService {
 	@Autowired
-	private PaketObatDAO PaketObatDAO;
+	private NPaketObatDAO paketObatDAO;
 
 	@Override
 	@Transactional
-	public List<m_PaketObat> getPaketObats() {
+	public List<MPaketObat> findAll() {
 		// TODO Auto-generated method stub
-		return PaketObatDAO.getPaketObats();
+		return paketObatDAO.getPaketObats();
 	}
 
 	@Override
 	@Transactional
-	public List<m_PaketObat> getPaketObats(int page, int limit) {
+	public List<MPaketObat> findAll(int page, int limit) {
 		// TODO Auto-generated method stub
-		return PaketObatDAO.getPaketObats(page, limit);
+		return paketObatDAO.getPaketObats(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public String createLinks(int page, int limit) {
 		// TODO Auto-generated method stub
-		return PaketObatDAO.createLinks(page, limit);
+		return paketObatDAO.createLinks(page, limit);
 	}
 
 	@Override
 	@Transactional
-	public m_PaketObat getPaketObat(int id) {
+	public MPaketObat getPaketObat(int id) {
 		// TODO Auto-generated method stub
-		return PaketObatDAO.getPaketObat(id);
+		return paketObatDAO.getPaketObat(id);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_PaketObat data) {
+	public void store(MPaketObat data) {
 		// TODO Auto-generated method stub
-		PaketObatDAO.Store(data);
-
-	}
-
-	@Override
-	@Transactional
-	public void update(m_PaketObat data) {
-		// TODO Auto-generated method stub
-		PaketObatDAO.Update(data);
+		paketObatDAO.Store(data);
 
 	}
 
 	@Override
 	@Transactional
-	public void delete(m_PaketObat data) {
+	public void update(MPaketObat data) {
 		// TODO Auto-generated method stub
-		PaketObatDAO.Delete(data);
+		paketObatDAO.Update(data);
+
+	}
+
+	@Override
+	@Transactional
+	public void delete(MPaketObat data) {
+		// TODO Auto-generated method stub
+		paketObatDAO.Delete(data);
 	}
 
 }

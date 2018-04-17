@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-14 17:52:41 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-14 17:52:41 
+ */
 package com.rsia.madura.controller;
 
 import java.sql.Timestamp;
@@ -13,8 +19,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import com.rsia.madura.entity.m_Pasien;
+import com.rsia.madura.entity.MPasien;
 import com.rsia.madura.entity.m_Pendidikan;
 import com.rsia.madura.entity.m_Provinsi;
 import com.rsia.madura.entity.m_Kota;
@@ -22,7 +29,7 @@ import com.rsia.madura.entity.m_Kecamatan;
 import com.rsia.madura.entity.m_Kelurahan;
 import com.rsia.madura.entity.m_Agama;
 
-import com.rsia.madura.service.PasienService;
+import com.rsia.madura.service.NPasienService;
 import com.rsia.madura.service.PendidikanService;
 import com.rsia.madura.service.ProvinsiService;
 import com.rsia.madura.service.KotaService;
@@ -31,10 +38,10 @@ import com.rsia.madura.service.KelurahanService;
 import com.rsia.madura.service.AgamaService;
 
 @Controller
-@RequestMapping("/Pasien")
+@RequestMapping("/pasien")
 public class PasienController {
 	@Autowired
-	private PasienService PasienService;
+	private NPasienService PasienService;
 	@Autowired
 	private ProvinsiService ProvinsiService;
 	@Autowired
@@ -48,23 +55,23 @@ public class PasienController {
 	@Autowired
 	private PendidikanService PendidikanService;
 
-	private String uri = "redirect:http://localhost:8080/com.rsia.modura/Pasien/list";
+	private String uri = "redirect: /pasien";
 
-	@RequestMapping("/list")
-	public String viewFormPasien(Model model) {
-		List<m_Pasien> result = PasienService.getPasien();
+	@RequestMapping(method=RequestMethod.GET)
+	public String IndexView(Model model) {
+		List<MPasien> pasiens = PasienService.getPasien();
 
-		model.addAttribute("Pasien", result);
+		model.addAttribute("pasiens", pasiens);
 
-		return "v_m_pasien_list";
+		return "pasien/index";
 	
 	}
 
 	@RequestMapping(value = "/tambah", method = RequestMethod.GET)
 	public String AddForm(Model model) {
 
-		m_Pasien pasienModel = new m_Pasien();
-		List<m_Pasien> pasien = PasienService.getPasien();
+		MPasien pasienModel = new MPasien();
+		List<MPasien> pasien = PasienService.getPasien();
 		List<m_Provinsi> provinsi = ProvinsiService.getProvinsis();
 		List<m_Kota> kota = KotaService.getKotas();
 		List<m_Kecamatan> kecamatan = KecamatanService.getKecamatans();
@@ -94,16 +101,14 @@ public class PasienController {
 		model.addAttribute("Pendidikan", pendidikan);
 		model.addAttribute("pasienModel", pasienModel);
 		
-		 return "v_m_pasien_tambah";
-		 // return "v_m_pasien_tambah_old";
-		// return "v_pendaftaran";
+		return "pasien/tambah";
 	} 
 	
 	@RequestMapping(value = "/tambahold", method = RequestMethod.GET)
 	public String AddFormOld(Model model) {
 
-		m_Pasien pasienModel = new m_Pasien();
-		List<m_Pasien> pasien = PasienService.getPasien();
+		MPasien pasienModel = new MPasien();
+		List<MPasien> pasien = PasienService.getPasien();
 		List<m_Provinsi> provinsi = ProvinsiService.getProvinsis();
 		List<m_Kota> kota = KotaService.getKotas();
 		List<m_Kecamatan> kecamatan = KecamatanService.getKecamatans();
@@ -139,7 +144,7 @@ public class PasienController {
 	} 
 	
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
-	public String Store(@ModelAttribute("pasienModel") m_Pasien pasienModel) {
+	public String Store(@ModelAttribute("pasienModel") MPasien pasienModel) {
 
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
@@ -155,12 +160,12 @@ public class PasienController {
 		return this.uri;
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String DeleteUpdate(Model model, @RequestParam(value = "Id", required = false) int id) {
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String DeleteUpdate(Model model, @PathVariable int id) {
 
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		m_Pasien pasienModel = PasienService.getPasien(id);
+		MPasien pasienModel = PasienService.getPasien(id);
 
 		pasienModel.setPasien_aktif("T");
 		pasienModel.setPasien_deleted_date(currentTime);
@@ -170,8 +175,8 @@ public class PasienController {
 		return this.uri;
 	}
 
-	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
-	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
+	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+	public String UpdateFormView(Model model, @PathVariable int id) {
 		List<m_Provinsi> provinsi = ProvinsiService.getProvinsis();
 		List<m_Kota> kota = KotaService.getKotas();
 		List<m_Kecamatan> kecamatan = KecamatanService.getKecamatans();
@@ -199,14 +204,14 @@ public class PasienController {
 		model.addAttribute("Agama", agama);
 		model.addAttribute("Pendidikan", pendidikan);
 
-		m_Pasien result = PasienService.getPasien(id);
+		MPasien result = PasienService.getPasien(id);
 		model.addAttribute("pasienModel", result);
 
-		return "v_m_pasien_update";
+		return "pasien/update";
 	}
 
-	@RequestMapping(value = "/form-update/update", method = RequestMethod.POST)
-	public String Update(@ModelAttribute("pasienModel") m_Pasien pasienModel) {
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String Update(@ModelAttribute("pasienModel") MPasien pasienModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		pasienModel.setPasien_aktif("Y");

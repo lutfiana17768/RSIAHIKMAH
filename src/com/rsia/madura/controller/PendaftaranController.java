@@ -17,9 +17,9 @@ import com.rsia.madura.entity.m_Kelas;
 import com.rsia.madura.entity.m_Pasien;
 import com.rsia.madura.entity.t_Pendaftaran;
 import com.rsia.madura.entity.m_Rujukan;
-import com.rsia.madura.entity.m_Tindakan;
+import com.rsia.madura.entity.MTindakan;
 import com.rsia.madura.entity.m_Kondisi;
-import com.rsia.madura.entity.m_Paket;
+import com.rsia.madura.entity.MPaket;
 
 import com.rsia.madura.service.PendaftaranService;
 import com.rsia.madura.service.PendidikanService;
@@ -61,9 +61,9 @@ public class PendaftaranController {
 		
 		List<m_Pasien> pasien = PasienService.getPasien();
 		List<m_Rujukan> rujukan = RujukanService.getRujukans();
-		List<m_Tindakan> tindakan = TindakanService.getTindakans();
+		List<MTindakan> tindakan = TindakanService.findAll();
 		List<m_Kondisi> kondisipasien = KondisiPasienService.getKondisis();
-		List<m_Paket> paket = PaketService.getPakets();
+		List<MPaket> paket = PaketService.findAll();
 
 		model.addAttribute("pendaftaran", result);
 		model.addAttribute("Pasien", pasien);

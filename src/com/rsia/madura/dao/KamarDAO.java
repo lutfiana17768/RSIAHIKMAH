@@ -2,16 +2,16 @@ package com.rsia.madura.dao;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_Kamar;
+import com.rsia.madura.entity.MKamar;
 
 public interface KamarDAO {
-	public List<m_Kamar> getKamars();
-	public List<m_Kamar> getKamars(int page, int limit);
+	public List<MKamar> getKamars();
+	public List<MKamar> getKamars(int page, int limit);
 	public String createLinks(int page, int limit);
-	public m_Kamar getKamar(int KamarId);
+	public MKamar getKamar(int KamarId);
 	
-	public void Store(m_Kamar Model);
-	public void Update(m_Kamar Model);
-	public void Delete(m_Kamar Model);
+	public void Store(MKamar Model);
+	public void Update(MKamar Model);
+	public void Delete(MKamar Model);
 
 }

@@ -22,7 +22,6 @@ import com.rsia.madura.entity.MTindakan;
 import com.rsia.madura.service.KelasService;
 import com.rsia.madura.service.TindakanService;
 
-
 @Controller
 @RequestMapping("/tindakan")
 public class TindakanController {

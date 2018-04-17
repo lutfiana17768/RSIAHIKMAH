@@ -17,7 +17,7 @@ import com.rsia.madura.service.KotaService;
 import com.rsia.madura.service.ProvinsiService;
 
 @Controller
-@RequestMapping("/kota")
+@RequestMapping("/Kota")
 public class KotaController {
 		
 		@Autowired

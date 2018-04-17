@@ -2,15 +2,15 @@ package com.rsia.madura.service;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_PaketObat;
+import com.rsia.madura.entity.MPaketObat;
 
 public interface PaketObatService {
-	public List<m_PaketObat> getPaketObats();
-	public List<m_PaketObat> getPaketObats(int page, int limit);
+	public List<MPaketObat> findAll();
+	public List<MPaketObat> findAll(int page, int limit);
 	public String createLinks(int page, int limit);
-	public m_PaketObat getPaketObat(int id);
+	public MPaketObat getPaketObat(int id);
 	
-	public void store(m_PaketObat data);
-	public void update(m_PaketObat data);
-	public void delete(m_PaketObat data);
+	public void store(MPaketObat data);
+	public void update(MPaketObat data);
+	public void delete(MPaketObat data);
 }

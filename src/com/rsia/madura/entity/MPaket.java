@@ -14,6 +14,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+
+import com.rsia.madura.entity.MKelas;
 
 @Entity
 @Table(name="m_paket")
@@ -26,9 +30,6 @@ public class MPaket {
 	@Column(name="paket_nama")
 	private String paket_nama;
 	
-	@Column(name="paket_kelas")
-	private int paket_kelas;
-	
 	@Column(name="paket_keterangan")
 	private String paket_keterangan;
 	
@@ -38,6 +39,12 @@ public class MPaket {
 	@Column(name="paket_aktif")
 	private String paket_aktif;
 	
+	@ManyToOne
+	private MKelas kelas;
+
+	@ManyToOne
+	private MTindakan tindakan;
+
 	@Column(name="paket_created_by")
 	private String paket_created_by;
 	
@@ -76,14 +83,6 @@ public class MPaket {
 
 	public void setPaket_nama(String paket_nama) {
 		this.paket_nama = paket_nama;
-	}
-
-	public int getPaket_kelas() {
-		return paket_kelas;
-	}
-
-	public void setPaket_kelas(int paket_kelas) {
-		this.paket_kelas = paket_kelas;
 	}
 
 	public String getPaket_keterangan() {
@@ -172,5 +171,21 @@ public class MPaket {
 
 	public void setPaket_deleted_by(String paket_deleted_by) {
 		this.paket_deleted_by = paket_deleted_by;
+	}
+
+	public MKelas getKelas() {
+		return this.kelas;
+	}
+
+	public void setKelas(MKelas kelas) {
+		this.kelas = kelas;
+	}
+
+	public MTindakan getTindakan() {
+		return this.tindakan;
+	}
+
+	public void setTindakan(MTindakan tindakan) {
+		this.tindakan = tindakan;
 	}
 }

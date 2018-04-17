@@ -17,7 +17,7 @@ import com.rsia.madura.service.KecamatanService;
 import com.rsia.madura.service.KotaService;
 
 @Controller
-@RequestMapping("/kecamatan")
+@RequestMapping("/Kecamatan")
 public class KecamatanController {
 	@Autowired
 	private KecamatanService kecamatanService;

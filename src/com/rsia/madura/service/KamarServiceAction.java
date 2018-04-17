@@ -7,26 +7,26 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.KamarDAO;
-import com.rsia.madura.entity.m_Kamar;
+import com.rsia.madura.entity.MKamar;
 
 @Service
 public class KamarServiceAction implements KamarService{
 	@Autowired
 	private KamarDAO kamarDAO;
+
 	@Override
 	@Transactional
-	public List<m_Kamar> getKamars() {
+	public List<MKamar> findAll() {
 		// TODO Auto-generated method stub
-		return kamarDAO.getKamars();
+		return this.kamarDAO.getKamars();
 	}
 
 	@Override
 	@Transactional
-	public List<m_Kamar> getKamars(int page, int limit) {
+	public List<MKamar> findAll(int page, int limit) {
 		// TODO Auto-generated method stub
-		return kamarDAO.getKamars(page, limit);
+		return this.kamarDAO.getKamars(page, limit);
 	}
-
 	@Override
 	@Transactional
 	public String createLinks(int page, int limit) {
@@ -36,14 +36,14 @@ public class KamarServiceAction implements KamarService{
 
 	@Override
 	@Transactional
-	public m_Kamar getKamar(int id) {
+	public MKamar getKamar(int id) {
 		// TODO Auto-generated method stub
 		return kamarDAO.getKamar(id);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_Kamar data) {
+	public void store(MKamar data) {
 		// TODO Auto-generated method stub
 		kamarDAO.Store(data);
 		
@@ -51,7 +51,7 @@ public class KamarServiceAction implements KamarService{
 
 	@Override
 	@Transactional
-	public void update(m_Kamar data) {
+	public void update(MKamar data) {
 		// TODO Auto-generated method stub
 		kamarDAO.Update(data);
 		
@@ -59,7 +59,7 @@ public class KamarServiceAction implements KamarService{
 
 	@Override
 	@Transactional
-	public void delete(m_Kamar data) {
+	public void delete(MKamar data) {
 		// TODO Auto-generated method stub
 		kamarDAO.Delete(data);
 	}

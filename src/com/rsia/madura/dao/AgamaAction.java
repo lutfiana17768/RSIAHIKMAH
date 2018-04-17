@@ -22,7 +22,7 @@ public class AgamaAction implements AgamaDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Agama> query = current.createQuery("from m_agama", m_Agama.class);
+		Query<m_Agama> query = current.createQuery("from m_Agama", m_Agama.class);
 
 		List<m_Agama> agama = query.getResultList();
 

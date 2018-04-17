@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rsia.madura.entity.m_Agama;
-import com.rsia.madura.entity.m_Kelas;
+import com.rsia.madura.entity.MKelas;
 import com.rsia.madura.entity.m_Ruang;
 
 import com.rsia.madura.service.KelasService;
@@ -51,7 +51,7 @@ public class RuanganController {
 	public String addForm(Model model) {
 		m_Ruang ruangModel = new m_Ruang();
 
-		List<m_Kelas> kelas = KelasService.getKelases();
+		List<MKelas> kelas = KelasService.findAll();
 
 		Map<String, String> pelayanan = new HashMap<String, String>();
 		pelayanan.put("1", "Pelayanan 1");
@@ -102,7 +102,7 @@ public class RuanganController {
 
 		m_Ruang ruangModel = RuangService.getRuang(id);
 		
-		List<m_Kelas> kelas = KelasService.getKelases();
+		List<MKelas> kelas = KelasService.findAll();
 		
 		Map<String, String> pelayanan = new HashMap<String, String>();
 		pelayanan.put("1", "Pelayanan 1");

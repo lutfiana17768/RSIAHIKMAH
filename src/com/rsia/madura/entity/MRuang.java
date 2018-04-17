@@ -17,8 +17,6 @@ import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 
-import com.rsia.madura.entity.MKelas;
-
 @Entity
 @Table(name="m_ruang")
 public class MRuang {
@@ -28,7 +26,7 @@ public class MRuang {
 	private Integer ruang_id;
 
 	@Column(name = "ruang_kode")
-	private Integer ruang_kode;
+	private String ruang_kode;
 
 	@Column(name = "ruang_nama")
 	private String ruang_nama;
@@ -37,10 +35,10 @@ public class MRuang {
 	private String ruang_keterangan;
 
 	@Column(name = "ruang_kepala")
-	private Integer ruang_kepala;
+	private String ruang_kepala;
 
 	@ManyToOne
-	private MKelas ruang_kelas;
+	private MKelas kelas;
 
 	@Column(name = "m_pelayanan_id")
 	private Integer m_pelayanan_id;
@@ -86,11 +84,11 @@ public class MRuang {
 		this.ruang_id = ruang_id;
 	}
 
-	public Integer getRuang_kode() {
+	public String getRuang_kode() {
 		return ruang_kode;
 	}
 
-	public void setRuang_kode(Integer ruang_kode) {
+	public void setRuang_kode(String ruang_kode) {
 		this.ruang_kode = ruang_kode;
 	}
 
@@ -110,20 +108,20 @@ public class MRuang {
 		this.ruang_keterangan = ruang_keterangan;
 	}
 
-	public Integer getRuang_kepala() {
+	public String getRuang_kepala() {
 		return ruang_kepala;
 	}
 
-	public void setRuang_kepala(Integer ruang_kepala) {
+	public void setRuang_kepala(String ruang_kepala) {
 		this.ruang_kepala = ruang_kepala;
 	}
 
-	public MKelas getRuang_kelas() {
-		return this.ruang_kelas;
+	public MKelas getKelas() {
+		return this.kelas;
 	}
 
-	public void setRuang_kelas(MKelas kelas) {
-		this.ruang_kelas = kelas;
+	public void setKelas(MKelas kelas) {
+		this.kelas = kelas;
 	}
 
 	public Integer getM_pelayanan_id() {

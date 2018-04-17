@@ -15,7 +15,7 @@ import com.rsia.madura.entity.m_Jabatan;
 import com.rsia.madura.service.JabatanService;
 
 @Controller
-@RequestMapping("/jabatan")
+@RequestMapping("/Jabatan")
 public class JabatanController {
 	@Autowired
 	private JabatanService jabatanService;

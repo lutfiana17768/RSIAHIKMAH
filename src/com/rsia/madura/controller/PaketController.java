@@ -16,14 +16,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.rsia.madura.entity.MKelas;
 import com.rsia.madura.entity.MPaket;
+import com.rsia.madura.entity.MRuang;
+import com.rsia.madura.entity.MTindakan;
+
+import com.rsia.madura.entity.MPaketTindakan;
+// MPaketRuang
+// MPaketTindakan
+// MPaketPenunjang
+// MPaketObat
+
 import com.rsia.madura.service.KelasService;
 import com.rsia.madura.service.PaketService;
+import com.rsia.madura.service.RuangService;
+import com.rsia.madura.service.TindakanService;
+
+import com.rsia.madura.service.NPaketTindakanService;
+// PaketRuangService
+// PaketTindakanService
+// PaketPenunjangService
+// PaketObatService
 
 @Controller
-@RequestMapping("/paketan")
+@RequestMapping("/paket")
 public class PaketController {
 	@Autowired
 	private PaketService paketService;
@@ -31,26 +50,57 @@ public class PaketController {
 	@Autowired
 	private KelasService kelasService;
 
-	private String uri ="redirect: /paketan";
+	@Autowired
+	private RuangService ruangService;
+
+	@Autowired
+	private TindakanService tindakanService;
+
+	@Autowired
+	private NPaketTindakanService paketTindakanService;
+	// PaketRuangService
+	// PaketPenunjangService
+	// PaketObatService
+	
+	private String uri ="redirect: /paket";
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model) {
 		List<MPaket> paketan = paketService.findAll();
 		model.addAttribute("paketan", paketan);
 		model.addAttribute("footerjs", "");
-		return "paketan/index";
+		return "paket/index";
 	}
 
 	@RequestMapping(value="/tambah", method=RequestMethod.GET)
 	public String FormView(Model model) {
 		List<MKelas> kelases = kelasService.findAll();
 		List<MPaket> paketan = paketService.findAll();
+		List<MRuang> ruangs = ruangService.findAll();
+		List<MTindakan> tindakans = tindakanService.findAll();
+
+		ModelAndView script = new ModelAndView("paket/inc/script");
+
+		// PaketRuangs
+		List<MPaketTindakan> paketTindakans = paketTindakanService.findAll();
+		// PaketPenunjangs
+		// PaketObats
+		
 		MPaket paketModel = new MPaket();
 
 		model.addAttribute("paketan", paketan);
 		model.addAttribute("kelases", kelases);
+		model.addAttribute("ruangs", ruangs);
+		model.addAttribute("tindakans", tindakans);
+		
+		// PaketRuangs
+		model.addAttribute("paketTindakans", paketTindakans);
+		// PaketPenunjangs
+		// PaketObats
+		
 		model.addAttribute("paketModel", paketModel);
-		return "paketan/tambah";
+		model.addAttribute("footerjs", "../paket/inc/footerjs.jsp");
+		return "paket/tambah";
 	}
 
 	@RequestMapping(value="/store", method=RequestMethod.POST)
@@ -69,7 +119,7 @@ public class PaketController {
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("paketModel", paketModel);
 
-		return "paketan/update";
+		return "paket/update";
 	}
 
 	@RequestMapping(value="/update", method=RequestMethod.POST)

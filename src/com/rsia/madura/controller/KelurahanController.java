@@ -18,7 +18,7 @@ import com.rsia.madura.service.KecamatanService;
 
 
 @Controller
-@RequestMapping("/kelurahan")
+@RequestMapping("/Kelurahan")
 public class KelurahanController {
 	
 	@Autowired

@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_PaketObat;
+import com.rsia.madura.entity.MPaketObat;
 
 @Repository
 public class PaketObatAction implements PaketObatDAO {
@@ -18,34 +18,34 @@ public class PaketObatAction implements PaketObatDAO {
 	public int total;
 
 	@Override
-	public List<m_PaketObat> getPaketObats() {
+	public List<MPaketObat> getPaketObats() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_PaketObat> query = current.createQuery("from m_paket_obat", m_PaketObat.class);
+		Query<MPaketObat> query = current.createQuery("from m_paket_obat", MPaketObat.class);
 
-		List<m_PaketObat> paketobat = query.getResultList();
+		List<MPaketObat> paketobat = query.getResultList();
 
 		return paketobat;
 	}
 
 	@Override
-	public List<m_PaketObat> getPaketObats(int page, int limit) {
+	public List<MPaketObat> getPaketObats(int page, int limit) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_PaketObat> query = current.createQuery("from m_paket_obat", m_PaketObat.class);
-		List<m_PaketObat> paketobat = query.getResultList();
+		Query<MPaketObat> query = current.createQuery("from m_paket_obat", MPaketObat.class);
+		List<MPaketObat> paketobat = query.getResultList();
 		this.total = paketobat.size();
 		paketobat = this.getData(page, limit);
 
 		return paketobat;
 	}
 
-	public List<m_PaketObat> getData(int page, int limit) {
+	public List<MPaketObat> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_PaketObat> query = current.createQuery("from m_paket_obat", m_PaketObat.class)
+		Query<MPaketObat> query = current.createQuery("from m_paket_obat", MPaketObat.class)
 				.setFirstResult((page - 1) * limit).setMaxResults(limit);
-		List<m_PaketObat> Result = query.getResultList();
+		List<MPaketObat> Result = query.getResultList();
 
 		return Result;
 	}
@@ -91,17 +91,17 @@ public class PaketObatAction implements PaketObatDAO {
 	}
 
 	@Override
-	public m_PaketObat getPaketObat(int paketobatId) {
+	public MPaketObat getPaketObat(int paketobatId) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		m_PaketObat result = current.get(m_PaketObat.class, paketobatId);
+		MPaketObat result = current.get(MPaketObat.class, paketobatId);
 
 		return result;
 	}
 
 	@Override
-	public int Store(m_PaketObat PaketObatModel) {
+	public int Store(MPaketObat PaketObatModel) {
 		Session current = sessionFactory.getCurrentSession();
 
 		return (int) current.save(PaketObatModel);
@@ -109,14 +109,14 @@ public class PaketObatAction implements PaketObatDAO {
 	}
 
 	@Override
-	public void Update(m_PaketObat PaketObatModel) {
+	public void Update(MPaketObat PaketObatModel) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(PaketObatModel);
 	}
 
 	@Override
-	public void Delete(m_PaketObat PaketObatModel) {
+	public void Delete(MPaketObat PaketObatModel) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(PaketObatModel);

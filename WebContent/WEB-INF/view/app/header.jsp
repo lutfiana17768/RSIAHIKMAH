@@ -8,7 +8,9 @@
 	<title>RSI AL-HIKMAH</title>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/vendor.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/app.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/style.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/bootstrap.min.css'/>">
+	<!-- <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/gh-pages.css'/>"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/style.css'/>"> -->
 </head>
 <body>
 	<div class="main-wrapper">
@@ -56,6 +58,59 @@
 									<li><a href="/pendaftaran"><i class="fa fa-users"></i> Pendaftaran</a></li>
 								</ul>
 							</li>
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-map-marker"></i> Master Wilayah
+                                    <i class="fa arrow"></i>
+                                </a>
+                                <ul class="sidebar-nav">
+                                    <li>
+                                        <a href="/provinsi/tambah">
+                                        <i class="fa fa-users"></i> Provinsi
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/kota/tambah">
+                                        <i class="fa fa-users"></i> Kota
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/kecamatan/tambah">
+                                        <i class="fa fa-users"></i> Kecamatan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/kelurahan/tambah">
+                                        <i class="fa fa-users"></i> Kelurahan
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+							<li>
+								<a href=""> <i class="fa fa-plus-square"></i> Master Pelengkap <i class="fa arrow"></i> </a>
+								<ul class="sidebar-nav">
+									<li>
+										<a href="/kondisi"> 
+										<i class="fa fa-users"></i> Kondisi Pasien
+										</a>
+									</li>
+									<li>
+										<a href="/pegawai/tambah"> 
+											<i class="fa fa-users"></i> Pegawai
+										</a>
+									</li>
+									<li>
+										<a href="/agama"> 
+										<i class="fa fa-users"></i> Agama
+										</a>
+									</li>
+									<li>
+										<a href="/kelas">
+										<i class="fa fa-users"></i> Kelas
+										</a>
+									</li>
+								</ul>
+							</li>
 							<li>
 								<a href="">
 									<i class="fa fa-hdd-o"></i> Master <i class="fa arrow"></i>
@@ -63,7 +118,7 @@
 								<ul class="sidebar-nav">
 									<li><a href="/kelas"> Kelas </a></li>
 									<li><a href="/tindakan"> Tindakan </a></li>
-									<li><a href="/ruang"> Ruang </a></li>
+									<li><a href="/ruangan"> Ruang </a></li>
 									<li><a href="/paket"> Paket </a></li>
 								</ul>
 							</li>

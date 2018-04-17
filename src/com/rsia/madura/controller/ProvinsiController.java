@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:50:41 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:50:41 
+ */
 package com.rsia.madura.controller;
 
 import java.util.List;
@@ -16,7 +22,7 @@ import com.rsia.madura.service.ProvinsiService;
 
 
 @Controller
-@RequestMapping("/provinsi")
+@RequestMapping("/Provinsi")
 public class ProvinsiController {
 	
 	@Autowired

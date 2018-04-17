@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Kamar;
+import com.rsia.madura.entity.MKamar;
 
 @Repository
 public class KamarAction implements KamarDAO {
@@ -17,34 +17,34 @@ public class KamarAction implements KamarDAO {
 	public int total;
 
 	@Override
-	public List<m_Kamar> getKamars() {
+	public List<MKamar> getKamars() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Kamar> query = current.createQuery("from m_kamar", m_Kamar.class);
+		Query<MKamar> query = current.createQuery("from m_kamar", MKamar.class);
 
-		List<m_Kamar> agama = query.getResultList();
+		List<MKamar> agama = query.getResultList();
 
 		return agama;
 	}
 
 	@Override
-	public List<m_Kamar> getKamars(int page, int limit) {
+	public List<MKamar> getKamars(int page, int limit) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Kamar> query = current.createQuery("from m_Kamar", m_Kamar.class);
-		List<m_Kamar> agama = query.getResultList();
+		Query<MKamar> query = current.createQuery("from m_Kamar", MKamar.class);
+		List<MKamar> agama = query.getResultList();
 		this.total = agama.size();
 		agama = this.getData(page, limit);
 
 		return agama;
 	}
 
-	public List<m_Kamar> getData(int page, int limit) {
+	public List<MKamar> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Kamar> query = current.createQuery("from m_Kamar", m_Kamar.class).setFirstResult((page - 1) * limit)
+		Query<MKamar> query = current.createQuery("from m_Kamar", MKamar.class).setFirstResult((page - 1) * limit)
 				.setMaxResults(limit);
-		List<m_Kamar> Result = query.getResultList();
+		List<MKamar> Result = query.getResultList();
 
 		return Result;
 	}
@@ -90,17 +90,17 @@ public class KamarAction implements KamarDAO {
 	}
 
 	@Override
-	public m_Kamar getKamar(int agamaId) {
+	public MKamar getKamar(int agamaId) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		m_Kamar result = current.get(m_Kamar.class, agamaId);
+		MKamar result = current.get(MKamar.class, agamaId);
 
 		return result;
 	}
 
 	@Override
-	public void Store(m_Kamar data) {
+	public void Store(MKamar data) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.save(data);
@@ -108,14 +108,14 @@ public class KamarAction implements KamarDAO {
 	}
 
 	@Override
-	public void Update(m_Kamar data) {
+	public void Update(MKamar data) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(data);
 	}
 
 	@Override
-	public void Delete(m_Kamar data) {
+	public void Delete(MKamar data) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(data);

@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.rsia.madura.entity.m_Kelas;
-import com.rsia.madura.entity.m_Obat;
-import com.rsia.madura.entity.m_Paket;
-import com.rsia.madura.entity.m_PaketObat;
+import com.rsia.madura.entity.MKelas;
+import com.rsia.madura.entity.MObat;
+import com.rsia.madura.entity.MPaket;
+import com.rsia.madura.entity.MPaketObat;
 
 import com.rsia.madura.service.KelasService;
 import com.rsia.madura.service.ObatService;
@@ -24,7 +24,7 @@ import com.rsia.madura.service.PaketService;
 import com.rsia.madura.service.PaketObatService;
 
 @Controller
-@RequestMapping("/PaketObat")
+@RequestMapping("/paket-obat")
 public class PaketObatController {
 	@Autowired
 	private PaketObatService PaketObatService;
@@ -38,25 +38,33 @@ public class PaketObatController {
 	@Autowired
 	private ObatService ObatService;
 
-	private String uri = "redirect:http://localhost:8080/com.rsia.modura/PaketObat/list";
-
-	@RequestMapping("/list")
-	public String viewForm(Model model) {
-//		List<m_PaketObat> result = PaketObatService.getPaketObats();
-//
-//		model.addAttribute("paketobat", result);
-
-		//return "PaketObatList";
-		return "v_paket";
+	private String uri = "redirect: /paket-obat";
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public String IndexView(Model model) {
+		List<MPaketObat> result = PaketObatService.findAll();
+		model.addAttribute("paketobat", result);
+		model.addAttribute("footerjs", "");
+		return "paketObat/index";
 	}
+
+// 	@RequestMapping("/list")
+// 	public String viewForm(Model model) {
+// //		List<MPaketObat> result = PaketObatService.getPaketObats();
+// //
+// //		model.addAttribute("paketobat", result);
+
+// 		//return "PaketObatList";
+// 		return "v_paket";
+// 	}
 
 	@RequestMapping("/tambah")
 	public String addForm(Model model) {
-		m_PaketObat paketobatModel = new m_PaketObat();
+		MPaketObat paketobatModel = new MPaketObat();
 
-		List<m_Paket> paket = PaketService.getPakets();
-		List<m_Obat> obat = ObatService.getObats();
-		List<m_Kelas> kelas = KelasService.getKelases();
+		List<MPaket> paket = PaketService.findAll();
+		List<MObat> obat = ObatService.findAll();
+		List<MKelas> kelas = KelasService.findAll();
 
 		Map<String, String> satuan = new HashMap<String, String>();
 		satuan.put("1", "MM");
@@ -68,11 +76,11 @@ public class PaketObatController {
 		model.addAttribute("satuan", satuan);
 		model.addAttribute("paketobatModel", paketobatModel);
 
-		return "PaketObatAddForm";
+		return "paketObat/tambah";
 	}
 
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
-	public String Store(@ModelAttribute("paketobatModel") m_PaketObat paketobatModel) {
+	public String Store(@ModelAttribute("paketobatModel") MPaketObat paketobatModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		paketobatModel.setPaket_barang_aktif("Y");
@@ -89,7 +97,7 @@ public class PaketObatController {
 
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		m_PaketObat paketobatModel = PaketObatService.getPaketObat(id);
+		MPaketObat paketobatModel = PaketObatService.getPaketObat(id);
 
 		paketobatModel.setPaket_barang_aktif("T");
 		paketobatModel.setPakeobat_deleted_date(currentTime);
@@ -102,8 +110,8 @@ public class PaketObatController {
 	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
 	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
 
-		m_PaketObat result = PaketObatService.getPaketObat(id);
-		List<m_Kelas> kelas = KelasService.getKelases();
+		MPaketObat result = PaketObatService.getPaketObat(id);
+		List<MKelas> kelas = KelasService.findAll();
 
 		Map<String, String> jenistindakan = new HashMap<String, String>();
 		jenistindakan.put("O", "Operatif");
@@ -118,7 +126,7 @@ public class PaketObatController {
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String Update(@ModelAttribute("paketobatModel") m_PaketObat paketobatModel) {
+	public String Update(@ModelAttribute("paketobatModel") MPaketObat paketobatModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		paketobatModel.setPaket_barang_aktif("Y");

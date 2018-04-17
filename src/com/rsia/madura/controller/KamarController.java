@@ -13,48 +13,54 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.rsia.madura.entity.m_Kamar;
-import com.rsia.madura.entity.m_Kelas;
-import com.rsia.madura.entity.m_Ruang;
+import com.rsia.madura.entity.MKamar;
+import com.rsia.madura.entity.MKelas;
+import com.rsia.madura.entity.MRuang;
 
 import com.rsia.madura.service.KamarService;
-import com.rsia.madura.service.RuanganService;
+import com.rsia.madura.service.RuangService;
 import com.rsia.madura.service.KelasService;
 
 @Controller
 @RequestMapping("/Kamar")
 public class KamarController {
 	@Autowired
-	private KamarService KamarService;
+	private KamarService kamarService;
 
 	@Autowired
-	private RuanganService RuangService;
+	private RuangService ruangService;
 
 	@Autowired
-	private KelasService KelasService;
+	private KelasService kelasService;
 
-	private String uri = "redirect:http://localhost:8080/com.rsia.modura/Kamar/list/";
+	private String uri ="redirect: /kamar";
 
-	@RequestMapping("/list")
-	public String list(Model model, @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-			@RequestParam(value = "limit", required = false, defaultValue = "10") int limit) {
-
-		List<m_Kamar> result = KamarService.getKamars(page, limit);
-		String link = KamarService.createLinks(page, limit);
-		m_Kamar kamarModel = new m_Kamar();
-
-		model.addAttribute("kamar", result);
-		model.addAttribute("link", link);
-		model.addAttribute("kamarModel", kamarModel);
-
-		return "v_m_kamar_list";
+	@RequestMapping(method=RequestMethod.GET)
+	public String IndexView(Model model) {
+		List<MRuang> ruangs = ruangService.findAll();
+		model.addAttribute("ruangs", ruangs);
+		model.addAttribute("footerjs", "");
+		return "ruangan/index";
 	}
+	// public String list(Model model, @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+	// 		@RequestParam(value = "limit", required = false, defaultValue = "10") int limit) {
+
+	// 	List<m_Kamar> result = KamarService.getKamars(page, limit);
+	// 	String link = KamarService.createLinks(page, limit);
+	// 	m_Kamar kamarModel = new m_Kamar();
+
+	// 	model.addAttribute("kamar", result);
+	// 	model.addAttribute("link", link);
+	// 	model.addAttribute("kamarModel", kamarModel);
+
+	// 	return "v_m_kamar_list";
+	// }
 
 	@RequestMapping("/tambah")
 	public String addForm(Model model) {
-		m_Kamar kamarModel = new m_Kamar();
-		List<m_Ruang> ruang = RuangService.getRuangs();
-		List<m_Kelas> kelas = KelasService.getKelases();
+		MKamar kamarModel = new MKamar();
+		List<MRuang> ruang = ruangService.findAll();
+		List<MKelas> kelas = kelasService.findAll();
 
 		Map<String, String> pelayanan = new HashMap<String, String>();
 		pelayanan.put("I", "Rawat Inap");
@@ -69,14 +75,14 @@ public class KamarController {
 	}
 
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
-	public String Store(@ModelAttribute("kamarModel") m_Kamar kamarModel) {
+	public String Store(@ModelAttribute("kamarModel") MKamar kamarModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		kamarModel.setKamar_aktif("Y");
 		kamarModel.setKamar_created_by("Admin");
 		kamarModel.setKamar_created_date(currentTime);
 
-		KamarService.store(kamarModel);
+		kamarService.store(kamarModel);
 
 		return this.uri;
 	}
@@ -86,12 +92,12 @@ public class KamarController {
 
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		m_Kamar kamarModel = KamarService.getKamar(id);
+		MKamar kamarModel = kamarService.getKamar(id);
 
 		kamarModel.setKamar_aktif("T");
 		kamarModel.setKamar_deleted_date(currentTime);
 
-		KamarService.delete(kamarModel);
+		kamarService.delete(kamarModel);
 
 		return this.uri;
 	}
@@ -99,10 +105,10 @@ public class KamarController {
 	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
 	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
 
-		m_Kamar result = KamarService.getKamar(id);
+		MKamar result = kamarService.getKamar(id);
 
-		List<m_Ruang> ruang = RuangService.getRuangs();
-		List<m_Kelas> kelas = KelasService.getKelases();
+		List<MRuang> ruang = ruangService.findAll();
+		List<MKelas> kelas = kelasService.findAll();
 
 		Map<String, String> pelayanan = new HashMap<String, String>();
 		pelayanan.put("I", "Rawat Inap");
@@ -118,14 +124,14 @@ public class KamarController {
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String Update(@ModelAttribute("kamarModel") m_Kamar kamarModel) {
+	public String Update(@ModelAttribute("kamarModel") MKamar kamarModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		kamarModel.setKamar_aktif("Y");
 		kamarModel.setKamar_updated_by("Admin");
 		kamarModel.setKamar_updated_date(currentTime);
 
-		KamarService.update(kamarModel);
+		kamarService.update(kamarModel);
 
 		return this.uri;
 	}
