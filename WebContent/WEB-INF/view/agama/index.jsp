@@ -5,7 +5,7 @@
 	<jsp:include page="../app/header.jsp" />
 		<section class="section">
 			<div class="container">
-				<div class="container" id="add_kamar_form" style="display: none">
+				<div class="container" id="add_user_form" style="display: none">
 
 				</div>
 				<div class="container">
@@ -18,8 +18,7 @@
 
 						<div class="card-block" style="background-color: #f4f4f4">
 							<button class="btn btn-primary">
-								<a href="http://localhost:8080/com.rsia.modura/Kamar/tambah" />Tambah
-								Data</a>
+								<a href="/user/tambah" />Tambah Data</a>
 							</button>
 							<jsp:include page="inc/tabel.jsp" />
 						</div>

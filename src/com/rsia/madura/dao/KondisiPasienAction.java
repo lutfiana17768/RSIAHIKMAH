@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:17:07 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:17:07 
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,8 +14,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Kondisi;
-import com.rsia.madura.entity.m_Provinsi;
+import com.rsia.madura.entity.MKondisi;
+import com.rsia.madura.entity.MProvinsi;
 
 @Repository
 public class KondisiPasienAction implements KondisiPasienDAO {
@@ -19,33 +25,33 @@ public class KondisiPasienAction implements KondisiPasienDAO {
 	public int total;
 
 	@Override
-	public List<m_Kondisi> getKondisis() {
+	public List<MKondisi> getKondisis() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<m_Kondisi> query = current.createQuery("from m_Kondisi", m_Kondisi.class);
+		Query<MKondisi> query = current.createQuery("from MKondisi", MKondisi.class);
 		
-		List<m_Kondisi> kondisi = query.getResultList();
+		List<MKondisi> kondisi = query.getResultList();
 		
 		return kondisi;
 	}
 
 	@Override
-	public List<m_Kondisi> getKondisis(int page, int limit) {
+	public List<MKondisi> getKondisis(int page, int limit) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Kondisi> query = current.createQuery("from m_Kondisi", m_Kondisi.class);
-		List<m_Kondisi> kondisi = query.getResultList();
+		Query<MKondisi> query = current.createQuery("from MKondisi", MKondisi.class);
+		List<MKondisi> kondisi = query.getResultList();
 		this.total = kondisi.size();
 		kondisi = this.getData(page, limit);
 		
 		return kondisi;
 	}
 
-	public List<m_Kondisi> getData( int page, int limit) {
+	public List<MKondisi> getData( int page, int limit) {
     	Session current = sessionFactory.getCurrentSession();
-    	Query<m_Kondisi> query = current.createQuery("from m_Kondisi", m_Kondisi.class).setFirstResult((page-1)*limit).setMaxResults(limit);
-        List<m_Kondisi> Result = query.getResultList();
+    	Query<MKondisi> query = current.createQuery("from MKondisi", MKondisi.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+        List<MKondisi> Result = query.getResultList();
 
         return Result;
     }
@@ -87,24 +93,24 @@ public class KondisiPasienAction implements KondisiPasienDAO {
 	}
 
 	@Override
-	public m_Kondisi getKondisi(int kondisiId) {
+	public MKondisi getKondisi(int kondisiId) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 		
-		m_Kondisi result = current.get(m_Kondisi.class, kondisiId);
+		MKondisi result = current.get(MKondisi.class, kondisiId);
 		
 		return result;
 	}
 
 	@Override
-	public void kondisiStore(m_Kondisi kondisiModel) {
+	public void kondisiStore(MKondisi kondisiModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.save(kondisiModel);
 	}
 
 	@Override
-	public void kondisiUpdate(m_Kondisi kondisiModel) {
+	public void kondisiUpdate(MKondisi kondisiModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(kondisiModel);
@@ -112,7 +118,7 @@ public class KondisiPasienAction implements KondisiPasienDAO {
 	}
 
 	@Override
-	public void kondisiDelete(m_Kondisi kondisiModel) {
+	public void kondisiDelete(MKondisi kondisiModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(kondisiModel);

@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:14:28 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:14:28 
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,7 +14,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Kecamatan;
+import com.rsia.madura.entity.MKecamatan;
 
 @Repository
 public class KecamatanAction implements KecamatanDAO{
@@ -17,31 +23,31 @@ public class KecamatanAction implements KecamatanDAO{
 	public int total;
 	
 	@Override
-	public List<m_Kecamatan> getKecamatans() {
+	public List<MKecamatan> getKecamatans() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<m_Kecamatan> query = current.createQuery("from m_Kecamatan", m_Kecamatan.class);
+		Query<MKecamatan> query = current.createQuery("from MKecamatan", MKecamatan.class);
 		
-		List<m_Kecamatan> Kecamatan = query.getResultList();
+		List<MKecamatan> Kecamatan = query.getResultList();
 		return Kecamatan;
 	}
 	
 	@Override
-	public List<m_Kecamatan> getKecamatans(int page, int limit){
+	public List<MKecamatan> getKecamatans(int page, int limit){
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<m_Kecamatan> query = current.createQuery("from m_Kecamatan", m_Kecamatan.class);
-		List<m_Kecamatan> Kecamatan = query.getResultList();
+		Query<MKecamatan> query = current.createQuery("from MKecamatan", MKecamatan.class);
+		List<MKecamatan> Kecamatan = query.getResultList();
 		this.total = Kecamatan.size();
 		
 		Kecamatan = this.getData(page, limit);
 		return Kecamatan;
 	}
 	
-	public List<m_Kecamatan> getData( int page, int limit) {
+	public List<MKecamatan> getData( int page, int limit) {
     	Session current = sessionFactory.getCurrentSession();
-    	Query<m_Kecamatan> query = current.createQuery("from m_Kecamatan", m_Kecamatan.class).setFirstResult((page-1)*limit).setMaxResults(limit);
-        List<m_Kecamatan> Result = query.getResultList();
+    	Query<MKecamatan> query = current.createQuery("from MKecamatan", MKecamatan.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+        List<MKecamatan> Result = query.getResultList();
 
         return Result;
     }
@@ -82,30 +88,30 @@ public class KecamatanAction implements KecamatanDAO{
     }
 
 	@Override
-	public m_Kecamatan getKecamatan(int kecamatanId) {
+	public MKecamatan getKecamatan(int kecamatanId) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		m_Kecamatan result = current.get(m_Kecamatan.class, kecamatanId);
+		MKecamatan result = current.get(MKecamatan.class, kecamatanId);
 		
 		return result;
 	}
 
 	@Override
-	public void kecamatanStore(m_Kecamatan kecamatanModel) {
+	public void kecamatanStore(MKecamatan kecamatanModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.save(kecamatanModel);
 	}
 
 	@Override
-	public void kecamatanUpdate(m_Kecamatan kecamatanModel) {
+	public void kecamatanUpdate(MKecamatan kecamatanModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(kecamatanModel);
 	}
 
 	@Override
-	public void kecamatanDelete(m_Kecamatan kecamatanModel) {
+	public void kecamatanDelete(MKecamatan kecamatanModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(kecamatanModel);

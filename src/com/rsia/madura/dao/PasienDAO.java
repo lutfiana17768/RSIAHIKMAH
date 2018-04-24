@@ -1,18 +1,23 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-14 17:54:24 
+ * @Last Modified by: Pradesga
+ * @Last Modified time: 2018-04-14 17:54:55
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_Pasien;
-import com.rsia.madura.entity.m_Pasien;
+import com.rsia.madura.entity.MPasien;
 
 public interface PasienDAO {
-	public List<m_Pasien> getPasien();
-	public List<m_Pasien> getPasiens();
-	public List<m_Pasien> getPasiens(int page, int limit);
+	public List<MPasien> getPasien();
+	public List<MPasien> getPasiens();
+	public List<MPasien> getPasiens(int page, int limit);
 	public String createLinks(int page, int limit);
-	public m_Pasien getPasien(int PasienId);
+	public MPasien getPasien(int PasienId);
 	
-	public void PasienStore(m_Pasien PasienModel);
-	public void PasienUpdate(m_Pasien PasienModel);
-	public void PasienDelete(m_Pasien PasienModel);
+	public void PasienStore(MPasien PasienModel);
+	public void PasienUpdate(MPasien PasienModel);
+	public void PasienDelete(MPasien PasienModel);
 }

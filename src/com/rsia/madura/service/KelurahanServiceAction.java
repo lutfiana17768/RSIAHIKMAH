@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:31:52 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:31:52 
+ */
 package com.rsia.madura.service;
 
 import java.util.List;
@@ -7,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.KelurahanDAO;
-import com.rsia.madura.entity.m_Kelurahan;
+import com.rsia.madura.entity.MKelurahan;
 
 @Service
 public class KelurahanServiceAction implements KelurahanService{
@@ -15,14 +21,14 @@ public class KelurahanServiceAction implements KelurahanService{
 	@Autowired
 	private KelurahanDAO kelurahanDAO;
 	
-	@Transactional
 	@Override
-	public List<m_Kelurahan> getKelurahans() {
+	@Transactional
+	public List<MKelurahan> getKelurahans() {
 		return kelurahanDAO.getKelurahans();
 	}
 	@Override
 	@Transactional
-	public List<m_Kelurahan> getKelurahans(int page, int limit){
+	public List<MKelurahan> getKelurahans(int page, int limit){
 		return kelurahanDAO.getKelurahans(page, limit);
 	}
 	
@@ -30,23 +36,28 @@ public class KelurahanServiceAction implements KelurahanService{
 	public String createLinks(int page, int limit) {
 		return kelurahanDAO.createLinks(page, limit);
 	}
+	
 	@Override
-	public m_Kelurahan getKelurahan(int kelurahanId) {
+	@Transactional
+	public MKelurahan getKelurahan(int kelurahanId) {
 		
 		return kelurahanDAO.getKelurahan(kelurahanId);
 	}
 	@Override
-	public void store(m_Kelurahan kelurahanModel) {
+	@Transactional
+	public void store(MKelurahan kelurahanModel) {
 		kelurahanDAO.kelurahanStore(kelurahanModel);
 		
 	}
 	@Override
-	public void update(m_Kelurahan kelurahanModel) {
+	@Transactional
+	public void update(MKelurahan kelurahanModel) {
 		kelurahanDAO.kelurahanUpdate(kelurahanModel);
 		
 	}
 	@Override
-	public void delete(m_Kelurahan kelurahanModel) {
+	@Transactional
+	public void delete(MKelurahan kelurahanModel) {
 		kelurahanDAO.kelurahanDelete(kelurahanModel);
 		
 	}

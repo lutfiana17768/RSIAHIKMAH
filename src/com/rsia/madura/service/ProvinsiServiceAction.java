@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:40:22 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:40:22 
+ */
 package com.rsia.madura.service;
 
 import java.util.List;
@@ -7,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.ProvinsiDAO;
-import com.rsia.madura.entity.m_Provinsi;
+import com.rsia.madura.entity.MProvinsi;
 
 @Service
 public class ProvinsiServiceAction implements ProvinsiService {
@@ -16,14 +22,14 @@ public class ProvinsiServiceAction implements ProvinsiService {
 	
 	@Override
 	@Transactional
-	public List<m_Provinsi> getProvinsis() {
+	public List<MProvinsi> getProvinsis() {
 		// TODO Auto-generated method stub
 		return provinsiDAO.getProvinsis();
 	}
 	
 	@Override
 	@Transactional
-	public List<m_Provinsi> getProvinsis(int page, int limit){
+	public List<MProvinsi> getProvinsis(int page, int limit){
 		return provinsiDAO.getProvinsis(page, limit);
 	}
 	
@@ -34,21 +40,21 @@ public class ProvinsiServiceAction implements ProvinsiService {
 	
 	@Override
 	@Transactional
-	public void store(m_Provinsi provinsiModel) {
+	public void store(MProvinsi provinsiModel) {
 		
 		provinsiDAO.provinsiStore(provinsiModel);
 	}
 
 	@Override
 	@Transactional
-	public m_Provinsi getProvinsi(int provinsiId) {
+	public MProvinsi getProvinsi(int provinsiId) {
 		
 		return provinsiDAO.getProvinsi(provinsiId);
 	}
 
 	@Override
 	@Transactional
-	public void update(m_Provinsi provinsiModel) {
+	public void update(MProvinsi provinsiModel) {
 		
 		provinsiDAO.provinsiUpdate(provinsiModel);
 		
@@ -56,7 +62,7 @@ public class ProvinsiServiceAction implements ProvinsiService {
 
 	@Override
 	@Transactional
-	public void delete(m_Provinsi provinsiModel) {
+	public void delete(MProvinsi provinsiModel) {
 		provinsiDAO.provinsiDelete(provinsiModel);
 		
 	}

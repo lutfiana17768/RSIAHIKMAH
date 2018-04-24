@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:25:19 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:25:19 
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,7 +14,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Rujukan;
+import com.rsia.madura.entity.MRujukan;
 
 @Repository
 public class RujukanAction implements RujukanDAO {
@@ -17,34 +23,34 @@ public class RujukanAction implements RujukanDAO {
 	public int total;
 
 	@Override
-	public List<m_Rujukan> getRujukans() {
+	public List<MRujukan> getRujukans() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Rujukan> query = current.createQuery("from m_Rujukan", m_Rujukan.class);
+		Query<MRujukan> query = current.createQuery("from MRujukan", MRujukan.class);
 
-		List<m_Rujukan> rujukan = query.getResultList();
+		List<MRujukan> rujukan = query.getResultList();
 
 		return rujukan;
 	}
 
 	@Override
-	public List<m_Rujukan> getRujukans(int page, int limit) {
+	public List<MRujukan> getRujukans(int page, int limit) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Rujukan> query = current.createQuery("from m_Rujukan", m_Rujukan.class);
-		List<m_Rujukan> rujukan = query.getResultList();
+		Query<MRujukan> query = current.createQuery("from MRujukan", MRujukan.class);
+		List<MRujukan> rujukan = query.getResultList();
 		this.total = rujukan.size();
 		rujukan = this.getData(page, limit);
 
 		return rujukan;
 	}
 
-	public List<m_Rujukan> getData(int page, int limit) {
+	public List<MRujukan> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Rujukan> query = current.createQuery("from m_Rujukan", m_Rujukan.class)
+		Query<MRujukan> query = current.createQuery("from MRujukan", MRujukan.class)
 				.setFirstResult((page - 1) * limit).setMaxResults(limit);
-		List<m_Rujukan> Result = query.getResultList();
+		List<MRujukan> Result = query.getResultList();
 
 		return Result;
 	}
@@ -90,17 +96,17 @@ public class RujukanAction implements RujukanDAO {
 	}
 
 	@Override
-	public m_Rujukan getRujukan(int rujukanId) {
+	public MRujukan getRujukan(int rujukanId) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		m_Rujukan result = current.get(m_Rujukan.class, rujukanId);
+		MRujukan result = current.get(MRujukan.class, rujukanId);
 
 		return result;
 	}
 
 	@Override
-	public void Store(m_Rujukan data) {
+	public void Store(MRujukan data) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.save(data);
@@ -108,14 +114,14 @@ public class RujukanAction implements RujukanDAO {
 	}
 
 	@Override
-	public void Update(m_Rujukan data) {
+	public void Update(MRujukan data) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(data);
 	}
 
 	@Override
-	public void Delete(m_Rujukan data) {
+	public void Delete(MRujukan data) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(data);

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.AgamaDAO;
-import com.rsia.madura.entity.m_Agama;
+import com.rsia.madura.entity.MAgama;
 
 @Service
 public class AgamaServiceAction implements AgamaService {
@@ -16,14 +16,14 @@ public class AgamaServiceAction implements AgamaService {
 
 	@Override
 	@Transactional
-	public List<m_Agama> getAgamas() {
+	public List<MAgama> getAgamas() {
 		// TODO Auto-generated method stub
 		return agamaDAO.getAgamas();
 	}
 
 	@Override
 	@Transactional
-	public List<m_Agama> getAgamas(int page, int limit) {
+	public List<MAgama> getAgamas(int page, int limit) {
 		// TODO Auto-generated method stub
 		return agamaDAO.getAgamas(page, limit);
 	}
@@ -37,28 +37,28 @@ public class AgamaServiceAction implements AgamaService {
 
 	@Override
 	@Transactional
-	public m_Agama getAgama(int id) {
+	public MAgama getAgama(int id) {
 		// TODO Auto-generated method stub
 		return agamaDAO.getAgama(id);
 	}
 
 	@Override
 	@Transactional
-	public int store(m_Agama data) {
+	public int store(MAgama data) {
 		// TODO Auto-generated method stub
 		return agamaDAO.AgamaStore(data);
 	}
 
 	@Override
 	@Transactional
-	public void update(m_Agama data) {
+	public void update(MAgama data) {
 		// TODO Auto-generated method stub
 		agamaDAO.AgamaUpdate(data);
 	}
 
 	@Override
 	@Transactional
-	public void delete(m_Agama data) {
+	public void delete(MAgama data) {
 		// TODO Auto-generated method stub
 		agamaDAO.AgamaDelete(data);
 	}

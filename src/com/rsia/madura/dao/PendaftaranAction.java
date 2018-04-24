@@ -8,20 +8,20 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.t_Pendaftaran;
+import com.rsia.madura.entity.MPendaftaran;
 
 
 @Repository
 public class PendaftaranAction implements PendaftaranDAO {
 
 	@Override
-	public List<t_Pendaftaran> getPendaftarans() {
+	public List<MPendaftaran> getPendaftarans() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<t_Pendaftaran> getPendaftarans(int page, int limit) {
+	public List<MPendaftaran> getPendaftarans(int page, int limit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -33,25 +33,25 @@ public class PendaftaranAction implements PendaftaranDAO {
 	}
 
 	@Override
-	public t_Pendaftaran getPendaftaran(int PendaftaranId) {
+	public MPendaftaran getPendaftaran(int PendaftaranId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int PendaftaranStore(t_Pendaftaran PendaftaranModel) {
+	public int PendaftaranStore(MPendaftaran PendaftaranModel) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public void PendaftaranUpdate(t_Pendaftaran PendaftaranModel) {
+	public void PendaftaranUpdate(MPendaftaran PendaftaranModel) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void PendaftaranDelete(t_Pendaftaran PendaftaranModel) {
+	public void PendaftaranDelete(MPendaftaran PendaftaranModel) {
 		// TODO Auto-generated method stub
 		
 	}

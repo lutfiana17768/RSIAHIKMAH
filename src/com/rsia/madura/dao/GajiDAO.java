@@ -2,14 +2,18 @@ package com.rsia.madura.dao;
 
 import java.util.List;
 
-import com.rsia.madura.entity.t_Gaji;
+// sesuaikan nama entitinya
+import com.rsia.madura.entity.MGaji;
 
+// sesuaikan nama file
 public interface GajiDAO {
-	public List<t_Gaji> getGajis();
-	public t_Gaji getGaji(int gajiId);
-	public void getTotal(t_Gaji gajiModel);
+	public List<MGaji> getGajis();
+	public List<MGaji> getGajis(int page, int limit);
+	public MGaji getGaji(int gajiId);
+	public String createLinks(int page, int limit);
+	public void getTotal(MGaji gajiModel);
 	
-	public void gajiStore(t_Gaji gajiModel);
-	public void gajiUpdate(t_Gaji gajiModel);
-	public void gajiDelete(t_Gaji gajiModel);
+	public void gajiStore(MGaji gajiModel);
+	public void gajiUpdate(MGaji gajiModel);
+	public void gajiDelete(MGaji gajiModel);
 }

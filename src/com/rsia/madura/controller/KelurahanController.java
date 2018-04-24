@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:46:36 
+ * @Last Modified by: Pradesga
+ * @Last Modified time: 2018-04-15 13:56:14
+ */
 package com.rsia.madura.controller;
 
 import java.sql.Timestamp;
@@ -10,15 +16,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import com.rsia.madura.entity.m_Kelurahan;
+import com.rsia.madura.entity.MKelurahan;
 import com.rsia.madura.service.KelurahanService;
-import com.rsia.madura.entity.m_Kecamatan;
+import com.rsia.madura.entity.MKecamatan;
 import com.rsia.madura.service.KecamatanService;
 
 
 @Controller
-@RequestMapping("/Kelurahan")
+@RequestMapping("/kelurahan")
 public class KelurahanController {
 	
 	@Autowired
@@ -26,24 +33,28 @@ public class KelurahanController {
 	@Autowired
 	private KecamatanService kecamatanService;
 	
+	@RequestMapping(method=RequestMethod.GET)
+	public String Index(){
+		return "redirect: /kelurahan/tambah";
+	}
 	
 	@RequestMapping(value="/tambah", method=RequestMethod.GET)
-	public String KelurahanFormView(Model model, @RequestParam(value="page", required=false) int page, 
-			@RequestParam(value="limit", required=false) int limit){
-		List<m_Kelurahan> resultKelurahan = kelurahanService.getKelurahans(page, limit);
-		List<m_Kecamatan> resultKecamatan = kecamatanService.getKecamatans();
+	public String KelurahanFormView(Model model, @RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit){
+		List<MKelurahan> resultKelurahan = kelurahanService.getKelurahans(page, limit);
+		List<MKecamatan> resultKecamatan = kecamatanService.getKecamatans();
 		String link = kelurahanService.createLinks(page, limit);
-		m_Kelurahan kelurahanModel = new m_Kelurahan();
+		MKelurahan kelurahanModel = new MKelurahan();
 		
 		model.addAttribute("kelurahan", resultKelurahan);
 		model.addAttribute("kecamatan", resultKecamatan);
 		model.addAttribute("link", link);
 		model.addAttribute("kelurahanModel", kelurahanModel);
-		return "WilayahKelurahanAddForm";
+		return "kelurahan/tambah";
 	}
 	
 	@RequestMapping(value="/store", method=RequestMethod.POST)
-	public String kelurahanStore(@ModelAttribute("kelurahanModel") m_Kelurahan kelurahanModel) {
+	public String kelurahanStore(@ModelAttribute("kelurahanModel") MKelurahan kelurahanModel) {
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
@@ -53,22 +64,22 @@ public class KelurahanController {
 		
 		kelurahanService.store(kelurahanModel);
 		
-		return "redirect:http://localhost:8080/com.rsia.modura/kelurahan/tambah/?page=1&limit=10";
+		return "redirect: /kelurahan/tambah";
 	}
 	
-	@RequestMapping(value="/form-update", method=RequestMethod.GET)
-	public String kelurahanUpdateFormView(Model model, @RequestParam(value="kelurahanId", required=false) int kelurahanId){
-		m_Kelurahan result = kelurahanService.getKelurahan(kelurahanId);
-		List<m_Kecamatan> resultKecamatan = kecamatanService.getKecamatans();
+	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
+	public String kelurahanUpdateFormView(Model model, @PathVariable int id){
+		MKelurahan result = kelurahanService.getKelurahan(id);
+		List<MKecamatan> resultKecamatan = kecamatanService.getKecamatans();
 		
 		model.addAttribute("kelurahanModel", result);
 		model.addAttribute("kecamatan", resultKecamatan);
 		
-		return "WilayahKelurahanUpdateForm";
+		return "kelurahan/update";
 	}
 	
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String kelurahanUpdate(@ModelAttribute("kelurahanModel") m_Kelurahan kelurahanModel) {
+	public String kelurahanUpdate(@ModelAttribute("kelurahanModel") MKelurahan kelurahanModel) {
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
@@ -77,20 +88,20 @@ public class KelurahanController {
 		
 		kelurahanService.update(kelurahanModel);
 		
-		return "redirect:http://localhost:8080/com.rsia.modura/kelurahan/tambah/?page=1&limit=10";
+		return "redirect: /kelurahan/tambah";
 	}
 	
-	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public String kelurahanDelete(Model model, @RequestParam(value="kelurahanId", required=false) int kelurahanId) {
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	public String kelurahanDelete(Model model, @PathVariable int id) {
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		m_Kelurahan kelurahanModel = kelurahanService.getKelurahan(kelurahanId);
+		MKelurahan kelurahanModel = kelurahanService.getKelurahan(id);
 		kelurahanModel.setKelurahanAktif("T");
 		kelurahanModel.setKelurahanDeletedDate(currentTime);
 		
 		kelurahanService.delete(kelurahanModel);
 		
-		return "redirect:http://localhost:8080/com.rsia.modura/kelurahan/tambah/?page=1&limit=10";
+		return "redirect: /kelurahan/tambah";
 	}
 }

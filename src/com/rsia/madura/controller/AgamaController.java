@@ -10,36 +10,43 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import com.rsia.madura.entity.m_Agama;
+import com.rsia.madura.entity.MAgama;
 import com.rsia.madura.service.AgamaService;
 
 @Controller
-@RequestMapping("/Agama")
+@RequestMapping("/agama")
 public class AgamaController {
 	@Autowired
 	private AgamaService agamaService;
 	
-	private String uri ="redirect:http://localhost:8080/com.rsia.modura/Agama/tambah/?page=1&limit=10" ;
-		
+	private String uri ="redirect: /agama/tambah";
+
+	@RequestMapping(method=RequestMethod.GET)
+	public String IndexView() {
+		/*list view not yet available*/
+		return this.uri;
+	}
+
 	@RequestMapping(value="/tambah", method=RequestMethod.GET)
 	public String FormView(Model model, 
-			@RequestParam(value="page", required=false) int page, 
-			@RequestParam(value="limit", required=false) int limit){
+			@RequestParam(value="page", required=false, defaultValue = "0") int page, 
+			@RequestParam(value="limit", required=false, defaultValue = "10") int limit){
 		
-		List<m_Agama> result = agamaService.getAgamas(page, limit);
+		List<MAgama> result = agamaService.getAgamas();
 		String link = agamaService.createLinks(page, limit);
-		m_Agama agamaModel = new m_Agama();
+		MAgama agamaModel = new MAgama();
 		
 		model.addAttribute("agama", result);
-		model.addAttribute("link", link);
+		// model.addAttribute("link", link);
 		model.addAttribute("agamaModel", agamaModel);
 		
-		return "AgamaAddForm";
+		return "agama/tambah";
 	}
 
 	@RequestMapping(value="/store", method=RequestMethod.POST)
-	public String Store(@ModelAttribute("agamaModel") m_Agama agamaModel) {
+	public String Store(@ModelAttribute("agamaModel") MAgama agamaModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
 		agamaModel.setAgamaAktif("Y");
@@ -51,12 +58,12 @@ public class AgamaController {
 		return this.uri;
 	}
 	
-	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public String DeleteUpdate(Model model, @RequestParam(value="Id", required=false) int id) {
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	public String DeleteUpdate(Model model, @PathVariable int id) {
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		m_Agama agamaModel = agamaService.getAgama(id);
+		MAgama agamaModel = agamaService.getAgama(id);
 		
 		agamaModel.setAgamaAktif("T");
 		agamaModel.setAgamaDeletedDate(currentTime);
@@ -66,18 +73,18 @@ public class AgamaController {
 		return this.uri;
 	}
 	
-	@RequestMapping(value="/form-update", method=RequestMethod.GET)
-	public String UpdateFormView(Model model, @RequestParam(value="Id", required=false) int id){
+	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
+	public String UpdateFormView(Model model, @PathVariable int id){
 		
-		m_Agama result = agamaService.getAgama(id);
+		MAgama result = agamaService.getAgama(id);
 		
 		model.addAttribute("agamaModel", result);
 		
-		return "AgamaUpdateForm";
+		return "agama/update";
 	}
 	
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String Update(@ModelAttribute("agamaModel") m_Agama agamaModel) {
+	public String Update(@ModelAttribute("agamaModel") MAgama agamaModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
 		agamaModel.setAgamaAktif("Y");

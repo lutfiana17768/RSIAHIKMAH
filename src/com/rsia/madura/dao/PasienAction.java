@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-14 17:54:07 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-14 17:54:07 
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,7 +14,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Pasien;
+import com.rsia.madura.entity.MPasien;
 
 @Repository
 public class PasienAction implements PasienDAO {
@@ -17,45 +23,45 @@ public class PasienAction implements PasienDAO {
 	public int total;
 
 	@Override
-	public List<m_Pasien> getPasien() {
+	public List<MPasien> getPasien() {
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Pasien> query = current.createQuery("from m_Pasien", m_Pasien.class);
+		Query<MPasien> query = current.createQuery("from MPasien", MPasien.class);
 
-		List<m_Pasien> Pasien = query.getResultList();
+		List<MPasien> Pasien = query.getResultList();
 
 		return Pasien;
 	}
 
 	@Override
-	public List<m_Pasien> getPasiens() {
+	public List<MPasien> getPasiens() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Pasien> query = current.createQuery("from m_Pasien", m_Pasien.class);
+		Query<MPasien> query = current.createQuery("from MPasien", MPasien.class);
 
-		List<m_Pasien> pasien = query.getResultList();
+		List<MPasien> pasien = query.getResultList();
 
 		return pasien;
 	}
 
 	@Override
-	public List<m_Pasien> getPasiens(int page, int limit) {
+	public List<MPasien> getPasiens(int page, int limit) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Pasien> query = current.createQuery("from m_Pasien", m_Pasien.class);
-		List<m_Pasien> pasien = query.getResultList();
+		Query<MPasien> query = current.createQuery("from MPasien", MPasien.class);
+		List<MPasien> pasien = query.getResultList();
 		this.total = pasien.size();
 		pasien = this.getData(page, limit);
 
 		return pasien;
 	}
 
-	public List<m_Pasien> getData(int page, int limit) {
+	public List<MPasien> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Pasien> query = current.createQuery("from m_Pasien", m_Pasien.class).setFirstResult((page - 1) * limit)
+		Query<MPasien> query = current.createQuery("from MPasien", MPasien.class).setFirstResult((page - 1) * limit)
 				.setMaxResults(limit);
-		List<m_Pasien> Result = query.getResultList();
+		List<MPasien> Result = query.getResultList();
 
 		return Result;
 	}
@@ -101,30 +107,30 @@ public class PasienAction implements PasienDAO {
 	}
 
 	@Override
-	public m_Pasien getPasien(int pasienId) {
+	public MPasien getPasien(int pasienId) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		m_Pasien result = current.get(m_Pasien.class, pasienId);
+		MPasien result = current.get(MPasien.class, pasienId);
 
 		return result;
 	}
 
 	@Override
-	public void PasienStore(m_Pasien PasienModel) {
+	public void PasienStore(MPasien PasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 		current.save(PasienModel);
 	}
 
 	@Override
-	public void PasienUpdate(m_Pasien PasienModel) {
+	public void PasienUpdate(MPasien PasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 		current.saveOrUpdate(PasienModel);
 
 	}
 
 	@Override
-	public void PasienDelete(m_Pasien PasienModel) {
+	public void PasienDelete(MPasien PasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 		current.saveOrUpdate(PasienModel);
 	}

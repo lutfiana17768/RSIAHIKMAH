@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.PaketTindakanDAO;
-import com.rsia.madura.entity.m_PaketTindakan;
+import com.rsia.madura.entity.MPaketTindakan;
 
 @Service
 public class PaketTindakanServiceAction implements PaketTindakanService {
@@ -16,14 +16,14 @@ public class PaketTindakanServiceAction implements PaketTindakanService {
 
 	@Override
 	@Transactional
-	public List<m_PaketTindakan> getPaketTindakans() {
+	public List<MPaketTindakan> findAll() {
 		// TODO Auto-generated method stub
 		return PaketTindakanDAO.getPaketTindakans();
 	}
 
 	@Override
 	@Transactional
-	public List<m_PaketTindakan> getPaketTindakans(int page, int limit) {
+	public List<MPaketTindakan> findAll(int page, int limit) {
 		// TODO Auto-generated method stub
 		return PaketTindakanDAO.getPaketTindakans(page, limit);
 	}
@@ -37,14 +37,14 @@ public class PaketTindakanServiceAction implements PaketTindakanService {
 
 	@Override
 	@Transactional
-	public m_PaketTindakan getPaketTindakan(int id) {
+	public MPaketTindakan getPaketTindakan(int id) {
 		// TODO Auto-generated method stub
 		return PaketTindakanDAO.getPaketTindakan(id);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_PaketTindakan data) {
+	public void store(MPaketTindakan data) {
 		// TODO Auto-generated method stub
 		PaketTindakanDAO.Store(data);
 
@@ -52,7 +52,7 @@ public class PaketTindakanServiceAction implements PaketTindakanService {
 
 	@Override
 	@Transactional
-	public void update(m_PaketTindakan data) {
+	public void update(MPaketTindakan data) {
 		// TODO Auto-generated method stub
 		PaketTindakanDAO.Update(data);
 
@@ -60,7 +60,7 @@ public class PaketTindakanServiceAction implements PaketTindakanService {
 
 	@Override
 	@Transactional
-	public void delete(m_PaketTindakan data) {
+	public void delete(MPaketTindakan data) {
 		// TODO Auto-generated method stub
 		PaketTindakanDAO.Delete(data);
 	}

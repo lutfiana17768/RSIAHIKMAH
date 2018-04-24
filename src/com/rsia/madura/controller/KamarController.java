@@ -22,7 +22,7 @@ import com.rsia.madura.service.RuangService;
 import com.rsia.madura.service.KelasService;
 
 @Controller
-@RequestMapping("/Kamar")
+@RequestMapping("/kamar")
 public class KamarController {
 	@Autowired
 	private KamarService kamarService;

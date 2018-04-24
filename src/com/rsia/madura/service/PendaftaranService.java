@@ -2,15 +2,15 @@ package com.rsia.madura.service;
 
 import java.util.List;
 
-import com.rsia.madura.entity.t_Pendaftaran;
+import com.rsia.madura.entity.MPendaftaran;
 
 public interface PendaftaranService {
-	public List<t_Pendaftaran> getPendaftarans();
-	public List<t_Pendaftaran> getPendaftarans(int page, int limit);
+	public List<MPendaftaran> getPendaftarans();
+	public List<MPendaftaran> getPendaftarans(int page, int limit);
 	public String createLinks(int page, int limit);
-	public t_Pendaftaran getPendaftaran(int id);
+	public MPendaftaran getPendaftaran(int id);
 	
-	public void store(t_Pendaftaran data);
-	public void update(t_Pendaftaran data);
-	public void delete(t_Pendaftaran data);
+	public void store(MPendaftaran data);
+	public void update(MPendaftaran data);
+	public void delete(MPendaftaran data);
 }

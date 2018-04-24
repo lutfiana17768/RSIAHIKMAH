@@ -71,8 +71,8 @@
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="m_tindakan_id">'+m_tindakan_id+'</td>');
 
 
-                tr.append('<input type="hidden" name="tindakan.tindakan_id[' + tindakan_length + ']" value="' + m_tindakan_id + '"  >');
-                tr.append('<input type="hidden" name="tindakan.harga_tindakan[' + tindakan_length + ']" value="' + paket_tindakan_harga + '"  >');
+                tr.append('<input type="hidden" name="paket.tindakans[' + tindakan_length + '].tindakan_id" value="' + m_tindakan_id + '"  >');
+                tr.append('<input type="hidden" name="paket.tindakans[' + tindakan_length + '].tindakan_harga" value="' + paket_tindakan_harga + '"  >');
 
                 if(mode == 'new')
                 {

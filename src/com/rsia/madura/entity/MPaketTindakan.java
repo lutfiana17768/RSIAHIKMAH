@@ -1,6 +1,8 @@
 package com.rsia.madura.entity;
 import java.sql.Timestamp;
 
+import javax.persistence.AssociationOverride;
+import javax.persistence.AssociationOverrides;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

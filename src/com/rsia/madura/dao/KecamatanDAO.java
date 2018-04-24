@@ -1,17 +1,23 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:14:22 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:14:22 
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_Kecamatan;
+import com.rsia.madura.entity.MKecamatan;
 
 public interface KecamatanDAO {
-	public List<m_Kecamatan> getKecamatans();
-	public List<m_Kecamatan> getKecamatans(int page, int limit);
+	public List<MKecamatan> getKecamatans();
+	public List<MKecamatan> getKecamatans(int page, int limit);
 	public String createLinks(int page, int limit);
-	public m_Kecamatan getKecamatan(int kecamatanId);
+	public MKecamatan getKecamatan(int kecamatanId);
 	
-	public void kecamatanStore(m_Kecamatan kecamatanModel);
-	public void kecamatanUpdate(m_Kecamatan kecamatanModel);
-	public void kecamatanDelete(m_Kecamatan kecamatanModel);
+	public void kecamatanStore(MKecamatan kecamatanModel);
+	public void kecamatanUpdate(MKecamatan kecamatanModel);
+	public void kecamatanDelete(MKecamatan kecamatanModel);
 	
 }

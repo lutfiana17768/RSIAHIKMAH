@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:47:46 
+ * @Last Modified by: Pradesga
+ * @Last Modified time: 2018-04-15 13:55:53
+ */
 package com.rsia.madura.controller;
 
 import java.sql.Timestamp;
@@ -10,14 +16,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import com.rsia.madura.entity.m_Kota;
-import com.rsia.madura.entity.m_Provinsi;
+import com.rsia.madura.entity.MKota;
+import com.rsia.madura.entity.MProvinsi;
 import com.rsia.madura.service.KotaService;
 import com.rsia.madura.service.ProvinsiService;
 
 @Controller
-@RequestMapping("/Kota")
+@RequestMapping("/kota")
 public class KotaController {
 		
 		@Autowired
@@ -25,25 +32,30 @@ public class KotaController {
 		@Autowired
 		private ProvinsiService provinsiService;
 		
+		@RequestMapping(method=RequestMethod.GET)
+		public String Index(){
+			return "redirect: /kota/tambah";
+		}
+
 		@RequestMapping(value="/tambah", method=RequestMethod.GET)
-		public String KotaFormView(Model model, @RequestParam(value="page", required=false) int page, 
-				@RequestParam(value="limit", required=false) int limit){
+		public String KotaFormView(Model model, @RequestParam(value="page", required=false, defaultValue="1") int page, 
+				@RequestParam(value="limit", required=false, defaultValue="10") int limit){
 		
-			List<m_Kota> resultKota = kotaService.getKotas(page, limit);
-			List<m_Provinsi> resultProvinsi = provinsiService.getProvinsis();
+			List<MKota> resultKota = kotaService.getKotas(page, limit);
+			List<MProvinsi> resultProvinsi = provinsiService.getProvinsis();
 			String links = kotaService.createLinks(page, limit);
-			m_Kota kotaModel = new m_Kota();
+			MKota kotaModel = new MKota();
 			
 			model.addAttribute("kota", resultKota);
 			model.addAttribute("provinsi", resultProvinsi);
 			model.addAttribute("link", links);
 			model.addAttribute("kotaModel", kotaModel);
 
-			return "WilayahKotaAddForm";
+			return "kota/tambah";
 		}
 		
 		@RequestMapping(value="/store", method=RequestMethod.POST)
-		public String kotaStore(@ModelAttribute("kotaModel") m_Kota kotaModel) {
+		public String kotaStore(@ModelAttribute("kotaModel") MKota kotaModel) {
 			
 			Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 			
@@ -53,22 +65,22 @@ public class KotaController {
 			
 			kotaService.store(kotaModel);
 			
-			return "redirect:http://localhost:8080/com.rsia.modura/kota/tambah/?page=1&limit=10";
+			return "redirect: /kota/tambah";
 		}
 		
-		@RequestMapping(value="/form-update", method=RequestMethod.GET)
-		public String kotaUpdateFormView(Model model, @RequestParam(value="kotaId", required=false) int kotaId){
-			m_Kota result = kotaService.getKota(kotaId);
-			List<m_Provinsi> resultProvinsi = provinsiService.getProvinsis();
+		@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
+		public String kotaUpdateFormView(Model model, @PathVariable int id){
+			MKota result = kotaService.getKota(id);
+			List<MProvinsi> resultProvinsi = provinsiService.getProvinsis();
 			
 			model.addAttribute("kotaModel", result);
 			model.addAttribute("provinsi", resultProvinsi);
 			
-			return "WilayahKotaUpdateForm";
+			return "kota/update";
 		}
 		
 		@RequestMapping(value="/update", method=RequestMethod.POST)
-		public String kotaUpdate(@ModelAttribute("kotaModel") m_Kota kotaModel) {
+		public String kotaUpdate(@ModelAttribute("kotaModel") MKota kotaModel) {
 			
 			Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 			
@@ -77,20 +89,20 @@ public class KotaController {
 			
 			kotaService.update(kotaModel);
 			
-			return "redirect:http://localhost:8080/com.rsia.modura/kota/tambah/?page=1&limit=10";
+			return "redirect: /kota/tambah";
 		}
 		
-		@RequestMapping(value="/delete", method=RequestMethod.GET)
-		public String kotaDelete(Model model, @RequestParam(value="kotaId", required=false) int kotaId) {
+		@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+		public String kotaDelete(Model model, @PathVariable int id) {
 			
 			Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 			
-			m_Kota kotaModel = kotaService.getKota(kotaId);
+			MKota kotaModel = kotaService.getKota(id);
 			kotaModel.setkotaAktif("T");
 			kotaModel.setkotadeletedDate(currentTime);
 			
 			kotaService.delete(kotaModel);
 			
-			return "redirect:http://localhost:8080/com.rsia.modura/kota/tambah/?page=1&limit=10";
+			return "redirect: /kota/tambah";
 		}
 }

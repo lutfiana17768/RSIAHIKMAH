@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:35:11 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:35:11 
+ */
 package com.rsia.madura.service;
 
 import java.util.List;
@@ -7,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.KotaDAO;
-import com.rsia.madura.entity.m_Kota;
+import com.rsia.madura.entity.MKota;
 
 @Service
 public class KotaServicesAction implements KotaService{
@@ -16,14 +22,14 @@ public class KotaServicesAction implements KotaService{
 	
 	@Override
 	@Transactional
-	public List<m_Kota> getKotas(int page, int limit) {
+	public List<MKota> getKotas(int page, int limit) {
 		
 		return kotaDAO.getKotas(page, limit);
 	}
 	
 	@Override
 	@Transactional
-	public List<m_Kota> getKotas() {
+	public List<MKota> getKotas() {
 		
 		return kotaDAO.getKotas();
 	}
@@ -34,21 +40,21 @@ public class KotaServicesAction implements KotaService{
 
 	@Override
 	@Transactional
-	public m_Kota getKota(int kotaId) {
+	public MKota getKota(int kotaId) {
 		
 		return kotaDAO.getKota(kotaId);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_Kota kotaModel) {
+	public void store(MKota kotaModel) {
 		
 		kotaDAO.kotaStore(kotaModel);
 	}
 
 	@Override
 	@Transactional
-	public void update(m_Kota kotaModel) {
+	public void update(MKota kotaModel) {
 		
 		kotaDAO.kotaUpdate(kotaModel);
 		
@@ -56,7 +62,7 @@ public class KotaServicesAction implements KotaService{
 
 	@Override
 	@Transactional
-	public void delete(m_Kota kotaModel) {
+	public void delete(MKota kotaModel) {
 		
 		kotaDAO.kotaDelete(kotaModel);
 		

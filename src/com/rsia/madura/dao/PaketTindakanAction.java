@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:20:28 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:20:28 
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,7 +14,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_PaketTindakan;
+import com.rsia.madura.entity.MPaketTindakan;
 
 @Repository
 public class PaketTindakanAction implements PaketTindakanDAO {
@@ -18,34 +24,34 @@ public class PaketTindakanAction implements PaketTindakanDAO {
 	public int total;
 
 	@Override
-	public List<m_PaketTindakan> getPaketTindakans() {
+	public List<MPaketTindakan> getPaketTindakans() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_PaketTindakan> query = current.createQuery("from m_paket_tindakan", m_PaketTindakan.class);
+		Query<MPaketTindakan> query = current.createQuery("from MPaketTindakan", MPaketTindakan.class);
 
-		List<m_PaketTindakan> paketobat = query.getResultList();
+		List<MPaketTindakan> paketobat = query.getResultList();
 
 		return paketobat;
 	}
 
 	@Override
-	public List<m_PaketTindakan> getPaketTindakans(int page, int limit) {
+	public List<MPaketTindakan> getPaketTindakans(int page, int limit) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_PaketTindakan> query = current.createQuery("from m_paket_tindakan", m_PaketTindakan.class);
-		List<m_PaketTindakan> paketobat = query.getResultList();
+		Query<MPaketTindakan> query = current.createQuery("from MPaketTindakan", MPaketTindakan.class);
+		List<MPaketTindakan> paketobat = query.getResultList();
 		this.total = paketobat.size();
 		paketobat = this.getData(page, limit);
 
 		return paketobat;
 	}
 
-	public List<m_PaketTindakan> getData(int page, int limit) {
+	public List<MPaketTindakan> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_PaketTindakan> query = current.createQuery("from m_paket_tindakan", m_PaketTindakan.class)
+		Query<MPaketTindakan> query = current.createQuery("from MPaketTindakan", MPaketTindakan.class)
 				.setFirstResult((page - 1) * limit).setMaxResults(limit);
-		List<m_PaketTindakan> Result = query.getResultList();
+		List<MPaketTindakan> Result = query.getResultList();
 
 		return Result;
 	}
@@ -91,17 +97,17 @@ public class PaketTindakanAction implements PaketTindakanDAO {
 	}
 
 	@Override
-	public m_PaketTindakan getPaketTindakan(int pakettindakanId) {
+	public MPaketTindakan getPaketTindakan(int pakettindakanId) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		m_PaketTindakan result = current.get(m_PaketTindakan.class, pakettindakanId);
+		MPaketTindakan result = current.get(MPaketTindakan.class, pakettindakanId);
 
 		return result;
 	}
 
 	@Override
-	public int Store(m_PaketTindakan PaketTindakanModel) {
+	public int Store(MPaketTindakan PaketTindakanModel) {
 		Session current = sessionFactory.getCurrentSession();
 
 		return (int) current.save(PaketTindakanModel);
@@ -109,14 +115,14 @@ public class PaketTindakanAction implements PaketTindakanDAO {
 	}
 
 	@Override
-	public void Update(m_PaketTindakan PaketTindakanModel) {
+	public void Update(MPaketTindakan PaketTindakanModel) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(PaketTindakanModel);
 	}
 
 	@Override
-	public void Delete(m_PaketTindakan PaketTindakanModel) {
+	public void Delete(MPaketTindakan PaketTindakanModel) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(PaketTindakanModel);

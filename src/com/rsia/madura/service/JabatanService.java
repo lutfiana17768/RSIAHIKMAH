@@ -1,14 +1,20 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:27:06 
+ * @Last Modified by: Pradesga
+ * @Last Modified time: 2018-04-15 13:58:30
+ */
 package com.rsia.madura.service;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_Jabatan;
+import com.rsia.madura.entity.MJabatan;
 
 public interface JabatanService {
-	public List<m_Jabatan> getJabatans();
-	public m_Jabatan getJabatan(int jabatanId);
+	public List<MJabatan> getJabatans();
+	public MJabatan getJabatan(int jabatanId);
 	
-	public void store(m_Jabatan jabatanModel);
-	public void update(m_Jabatan jabatanModel);
-	public void delete(m_Jabatan jabatanModel);
+	public void store(MJabatan jabatanModel);
+	public void update(MJabatan jabatanModel);
+	public void delete(MJabatan jabatanModel);
 }

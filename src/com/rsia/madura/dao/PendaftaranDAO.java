@@ -2,15 +2,15 @@ package com.rsia.madura.dao;
 
 import java.util.List;
 
-import com.rsia.madura.entity.t_Pendaftaran;
+import com.rsia.madura.entity.MPendaftaran;
 
 public interface PendaftaranDAO {
-	public List<t_Pendaftaran> getPendaftarans();
-	public List<t_Pendaftaran> getPendaftarans(int page, int limit);
+	public List<MPendaftaran> getPendaftarans();
+	public List<MPendaftaran> getPendaftarans(int page, int limit);
 	public String createLinks(int page, int limit);
-	public t_Pendaftaran getPendaftaran(int PendaftaranId);
+	public MPendaftaran getPendaftaran(int PendaftaranId);
 	
-	public int PendaftaranStore(t_Pendaftaran PendaftaranModel);
-	public void PendaftaranUpdate(t_Pendaftaran PendaftaranModel);
-	public void PendaftaranDelete(t_Pendaftaran PendaftaranModel);
+	public int PendaftaranStore(MPendaftaran PendaftaranModel);
+	public void PendaftaranUpdate(MPendaftaran PendaftaranModel);
+	public void PendaftaranDelete(MPendaftaran PendaftaranModel);
 }

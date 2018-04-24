@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:29:53 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:29:53 
+ */
 package com.rsia.madura.service;
 
 import java.util.List;
@@ -7,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.KecamatanDAO;
-import com.rsia.madura.entity.m_Kecamatan;
+import com.rsia.madura.entity.MKecamatan;
 
 @Service
 public class KecamatanServiceAction implements KecamatanService {
@@ -16,13 +22,13 @@ public class KecamatanServiceAction implements KecamatanService {
 	
 	@Transactional
 	@Override
-	public List<m_Kecamatan> getKecamatans() {
+	public List<MKecamatan> getKecamatans() {
 		return kecamatanDAO.getKecamatans();
 	}
 	
 	@Override
 	@Transactional
-	public List<m_Kecamatan> getKecamatans(int page, int limit){
+	public List<MKecamatan> getKecamatans(int page, int limit){
 		return kecamatanDAO.getKecamatans(page, limit);
 	}
 	
@@ -33,14 +39,14 @@ public class KecamatanServiceAction implements KecamatanService {
 
 	@Override
 	@Transactional
-	public m_Kecamatan getKecamatan(int kecamatanId) {
+	public MKecamatan getKecamatan(int kecamatanId) {
 		
 		return kecamatanDAO.getKecamatan(kecamatanId);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_Kecamatan kecamatanModel) {
+	public void store(MKecamatan kecamatanModel) {
 		
 		kecamatanDAO.kecamatanStore(kecamatanModel);
 		
@@ -48,7 +54,7 @@ public class KecamatanServiceAction implements KecamatanService {
 
 	@Override
 	@Transactional
-	public void update(m_Kecamatan kecamatanModel) {
+	public void update(MKecamatan kecamatanModel) {
 		
 		kecamatanDAO.kecamatanUpdate(kecamatanModel);
 		
@@ -56,7 +62,7 @@ public class KecamatanServiceAction implements KecamatanService {
 
 	@Override
 	@Transactional
-	public void delete(m_Kecamatan kecamatanModel) {
+	public void delete(MKecamatan kecamatanModel) {
 		
 		kecamatanDAO.kecamatanDelete(kecamatanModel);
 		

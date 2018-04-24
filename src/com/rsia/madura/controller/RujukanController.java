@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:50:23 
+ * @Last Modified by: Pradesga
+ * @Last Modified time: 2018-04-15 13:55:10
+ */
 package com.rsia.madura.controller;
 
 import java.sql.Timestamp;
@@ -10,38 +16,39 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import com.rsia.madura.entity.m_Rujukan;
+import com.rsia.madura.entity.MRujukan;
 import com.rsia.madura.service.RujukanService;
 
 @Controller
-@RequestMapping("/Rujukan")
+@RequestMapping("/rujukan")
 public class RujukanController {
 	@Autowired
 	private RujukanService rujukanService;
 
-	private String uri = "redirect:http://localhost:8080/com.rsia.modura/Rujukan/tambah/";
+	private String uri = "redirect: /rujukan/tambah/";
 
-	@RequestMapping("/list")
-	public String viewFormPasien(Model model) {
-		List<m_Rujukan> result = rujukanService.getRujukans();
+	@RequestMapping(method=RequestMethod.GET)
+	public String IndexView(Model model){
+		List<MRujukan> result = rujukanService.getRujukans();
 		
 		model.addAttribute("rujukan", result);
 
-		return "v_rujukan";
+		return "rujukan/index";
 	}
 
 	@RequestMapping("/tambah")
 	public String addForm(Model model) {
-		m_Rujukan rujukanModel = new m_Rujukan();
+		MRujukan rujukanModel = new MRujukan();
 
 		model.addAttribute("rujukanModel", rujukanModel);
 
-		return "RujukanAddForm";
+		return "rujukan/tambah";
 	}
 
-	@RequestMapping(value = "/tambah/store", method = RequestMethod.POST)
-	public String Store(@ModelAttribute("rujukanModel") m_Rujukan rujukanModel) {
+	@RequestMapping(value = "/store", method = RequestMethod.POST)
+	public String Store(@ModelAttribute("rujukanModel") MRujukan rujukanModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		rujukanModel.setRujukan_aktif("Y");
@@ -53,33 +60,18 @@ public class RujukanController {
 		return this.uri;
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String DeleteUpdate(Model model, @RequestParam(value = "Id", required = false) int id) {
+	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+	public String UpdateFormView(Model model, @PathVariable int id) {
 
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-
-		m_Rujukan rujukanModel = rujukanService.getRujukan(id);
-
-		rujukanModel.setRujukan_aktif("T");
-		rujukanModel.setRujukan_deleted_date(currentTime);
-
-		rujukanService.delete(rujukanModel);
-
-		return this.uri;
-	}
-
-	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
-	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
-
-		m_Rujukan result = rujukanService.getRujukan(id);
+		MRujukan result = rujukanService.getRujukan(id);
 
 		model.addAttribute("rujukanModel", result);
 
-		return "RujukanUpdateForm";
+		return "rujukan/update";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String Update(@ModelAttribute("rujukanModel") m_Rujukan rujukanModel) {
+	public String Update(@ModelAttribute("rujukanModel") MRujukan rujukanModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		rujukanModel.setRujukan_aktif("Y");
@@ -91,4 +83,20 @@ public class RujukanController {
 
 		return this.uri;
 	}
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String DeleteUpdate(Model model, @PathVariable int id) {
+
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+
+		MRujukan rujukanModel = rujukanService.getRujukan(id);
+
+		rujukanModel.setRujukan_aktif("T");
+		rujukanModel.setRujukan_deleted_date(currentTime);
+
+		rujukanService.delete(rujukanModel);
+
+		return this.uri;
+	}
+
 }

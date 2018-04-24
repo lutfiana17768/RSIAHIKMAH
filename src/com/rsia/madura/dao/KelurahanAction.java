@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 14:02:31 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 14:02:31 
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,7 +14,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Kelurahan;
+import com.rsia.madura.entity.MKelurahan;
 
 @Repository
 public class KelurahanAction implements KelurahanDAO {
@@ -18,21 +24,21 @@ public class KelurahanAction implements KelurahanDAO {
 	public int total;
 	
 	@Override
-	public List<m_Kelurahan> getKelurahans() {
+	public List<MKelurahan> getKelurahans() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<m_Kelurahan> query = current.createQuery("from m_Kelurahan", m_Kelurahan.class);
+		Query<MKelurahan> query = current.createQuery("from MKelurahan", MKelurahan.class);
 		
-		List<m_Kelurahan> Kelurahan = query.getResultList();
+		List<MKelurahan> Kelurahan = query.getResultList();
 		
 		return Kelurahan;
 	}
 	
 	@Override
-	public List<m_Kelurahan> getKelurahans(int page, int limit) {
+	public List<MKelurahan> getKelurahans(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Kelurahan> query = current.createQuery("from m_Kelurahan", m_Kelurahan.class);
-		List<m_Kelurahan> Kelurahan = query.getResultList();
+		Query<MKelurahan> query = current.createQuery("from MKelurahan", MKelurahan.class);
+		List<MKelurahan> Kelurahan = query.getResultList();
 		this.total = Kelurahan.size();
 		
 		Kelurahan = this.getData(page, limit);
@@ -40,10 +46,10 @@ public class KelurahanAction implements KelurahanDAO {
 		return Kelurahan;
 	}
 	
-	public List<m_Kelurahan> getData( int page, int limit) {
+	public List<MKelurahan> getData( int page, int limit) {
     	Session current = sessionFactory.getCurrentSession();
-    	Query<m_Kelurahan> query = current.createQuery("from m_Kelurahan", m_Kelurahan.class).setFirstResult((page-1)*limit).setMaxResults(limit);
-        List<m_Kelurahan> Result = query.getResultList();
+    	Query<MKelurahan> query = current.createQuery("from MKelurahan", MKelurahan.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+        List<MKelurahan> Result = query.getResultList();
 
         return Result;
     }
@@ -84,15 +90,15 @@ public class KelurahanAction implements KelurahanDAO {
     }
 
 	@Override
-	public m_Kelurahan getKelurahan(int kelurahanId) {
+	public MKelurahan getKelurahan(int kelurahanId) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		m_Kelurahan result = current.get(m_Kelurahan.class, kelurahanId);
+		MKelurahan result = current.get(MKelurahan.class, kelurahanId);
 		return result;
 	}
 
 	@Override
-	public void kelurahanStore(m_Kelurahan kelurahanModel) {
+	public void kelurahanStore(MKelurahan kelurahanModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.save(kelurahanModel);
@@ -100,7 +106,7 @@ public class KelurahanAction implements KelurahanDAO {
 	}
 
 	@Override
-	public void kelurahanUpdate(m_Kelurahan kelurahanModel) {
+	public void kelurahanUpdate(MKelurahan kelurahanModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(kelurahanModel);
@@ -108,8 +114,8 @@ public class KelurahanAction implements KelurahanDAO {
 	}
 
 	@Override
-	public void kelurahanDelete(m_Kelurahan kelurahanModel) {
-Session current = sessionFactory.getCurrentSession();
+	public void kelurahanDelete(MKelurahan kelurahanModel) {
+		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(kelurahanModel);
 	}

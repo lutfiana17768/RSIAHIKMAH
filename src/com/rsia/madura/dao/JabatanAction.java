@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:12:22 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:12:22 
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,7 +14,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Jabatan;
+import com.rsia.madura.entity.MJabatan;
 
 @Repository
 public class JabatanAction implements JabatanDAO {
@@ -17,26 +23,26 @@ public class JabatanAction implements JabatanDAO {
 	
 	
 	@Override
-	public List<m_Jabatan> getJabatans() {
+	public List<MJabatan> getJabatans() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<m_Jabatan> jabatanQuery = current.createQuery("from m_Jabatan", m_Jabatan.class);
-		List<m_Jabatan> result = jabatanQuery.getResultList();
+		Query<MJabatan> jabatanQuery = current.createQuery("from MJabatan", MJabatan.class);
+		List<MJabatan> result = jabatanQuery.getResultList();
 		
 		return result;
 	}
 
 	@Override
-	public m_Jabatan getJabatan(int jabatanId) {
+	public MJabatan getJabatan(int jabatanId) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		m_Jabatan result = current.get(m_Jabatan.class, jabatanId);
+		MJabatan result = current.get(MJabatan.class, jabatanId);
 		
 		return result;
 	}
 
 	@Override
-	public void jabatanStore(m_Jabatan jabatanModel) {
+	public void jabatanStore(MJabatan jabatanModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.save(jabatanModel);
@@ -44,7 +50,7 @@ public class JabatanAction implements JabatanDAO {
 	}
 
 	@Override
-	public void jabatanUpdate(m_Jabatan jabatanModel) {
+	public void jabatanUpdate(MJabatan jabatanModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(jabatanModel);
@@ -52,7 +58,7 @@ public class JabatanAction implements JabatanDAO {
 	}
 
 	@Override
-	public void jabatanDelete(m_Jabatan jabatanModel) {
+	public void jabatanDelete(MJabatan jabatanModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(jabatanModel);

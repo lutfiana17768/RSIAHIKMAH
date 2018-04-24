@@ -2,15 +2,15 @@ package com.rsia.madura.dao;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_Kelurahan;
+import com.rsia.madura.entity.MKelurahan;
 
 public interface KelurahanDAO {
-	public List<m_Kelurahan> getKelurahans();
-	public List<m_Kelurahan> getKelurahans(int page, int limit);
+	public List<MKelurahan> getKelurahans();
+	public List<MKelurahan> getKelurahans(int page, int limit);
 	public String createLinks(int page, int limit);
-	public m_Kelurahan getKelurahan(int kelurahanId);
+	public MKelurahan getKelurahan(int kelurahanId);
 	
-	public void kelurahanStore(m_Kelurahan kelurahanModel);
-	public void kelurahanUpdate(m_Kelurahan kelurahanModel);
-	public void kelurahanDelete(m_Kelurahan kelurahanModel);
+	public void kelurahanStore(MKelurahan kelurahanModel);
+	public void kelurahanUpdate(MKelurahan kelurahanModel);
+	public void kelurahanDelete(MKelurahan kelurahanModel);
 }

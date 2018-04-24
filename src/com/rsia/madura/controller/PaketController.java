@@ -35,7 +35,7 @@ import com.rsia.madura.service.PaketService;
 import com.rsia.madura.service.RuangService;
 import com.rsia.madura.service.TindakanService;
 
-import com.rsia.madura.service.NPaketTindakanService;
+import com.rsia.madura.service.PaketTindakanService;
 // PaketRuangService
 // PaketTindakanService
 // PaketPenunjangService
@@ -57,7 +57,7 @@ public class PaketController {
 	private TindakanService tindakanService;
 
 	@Autowired
-	private NPaketTindakanService paketTindakanService;
+	private PaketTindakanService paketTindakanService;
 	// PaketRuangService
 	// PaketPenunjangService
 	// PaketObatService
@@ -78,8 +78,6 @@ public class PaketController {
 		List<MPaket> paketan = paketService.findAll();
 		List<MRuang> ruangs = ruangService.findAll();
 		List<MTindakan> tindakans = tindakanService.findAll();
-
-		ModelAndView script = new ModelAndView("paket/inc/script");
 
 		// PaketRuangs
 		List<MPaketTindakan> paketTindakans = paketTindakanService.findAll();

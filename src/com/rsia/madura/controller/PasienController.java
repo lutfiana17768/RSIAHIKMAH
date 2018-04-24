@@ -22,14 +22,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.rsia.madura.entity.MPasien;
-import com.rsia.madura.entity.m_Pendidikan;
-import com.rsia.madura.entity.m_Provinsi;
-import com.rsia.madura.entity.m_Kota;
-import com.rsia.madura.entity.m_Kecamatan;
-import com.rsia.madura.entity.m_Kelurahan;
-import com.rsia.madura.entity.m_Agama;
+import com.rsia.madura.entity.MPendidikan;
+import com.rsia.madura.entity.MProvinsi;
+import com.rsia.madura.entity.MKota;
+import com.rsia.madura.entity.MKecamatan;
+import com.rsia.madura.entity.MKelurahan;
+import com.rsia.madura.entity.MAgama;
 
-import com.rsia.madura.service.NPasienService;
+import com.rsia.madura.service.PasienService;
 import com.rsia.madura.service.PendidikanService;
 import com.rsia.madura.service.ProvinsiService;
 import com.rsia.madura.service.KotaService;
@@ -41,7 +41,7 @@ import com.rsia.madura.service.AgamaService;
 @RequestMapping("/pasien")
 public class PasienController {
 	@Autowired
-	private NPasienService PasienService;
+	private PasienService PasienService;
 	@Autowired
 	private ProvinsiService ProvinsiService;
 	@Autowired
@@ -72,11 +72,11 @@ public class PasienController {
 
 		MPasien pasienModel = new MPasien();
 		List<MPasien> pasien = PasienService.getPasien();
-		List<m_Provinsi> provinsi = ProvinsiService.getProvinsis();
-		List<m_Kota> kota = KotaService.getKotas();
-		List<m_Kecamatan> kecamatan = KecamatanService.getKecamatans();
-		List<m_Kelurahan> kelurahan = KelurahanService.getKelurahans();
-		List<m_Pendidikan> pendidikan = PendidikanService.getPendidikan();
+		List<MProvinsi> provinsi = ProvinsiService.getProvinsis();
+		List<MKota> kota = KotaService.getKotas();
+		List<MKecamatan> kecamatan = KecamatanService.getKecamatans();
+		List<MKelurahan> kelurahan = KelurahanService.getKelurahans();
+		List<MPendidikan> pendidikan = PendidikanService.getPendidikan();
 
 		Map<String, String> jeniskelamin = new HashMap<String, String>();
 		jeniskelamin.put("L", "Laki-Laki");
@@ -109,11 +109,11 @@ public class PasienController {
 
 		MPasien pasienModel = new MPasien();
 		List<MPasien> pasien = PasienService.getPasien();
-		List<m_Provinsi> provinsi = ProvinsiService.getProvinsis();
-		List<m_Kota> kota = KotaService.getKotas();
-		List<m_Kecamatan> kecamatan = KecamatanService.getKecamatans();
-		List<m_Kelurahan> kelurahan = KelurahanService.getKelurahans();
-		List<m_Pendidikan> pendidikan = PendidikanService.getPendidikan();
+		List<MProvinsi> provinsi = ProvinsiService.getProvinsis();
+		List<MKota> kota = KotaService.getKotas();
+		List<MKecamatan> kecamatan = KecamatanService.getKecamatans();
+		List<MKelurahan> kelurahan = KelurahanService.getKelurahans();
+		List<MPendidikan> pendidikan = PendidikanService.getPendidikan();
 
 		Map<String, String> jeniskelamin = new HashMap<String, String>();
 		jeniskelamin.put("L", "Laki-Laki");
@@ -138,8 +138,8 @@ public class PasienController {
 		model.addAttribute("Pendidikan", pendidikan);
 		model.addAttribute("pasienModel", pasienModel);
 		
-		 // return "v_m_pasien_tambah";
-		 return "v_m_pasien_tambah_old";
+		 // return "v_Mpasien_tambah";
+		 return "v_Mpasien_tambah_old";
 		// return "v_pendaftaran";
 	} 
 	
@@ -177,11 +177,11 @@ public class PasienController {
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String UpdateFormView(Model model, @PathVariable int id) {
-		List<m_Provinsi> provinsi = ProvinsiService.getProvinsis();
-		List<m_Kota> kota = KotaService.getKotas();
-		List<m_Kecamatan> kecamatan = KecamatanService.getKecamatans();
-		List<m_Kelurahan> kelurahan = KelurahanService.getKelurahans();
-		List<m_Pendidikan> pendidikan = PendidikanService.getPendidikan();
+		List<MProvinsi> provinsi = ProvinsiService.getProvinsis();
+		List<MKota> kota = KotaService.getKotas();
+		List<MKecamatan> kecamatan = KecamatanService.getKecamatans();
+		List<MKelurahan> kelurahan = KelurahanService.getKelurahans();
+		List<MPendidikan> pendidikan = PendidikanService.getPendidikan();
 
 		Map<String, String> jeniskelamin = new HashMap<String, String>();
 		jeniskelamin.put("L", "Laki-Laki");

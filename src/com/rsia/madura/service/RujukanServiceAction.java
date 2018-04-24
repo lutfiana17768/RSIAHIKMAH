@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:41:48 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:41:48 
+ */
 package com.rsia.madura.service;
 
 import java.util.List;
@@ -6,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rsia.madura.entity.m_Rujukan;
+import com.rsia.madura.entity.MRujukan;
 import com.rsia.madura.dao.RujukanDAO;
 
 @Service
@@ -16,14 +22,14 @@ public class RujukanServiceAction implements RujukanService {
 
 	@Override
 	@Transactional
-	public List<m_Rujukan> getRujukans() {
+	public List<MRujukan> getRujukans() {
 		// TODO Auto-generated method stub
 		return rujukanDAO.getRujukans();
 	}
 
 	@Override
 	@Transactional
-	public List<m_Rujukan> getRujukans(int page, int limit) {
+	public List<MRujukan> getRujukans(int page, int limit) {
 		// TODO Auto-generated method stub
 		return rujukanDAO.getRujukans(page, limit);
 	}
@@ -37,14 +43,14 @@ public class RujukanServiceAction implements RujukanService {
 
 	@Override
 	@Transactional
-	public m_Rujukan getRujukan(int id) {
+	public MRujukan getRujukan(int id) {
 		// TODO Auto-generated method stub
 		return rujukanDAO.getRujukan(id);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_Rujukan data) {
+	public void store(MRujukan data) {
 		// TODO Auto-generated method stub
 		rujukanDAO.Store(data);
 
@@ -52,7 +58,7 @@ public class RujukanServiceAction implements RujukanService {
 
 	@Override
 	@Transactional
-	public void update(m_Rujukan data) {
+	public void update(MRujukan data) {
 		// TODO Auto-generated method stub
 		rujukanDAO.Update(data);
 
@@ -60,7 +66,7 @@ public class RujukanServiceAction implements RujukanService {
 
 	@Override
 	@Transactional
-	public void delete(m_Rujukan data) {
+	public void delete(MRujukan data) {
 		// TODO Auto-generated method stub
 		rujukanDAO.Delete(data);
 	}

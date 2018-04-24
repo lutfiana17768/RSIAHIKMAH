@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rsia.madura.dao.NPaketObatDAO;
+import com.rsia.madura.dao.PaketObatDAO;
 import com.rsia.madura.entity.MPaketObat;
 
 @Repository
 public class PaketObatServiceAction implements PaketObatService {
 	@Autowired
-	private NPaketObatDAO paketObatDAO;
+	private PaketObatDAO paketObatDAO;
 
 	@Override
 	@Transactional

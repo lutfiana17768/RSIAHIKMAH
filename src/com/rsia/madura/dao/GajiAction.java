@@ -8,41 +8,53 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.t_Gaji;
+// sesuaikan nama entitinya
+import com.rsia.madura.entity.MGaji;
 
 @Repository
+// sesuaikan nama file dan daonya
 public class GajiAction implements GajiDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+	public int total;
+
 	@Override
-	public List<t_Gaji> getGajis() {
+	public List<MGaji> getGajis() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<t_Gaji> gajiQuery = current.createQuery("from t_Gaji", t_Gaji.class);
-		List<t_Gaji> result = gajiQuery.getResultList();
+		Query<MGaji> gajiQuery = current.createQuery("from MGaji", MGaji.class);
+		List<MGaji> result = gajiQuery.getResultList();
+		
+		return result;
+	}		
+	@Override
+	public List<MGaji> getGajis(int page, int limit){
+		Session current = sessionFactory.getCurrentSession();
+		Query<MGaji> query = current.createQuery("from MGaji", MGaji.class);
+		List<MGaji> gaji = query.getResultList();
+		this.total = gaji.size();
+		gaji = this.getData(page, limit);
+		
+		return gaji;
+	}
+	@Override
+	public MGaji getGaji(int gajiId) {
+		Session current = sessionFactory.getCurrentSession();
+		
+		MGaji result = current.get(MGaji.class, gajiId);
 		
 		return result;
 	}
 
 	@Override
-	public t_Gaji getGaji(int gajiId) {
-		Session current = sessionFactory.getCurrentSession();
-		
-		t_Gaji result = current.get(t_Gaji.class, gajiId);
-		
-		return result;
-	}
-
-	@Override
-	public void getTotal(t_Gaji gajiModel) {
+	public void getTotal(MGaji gajiModel) {
 		
 		gajiModel.setGajiPendapatan((gajiModel.getGajiPokok() + gajiModel.getGajiBonus()) - gajiModel.getGajiPotongan());
 		
 	}
 
 	@Override
-	public void gajiStore(t_Gaji gajiModel) {
+	public void gajiStore(MGaji gajiModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.save(gajiModel);
@@ -50,7 +62,7 @@ public class GajiAction implements GajiDAO {
 	}
 
 	@Override
-	public void gajiUpdate(t_Gaji gajiModel) {
+	public void gajiUpdate(MGaji gajiModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(gajiModel);
@@ -58,10 +70,50 @@ public class GajiAction implements GajiDAO {
 	}
 
 	@Override
-	public void gajiDelete(t_Gaji gajiModel) {
+	public void gajiDelete(MGaji gajiModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(gajiModel);
 	}
+	public List<MGaji> getData( int page, int limit) {
+    	Session current = sessionFactory.getCurrentSession();
+    	Query<MGaji> query = current.createQuery("from MGaji", MGaji.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+        List<MGaji> Result = query.getResultList();
 
+        return Result;
+    }
+	@Override
+    public String createLinks(int page, int limit) {
+        double last       = Math.ceil( (double)this.total / (double)limit );
+
+        int start      = ( ( page - 5 ) > 0 ) ? page - 5 : 1;
+        int end        = (int) (( ( page + 5 ) < last ) ? page + 5 : last);
+
+        String html       = "<ul class='pagination'>";
+
+        String first     = ( page == 1 ) ? "disabled" : "";
+        html = html + "<li class='page-first' "+ first + "><a href='?limit=" + limit + "&page=" + ( page - 1 ) + "'>&laquo;</a></li>";
+
+        if ( start > 1 ) {
+            html   = html + "<li class='page-number'><a href='?limit="+ limit + "&page=1'>1</a></li>";
+            html   = html + "<li class='page-number disabled'><span>...</span></li>";
+        }
+
+        for ( int i = start ; i <= end; i++ ) {
+            String position  = ( page == i ) ? "active" : "";
+            html   = html + "<li class='page-number ' " + position + "'><a href='?limit=" + limit + "&page=" + i + "'> "+ i + "</a></li>";
+        }
+
+        if ( end < last ) {
+            html   = html + "<li class='page-number disabled'><span>...</span></li>";
+            html   = html + "<li class='page-number'><a href='?limit=" + limit + "&page=" + (int)last + "'>" + (int)last + "</a></li>";
+        }
+
+        String status      = ( page == (int)last ) ? "disabled" : "";
+        html       = html + "<li class='page-number " + status + "'><a href='?limit=" + limit + "&page=" + ( page + 1 ) + "'>&raquo;</a></li>";
+
+        html       = html + "</ul>";
+
+        return html;
+    }
 }

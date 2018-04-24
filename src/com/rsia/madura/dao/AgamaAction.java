@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Agama;
+import com.rsia.madura.entity.MAgama;
 
 @Repository
 public class AgamaAction implements AgamaDAO {
@@ -18,34 +18,34 @@ public class AgamaAction implements AgamaDAO {
 	public int total;
 
 	@Override
-	public List<m_Agama> getAgamas() {
+	public List<MAgama> getAgamas() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<m_Agama> query = current.createQuery("from m_Agama", m_Agama.class);
+		Query<MAgama> query = current.createQuery("from MAgama", MAgama.class);
 
-		List<m_Agama> agama = query.getResultList();
+		List<MAgama> agama = query.getResultList();
 
 		return agama;
 	}
 
 	@Override
-	public List<m_Agama> getAgamas(int page, int limit) {
+	public List<MAgama> getAgamas(int page, int limit) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Agama> query = current.createQuery("from m_Agama", m_Agama.class);
-		List<m_Agama> agama = query.getResultList();
+		Query<MAgama> query = current.createQuery("from MAgama", MAgama.class);
+		List<MAgama> agama = query.getResultList();
 		this.total = agama.size();
 		agama = this.getData(page, limit);
 
 		return agama;
 	}
 
-	public List<m_Agama> getData(int page, int limit) {
+	public List<MAgama> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Agama> query = current.createQuery("from m_Agama", m_Agama.class).setFirstResult((page - 1) * limit)
+		Query<MAgama> query = current.createQuery("from MAgama", MAgama.class).setFirstResult((page - 1) * limit)
 				.setMaxResults(limit);
-		List<m_Agama> Result = query.getResultList();
+		List<MAgama> Result = query.getResultList();
 
 		return Result;
 	}
@@ -91,17 +91,17 @@ public class AgamaAction implements AgamaDAO {
 	}
 
 	@Override
-	public m_Agama getAgama(int agamaId) {
+	public MAgama getAgama(int agamaId) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		m_Agama result = current.get(m_Agama.class, agamaId);
+		MAgama result = current.get(MAgama.class, agamaId);
 
 		return result;
 	}
 
 	@Override
-	public int AgamaStore(m_Agama AgamaModel) {
+	public int AgamaStore(MAgama AgamaModel) {
 		Session current = sessionFactory.getCurrentSession();
 
 		return (int)current.save(AgamaModel);
@@ -109,14 +109,14 @@ public class AgamaAction implements AgamaDAO {
 	}
 
 	@Override
-	public void AgamaUpdate(m_Agama AgamaModel) {
+	public void AgamaUpdate(MAgama AgamaModel) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(AgamaModel);
 	}
 
 	@Override
-	public void AgamaDelete(m_Agama AgamaModel) {
+	public void AgamaDelete(MAgama AgamaModel) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(AgamaModel);

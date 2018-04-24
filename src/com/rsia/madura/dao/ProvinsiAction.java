@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:25:36 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:25:36 
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,7 +14,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.m_Provinsi;
+import com.rsia.madura.entity.MProvinsi;
 
 @Repository
 public class ProvinsiAction implements ProvinsiDAO {
@@ -18,30 +24,30 @@ public class ProvinsiAction implements ProvinsiDAO {
 	public int total;
 	
 	@Override
-	public List<m_Provinsi> getProvinsis() {
+	public List<MProvinsi> getProvinsis() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<m_Provinsi> query = current.createQuery("from m_Provinsi", m_Provinsi.class);
+		Query<MProvinsi> query = current.createQuery("from MProvinsi", MProvinsi.class);
 		
-		List<m_Provinsi> provinsi = query.getResultList();
+		List<MProvinsi> provinsi = query.getResultList();
 		return provinsi;
 	}
 	
 	@Override
-	public List<m_Provinsi> getProvinsis(int page, int limit){
+	public List<MProvinsi> getProvinsis(int page, int limit){
 		Session current = sessionFactory.getCurrentSession();
-		Query<m_Provinsi> query = current.createQuery("from m_Provinsi", m_Provinsi.class);
-		List<m_Provinsi> provinsi = query.getResultList();
+		Query<MProvinsi> query = current.createQuery("from MProvinsi", MProvinsi.class);
+		List<MProvinsi> provinsi = query.getResultList();
 		this.total = provinsi.size();
 		provinsi = this.getData(page, limit);
 		
 		return provinsi;
 	}
 	
-	public List<m_Provinsi> getData( int page, int limit) {
+	public List<MProvinsi> getData( int page, int limit) {
     	Session current = sessionFactory.getCurrentSession();
-    	Query<m_Provinsi> query = current.createQuery("from m_Provinsi", m_Provinsi.class).setFirstResult((page-1)*limit).setMaxResults(limit);
-        List<m_Provinsi> Result = query.getResultList();
+    	Query<MProvinsi> query = current.createQuery("from MProvinsi", MProvinsi.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+        List<MProvinsi> Result = query.getResultList();
 
         return Result;
     }
@@ -82,7 +88,7 @@ public class ProvinsiAction implements ProvinsiDAO {
     }
 	
 	@Override
-	public void provinsiStore(m_Provinsi provinsiModel) {
+	public void provinsiStore(MProvinsi provinsiModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.save(provinsiModel);
@@ -90,16 +96,16 @@ public class ProvinsiAction implements ProvinsiDAO {
 	}
 
 	@Override
-	public m_Provinsi getProvinsi(int provinsiId) {
+	public MProvinsi getProvinsi(int provinsiId) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		m_Provinsi result = current.get(m_Provinsi.class, provinsiId);
+		MProvinsi result = current.get(MProvinsi.class, provinsiId);
 		
 		return result;
 	}
 
 	@Override
-	public void provinsiUpdate(m_Provinsi provinsiModel) {
+	public void provinsiUpdate(MProvinsi provinsiModel) {
 		
 		Session current = sessionFactory.getCurrentSession();
 		
@@ -108,7 +114,7 @@ public class ProvinsiAction implements ProvinsiDAO {
 	}
 
 	@Override
-	public void provinsiDelete(m_Provinsi provinsiModel) {
+	public void provinsiDelete(MProvinsi provinsiModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
 		current.saveOrUpdate(provinsiModel);

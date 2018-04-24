@@ -1,16 +1,22 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:39:41 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:39:41 
+ */
 package com.rsia.madura.service;
 
 import java.util.List;
-import com.rsia.madura.entity.m_Provinsi;
+import com.rsia.madura.entity.MProvinsi;
 
 public interface ProvinsiService {
-	public List<m_Provinsi> getProvinsis();
-	public List<m_Provinsi> getProvinsis(int page, int limit);
+	public List<MProvinsi> getProvinsis();
+	public List<MProvinsi> getProvinsis(int page, int limit);
 	public String createLinks(int page, int limit);
-	public m_Provinsi getProvinsi(int provinsiId);
+	public MProvinsi getProvinsi(int provinsiId);
 	
-	public void store(m_Provinsi provinsiModel);
-	public void update(m_Provinsi provinsiModel);
-	public void delete(m_Provinsi provinsiModel);
+	public void store(MProvinsi provinsiModel);
+	public void update(MProvinsi provinsiModel);
+	public void delete(MProvinsi provinsiModel);
 	
 }

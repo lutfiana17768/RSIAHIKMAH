@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-14 17:53:00 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-14 17:53:00 
+ */
 package com.rsia.madura.service;
 
 import java.util.HashMap;
@@ -9,61 +15,60 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.PasienDAO;
-import com.rsia.madura.entity.m_Pasien;
-import com.rsia.madura.entity.m_Pasien;
+import com.rsia.madura.entity.MPasien;
 
 @Service
 public class PasienServiceAction implements PasienService {
 	@Autowired
-	private PasienDAO PasienDAO;
+	private PasienDAO pasienDAO;
 
 	@Transactional
 	@Override
-	public List<m_Pasien> getPasien() {
-		return PasienDAO.getPasien();
+	public List<MPasien> getPasien() {
+		return pasienDAO.getPasien();
 	}
 
 	@Override
 	@Transactional
-	public List<m_Pasien> getPasiens(int page, int limit) {
+	public List<MPasien> getPasiens(int page, int limit) {
 		// TODO Auto-generated method stub
-		return PasienDAO.getPasiens(page, limit);
+		return pasienDAO.getPasiens(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public String createLinks(int page, int limit) {
 		// TODO Auto-generated method stub
-		return PasienDAO.createLinks(page, limit);
+		return pasienDAO.createLinks(page, limit);
 	}
 
 	@Override
 	@Transactional
-	public m_Pasien getPasien(int id) {
+	public MPasien getPasien(int id) {
 		// TODO Auto-generated method stub
-		return PasienDAO.getPasien(id);
+		return pasienDAO.getPasien(id);
 	}
 
 	@Override
 	@Transactional
-	public void store(m_Pasien data) {
+	public void store(MPasien data) {
 		// TODO Auto-generated method stub
-		PasienDAO.PasienStore(data);
+		pasienDAO.PasienStore(data);
 
 	}
 
 	@Override
 	@Transactional
-	public void update(m_Pasien data) {
+	public void update(MPasien data) {
 		// TODO Auto-generated method stub
-		PasienDAO.PasienUpdate(data);		
+		pasienDAO.PasienUpdate(data);		
 	}
 
 	@Override
 	@Transactional
-	public void delete(m_Pasien data) {
+	public void delete(MPasien data) {
 		// TODO Auto-generated method stub
-		PasienDAO.PasienDelete(data);
+		pasienDAO.PasienDelete(data);
 
 	}
 

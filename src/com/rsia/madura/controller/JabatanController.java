@@ -1,3 +1,9 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:43:41 
+ * @Last Modified by: Pradesga
+ * @Last Modified time: 2018-04-15 13:56:07
+ */
 package com.rsia.madura.controller;
 
 import java.sql.Timestamp;
@@ -10,29 +16,37 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import com.rsia.madura.entity.m_Jabatan;
+import com.rsia.madura.entity.MJabatan;
 import com.rsia.madura.service.JabatanService;
 
 @Controller
-@RequestMapping("/Jabatan")
+@RequestMapping("/jabatan")
 public class JabatanController {
 	@Autowired
 	private JabatanService jabatanService;
-	
-	@RequestMapping(value="/form-add")
+
+	private String uri = "redirect: /jabatan/tambah";
+
+	@RequestMapping(method=RequestMethod.GET)
+	public String IndexView(Model model) {
+		return this.uri;
+	}
+
+	@RequestMapping(value="/tambah")
 	public String JabatanFormAddView(Model model) {
-		List<m_Jabatan> resultJabatan = jabatanService.getJabatans();
-		m_Jabatan jabatanModel = new m_Jabatan();
+		List<MJabatan> resultJabatan = jabatanService.getJabatans();
+		MJabatan jabatanModel = new MJabatan();
 		
 		model.addAttribute("jabatan", resultJabatan);
 		model.addAttribute("jabatanModel", jabatanModel);
 		
-		return "JabatanAddForm";
+		return "jabatan/tambah";
 	}
 	
 	@RequestMapping(value="/store", method=RequestMethod.POST)
-	public String JabatanStore(@ModelAttribute("jabatanModel") m_Jabatan jabatanModel) {
+	public String JabatanStore(@ModelAttribute("jabatanModel") MJabatan jabatanModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
 		jabatanModel.setJabatanAktif('Y');
@@ -41,20 +55,20 @@ public class JabatanController {
 		
 		jabatanService.store(jabatanModel);
 		
-		return "redirect:http://localhost:8082/com.rsia.modura/jabatan/form-add";
+		return this.uri;
 	}
 	
-	@RequestMapping(value="/form-update", method=RequestMethod.GET)
-	public String JabatanFormUpdateView(Model model, @RequestParam("jabatanId") int jabatanId) {
-		m_Jabatan result = jabatanService.getJabatan(jabatanId);
+	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
+	public String JabatanFormUpdateView(Model model, @PathVariable int id) {
+		MJabatan result = jabatanService.getJabatan(id);
 		
 		model.addAttribute("jabatanModel", result);
 		
-		return "JabatanUpdateForm";
+		return "jabatan/update";
 	}
 	
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String JabatanUpdate(@ModelAttribute("jabatanModel") m_Jabatan jabatanModel) {
+	public String JabatanUpdate(@ModelAttribute("jabatanModel") MJabatan jabatanModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
 		jabatanModel.setJabatanUpdatedBy("Admin");
@@ -62,21 +76,21 @@ public class JabatanController {
 		
 		jabatanService.update(jabatanModel);
 		
-		return "redirect:http://localhost:8082/com.rsia.modura/jabatan/form-add";
+		return this.uri;
 	}
 	
-	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public String JabatanDelete(@RequestParam("jabatanId") int jabatanId) {
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	public String JabatanDelete(Model model, @PathVariable int id) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		m_Jabatan jabatanModel = jabatanService.getJabatan(jabatanId);
+		MJabatan jabatanModel = jabatanService.getJabatan(id);
 		
 		jabatanModel.setJabatanAktif('T');
 		jabatanModel.setJabatanDeletedDate(currentTime);
 		
 		jabatanService.delete(jabatanModel);
 		
-		return "redirect:http://localhost:8082/com.rsia.modura/jabatan/form-add";
+		return this.uri;
 	}
 
 }

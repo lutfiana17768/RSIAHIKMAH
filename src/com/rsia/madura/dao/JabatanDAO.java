@@ -1,14 +1,20 @@
+/*
+ * @Author: Pradesga 
+ * @Date: 2018-04-15 13:12:27 
+ * @Last Modified by:   Pradesga 
+ * @Last Modified time: 2018-04-15 13:12:27 
+ */
 package com.rsia.madura.dao;
 
 import java.util.List;
 
-import com.rsia.madura.entity.m_Jabatan;
+import com.rsia.madura.entity.MJabatan;
 
 public interface JabatanDAO {
-	public List<m_Jabatan> getJabatans();
-	public m_Jabatan getJabatan(int jabatanId);
+	public List<MJabatan> getJabatans();
+	public MJabatan getJabatan(int jabatanId);
 	
-	public void jabatanStore(m_Jabatan jabatanModel);
-	public void jabatanUpdate(m_Jabatan jabatanModel);
-	public void jabatanDelete(m_Jabatan jabatanModel);
+	public void jabatanStore(MJabatan jabatanModel);
+	public void jabatanUpdate(MJabatan jabatanModel);
+	public void jabatanDelete(MJabatan jabatanModel);
 }

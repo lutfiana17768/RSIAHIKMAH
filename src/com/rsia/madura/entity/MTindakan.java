@@ -43,6 +43,9 @@ public class MTindakan {
 	@ManyToOne
 	private MKelas kelas;
 	
+	@ManyToOne
+	private MPaketTindakan paketTindakan;
+	
 	@Column(name="harga_tindakan")
 	private float harga_tindakan;
 	
