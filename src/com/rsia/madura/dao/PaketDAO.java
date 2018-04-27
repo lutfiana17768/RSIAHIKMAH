@@ -16,7 +16,7 @@ public interface PaketDAO {
 	public String createLinks(int page, int limit);
 	public MPaket getPaket(int PaketId);
 
-	public void PaketStore(MPaket PaketModel);
+	public MPaket PaketStore(MPaket PaketModel);
 	public void PaketUpdate(MPaket PaketModel);
 	public void PaketDelete(MPaket PaketModel);
 }

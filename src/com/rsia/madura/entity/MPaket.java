@@ -7,18 +7,23 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
+// import java.util.HashSet;
+// import java.util.Set;
+// import java.util.List;
+import java.util.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
+
+// import javax.persistence.Column;
+// import javax.persistence.Entity;
+// import javax.persistence.GeneratedValue;
+// import javax.persistence.GenerationType;
+// import javax.persistence.Id;
+// import javax.persistence.Table;
+// import javax.persistence.ManyToOne;
+// import javax.persistence.OneToMany;
+// import javax.persistence.ManyToMany;
+// import javax.persistence.JoinColumn;
 
 import com.rsia.madura.entity.MKelas;
 
@@ -37,20 +42,10 @@ public class MPaket {
 	private String paket_keterangan;
 	
 	@Column(name="paket_harga")
-	private Double paket_harga;
+	private int paket_harga;
 	
 	@Column(name="paket_aktif")
 	private String paket_aktif;
-	
-	@ManyToOne
-	private MKelas kelas;
-
-	// @ManyToMany(cascade = {CascadeType.ALL})
-	// @JoinTable(name = "paket_tindakan", JoinColumn = { @JoinColumn(name = "paket_id") }, inverseJoinColumns = { @JoinColumn( name = "tindakan_id") })
-	// private Set<MRuang> tindakans = new HashSet<MTindakan>();
-
-	@ManyToOne
-	private MTindakan tindakan;
 
 	@Column(name="paket_created_by")
 	private String paket_created_by;
@@ -76,6 +71,22 @@ public class MPaket {
 	@Column(name="paket_deleted_by")
 	private String paket_deleted_by;
 
+	@ManyToOne
+	private MKelas kelas;
+
+	@OneToMany(mappedBy = "paket", cascade = CascadeType.ALL)
+	private List<MPaketHarga> paketHarga;
+
+	// test only
+	public MPaket() {
+
+	}
+
+	// test only
+	public MPaket(String paket_nama){
+		this.paket_nama = paket_nama;
+	}
+
 	public int getPaket_id() {
 		return paket_id;
 	}
@@ -100,11 +111,11 @@ public class MPaket {
 		this.paket_keterangan = paket_keterangan;
 	}
 
-	public Double getPaket_harga() {
+	public int getPaket_harga() {
 		return paket_harga;
 	}
 
-	public void setPaket_harga(Double paket_harga) {
+	public void setPaket_harga(int paket_harga) {
 		this.paket_harga = paket_harga;
 	}
 
@@ -188,11 +199,16 @@ public class MPaket {
 		this.kelas = kelas;
 	}
 
-	public MTindakan getTindakan() {
-		return this.tindakan;
+	public List<MPaketHarga> getPaketHarga() {
+		return paketHarga;
 	}
 
-	public void setTindakan(MTindakan tindakan) {
-		this.tindakan = tindakan;
+	public void setPaketHarga(List<MPaketHarga> paketHarga) {
+		this.paketHarga = paketHarga;
+	}
+
+	@Override
+	public String toString() {
+		return "m_paket [order_id=" + paket_id + ", paket_nama=" + paket_nama + ", paketHarga=" + paketHarga + ", kelases=" + kelas +"]";
 	}
 }

@@ -228,6 +228,8 @@
 								<label>Harga</label>
 								<input type="text" name="paket_ruang_harga" id="paket_ruang_harga">
 							</div>
+							<input type="hidden" name="ruang_mode" id="ruang_mode">
+							<input type="hidden" name="ruang_edit" id="ruang_edit">
 						</form>
 					</div>
 					<div class="modal-footer">

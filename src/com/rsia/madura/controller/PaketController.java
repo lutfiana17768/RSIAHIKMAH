@@ -5,8 +5,12 @@
 * @Last Modified time: 2018-04-10 01:05:11
 */
 package com.rsia.madura.controller;
+import java.util.List; // Class to hold a list of objects
+import java.util.Scanner;
+import java.util.Map;
 
-import java.util.List;
+import org.springframework.util.MultiValueMap;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,23 +27,13 @@ import com.rsia.madura.entity.MKelas;
 import com.rsia.madura.entity.MPaket;
 import com.rsia.madura.entity.MRuang;
 import com.rsia.madura.entity.MTindakan;
-
-import com.rsia.madura.entity.MPaketTindakan;
-// MPaketRuang
-// MPaketTindakan
-// MPaketPenunjang
-// MPaketObat
+import com.rsia.madura.entity.MPaketHarga;
 
 import com.rsia.madura.service.KelasService;
 import com.rsia.madura.service.PaketService;
 import com.rsia.madura.service.RuangService;
 import com.rsia.madura.service.TindakanService;
 
-import com.rsia.madura.service.PaketTindakanService;
-// PaketRuangService
-// PaketTindakanService
-// PaketPenunjangService
-// PaketObatService
 
 @Controller
 @RequestMapping("/paket")
@@ -56,12 +50,6 @@ public class PaketController {
 	@Autowired
 	private TindakanService tindakanService;
 
-	@Autowired
-	private PaketTindakanService paketTindakanService;
-	// PaketRuangService
-	// PaketPenunjangService
-	// PaketObatService
-	
 	private String uri ="redirect: /paket";
 
 	@RequestMapping(method=RequestMethod.GET)
@@ -79,22 +67,12 @@ public class PaketController {
 		List<MRuang> ruangs = ruangService.findAll();
 		List<MTindakan> tindakans = tindakanService.findAll();
 
-		// PaketRuangs
-		List<MPaketTindakan> paketTindakans = paketTindakanService.findAll();
-		// PaketPenunjangs
-		// PaketObats
-		
 		MPaket paketModel = new MPaket();
-
+		
 		model.addAttribute("paketan", paketan);
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("ruangs", ruangs);
 		model.addAttribute("tindakans", tindakans);
-		
-		// PaketRuangs
-		model.addAttribute("paketTindakans", paketTindakans);
-		// PaketPenunjangs
-		// PaketObats
 		
 		model.addAttribute("paketModel", paketModel);
 		model.addAttribute("footerjs", "../paket/inc/footerjs.jsp");
@@ -102,8 +80,8 @@ public class PaketController {
 	}
 
 	@RequestMapping(value="/store", method=RequestMethod.POST)
-	public String Store(@ModelAttribute("paketModel") MPaket paket, BindingResult bindingResult) {
-		paketService.store(paket);
+	public String Store(@ModelAttribute("paketModel") MPaket paketModel, BindingResult bindingResult) {	
+		paketService.store(paketModel);
 		return this.uri;
 	}
 

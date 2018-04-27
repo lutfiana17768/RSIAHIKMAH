@@ -14,39 +14,39 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.MPaket;
+import com.rsia.madura.entity.MPaketHarga;
 
 @Repository
-public class PaketAction implements PaketDAO {
+public class PaketHargaAction implements PaketHargaDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	public int total;
 	
 
 	@Override
-	public List<MPaket> getPakets() {
+	public List<MPaketHarga> getPaketHargas() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPaket> query = current.createQuery("FROM MPaket k WHERE k.paket_aktif = :paket_aktif", MPaket.class);
+		Query<MPaketHarga> query = current.createQuery("FROM MPaketHarga k WHERE k.paket_aktif = :paket_aktif", MPaketHarga.class);
 		query.setParameter("paket_aktif", "Y");
-		List<MPaket> result = query.getResultList();
+		List<MPaketHarga> result = query.getResultList();
 		return result;
 	}
 
 	@Override
-	public List<MPaket> getPakets(int page, int limit) {
+	public List<MPaketHarga> getPaketHargas(int page, int limit) {
 		// TODO Auto-generated method stub
-		List<MPaket> result = this.getData(page, limit);
-		this.total = this.getPakets().size();
+		List<MPaketHarga> result = this.getData(page, limit);
+		this.total = this.getPaketHargas().size();
 
 		return result;
 	}
 
-	public List<MPaket> getData(int page, int limit) {
+	public List<MPaketHarga> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPaket> query = current.createQuery("FROM MPaket k WHERE k.paket_aktif = :paket_aktif", MPaket.class).setMaxResults(limit);
+		Query<MPaketHarga> query = current.createQuery("FROM MPaketHarga k WHERE k.paket_aktif = :paket_aktif", MPaketHarga.class).setMaxResults(limit);
 		query.setParameter("paket_aktif", "Y");
-		List<MPaket> result = query.getResultList();
+		List<MPaketHarga> result = query.getResultList();
 
 		return result;
 	}
@@ -87,29 +87,28 @@ public class PaketAction implements PaketDAO {
 	}
 
 	@Override
-	public MPaket getPaket(int Id) {
+	public MPaketHarga getPaketHarga(int Id) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		MPaket result = current.get(MPaket.class, Id);
+		MPaketHarga result = current.get(MPaketHarga.class, Id);
 		return result;
 	}
 
 	@Override
-	public MPaket PaketStore(MPaket PaketModel) {
+	public void PaketHargaStore(MPaketHarga PaketHargaModel) {
 		Session current = sessionFactory.getCurrentSession();
-		current.save(PaketModel);
-		return PaketModel;
+		current.save(PaketHargaModel);
 	}
 
 	@Override
-	public void PaketUpdate(MPaket PaketModel) {
+	public void PaketHargaUpdate(MPaketHarga PaketHargaModel) {
 		Session current = sessionFactory.getCurrentSession();
-		current.saveOrUpdate(PaketModel);
+		current.saveOrUpdate(PaketHargaModel);
 	}
 
 	@Override
-	public void PaketDelete(MPaket PaketModel) {
+	public void PaketHargaDelete(MPaketHarga PaketHargaModel) {
 		Session current = sessionFactory.getCurrentSession();
-		current.saveOrUpdate(PaketModel);
+		current.saveOrUpdate(PaketHargaModel);
 	}
 }

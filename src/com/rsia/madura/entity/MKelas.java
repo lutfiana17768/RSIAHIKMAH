@@ -151,4 +151,9 @@ public class MKelas {
 	public void setKelas_deleted_by(String kelas_deleted_by) {
 		this.kelas_deleted_by = kelas_deleted_by;
 	}
+
+	@Override
+	public String toString() {
+		return "m_kelas [kelas_id=" + kelas_id + ", kelas_kode=" + kelas_kode + ", kelas_nama=" + kelas_nama + ", kelas_keterangan=" + kelas_keterangan +"]";
+	}
 }

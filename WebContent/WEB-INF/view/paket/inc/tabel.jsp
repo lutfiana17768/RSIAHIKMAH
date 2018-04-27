@@ -7,28 +7,32 @@
 							<div class="card">
 								<div class="card-block">
 									<div class="card-title-block">
-										<h3 class="title"> List Kelas </h3>
+										<h3 class="title"> List Paket </h3>
 									</div>
-									<section class="list-kelas">
+									<section class="list-paket">
 										<div class="table-responsive">
 											<table class="table table-striped table-bordered table-hover">
 												<thead>
 													<tr>
-														<th>Kode</th>
-														<th>Nama</th>
+														<th>Nama Paket</th>
+														<th>Kelas</th>
 														<th>Keterangan</th>
+														<th>Harga</th>
+														<th>Jenis</th>
 														<th>Aksi</th>
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach var="kelas" items="${kelases}">
+													<c:forEach var="paket" items="${paketan}">
 														<tr>
-															<td>${kelas.kelas_kode}</td>
-															<td>${kelas.kelas_nama}</td>
-															<td>${kelas.kelas_keterangan}</td>
+															<td>${paket.paket_nama}</td>
+															<td>${paket.paket_keterangan}</td>
+															<td>${paket.kelas.kelas_nama}</td>
+															<td>${paket.paket_harga}</td>
+															<td>${paket.paket_jenis}</td>
 															<td>
-																<a href="/kelas/update/${kelas.kelas_id}" class="btn btn-info">Update</a>
-																<a href="/kelas/delete/${kelas.kelas_id}" class="btn btn-warning">Delete</a>
+																<a href="/paket/update/${paket.paket_id}" class="btn btn-info">Update</a>
+																<a href="/paket/delete/${paket.paket_id}" class="btn btn-warning">Delete</a>
 															</td>
 														</tr>
 													</c:forEach>

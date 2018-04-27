@@ -7,86 +7,74 @@
 package com.rsia.madura.service;
 
 import java.util.List;
-import java.util.ArrayList;
 import java.sql.Timestamp;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rsia.madura.dao.PaketDAO;
 import com.rsia.madura.dao.PaketHargaDAO;
-import com.rsia.madura.entity.MPaket;
 import com.rsia.madura.entity.MPaketHarga;
 
 @Service
-public class PaketServiceAction implements PaketService {
+public class PaketHargaServiceAction implements PaketHargaService {
 	@Autowired
-	private PaketDAO paketDAO;
+	private PaketHargaDAO paketHargaDAO;
 
 	@Override
 	@Transactional
-	public List<MPaket> findAll() {
+	public List<MPaketHarga> findAll() {
 		// TODO Auto-generated method stub
-		return this.paketDAO.getPakets();
+		return this.paketHargaDAO.getPaketHargas();
 	}
 
 	@Override
 	@Transactional
-	public List<MPaket> findAll(int page, int limit) {
+	public List<MPaketHarga> findAll(int page, int limit) {
 		// TODO Auto-generated method stub
-		return paketDAO.getPakets(page, limit);
+		return paketHargaDAO.getPaketHargas(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public String createLinks(int page, int limit) {
 		// TODO Auto-generated method stub
-		return paketDAO.createLinks(page, limit);
+		return paketHargaDAO.createLinks(page, limit);
 	}
 
 	@Override
 	@Transactional
-	public MPaket getById(int id) {
+	public MPaketHarga getById(int id) {
 		// TODO Auto-generated method stub
-		return paketDAO.getPaket(id);
+		return paketHargaDAO.getPaketHarga(id);
 	}
 
 	@Override
 	@Transactional
-	public MPaket store(MPaket data) {
-		// TODO Auto-generated method stub
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
-		data.setPaket_aktif("Y");
-		data.setPaket_created_by("Admin");	
-		data.setPaket_created_date(currentTime);
-
-		MPaket afterSave =  paketDAO.PaketStore(data);
-		return afterSave;
-	}
-
-	@Override
-	@Transactional
-	public void update(MPaket data) {
+	public void store(MPaketHarga data) {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setPaket_aktif("Y");
-		data.setPaket_updated_by("Admin");
-		data.setPaket_updated_date(currentTime);
-		paketDAO.PaketUpdate(data);
+		data.setPaketHarga_created_date(currentTime);
+		paketHargaDAO.PaketHargaStore(data);
 	}
 
 	@Override
 	@Transactional
-	public void delete(MPaket data) {
+	public void update(MPaketHarga data) {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setPaket_aktif("T");
-		data.setPaket_deleted_by("Admin");
-		data.setPaket_deleted_date(currentTime);
-		paketDAO.PaketDelete(data);
+		data.setPaketHarga_updated_date(currentTime);
+		paketHargaDAO.PaketHargaUpdate(data);
+	}
+
+	@Override
+	@Transactional
+	public void delete(MPaketHarga data) {
+		// TODO Auto-generated method stub
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		paketHargaDAO.PaketHargaDelete(data);
 	}
 }

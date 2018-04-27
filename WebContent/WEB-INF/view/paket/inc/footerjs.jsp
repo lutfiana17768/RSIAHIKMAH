@@ -14,8 +14,9 @@
                             var name = $(this).attr('data-kolom-id');
                             var value = $(this).text();
                             var new_input = $('<input type="hidden">');
-                            new_input.attr('name',name+'[]');
+                            new_input.attr('name',name);
                             new_input.attr('value',value);
+                            console.log("new_input");
                             $('#paket-form').append(new_input);
                         }
                     });
@@ -39,8 +40,48 @@
                 $('#barang_mode').val('new');
                 $('#form-paket-barang').modal('show');
             });
+            $('#simpan-ruang').click(function(){
+                var m_ruang_id,paket_ruang_harga,ruang_text,mode,counter,id_row,name_harga,name_jumlah;
+                mode = $('#ruang_mode').val();
+
+                if(mode == 'new')
+                {
+                    var tr = $('<tr>');
+                    counter = ruang_length+1;
+                    tr.attr('id','ruang_'+counter);
+                }
+                else
+                {
+                    id_row = $('#ruang_edit').val();
+                    counter = id_row;
+                    var tr = $('#ruang_'+id_row);
+                    tr.empty();
+                }
+
+                m_ruang_id = $('#m_ruang_id').val();
+                ruang_text = $('#m_ruang_id option:selected').text();
+                paket_ruang_harga = $('#paket_ruang_harga').val() ||0;
+
+                name_harga = 'paketHarga[' + tindakan_length + '].paketHarga_harga';
+                name_jumlah = 'paketHarga[' + tindakan_length + '].paketHarga_jumlah';
+                
+                tr.append('<td>'+ruang_text+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-kolom-id="paket_ruang_harga">'+paket_ruang_harga+'</td>');
+                tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteruang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editruang('+counter+')">Edit</button></td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="m_ruang_id">'+m_ruang_id+'</td>');
+
+                if(mode == 'new')
+                {
+                    ruang_length = counter;
+                    $('#paket-ruang-list').append(tr);                    
+                }
+
+                $('#form-paket-ruang').modal('hide');
+                $('#form-paket-ruang').find('input,select').val('');
+
+            });
 			$('#simpan-tindakan').click(function(){
-                var m_tindakan_id,paket_tindakan_jumlah,paket_tindakan_harga,paket_tindakan_subharga,tindakan_text,mode,counter,id_row;
+                var m_tindakan_id,paket_tindakan_jumlah,paket_tindakan_harga,paket_tindakan_subharga,tindakan_text,mode,counter,id_row,name_harga,name_jumlah;
                 var mode = $('#tindakan_mode').val();
 
                 if(mode == 'new')
@@ -57,22 +98,23 @@
                     tr.empty();
                 }
 
+
                 m_tindakan_id = $('#m_tindakan_id').val();
                 tindakan_text = $('#m_tindakan_id option:selected').text();
-                paket_tindakan_jumlah = $('#paket_tindakan_jumlah').val() ||'';
+                paket_tindakan_jumlah = $('#').val() ||'';
                 paket_tindakan_harga = $('#paket_tindakan_harga').val() ||0;
                 paket_tindakan_subharga = $('#paket_tindakan_subharga').val() || 0;
                 
+                name_tindakan = 'paketHarga[' + tindakan_length + '].tindakans.tindakan_id';
+                name_harga = 'paketHarga[' + tindakan_length + '].paketHarga_harga';
+                name_jumlah = 'paketHarga[' + tindakan_length + '].paketHarga_jumlah';
+
                 tr.append('<td>'+tindakan_text+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-kolom-id="paket_tindakan_jumlah">'+paket_tindakan_jumlah+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-kolom-id="paket_tindakan_harga">'+paket_tindakan_harga+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-kolom-id="' + name_harga + '">'+paket_tindakan_jumlah+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-kolom-id="' + name_jumlah + '">'+paket_tindakan_harga+'</td>');
                 tr.append('<td data-used="1" data-kolom-id="paket_tindakan_subharga">'+paket_tindakan_subharga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteTindakan('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editTindakan('+counter+')">Edit</button></td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="m_tindakan_id">'+m_tindakan_id+'</td>');
-
-
-                tr.append('<input type="hidden" name="paket.tindakans[' + tindakan_length + '].tindakan_id" value="' + m_tindakan_id + '"  >');
-                tr.append('<input type="hidden" name="paket.tindakans[' + tindakan_length + '].tindakan_harga" value="' + paket_tindakan_harga + '"  >');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="' + name_tindakan + '">'+m_tindakan_id+'</td>');
 
                 if(mode == 'new')
                 {
@@ -86,7 +128,7 @@
             });
             
             $('#simpan-barang').click(function(){
-				var m_barang_id,paket_barang_jumlah,paket_barang_harga,paket_satuan_id,paket_barang_subharga,barang_text,mode,counter,id_row;
+				var m_barang_id,paket_barang_jumlah,paket_barang_harga,paket_satuan_id,paket_barang_subharga,barang_text,mode,counter,id_row,name_harga,name_jumlah;
                 var mode = $('#barang_mode').val();
 
                 if(mode == 'new')
@@ -111,10 +153,13 @@
                 paket_barang_harga = $('#paket_barang_harga').val() ||0;
                 paket_barang_subharga = $('#paket_barang_subharga').val() || 0;
                 
+                name_harga = 'paketHarga[' + tindakan_length + '].paketHarga_harga';
+                name_jumlah = 'paketHarga[' + tindakan_length + '].paketHarga_jumlah';
+
                 tr.append('<td>'+barang_text+'</td>');
                 tr.append('<td>'+paket_satuan_text+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-kolom-id="paket_barang_jumlah">'+paket_barang_jumlah+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-kolom-id="paket_barang_harga">'+paket_barang_harga+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-kolom-id="' + name_harga + '">'+paket_barang_jumlah+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-kolom-id="' + name_jumlah + '">'+paket_barang_harga+'</td>');
                 tr.append('<td data-used="1" data-kolom-id="paket_barang_subharga">'+paket_barang_subharga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteBarang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editBarang('+counter+')">Edit</button></td>');
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="m_barang_id">'+m_barang_id+'</td>');
