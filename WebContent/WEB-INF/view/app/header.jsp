@@ -6,11 +6,11 @@
 <html>
 <head>
 	<title>RSI AL-HIKMAH</title>
-	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/vendor.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/app.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/vendor.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/bootstrap.min.css'/>">
-	<!-- <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/gh-pages.css'/>"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/style.css'/>"> -->
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/gh-pages.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/style.css'/>">
 </head>
 <body>
 	<div class="main-wrapper">

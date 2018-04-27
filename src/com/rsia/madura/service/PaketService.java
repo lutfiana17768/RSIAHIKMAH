@@ -16,7 +16,7 @@ public interface PaketService {
 	public String createLinks(int page, int limit);
 	public MPaket getById(int id);
 	
-	public MPaket store(MPaket data);
+	public void store(MPaket data);
 	public void update(MPaket data);
 	public void delete(MPaket data);
 }

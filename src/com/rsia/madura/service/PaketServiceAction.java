@@ -54,7 +54,7 @@ public class PaketServiceAction implements PaketService {
 
 	@Override
 	@Transactional
-	public MPaket store(MPaket data) {
+	public void store(MPaket data) {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
@@ -62,8 +62,15 @@ public class PaketServiceAction implements PaketService {
 		data.setPaket_created_by("Admin");	
 		data.setPaket_created_date(currentTime);
 
-		MPaket afterSave =  paketDAO.PaketStore(data);
-		return afterSave;
+		if (data.getPaketHarga() != null) {
+			data.getPaketHarga().forEach((harga) -> {
+				harga.setPaket(data);
+				harga.setPaketHarga_created_date(currentTime);
+				harga.setPaketHarga_updated_date(currentTime);
+			});
+		}
+
+		paketDAO.PaketStore(data);
 	}
 
 	@Override

@@ -77,14 +77,8 @@ public class MPaket {
 	@OneToMany(mappedBy = "paket", cascade = CascadeType.ALL)
 	private List<MPaketHarga> paketHarga;
 
-	// test only
 	public MPaket() {
 
-	}
-
-	// test only
-	public MPaket(String paket_nama){
-		this.paket_nama = paket_nama;
 	}
 
 	public int getPaket_id() {

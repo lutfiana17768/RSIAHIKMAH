@@ -95,10 +95,9 @@ public class PaketAction implements PaketDAO {
 	}
 
 	@Override
-	public MPaket PaketStore(MPaket PaketModel) {
+	public void PaketStore(MPaket PaketModel) {
 		Session current = sessionFactory.getCurrentSession();
 		current.save(PaketModel);
-		return PaketModel;
 	}
 
 	@Override

@@ -85,10 +85,9 @@
 																		<th>Nama Ruangan</th>
 																		<th>Harga</th>
 																		<th>Aksi</th>
-
 																	</tr>
 																</thead>
-																<tbody id="paket-ruang-list">
+																<tbody id="paket-ruang-list" class="table-form">
 																</tbody>
 															</table>
 														</div>
@@ -112,10 +111,9 @@
 																		<th>Harga</th>
 																		<th>Sub harga</th>
 																		<th>Aksi</th>
-
 																	</tr>
 																</thead>
-																<tbody id="paket-tindakan-list">
+																<tbody id="paket-tindakan-list" class="table-form">
 																</tbody>
 															</table>
 														</div>
@@ -142,17 +140,7 @@
 
 																	</tr>
 																</thead>
-																<tbody>
-																	<tr>
-																		<td>Table cell</td>
-																		<td>Table cell</td>
-																		<td>Table cell</td>
-																		<td>Table cell</td>
-																		<td>
-																			<button type="button" class="btn btn-danger btn-sm">Delete</button>&nbsp
-																			<button type="button" class="btn btn-primary btn-sm">Edit</button>
-																		</td>
-																	</tr>
+																<tbody class="table-form">
 
 																</tbody>
 															</table>
@@ -181,7 +169,7 @@
 
 																	</tr>
 																</thead>
-																<tbody id="paket-barang-list">
+																<tbody id="paket-barang-list" class="table-form">
 																</tbody>
 															</table>
 														</div>

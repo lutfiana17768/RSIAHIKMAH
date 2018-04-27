@@ -69,7 +69,6 @@ public class PaketController {
 
 		MPaket paketModel = new MPaket();
 		
-		model.addAttribute("paketan", paketan);
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("ruangs", ruangs);
 		model.addAttribute("tindakans", tindakans);

@@ -4,32 +4,39 @@
         var ruang_length = 0;
         var tindakan_length = 0;
         var barang_length = 0;
-		$(function(){
-			$('#tab_first').click();
+        $(function(){
+            $('#tab_first').click();
             $('#simpan-paket').click(function(){
-                var tabletindakan = $('#paket-tindakan-list tr').map(function(i){
+                $('.table-form tr').map(function(line){
                     $(this).find('td').each(function (i) {
                         if($(this).attr('data-save') == '1')
                         {
                             var name = $(this).attr('data-kolom-id');
                             var value = $(this).text();
                             var new_input = $('<input type="hidden">');
-                            new_input.attr('name',name);
+                            new_input.attr('name','paketHarga[' + line + '].' + name);
                             new_input.attr('value',value);
-                            console.log("new_input");
+
                             $('#paket-form').append(new_input);
                         }
                     });
+                    var harga_type_name = $(this).attr('data-harga-type');
+                    if (harga_type_name) {
+                        var harga_type = $('<input type="hidden">');
+                        harga_type.attr('name','paketHarga[' + line + '].paketHarga_type');
+                        harga_type.attr('value', harga_type_name);
+                        $('#paket-form').append(harga_type);
+                    }
                 });
 
                 $('#paket-form').submit();
 
             });
-			$('#add_ruang').click(function(){
+            $('#add_ruang').click(function(){
                 $('#form-paket-ruang').find('input,select').val('');
                 $('#ruang_mode').val('new');
                 $('#form-paket-ruang').modal('show');
-			});
+            });
             $('#add_tindakan').click(function(){
                 $('#form-paket-tindakan').find('input,select').val('');
                 $('#tindakan_mode').val('new');
@@ -41,14 +48,15 @@
                 $('#form-paket-barang').modal('show');
             });
             $('#simpan-ruang').click(function(){
-                var m_ruang_id,paket_ruang_harga,ruang_text,mode,counter,id_row,name_harga,name_jumlah;
-                mode = $('#ruang_mode').val();
+                var m_ruang_id,paket_ruang_harga,ruang_text,mode,counter,id_row;
+                var mode = $('#ruang_mode').val();
 
                 if(mode == 'new')
                 {
                     var tr = $('<tr>');
                     counter = ruang_length+1;
                     tr.attr('id','ruang_'+counter);
+                    tr.attr('data-harga-type','ruang');
                 }
                 else
                 {
@@ -61,12 +69,9 @@
                 m_ruang_id = $('#m_ruang_id').val();
                 ruang_text = $('#m_ruang_id option:selected').text();
                 paket_ruang_harga = $('#paket_ruang_harga').val() ||0;
-
-                name_harga = 'paketHarga[' + tindakan_length + '].paketHarga_harga';
-                name_jumlah = 'paketHarga[' + tindakan_length + '].paketHarga_jumlah';
                 
                 tr.append('<td>'+ruang_text+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-kolom-id="paket_ruang_harga">'+paket_ruang_harga+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-kolom-id="paketHarga_harga">'+paket_ruang_harga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteruang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editruang('+counter+')">Edit</button></td>');
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="m_ruang_id">'+m_ruang_id+'</td>');
 
@@ -80,7 +85,7 @@
                 $('#form-paket-ruang').find('input,select').val('');
 
             });
-			$('#simpan-tindakan').click(function(){
+            $('#simpan-tindakan').click(function(){
                 var m_tindakan_id,paket_tindakan_jumlah,paket_tindakan_harga,paket_tindakan_subharga,tindakan_text,mode,counter,id_row,name_harga,name_jumlah;
                 var mode = $('#tindakan_mode').val();
 
@@ -89,6 +94,7 @@
                     var tr = $('<tr>');
                     counter = tindakan_length+1;
                     tr.attr('id','tindakan_'+counter);
+                    tr.attr('data-harga-type','tindakan');
                 }
                 else
                 {
@@ -101,20 +107,17 @@
 
                 m_tindakan_id = $('#m_tindakan_id').val();
                 tindakan_text = $('#m_tindakan_id option:selected').text();
-                paket_tindakan_jumlah = $('#').val() ||'';
+                paket_tindakan_jumlah = $('#paket_tindakan_jumlah').val() ||'';
                 paket_tindakan_harga = $('#paket_tindakan_harga').val() ||0;
                 paket_tindakan_subharga = $('#paket_tindakan_subharga').val() || 0;
                 
-                name_tindakan = 'paketHarga[' + tindakan_length + '].tindakans.tindakan_id';
-                name_harga = 'paketHarga[' + tindakan_length + '].paketHarga_harga';
-                name_jumlah = 'paketHarga[' + tindakan_length + '].paketHarga_jumlah';
 
                 tr.append('<td>'+tindakan_text+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-kolom-id="' + name_harga + '">'+paket_tindakan_jumlah+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-kolom-id="' + name_jumlah + '">'+paket_tindakan_harga+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-kolom-id="paketHarga_jumlah">'+paket_tindakan_jumlah+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-kolom-id="paketHarga_harga">'+paket_tindakan_harga+'</td>');
                 tr.append('<td data-used="1" data-kolom-id="paket_tindakan_subharga">'+paket_tindakan_subharga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteTindakan('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editTindakan('+counter+')">Edit</button></td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="' + name_tindakan + '">'+m_tindakan_id+'</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="tindakans.tindakan_id">'+m_tindakan_id+'</td>');
 
                 if(mode == 'new')
                 {
@@ -128,7 +131,7 @@
             });
             
             $('#simpan-barang').click(function(){
-				var m_barang_id,paket_barang_jumlah,paket_barang_harga,paket_satuan_id,paket_barang_subharga,barang_text,mode,counter,id_row,name_harga,name_jumlah;
+                var m_barang_id,paket_barang_jumlah,paket_barang_harga,paket_satuan_id,paket_barang_subharga,barang_text,mode,counter,id_row,name_harga,name;
                 var mode = $('#barang_mode').val();
 
                 if(mode == 'new')
@@ -136,6 +139,7 @@
                     var tr = $('<tr>');
                     counter = barang_length+1;
                     tr.attr('id','barang_'+counter);
+                    tr.attr('data-harga-type','barang');
                 }
                 else
                 {
@@ -153,13 +157,11 @@
                 paket_barang_harga = $('#paket_barang_harga').val() ||0;
                 paket_barang_subharga = $('#paket_barang_subharga').val() || 0;
                 
-                name_harga = 'paketHarga[' + tindakan_length + '].paketHarga_harga';
-                name_jumlah = 'paketHarga[' + tindakan_length + '].paketHarga_jumlah';
 
                 tr.append('<td>'+barang_text+'</td>');
                 tr.append('<td>'+paket_satuan_text+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-kolom-id="' + name_harga + '">'+paket_barang_jumlah+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-kolom-id="' + name_jumlah + '">'+paket_barang_harga+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-kolom-id="paketHarga_jumlah">'+paket_barang_jumlah+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-kolom-id="paketHarga_harga">'+paket_barang_harga+'</td>');
                 tr.append('<td data-used="1" data-kolom-id="paket_barang_subharga">'+paket_barang_subharga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteBarang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editBarang('+counter+')">Edit</button></td>');
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="m_barang_id">'+m_barang_id+'</td>');
@@ -173,9 +175,9 @@
                 $('#form-paket-barang').modal('hide');
                 $('#form-paket-barang').find('input,select').val('');
 
-			});
+            });
 
-		});
+        });
 
         function editTindakan(id)
         {
@@ -221,4 +223,4 @@
             tr = $('#barang_'+id);
             tr.remove();
         }
-	</script>
+    </script>
