@@ -15,7 +15,7 @@ public class MPaketHarga {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "paketharga_id")
-	private int paketHarga_id;
+	private Integer paketHarga_id;
 
 	@Column(name = "paketharga_harga")
 	private int paketHarga_harga;
@@ -31,15 +31,24 @@ public class MPaketHarga {
 
 	@Column(name = "paketharga_total")
 	private int paketHarga_total;
-	
-	@Column(name = "paketharga_created_date")
+
+	@Column(name="paketHarga_created_by")
+	private String paketHarga_created_by;
+
+	@Column(name = "paketHarga_created_date")
 	private Timestamp paketHarga_created_date;
 	
-	@Column(name = "paketharga_updated_by")
+	@Column(name = "paketHarga_updated_by")
 	private String paketHarga_updated_by;
 	  
-	@Column(name = "paketharga_updated_date")
+	@Column(name = "paketHarga_updated_date")
 	private Timestamp paketHarga_updated_date;
+
+	@Column(name="paketHarga_deleted_date")
+	private Timestamp paketHarga_deleted_date;
+
+	@Column(name="paketHarga_deleted_by")
+	private String paketHarga_deleted_by;
 
 	@ManyToOne
 	private MPaket paket;
@@ -61,11 +70,11 @@ public class MPaketHarga {
 
 	}
 
-	public int getPaketHarga_id() {
+	public Integer getPaketHarga_id() {
 		return paketHarga_id;
 	}
 
-	public void setPaketHarga_id(int paketHarga_id) {
+	public void setPaketHarga_id(Integer paketHarga_id) {
 		this.paketHarga_id = paketHarga_id;
 	}
 
@@ -109,12 +118,28 @@ public class MPaketHarga {
 		this.paketHarga_total = paketHarga_total;
 	}
 
+	public String getPaketHarga_created_by() {
+		return paketHarga_created_by;
+	}
+
+	public void setPaketHarga_created_by(String paketHarga_created_by) {
+		this.paketHarga_created_by = paketHarga_created_by;
+	}
+
 	public Timestamp getPaketHarga_created_date() {
 		return paketHarga_created_date;
 	}
 
 	public void setPaketHarga_created_date(Timestamp paketHarga_created_date) {
 		this.paketHarga_created_date = paketHarga_created_date;
+	}
+
+	public String getPaketHarga_updated_by() {
+		return paketHarga_updated_by;
+	}
+
+	public void setPaketHarga_updated_by(String paketHarga_updated_by) {
+		this.paketHarga_updated_by = paketHarga_updated_by;
 	}
 
 	public Timestamp getPaketHarga_updated_date() {
@@ -125,19 +150,35 @@ public class MPaketHarga {
 		this.paketHarga_updated_date = paketHarga_updated_date;
 	}
 
-	public MRuang getRuang() {
+	public String getPaketHarga_deleted_by() {
+		return paketHarga_deleted_by;
+	}
+
+	public void setPaketHarga_deleted_by(String paketHarga_deleted_by) {
+		this.paketHarga_deleted_by = paketHarga_deleted_by;
+	}
+
+	public Timestamp getPaketHarga_deleted_date() {
+		return paketHarga_deleted_date;
+	}
+
+	public void setPaketHarga_deleted_date(Timestamp paketHarga_deleted_date) {
+		this.paketHarga_deleted_date = paketHarga_deleted_date;
+	}
+
+	public MRuang getRuangs() {
 		return this.ruangs;
 	}
 
-	public void setRuang(MRuang ruangs) {
+	public void setRuangs(MRuang ruangs) {
 		this.ruangs = ruangs;
 	}
 
-	public MTindakan getTindakan() {
+	public MTindakan getTindakans() {
 		return this.tindakans;
 	}
 
-	public void setTindakan(MTindakan tindakans) {
+	public void setTindakans(MTindakan tindakans) {
 		this.tindakans = tindakans;
 	}
 	
@@ -149,11 +190,11 @@ public class MPaketHarga {
 		this.paket = paket;
 	}
 
-	public MObat getObat() {
+	public MObat getObats() {
 		return this.obats;
 	}
 
-	public void setObat(MObat obats) {
+	public void setObats(MObat obats) {
 		this.obats = obats;
 	}
 

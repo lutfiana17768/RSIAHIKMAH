@@ -16,6 +16,18 @@ public interface PaketHargaDAO {
 	public String createLinks(int page, int limit);
 	public MPaketHarga getPaketHarga(int PaketId);
 
+	// public List<MPaketHarga> getPaketHargaRuangs();
+	// public List<MPaketHarga> getPaketHargaRuangs(int page, int limit);
+
+	// public List<MPaketHarga> getPaketHargaTindakans();
+	// public List<MPaketHarga> getPaketHargaTindakans(int page, int limit);
+
+	// // public List<MPaketHarga> getPaketHargaPenunjang();
+	// // public List<MPaketHarga> getPaketHargaPenunjang(int page, int limit);
+
+	// public List<MPaketHarga> getPaketHargaObats();
+	// public List<MPaketHarga> getPaketHargaObats(int page, int limit);
+
 	public void PaketHargaStore(MPaketHarga PaketHargaModel);
 	public void PaketHargaUpdate(MPaketHarga PaketHargaModel);
 	public void PaketHargaDelete(MPaketHarga PaketHargaModel);

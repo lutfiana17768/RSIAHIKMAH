@@ -7,25 +7,18 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
-// import java.util.HashSet;
-// import java.util.Set;
-// import java.util.List;
-import java.util.*;
+import java.util.List;
 
-import javax.persistence.*;
-
-// import javax.persistence.Column;
-// import javax.persistence.Entity;
-// import javax.persistence.GeneratedValue;
-// import javax.persistence.GenerationType;
-// import javax.persistence.Id;
-// import javax.persistence.Table;
-// import javax.persistence.ManyToOne;
-// import javax.persistence.OneToMany;
-// import javax.persistence.ManyToMany;
-// import javax.persistence.JoinColumn;
-
-import com.rsia.madura.entity.MKelas;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.FetchType;
+import javax.persistence.CascadeType;
 
 @Entity
 @Table(name="m_paket")
@@ -74,7 +67,7 @@ public class MPaket {
 	@ManyToOne
 	private MKelas kelas;
 
-	@OneToMany(mappedBy = "paket", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "paket", cascade = CascadeType.ALL)
 	private List<MPaketHarga> paketHarga;
 
 	public MPaket() {

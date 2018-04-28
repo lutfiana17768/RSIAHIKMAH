@@ -84,23 +84,24 @@ public class PaketController {
 		return this.uri;
 	}
 
-	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
-	public String UpdateFormView(Model model, @PathVariable int id){
-		List<MKelas> kelases = kelasService.findAll();
-		List<MPaket> paketan = paketService.findAll();
-		MPaket paketModel = paketService.getById(id);
-
-		model.addAttribute("paketan", paketan);
-		model.addAttribute("kelases", kelases);
-		model.addAttribute("paketModel", paketModel);
-
-		return "paket/update";
-	}
-
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public String Update(@ModelAttribute("paketModel") MPaket paketModel) {
 		paketService.update(paketModel);
 		return this.uri;
+	}
+
+	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
+	public String UpdateFormView(Model model, @PathVariable int id){
+		List<MKelas> kelases = kelasService.findAll();
+		List<MTindakan> tindakans = tindakanService.findAll();
+		MPaket paketModel = paketService.getById(id);
+
+		model.addAttribute("kelases", kelases);
+		model.addAttribute("tindakans", tindakans);
+		model.addAttribute("paketModel", paketModel);
+		model.addAttribute("footerjs", "../paket/inc/footerjs.jsp");
+
+		return "paket/update";
 	}
 
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)

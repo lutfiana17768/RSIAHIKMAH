@@ -27,8 +27,7 @@ public class PaketHargaAction implements PaketHargaDAO {
 	public List<MPaketHarga> getPaketHargas() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPaketHarga> query = current.createQuery("FROM MPaketHarga k WHERE k.paket_aktif = :paket_aktif", MPaketHarga.class);
-		query.setParameter("paket_aktif", "Y");
+		Query<MPaketHarga> query = current.createQuery("FROM MPaketHarga", MPaketHarga.class);
 		List<MPaketHarga> result = query.getResultList();
 		return result;
 	}
@@ -44,8 +43,7 @@ public class PaketHargaAction implements PaketHargaDAO {
 
 	public List<MPaketHarga> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPaketHarga> query = current.createQuery("FROM MPaketHarga k WHERE k.paket_aktif = :paket_aktif", MPaketHarga.class).setMaxResults(limit);
-		query.setParameter("paket_aktif", "Y");
+		Query<MPaketHarga> query = current.createQuery("FROM MPaketHarga", MPaketHarga.class).setMaxResults(limit);
 		List<MPaketHarga> result = query.getResultList();
 
 		return result;

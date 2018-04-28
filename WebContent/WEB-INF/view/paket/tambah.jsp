@@ -14,7 +14,7 @@
 					</div>
 					<div class="card-block row" style="background-color: #f4f4f4">
 						<div class="col-4">
-							<form:form modelAttribute="paketModel" method="POST" action="store" id="paket-form">
+							<form:form modelAttribute="paketModel" method="POST" action="/paket/store" id="paket-form">
 								<div class="form-group">
 									<label>Nama Paket</label>
 									<form:input path="paket_nama" placeholder="Masukan Nama Paket" class="form-control" />
