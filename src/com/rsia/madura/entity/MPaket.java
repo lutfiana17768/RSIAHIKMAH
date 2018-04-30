@@ -67,7 +67,7 @@ public class MPaket {
 	@ManyToOne
 	private MKelas kelas;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "paket", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "paket", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MPaketHarga> paketHarga;
 
 	public MPaket() {

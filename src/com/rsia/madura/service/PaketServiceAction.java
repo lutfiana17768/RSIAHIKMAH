@@ -85,27 +85,9 @@ public class PaketServiceAction implements PaketService {
 		data.setPaket_updated_date(currentTime);
 
 		if (data.getPaketHarga() != null) {
-			// masih error
-			// alternative: https://gist.github.com/gtiwari333/8db9d5e4acf3dd17ea9bd65b22735eec
-			MPaket oldPaketModel = this.getById(data.getPaket_id());
-
 			data.getPaketHarga().forEach((harga) -> {
-				oldPaketModel.getPaketHarga().forEach((oldHarga) -> {
-					if (oldHarga.getPaketHarga_id() == harga.getPaketHarga_id()) {
-						// update
-						
-					} else {
-						if (harga.getPaketHarga_id() != null) {
-							// new
-							
-						} else {
-							// delete
-							
-						}
-					}
-				});
-
 				harga.setPaket(data);
+				harga.setPaketHarga_updated_by("Admin");
 				harga.setPaketHarga_updated_date(currentTime);
 			});
 		}

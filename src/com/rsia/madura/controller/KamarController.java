@@ -42,19 +42,6 @@ public class KamarController {
 		model.addAttribute("footerjs", "");
 		return "ruangan/index";
 	}
-	// public String list(Model model, @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-	// 		@RequestParam(value = "limit", required = false, defaultValue = "10") int limit) {
-
-	// 	List<m_Kamar> result = KamarService.getKamars(page, limit);
-	// 	String link = KamarService.createLinks(page, limit);
-	// 	m_Kamar kamarModel = new m_Kamar();
-
-	// 	model.addAttribute("kamar", result);
-	// 	model.addAttribute("link", link);
-	// 	model.addAttribute("kamarModel", kamarModel);
-
-	// 	return "v_m_kamar_list";
-	// }
 
 	@RequestMapping("/tambah")
 	public String addForm(Model model) {

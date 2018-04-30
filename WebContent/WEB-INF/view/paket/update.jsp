@@ -89,6 +89,23 @@
 																	</tr>
 																</thead>
 																<tbody id="paket-ruang-list" class="table-form">
+
+																	<c:forEach var="harga" items="${paketModel.paketHarga}" varStatus="loop">
+																		<c:choose>
+																			<c:when test="${harga.paketHarga_type=='ruang'}">
+																				<tr id="ruang_${loop.index+1}" data-harga-type="ruang">
+																					<td>${harga.ruangs.ruang_nama}</td>
+																					<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_ruang_harga">${harga.paketHarga_harga}</td>
+																					<td>
+																						<button type="button" class="btn btn-danger btn-sm" onclick="deleteRuang(${loop.index+1})">Delete</button>
+																						<button type="button" class="btn btn-primary btn-sm" onclick="editRuang(${loop.index+1})">Edit</button>
+																					</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="paketHarga_id" data-kolom-id="paket-harga-id">${harga.paketHarga_id}</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="ruangs.ruang_id" data-kolom-id="m_tindakan_id">${harga.ruangs.ruang_i}</td>
+																				</tr>
+																			</c:when>
+																		</c:choose>
+																	</c:forEach>
 																</tbody>
 															</table>
 														</div>
@@ -120,7 +137,7 @@
 																		<c:choose>
 																			<c:when test="${harga.paketHarga_type=='tindakan'}">
 																				<tr id="tindakan_${loop.index+1}" data-harga-type="tindakan">
-																					<td>${harga.paketHarga_nama}</td>
+																					<td>${harga.tindakans.tindakan_nama}</td>
 																					<td data-used="1" data-save="1" data-name="paketHarga_jumlah" data-kolom-id="paket_tindakan_jumlah">${harga.paketHarga_jumlah}</td>
 																					<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_tindakan_harga">${harga.paketHarga_harga}</td>
 																					<td>cek lagi</td>
@@ -128,6 +145,7 @@
 																						<button type="button" class="btn btn-danger btn-sm" onclick="deleteTindakan(${loop.index+1})">Delete</button>
 																						<button type="button" class="btn btn-primary btn-sm" onclick="editTindakan(${loop.index+1})">Edit</button>
 																					</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="paketHarga_id" data-kolom-id="paket-harga-id">${harga.paketHarga_id}</td>
 																					<td style="display:none" data-used="1" data-save="1" data-name="tindakans.tindakan_id" data-kolom-id="m_tindakan_id">${harga.tindakans.tindakan_id}</td>
 																				</tr>
 																			</c:when>

@@ -47,17 +47,7 @@ public class PaketObatController {
 		model.addAttribute("footerjs", "");
 		return "paketObat/index";
 	}
-
-// 	@RequestMapping("/list")
-// 	public String viewForm(Model model) {
-// //		List<MPaketObat> result = PaketObatService.getPaketObats();
-// //
-// //		model.addAttribute("paketobat", result);
-
-// 		//return "PaketObatList";
-// 		return "v_paket";
-// 	}
-
+	
 	@RequestMapping("/tambah")
 	public String addForm(Model model) {
 		MPaketObat paketobatModel = new MPaketObat();

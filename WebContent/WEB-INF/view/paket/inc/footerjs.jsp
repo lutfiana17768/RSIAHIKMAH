@@ -72,7 +72,7 @@
                 
                 tr.append('<td>'+ruang_text+'</td>');
                 tr.append('<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_ruang_harga">'+paket_ruang_harga+'</td>');
-                tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteruang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editruang('+counter+')">Edit</button></td>');
+                tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteRuang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editRuang('+counter+')">Edit</button></td>');
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="ruangs.ruang_id">'+m_ruang_id+'</td>');
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="paketHarga_jumlah" >1</td>');
 
@@ -179,6 +179,31 @@
             });
 
         });
+
+
+        function editRuang(id)
+        {
+            var tr;
+            $('#ruang_mode').val('edit');
+            $('#ruang_edit').val(id);
+            tr = $('#ruang_'+id);
+            $.each(tr.find('td'),function(i,e){
+                if($(e).attr("data-used") == '1')
+                {
+                    var elem_id = $(e).attr('data-kolom-id');
+                    $('#'+elem_id).val($(e).text());
+                }
+            });
+            $('#form-paket-ruang').modal('show');
+        } 
+
+        function deleteRuang(id)
+        {
+            var tr;
+            tr = $('#ruang_'+id);
+            tr.remove();
+        } 
+
 
         function editTindakan(id)
         {

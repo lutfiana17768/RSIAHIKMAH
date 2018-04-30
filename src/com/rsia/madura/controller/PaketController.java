@@ -94,9 +94,11 @@ public class PaketController {
 	public String UpdateFormView(Model model, @PathVariable int id){
 		List<MKelas> kelases = kelasService.findAll();
 		List<MTindakan> tindakans = tindakanService.findAll();
+		List<MRuang> ruangs = ruangService.findAll();
 		MPaket paketModel = paketService.getById(id);
 
 		model.addAttribute("kelases", kelases);
+		model.addAttribute("ruangs", ruangs);
 		model.addAttribute("tindakans", tindakans);
 		model.addAttribute("paketModel", paketModel);
 		model.addAttribute("footerjs", "../paket/inc/footerjs.jsp");
