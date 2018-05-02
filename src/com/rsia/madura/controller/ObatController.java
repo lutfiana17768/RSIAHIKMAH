@@ -55,6 +55,8 @@ public class ObatController {
 	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
 	public String UpdateFormView(Model model, @PathVariable int id){
 		MObat obatModel = obatService.getById(id);
+		List<MObat> obats = obatService.findAll();
+		model.addAttribute("obats", obats);
 		model.addAttribute("obatModel", obatModel);
 
 		return "obat/update";

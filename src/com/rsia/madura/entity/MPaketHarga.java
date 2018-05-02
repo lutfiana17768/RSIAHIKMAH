@@ -32,22 +32,22 @@ public class MPaketHarga {
 	@Column(name = "paketharga_total")
 	private int paketHarga_total;
 
-	@Column(name="paketHarga_created_by")
+	@Column(name="paketharga_created_by")
 	private String paketHarga_created_by;
 
-	@Column(name = "paketHarga_created_date")
+	@Column(name = "paketharga_created_date")
 	private Timestamp paketHarga_created_date;
 	
-	@Column(name = "paketHarga_updated_by")
+	@Column(name = "paketharga_updated_by")
 	private String paketHarga_updated_by;
 	  
-	@Column(name = "paketHarga_updated_date")
+	@Column(name = "paketharga_updated_date")
 	private Timestamp paketHarga_updated_date;
 
-	@Column(name="paketHarga_deleted_date")
+	@Column(name="paketharga_deleted_date")
 	private Timestamp paketHarga_deleted_date;
 
-	@Column(name="paketHarga_deleted_by")
+	@Column(name="paketharga_deleted_by")
 	private String paketHarga_deleted_by;
 
 	@ManyToOne

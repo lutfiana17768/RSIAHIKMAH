@@ -26,8 +26,8 @@
 													<c:forEach var="paket" items="${paketan}">
 														<tr>
 															<td>${paket.paket_nama}</td>
-															<td>${paket.paket_keterangan}</td>
 															<td>${paket.kelas.kelas_nama}</td>
+															<td>${paket.paket_keterangan}</td>
 															<td>${paket.paket_harga}</td>
 															<td>${paket.paket_jenis}</td>
 															<td>

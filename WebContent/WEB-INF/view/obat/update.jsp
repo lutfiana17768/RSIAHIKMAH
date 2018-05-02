@@ -12,24 +12,34 @@
 										<h3 class="title"> Update Kelas </h3>
 									</div>
 									<section class="form-kelas-baru">
-										<form:form modelAttribute="kelasModel" method="POST" action="/kelas/update">
-											<form:hidden path="kelas_id" />
-											<form:hidden path="kelas_aktif" />
-											<form:hidden path="kelas_created_by" />
-											<form:hidden path="kelas_created_date" />
+										<form:form modelAttribute="obatModel" method="POST" action="/obat/update">
+											<form:hidden path="obat_id" />
+											<form:hidden path="obat_aktif" />
+											<form:hidden path="obat_created_by" />
+											<form:hidden path="obat_created_date" />
 											<div class="form-group">
 												<label>Kode</label>
-												<form:input path="kelas_kode" placeholder="Masukan Kode" class="form-control"/>
+												<form:input path="obat_kode" placeholder="Masukan Kode" class="form-control"/>
 											</div>
 
 											<div class="form-group">
 												<label>Nama</label>
-												<form:input path="kelas_nama" placeholder="Masukan Nama" class="form-control"/>
+												<form:input path="obat_nama" placeholder="Masukan Nama" class="form-control"/>
+											</div>
+
+											<div class="form-group">
+												<label>Volume</label>
+												<form:input path="obat_volume" placeholder="Masukan Nama" class="form-control"/>
+											</div>
+
+											<div class="form-group">
+												<label>Volume Satuan</label>
+												<form:input path="obat_volume_satuan" placeholder="Masukan Nama" class="form-control"/>
 											</div>
 
 											<div class="form-group">
 												<label>Keterangan</label>
-												<form:input path="kelas_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
+												<form:input path="obat_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
 											</div>
 
 											<div class="form-group">

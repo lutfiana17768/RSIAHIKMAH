@@ -8,6 +8,7 @@ package com.rsia.madura.controller;
 import java.util.List; // Class to hold a list of objects
 import java.util.Scanner;
 import java.util.Map;
+import java.util.HashMap;
 
 import org.springframework.util.MultiValueMap;
 
@@ -23,15 +24,17 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import com.rsia.madura.entity.MKelas;
 import com.rsia.madura.entity.MPaket;
+import com.rsia.madura.entity.MKelas;
 import com.rsia.madura.entity.MRuang;
 import com.rsia.madura.entity.MTindakan;
+import com.rsia.madura.entity.MObat;
 import com.rsia.madura.entity.MPaketHarga;
 
-import com.rsia.madura.service.KelasService;
 import com.rsia.madura.service.PaketService;
+import com.rsia.madura.service.KelasService;
 import com.rsia.madura.service.RuangService;
+import com.rsia.madura.service.ObatService;
 import com.rsia.madura.service.TindakanService;
 
 
@@ -50,6 +53,9 @@ public class PaketController {
 	@Autowired
 	private TindakanService tindakanService;
 
+	@Autowired
+	private ObatService obatService;
+
 	private String uri ="redirect: /paket";
 
 	@RequestMapping(method=RequestMethod.GET)
@@ -63,15 +69,21 @@ public class PaketController {
 	@RequestMapping(value="/tambah", method=RequestMethod.GET)
 	public String FormView(Model model) {
 		List<MKelas> kelases = kelasService.findAll();
-		List<MPaket> paketan = paketService.findAll();
 		List<MRuang> ruangs = ruangService.findAll();
+		List<MObat> obats = obatService.findAll();
 		List<MTindakan> tindakans = tindakanService.findAll();
 
 		MPaket paketModel = new MPaket();
+
+		Map<String, String> satuan = new HashMap<String, String>();
+		satuan.put("1", "MM");
+		satuan.put("2", "CM");		
 		
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("ruangs", ruangs);
 		model.addAttribute("tindakans", tindakans);
+		model.addAttribute("obats", obats);
+		model.addAttribute("satuan", satuan);
 		
 		model.addAttribute("paketModel", paketModel);
 		model.addAttribute("footerjs", "../paket/inc/footerjs.jsp");
@@ -79,7 +91,7 @@ public class PaketController {
 	}
 
 	@RequestMapping(value="/store", method=RequestMethod.POST)
-	public String Store(@ModelAttribute("paketModel") MPaket paketModel, BindingResult bindingResult) {	
+	public String Store(@ModelAttribute("paketModel") MPaket paketModel) {	
 		paketService.store(paketModel);
 		return this.uri;
 	}
@@ -95,11 +107,18 @@ public class PaketController {
 		List<MKelas> kelases = kelasService.findAll();
 		List<MTindakan> tindakans = tindakanService.findAll();
 		List<MRuang> ruangs = ruangService.findAll();
+		List<MObat> obats = obatService.findAll();
 		MPaket paketModel = paketService.getById(id);
 
+		Map<String, String> satuan = new HashMap<String, String>();
+		satuan.put("1", "MM");
+		satuan.put("2", "CM");	
+		
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("ruangs", ruangs);
 		model.addAttribute("tindakans", tindakans);
+		model.addAttribute("obats", obats);
+		model.addAttribute("satuan", satuan);
 		model.addAttribute("paketModel", paketModel);
 		model.addAttribute("footerjs", "../paket/inc/footerjs.jsp");
 

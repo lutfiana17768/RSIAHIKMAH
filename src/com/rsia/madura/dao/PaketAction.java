@@ -103,12 +103,12 @@ public class PaketAction implements PaketDAO {
 	@Override
 	public void PaketUpdate(MPaket PaketModel) {
 		Session current = sessionFactory.getCurrentSession();
-		current.saveOrUpdate(PaketModel);
+		current.merge(PaketModel);
 	}
 
 	@Override
 	public void PaketDelete(MPaket PaketModel) {
 		Session current = sessionFactory.getCurrentSession();
-		current.saveOrUpdate(PaketModel);
+		current.merge(PaketModel);
 	}
 }

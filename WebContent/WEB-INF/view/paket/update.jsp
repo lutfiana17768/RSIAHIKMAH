@@ -16,6 +16,8 @@
 						<div class="col-4">
 							<form:form modelAttribute="paketModel" method="POST" action="/paket/update" id="paket-form">
 								<form:hidden path="paket_id" />
+								<form:hidden path="paket_created_by" />
+								<form:hidden path="paket_created_date" />
 								<div class="form-group">
 									<label>Nama Paket</label>
 									<form:input path="paket_nama" placeholder="Masukan Nama Paket" class="form-control" />
@@ -101,7 +103,7 @@
 																						<button type="button" class="btn btn-primary btn-sm" onclick="editRuang(${loop.index+1})">Edit</button>
 																					</td>
 																					<td style="display:none" data-used="1" data-save="1" data-name="paketHarga_id" data-kolom-id="paket-harga-id">${harga.paketHarga_id}</td>
-																					<td style="display:none" data-used="1" data-save="1" data-name="ruangs.ruang_id" data-kolom-id="m_tindakan_id">${harga.ruangs.ruang_i}</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="ruangs.ruang_id" data-kolom-id="m_tindakan_id">${harga.ruangs.ruang_id}</td>
 																				</tr>
 																			</c:when>
 																		</c:choose>
@@ -234,15 +236,15 @@
 					<div class="modal-header">
 						<h4 class="modal-title">Tambah Ruang</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">�</span>
+							<span aria-hidden="true">X</span>
 							<span class="sr-only">Close</span>
 						</button>
 					</div>
-					<div class="modal-body modal-tab-container">
+					<div class="modal-body">
 						<form id="form-ruang" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Ruang</label>
-								<select name="m_ruang_id" id="m_ruang_id">
+								<select name="m_ruang_id" id="m_ruang_id" class="form-control">
 									<c:forEach var="ruang" items="${ruangs}">
 										<option value="${ruang.ruang_id }">
 											${ruang.ruang_nama }
@@ -252,7 +254,7 @@
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_ruang_harga" id="paket_ruang_harga">
+								<input type="text" name="paket_ruang_harga" id="paket_ruang_harga" class="form-control">
 							</div>
 							<input type="hidden" name="ruang_mode" id="ruang_mode">
 							<input type="hidden" name="ruang_edit" id="ruang_edit">
@@ -273,15 +275,15 @@
 					<div class="modal-header">
 						<h4 class="modal-title">Tambah Tindakan</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">�</span>
+							<span aria-hidden="true">X</span>
 							<span class="sr-only">Close</span>
 						</button>
 					</div>
-					<div class="modal-body modal-tab-container">
+					<div class="modal-body">
 						<form id="form-tindakan" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Tindakan</label>
-								<select name="m_tindakan_id" id="m_tindakan_id">
+								<select name="m_tindakan_id" id="m_tindakan_id" class="form-control">
 									<c:forEach var="tindakans" items="${tindakans}">
 										<option value="${tindakans.tindakan_id }">
 											${tindakans.tindakan_nama }
@@ -291,11 +293,11 @@
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>
-								<input type="text" name="paket_tindakan_jumlah" id="paket_tindakan_jumlah">
+								<input type="text" name="paket_tindakan_jumlah" id="paket_tindakan_jumlah" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_tindakan_harga" id="paket_tindakan_harga">
+								<input type="text" name="paket_tindakan_harga" id="paket_tindakan_harga" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Sub Harga</label>
@@ -320,15 +322,15 @@
 					<div class="modal-header">
 						<h4 class="modal-title">Tambah Obat/Alkes</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">�</span>
+							<span aria-hidden="true">X</span>
 							<span class="sr-only">Close</span>
 						</button>
 					</div>
-					<div class="modal-body modal-tab-container">
+					<div class="modal-body">
 						<form id="form-barang" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Obat/Alkes</label>
-								<select name="m_barang_id" id="m_barang_id">
+								<select name="m_barang_id" id="m_barang_id" class="form-control">
 									<c:forEach var="obat" items="${obat}">
 										<option value="${obat.obat_id }">
 											${obat.obat_nama }
@@ -338,7 +340,7 @@
 							</div>
 							<div class="form-group">
 								<label>Satuan</label>
-								<select name="paket_satuan_id" id="paket_satuan_id">
+								<select name="paket_satuan_id" id="paket_satuan_id" class="form-control">
 									<c:forEach var="satuan" items="${satuan}" varStatus="loop">
 										<option value="${satuan.key}">${satuan.value}</option>
 									</c:forEach>
@@ -346,15 +348,15 @@
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>
-								<input type="text" name="paket_barang_jumlah" id="paket_barang_jumlah">
+								<input type="text" name="paket_barang_jumlah" id="paket_barang_jumlah" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_barang_harga" id="paket_barang_harga">
+								<input type="text" name="paket_barang_harga" id="paket_barang_harga" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Sub Harga</label>
-								<input type="text" name="paket_barang_subharga" id="paket_barang_subharga">
+								<input type="text" name="paket_barang_subharga" id="paket_barang_subharga" class="form-control">
 							</div>
 							<input type="hidden" name="barang_mode" id="barang_mode">
 							<input type="hidden" name="barang_edit" id="barang_edit">
@@ -378,7 +380,7 @@
 							<i class="fa fa-warning"></i> Alert
 						</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">�</span>
+							<span aria-hidden="true">X</span>
 						</button>
 					</div>
 					<div class="modal-body">

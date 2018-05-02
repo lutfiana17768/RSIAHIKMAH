@@ -9,23 +9,32 @@
 							<div class="card">
 								<div class="card-block">
 									<div class="card-title-block">
-										<h3 class="title"> Tambah Kelas Baru </h3>
+										<h3 class="title"> Tambah Obat Baru </h3>
 									</div>
 									<section class="form-kelas-baru">
-										<form:form modelAttribute="kelasModel" method="POST" action="/kelas/store">
+										<form:form modelAttribute="obatModel" method="POST" action="/obat/store">
+										    <div class="form-group">
+										    <label>Kode</label>
+												<form:input path="obat_kode" placeholder="Masukan Kode" class="form-control"/>
+											</div>
 											<div class="form-group">
-												<label>Kode</label>
-												<form:input path="kelas_kode" placeholder="Masukan Kode" class="form-control"/>
+												<label>Nama</label>
+												<form:input path="obat_nama" placeholder="Masukan Nama" class="form-control"/>
 											</div>
 
 											<div class="form-group">
-												<label>Nama</label>
-												<form:input path="kelas_nama" placeholder="Masukan Nama" class="form-control"/>
+												<label>Volume</label>
+												<form:input path="obat_volume" placeholder="Masukan Nama" class="form-control"/>
+											</div>
+
+											<div class="form-group">
+												<label>Volume Satuan</label>
+												<form:input path="obat_volume_satuan" placeholder="Masukan Nama" class="form-control"/>
 											</div>
 
 											<div class="form-group">
 												<label>Keterangan</label>
-												<form:input path="kelas_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
+												<form:input path="obat_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
 											</div>
 
 											<div class="form-group">
@@ -42,6 +51,5 @@
 							<a href="/kelas" class="pull-right btn btn-danger">Batal</a>
 						</div>
 					</div>
-					<jsp:include page="inc/tabel.jsp" />
 				</section>
 <jsp:include page="../app/footer.jsp" />

@@ -73,7 +73,7 @@
                 tr.append('<td>'+ruang_text+'</td>');
                 tr.append('<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_ruang_harga">'+paket_ruang_harga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteRuang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editRuang('+counter+')">Edit</button></td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="ruangs.ruang_id">'+m_ruang_id+'</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="ruangs.ruang_id" data-kolom-id="m_ruang_id">'+m_ruang_id+'</td>');
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="paketHarga_jumlah" >1</td>');
 
                 if(mode == 'new')

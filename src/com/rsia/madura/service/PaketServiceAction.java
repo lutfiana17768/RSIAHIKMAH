@@ -65,7 +65,7 @@ public class PaketServiceAction implements PaketService {
 		if (data.getPaketHarga() != null) {
 			data.getPaketHarga().forEach((harga) -> {
 				harga.setPaket(data);
-				harga.setPaketHarga_created_by("Admin");	
+				harga.setPaketHarga_created_by("Admin");
 				harga.setPaketHarga_created_date(currentTime);
 				harga.setPaketHarga_updated_date(currentTime);
 			});
@@ -92,6 +92,7 @@ public class PaketServiceAction implements PaketService {
 			});
 		}
 
+
 		paketDAO.PaketUpdate(data);
 	}
 
@@ -100,7 +101,12 @@ public class PaketServiceAction implements PaketService {
 	public void delete(MPaket data) {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
+
+		data.getPaketHarga().forEach((harga) -> {
+			harga.setPaket(data);
+			harga.setPaketHarga_deleted_by("Admin");
+			harga.setPaketHarga_deleted_date(currentTime);
+		});		
 		data.setPaket_aktif("T");
 		data.setPaket_deleted_by("Admin");
 		data.setPaket_deleted_date(currentTime);
