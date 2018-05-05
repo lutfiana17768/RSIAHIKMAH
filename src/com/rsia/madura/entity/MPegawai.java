@@ -34,7 +34,7 @@ public class MPegawai {
 	private String pegawaiNama;
 	
 	@Column(name="pegawai_kelamin")
-	private char pegawaiKelamin;
+	private String pegawaiKelamin;
 	
 	@Column(name="pegawai_tgllahir")
 	private Date pegawaiTglLahir;
@@ -46,7 +46,7 @@ public class MPegawai {
 	private int kotaId;
 	
 	@Column(name="pegawai_aktif")
-	private char pegawaiAktif;
+	private String pegawaiAktif;
 	
 	@Column(name="pegawai_created_by")
 	private String pegawaiCreatedBy;
@@ -144,11 +144,11 @@ public class MPegawai {
 		this.pegawaiNama = pegawaiNama;
 	}
 
-	public char getPegawaiKelamin() {
+	public String getPegawaiKelamin() {
 		return pegawaiKelamin;
 	}
 
-	public void setPegawaiKelamin(char pegawaiKelamin) {
+	public void setPegawaiKelamin(String pegawaiKelamin) {
 		this.pegawaiKelamin = pegawaiKelamin;
 	}
 
@@ -176,11 +176,11 @@ public class MPegawai {
 		this.kotaId = kotaId;
 	}
 
-	public char getPegawaiAktif() {
+	public String getPegawaiAktif() {
 		return pegawaiAktif;
 	}
 
-	public void setPegawaiAktif(char pegawaiAktif) {
+	public void setPegawaiAktif(String pegawaiAktif) {
 		this.pegawaiAktif = pegawaiAktif;
 	}
 

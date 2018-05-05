@@ -14,18 +14,18 @@
 					<form:form modelAttribute="kelurahanModel" action="/kelurahan/store" method="POST">		
 						<div class="form-group">
 							<label for="exampleInputEmail1">Kode kelurahan</label>
-								<form:input path="kelurahanKode" placeholder="Masukan Kode kelurahan" class="form-control" />
+								<form:input path="kelurahanKode" placeholder="Masukan Kode kelurahan" class="form-control boxed" />
 							</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama kelurahan</label>
-							<form:input path="kelurahanNama" placeholder="Masukan Nama kelurahan" class="form-control" />
+							<form:input path="kelurahanNama" placeholder="Masukan Nama kelurahan" class="form-control boxed" />
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama Kecamatan</label>
 							
 							<div class="select2-wrapper">
-								<form:select path="kecamatanKode" class="form-control input-lg select2-single" >
-									<form:option value="" />
+								<form:select path="kecamatanKode" class="form-control boxed input-lg select2-single" >
+									<form:option value="" label="--- Pilih Kecamatan ---"/>
 									<c:forEach var="tempkecamatan" items="${kecamatan}">
                                      	<form:option value="${tempkecamatan.kecamatanKode }"  label="${tempkecamatan.kecamatanNama }" />
                                      </c:forEach>

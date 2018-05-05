@@ -14,17 +14,17 @@
 					<form:form modelAttribute="kotaModel" method="POST" action="/kota/store">		
 						<div class="form-group">
 							<label for="exampleInputEmail1">Kode Kota</label>
-								<form:input path="kotaKode"  placeholder="Masukan Kode Kota" class="form-control" />
+								<form:input path="kotaKode"  placeholder="Masukan Kode Kota" class="form-control boxed" />
 							</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama Kota</label>
-								<form:input path="kotaNama" placeholder="Masukan Nama Kota" class="form-control" />
+								<form:input path="kotaNama" placeholder="Masukan Nama Kota" class="form-control boxed" />
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama Provinsi</label>
 							<div class="select2-wrapper">
-								<form:select  path="propinsiKode" class="form-control input-lg select2-single">
-									<form:option value=""></form:option>
+								<form:select  path="propinsiKode" class="form-control boxed input-lg select2-single">
+									<form:option value="" label="--- Pilih Kota ---"></form:option>
 									
 									<c:forEach var="tempProvinsi" items="${provinsi}">
                                      	<form:option value="${tempProvinsi.propinsiKode }" label="${tempProvinsi.propinsiNama }" />
@@ -33,7 +33,7 @@
 							</div>
                          </div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Simpan</button>
+							<button type="submit" class="btn btn-primary rounded-0">Simpan</button>
 						</div>
 					</form:form>
 				</div>
@@ -65,8 +65,8 @@
                                         		<td> ${tempKota.kotaKode } </td>
                                         		<td> ${tempKota.kotaNama } </td>
                                         		<td>  </td>
-                                        		<td> <a href="/kota/update/${tempKota.kota_id}" class="btn btn-info">Update</a>
-                                        		 <a href="/kota/delete/${tempKota.kota_id}" class="btn btn-warning">Delete</a></td>
+                                        		<td> <a href="/kota/update/${tempKota.kota_id}" class="btn btn-info rounded-0">Update</a>
+                                        		 <a href="/kota/delete/${tempKota.kota_id}" class="btn btn-warning rounded-0">Delete</a></td>
                                         	</tr>
                                         
                                         </c:forEach>
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <<div class="fixed-table-pagination" style="display: block; margin-top:25px">
+        <div class="fixed-table-pagination" style="display: block; margin-top:25px">
              <form action="" method="get">
                     <div class="pull-right pagination" style="margin-right: 20px;">
                          ${link }

@@ -5,10 +5,13 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
-								<div class="card-block">
-									<div class="card-title-block">
+								<div class="card-header">
+									<div class="header-block">
 										<h3 class="title"> List Tindakan </h3>
+										<a href="/tindakan/tambah" class="btn btn-primary btn-sm">Tambah</a>
 									</div>
+								</div>
+								<div class="card-block">
 									<section class="list-kelas">
 										<div class="table-responsive">
 											<table class="table table-striped table-bordered table-hover">
@@ -29,8 +32,8 @@
 															<td>${tindakan.tindakan_keterangan}</td>
 															<td>${tindakan.kelas.kelas_nama}</td>
 															<td>
-																<a href="/tindakan/update/${tindakan.tindakan_id}" class="btn btn-info">Update</a>
-																<a href="/tindakan/delete/${tindakan.tindakan_id}" class="btn btn-warning">Delete</a>
+																<a href="/tindakan/update/${tindakan.tindakan_id}" class="btn btn-info rounded-0">Update</a>
+																<a href="/tindakan/delete/${tindakan.tindakan_id}" class="btn btn-warning rounded-0">Delete</a>
 															</td>
 														</tr>
 													</c:forEach>

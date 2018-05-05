@@ -9,26 +9,26 @@
 			<div class="col-md-6">
 				<div class="card card-block sameheight-item">
 					<div class="title-block">
-						<h3 class="title"> Kondisi Pasien </h3>
+						<h3 class="title">Kondisi Pasien</h3>
 					</div>
 					<form:form modelAttribute="kondisiModel" method="POST" action="/kondisi/store">
                         <div class="form-group">
                             <label>Kode</label>
-                            <form:input path="kondisi_kode" placeholder="Masukan Kode" class="form-control"/>
+                            <form:input path="kondisi_kode" placeholder="Masukan Kode" class="form-control boxed"/>
                         </div>
                     
                         <div class="form-group">
                             <label>Nama</label>
-                            <form:input path="kondisi_nama" placeholder="Masukan Nama" class="form-control"/>
+                            <form:input path="kondisi_nama" placeholder="Masukan Nama" class="form-control boxed"/>
                          </div>
                         
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <form:input path="kondisi_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
+                            <form:input path="kondisi_keterangan" placeholder="Masukan Keterangan" class="form-control boxed"/>
                          </div>
                     
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary rounded-0">Simpan</button>
                         </div>
                     </form:form>    
 				</div>

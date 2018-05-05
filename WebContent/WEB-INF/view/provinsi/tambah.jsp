@@ -15,14 +15,14 @@
 					
 						<div class="form-group">
 							<label for="exampleInputEmail1">Kode Provinsi</label>
-								<form:input path="propinsiKode" placeholder="Masukan Kode Provinsi" class="form-control"/>
+								<form:input path="propinsiKode" placeholder="Masukan Kode Provinsi" class="form-control boxed"/>
 							</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama Provinsi</label>
-								<form:input path="propinsiNama" placeholder="Masukan Nama Provinsi" class="form-control"/>
+								<form:input path="propinsiNama" placeholder="Masukan Nama Provinsi" class="form-control boxed"/>
 							 </div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Simpan</button>
+							<button type="submit" class="btn btn-primary rounded-0">Simpan</button>
 						</div>
 					</form:form>
 				</div>
@@ -56,8 +56,8 @@
                                             		<td> ${tempProvinsi.propinsiKode } </td>
                                             		<td> ${tempProvinsi.propinsiNama } </td>
                                             		<td>  </td>
-                                            		<td> <a href="/provinsi/update/${tempProvinsi.propinsi_id }" class="btn btn-info">Update</a>
-                                                     <a href="/provinsi/delete/${tempProvinsi.propinsi_id }" class="btn btn-warning">Delete</a></td>
+                                            		<td> <a href="/provinsi/update/${tempProvinsi.propinsi_id }" class="btn btn-info rounded-0">Update</a>
+                                                     <a href="/provinsi/delete/${tempProvinsi.propinsi_id }" class="btn btn-warning rounded-0">Delete</a></td>
                                             	</tr>
                                         	</c:when>
                                         </c:choose>

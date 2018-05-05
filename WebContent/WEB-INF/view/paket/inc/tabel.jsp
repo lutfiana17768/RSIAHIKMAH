@@ -5,10 +5,13 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
-								<div class="card-block">
-									<div class="card-title-block">
+								<div class="card-header">
+									<div class="header-block">
 										<h3 class="title"> List Paket </h3>
+										<a href="/paket/tambah" class="btn btn-sm btn-primary rounded-0">Tambah</a>
 									</div>
+								</div>
+								<div class="card-block">
 									<section class="list-paket">
 										<div class="table-responsive">
 											<table class="table table-striped table-bordered table-hover">
@@ -31,8 +34,8 @@
 															<td>${paket.paket_harga}</td>
 															<td>${paket.paket_jenis}</td>
 															<td>
-																<a href="/paket/update/${paket.paket_id}" class="btn btn-info">Update</a>
-																<a href="/paket/delete/${paket.paket_id}" class="btn btn-warning">Delete</a>
+																<a href="/paket/update/${paket.paket_id}" class="btn btn-info rounded-0">Update</a>
+																<a href="/paket/delete/${paket.paket_id}" class="btn btn-warning rounded-0">Delete</a>
 															</td>
 														</tr>
 													</c:forEach>

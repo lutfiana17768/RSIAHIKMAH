@@ -19,14 +19,14 @@
 						
 						<div class="form-group">
 							<label for="exampleInputEmail1">Kode Provinsi</label>
-							<form:input path="propinsiKode" class="form-control"/>
+							<form:input path="propinsiKode" class="form-control boxed"/>
 							</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama Provinsi</label>
-							<form:input path="propinsiNama" class="form-control"/>
+							<form:input path="propinsiNama" class="form-control boxed"/>
 							 </div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Update</button>
+							<button type="submit" class="btn btn-primary rounded-0">Update</button>
 						</div>
 					</form:form>
 					

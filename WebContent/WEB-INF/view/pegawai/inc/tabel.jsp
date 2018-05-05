@@ -17,13 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        <c:forEach var="tempPegawai" items="${pegawai}">
-           	<c:url var="updateLink" value="form-update">
-           		<c:param name="pegawaiId" value="${tempPegawai.pegawai_id}" />
-           	</c:url>
-           	<c:url var="deleteLink" value="delete">
-           		<c:param name="pegawaiId" value="${tempPegawai.pegawai_id}" />
-           	</c:url>
+        <c:forEach var="tempPegawai" items="${pegawais}">
            	<tr>
            		<td> ${tempPegawai.pegawaiNo } </td>
            		<td> ${tempPegawai.pegawaiNama } </td>
@@ -33,8 +27,8 @@
            		<td> ${tempPegawai.pegawaiMedis } </td>
            		<td> ${tempPegawai.pegawaiEmail } </td>
            		<td> ${tempPegawai.pegawaiNoHp } </td>
-           		<td> <a href="${updateLink }" class="btn btn-info">Update</a>
-           		 <a href="${deleteLink }" class="btn btn-warning">Delete</a></td>
+           		<td> <a href="/pegawai/update/${tempPegawai.pegawai_id}" class="btn btn-info">Update</a>
+           		 <a href="/pegawai/delete/${tempPegawai.pegawai_id}" class="btn btn-warning">Delete</a></td>
            	</tr>
         
         </c:forEach>

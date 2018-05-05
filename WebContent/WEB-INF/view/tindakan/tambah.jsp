@@ -7,46 +7,45 @@
 					<div class="form-kelas row">
 						<div class="col-md-12">
 							<div class="card">
-								<div class="card-block">
-									<div class="card-title-block">
-										<h3 class="title"> Tambah Tindakan Baru </h3>
+								<div class="card-header bordered">
+									<div class="header-block">
+										<h3 class="title">Tambah Tindakan Baru
+										</h3>
 									</div>
+									<div class="header-block pull-right">
+										<button type="submit" class="btn btn-primary rounded-0" onclick="$('form').submit()" style="margin-right: 3px">Simpan</button>
+										<a href="/tindakan" class="pull-right btn btn-danger rounded-0">Batal</a>
+									</div>
+								</div>
+								<div class="card-block">
 									<section class="form-kelas-baru">
 										<form:form modelAttribute="tindakanModel" method="POST" action="/tindakan/store">
 											<div class="form-group">
 												<label>Kode</label>
-												<form:input path="tindakan_kode" placeholder="Masukan Kode" class="form-control"/>
+												<form:input path="tindakan_kode" placeholder="Masukan Kode" class="form-control boxed"/>
 											</div>
 
 											<div class="form-group">
 												<label>Nama</label>
-												<form:input path="tindakan_nama" placeholder="Masukan Nama" class="form-control"/>
+												<form:input path="tindakan_nama" placeholder="Masukan Nama" class="form-control boxed"/>
 											</div>
 
 											<div class="form-group">
 												<label>Keterangan</label>
-												<form:input path="tindakan_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
+												<form:input path="tindakan_keterangan" placeholder="Masukan Keterangan" class="form-control boxed"/>
 											</div>
 
 											<div class="form-group">
 												<label>Kelas</label>
-												<form:select path="kelas.kelas_id" class="form-control">
+												<form:select path="kelas.kelas_id" class="form-control boxed">
+													<option value="">--- Pilih Kelas ---</option>
 													<form:options items="${kelases}" itemValue="kelas_id" itemLabel="kelas_nama" />
 												</form:select>
-											</div>
-
-											<div class="form-group">
-												<button type="submit" class="btn btn-primary">Simpan</button>
 											</div>
 										</form:form>
 									</section>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<a href="/tindakan" class="pull-right btn btn-danger">Batal</a>
 						</div>
 					</div>
 					<jsp:include page="inc/tabel.jsp" />

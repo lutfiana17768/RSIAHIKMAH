@@ -19,18 +19,18 @@
 						
 						<div class="form-group">
 							<label for="exampleInputEmail1">Kode Kota</label>
-								<form:input path="kotaKode"  placeholder="Masukan Kode Kota" class="form-control" />
+								<form:input path="kotaKode"  placeholder="Masukan Kode Kota" class="form-control boxed" />
 							</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama Kota</label>
-								<form:input path="kotaNama" placeholder="Masukan Nama Kota" class="form-control" />
+								<form:input path="kotaNama" placeholder="Masukan Nama Kota" class="form-control boxed" />
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama Provinsi</label>
 							<div class="select2-wrapper">
-								<form:select  path="propinsiKode" class="form-control input-lg select2-single">
+								<form:select  path="propinsiKode" class="form-control boxed input-lg select2-single">
 									<form:option value=""></form:option>
-									
+									<option value="">--- Pilih Provinsi ---</option>
 									<c:forEach var="tempProvinsi" items="${provinsi}">
                                      	<form:option value="${tempProvinsi.propinsiKode }" label="${tempProvinsi.propinsiNama }" />
                                      </c:forEach>
@@ -39,7 +39,7 @@
                          </div>
 						
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Simpan</button>
+							<button type="submit" class="btn btn-primary rounded-0">Simpan</button>
 						</div>
 					
 					</form:form>

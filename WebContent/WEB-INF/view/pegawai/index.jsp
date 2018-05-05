@@ -9,11 +9,11 @@
                 <div class="card">
                     <div class="card-block">
                         <div class="card-title-block">
-                            <h3 class="title"> List Kota </h3>
+                            <h3 class="title"> List Pegawai </h3>
                         </div>
                         <section class="example">
                             <div class="table-responsive">
-                            <a class="btn btn-primary" href="tambah" align="right"> Tambah </a>
+                            <a class="btn btn-primary" href="/pegawai/tambah" align="right"> Tambah </a>
                             <jsp:include page="inc/tabel.jsp" />
                             </div>
                         </section>

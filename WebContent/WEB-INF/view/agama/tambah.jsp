@@ -15,16 +15,16 @@
                        
                         <div class="form-group">
                             <label>Nama</label>
-                            <form:input path="agamaNama" placeholder="Masukan Nama" class="form-control"/>
+                            <form:input path="agamaNama" placeholder="Masukan Nama" class="form-control boxed"/>
                          </div>
                         
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <form:input path="agamaKeterangan" placeholder="Masukan Keterangan" class="form-control"/>
+                            <form:input path="agamaKeterangan" placeholder="Masukan Keterangan" class="form-control boxed"/>
                          </div>
                     
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary rounded-0">Simpan</button>
                         </div>
                     </form:form>    
 				</div>

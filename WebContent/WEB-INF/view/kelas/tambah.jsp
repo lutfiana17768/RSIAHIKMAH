@@ -7,39 +7,37 @@
 					<div class="form-kelas row">
 						<div class="col-md-12">
 							<div class="card">
-								<div class="card-block">
-									<div class="card-title-block">
-										<h3 class="title"> Tambah Kelas Baru </h3>
+								<div class="card-header bordered">
+									<div class="header-block">
+										<h3 class="title">Tambah Kelas Baru 
+										</h3>
 									</div>
+									<div class="header-block pull-right">
+										<button type="submit" class="btn btn-primary rounded-0" style="margin-right: 3px" id="simpan-paket" onclick="$('form').submit()">Simpan</button>
+										<a href="/kelas" class="pull-right btn btn-danger rounded-0">Batal</a>
+									</div>
+								</div>
+								<div class="card-block">
 									<section class="form-kelas-baru">
 										<form:form modelAttribute="kelasModel" method="POST" action="/kelas/store">
 											<div class="form-group">
 												<label>Kode</label>
-												<form:input path="kelas_kode" placeholder="Masukan Kode" class="form-control"/>
+												<form:input path="kelas_kode" placeholder="Masukan Kode" class="form-control boxed"/>
 											</div>
 
 											<div class="form-group">
 												<label>Nama</label>
-												<form:input path="kelas_nama" placeholder="Masukan Nama" class="form-control"/>
+												<form:input path="kelas_nama" placeholder="Masukan Nama" class="form-control boxed"/>
 											</div>
 
 											<div class="form-group">
 												<label>Keterangan</label>
-												<form:input path="kelas_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
-											</div>
-
-											<div class="form-group">
-												<button type="submit" class="btn btn-primary">Simpan</button>
+												<form:input path="kelas_keterangan" placeholder="Masukan Keterangan" class="form-control boxed"/>
 											</div>
 										</form:form>
 									</section>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<a href="/kelas" class="pull-right btn btn-danger">Batal</a>
 						</div>
 					</div>
 					<jsp:include page="inc/tabel.jsp" />

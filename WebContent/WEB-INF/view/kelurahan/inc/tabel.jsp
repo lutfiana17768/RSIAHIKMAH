@@ -17,8 +17,8 @@
            		<td> ${tempKelurahan.kelurahanKode } </td>
            		<td> ${tempKelurahan.kelurahanNama } </td>
            		<td>  </td>
-           		<td> <a href="/kelurahan/update/${tempKelurahan.kelurahan_id}" class="btn btn-info">Update</a>
-           		 <a href="/kelurahan/delete/${tempKelurahan.kelurahan_id}" class="btn btn-warning">Delete</a></td>
+           		<td> <a href="/kelurahan/update/${tempKelurahan.kelurahan_id}" class="btn btn-info rounded-0">Update</a>
+           		 <a href="/kelurahan/delete/${tempKelurahan.kelurahan_id}" class="btn btn-warning rounded-0">Delete</a></td>
            	</tr>                                                 
         </c:forEach>
     </tbody>

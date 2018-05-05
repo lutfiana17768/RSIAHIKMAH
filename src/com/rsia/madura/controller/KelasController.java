@@ -27,14 +27,11 @@ public class KelasController {
 	@Autowired
 	private KelasService kelasService;
 
-	private String uri ="redirect: /kelas";
+	private String uri ="redirect: /kelas/tambah";
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model) {
-		List<MKelas> kelases = kelasService.findAll();
-		model.addAttribute("kelases", kelases);
-		model.addAttribute("footerjs", "");
-		return "kelas/index";
+		return this.uri;
 	}
 
 	@RequestMapping(value="/tambah", method=RequestMethod.GET)

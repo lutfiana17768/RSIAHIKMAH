@@ -13,6 +13,10 @@
                         <h3 class="title">Update Data barangtrans </h3>
                     </div>
                     <form:form modelAttribute="barangTransModel" method="POST" action="/barangtrans/store">
+                        <form:hidden path="barangTrans_id" />
+                        <form:hidden path="barangTransCreatedDate" />
+                        <form:hidden path="barangTransCreatedBy" />
+                        <form:hidden path="agamaAktif" />
                         <div class="form-group">
                             <label>Nama Barang</label>
                             <form:input path="barangTransBarangNama" placeholder="nama barang" class="form-control"/>

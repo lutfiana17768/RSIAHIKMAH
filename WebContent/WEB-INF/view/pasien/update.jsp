@@ -14,6 +14,11 @@
 					</div>
 				</div>
 				<form:form modelAttribute="pasienModel" method="POST" action="/pasien/update">
+								<form:hidden path="pasien_id" />
+								<form:hidden path="pasien_created_date" />
+								<form:hidden path="pasien_created_by" />
+								<form:hidden path="pasien_aktif" />
+								<div class="form-group">
 				<div class="row sameheight-container" style="background: white">
 					<div class="col-md-6 d_pasien-content">
 						<div class="card card-block sameheight-item d_pasien-form">

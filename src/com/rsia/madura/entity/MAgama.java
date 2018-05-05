@@ -30,7 +30,7 @@ public class MAgama {
 	private String agamaCreatedBy;
 	
 	@Column(name="agama_created_date")
-	private Timestamp agamacreatedDate;
+	private Timestamp agamaCreatedDate;
 	
 	@Column(name="agama_updated_by")
 	private String agamaUpdatedBy;
@@ -84,12 +84,12 @@ public class MAgama {
 		this.agamaCreatedBy = agamaCreatedBy;
 	}
 
-	public Timestamp getAgamacreatedDate() {
-		return agamacreatedDate;
+	public Timestamp getAgamaCreatedDate() {
+		return agamaCreatedDate;
 	}
 
-	public void setAgamacreatedDate(Timestamp agamacreatedDate) {
-		this.agamacreatedDate = agamacreatedDate;
+	public void setAgamaCreatedDate(Timestamp agamaCreatedDate) {
+		this.agamaCreatedDate = agamaCreatedDate;
 	}
 
 	public String getAgamaUpdatedBy() {

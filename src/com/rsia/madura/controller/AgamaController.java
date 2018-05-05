@@ -25,7 +25,6 @@ public class AgamaController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView() {
-		/*list view not yet available*/
 		return this.uri;
 	}
 
@@ -39,7 +38,7 @@ public class AgamaController {
 		MAgama agamaModel = new MAgama();
 		
 		model.addAttribute("agama", result);
-		// model.addAttribute("link", link);
+		model.addAttribute("link", link);
 		model.addAttribute("agamaModel", agamaModel);
 		
 		return "agama/tambah";
@@ -51,7 +50,7 @@ public class AgamaController {
 		
 		agamaModel.setAgamaAktif("Y");
 		agamaModel.setAgamaCreatedBy("Admin");	
-		agamaModel.setAgamacreatedDate(currentTime);
+		agamaModel.setAgamaCreatedDate(currentTime);
 		
 		agamaService.store(agamaModel);
 		
@@ -88,7 +87,7 @@ public class AgamaController {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
 		agamaModel.setAgamaAktif("Y");
-		agamaModel.setAgamaCreatedBy("Admin");
+		agamaModel.setAgamaUpdatedBy("Admin");
 		agamaModel.setAgamaUpdatedDate(currentTime);;
 		
 		agamaService.update(agamaModel);

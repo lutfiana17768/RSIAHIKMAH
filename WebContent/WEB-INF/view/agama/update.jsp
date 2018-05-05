@@ -13,6 +13,8 @@
 					</div>
 					<form:form modelAttribute="agamaModel" method="POST" action="/agama/update">
 						<form:hidden path="agama_id" />
+						<form:hidden path="agamaCreatedBy" />
+						<form:hidden path="agamaCreatedDate" />
 						
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama</label>

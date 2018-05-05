@@ -17,8 +17,8 @@
               <td> ${tempKecamatan.kecamatanKode } </td>
               <td> ${tempKecamatan.kecamatanNama } </td>
               <td>  </td>
-              <td> <a href="/kecamatan/update/${tempKecamatan.kecamatan_id}" class="btn btn-info">Update</a>
-               <a href="/kecamatan/delete/${tempKecamatan.kecamatan_id}" class="btn btn-warning">Delete</a></td>
+              <td> <a href="/kecamatan/update/${tempKecamatan.kecamatan_id}" class="btn btn-info rounded-0">Update</a>
+               <a href="/kecamatan/delete/${tempKecamatan.kecamatan_id}" class="btn btn-warning rounded-0">Delete</a></td>
             </tr>
         </c:forEach>
     </tbody>

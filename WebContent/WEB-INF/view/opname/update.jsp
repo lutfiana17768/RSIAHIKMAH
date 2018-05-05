@@ -12,6 +12,10 @@
                         <h3 class="title">Update Data Opname </h3>
                     </div>
                     <form:form modelAttribute="opnameModel" method="POST" action="/opname/update">
+                        <form:hidden path="opname_id" />
+                        <form:hidden path="opnameCreatedDate" />
+                        <form:hidden path="opnameCreatedBy" />
+                        <form:hidden path="opnameAktif" />
                     
                         <div class="form-group">
                             <label>No</label>

@@ -5,10 +5,13 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
-			<div class="card-block">
-				<div class="card-title-block">
+			<div class="card-header">
+				<div class="header-block">
 					<h3 class="title"> List Ruangan </h3>
+					<a href="/ruangan/tambah" class="btn btn-primary btn-sm">Tambah</a>
 				</div>
+			</div>
+			<div class="card-block">
 				<section class="list-kelas">
 					<div class="table-responsive">
 						<table class="table table-striped table-bordered table-hover">
@@ -33,8 +36,8 @@
 												<td>${temp.ruang_kepala }</td>
 												<td>${temp.tarif_sarana }</td>
 												<td>
-													<a href="ruangan/update/${temp.ruang_id }" class="btn btn-info">Update</a>
-													<a href="ruangan/delete/${temp.ruang_id }" class="btn btn-warning">Delete</a>
+													<a href="ruangan/update/${temp.ruang_id }" class="btn btn-info rounded-0">Update</a>
+													<a href="ruangan/delete/${temp.ruang_id }" class="btn btn-warning rounded-0">Delete</a>
 												</td>
 											</tr>
 										</c:when>

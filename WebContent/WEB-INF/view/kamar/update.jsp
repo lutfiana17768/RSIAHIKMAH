@@ -15,6 +15,10 @@
 						</div>
 						<form:form modelAttribute="kamarModel" method="POST" action="update">
 							<form:hidden path="kamar_id" />
+							<form:hidden path="kamar_created_date" />
+							<form:hidden path="kamar_created_by" />
+							<form:hidden path="kamar_aktif" />
+							<form:hidden path="kamar_id" />
 							
                             <div class="form-group">
                                  <label>No Kamar</label>

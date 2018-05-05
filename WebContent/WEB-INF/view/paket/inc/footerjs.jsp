@@ -165,7 +165,7 @@
                 tr.append('<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_barang_harga">'+paket_barang_harga+'</td>');
                 tr.append('<td data-used="1" data-kolom-id="paket_barang_subharga">'+paket_barang_subharga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteBarang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editBarang('+counter+')">Edit</button></td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="m_barang_id">'+m_barang_id+'</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="obats.obat_id" data-kolom-id="m_barang_id">'+m_barang_id+'</td>');
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="paket_satuan_id">'+paket_satuan_id+'</td>');
                 if(mode == 'new')
                 {

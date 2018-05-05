@@ -4,42 +4,42 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../app/header.jsp" />
 	<section class="section">
-		<div class="row sameheight-container">
-			<div class="col-md-3"></div>
-			<div class="col-md-6">
+		<div class="row sameheight-container d-flex">
+			<div class="col-md-8 mx-auto">
 				<div class="card card-block sameheight-item">
-					<div class="title-block">
-						<h3 class="title"> Data Ruang </h3>
+					<div class="title-block" style="padding-bottom: 10px;border-bottom: 1px solid #ddd">
+						<label class="title" style="margin-top: 10px;font-weight: bold;"> Data Ruang </label>
 					</div>
 					<form:form modelAttribute="ruangModel" method="POST" action="store">
 
 						<div class="form-group">
 							<label>Kode</label>
-							<form:input path="ruang_kode" placeholder="Masukan Kode" class="form-control" />
+							<form:input path="ruang_kode" placeholder="Masukan Kode" class="form-control boxed" />
 						</div>
 
 						<div class="form-group">
 							<label>Nama</label>
-							<form:input path="ruang_nama" placeholder="Masukan Nama" class="form-control" />
+							<form:input path="ruang_nama" placeholder="Masukan Nama" class="form-control boxed" />
 						</div>
 
 						<div class="form-group">
 							<label>Keterangan</label>
-							<form:input path="ruang_keterangan" placeholder="Masukan Keterangan" class="form-control" />
+							<form:input path="ruang_keterangan" placeholder="Masukan Keterangan" class="form-control boxed" />
 						</div>
 
 						<div class="form-group">
 							<label>Kepala</label>
-							<form:input path="ruang_kepala" placeholder="Masukan Kepala" class="form-control" />
+							<form:input path="ruang_kepala" placeholder="Masukan Kepala" class="form-control boxed" />
 						</div>
 						<div class="form-group">
-							<form:select path="kelas.kelas_id" class="form-control">
+							<form:select path="kelas.kelas_id" class="form-control boxed">
+								<option value="">--- Pilih Kelas ---</option>
 								<form:options items="${kelases}" itemValue="kelas_id" itemLabel="kelas_nama" />
 							</form:select>
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Simpan</button>
-						</div>
+                            <button type="submit" class="btn btn-primary rounded-0" id="simpan-paket" onclick="$('form').submit()">Simpan</button>
+                        </div>
 					</form:form>
 				</div>
 			</div>
