@@ -62,4 +62,18 @@ public class OrderDetailServiceAction implements OrderDetailService {
 		return orderDetailDAO.orderDetailDelete(orderDetailModel);
 	}
 
+	@Override
+	@Transactional
+	public List<MOrderDetail> where(String column, String value) {
+		
+		return orderDetailDAO.where(column, value);
+	}
+
+	@Override
+	@Transactional
+	public int updateOrderId(int orderId) {
+		
+		return orderDetailDAO.updateOrderId(orderId);
+	}
+
 }

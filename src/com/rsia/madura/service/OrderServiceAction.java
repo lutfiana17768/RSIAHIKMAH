@@ -1,5 +1,6 @@
 package com.rsia.madura.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,16 @@ public class OrderServiceAction implements OrderService {
 	@Override
 	@Transactional
 	public int store(MOrder orderModel) {
-
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if(orderModel.getDetail() != null) {
+			orderModel.getDetail().forEach((detail) ->{
+				detail.setOrder(orderModel);
+				detail.setOrderDetailCreatedBy("Admin");
+				detail.setOrderDetailCreatedDate(currentTime);
+			});
+		}
+		
 		return orderDAO.orderStore(orderModel);
 	}
 

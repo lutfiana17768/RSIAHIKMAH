@@ -119,4 +119,28 @@ public class OrderDetailAction implements OrderDetailDAO {
 		return orderDetailModel.getOrderDetail_id();
 	}
 
+	@Override
+	public List<MOrderDetail> where(String column, String value) {
+		Session current = sessionFactory.getCurrentSession();
+		
+		Query<MOrderDetail> query = current.createQuery("from MOrderDetail where " +
+		column + " = " + value, MOrderDetail.class);
+		
+		List<MOrderDetail> result = query.getResultList();
+		
+		return result;
+	}
+
+	@Override
+	public int updateOrderId(int orderId) {
+		Session current = sessionFactory.getCurrentSession();
+		
+		Query query = current.createQuery("update MOrderDetail set orderDetailOrderId = :id "+
+		"where orderDetailOrderId = 1", MOrderDetail.class);
+		query.setParameter("id", orderId);
+		int result = query.executeUpdate();
+		
+		return result;
+	}
+
 }

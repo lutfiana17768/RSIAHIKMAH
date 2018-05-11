@@ -1,13 +1,16 @@
 package com.rsia.madura.entity;
 
-import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,10 +28,10 @@ public class MOrder {
 	private Timestamp orderTanggal;
 	
 	@Column(name="order_jatuhtempo")
-	private Date orderJatuhTempo;
+	private String orderJatuhTempo;
 	
-	@Column(name="order_perusahaan")
-	private int orderPerusahaan;
+	@Column(name="order_perusahaan_id")
+	private int orderPerusahaanId;
 	
 	@Column(name="order_diskon")
 	private int orderDiskon;
@@ -94,6 +97,9 @@ public class MOrder {
 	@Column(name="order_revised")
 	private int orderRevised;
 
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<MOrderDetail> detail;
+	
 	public int getOrder_id() {
 		return order_id;
 	}
@@ -118,20 +124,20 @@ public class MOrder {
 		this.orderTanggal = orderTanggal;
 	}
 
-	public Date getOrderJatuhTempo() {
+	public String getOrderJatuhTempo() {
 		return orderJatuhTempo;
 	}
 
-	public void setOrderJatuhTempo(Date orderJatuhTempo) {
+	public void setOrderJatuhTempo(String orderJatuhTempo) {
 		this.orderJatuhTempo = orderJatuhTempo;
 	}
 
-	public int getOrderPerusahaan() {
-		return orderPerusahaan;
+	public int getOrderPerusahaanId() {
+		return orderPerusahaanId;
 	}
 
-	public void setOrderPerusahaan(int orderPerusahaan) {
-		this.orderPerusahaan = orderPerusahaan;
+	public void setOrderPerusahaanId(int orderPerusahaanId) {
+		this.orderPerusahaanId = orderPerusahaanId;
 	}
 
 	public int getOrderDiskon() {
@@ -302,10 +308,18 @@ public class MOrder {
 		this.orderRevised = orderRevised;
 	}
 
+	public List<MOrderDetail> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(List<MOrderDetail> detail) {
+		this.detail = detail;
+	}
+
 	@Override
 	public String toString() {
 		return "t_Order [order_id=" + order_id + ", orderNomer=" + orderNomer + ", orderTanggal=" + orderTanggal
-				+ ", orderJatuhTempo=" + orderJatuhTempo + ", orderPerusahaan=" + orderPerusahaan + ", orderDiskon="
+				+ ", orderJatuhTempo=" + orderJatuhTempo + ", orderPerusahaanId=" + orderPerusahaanId + ", orderDiskon="
 				+ orderDiskon + ", orderCashback=" + orderCashback + ", orderTotal=" + orderTotal
 				+ ", orderJumlahBayar=" + orderJumlahBayar + ", orderBayarId=" + orderBayarId + ", orderKeterangan="
 				+ orderKeterangan + ", orderStatus=" + orderStatus + ", orderTtdId=" + orderTtdId + ", orderTtdNama="
@@ -314,8 +328,13 @@ public class MOrder {
 				+ ", orderGroup=" + orderGroup + ", orderAktif=" + orderAktif + ", orderCreatedBy=" + orderCreatedBy
 				+ ", orderCreatedDate=" + orderCreatedDate + ", orderUpdatedBy=" + orderUpdatedBy
 				+ ", orderUpdatedDate=" + orderUpdatedDate + ", orderDeletedDate=" + orderDeletedDate
-				+ ", orderRevised=" + orderRevised + "]";
+				+ ", orderRevised=" + orderRevised + ", detail=" + detail + "]";
 	}
+
+	
+	
+
+
 	
 	
 }

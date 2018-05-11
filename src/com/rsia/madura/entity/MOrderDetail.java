@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -67,6 +68,9 @@ public class MOrderDetail {
 	
 	@Column(name="orderdet_revised")
 	private int orderDetailRevised;
+	
+	@ManyToOne
+	private MOrder order;
 
 	public int getOrderDetail_id() {
 		return orderDetail_id;
@@ -212,6 +216,14 @@ public class MOrderDetail {
 		this.orderDetailRevised = orderDetailRevised;
 	}
 
+	public MOrder getOrder() {
+		return order;
+	}
+
+	public void setOrder(MOrder order) {
+		this.order = order;
+	}
+
 	@Override
 	public String toString() {
 		return "t_OrderDetail [orderDetail_id=" + orderDetail_id + ", orderDetailOrderId=" + orderDetailOrderId
@@ -223,8 +235,10 @@ public class MOrderDetail {
 				+ ", orderDetailCreatedBy=" + orderDetailCreatedBy + ", orderDetailCreatedDate="
 				+ orderDetailCreatedDate + ", orderDetailUpdatedBy=" + orderDetailUpdatedBy
 				+ ", orderDetailUpdatedDate=" + orderDetailUpdatedDate + ", orderDetailDeletedDate="
-				+ orderDetailDeletedDate + ", orderDetailRevised=" + orderDetailRevised + "]";
+				+ orderDetailDeletedDate + ", orderDetailRevised=" + orderDetailRevised + ", order=" + order + "]";
 	}
+	
+	
 	
 	
 }
