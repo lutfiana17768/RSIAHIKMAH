@@ -122,6 +122,63 @@ public class t_Pendaftaran {
 	@Column(name="pendaftaran_deleted_date")
 	private Timestamp pendaftaran_deleted_date;
 
+
+	// for pelayanan fisik -> tabel belum dibuat 
+	/*
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="",joinColumns = {@JoinColumn(name = "")},inverseJoinColumns = {@JoinColumn(name="")})
+	private Set<m_Fisik> fisiks = new HashSet<m_Fisik>();
+	*/
+
+	// for pelayanan tab pemeriksaan -> tabel t_periksa_pasien	
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="pelayanan_pemeriksaan",joinColumns = {@JoinColumn(name = "m_pasien_id")},inverseJoinColumns = {@JoinColumn(name="periksapasien_id")})
+	private Set<t_periksa_pasien> pemeriksaaan = new HashSet<t_periksa_pasien>();
+
+	// for pelayanan tab diagsosis -> tabel t_diagnosa_pasien	
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="pelayanan_diagnosis",joinColumns = {@JoinColumn(name = "t_pendaftaran_id")},inverseJoinColumns = {@JoinColumn(name="diagnosapasien_id")})
+	private Set<t_diagnosa_pasien> diagnosis = new HashSet<t_diagnosa_pasien>();
+
+	// for pelayanan tab procedure -> tabel t_tindakan_pasien	
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="pelayanan_procedure",joinColumns = {@JoinColumn(name = "t_pendaftaran_id")},inverseJoinColumns = {@JoinColumn(name="tindakanpasien_id")})
+	private Set<t_tindakan_pasien> prosedur = new HashSet<t_tindakan_pasien>();
+
+	// for pelayanan tab tindakan -> tabel t_tindakan_pelaksana	
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="pelayanan_tindakan",joinColumns = {@JoinColumn(name = "tindakanpelaksana_pendaftaran_id")},inverseJoinColumns = {@JoinColumn(name="tindakanpelaksana_id")})
+	private Set<t_tindakan_pelaksana> tindakan = new HashSet<t_tindakan_pelaksana>();
+
+	// for pelayanan tab BPH -> tabel t_pakai	
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="pelayanan_bph",joinColumns = {@JoinColumn(name = "t_pendaftaran_id")},inverseJoinColumns = {@JoinColumn(name="pakai_id")})
+	private Set<t_pakai> bph = new HashSet<t_pakai>();
+
+	// for pelayanan tab BPH -> tabel t_pakai	
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="pelayanan_bph",joinColumns = {@JoinColumn(name = "t_pendaftaran_id")},inverseJoinColumns = {@JoinColumn(name="pakai_id")})
+	private Set<t_pakai> bph = new HashSet<t_pakai>();
+
+	// for pelayanan tab resep -> tabel t_resep	
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="pelayanan_resep",joinColumns = {@JoinColumn(name = "resep_pasien_id")},inverseJoinColumns = {@JoinColumn(name="resep_id")})
+	private Set<t_resep> resep = new HashSet<t_resep>();	
+	
+	// for pelayanan tab file -> tabel ndak tau
+	/*
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="",joinColumns = {@JoinColumn(name = "")},inverseJoinColumns = {@JoinColumn(name="")})
+	private Set<m_Fisik> fisiks = new HashSet<m_Fisik>();
+	*/
+
+	// for pelayanan tab soap -> tabel ndak tau
+	/*
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinTable(name="",joinColumns = {@JoinColumn(name = "")},inverseJoinColumns = {@JoinColumn(name="")})
+	private Set<m_Fisik> fisiks = new HashSet<m_Fisik>();
+	*/
+
 	public int getPendaftaran_id() {
 		return pendaftaran_id;
 	}

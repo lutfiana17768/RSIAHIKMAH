@@ -62,7 +62,7 @@ public class m_Paket {
 	
 	@ManyToMany(cascade= {CascadeType.ALL})
 	@JoinTable(name="paket_tindakan",joinColumns = {@JoinColumn(name = "m_paket_id")},inverseJoinColumns = {@JoinColumn(name="m_tindakan_id")})
-	private Set<m_PaketTindakan> tindakans = new HashSet<m_PaketTindakan>();
+	private Set<m_PaketTindakan> tindakans = new HashSet<m_PaketTindakan>();	
 	
 	public int getPaket_id() {
 		return paket_id;
