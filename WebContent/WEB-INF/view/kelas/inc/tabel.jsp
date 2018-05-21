@@ -7,7 +7,7 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="header-block">
-										<h3 class="title"> List Kelas </h3>
+										<h3 class="title"> List Penunjang Medis Group </h3>
 										<a href="/kelas/tambah" class="btn btn-primary btn-sm">Tambah</a>
 									</div>
 								</div>

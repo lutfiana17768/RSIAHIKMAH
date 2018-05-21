@@ -4,7 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../app/header.jsp" />
 
-	<section class="section">
+    <section class="section">
         <div class="row sameheight-container">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -111,9 +111,9 @@
         </div>
     
     <div class="modal fade" id="form-detail" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-            	<div class="modal-header">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
                      <h4 class="modal-title">Tambah Order Barang</h4>
                      <button type="button" class="close" data-dismiss="modal"
                          aria-label="Close">
@@ -158,10 +158,10 @@
                           data-dismiss="modal">Close</button>
                       <button type="button" id="simpan-detail" class="btn btn-primary">Simpan</button>
                   </div>
-         	</div>
-		<!-- /.modal-content -->
-		</div>
-	</div>
+            </div>
+        <!-- /.modal-content -->
+        </div>
+    </div>
 </section>
 <jsp:include page="ScriptOrder.jsp" />
 <jsp:include page="../app/footer.jsp" />

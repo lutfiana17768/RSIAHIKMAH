@@ -140,11 +140,9 @@
 																		<th>Harga</th>
 																		<th>Sub harga</th>
 																		<th>Aksi</th>
-
 																	</tr>
 																</thead>
-																<tbody class="table-form">
-
+																<tbody id="paket-penunjang-list" class="table-form">
 																</tbody>
 															</table>
 														</div>
@@ -271,6 +269,54 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
 						<button type="button" id="simpan-tindakan" class="btn btn-primary rounded-0">Simpan</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<div class="modal fade" id="form-paket-penunjang">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Tambah Penunjang</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">X</span>
+							<span class="sr-only">Close</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form id="form-penunjang" class="from-horizontal">
+							<div class="form-group">
+								<label>Nama Penunjang</label>
+								<select name="penunjangmedis_id" id="penunjangmedis_id" class="form-control boxed">
+									<option value="">--- Pilih Penunjang ---</option>
+									<c:forEach var="penunjang" items="${penunjangs}">
+										<option value="${penunjang.penunjangmedis_id }">
+											${penunjang.penunjangmedis_nama }
+										</option>
+									</c:forEach>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Jumlah</label>
+								<input type="text" name="paket_penunjang_jumlah" id="paket_penunjang_jumlah" class="form-control boxed">
+							</div>
+							<div class="form-group">
+								<label>Harga</label>
+								<input type="text" name="paket_penunjang_harga" id="paket_penunjang_harga" class="form-control boxed">
+							</div>
+							<div class="form-group">
+								<label>Sub Harga</label>
+								<input type="text" name="paket_penunjang_subharga" id="paket_penunjang_subharga" class="form-control boxed">
+							</div>
+							<input type="hidden" name="penunjang_mode" id="penunjang_mode">
+							<input type="hidden" name="penunjang_edit" id="penunjang_edit">
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
+						<button type="button" id="simpan-penunjang" class="btn btn-primary rounded-0">Simpan</button>
 					</div>
 				</div>
 				<!-- /.modal-content -->

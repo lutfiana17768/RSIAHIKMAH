@@ -3,6 +3,7 @@
 <script type="text/javascript">
         var ruang_length = $('#paket-ruang-list').find('tr').length;
         var tindakan_length = $('#paket-tindakan-list').find('tr').length;
+        var penunjang_length = $('#paket-penunjang-list').find('tr').length;
         var barang_length = $('#paket-barang-list').find('tr').length;
         $(function(){
             $('#tab_first').click();
@@ -41,6 +42,11 @@
                 $('#form-paket-tindakan').find('input,select').val('');
                 $('#tindakan_mode').val('new');
                 $('#form-paket-tindakan').modal('show');
+            });
+            $('#add_penunjang').click(function(){
+                $('#form-paket-penunjang').find('input,select').val('');
+                $('#penunjang_mode').val('new');
+                $('#form-paket-penunjang').modal('show');
             });
             $('#add_barang').click(function(){
                 $('#form-paket-barang').find('input,select').val('');
@@ -130,7 +136,52 @@
                 $('#form-paket-tindakan').find('input,select').val('');
 
             });
-            
+
+            $('#simpan-penunjang').click(function(){
+                var m_penunjang_id,paket_penunjang_jumlah,paket_penunjang_harga,paket_penunjang_subharga,penunjang_text,mode,counter,id_row,name_harga,name_jumlah;
+                var mode = $('#penunjang_mode').val();
+
+                if(mode == 'new')
+                {
+                    var tr = $('<tr>');
+                    counter = penunjang_length+1;
+                    tr.attr('id','penunjang_'+counter);
+                    tr.attr('data-harga-type','penunjang');
+                }
+                else
+                {
+                    id_row = $('#penunjang_edit').val();
+                    counter = id_row;
+                    var tr = $('#penunjang_'+id_row);
+                    tr.empty();
+                }
+
+
+                penunjangmedis_id = $('#penunjangmedis_id').val();
+                penunjang_text = $('#penunjangmedis_id option:selected').text();
+                paket_penunjang_jumlah = $('#paket_penunjang_jumlah').val() ||'';
+                paket_penunjang_harga = $('#paket_penunjang_harga').val() ||0;
+                paket_penunjang_subharga = $('#paketHarga_subharga').val() || 0;
+                
+
+                tr.append('<td>'+penunjang_text+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-name="paketHarga_jumlah" data-kolom-id="paket_penunjang_jumlah">'+paket_penunjang_jumlah+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_penunjang_harga">'+paket_penunjang_harga+'</td>');
+                tr.append('<td data-used="1" data-kolom-id="paketHarga_subharga">'+paket_penunjang_subharga+'</td>');
+                tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPenunjang('+counter+')">Edit</button></td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangs.penunjangmedis_id" data-kolom-id="penunjangmedis_id">'+penunjangmedis_id+'</td>');
+
+                if(mode == 'new')
+                {
+                    penunjang_length = counter;
+                    $('#paket-penunjang-list').append(tr);                    
+                }
+
+                $('#form-paket-penunjang').modal('hide');
+                $('#form-paket-penunjang').find('input,select').val('');
+
+            });
+
             $('#simpan-barang').click(function(){
                 var m_barang_id,paket_barang_jumlah,paket_barang_harga,paket_satuan_id,paket_barang_subharga,barang_text,mode,counter,id_row,name_harga,name;
                 var mode = $('#barang_mode').val();
@@ -226,7 +277,31 @@
             var tr;
             tr = $('#tindakan_'+id);
             tr.remove();
+        } 
+
+        function editPenunjang(id)
+        {
+            var tr;
+            $('#penunjang_mode').val('edit');
+            $('#penunjang_edit').val(id);
+            tr = $('#penunjang_'+id);
+            $.each(tr.find('td'),function(i,e){
+                if($(e).attr("data-used") == '1')
+                {
+                    var elem_id = $(e).attr('data-kolom-id');
+                    $('#'+elem_id).val($(e).text());
+                }
+            });
+            $('#form-paket-penunjang').modal('show');
         }        
+
+        function deletePenunjang(id)
+        {
+            var tr;
+            tr = $('#penunjang_'+id);
+            tr.remove();
+        } 
+
         function editBarang(id)
         {
             var tr;

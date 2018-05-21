@@ -9,11 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.rsia.madura.entity.getPegawai;
-import com.rsia.madura.entity.m_Barang;
-import com.rsia.madura.entity.m_JenisBarang;
-import com.rsia.madura.entity.m_Perusahaan;
-import com.rsia.madura.entity.m_Satuan;
+import com.rsia.madura.entity.MPegawai;
+import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MJenisBarang;
+import com.rsia.madura.entity.MPerusahaan;
+import com.rsia.madura.entity.MSatuan;
 import com.rsia.madura.entity.MOrder;
 import com.rsia.madura.entity.MOrderDetail;
 import com.rsia.madura.service.BarangService;
@@ -54,11 +54,11 @@ public class OrderController {
 	@RequestMapping(value="/form-add")
 	public String OrderFormAddView(Model model){
 		MOrder orderModel = new MOrder();
-		List<m_Perusahaan> resultPerusahaan = perusahaanService.getPerusahaans();
-		List<m_JenisBarang> resultJenisBarang = JBService.getJenisBarangs();
-		List<m_Barang> resultBarang = barangService.getBarangs();
-		List<getPegawai> resultPegawai = pegawaiService.getPegawais();
-		List<m_Satuan> resultSatuan = satuanService.getSatuans();
+		List<MPerusahaan> resultPerusahaan = perusahaanService.getPerusahaans();
+		List<MJenisBarang> resultJenisBarang = JBService.getJenisBarangs();
+		List<MBarang> resultBarang = barangService.getBarangs();
+		List<MPegawai> resultPegawai = pegawaiService.getPegawai();
+		List<MSatuan> resultSatuan = satuanService.getSatuans();
 		List<MOrderDetail> resultDetail = orderDetailService.where("orderDetailOrderId", "1");
 		
 		model.addAttribute("orderModel", orderModel);
@@ -68,6 +68,7 @@ public class OrderController {
 		model.addAttribute("satuan", resultSatuan);
 		model.addAttribute("barang", resultBarang);
 		model.addAttribute("detail", resultDetail);
+		model.addAttribute("footerjs", "../order/inc/footerjs.jsp");
 		
 		return "order/tambah";
 	}

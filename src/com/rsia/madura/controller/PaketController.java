@@ -1,8 +1,8 @@
 /*
 * @Author: PRADESGA
 * @Date:   2018-04-07 07:50:20
-* @Last Modified by:   PRADESGA
-* @Last Modified time: 2018-04-10 01:05:11
+* @Last Modified by:   Pradesga Indonesia
+* @Last Modified time: 2018-05-16 07:21:11
 */
 package com.rsia.madura.controller;
 import java.util.List; // Class to hold a list of objects
@@ -29,6 +29,7 @@ import com.rsia.madura.entity.MKelas;
 import com.rsia.madura.entity.MRuang;
 import com.rsia.madura.entity.MTindakan;
 import com.rsia.madura.entity.MObat;
+import com.rsia.madura.entity.MPenunjang;
 import com.rsia.madura.entity.MPaketHarga;
 
 import com.rsia.madura.service.PaketService;
@@ -36,7 +37,7 @@ import com.rsia.madura.service.KelasService;
 import com.rsia.madura.service.RuangService;
 import com.rsia.madura.service.ObatService;
 import com.rsia.madura.service.TindakanService;
-
+import com.rsia.madura.service.PenunjangService;
 
 @Controller
 @RequestMapping("/paket")
@@ -56,6 +57,9 @@ public class PaketController {
 	@Autowired
 	private ObatService obatService;
 
+	@Autowired
+	private PenunjangService penunjangService;
+
 	private String uri ="redirect: /paket";
 
 	@RequestMapping(method=RequestMethod.GET)
@@ -72,6 +76,7 @@ public class PaketController {
 		List<MRuang> ruangs = ruangService.findAll();
 		List<MObat> obats = obatService.findAll();
 		List<MTindakan> tindakans = tindakanService.findAll();
+		List<MPenunjang> penunjangs = penunjangService.findAll();
 
 		MPaket paketModel = new MPaket();
 
@@ -83,6 +88,7 @@ public class PaketController {
 		model.addAttribute("ruangs", ruangs);
 		model.addAttribute("tindakans", tindakans);
 		model.addAttribute("obats", obats);
+		model.addAttribute("penunjangs", penunjangs);
 		model.addAttribute("satuan", satuan);
 		
 		model.addAttribute("paketModel", paketModel);
@@ -108,6 +114,7 @@ public class PaketController {
 		List<MTindakan> tindakans = tindakanService.findAll();
 		List<MRuang> ruangs = ruangService.findAll();
 		List<MObat> obats = obatService.findAll();
+		List<MPenunjang> penunjangs = penunjangService.findAll();
 		MPaket paketModel = paketService.getById(id);
 
 		Map<String, String> satuan = new HashMap<String, String>();
@@ -119,6 +126,7 @@ public class PaketController {
 		model.addAttribute("tindakans", tindakans);
 		model.addAttribute("obats", obats);
 		model.addAttribute("satuan", satuan);
+		model.addAttribute("penunjangs", penunjangs);
 		model.addAttribute("paketModel", paketModel);
 		model.addAttribute("footerjs", "../paket/inc/footerjs.jsp");
 
@@ -134,6 +142,6 @@ public class PaketController {
 
 	@ModelAttribute
     public void addAttributes(Model model) {
-    	model.addAttribute("pagetitle", "Master Tindakan");
+    	model.addAttribute("pagetitle", "Master Paket");
     }
 }

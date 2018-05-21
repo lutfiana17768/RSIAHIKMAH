@@ -1,8 +1,8 @@
 /*
 * @Author: PRADESGA
 * @Date:   2018-04-07 01:44:50
-* @Last Modified by:   PRADESGA
-* @Last Modified time: 2018-04-07 05:12:01
+* @Last Modified by:   Pradesga Indonesia
+* @Last Modified time: 2018-05-16 11:56:02
 */
 package com.rsia.madura.entity;
 
@@ -59,9 +59,8 @@ public class MPaketHarga {
 	@ManyToOne
 	private MTindakan tindakans;
 
-	// penunjang belum ada
-	// @ManyToOne
-	// private MPenunjang penunjangs;
+	@ManyToOne
+	private MPenunjang penunjangs;
 	
 	@ManyToOne
 	private MObat obats;
@@ -198,13 +197,13 @@ public class MPaketHarga {
 		this.obats = obats;
 	}
 
-	// public MPenunjang getPenunjang() {
-	// 	return this.penunjangs;
-	// }
+	public MPenunjang getPenunjangs() {
+		return this.penunjangs;
+	}
 
-	// public void setPenunjang(MPenunjang penunjangs) {
-	// 	this.penunjangs = penunjangs;
-	// }
+	public void setPenunjangs(MPenunjang penunjangs) {
+		this.penunjangs = penunjangs;
+	}
 
 	@Override
 	public String toString() {

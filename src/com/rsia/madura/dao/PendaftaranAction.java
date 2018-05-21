@@ -14,6 +14,10 @@ import com.rsia.madura.entity.MPendaftaran;
 @Repository
 public class PendaftaranAction implements PendaftaranDAO {
 
+	@Autowired
+	private SessionFactory sessionFactory;
+	public int total;
+	
 	@Override
 	public List<MPendaftaran> getPendaftarans() {
 		// TODO Auto-generated method stub
@@ -40,8 +44,9 @@ public class PendaftaranAction implements PendaftaranDAO {
 
 	@Override
 	public int PendaftaranStore(MPendaftaran PendaftaranModel) {
-		// TODO Auto-generated method stub
-		return 0;
+		Session current = sessionFactory.getCurrentSession();
+
+		return (int) current.save(PendaftaranModel);
 	}
 
 	@Override

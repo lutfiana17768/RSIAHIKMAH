@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/vendor.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/gh-pages.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/style.css'/>">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="main-wrapper">

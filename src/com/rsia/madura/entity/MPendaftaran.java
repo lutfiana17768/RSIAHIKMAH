@@ -1,6 +1,7 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.FetchType;
+import javax.persistence.CascadeType;
 
 @Entity
 @Table(name="t_Pendaftaran")
@@ -121,6 +126,9 @@ public class MPendaftaran {
 	
 	@Column(name="pendaftaran_deleted_date")
 	private Timestamp pendaftaran_deleted_date;
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<MPeriksaPasien> periksapasiens;
 
 	public int getPendaftaran_id() {
 		return pendaftaran_id;
@@ -408,6 +416,14 @@ public class MPendaftaran {
 
 	public void setPendaftaran_deleted_date(Timestamp pendaftaran_deleted_date) {
 		this.pendaftaran_deleted_date = pendaftaran_deleted_date;
+	}
+
+	public List<MPeriksaPasien> getPeriksapasiens() {
+		return periksapasiens;
+	}
+
+	public void setPeriksapasiens(List<MPeriksaPasien> periksapasiens) {
+		this.periksapasiens = periksapasiens;
 	}
 
 	@Override

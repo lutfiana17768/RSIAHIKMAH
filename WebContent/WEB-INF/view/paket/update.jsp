@@ -31,7 +31,7 @@
 									<label>Kelas</label>
 									<div class="select2-wrapper">
 										<form:select path="kelas.kelas_id" class="form-control boxed input-lg select2-single">
-											<form:option value="" label="--- Pilih Select ---"></form:option>
+											<form:option value="-1" label="--- Pilih Select ---"></form:option>
 											<c:forEach var="kelas" items="${kelases}">
 												<form:option value="${kelas.kelas_id }" label="${kelas.kelas_nama }" />
 											</c:forEach>
@@ -100,8 +100,6 @@
 																	<c:forEach var="harga" items="${paketModel.paketHarga}" varStatus="loop">
 																		<c:choose>
 																			<c:when test="${harga.paketHarga_type=='ruang'}">
-																				<form:hidden path="paketHarga.paketHarga_created_by" />
-																				<form:hidden path="paketHarga.paketHarga_created_date" />
 																				<tr id="ruang_${loop.index+1}" data-harga-type="ruang">
 																					<td>${harga.ruangs.ruang_nama}</td>
 																					<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_ruang_harga">${harga.paketHarga_harga}</td>
@@ -146,8 +144,6 @@
 																		<c:choose>
 																			<c:when test="${harga.paketHarga_type=='tindakan'}">
 																				<tr id="tindakan_${loop.index+1}" data-harga-type="tindakan">
-																				<form:hidden path="paketHarga.paketHarga_created_by" />
-																				<form:hidden path="paketHarga.paketHarga_created_date" />
 																					<td>${harga.tindakans.tindakan_nama}</td>
 																					<td data-used="1" data-save="1" data-name="paketHarga_jumlah" data-kolom-id="paket_tindakan_jumlah">${harga.paketHarga_jumlah}</td>
 																					<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_tindakan_harga">${harga.paketHarga_harga}</td>
@@ -189,7 +185,26 @@
 
 																	</tr>
 																</thead>
-																<tbody class="table-form">
+																<tbody id="paket-penunjang-list" class="table-form">
+
+																	<c:forEach var="harga" items="${paketModel.paketHarga}" varStatus="loop">
+																		<c:choose>
+																			<c:when test="${harga.paketHarga_type=='penunjang'}">
+																				<tr id="penunjang_${loop.index+1}" data-harga-type="penunjang">
+																					<td>${harga.penunjangs.penunjangmedis_nama}</td>
+																					<td data-used="1" data-save="1" data-name="paketHarga_jumlah" data-kolom-id="paket_penunjang_jumlah">${harga.paketHarga_jumlah}</td>
+																					<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_penunjang_harga">${harga.paketHarga_harga}</td>
+																					<td>cek lagi</td>
+																					<td>
+																						<button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjang(${loop.index+1})">Delete</button>
+																						<button type="button" class="btn btn-primary btn-sm" onclick="editPenunjang(${loop.index+1})">Edit</button>
+																					</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="paketHarga_id" data-kolom-id="paket-harga-id">${harga.paketHarga_id}</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="penunjangs.penunjangmedis_id" data-kolom-id="penunjangmedis_id">${harga.penunjangs.penunjangmedis_id}</td>
+																				</tr>
+																			</c:when>
+																		</c:choose>
+																	</c:forEach>
 
 																</tbody>
 															</table>
@@ -315,6 +330,54 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						<button type="button" id="simpan-tindakan" class="btn btn-primary">Simpan</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<div class="modal fade" id="form-paket-penunjang">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Tambah Penunjang</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">X</span>
+							<span class="sr-only">Close</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form id="form-penunjang" class="from-horizontal">
+							<div class="form-group">
+								<label>Nama Penunjang</label>
+								<select name="penunjangmedis_id" id="penunjangmedis_id" class="form-control boxed">
+									<option value="">--- Pilih Penunjang ---</option>
+									<c:forEach var="penunjang" items="${penunjangs}">
+										<option value="${penunjang.penunjangmedis_id }">
+											${penunjang.penunjangmedis_nama }
+										</option>
+									</c:forEach>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Jumlah</label>
+								<input type="text" name="paket_penunjang_jumlah" id="paket_penunjang_jumlah" class="form-control boxed">
+							</div>
+							<div class="form-group">
+								<label>Harga</label>
+								<input type="text" name="paket_penunjang_harga" id="paket_penunjang_harga" class="form-control boxed">
+							</div>
+							<div class="form-group">
+								<label>Sub Harga</label>
+								<input type="text" name="paket_penunjang_subharga" id="paket_penunjang_subharga" class="form-control boxed">
+							</div>
+							<input type="hidden" name="penunjang_mode" id="penunjang_mode">
+							<input type="hidden" name="penunjang_edit" id="penunjang_edit">
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
+						<button type="button" id="simpan-penunjang" class="btn btn-primary rounded-0">Simpan</button>
 					</div>
 				</div>
 				<!-- /.modal-content -->
