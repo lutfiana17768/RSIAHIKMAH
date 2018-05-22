@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.FetchType;
 import javax.persistence.CascadeType;
+import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.LazyCollection;
 
 @Entity
 @Table(name="t_Pendaftaran")
@@ -127,8 +129,55 @@ public class MPendaftaran {
 	@Column(name="pendaftaran_deleted_date")
 	private Timestamp pendaftaran_deleted_date;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
-	private List<MPeriksaPasien> periksapasiens;
+	// // Tab fisik -> t_riwayat_periksa
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MRiwayatPeriksa> riwayatperiksa;
+
+	// Tab pemeriksaan -> t_periksa_pasien
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MPeriksaPasien> periksapasien;
+
+	// // Tab diagnosa -> t_diagnosa_pasien ???
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MDiagnosaPasien> diagnosapasien;
+
+	// // Tab prosedur -> t_tindakan_pasien ???
+	// @OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	// @LazyCollection(LazyCollectionOption.FALSE)
+	// // private List<xx> xx;
+	
+	// // Tab tindakan operasi -> t_tindakan_pelaksana ???
+	// @OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	// @LazyCollection(LazyCollectionOption.FALSE)
+	// // private List<xx> xx;
+	
+	// Tab tindakan operasi -> t_tindakan_pelaksana ???
+	// @OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	// @LazyCollection(LazyCollectionOption.FALSE)
+	// // private List<xx> xx;
+
+	// Tab bph -> t_pakai ???
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MPakai> pakai;
+	
+	// Tab resep -> t_resep 
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MResep> resep;
+
+	// Tab file -> penunjang
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MPenunjangTrans> penunjangtrans;
+
+	// tab soap
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MSoap> soap;
 
 	public int getPendaftaran_id() {
 		return pendaftaran_id;
@@ -418,12 +467,81 @@ public class MPendaftaran {
 		this.pendaftaran_deleted_date = pendaftaran_deleted_date;
 	}
 
-	public List<MPeriksaPasien> getPeriksapasiens() {
-		return periksapasiens;
+	// Tab fisik -> t_riwayat_periksa
+	public List<MRiwayatPeriksa> getRiwayatperiksa() {
+		return riwayatperiksa;
 	}
 
-	public void setPeriksapasiens(List<MPeriksaPasien> periksapasiens) {
-		this.periksapasiens = periksapasiens;
+	public void setRiwayatperiksa(List<MRiwayatPeriksa> riwayatperiksa) {
+		this.riwayatperiksa = riwayatperiksa;
+	}
+	// Tab pemeriksaan -> t_periksa_pasien
+	public List<MPeriksaPasien> getPeriksapasien() {
+		return periksapasien;
+	}
+
+	public void setPeriksapasien(List<MPeriksaPasien> periksapasien) {
+		this.periksapasien = periksapasien;
+	}
+
+	// // Tab diagnosa -> t_diagnosa_pasien ???
+	public List<MDiagnosaPasien> getDiagnosapasien() {
+		return diagnosapasien;
+	}
+
+	public void setDiagnosapasien(List<MDiagnosaPasien> diagnosapasien) {
+		this.diagnosapasien = diagnosapasien;
+	}
+
+	// // Tab prosedur -> t_tindakan_pasien ???
+	// public List<xx> getXX() {
+	// 	return xx;
+	// }
+	
+	// // Tab tindakan operasi -> t_tindakan_pelaksana ???
+	// public List<xx> getXX() {
+	// 	return xx;
+	// }
+	
+	// Tab tindakan operasi -> t_tindakan_pelaksana ???
+	// public List<xx> getXX() {
+	// 	return xx;
+	// }
+
+	// Tab bph -> t_pakai ???
+	public List<MPakai> getPakai() {
+		return pakai;
+	}
+
+	public void setPakai(List<MPakai> pakai) {
+		this.pakai = pakai;
+	}
+	
+	// Tab resep -> t_resep 
+	public List<MResep> getResep() {
+		return resep;
+	}
+
+	public void setResep(List<MResep> resep) {
+		this.resep = resep;
+	}
+
+	// Tab file -> penunjang
+	public List<MPenunjangTrans> getPenunjangtrans() {
+		return penunjangtrans;
+	}
+
+	public void setPenunjangtrans(List<MPenunjangTrans> penunjangtrans) {
+		this.penunjangtrans = penunjangtrans;
+	}
+
+	// tab soap
+	public List<MSoap> getSoap() {
+		return soap;
+	}
+
+	public void setSoap(List<MSoap> soap) {
+		this.soap = soap;
 	}
 
 	@Override

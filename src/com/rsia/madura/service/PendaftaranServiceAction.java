@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-18 10:05:20
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-18 10:06:33
+* @Last Modified time: 2018-05-22 16:59:44
 */
 package com.rsia.madura.service;
 
@@ -53,7 +53,47 @@ public class PendaftaranServiceAction implements PendaftaranService{
 	@Override
 	@Transactional
 	public void store(MPendaftaran data) {
-		// TODO Auto-generated method stub
+		if (data.getRiwayatperiksa() != null) {
+			data.getRiwayatperiksa().forEach((riwayatperiksa) -> {
+				riwayatperiksa.setPendaftaran(data);
+			});
+		}
+		if (data.getPeriksapasien() != null) {
+			data.getPeriksapasien().forEach((periksapasien) -> {
+				periksapasien.setPendaftaran(data);
+			});
+		}
+
+		if (data.getDiagnosapasien() != null) {
+			data.getDiagnosapasien().forEach((diagnosapasien) -> {
+				diagnosapasien.setPendaftaran(data);
+			});
+		}
+		// prosedur
+		// 
+		// tindakan operasi
+
+		if (data.getPakai() != null) {
+			data.getPakai().forEach((pakai) -> {
+				pakai.setPendaftaran(data);
+			});
+		}
+		if (data.getResep() != null) {
+			data.getResep().forEach((resep) -> {
+				resep.setPendaftaran(data);
+			});
+		}
+
+		if (data.getPenunjangtrans() != null) {
+			data.getPenunjangtrans().forEach((penunjangtrans) -> {
+				penunjangtrans.setPendaftaran(data);
+			});
+		}
+		if (data.getSoap() != null) {
+			data.getSoap().forEach((soap) -> {
+				soap.setPendaftaran(data);
+			});
+		}
 		PendaftaranDAO.PendaftaranStore(data);
 		
 	}

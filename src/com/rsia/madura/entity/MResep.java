@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name="t_resep")
@@ -15,10 +16,10 @@ public class MResep {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="resep_id")
-	private int resep_id;
+	private Integer resep_id;
 	
 	@Column(name="resep_pasien_id")
-	private int resepPasienId;
+	private Integer resepPasienId;
 	  
 	@Column(name="resep_pasien_norm")
 	private String resepPasienNorm;
@@ -27,7 +28,7 @@ public class MResep {
 	private Timestamp resepTanggal;
 
 	@Column(name="resep_dokter_id")
-	private int resepDokter;
+	private Integer resepDokter;
 	  
 	@Column(name="resep_keterangan")
 	private String resepKeterangan;
@@ -51,7 +52,7 @@ public class MResep {
 	private Timestamp resepUpdatedDate;
 	
 	@Column(name="resep_revised")
-	private int resepRevised;
+	private Integer resepRevised;
 	  
 	@Column(name="resep_deleted_date")
 	private Timestamp resepDeletedDate;
@@ -78,33 +79,36 @@ public class MResep {
 	private String resepDimension;
 	  
 	@Column(name="resep_pendaftaran_id")
-	private int resepPendaftaranId;
+	private Integer resepPendaftaranId;
 	
 	@Column(name="resep_ruang_nama")
 	private String resepRuangNama;
 	  
 	@Column(name="reg_company_id")
-	private int reg_company_id;
+	private Integer reg_company_id;
 	  
 	@Column(name="resep_apps_id")
-	private int regAppsId;
+	private Integer regAppsId;
 	  
 	@Column(name="resep_kamarpasien_id")
-	private int resepKamarPasienId;
+	private Integer resepKamarPasienId;
+	
+	@ManyToOne
+	private MPendaftaran pendaftaran;
 
-	public int getResep_id() {
+	public Integer getResep_id() {
 		return resep_id;
 	}
 
-	public void setResep_id(int resep_id) {
+	public void setResep_id(Integer resep_id) {
 		this.resep_id = resep_id;
 	}
 
-	public int getResepPasienId() {
+	public Integer getResepPasienId() {
 		return resepPasienId;
 	}
 
-	public void setResepPasienId(int resepPasienId) {
+	public void setResepPasienId(Integer resepPasienId) {
 		this.resepPasienId = resepPasienId;
 	}
 
@@ -124,11 +128,11 @@ public class MResep {
 		this.resepTanggal = resepTanggal;
 	}
 
-	public int getResepDokter() {
+	public Integer getResepDokter() {
 		return resepDokter;
 	}
 
-	public void setResepDokter(int resepDokter) {
+	public void setResepDokter(Integer resepDokter) {
 		this.resepDokter = resepDokter;
 	}
 
@@ -188,11 +192,11 @@ public class MResep {
 		this.resepUpdatedDate = resepUpdatedDate;
 	}
 
-	public int getResepRevised() {
+	public Integer getResepRevised() {
 		return resepRevised;
 	}
 
-	public void setResepRevised(int resepRevised) {
+	public void setResepRevised(Integer resepRevised) {
 		this.resepRevised = resepRevised;
 	}
 
@@ -260,11 +264,11 @@ public class MResep {
 		this.resepDimension = resepDimension;
 	}
 
-	public int getResepPendaftaranId() {
+	public Integer getResepPendaftaranId() {
 		return resepPendaftaranId;
 	}
 
-	public void setResepPendaftaranId(int resepPendaftaranId) {
+	public void setResepPendaftaranId(Integer resepPendaftaranId) {
 		this.resepPendaftaranId = resepPendaftaranId;
 	}
 
@@ -276,28 +280,36 @@ public class MResep {
 		this.resepRuangNama = resepRuangNama;
 	}
 
-	public int getReg_company_id() {
+	public Integer getReg_company_id() {
 		return reg_company_id;
 	}
 
-	public void setReg_company_id(int reg_company_id) {
+	public void setReg_company_id(Integer reg_company_id) {
 		this.reg_company_id = reg_company_id;
 	}
 
-	public int getRegAppsId() {
+	public Integer getRegAppsId() {
 		return regAppsId;
 	}
 
-	public void setRegAppsId(int regAppsId) {
+	public void setRegAppsId(Integer regAppsId) {
 		this.regAppsId = regAppsId;
 	}
 
-	public int getResepKamarPasienId() {
+	public Integer getResepKamarPasienId() {
 		return resepKamarPasienId;
 	}
 
-	public void setResepKamarPasienId(int resepKamarPasienId) {
+	public void setResepKamarPasienId(Integer resepKamarPasienId) {
 		this.resepKamarPasienId = resepKamarPasienId;
+	}
+
+	public MPendaftaran getPendaftaran() {
+		return pendaftaran;
+	}
+
+	public void setPendaftaran(MPendaftaran pendaftaran) {
+		this.pendaftaran = pendaftaran;
 	}
 
 	@Override
