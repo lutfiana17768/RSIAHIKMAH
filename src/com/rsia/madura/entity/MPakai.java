@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 15:20:14
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-22 15:40:14
+* @Last Modified time: 2018-05-23 14:38:57
 */
 package com.rsia.madura.entity;
 
@@ -37,7 +37,7 @@ public class MPakai {
 	private Integer pakai_jumlah;
 	
 	@Column(name="pakai_harga")
-	private Double pakai_harga;
+	private Integer pakai_harga;
 	
 	@Column(name="pakai_keterangan")
 	private String pakai_keterangan;
@@ -93,11 +93,11 @@ public class MPakai {
 		this.pakai_jumlah = pakai_jumlah;
 	}
 
-	public Double getPakai_harga() {
+	public Integer getPakai_harga() {
 		return pakai_harga;
 	}
 
-	public void setPakai_harga(Double pakai_harga) {
+	public void setPakai_harga(Integer pakai_harga) {
 		this.pakai_harga = pakai_harga;
 	}
 

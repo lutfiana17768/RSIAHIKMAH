@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-18 10:05:20
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-22 16:59:44
+* @Last Modified time: 2018-05-23 15:43:05
 */
 package com.rsia.madura.service;
 
@@ -71,7 +71,12 @@ public class PendaftaranServiceAction implements PendaftaranService{
 		}
 		// prosedur
 		// 
-		// tindakan operasi
+		// tindakan
+		if (data.getTindakanpasien() != null) {
+			data.getTindakanpasien().forEach((tindakanpasien) -> {
+				tindakanpasien.setPendaftaran(data);
+			});
+		}
 
 		if (data.getPakai() != null) {
 			data.getPakai().forEach((pakai) -> {

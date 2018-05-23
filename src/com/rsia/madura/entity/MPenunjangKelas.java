@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-18 13:31:14
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-19 13:13:41
+* @Last Modified time: 2018-05-23 14:39:34
 */
 package com.rsia.madura.entity;
 
@@ -35,7 +35,7 @@ public class MPenunjangKelas {
 	private MKelas kelases;
 
 	@Column(name="penunjangkelas_harga")
-	private Double penunjangkelas_harga;
+	private Integer penunjangkelas_harga;
 
 	public int getPenunjangkelas_id() {
 		return penunjangkelas_id;
@@ -60,11 +60,11 @@ public class MPenunjangKelas {
 		this.kelases = kelases;
 	}
 
-	public Double getPenunjangkelas_harga() {
+	public Integer getPenunjangkelas_harga() {
 		return penunjangkelas_harga;
 	}
 
-	public void setPenunjangkelas_harga(Double penunjangkelas_harga) {
+	public void setPenunjangkelas_harga(Integer penunjangkelas_harga) {
 		this.penunjangkelas_harga = penunjangkelas_harga;
 	}
 

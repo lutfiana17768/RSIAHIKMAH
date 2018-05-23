@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script type="text/javascript" src="/resources/js/select2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.select2-multiple').select2();
+    });
+</script>
 <script type="text/javascript">
 	var tarif_length = $('#penunjang-tarif-list').find('tr').length;
 	var pemeriksaan_length = $('#penunjang-pemeriksaan-list').find('tr').length;
@@ -31,6 +37,13 @@
 					}
 				});
 			});
+            // replace attr name select muitiple
+            var multiselect = ''
+            $('#penunjang-form').find('select[name="pkategori[]"]').val().map(function (i) {
+                multiselect += '<input type="hidden" name="penunjangkategori['+i+'].jenislayanan.jenislayanan_id" />'
+            })
+            $('#penunjang-form').append(multiselect)
+
 			$('#penunjang-form').submit();
 		});
 

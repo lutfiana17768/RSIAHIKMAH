@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 07:50:08
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-22 14:55:58
+* @Last Modified time: 2018-05-23 14:38:27
 */
 package com.rsia.madura.entity;
 
@@ -32,10 +32,10 @@ public class MRiwayatPeriksa {
 	private Timestamp periksa_tanggal;
 
 	@Column(name = "periksa_tb")
-	private Integer periksa_tb;
+	private Double periksa_tb;
 
 	@Column(name = "periksa_bb")
-	private Integer periksa_bb;
+	private Double periksa_bb;
 
 	@Column(name = "periksa_jantung")
 	private Integer periksa_jantung;
@@ -112,19 +112,19 @@ public class MRiwayatPeriksa {
 		this.periksa_tanggal = periksa_tanggal;
 	}
 
-	public Integer getPeriksa_tb(){
+	public Double getPeriksa_tb(){
 		return periksa_tb;
 	}
 
-	public void setPeriksa_tb(Integer periksa_tb) {
+	public void setPeriksa_tb(Double periksa_tb) {
 		this.periksa_tb = periksa_tb;
 	}
 
-	public Integer getPeriksa_bb(){
+	public Double getPeriksa_bb(){
 		return periksa_bb;
 	}
 
-	public void setPeriksa_bb(Integer periksa_bb) {
+	public void setPeriksa_bb(Double periksa_bb) {
 		this.periksa_bb = periksa_bb;
 	}
 

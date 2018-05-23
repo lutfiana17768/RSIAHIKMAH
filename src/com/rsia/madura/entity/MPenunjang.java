@@ -2,7 +2,7 @@
 * @Author: PRADESGA
 * @Date:   2018-04-07 01:44:50
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-19 15:30:40
+* @Last Modified time: 2018-05-23 13:43:19
 */
 package com.rsia.madura.entity;
 
@@ -33,7 +33,7 @@ public class MPenunjang {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="penunjangmedis_id")
-	private int penunjangmedis_id;
+	private Integer penunjangmedis_id;
 	
 	@Column(name="penunjangmedis_kode")
 	private String penunjangmedis_kode;
@@ -103,19 +103,23 @@ public class MPenunjang {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MPenunjangKelas> penunjangkelas;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+	@OneToMany(mappedBy = "penunjang", cascade = CascadeType.ALL, orphanRemoval=true)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MPenunjangKategori> penunjangkategori;
+
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-        name = "Penunjang_JenisLayanan", 
         joinColumns = { @JoinColumn(name = "penunjangmedis_id") }, 
         inverseJoinColumns = { @JoinColumn(name = "jenislayanan_id") }
     )
-    Set<MJenisLayanan> jenislayanans = new HashSet<>();
+    Set<MJenisLayanan> jenislayanans = new HashSet<MJenisLayanan>();
+    // List<MJenisLayanan> jenislayanans;
 
-	public int getPenunjangmedis_id() {
+	public Integer getPenunjangmedis_id() {
 		return penunjangmedis_id;
 	}
 
-	public void setPenunjangmedis_id(int penunjangmedis_id) {
+	public void setPenunjangmedis_id(Integer penunjangmedis_id) {
 		this.penunjangmedis_id = penunjangmedis_id;
 	}
 
@@ -287,12 +291,12 @@ public class MPenunjang {
 		this.penunjangkelas = penunjangkelas;
 	}
 
-	public Set<MJenisLayanan> getJenislayanans() {
-		return jenislayanans;
+	public List<MPenunjangKategori> getPenunjangkategori() {
+		return penunjangkategori;
 	}
 
-	public void setJenislayanans(Set<MJenisLayanan> jenislayanans) {
-		this.jenislayanans = jenislayanans;
+	public void setPenunjangkategori(List<MPenunjangKategori> penunjangkategori) {
+		this.penunjangkategori = penunjangkategori;
 	}
 
 	@Override

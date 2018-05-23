@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-17 14:53:46
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-18 11:07:32
+* @Last Modified time: 2018-05-23 11:49:11
 */
 
 package com.rsia.madura.controller;
@@ -38,6 +38,7 @@ public class PelayananController {
 	@RequestMapping(value="/tambah", method=RequestMethod.GET)
 	public String FormView(Model model){
 		List<MPendaftaran> result = pendaftaranService.getPendaftarans();
+		model.addAttribute("footerjs", "../pelayanan/inc/footerjs.jsp");
 		
 		return "pelayanan/tambah";
 	}

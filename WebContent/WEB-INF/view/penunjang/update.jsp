@@ -34,7 +34,7 @@
 								</div>
 								<div class="form-group">
 									<label>Kategori</label>
-									<select name="jenislayanans" id="select2" multiple class="form-control boxed">
+									<select name="pkategori[]" multiple class="form-control boxed select2-multiple">
 										<option value="">--- Pilih Kategori ---</option>
 										<c:forEach var="jenislayanan" items="${jenisLayanans}">
 											<option value="${jenislayanan.jenislayanan_id }">
