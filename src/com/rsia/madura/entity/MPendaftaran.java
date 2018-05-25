@@ -144,10 +144,10 @@ public class MPendaftaran {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MDiagnosaPasien> diagnosapasien;
 
-	// // Tab prosedur -> t_tindakan_pasien ???
-	// @OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
-	// @LazyCollection(LazyCollectionOption.FALSE)
-	// // private List<xx> xx;
+	// Tab prosedur -> t_tindakan_pasien ???
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MTindakanPasien> tindakanpasien;
 	
 	// // Tab tindakan operasi -> t_tindakan_pelaksana ???
 	// @OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
@@ -494,9 +494,13 @@ public class MPendaftaran {
 	}
 
 	// // Tab prosedur -> t_tindakan_pasien ???
-	// public List<xx> getXX() {
-	// 	return xx;
-	// }
+	public List<MTindakanPasien> getTindakanpasien() {
+		return tindakanpasien;
+	}
+
+	public void setTindakanpasien(List<MTindakanPasien> tindakanpasien) {
+		this.tindakanpasien = tindakanpasien;
+	}
 	
 	// // Tab tindakan operasi -> t_tindakan_pelaksana ???
 	// public List<xx> getXX() {
