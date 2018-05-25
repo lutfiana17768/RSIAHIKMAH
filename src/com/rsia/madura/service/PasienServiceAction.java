@@ -1,8 +1,8 @@
 /*
  * @Author: Pradesga 
  * @Date: 2018-04-14 17:53:00 
- * @Last Modified by:   Pradesga 
- * @Last Modified time: 2018-04-14 17:53:00 
+ * @Last Modified by:   Pradesga Indonesia
+ * @Last Modified time: 2018-05-24 12:38:32
  */
 package com.rsia.madura.service;
 
@@ -24,13 +24,13 @@ public class PasienServiceAction implements PasienService {
 
 	@Transactional
 	@Override
-	public List<MPasien> getPasien() {
+	public List<MPasien> findAll() {
 		return pasienDAO.getPasien();
 	}
 
 	@Override
 	@Transactional
-	public List<MPasien> getPasiens(int page, int limit) {
+	public List<MPasien> findAll(int page, int limit) {
 		// TODO Auto-generated method stub
 		return pasienDAO.getPasiens(page, limit);
 	}
@@ -44,7 +44,7 @@ public class PasienServiceAction implements PasienService {
 
 	@Override
 	@Transactional
-	public MPasien getPasien(int id) {
+	public MPasien getById(int id) {
 		// TODO Auto-generated method stub
 		return pasienDAO.getPasien(id);
 	}

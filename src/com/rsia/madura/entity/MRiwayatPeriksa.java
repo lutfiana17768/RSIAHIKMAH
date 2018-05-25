@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 07:50:08
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-23 14:38:27
+* @Last Modified time: 2018-05-24 11:57:04
 */
 package com.rsia.madura.entity;
 
@@ -29,7 +29,7 @@ public class MRiwayatPeriksa {
 	private Integer periksa_pendaftaran_id;
 
 	@Column(name = "periksa_tanggal")
-	private Timestamp periksa_tanggal;
+	private Date periksa_tanggal;
 
 	@Column(name = "periksa_tb")
 	private Double periksa_tb;
@@ -104,11 +104,11 @@ public class MRiwayatPeriksa {
 		this.periksa_pendaftaran_id = periksa_pendaftaran_id;
 	}
 
-	public Timestamp getPeriksa_tanggal(){
+	public Date getPeriksa_tanggal(){
 		return periksa_tanggal;
 	}
 
-	public void setPeriksa_tanggal(Timestamp periksa_tanggal) {
+	public void setPeriksa_tanggal(Date periksa_tanggal) {
 		this.periksa_tanggal = periksa_tanggal;
 	}
 

@@ -21,7 +21,7 @@ public class KamarAction implements KamarDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<MKamar> query = current.createQuery("from m_kamar", MKamar.class);
+		Query<MKamar> query = current.createQuery("from MKamar", MKamar.class);
 
 		List<MKamar> agama = query.getResultList();
 
@@ -32,7 +32,7 @@ public class KamarAction implements KamarDAO {
 	public List<MKamar> getKamars(int page, int limit) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MKamar> query = current.createQuery("from m_Kamar", MKamar.class);
+		Query<MKamar> query = current.createQuery("from MKamar", MKamar.class);
 		List<MKamar> agama = query.getResultList();
 		this.total = agama.size();
 		agama = this.getData(page, limit);
@@ -42,7 +42,7 @@ public class KamarAction implements KamarDAO {
 
 	public List<MKamar> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MKamar> query = current.createQuery("from m_Kamar", MKamar.class).setFirstResult((page - 1) * limit)
+		Query<MKamar> query = current.createQuery("from MKamar", MKamar.class).setFirstResult((page - 1) * limit)
 				.setMaxResults(limit);
 		List<MKamar> Result = query.getResultList();
 

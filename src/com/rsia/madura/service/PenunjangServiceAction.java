@@ -2,7 +2,7 @@
 * @Author: PRADESGA
 * @Date:   2018-04-07 04:02:55
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-23 13:44:11
+* @Last Modified time: 2018-05-25 13:27:33
 */
 package com.rsia.madura.service;
 
@@ -72,11 +72,11 @@ public class PenunjangServiceAction implements PenunjangService {
 				penunjangkelas.setPenunjang(data);
 			});
 		}
-		if (data.getPenunjangkategori() != null) {
-			data.getPenunjangkategori().forEach((penunjangkategori) -> {
-				penunjangkategori.setPenunjang(data);
-			});
-		}
+		// if (data.getPenunjangkategori() != null) {
+		// 	data.getPenunjangkategori().forEach((penunjangkategori) -> {
+		// 		penunjangkategori.setPenunjang(data);
+		// 	});
+		// }
 		System.out.println("==========");
 		System.out.println("test=test");
 		System.out.println(data.toString());

@@ -2,7 +2,7 @@
 * @Author: PRADESGA
 * @Date:   2018-04-07 01:44:50
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-23 13:43:19
+* @Last Modified time: 2018-05-25 12:57:05
 */
 package com.rsia.madura.entity;
 
@@ -103,17 +103,17 @@ public class MPenunjang {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MPenunjangKelas> penunjangkelas;
 
-	@OneToMany(mappedBy = "penunjang", cascade = CascadeType.ALL, orphanRemoval=true)
-	@LazyCollection(LazyCollectionOption.FALSE)
-	private List<MPenunjangKategori> penunjangkategori;
+	// @OneToMany(mappedBy = "penunjang", cascade = CascadeType.ALL, orphanRemoval=true)
+	// @LazyCollection(LazyCollectionOption.FALSE)
+	// private List<MPenunjangKategori> penunjangkategori;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         joinColumns = { @JoinColumn(name = "penunjangmedis_id") }, 
         inverseJoinColumns = { @JoinColumn(name = "jenislayanan_id") }
     )
-    Set<MJenisLayanan> jenislayanans = new HashSet<MJenisLayanan>();
-    // List<MJenisLayanan> jenislayanans;
+    // Set<MJenisLayanan> jenislayanans = new HashSet<MJenisLayanan>();
+    List<MJenisLayanan> jenislayanans;
 
 	public Integer getPenunjangmedis_id() {
 		return penunjangmedis_id;
@@ -291,13 +291,21 @@ public class MPenunjang {
 		this.penunjangkelas = penunjangkelas;
 	}
 
-	public List<MPenunjangKategori> getPenunjangkategori() {
-		return penunjangkategori;
+	public List<MJenisLayanan> getJenislayanan() {
+		return jenislayanans;
 	}
 
-	public void setPenunjangkategori(List<MPenunjangKategori> penunjangkategori) {
-		this.penunjangkategori = penunjangkategori;
+	public void setJenislayanan(List<MJenisLayanan> jenislayanans) {
+		this.jenislayanans = jenislayanans;
 	}
+
+	// public List<MPenunjangKategori> getPenunjangkategori() {
+	// 	return penunjangkategori;
+	// }
+
+	// public void setPenunjangkategori(List<MPenunjangKategori> penunjangkategori) {
+	// 	this.penunjangkategori = penunjangkategori;
+	// }
 
 	@Override
 	public String toString() {

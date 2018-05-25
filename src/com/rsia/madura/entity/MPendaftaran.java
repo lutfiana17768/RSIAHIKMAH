@@ -144,20 +144,15 @@ public class MPendaftaran {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MDiagnosaPasien> diagnosapasien;
 
-	// Tab prosedur -> t_tindakan_pasien ???
+	// // Tab prosedur -> ???
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MDiagnosa9> diagnosa9;
+	
+	// // Tab tindakan -> t_tindakan_pasien
 	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MTindakanPasien> tindakanpasien;
-	
-	// // Tab tindakan operasi -> t_tindakan_pelaksana ???
-	// @OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
-	// @LazyCollection(LazyCollectionOption.FALSE)
-	// // private List<xx> xx;
-	
-	// Tab tindakan operasi -> t_tindakan_pelaksana ???
-	// @OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
-	// @LazyCollection(LazyCollectionOption.FALSE)
-	// // private List<xx> xx;
 
 	// Tab bph -> t_pakai ???
 	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
@@ -178,6 +173,9 @@ public class MPendaftaran {
 	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MSoap> soap;
+
+	@ManyToOne
+	private MPasien pasien;
 
 	public int getPendaftaran_id() {
 		return pendaftaran_id;
@@ -493,7 +491,15 @@ public class MPendaftaran {
 		this.diagnosapasien = diagnosapasien;
 	}
 
-	// // Tab prosedur -> t_tindakan_pasien ???
+	public List<MDiagnosa9> getDiagnosa9() {
+		return diagnosa9;
+	}
+
+	public void setDiagnosa9(List<MDiagnosa9> diagnosa9) {
+		this.diagnosa9 = diagnosa9;
+	}
+	
+	// // Tab tindakan -> t_tindakan_pasien
 	public List<MTindakanPasien> getTindakanpasien() {
 		return tindakanpasien;
 	}
@@ -501,16 +507,6 @@ public class MPendaftaran {
 	public void setTindakanpasien(List<MTindakanPasien> tindakanpasien) {
 		this.tindakanpasien = tindakanpasien;
 	}
-	
-	// // Tab tindakan operasi -> t_tindakan_pelaksana ???
-	// public List<xx> getXX() {
-	// 	return xx;
-	// }
-	
-	// Tab tindakan operasi -> t_tindakan_pelaksana ???
-	// public List<xx> getXX() {
-	// 	return xx;
-	// }
 
 	// Tab bph -> t_pakai ???
 	public List<MPakai> getPakai() {
@@ -546,6 +542,14 @@ public class MPendaftaran {
 
 	public void setSoap(List<MSoap> soap) {
 		this.soap = soap;
+	}
+
+	public MPasien getPasien() {
+		return pasien;
+	}
+
+	public void setPasien(MPasien pasien) {
+		this.pasien = pasien;
 	}
 
 	@Override

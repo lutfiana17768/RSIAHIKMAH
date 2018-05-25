@@ -1,8 +1,8 @@
 /*
  * @Author: Pradesga 
  * @Date: 2018-04-14 17:52:41 
- * @Last Modified by:   Pradesga 
- * @Last Modified time: 2018-04-14 17:52:41 
+ * @Last Modified by:   Pradesga Indonesia
+ * @Last Modified time: 2018-05-24 12:40:57
  */
 package com.rsia.madura.controller;
 
@@ -59,7 +59,7 @@ public class PasienController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model) {
-		List<MPasien> pasiens = PasienService.getPasien();
+		List<MPasien> pasiens = PasienService.findAll();
 
 		model.addAttribute("pasiens", pasiens);
 
@@ -71,7 +71,7 @@ public class PasienController {
 	public String AddForm(Model model) {
 
 		MPasien pasienModel = new MPasien();
-		List<MPasien> pasien = PasienService.getPasien();
+		List<MPasien> pasien = PasienService.findAll();
 		List<MProvinsi> provinsi = ProvinsiService.getProvinsis();
 		List<MKota> kota = KotaService.getKotas();
 		List<MKecamatan> kecamatan = KecamatanService.getKecamatans();
@@ -108,7 +108,7 @@ public class PasienController {
 	public String AddFormOld(Model model) {
 
 		MPasien pasienModel = new MPasien();
-		List<MPasien> pasien = PasienService.getPasien();
+		List<MPasien> pasien = PasienService.findAll();
 		List<MProvinsi> provinsi = ProvinsiService.getProvinsis();
 		List<MKota> kota = KotaService.getKotas();
 		List<MKecamatan> kecamatan = KecamatanService.getKecamatans();
@@ -165,7 +165,7 @@ public class PasienController {
 
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		MPasien pasienModel = PasienService.getPasien(id);
+		MPasien pasienModel = PasienService.getById(id);
 
 		pasienModel.setPasien_aktif("T");
 		pasienModel.setPasien_deleted_date(currentTime);
@@ -204,7 +204,7 @@ public class PasienController {
 		model.addAttribute("Agama", agama);
 		model.addAttribute("Pendidikan", pendidikan);
 
-		MPasien result = PasienService.getPasien(id);
+		MPasien result = PasienService.getById(id);
 		model.addAttribute("pasienModel", result);
 
 		return "pasien/update";

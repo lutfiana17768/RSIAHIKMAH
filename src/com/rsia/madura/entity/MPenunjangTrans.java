@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 16:01:27
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-22 16:16:00
+* @Last Modified time: 2018-05-24 07:06:55
 */
 package com.rsia.madura.entity;
 
@@ -18,14 +18,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.FetchType;
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import org.hibernate.annotations.LazyCollectionOption;
-import org.hibernate.annotations.LazyCollection;
 
 @Entity
 @Table(name="t_penunjang")

@@ -13,19 +13,101 @@
 				<button type="button" id="simpan-pelayanan" class="btn btn-primary float-right rounded-0 pull-right" style="margin: 0px;">Simpan</button>
 			</div>
 		</div>
-		<div class="card card-success" style="box-shadow: none; border: none;">
-			<div class="card-block row">
-				<div class="col-lg-4">
-					read data pasien
-				</div>
-				<div class="col-lg-8">
-					insert pelayanan
-					<form id="pelayanan-form" method="POST" action="/pelayanan/store">
-						
-					</form>
-				</div>
-			</div>
-		</div>
+
+        <div class="card card-success" style="box-shadow: none; border: none;">
+            <div class="card-block row">
+                <div class="col-lg-4">
+                    <table>
+                        <tr>
+                            <td>NO</td>
+                            <td>:</td>
+                            <td>Lorem ipsum</td>
+                        </tr>
+                        <tr>
+                            <td>NO. RM</td>
+                            <td>:</td>
+                            <td>Lorem ipsunm</td>
+                        </tr>
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td>${pasien.pasien_nama}</td>
+                        </tr>
+                        <tr>
+                            <td>Alamat</td>
+                            <td>:</td>
+                            <td>${pasien.pasien_alamat}</td>
+                        </tr>
+                        <tr>
+                            <td>Usia</td>
+                            <td>:</td>
+                            <td>${pasien.pasien_tanggallahir}</td>
+                        </tr>
+                        <tr>
+                            <td>L/P</td>
+                            <td>:</td>
+                            <td>${pasien.pasien_kelamin}</td>
+                        </tr>
+                        <tr>
+                            <td>Pembayaran</td>
+                            <td>:</td>
+                            <td>Lorem Ipsum</td>
+                        </tr>
+                        <tr>
+                            <td>Waktu MRS</td>
+                            <td>:</td>
+                            <td>Lorem Ipsum</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-lg-8">
+                    <form:form id="pelayanan-form" modelAttribute="pelayananModel" method="POST" action="/pelayanan/store">
+                        <div class="form-group row">    
+                            <label class="col-sm-3 col-form-label">Dokter</label>
+                            <div class="col-sm-9">
+                                <div class="select2-wrapper">
+                                    <form:select path="m_pasien_id"
+                                        class="form-control form-control-sm select2-single">
+                                        <c:forEach var="pegawai" items="${pegawais}">
+                                            <form:option value="${pegawai.pegawai_id}"
+                                                label="${pegawai.pegawaiNama}"/>
+                                        </c:forEach>
+                                    </form:select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">    
+                            <label class="col-sm-3 col-form-label">Kondisi Masuk</label>
+                            <div class="col-sm-9">
+                                <div class="select2-wrapper">
+                                    <form:select path="m_pasien_id"
+                                        class="form-control form-control-sm select2-single">
+                                        <c:forEach var="kondisipasien" items="${kondisis}">
+                                            <form:option value="${kondisipasien.kondisi_id}"
+                                                label="${kondisipasien.kondisi_nama}"/>
+                                        </c:forEach>
+                                    </form:select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Kamar</label>
+                            <div class="col-sm-9">
+                                <div class="select2-wrapper">
+                                    <form:select path="m_pasien_id"
+                                        class="form-control form-control-sm select2-single">
+                                        <c:forEach var="kamar" items="${kamars}">
+                                            <form:option value="${kamar.kamar_id}"
+                                                label="${kamar.kamar_no}"/>
+                                        </c:forEach>
+                                    </form:select>
+                                </div>
+                            </div>
+                        </div>
+                    </form:form>
+                </div>
+            </div>
+        </div>
 
 		<div class="card-block">
             <ul class="nav nav-tabs nav-tabs-bordered">
@@ -88,8 +170,13 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Tinggi</th>
-                                    <th>Action</th>
+                                    <th>Kode</th>
+                                    <th>Nama Pemeriksaan</th>
+                                    <th>Standar</th>
+                                    <th>Nilai</th>
+                                    <th>Dokter</th>
+                                    <th>Keterangan</th>
+                                    <th>Tanggal</th>
                                 </tr>
                             </thead>
                             <tbody id="pelayanan-periksapasien-list" class="table-form">
@@ -103,7 +190,12 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Tinggi</th>
+                                    <th>Kode IDC X</th>
+                                    <th>Nama Diagnosa</th>
+                                    <th>Jenis Diagnosa</th>
+                                    <th>Kasus</th>
+                                    <th>Keterangan</th>
+                                    <th>Tanggal</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -118,7 +210,10 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Tinggi</th>
+                                    <th>Kode IDC X</th>
+                                    <th>Nama Diagnosa</th>
+                                    <th>Keterangan</th>
+                                    <th>Tanggal</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -169,7 +264,11 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Tinggi</th>
+                                    <th>Barang</th>
+                                    <th>Satuan</th>
+                                    <th>Jumlah</th>
+                                    <th>Aturan Pakai</th>
+                                    <th>Keterangan</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -184,8 +283,13 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Tinggi</th>
-                                    <th>Action</th>
+                                    <th>Nama Pemeriksaan</th>
+                                    <th>Hasil</th>
+                                    <th>Nilai Normal</th>
+                                    <th>Satuan</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga</th>
+                                    <th>Harga Total</th>
                                 </tr>
                             </thead>
                             <tbody id="pelayanan-penunjangtrans-list" class="table-form">
@@ -199,7 +303,11 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Tinggi</th>
+                                    <th>Tanggal</th>
+                                    <th>Subject (Keluhan)</th>
+                                    <th>Object (Pemeriksaaan)</th>
+                                    <th>Assesment (Kesimpulan)</th>
+                                    <th>Plan (Perencanaan)</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -304,7 +412,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Fisik</h4>
+                        <h4 class="modal-title">Tambah Diagnosa Pasien</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">X</span>
                             <span class="sr-only">Close</span>
@@ -313,8 +421,28 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-diagnosapasien" class="from-horizontal">
                             <div class="form-group">
-                                <label>TInggi</label>
-                                <input type="text" name="diagnosapasien_tinggi" id="diagnosapasien_tinggi" class="form-control boxed">
+                                <label>Kode ICD</label>
+                                <input type="text" name="diagnosapasien_icd" id="diagnosapasien_icd" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Diagnosa</label>
+                                <input type="text" name="diagnosapasien_nama" id="diagnosapasien_nama" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Jenis Diagnosa</label>
+                                <input type="text" name="diagnosapasien_jenis" id="diagnosapasien_jenis" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Kasus</label>
+                                <input type="text" name="diagnosapasien_kasus" id="diagnosapasien_kasus" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Keterangan</label>
+                                <input type="text" name="diagnosapasien_keterangan" id="diagnosapasien_keterangan" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Tanggal</label>
+                                <input type="text" name="diagnosapasien_tanggal" id="diagnosapasien_tanggal" class="form-control boxed">
                             </div>
                             <input type="hidden" name="diagnosapasien_mode" id="diagnosapasien_mode">
                             <input type="hidden" name="diagnosapasien_edit" id="diagnosapasien_edit">
@@ -389,8 +517,28 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-pakai" class="from-horizontal">
                             <div class="form-group">
-                                <label>TInggi</label>
-                                <input type="text" name="pakai_tinggi" id="pakai_tinggi" class="form-control boxed">
+                                <label>Barang</label>
+                                <input type="text" name="pakai_barang" id="pakai_barang" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Satuan</label>
+                                <input type="text" name="pakai_satuan" id="pakai_satuan" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Jumlah</label>
+                                <input type="text" name="pakai_jumlah" id="pakai_Jumlah" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Harga</label>
+                                <input type="text" name="pakai_harga" id="pakai_harga" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Sub Total</label>
+                                <input type="text" name="pakai_subtotal" id="pakai_subtotal" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Keterangan</label>
+                                <input type="text" name="pakai_keterangan" id="pakai_keterangan" class="form-control boxed">
                             </div>
                             <input type="hidden" name="pakai_mode" id="pakai_mode">
                             <input type="hidden" name="pakai_edit" id="pakai_edit">
@@ -409,7 +557,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Fisik</h4>
+                        <h4 class="modal-title">Tambah Resep</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">X</span>
                             <span class="sr-only">Close</span>
@@ -418,8 +566,24 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-resep" class="from-horizontal">
                             <div class="form-group">
-                                <label>TInggi</label>
-                                <input type="text" name="resep_tinggi" id="resep_tinggi" class="form-control boxed">
+                                <label>Barang</label>
+                                <input type="text" name="resep_barang" id="resep_barang" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Satuan</label>
+                                <input type="text" name="resep_satuan" id="resep_satuan" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Jumlah</label>
+                                <input type="text" name="resep_jumlah" id="resep_jumlah" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Aturan Pakai</label>
+                                <input type="text" name="resep_aturan" id="resep_aturan" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Keterangan</label>
+                                <input type="text" name="resep_keterangan" id="resep_keterangan" class="form-control boxed">
                             </div>
                             <input type="hidden" name="resep_mode" id="resep_mode">
                             <input type="hidden" name="resep_edit" id="resep_edit">
@@ -447,8 +611,32 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-penunjangtrans" class="from-horizontal">
                             <div class="form-group">
-                                <label>TInggi</label>
-                                <input type="text" name="penunjangtrans_tinggi" id="penunjangtrans_tinggi" class="form-control boxed">
+                                <label>Nama Pemeriksaan</label>
+                                <input type="text" name="penunjangtrans.penunjang_id" id="penunjang_id" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Hasil</label>
+                                <input type="text" name="penunjangtrans_hasil" id="penunjangtrans_hasil" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Nilai Normal</label>
+                                <input type="text" name="penunjangtrans_standar" id="penunjangtrans_standar" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Satuan</label>
+                                <input type="text" name="penunjangtrans_satuan" id="penunjangtrans_satuan" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Jumlah</label>
+                                <input type="text" name="penunjangtrans_jumlah" id="penunjangtrans_jumlah" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Harga</label>
+                                <input type="text" name="penunjangtrans_harga" id="penunjangtrans_harga" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Sub Total</label>
+                                <input type="text" name="penunjangtrans_subtotal" id="penunjangtrans_subtotal" class="form-control boxed">
                             </div>
                             <input type="hidden" name="penunjangtrans_mode" id="penunjangtrans_mode">
                             <input type="hidden" name="penunjangtrans_edit" id="penunjangtrans_edit">
@@ -467,7 +655,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Fisik</h4>
+                        <h4 class="modal-title">Tambah SOAP</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">X</span>
                             <span class="sr-only">Close</span>
@@ -476,8 +664,24 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-soap" class="from-horizontal">
                             <div class="form-group">
-                                <label>TInggi</label>
-                                <input type="text" name="soap_tinggi" id="soap_tinggi" class="form-control boxed">
+                                <label>Tanggal</label>
+                                <input type="date" name="soap_tanggal" id="soap_tanggal" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" name="soap_subject" id="soap_subject" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Obejct</label>
+                                <input type="text" name="soap_object" id="soap_object" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Kesimpulan</label>
+                                <input type="text" name="soap_assesment" id="soap_assesment" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Rencana</label>
+                                <input type="text" name="soap_plan" id="soap_plan" class="form-control boxed">
                             </div>
                             <input type="hidden" name="soap_mode" id="soap_mode">
                             <input type="hidden" name="soap_edit" id="soap_edit">

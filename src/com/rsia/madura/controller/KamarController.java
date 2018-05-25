@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.rsia.madura.entity.MKamar;
 import com.rsia.madura.entity.MKelas;
@@ -37,10 +38,10 @@ public class KamarController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model) {
-		List<MRuang> ruangs = ruangService.findAll();
+		List<MKamar> ruangs = kamarService.findAll();
 		model.addAttribute("ruangs", ruangs);
 		model.addAttribute("footerjs", "");
-		return "ruangan/index";
+		return "kamar/index";
 	}
 
 	@RequestMapping("/tambah")
@@ -58,7 +59,7 @@ public class KamarController {
 		model.addAttribute("pelayanan", pelayanan);
 		model.addAttribute("kamarModel", kamarModel);
 
-		return "v_m_kamar_tambah";
+		return "kamar/tambah";
 	}
 
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
@@ -74,8 +75,8 @@ public class KamarController {
 		return this.uri;
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String DeleteUpdate(Model model, @RequestParam(value = "Id", required = false) int id) {
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String DeleteUpdate(Model model, @PathVariable int id) {
 
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
@@ -89,8 +90,8 @@ public class KamarController {
 		return this.uri;
 	}
 
-	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
-	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
+	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+	public String UpdateFormView(Model model, @PathVariable int id) {
 
 		MKamar result = kamarService.getKamar(id);
 
@@ -107,7 +108,7 @@ public class KamarController {
 
 		model.addAttribute("kamarModel", result);
 
-		return "v_m_kamar_update";
+		return "kamar/update";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
