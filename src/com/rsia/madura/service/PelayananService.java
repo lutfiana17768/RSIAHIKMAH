@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-18 09:57:47
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-18 10:14:53
+* @Last Modified time: 2018-05-26 13:53:44
 */
 
 package com.rsia.madura.service;
@@ -17,7 +17,6 @@ public interface PelayananService {
 	public String createLinks(int page, int limit);
 	public MPendaftaran getPelayanan(int id);
 	
-	public void store(MPendaftaran data);
 	public void update(MPendaftaran data);
 	public void delete(MPendaftaran data);
 }

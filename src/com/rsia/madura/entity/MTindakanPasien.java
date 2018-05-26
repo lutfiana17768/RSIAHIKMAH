@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-23 14:23:55
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-23 14:50:57
+* @Last Modified time: 2018-05-25 17:15:27
 */
 package com.rsia.madura.entity;
 
@@ -52,9 +52,8 @@ public class MTindakanPasien {
 	@ManyToOne
 	private MTindakan tindakan;
 
-	// pelaksana -> table pegawai status medis
-	// @ManyToOne
-	// private MPegawai pegawai;
+	@ManyToOne
+	private MPegawai pegawai;
 
 	@ManyToOne
 	private MPendaftaran pendaftaran;
@@ -139,13 +138,13 @@ public class MTindakanPasien {
 		this.tindakan = tindakan;
 	}
 
-	// public MPegawai getPegawai() {
-	// 	return pegawai;
-	// }
+	public MPegawai getPegawai() {
+		return pegawai;
+	}
 
-	// public void setPegawai(MPegawai pegawai) {
-	// 	this.pegawai = pegawai;
-	// }
+	public void setPegawai(MPegawai pegawai) {
+		this.pegawai = pegawai;
+	}
 
 	public MPendaftaran getPendaftaran() {
 		return pendaftaran;

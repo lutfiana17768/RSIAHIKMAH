@@ -15,8 +15,10 @@ import javax.persistence.FetchType;
 import javax.persistence.CascadeType;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
+@DynamicUpdate(true)
 @Table(name="t_Pendaftaran")
 public class MPendaftaran {
 	@Id
@@ -176,6 +178,9 @@ public class MPendaftaran {
 
 	@ManyToOne
 	private MPasien pasien;
+
+	@ManyToOne
+	private MKondisi kondisi;
 
 	public int getPendaftaran_id() {
 		return pendaftaran_id;
@@ -550,6 +555,14 @@ public class MPendaftaran {
 
 	public void setPasien(MPasien pasien) {
 		this.pasien = pasien;
+	}
+
+	public MKondisi getKondisi() {
+		return kondisi;
+	}
+
+	public void setKondisi(MKondisi kondisi) {
+		this.kondisi = kondisi;
 	}
 
 	@Override

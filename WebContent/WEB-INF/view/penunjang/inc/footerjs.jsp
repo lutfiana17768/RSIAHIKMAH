@@ -39,10 +39,13 @@
 			});
             // replace attr name select muitiple
             var multiselect = ''
-            $('#penunjang-form').find('select[name="pkategori[]"]').val().map(function (i) {
-                multiselect += '<input type="hidden" name="penunjangkategori['+i+'].jenislayanan.jenislayanan_id" />'
-            })
-            $('#penunjang-form').append(multiselect)
+            var kategories = $('#penunjang-form').find('select[name="pkategori[]"]').val();
+            if (kategories) {
+                kategories.map(function (i) {
+                    multiselect += '<input type="hidden" name="penunjangkategori['+i+'].jenislayanan.jenislayanan_id" />'
+                })
+                $('#penunjang-form').append(multiselect)
+            }
 
 			$('#penunjang-form').submit();
 		});

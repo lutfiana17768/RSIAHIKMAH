@@ -4,8 +4,8 @@
     var riwayatperiksa_length = $('#pelayanan-riwayatperiksa-list').find('tr').length;
     var periksapasien_length = $('#pelayanan-periksapasien-list').find('tr').length;
 	var tindakan_length = $('#pelayanan-tindakan-list').find('tr').length;
-	// 
-	var diagnosapasien_length = $('#pelayanan-diagnosapasien-list').find('tr').length;
+    var diagnosapasien_length = $('#pelayanan-diagnosapasien-list').find('tr').length;
+	var diagnosa9_length = $('#pelayanan-diagnosa9-list').find('tr').length;
     var pakai_length = $('#pelayanan-pakai-list').find('tr').length;
     var resep_length = $('#pelayanan-resep-list').find('tr').length;
     var penunjangtrans_length = $('#pelayanan-penunjangtrans-list').find('tr').length;
@@ -55,7 +55,20 @@
                 });
             });
 
-            //
+            // prosedur
+            $('#pelayanan-diagnosa9-list tr').map(function(line){
+                $(this).find('td').each(function (i) {
+                    if ($(this).attr('data-save') == '1') {
+                        var name = $(this).attr('data-name');
+                        var value = $(this).text();
+                        var new_input = $('<input type="hidden">');
+                        new_input.attr('name','diagnosa9[' + line + '].' + name);
+                        new_input.attr('value',value);
+                        $('#pelayanan-form').append(new_input);
+                    }
+                });
+            });
+
             
             $('#pelayanan-tindakan-list tr').map(function(line){
                 $(this).find('td').each(function (i) {
@@ -137,8 +150,13 @@
             $('#modal-pelayanan-diagnosapasien').modal('show');
         });
 
-        //
-       
+        //prosedur
+        $('#add_diagnosa9').click(function(){
+            $('#form-pelayanan-diagnosa9').find('input,select').val('');
+            $('#diagnosa9_mode').val('new');
+            $('#modal-pelayanan-diagnosa9').modal('show');
+        });
+           
         $('#add_tindakan').click(function(){
             $('#form-pelayanan-tindakan').find('input,select').val('');
             $('#tindakan_mode').val('new');
@@ -184,17 +202,16 @@
                 tr.empty();
             }
 
-            var periksa_id = $('#periksa_id').val();
-                periksa_tb = $('#periksa_tb').val() ||0;
-                periksa_bb = $('#periksa_bb').val() ||0;
-                periksa_jantung = $('#periksa_jantung').val() ||0;
-                periksa_tensi = $('#periksa_tensi').val() ||0;
-                periksa_suhu = $('#periksa_suhu').val() ||0;
-                periksa_nafas = $('#periksa_nafas').val() ||0;
-                periksa_keluhan = $('#periksa_keluhan').val() ||'';
-                periksa_pemeriksa = $('#periksa_pemeriksa').val() ||'';
-                periksa_tanggal = $('#periksa_tanggal').val() ||0;
-            console.log(periksa_id)
+            periksa_id = $('#periksa_id').val();
+            periksa_tb = $('#periksa_tb').val() ||0;
+            periksa_bb = $('#periksa_bb').val() ||0;
+            periksa_jantung = $('#periksa_jantung').val() ||0;
+            periksa_tensi = $('#periksa_tensi').val() ||0;
+            periksa_suhu = $('#periksa_suhu').val() ||0;
+            periksa_nafas = $('#periksa_nafas').val() ||0;
+            periksa_keluhan = $('#periksa_keluhan').val() ||'';
+            periksa_pemeriksa = $('#periksa_pemeriksa').val() ||'';
+            periksa_tanggal = $('#periksa_tanggal').val() ||0;
             tr.append('<td data-used="1" data-save="1" data-name="periksa_tb" data-kolom-id="periksa_tb">'+periksa_tb+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksa_bb" data-kolom-id="periksa_bb">'+periksa_bb+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksa_jantung" data-kolom-id="periksa_jantung">'+periksa_jantung+'</td>');
@@ -238,9 +255,21 @@
             }
 
             periksapasien_id = $('#periksapasien_id').val();
-            periksapasien_tinggi = $('#periksapasien_tinggi').val() ||0;
+            periksapasien_pasien_kode = $('#periksapasien_pasien_kode').val() ||0;
+            periksapasien_periksa_nama = $('#periksapasien_periksa_nama').val() || '';
+            periksapasien_periksa_standar = $('#periksapasien_periksa_standar').val() ||0;
+            periksapasien_periksa_nilai = $('#periksapasien_periksa_nilai').val() ||0;
+            periksapasien_dokter_id = $('#periksapasien_dokter_id').val() ||0;
+            periksapasien_periksa_keterangan = $('#periksapasien_periksa_keterangan').val() || '';
+            periksapasien_tanggal = $('#periksapasien_tanggal').val() ||0;
             
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_tinggi" data-kolom-id="periksapasien_tinggi">'+periksapasien_tinggi+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_pasien_kode" data-kolom-id="periksapasien_pasien_kode">'+periksapasien_pasien_kode+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_nama" data-kolom-id="periksapasien_periksa_nama">'+periksapasien_periksa_nama+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_standar" data-kolom-id="periksapasien_periksa_standar">'+periksapasien_periksa_standar+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_nilai" data-kolom-id="periksapasien_periksa_nilai">'+periksapasien_periksa_nilai+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_dokter_id" data-kolom-id="periksapasien_dokter_id">'+periksapasien_dokter_id+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_keterangan" data-kolom-id="periksapasien_periksa_keterangan">'+periksapasien_periksa_keterangan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_tanggal" data-kolom-id="periksapasien_tanggal">'+periksapasien_tanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePeriksapasien('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPeriksapasien('+counter+')">Edit</button></td>');
             if (periksapasien_id) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasien_id" data-kolom-id="periksapasien_id">' + periksapasien_id + '</td>');
@@ -306,6 +335,52 @@
 
         }); 
 
+        //prosedur
+        $('#simpan-diagnosa9').click(function(){
+            var diagnosa9_id,diagnosa9_tinggi,mode,counter,id_row;
+            var mode = $('#diagnosa9_mode').val();
+
+            if(mode == 'new')
+            {
+                var tr = $('<tr>');
+                counter = diagnosa9_length+1;
+                tr.attr('id','diagnosa9_'+counter);
+            }
+            else
+            {
+                id_row = $('#diagnosa9_edit').val();
+                counter = id_row;
+                var tr = $('#diagnosa9_'+id_row);
+                tr.empty();
+            }
+
+            diagnosa9_id = $('#diagnosa9_id').val();
+            diagnosa9_icd9_id = $('#diagnosa9_icd9_id').val() ||0;
+            diagnosa9_nama = $('#diagnosa9_nama').val() ||0;
+            diagnosa9_keterangan = $('#diagnosa9_keterangan').val() ||0;
+            diagnosa9_tanggal = $('#diagnosa9_tanggal').val() ||0;
+
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9_icd9_id" data-kolom-id="diagnosa9_icd9_id">'+diagnosa9_icd9_id+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9_nama" data-kolom-id="diagnosa9_nama">'+diagnosa9_nama+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9_keterangan" data-kolom-id="diagnosa9_keterangan">'+diagnosa9_keterangan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9_tanggal" data-kolom-id="diagnosa9_tanggal">'+diagnosa9_tanggal+'</td>');
+            tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDiagnosa9('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDiagnosa9('+counter+')">Edit</button></td>');
+
+            if (diagnosa9_id) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosa9_id" data-kolom-id="diagnosa9_id">' + diagnosa9_id + '</td>');
+            }
+
+            if(mode == 'new')
+            {
+                diagnosa9_length = counter;
+                $('#pelayanan-diagnosa9-list').append(tr);                    
+            }
+
+            $('#modal-pelayanan-diagnosa9').modal('hide');
+            $('#form-pelayanan-diagnosa9').find('input,select').val('');
+
+        }); 
+
         $('#simpan-tindakan').click(function(){
             var tindakanpasien_harga,mode,counter,id_row;
             var mode = $('#tindakan_mode').val();
@@ -325,6 +400,7 @@
             }
 
             tindakanpasien_id = $('#tindakanpasien_id').val();
+            tindakan_id = $('#tindakan_id').val();
             tindakan_text = $('#tindakan_id option:selected').text();
             pegawai_id = $('#pegawai_id').val();
             pegawai_text = $('#pegawai_id option:selected').text();
@@ -592,6 +668,7 @@
         tr = $('#periksapasien_'+id);
         tr.remove();
     }  
+
     function editDiagnosapasien(id)
     {
         var tr;
@@ -616,6 +693,28 @@
     }
 
     // procedur
+    function editDiagnos9(id)
+    {
+        var tr;
+        $('#diagnosa9_mode').val('edit');
+        $('#diagnosa9_edit').val(id);
+        tr = $('#diagnosa9_'+id);
+        $.each(tr.find('td'),function(i,e){
+            if($(e).attr("data-used") == '1')
+            {
+                var elem_id = $(e).attr('data-kolom-id');
+                $('#'+elem_id).val($(e).text());
+            }
+        });
+        $('#modal-pelayanan-diagnosa9').modal('show');
+    }
+
+    function deleteDiagnos9(id)
+    {
+        var tr;
+        tr = $('#diagnosa9_'+id);
+        tr.remove();
+    }
 
     function editTindakan(id)
     {

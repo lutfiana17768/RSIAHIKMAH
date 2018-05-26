@@ -2,12 +2,13 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-17 12:24:35
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-18 11:03:47
+* @Last Modified time: 2018-05-26 09:26:42
 */
 
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -91,7 +92,7 @@ public class MPeriksaPasien {
 	private Integer periksapasien_pendaftaran_id;
 
 	@Column(name = "periksapasien_tanggal")
-	private Timestamp periksapasien_tanggal;
+	private Date periksapasien_tanggal;
 
 	@Column(name = "periksapasien_urut")
 	private Integer periksapasien_urut;
@@ -278,11 +279,11 @@ public class MPeriksaPasien {
 		this.periksapasien_pendaftaran_id = periksapasien_pendaftaran_id;
 	}
 
-	public Timestamp getPeriksapasien_tanggal() {
+	public Date getPeriksapasien_tanggal() {
 		return periksapasien_tanggal;
 	}
 
-	public void setPeriksapasien_tanggal(Timestamp periksapasien_tanggal) {
+	public void setPeriksapasien_tanggal(Date periksapasien_tanggal) {
 		this.periksapasien_tanggal = periksapasien_tanggal;
 	}
 

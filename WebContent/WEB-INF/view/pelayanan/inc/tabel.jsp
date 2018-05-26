@@ -8,7 +8,7 @@
 								<div class="card-header">
 									<div class="header-block">
 										<h3 class="title"> List Pelayanan </h3>
-										<a href="/pelayanan/tambah" class="btn btn-primary btn-sm">Tambah</a>
+										<!-- <a href="/pelayanan/tambah" class="btn btn-primary btn-sm">Tambah</a> -->
 									</div>
 								</div>
 								<div class="card-block">

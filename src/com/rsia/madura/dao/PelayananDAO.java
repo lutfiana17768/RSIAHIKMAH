@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-18 10:01:14
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-18 10:02:17
+* @Last Modified time: 2018-05-26 13:49:22
 */
 package com.rsia.madura.dao;
 
@@ -16,7 +16,6 @@ public interface PelayananDAO {
 	public String createLinks(int page, int limit);
 	public MPendaftaran getPelayanan(int PelayananId);
 	
-	public int PelayananStore(MPendaftaran PelayananModel);
-	public void PelayananUpdate(MPendaftaran PelayananModel);
-	public void PelayananDelete(MPendaftaran PelayananModel);
+	public void update(MPendaftaran PelayananModel);
+	public void delete(MPendaftaran PelayananModel);
 }

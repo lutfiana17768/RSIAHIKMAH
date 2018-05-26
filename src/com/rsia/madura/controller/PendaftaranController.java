@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-25 10:14:49
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-25 11:39:08
+* @Last Modified time: 2018-05-26 16:18:16
 */
 package com.rsia.madura.controller;
 
@@ -57,13 +57,13 @@ public class PendaftaranController {
 	@Autowired
 	private PaketService PaketService;
 
-	private String uri = "redirect: pendaftaran/list";
+	private String uri = "redirect: /pendaftaran";
 
-	@RequestMapping("/list")
-	public String viewForm(Model model) {
+	@RequestMapping(method=RequestMethod.GET)
+	public String IndexView(Model model) {
 		MPendaftaran PendaftaranModel = new MPendaftaran();
 		
-		List<MPendaftaran> result = PendaftaranService.getPendaftarans();
+		List<MPendaftaran> pendaftarans = PendaftaranService.getPendaftarans();
 		
 		List<MPasien> pasien = PasienService.findAll();
 		List<MRujukan> rujukan = RujukanService.getRujukans();
@@ -71,7 +71,7 @@ public class PendaftaranController {
 		List<MKondisi> kondisipasien = KondisiPasienService.getKondisis();
 		List<MPaket> paket = PaketService.findAll();
 
-		model.addAttribute("pendaftaran", result);
+		model.addAttribute("pendaftarans", pendaftarans);
 		model.addAttribute("Pasien", pasien);
 		model.addAttribute("Rujukan", rujukan);
 		model.addAttribute("Tindakan", tindakan);
@@ -80,7 +80,8 @@ public class PendaftaranController {
 		model.addAttribute("footerjs", "../pendaftaran/inc/footerjs.jsp");
 		model.addAttribute("PendaftaranModel", PendaftaranModel);
 
-		return "pendaftaran/tambah";
+		return "pendaftaran/index";
+	
 	}
 
 	@RequestMapping("/tambah")

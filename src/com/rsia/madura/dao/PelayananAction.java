@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-18 10:02:39
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-18 10:04:48
+* @Last Modified time: 2018-05-26 13:49:19
 */
 
 package com.rsia.madura.dao;
@@ -108,22 +108,14 @@ public class PelayananAction implements PelayananDAO {
 	}
 
 	@Override
-	public int PelayananStore(MPendaftaran PelayananModel) {
+	public void update(MPendaftaran PelayananModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		return (int) current.save(PelayananModel);
-
+		current.merge(PelayananModel);
 	}
 
 	@Override
-	public void PelayananUpdate(MPendaftaran PelayananModel) {
-		Session current = sessionFactory.getCurrentSession();
-
-		current.saveOrUpdate(PelayananModel);
-	}
-
-	@Override
-	public void PelayananDelete(MPendaftaran PelayananModel) {
+	public void delete(MPendaftaran PelayananModel) {
 		Session current = sessionFactory.getCurrentSession();
 
 		current.saveOrUpdate(PelayananModel);

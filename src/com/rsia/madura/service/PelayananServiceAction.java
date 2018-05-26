@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-18 09:58:19
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-18 10:11:59
+* @Last Modified time: 2018-05-26 14:00:11
 */
 
 package com.rsia.madura.service;
@@ -20,49 +20,91 @@ import com.rsia.madura.dao.PelayananDAO;
 @Service
 public class PelayananServiceAction implements PelayananService{
 	@Autowired
-	private PelayananDAO PelayananDAO;
+	private PelayananDAO pelayananDAO;
 
 	@Override
 	@Transactional
 	public List<MPendaftaran> getPelayanans() {
 		// TODO Auto-generated method stub
-		return PelayananDAO.getPelayanans();
+		return pelayananDAO.getPelayanans();
 	}
 
 	@Override
 	@Transactional
 	public List<MPendaftaran> getPelayanans(int page, int limit) {
 		// TODO Auto-generated method stub
-		return PelayananDAO.getPelayanans(page, limit);
+		return pelayananDAO.getPelayanans(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public String createLinks(int page, int limit) {
 		// TODO Auto-generated method stub
-		return PelayananDAO.createLinks(page, limit);
+		return pelayananDAO.createLinks(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public MPendaftaran getPelayanan(int id) {
 		// TODO Auto-generated method stub
-		return PelayananDAO.getPelayanan(id);
-	}
-
-	@Override
-	@Transactional
-	public void store(MPendaftaran data) {
-		// TODO Auto-generated method stub
-		PelayananDAO.PelayananStore(data);
-		
+		return pelayananDAO.getPelayanan(id);
 	}
 
 	@Override
 	@Transactional
 	public void update(MPendaftaran data) {
 		// TODO Auto-generated method stub
-		PelayananDAO.PelayananUpdate(data);
+		if (data.getRiwayatperiksa() != null) {
+			data.getRiwayatperiksa().forEach((riwayatperiksa) -> {
+				riwayatperiksa.setPendaftaran(data);
+			});
+		}
+		if (data.getPeriksapasien() != null) {
+			data.getPeriksapasien().forEach((periksapasien) -> {
+				periksapasien.setPendaftaran(data);
+			});
+		}
+
+		if (data.getDiagnosapasien() != null) {
+			data.getDiagnosapasien().forEach((diagnosapasien) -> {
+				diagnosapasien.setPendaftaran(data);
+			});
+		}
+
+		if (data.getTindakanpasien() != null) {
+			data.getTindakanpasien().forEach((tindakanpasien) -> {
+				tindakanpasien.setPendaftaran(data);
+			});
+		}
+
+		if (data.getDiagnosa9() != null) {
+			data.getDiagnosa9().forEach((diagnosa9) -> {
+				diagnosa9.setPendaftaran(data);
+			});
+		}
+
+		if (data.getPakai() != null) {
+			data.getPakai().forEach((pakai) -> {
+				pakai.setPendaftaran(data);
+			});
+		}
+		if (data.getResep() != null) {
+			data.getResep().forEach((resep) -> {
+				resep.setPendaftaran(data);
+			});
+		}
+
+		if (data.getPenunjangtrans() != null) {
+			data.getPenunjangtrans().forEach((penunjangtrans) -> {
+				penunjangtrans.setPendaftaran(data);
+			});
+		}
+		if (data.getSoap() != null) {
+			data.getSoap().forEach((soap) -> {
+				soap.setPendaftaran(data);
+			});
+		}
+		pelayananDAO.update(data);
 		
 	}
 
@@ -70,6 +112,6 @@ public class PelayananServiceAction implements PelayananService{
 	@Transactional
 	public void delete(MPendaftaran data) {
 		// TODO Auto-generated method stub
-		PelayananDAO.PelayananDelete(data);
+		pelayananDAO.delete(data);
 	}
 }

@@ -7,6 +7,7 @@
 		</div>
 	</div>
 	<script src="/resources/js/vendor.js"></script>
+	<script src="/resources/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script src="/resources/js/app.js"></script>
     <jsp:include page="${footerjs}" />
 </body>

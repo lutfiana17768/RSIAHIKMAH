@@ -21,7 +21,6 @@
                                     <form:input path="Pasien_norm" placeholder="Masukan No RM" class="form-control"/>
                                  </div>
                                  
-                                 
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <form:input path="Pasien_nik" placeholder="Masukan NIK" class="form-control"/>

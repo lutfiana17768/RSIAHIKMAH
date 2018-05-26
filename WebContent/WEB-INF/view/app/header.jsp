@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/vendor.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/gh-pages.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/style.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/bootstrap-datepicker/css/bootstrap-datepicker.min.css'/>">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -56,6 +57,9 @@
 								</a>
 								<ul class="sidebar-nav">
 									<li><a href="/pendaftaran"><i class="fa fa-users"></i> Pendaftaran</a></li>
+								</ul>
+								<ul class="sidebar-nav">
+									<li><a href="/pelayanan"><i class="fa fa-users"></i> Pelayanan</a></li>
 								</ul>
 							</li>
                             <li>
@@ -107,6 +111,26 @@
 									<li>
 										<a href="/kelas">
 										<i class="fa fa-users"></i> Kelas
+										</a>
+									</li>
+									<li>
+										<a href="/pasien">
+										<i class="fa fa-users"></i> Pasien
+										</a>
+									</li>
+									<li>
+										<a href="/kamar">
+										<i class="fa fa-users"></i> Kamar
+										</a>
+									</li>
+									<li>
+										<a href="/penunjang">
+										<i class="fa fa-users"></i> Penunjang
+										</a>
+									</li>
+									<li>
+										<a href="/penunjang-group">
+										<i class="fa fa-users"></i> Penunjang Group
 										</a>
 									</li>
 								</ul>

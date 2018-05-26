@@ -177,6 +177,7 @@
                                     <th>Dokter</th>
                                     <th>Keterangan</th>
                                     <th>Tanggal</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody id="pelayanan-periksapasien-list" class="table-form">
@@ -205,7 +206,7 @@
                     </div>
             	</div>
             	<div class="tab-pane fade" id="tab-prosedur">
-                    <button type="button" id="add_pelayananprosedur_paling" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-pelayananprosedur_paling">Tambah</button>
+                    <button type="button" id="add_diagnosa9" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-diagnosa9">Tambah</button>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
@@ -217,7 +218,7 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody id="pelayanan-pelayananprosedur_paling-list" class="table-form">
+                            <tbody id="pelayanan-diagnosa9-list" class="table-form">
                             </tbody>
                         </table>
                     </div>
@@ -364,7 +365,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" name="periksa_tanggal" id="periksa_tanggal" class="form-control boxed">
+                                <input type="text" name="periksa_tanggal" id="periksa_tanggal" class="form-control boxed datepicker">
                             </div>
 							<input type="hidden" name="riwayatperiksa_mode" id="riwayatperiksa_mode">
 							<input type="hidden" name="riwayatperiksa_edit" id="riwayatperiksa_edit">
@@ -383,7 +384,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Fisik</h4>
+                        <h4 class="modal-title">Tambah Pemeriksaan</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">X</span>
                             <span class="sr-only">Close</span>
@@ -392,8 +393,35 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-periksapasien" class="from-horizontal">
                             <div class="form-group">
-                                <label>Tinggi</label>
-                                <input type="text" name="periksapasien_tinggi" id="periksapasien_tinggi" class="form-control boxed">
+                                <label>Kode</label>
+                                <input type="text" name="periksapasien_pasien_kode" id="periksapasien_pasien_kode" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Pemeriksaan</label>
+                                <input type="text" name="periksapasien_periksa_nama" id="periksapasien_periksa_nama" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Standar</label>
+                                <input type="text" name="periksapasien_periksa_standar" id="periksapasien_periksa_standar" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Nilai</label>
+                                <input type="text" name="periksapasien_periksa_nilai" id="periksapasien_periksa_nilai" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Dokter</label>
+                                <input type="text" name="periksapasien_dokter_id" id="periksapasien_dokter_id" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Keterangan</label>
+                                <input type="text" name="periksapasien_periksa_keterangan" id="periksapasien_periksa_keterangan" class="form-control boxed">
+                            </div>
+                            <div class="form-group date" data-provide="datepicker">
+                                <label>Tanggal</label>
+                                <div class="input-group">
+                                    <input type="text" name="periksapasien_tanggal" id="periksapasien_tanggal" class="form-control boxed">
+                                    <span class="input-group-addon"></span>
+                                </div>
                             </div>
                             <input type="hidden" name="periksapasien_mode" id="periksapasien_mode">
                             <input type="hidden" name="periksapasien_edit" id="periksapasien_edit">
@@ -457,7 +485,47 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
-        <!-- prosedur -->
+        <div class="modal fade" id="modal-pelayanan-diagnosa9">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tambah Diagnosa Pasien</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">X</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-pelayanan-diagnosa9" class="from-horizontal">
+                            <div class="form-group">
+                                <label>Kode ICD X</label>
+                                <input type="text" name="diagnosa9_icd9_id" id="diagnosa9_icd9_id" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Diagnosa</label>
+                                <input type="text" name="diagnosa9_nama" id="diagnosa9_nama" class="form-control boxed">
+                            </div>
+                            <div class="form-group">
+                                <label>Keterangan</label>
+                                <input type="text" name="diagnosa9_keterangan" id="diagnosa9_keterangan" class="form-control boxed">
+                            </div>
+                            <div class="form-group date" data-provide="datepicker">
+                                <label>Tanggal</label>
+                                <input type="text" name="diagnosa9_tanggal" id="diagnosa9_tanggal" class="form-control boxed">
+                            </div>
+                            <input type="hidden" name="diagnosa9_mode" id="diagnosa9_mode">
+                            <input type="hidden" name="diagnosa9_edit" id="diagnosa9_edit">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
+                        <button type="button" id="simpan-diagnosa9" class="btn btn-primary rounded-0">Simpan</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
         <!-- tindakan -->
         <div class="modal fade" id="modal-pelayanan-tindakan">
             <div class="modal-dialog modal-lg">
@@ -567,7 +635,7 @@
                         <form id="form-pelayanan-resep" class="from-horizontal">
                             <div class="form-group">
                                 <label>Barang</label>
-                                <input type="text" name="resep_barang" id="resep_barang" class="form-control boxed">
+                                <input type="text" name="reserData" id="reserData" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Satuan</label>

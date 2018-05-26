@@ -1412,3 +1412,8 @@ NProgress.start();
 
 // end loading bar 
 NProgress.done();
+
+
+$('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+});
