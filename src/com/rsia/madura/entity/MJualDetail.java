@@ -18,27 +18,34 @@ public class MJualDetail {
 	@Column(name="jualdet_id")
 	private int jualdet_id;
 	
+	// ganti relasi
 	@Column(name="jualdet_jual_id")
 	private int jualDetailJualId;
 	
+	// ganti relasi
 	@Column(name="jualdet_depo_id")
 	private int jualDetailDepoId;
 	
+	// ganti relasi
 	@Column(name="jualdet_barang_id")
 	private int jualDetailBarangId;
 	
+	// jika sudah ada di barang (barang_id) hapus aaja
 	@Column(name="jualdet_barang_nama")
 	private String jualDetailBarangNama;
 	
+	// ganti relasi
 	@Column(name="jualdet_satuan_id")
 	private int jualDetailSatuanId;
 	
+	// jika sudah ada di satuan (satuan_id) hapus aaja
 	@Column(name="jualdet_satuan_nama")
 	private String jualDetailSatuanNama;
 	
 	@Column(name="jualdet_kadaluarsa_date")
 	private Date jualDetailKadaluarsa;
 	
+	// jika sudah ada di jenisharga (jenisharga_id) hapus aaja
 	@Column(name="jualdet_jenisharga_id")
 	private int jualDetailJenisHargaId;
 	
@@ -72,12 +79,15 @@ public class MJualDetail {
 	@Column(name="jualdet_deleted_date")
 	private Timestamp jualDetailDeletedDate;
 	
+	// jika sudah ada di depo (depo_id) hapus aaja
 	@Column(name="jualdet_depo_nama")
 	private String jualDetailDepoNama;
 	
+	// jika sudah ada di terima (terima_id) hapus aaja
 	@Column(name="jualdet_terima_no")
 	private String jualDetailTerimaNo;
 	
+	// ganti relasi
 	@Column(name="jualdet_terima_id")
 	private int jualDetailTerimaId;
 	

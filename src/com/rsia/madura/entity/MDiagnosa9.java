@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-24 16:59:51
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-25 07:57:16
+* @Last Modified time: 2018-05-28 09:16:12
 */
 package com.rsia.madura.entity;
 
@@ -24,19 +24,23 @@ public class MDiagnosa9 {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "diagnosa9_id")
 	private int diagnosa9_id;
-
+	// hapus
 	@Column(name = "diagnosa9_kamarpasien_id")
 	private Integer diagnosa9_kamarpasien_id;
 
+	// ganti relasi
 	@Column(name = "diagnosa9_icd9_id")
 	private Integer diagnosa9_icd9_id;
 
+	// ganti relasi
 	@Column(name = "diagnosa9_pasien_id")
 	private Integer diagnosa9_pasien_id;
 
+	// hapus
 	@Column(name = "diagnosa9_pasien_norm")
 	private String diagnosa9_pasien_norm;
 
+	// ganti relasi
 	@Column(name = "diagnosa9_dokter")
 	private Integer diagnosa9_dokter;
 

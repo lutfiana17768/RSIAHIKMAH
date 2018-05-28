@@ -1,8 +1,8 @@
 /*
  * @Author: Pradesga 
  * @Date: 2018-04-15 13:50:23 
- * @Last Modified by: Pradesga
- * @Last Modified time: 2018-04-15 13:55:10
+ * @Last Modified by:   Pradesga Indonesia
+ * @Last Modified time: 2018-05-28 14:26:11
  */
 package com.rsia.madura.controller;
 
@@ -32,7 +32,7 @@ public class RujukanController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model){
 		List<MRujukan> result = rujukanService.getRujukans();
-		
+		System.out.println(result);
 		model.addAttribute("rujukan", result);
 
 		return "rujukan/index";

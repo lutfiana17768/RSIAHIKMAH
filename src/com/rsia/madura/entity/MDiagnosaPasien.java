@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 16:38:01
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-22 16:57:29
+* @Last Modified time: 2018-05-28 09:07:58
 */
 
 package com.rsia.madura.entity;
@@ -26,18 +26,23 @@ public class MDiagnosaPasien {
 	@Column(name = "diagnosapasien_id")
 	private int diagnosapasien_id;
 	
+	// ganti relasi
 	@Column(name = "m_icd_id")
 	private Integer m_icd_id;
 	
+	// ganti relasi
 	@Column(name = "m_pasien_id")
 	private Integer m_pasien_id;
 	
+	// ganti relasi || di pelayanan ndak ada inputan pilih kamar
 	@Column(name = "m_kamar_id")
 	private Integer m_kamar_id;
 	
+	// jenis apa ?
 	@Column(name = "diagnosapasien_jenis")
 	private String diagnosapasien_jenis;
 
+	// ganti relasi dokter ambil dari pegawai ??
 	@Column(name = "diagnosapasien_dokter")
 	private Integer diagnosapasien_dokter;
 
@@ -71,6 +76,7 @@ public class MDiagnosaPasien {
 	@Column(name = "diagnosapasien_kamarpasien_id")
 	private Integer diagnosapasien_kamarpasien_id;
 
+	// ganti relasi || di tab diagnosa tidak ada isian m_unit
 	@Column(name = "m_unit_id")
 	private Integer m_unit_id;
 
@@ -85,6 +91,9 @@ public class MDiagnosaPasien {
 
 	@ManyToOne
 	private MPendaftaran pendaftaran;
+
+	@ManyToOne
+	private MIcd icd;
 	
 	public int getDiagnosapasien_id() {
 		return diagnosapasien_id;
@@ -252,5 +261,13 @@ public class MDiagnosaPasien {
 
 	public void setPendaftaran(MPendaftaran pendaftaran) {
 		this.pendaftaran = pendaftaran;
+	}
+
+	public MIcd getIcd() {
+		return icd;
+	}
+
+	public void setIcd(MIcd icd) {
+		this.icd = icd;
 	}
 }

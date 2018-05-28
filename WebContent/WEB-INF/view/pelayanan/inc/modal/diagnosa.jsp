@@ -15,12 +15,17 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-diagnosapasien" class="from-horizontal">
                             <div class="form-group">
-                                <label>Kode ICD</label>
-                                <input type="text" name="diagnosapasien_icd" id="diagnosapasien_icd" class="form-control boxed">
-                            </div>
-                            <div class="form-group">
                                 <label>Nama Diagnosa</label>
-                                <input type="text" name="diagnosapasien_nama" id="diagnosapasien_nama" class="form-control boxed">
+                                <div class="select2-wrapper">
+                                    <select name="icd" id="icd" class="form-control boxed select2-single">
+                                        <option value="">--- Pilih Diagnosa ---</option>
+                                        <c:forEach var="icd" items="${icds}">
+                                            <option value="${icd.icd_id }">
+                                                ${icd.icd_nama }
+                                            </option>   
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Jenis Diagnosa</label>
@@ -36,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" name="diagnosapasien_tanggal" id="diagnosapasien_tanggal" class="form-control boxed">
+                                <input type="text" name="diagnosapasien_tanggal" id="diagnosapasien_tanggal" class="form-control boxed datepicker">
                             </div>
                             <input type="hidden" name="diagnosapasien_id" id="diagnosapasien_id">
                             <input type="hidden" name="diagnosapasien_mode" id="diagnosapasien_mode">

@@ -1414,6 +1414,10 @@ NProgress.start();
 NProgress.done();
 
 
+// datepicker
 $('.datepicker').datepicker({
     format: 'yyyy-mm-dd',
 });
+
+// select 2 single
+// $('.select2-single').select2();

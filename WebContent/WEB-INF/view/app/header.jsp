@@ -2,15 +2,21 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="req" value="${pageContext.request}" />
+<c:set var="url">${req.requestURL}</c:set>
+<c:set var="uri" value="${req.requestURI}" />
+<c:set var="baseURL" value="${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}/" />
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>RSI AL-HIKMAH</title>
-	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/app.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/vendor.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/gh-pages.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/style.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/bootstrap-datepicker/css/bootstrap-datepicker.min.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/app.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/vendor.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/gh-pages.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/style.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/bootstrap-datepicker/css/bootstrap-datepicker.min.css'/>">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>

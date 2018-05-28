@@ -1,8 +1,8 @@
 /*
  * @Author: Pradesga 
  * @Date: 2018-04-15 13:06:27 
- * @Last Modified by:   Pradesga 
- * @Last Modified time: 2018-04-15 13:06:27 
+ * @Last Modified by:   Pradesga Indonesia
+ * @Last Modified time: 2018-05-28 09:41:58
  */
 package com.rsia.madura.entity;
 
@@ -50,6 +50,7 @@ public class MKelurahan {
 	@Column(name="kelurahan_deleted_date")
 	private Timestamp kelurahanDeletedDate;
 	
+	// ganti relasi
 	@Column(name="m_kecamatan_kode")
 	private String kecamatanKode;
 

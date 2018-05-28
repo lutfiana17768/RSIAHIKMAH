@@ -1,8 +1,8 @@
 /*
  * @Author: Pradesga 
  * @Date: 2018-04-15 13:05:26 
- * @Last Modified by:   Pradesga 
- * @Last Modified time: 2018-04-15 13:05:26 
+ * @Last Modified by:   Pradesga Indonesia
+ * @Last Modified time: 2018-05-28 09:40:33
  */
 package com.rsia.madura.entity;
 
@@ -26,9 +26,11 @@ public class MKamar {
 	@Column(name = "kamar_no")
 	private String kamar_no;
 
+	// ganti relasi
 	@Column(name = "m_ruang_id")
 	private Integer m_ruang_id;
 
+	// ganti relasi
 	@Column(name = "m_kelas_id")
 	private Integer m_kelas_id;
 

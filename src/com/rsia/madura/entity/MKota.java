@@ -1,8 +1,8 @@
 /*
  * @Author: Pradesga 
  * @Date: 2018-04-15 13:07:13 
- * @Last Modified by:   Pradesga 
- * @Last Modified time: 2018-04-15 13:07:13 
+ * @Last Modified by:   Pradesga Indonesia
+ * @Last Modified time: 2018-05-28 09:42:20
  */
 package com.rsia.madura.entity;
 
@@ -50,6 +50,7 @@ public class MKota {
 	@Column(name="kota_deleted_date")
 	private Timestamp kotadeletedDate;
 	
+	// ganti relasi
     @Column(name="m_propinsi_kode")
 	private String propinsiKode  ;
 

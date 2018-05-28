@@ -1,8 +1,8 @@
 /*
 * @Author: PRADESGA
 * @Date:   2018-04-07 01:44:50
-* @Last Modified by:   PRADESGA
-* @Last Modified time: 2018-04-10 11:27:07
+* @Last Modified by:   Pradesga Indonesia
+* @Last Modified time: 2018-05-28 10:17:57
 */
 package com.rsia.madura.entity;
 
@@ -23,24 +23,30 @@ public class MObat {
 	@Column(name = "obat_id")
 	private int obat_id;
 
+	// ganti relsi
 	@Column(name = "m_kategori_obat_id")
 	private int m_kategori_obat_id;
 
+	// ganti relasi
 	@Column(name = "m_jenis_obat_id")
 	private int m_jenis_obat_id;
 
+	// jika sudah ada di obat (obat_id) hapus aaja
 	@Column(name = "obat_kode")
 	private String obat_kode;
 
+	// jika sudah ada di obat (obat_id) hapus aaja
 	@Column(name = "obat_nama")
 	private String obat_nama;
 
+	// ganti relasi
 	@Column(name = "m_satuan_id")
 	private int m_satuan_id;
 
 	@Column(name = "obat_volume")
 	private int obat_volume;
 
+	// jika sudah ada di satuan (satuan_id) hapus aaja
 	@Column(name = "obat_volume_satuan")
 	private int obat_volume_satuan;
 

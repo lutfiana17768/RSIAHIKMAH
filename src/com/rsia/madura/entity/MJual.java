@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+// belum tahu fungsinya
 @Entity
 @Table(name="t_jual")
 public class MJual {
@@ -23,24 +24,30 @@ public class MJual {
 	@Column(name="jual_tanggal")
 	private Timestamp jual_tanggal;
 	
+	// ganti relasi
 	@Column(name="jual_pendaftaran_id")
 	private int jualPendaftaranId;
 	
+	// hapus
 	@Column(name="jual_pendaftaran_no")
 	private String jualPendaftaranNo;
 	
+	// ganti relasi
 	@Column(name="jual_pasien_id")
 	private int jualPasienId;
 	
+	// hapus
 	@Column(name="jual_pasien_norm")
 	private String jualPasienNorm;
 	
 	@Column(name="jual_pasien_unitasal")
 	private int jualPasienUnitasal;
 	
+	// ganti relasi
 	@Column(name="jual_pegawai_id")
 	private int jualPegawaiId;
 	
+	// ganti relasi
 	@Column(name="jual_dokter_id")
 	private int jualDokterId;
 	
@@ -50,54 +57,69 @@ public class MJual {
 	@Column(name="jual_total")
 	private int jualTotal;
 	
+	// ganti relasi
 	@Column(name="jual_bayar_id")
 	private int jualBayarId;
 	
+	// jika sudah ada di bayar (bayar_id) hapus saja
 	@Column(name="jual_bayarjumlah")
 	private int jualBayarJumlah;
 	
+	// jika sudah ada di bayar (bayar_id) hapus aaja
 	@Column(name="jual_bayarstatus")
 	private int jualBayarStatus;
 	
 	@Column(name="jual_keterangan")
 	private String jualKeterangan;
 	
+	// jika sudah ada di pasein (pasien_id) hapus aaja
 	@Column(name="jual_pasien_nama")
 	private String jualPasienNama;
 	
+	// jika sudah ada di pasein (pasien_id) hapus aaja
 	@Column(name="jual_pasien_alamat")
 	private String jualPasienAlamat;
 	
+	// ganti relasi
 	@Column(name="jual_jenispasien_id")
 	private int jualJenisPasienId;
 	
+	// jika sudah ada di jenispasien (jenispasien_id) hapus aaja
 	@Column(name="jual_jenispasien_nama")
 	private String jualJenisPasienNama;
 	
+	// hapus saja
 	@Column(name="jual_dokter_nama")
 	private String jualDokternNama;
 	
+	// hapus saja
 	@Column(name="jual_pegawai_nama")
 	private String jualPegawaiNama;
 	
+	// genti relasi
 	@Column(name="jual_jenisharga_id")
 	private int jualJenisHargaId;
 	
+	// ganti relasi
 	@Column(name="jual_ruang_id")
 	private int jualRuangId;
 	
+	// ganti relasi
 	@Column(name="jual_kamarpasien_id")
 	private int jualKamarPasienId;
 	
 	@Column(name="jual_totalbulat")
 	private int jualTotalBulat;
 	
+	// ganti relasi
 	@Column(name="jual_depo_id")
 	private int jualDepoId;
 	
+	// jika sudah ada di bayar (bayar_id) hapus aaja
 	@Column(name="jual_bayar_id_awal")
 	private int jualBayarIdAwal;
 	
+	// jika sudah ada di bayar (bayar_id) hapus aaja
 	@Column(name="jual_bayar_id_awal_nama")
 	private String jualBayarAwalNama;
 	
@@ -110,6 +132,7 @@ public class MJual {
 	@Column(name="jual_detbackup")
 	private String jualDetBackup;
 	
+	// ganti relasi
 	@Column(name="jual_kelas_id")
 	private int jualKelasId;
 	

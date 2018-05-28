@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-17 14:53:46
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-26 15:18:20
+* @Last Modified time: 2018-05-27 14:21:13
 */
 
 package com.rsia.madura.controller;
@@ -27,6 +27,11 @@ import com.rsia.madura.entity.MKondisi;
 import com.rsia.madura.entity.MRujukan;
 import com.rsia.madura.entity.MTindakan;
 import com.rsia.madura.entity.MPaket;
+import com.rsia.madura.entity.MSatuan;
+import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MParamPeriksa;
+import com.rsia.madura.entity.MIcd;
+
 import com.rsia.madura.service.PendaftaranService;
 import com.rsia.madura.service.PelayananService;
 import com.rsia.madura.service.PasienService;
@@ -36,6 +41,10 @@ import com.rsia.madura.service.KondisiPasienService;
 import com.rsia.madura.service.RujukanService;
 import com.rsia.madura.service.TindakanService;
 import com.rsia.madura.service.PaketService;
+import com.rsia.madura.service.SatuanService;
+import com.rsia.madura.service.BarangService;
+import com.rsia.madura.service.ParamPeriksaService;
+import com.rsia.madura.service.IcdService;
 
 // pelayanan == pendaftaran
 
@@ -60,6 +69,14 @@ public class PelayananController {
 	private TindakanService tindakanService;
 	@Autowired
 	private PaketService paketService;
+	@Autowired
+	private SatuanService satuanService;
+	@Autowired
+	private BarangService barangService;
+	@Autowired
+	private ParamPeriksaService paramperiksaService;
+	@Autowired
+	private IcdService icdService;
 	
 	private String uri ="redirect: /pelayanan";
 
@@ -81,7 +98,10 @@ public class PelayananController {
 		List<MRujukan> rujukans = rujukanService.getRujukans();
 		List<MTindakan> tindakans = tindakanService.findAll();
 		List<MPaket> pakets = paketService.findAll();
-
+		List<MSatuan> satuans = satuanService.getSatuans();
+		List<MBarang> barangs = barangService.getBarangs();
+		List<MParamPeriksa> params = paramperiksaService.findAll();
+		List<MIcd> icds = icdService.findAll();
 		
 		model.addAttribute("pelayananModel", pelayananModel);
 		model.addAttribute("pasiens", pasiens);
@@ -91,6 +111,10 @@ public class PelayananController {
 		model.addAttribute("rujukans", rujukans);
 		model.addAttribute("tindakans", tindakans);
 		model.addAttribute("pakets", pakets);
+		model.addAttribute("satuans", satuans);
+		model.addAttribute("barangs", barangs);
+		model.addAttribute("params", params);
+		model.addAttribute("icds", icds);
 		model.addAttribute("footerjs", "../pelayanan/inc/footerjs.jsp");
 		
 		return "pelayanan/update";

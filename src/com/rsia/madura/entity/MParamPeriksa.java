@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-15 15:38:19
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-15 16:50:27
+* @Last Modified time: 2018-05-27 11:13:34
 */
 
 package com.rsia.madura.entity;
@@ -230,6 +230,19 @@ public class MParamPeriksa {
 
 	public void setPenunjang(MPenunjang penunjang) {
 		this.penunjang = penunjang;
+	}
+
+	@Override
+	public String toString() {
+		return "m_parameter_periksa [paramperiksa_id=" + paramperiksa_id + ",paramperiksa_kode=" + paramperiksa_kode 
+				+ ",paramperiksa_nama=" + paramperiksa_nama + ",paramperiksa_satuan=" + paramperiksa_satuan 
+				+ ",paramperiksa_standar=" + paramperiksa_standar + ",paramperiksa_label=" + paramperiksa_label 
+				+ ",paramperiksa_group=" + paramperiksa_group + ",paramperiksa_keterangan=" + paramperiksa_keterangan 
+				+ ",paramperiksa_unit_id=" + paramperiksa_unit_id + ",paramperiksa_aktif=" + paramperiksa_aktif 
+				+ ",paramperiksa_created_by=" + paramperiksa_created_by + ",paramperiksa_created_date=" + paramperiksa_created_date 
+				+ ",paramperiksa_updated_by=" + paramperiksa_updated_by + ",paramperiksa_updated_date=" + paramperiksa_updated_date 
+				+ ",paramperiksa_revised=" + paramperiksa_revised + ",paramperiksa_metode=" + paramperiksa_metode 
+				+ ",paramperiksa_urut=" + paramperiksa_urut + ",paramperiksa_indent=" + paramperiksa_indent + "]";
 	}
 
 }

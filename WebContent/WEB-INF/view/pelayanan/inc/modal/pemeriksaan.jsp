@@ -6,7 +6,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Fisik</h4>
+                        <h4 class="modal-title">Tambah Pemeriksaan</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">X</span>
                             <span class="sr-only">Close</span>
@@ -15,12 +15,17 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-periksapasien" class="from-horizontal">
                             <div class="form-group">
-                                <label>Kode</label>
-                                <input type="text" name="periksapasien_periksa_kode" id="periksapasien_periksa_kode" class="form-control boxed">
-                            </div>
-                            <div class="form-group">
                                 <label>Nama Pemeriksaan</label>
-                                <input type="text" name="periksapasien_periksa_nama" id="periksapasien_periksa_nama" class="form-control boxed">
+                                <div class="select2-wrapper">
+                                    <select name="periksapasien_periksa_id" id="periksapasien_periksa_id" class="form-control boxed select2-single">
+                                        <option value="">--- Pilih Pemeriksaan ---</option>
+                                        <c:forEach var="pr" items="${params}">
+                                            <option value="${pr.paramperiksa_id }">
+                                                ${pr.paramperiksa_nama }
+                                            </option>   
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Standar</label>
@@ -32,7 +37,16 @@
                             </div>
                             <div class="form-group">
                                 <label>Dokter</label>
-                                <input type="text" name="periksapasien_dokter_id" id="periksapasien_dokter_id" class="form-control boxed">
+                                <div class="select2-wrapper">
+                                    <select name="periksapasien_dokter_id" id="periksapasien_dokter_id" class="form-control boxed select2-single">
+                                        <option value="">--- Pilih Dokter ---</option>
+                                        <c:forEach var="pegawai" items="${pegawais}">
+                                            <option value="${pegawai.pegawai_id }">
+                                                ${pegawai.pegawaiNama }
+                                            </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>

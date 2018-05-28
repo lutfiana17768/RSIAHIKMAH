@@ -18,18 +18,23 @@ public class MOrderDetail {
 	@Column(name="orderdet_id")
 	private int orderDetail_id;
 	
+	// ganti relasi
 	@Column(name="orderdet_order_id")
 	private int orderDetailOrderId;
 	
+	// ganti relasi
 	@Column(name="orderdet_barang_id")
 	private int orderDetailBarangId;
 	
+	// jika sudah ada di barang (barang_id) hapus aaja
 	@Column(name="orderdet_barang_nama")
 	private String orderDetailBarangNama;
 	
+	// ganti relasi
 	@Column(name="orderdet_satuan_id")
 	private int orderDetailSatuanId;
 	
+	// jika sudah ada di satuan (satuan_id) hapus aaja
 	@Column(name="orderdet_satuan_nama")
 	private String orderDetailSatuanNama;
 	

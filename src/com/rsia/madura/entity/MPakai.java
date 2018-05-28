@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 15:20:14
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-23 14:38:57
+* @Last Modified time: 2018-05-28 10:34:47
 */
 package com.rsia.madura.entity;
 
@@ -30,6 +30,7 @@ public class MPakai {
 	@Column(name="pakai_id")
 	private int pakai_id;
 
+	// ganti relasi ke Msatuan
 	@Column(name="pakai_satuan")
 	private String pakai_satuan;
 

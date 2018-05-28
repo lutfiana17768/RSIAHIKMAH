@@ -18,11 +18,29 @@
                         <form id="form-pelayanan-resep" class="from-horizontal">
                             <div class="form-group">
                                 <label>Barang</label>
-                                <input type="text" name="resep_barang" id="resep_barang" class="form-control boxed">
+                                <div class="select2-wrapper">
+                                    <select name="resep_barang" id="resep_barang" class="form-control boxed select2-single">
+                                        <option value="">--- Pilih Barang ---</option>
+                                        <c:forEach var="barang" items="${barangs}">
+                                            <option value="${barang.barang_id }">
+                                                ${barang.barangNama }
+                                            </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Satuan</label>
-                                <input type="text" name="resep_satuan" id="resep_satuan" class="form-control boxed">
+                                <div class="select2-wrapper">
+                                    <select name="resep_satuan" id="resep_satuan" class="form-control boxed select2-single">
+                                        <option value="">--- Pilih Satuan ---</option>
+                                        <c:forEach var="satuan" items="${satuans}">
+                                            <option value="${satuan.satuan_id }">
+                                                ${satuan.satuanNama }
+                                            </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Jumlah</label>

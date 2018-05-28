@@ -255,22 +255,25 @@
             }
 
             periksapasien_id = $('#periksapasien_id').val();
-            periksapasien_pasien_kode = $('#periksapasien_pasien_kode').val() ||0;
-            periksapasien_periksa_nama = $('#periksapasien_periksa_nama').val() || '';
+            periksapasien_periksa_id = $('#periksapasien_periksa_id').val();
+            periksapasien_periksa_nama = $('#periksapasien_periksa_id option:selected').text();
             periksapasien_periksa_standar = $('#periksapasien_periksa_standar').val() ||0;
             periksapasien_periksa_nilai = $('#periksapasien_periksa_nilai').val() ||0;
             periksapasien_dokter_id = $('#periksapasien_dokter_id').val() ||0;
+            periksapasien_dokter_text = $('#periksapasien_dokter_id option:selected').text();
             periksapasien_periksa_keterangan = $('#periksapasien_periksa_keterangan').val() || '';
             periksapasien_tanggal = $('#periksapasien_tanggal').val() ||0;
             
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_pasien_kode" data-kolom-id="periksapasien_pasien_kode">'+periksapasien_pasien_kode+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_nama" data-kolom-id="periksapasien_periksa_nama">'+periksapasien_periksa_nama+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_standar" data-kolom-id="periksapasien_periksa_standar">'+periksapasien_periksa_standar+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_nilai" data-kolom-id="periksapasien_periksa_nilai">'+periksapasien_periksa_nilai+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_dokter_id" data-kolom-id="periksapasien_dokter_id">'+periksapasien_dokter_id+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_dokter_text" data-kolom-id="periksapasien_dokter_text">'+periksapasien_dokter_text+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_keterangan" data-kolom-id="periksapasien_periksa_keterangan">'+periksapasien_periksa_keterangan+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksapasien_tanggal" data-kolom-id="periksapasien_tanggal">'+periksapasien_tanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePeriksapasien('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPeriksapasien('+counter+')">Edit</button></td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasien_periksa_id" data-kolom-id="periksapasien_periksa_id">' + periksapasien_periksa_id + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasien_dokter_id" data-kolom-id="periksapasien_dokter_id">' + periksapasien_dokter_id + '</td>');
+
             if (periksapasien_id) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasien_id" data-kolom-id="periksapasien_id">' + periksapasien_id + '</td>');
             }
@@ -305,20 +308,20 @@
             }
 
             diagnosapasien_id = $('#diagnosapasien_id').val();
-            diagnosapasien_icd = $('#diagnosapasien_icd').val() ||0;
-            diagnosapasien_nama = $('#diagnosapasien_nama').val() ||0;
-            diagnosapasien_jenis = $('#diagnosapasien_jenis').val() ||0;
-            diagnosapasien_kasus = $('#diagnosapasien_kasus').val() ||0;
-            diagnosapasien_keterangan = $('#diagnosapasien_keterangan').val() ||0;
+            icd = $('#icd').val() ||0;
+            icd_text = $('#icd option:selected').text();
+            diagnosapasien_jenis = $('#diagnosapasien_jenis').val() || '';
+            diagnosapasien_kasus = $('#diagnosapasien_kasus').val() || '';
+            diagnosapasien_keterangan = $('#diagnosapasien_keterangan').val() || '';
             diagnosapasien_tanggal = $('#diagnosapasien_tanggal').val() ||0;
 
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_icd" data-kolom-id="diagnosapasien_icd">'+diagnosapasien_icd+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_nama" data-kolom-id="diagnosapasien_nama">'+diagnosapasien_nama+'</td>');
+            tr.append('<td>'+icd_text+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_jenis" data-kolom-id="diagnosapasien_jenis">'+diagnosapasien_jenis+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_kasus" data-kolom-id="diagnosapasien_kasus">'+diagnosapasien_kasus+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_keterangan" data-kolom-id="diagnosapasien_keterangan">'+diagnosapasien_keterangan+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_tanggal" data-kolom-id="diagnosapasien_tanggal">'+diagnosapasien_tanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDiagnosapasien('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDiagnosapasien('+counter+')">Edit</button></td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="icd.icd_id" data-kolom-id="icd">' + icd + '</td>');
 
             if (diagnosapasien_id) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasien_id" data-kolom-id="diagnosapasien_id">' + diagnosapasien_id + '</td>');
@@ -407,8 +410,8 @@
         	tindakanpasien_harga = $('#tindakanpasien_harga').val() ||0;
 
             tr.append('<td>'+tindakan_text+'</td>');
-            tr.append('<td>'+pegawai_text+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="tindakanpasien_harga" data-kolom-id="tindakanpasien_harga">'+tindakanpasien_harga+'</td>');
+            tr.append('<td>'+pegawai_text+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteTindakan('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editTindakan('+counter+')">Edit</button></td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="tindakan.tindakan_id" data-kolom-id="tindakan_id">'+tindakan_id+'</td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawai_id" data-kolom-id="pegawai_id">'+pegawai_id+'</td>');

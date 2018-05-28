@@ -18,17 +18,23 @@
                             <div class="form-group">
                                 <label>Tindakan</label>
                                 <select name="tindakan_id" id="tindakan_id" class="form-control boxed">
-                                	<option>1</option>
-                                	<option>2</option>
-                                	<option>3</option>
+                                    <option value="">--- Pilih Tindakan ---</option>
+                                    <c:forEach var="tindakan" items="${tindakans}">
+                                        <option value="${tindakan.tindakan_id }">
+                                            ${tindakan.tindakan_nama }
+                                        </option>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Pelaksana</label>
                                 <select name="pegawai_id" id="pegawai_id" class="form-control boxed">
-                                	<option>1</option>
-                                	<option>2</option>
-                                	<option>3</option>
+                                    <option value="">--- Pilih Pelaksana ---</option>
+                                    <c:forEach var="pegawai" items="${pegawais}">
+                                        <option value="${pegawai.pegawai_id }">
+                                            ${pegawai.pegawaiNama }
+                                        </option>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <div class="form-group">

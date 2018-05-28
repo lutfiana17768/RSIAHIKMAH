@@ -44,12 +44,14 @@ public class MOpname {
 	@Column(name="opname_revised")
 	private int opnameRevised;
 	
+	// ganti relasi
 	@Column(name="opname_depo_id")
 	private int opnameDepoId;
 	
 	@Column(name="opname_status")
 	private String opnameStatus;
 	
+	// jika sudah ada di depo (depo_id) hapus aaja
 	@Column(name="opname_depo_nama")
 	private String opnameDepoNama;
 	
