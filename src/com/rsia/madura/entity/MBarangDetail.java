@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -57,6 +58,9 @@ public class MBarangDetail {
 	
 	@Column(name="barangdet_deleted_date")
 	private Timestamp DeletedDateBD;
+	
+	@ManyToOne
+	private MBarang barang;
 
 	public int getIdBarangDet() {
 		return IdBarangDet;
@@ -170,12 +174,22 @@ public class MBarangDetail {
 		DeletedDateBD = deletedDateBD;
 	}
 
+	public MBarang getBarang() {
+		return barang;
+	}
+
+	public void setBarang(MBarang barang) {
+		this.barang = barang;
+	}
+
 	@Override
 	public String toString() {
-		return "MBarangDetail [IdBarangDet=" + IdBarangDet + ", MasterIdBD=" + MasterIdBD + ", BarangIdBD="
-				+ BarangIdBD + ", BarangNamaBD=" + BarangNamaBD + ", SatuanIdBD=" + SatuanIdBD + ", SatuanNamaBD="
-				+ SatuanNamaBD + ", KeteranganBD=" + KeteranganBD + ", JumlahBD=" + JumlahBD + ", CreatedByBD="
-				+ CreatedByBD + ", CreatedDateBD=" + CreatedDateBD + ", UpdateByBD=" + UpdateByBD + ", UpdateDateBD="
-				+ UpdateDateBD + ", RevisedBD=" + RevisedBD + ", DeletedDateBD=" + DeletedDateBD + "]";
+		return "MBarangDetail [IdBarangDet=" + IdBarangDet + ", MasterIdBD=" + MasterIdBD + ", BarangIdBD=" + BarangIdBD
+				+ ", BarangNamaBD=" + BarangNamaBD + ", SatuanIdBD=" + SatuanIdBD + ", SatuanNamaBD=" + SatuanNamaBD
+				+ ", KeteranganBD=" + KeteranganBD + ", JumlahBD=" + JumlahBD + ", CreatedByBD=" + CreatedByBD
+				+ ", CreatedDateBD=" + CreatedDateBD + ", UpdateByBD=" + UpdateByBD + ", UpdateDateBD=" + UpdateDateBD
+				+ ", RevisedBD=" + RevisedBD + ", DeletedDateBD=" + DeletedDateBD + ", barang=" + barang + "]";
 	}
+	
+	
 }

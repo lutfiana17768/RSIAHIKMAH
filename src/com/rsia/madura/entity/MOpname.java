@@ -1,12 +1,16 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -44,14 +48,12 @@ public class MOpname {
 	@Column(name="opname_revised")
 	private int opnameRevised;
 	
-	// ganti relasi
 	@Column(name="opname_depo_id")
 	private int opnameDepoId;
 	
 	@Column(name="opname_status")
 	private String opnameStatus;
 	
-	// jika sudah ada di depo (depo_id) hapus aaja
 	@Column(name="opname_depo_nama")
 	private String opnameDepoNama;
 	
@@ -60,6 +62,9 @@ public class MOpname {
 	
 	@Column(name="opname_deleted_date")
 	private Timestamp opnameDeletedDate;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "opname", cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<MOpnameDetail> detail;
 
 	public int getOpname_id() {
 		return opname_id;
@@ -181,15 +186,25 @@ public class MOpname {
 		this.opnameDeletedDate = opnameDeletedDate;
 	}
 
+	public List<MOpnameDetail> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(List<MOpnameDetail> detail) {
+		this.detail = detail;
+	}
+
 	@Override
 	public String toString() {
-		return "t_Opname [opname_id=" + opname_id + ", opnameNo=" + opnameNo + ", opnameTanggal=" + opnameTanggal
+		return "MOpname [opname_id=" + opname_id + ", opnameNo=" + opnameNo + ", opnameTanggal=" + opnameTanggal
 				+ ", opnameKeterangan=" + opnameKeterangan + ", opnameAktif=" + opnameAktif + ", opnameCreatedBy="
 				+ opnameCreatedBy + ", opnameCreatedDate=" + opnameCreatedDate + ", opnameUpdatedBy=" + opnameUpdatedBy
 				+ ", opnameUpdatedDate=" + opnameUpdatedDate + ", opnameRevised=" + opnameRevised + ", opnameDepoId="
 				+ opnameDepoId + ", opnameStatus=" + opnameStatus + ", opnameDepoNama=" + opnameDepoNama
-				+ ", opnameGroup=" + opnameGroup + ", opnameDeletedDate=" + opnameDeletedDate + "]";
+				+ ", opnameGroup=" + opnameGroup + ", opnameDeletedDate=" + opnameDeletedDate + ", detail=" + detail
+				+ "]";
 	}
+	
 	
 	
 }

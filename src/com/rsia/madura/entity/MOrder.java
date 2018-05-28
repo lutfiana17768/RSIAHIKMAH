@@ -30,7 +30,6 @@ public class MOrder {
 	@Column(name="order_jatuhtempo")
 	private String orderJatuhTempo;
 	
-	// ganti relasi
 	@Column(name="order_perusahaan_id")
 	private int orderPerusahaanId;
 	
@@ -46,7 +45,6 @@ public class MOrder {
 	@Column(name="order_jumlahbayar")
 	private int orderJumlahBayar;
 	
-	// ganti relasi
 	@Column(name="order_bayar_id")
 	private int orderBayarId;
 	
@@ -56,23 +54,18 @@ public class MOrder {
 	@Column(name="order_status")
 	private String orderStatus;
 	
-	// ganti relasi
 	@Column(name="order_ttd_id")
 	private int orderTtdId;
 	
-	// jika sudah ada di ttd (ttd_id) hapus aaja
 	@Column(name="order_ttd_nama")
 	private String orderTtdNama;
 	
-	// jika sudah ada di ttd (ttd_id) hapus aaja
 	@Column(name="order_ttd_nip")
 	private String orderTtdNip;
 	
-	// jika sudah ada di ttd (ttd_id) hapus aaja
 	@Column(name="order_ttd_jabatan_nama")
 	private String orderTtdJabatanNama;
 	
-	// jika sudah ada di barangjenis (barangjenis_id) hapus aaja
 	@Column(name="order_barang_jenis_id")
 	private int orderBarangJenisId;
 	

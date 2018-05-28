@@ -1,12 +1,16 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -72,6 +76,9 @@ public class MBarang {
 	 
 	@Column(name="barang_deleted_date")
 	private Timestamp DeleteDateBarang;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "barang", cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<MBarangDetail> detail;
 
 	public int getIdBarang() {
 		return IdBarang;
@@ -225,6 +232,14 @@ public class MBarang {
 		DeleteDateBarang = deleteDateBarang;
 	}
 
+	public List<MBarangDetail> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(List<MBarangDetail> detail) {
+		this.detail = detail;
+	}
+
 	@Override
 	public String toString() {
 		return "MBarang [IdBarang=" + IdBarang + ", IdJenisBarang=" + IdJenisBarang + ", KodeBarang=" + KodeBarang
@@ -233,7 +248,11 @@ public class MBarang {
 				+ ", ProfitBarang=" + ProfitBarang + ", JenisBarang=" + JenisBarang + ", AktifBarang=" + AktifBarang
 				+ ", CreatBarang=" + CreatBarang + ", CreateDateBarang=" + CreateDateBarang + ", UpdateBarang="
 				+ UpdateBarang + ", DateUpdateBarang=" + DateUpdateBarang + ", RevisedBarang=" + RevisedBarang
-				+ ", StokMinBarang=" + StokMinBarang + ", HetBarang=" + HetBarang
-				+ ", DeleteDateBarang=" + DeleteDateBarang + "]";
+				+ ", StokMinBarang=" + StokMinBarang + ", HetBarang=" + HetBarang + ", DeleteDateBarang="
+				+ DeleteDateBarang + ", detail=" + detail + "]";
 	}
+	
+	
+
+	
 }

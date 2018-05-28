@@ -314,7 +314,7 @@ public class MStokObat {
 
 	@Override
 	public String toString() {
-		return "t_StokObat [stokobat_id=" + stokobat_id + ", stokObatDepoId=" + stokObatDepoId + ", stokObatDepoNama="
+		return "MStokObat [stokobat_id=" + stokobat_id + ", stokObatDepoId=" + stokObatDepoId + ", stokObatDepoNama="
 				+ stokObatDepoNama + ", stokObatBarangId=" + stokObatBarangId + ", stokObatBarangNama="
 				+ stokObatBarangNama + ", stokObatKonversiId=" + stokObatKonversiId + ", stokObatSatuanId="
 				+ stokObatSatuanId + ", stokObatStuanNama=" + stokObatStuanNama + ", stokObatKadaluarsa="

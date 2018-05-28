@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-block">
                         <div class="card-title-block">
-                        <a href="/kondisi/tambah"/><button class="btn btn-primary">Tambah Data</button></a>
+                        <a href="/opname/tambah"><button class="btn btn-primary">Tambah Data</button></a>
                             <h3 class="title"> List Terima </h3>
                         </div>
                         <section class="example">

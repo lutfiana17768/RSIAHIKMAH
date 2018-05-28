@@ -50,7 +50,7 @@
                        </div>
                        <div class="form-group">
                            <label>Nomer Contact Person</label>
-                           <form:input path="perusahaanContactPersonNo" placeholder="Masukan No CP Perusahaan" class="form-control"/>
+                           <form:input path="perusahaanContacPersonNo" placeholder="Masukan No CP Perusahaan" class="form-control"/>
                        </div>
                        <div class="form-group">
                            <label>Kode Hutang</label>

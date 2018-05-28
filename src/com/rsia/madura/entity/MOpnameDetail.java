@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,23 +19,18 @@ public class MOpnameDetail {
 	@Column(name="opnamedet_id")
 	private int opnameDetail_id;
 	
-	// ganti relasi
 	@Column(name="opnamedet_opname_id")
 	private int opnameDetailOpnameId;
 	
-	// ganti relasi
 	@Column(name="opnamedet_barang_id")
 	private int opnameDetailBarangId;
 	
-	// jika sudah ada di barang (barang_id) hapus aaja
 	@Column(name="opnamedet_barang_nama")
 	private String opnameDetailBarangNama;
 
-	// ganti relasi
 	@Column(name="opnamedet_satuan_id")
 	private int opnameDetailSatuanId;
 	
-	// jika sudah ada di satuan (satuan_id) hapus aaja
 	@Column(name="opnamedet_satuan_nama")
 	private String opnameDetailSatuanNama;
 	
@@ -85,6 +81,17 @@ public class MOpnameDetail {
 	
 	@Column(name="opnamedet_terima_no")
 	private String opnameDetailTerimaNo;
+	
+	@ManyToOne
+	private MOpname opname;
+
+	public MOpname getOpname() {
+		return opname;
+	}
+
+	public void setOpname(MOpname opname) {
+		this.opname = opname;
+	}
 
 	public int getOpnameDetail_id() {
 		return opnameDetail_id;
@@ -264,7 +271,7 @@ public class MOpnameDetail {
 
 	@Override
 	public String toString() {
-		return "t_OpnameDetail [opnameDetail_id=" + opnameDetail_id + ", opnameDetailOpnameId=" + opnameDetailOpnameId
+		return "MOpnameDetail [opnameDetail_id=" + opnameDetail_id + ", opnameDetailOpnameId=" + opnameDetailOpnameId
 				+ ", opnameDetailBarangId=" + opnameDetailBarangId + ", opnameDetailBarangNama="
 				+ opnameDetailBarangNama + ", opnameDetailSatuanId=" + opnameDetailSatuanId
 				+ ", opnameDetailSatuanNama=" + opnameDetailSatuanNama + ", opnameDetailKadaluarsa="
@@ -276,8 +283,9 @@ public class MOpnameDetail {
 				+ ", opnameDetailUpdatedDate=" + opnameDetailUpdatedDate + ", opnameDetailRevised="
 				+ opnameDetailRevised + ", opnameDetailDeletedDate=" + opnameDetailDeletedDate + ", opnameDetailHarga="
 				+ opnameDetailHarga + ", opnameDetailStatus=" + opnameDetailStatus + ", opnameDetailTerimaId="
-				+ opnameDetailTerimaId + ", opnameDetailTerimaNo=" + opnameDetailTerimaNo + "]";
+				+ opnameDetailTerimaId + ", opnameDetailTerimaNo=" + opnameDetailTerimaNo + ", opname=" + opname + "]";
 	}
+	
 	
 	
 }

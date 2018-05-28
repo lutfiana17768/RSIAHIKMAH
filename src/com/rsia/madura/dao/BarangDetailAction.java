@@ -21,7 +21,7 @@ public class BarangDetailAction implements BarangDetailDao {
 	public List<MBarangDetail> getBarangDetails() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MBarangDetail> barang = current.createQuery("from MBarangdet", MBarangDetail.class);
+		Query<MBarangDetail> barang = current.createQuery("from MBarangDetail", MBarangDetail.class);
 		List<MBarangDetail> result = barang.getResultList();
 		
 		return result;
@@ -30,7 +30,7 @@ public class BarangDetailAction implements BarangDetailDao {
 	@Override
 	public List<MBarangDetail> getBarangDetails(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MBarangDetail> query = current.createQuery("from MBarangdet", MBarangDetail.class);
+		Query<MBarangDetail> query = current.createQuery("from MBarangDetail", MBarangDetail.class);
 		List<MBarangDetail> barangdetail = query.getResultList();
 		this.total = barangdetail.size();
 		barangdetail = this.getData(page, limit);
@@ -40,7 +40,7 @@ public class BarangDetailAction implements BarangDetailDao {
 
 	private List<MBarangDetail> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-    	Query<MBarangDetail> query = current.createQuery("from MBarangdetail", MBarangDetail.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+    	Query<MBarangDetail> query = current.createQuery("from MBarangDetail", MBarangDetail.class).setFirstResult((page-1)*limit).setMaxResults(limit);
         List<MBarangDetail> Result = query.getResultList();
 
         return Result;

@@ -1,12 +1,16 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -100,7 +104,14 @@ public class MTerima {
 	
 	@Column(name="terima_deleted_date")
 	private Timestamp terimaDeletedDate;
-
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "terima", cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<MTerimaDetail> detail;
+	
+	public MTerima(){
+		
+	}
+	
 	public int getTerima_id() {
 		return terima_id;
 	}
@@ -333,9 +344,17 @@ public class MTerima {
 		this.terimaDeletedDate = terimaDeletedDate;
 	}
 
+	public List<MTerimaDetail> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(List<MTerimaDetail> detail) {
+		this.detail = detail;
+	}
+
 	@Override
 	public String toString() {
-		return "t_Terima [terima_id=" + terima_id + ", terimaNo=" + terimaNo + ", terimaTanggal=" + terimaTanggal
+		return "MTerima [terima_id=" + terima_id + ", terimaNo=" + terimaNo + ", terimaTanggal=" + terimaTanggal
 				+ ", terimaOrderId=" + terimaOrderId + ", terimaPerusahaanId=" + terimaPerusahaanId
 				+ ", terimaNoSuratJalan=" + terimaNoSuratJalan + ", terimaPengirim=" + terimaPengirim
 				+ ", terimaKeterangan=" + terimaKeterangan + ", terimaStatus=" + terimaStatus + ", terimaAktif="
@@ -346,8 +365,11 @@ public class MTerima {
 				+ ", terimaCashback=" + terimaCashback + ", terimaPPH=" + terimaPPH + ", terimaTotalPPH="
 				+ terimaTotalPPH + ", terimaCreatedBy=" + terimaCreatedBy + ", terimaCreatedDate=" + terimaCreatedDate
 				+ ", terimaUpdatedBy=" + terimaUpdatedBy + ", terimaUpdatedDate=" + terimaUpdatedDate
-				+ ", terimaRevised=" + terimaRevised + ", terimaDeletedDate=" + terimaDeletedDate + "]";
+				+ ", terimaRevised=" + terimaRevised + ", terimaDeletedDate=" + terimaDeletedDate + ", detail=" + detail
+				+ "]";
 	}
+
+	
 	
 	
 }

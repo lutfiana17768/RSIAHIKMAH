@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -38,7 +39,6 @@ public class MTerimaDetail {
 	  
 	@Column(name="terimadet_jumlah")
 	private int terimaDetailJumlah;
-	
 	
 	@Column(name="terimadet_harga")
 	private double terimaDetailHarga;
@@ -78,7 +78,10 @@ public class MTerimaDetail {
 	
 	@Column(name="terimadet_deleted_date")
 	private Timestamp terimaDetailDeletedDate;
-
+	
+	@ManyToOne
+	private MTerima terima;
+	
 	public int getTerimaDetail_id() {
 		return terimaDetail_id;
 	}
@@ -247,9 +250,17 @@ public class MTerimaDetail {
 		this.terimaDetailDeletedDate = terimaDetailDeletedDate;
 	}
 
+	public MTerima getTerima() {
+		return terima;
+	}
+
+	public void setTerima(MTerima terima) {
+		this.terima = terima;
+	}
+
 	@Override
 	public String toString() {
-		return "t_TerimaDetail [terimaDetail_id=" + terimaDetail_id + ", terimaDetailTerimaId=" + terimaDetailTerimaId
+		return "MTerimaDetail [terimaDetail_id=" + terimaDetail_id + ", terimaDetailTerimaId=" + terimaDetailTerimaId
 				+ ", terimaDetailBarangId=" + terimaDetailBarangId + ", terimaDetailBarangNama="
 				+ terimaDetailBarangNama + ", terimaDetailKadaluarsa=" + terimaDetailKadaluarsa
 				+ ", terimaDetailSatuan=" + terimaDetailSatuan + ", terimaDetailSatuanNama=" + terimaDetailSatuanNama
@@ -260,8 +271,11 @@ public class MTerimaDetail {
 				+ ", terimaDetailCreatedBy=" + terimaDetailCreatedBy + ", terimaDetailCreatedDate="
 				+ terimaDetailCreatedDate + ", terimaDetailUpdatedBy=" + terimaDetailUpdatedBy
 				+ ", terimaDetailUpdatedDate=" + terimaDetailUpdatedDate + ", terimaDetailRevised="
-				+ terimaDetailRevised + ", terimaDetailDeletedDate=" + terimaDetailDeletedDate + "]";
+				+ terimaDetailRevised + ", terimaDetailDeletedDate=" + terimaDetailDeletedDate + ", terima=" + terima
+				+ "]";
 	}
+	
+	
 	
 	
 }

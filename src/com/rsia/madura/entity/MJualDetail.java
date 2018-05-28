@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,34 +19,27 @@ public class MJualDetail {
 	@Column(name="jualdet_id")
 	private int jualdet_id;
 	
-	// ganti relasi
 	@Column(name="jualdet_jual_id")
 	private int jualDetailJualId;
 	
-	// ganti relasi
 	@Column(name="jualdet_depo_id")
 	private int jualDetailDepoId;
 	
-	// ganti relasi
 	@Column(name="jualdet_barang_id")
 	private int jualDetailBarangId;
 	
-	// jika sudah ada di barang (barang_id) hapus aaja
 	@Column(name="jualdet_barang_nama")
 	private String jualDetailBarangNama;
 	
-	// ganti relasi
 	@Column(name="jualdet_satuan_id")
 	private int jualDetailSatuanId;
 	
-	// jika sudah ada di satuan (satuan_id) hapus aaja
 	@Column(name="jualdet_satuan_nama")
 	private String jualDetailSatuanNama;
 	
 	@Column(name="jualdet_kadaluarsa_date")
 	private Date jualDetailKadaluarsa;
 	
-	// jika sudah ada di jenisharga (jenisharga_id) hapus aaja
 	@Column(name="jualdet_jenisharga_id")
 	private int jualDetailJenisHargaId;
 	
@@ -79,15 +73,12 @@ public class MJualDetail {
 	@Column(name="jualdet_deleted_date")
 	private Timestamp jualDetailDeletedDate;
 	
-	// jika sudah ada di depo (depo_id) hapus aaja
 	@Column(name="jualdet_depo_nama")
 	private String jualDetailDepoNama;
 	
-	// jika sudah ada di terima (terima_id) hapus aaja
 	@Column(name="jualdet_terima_no")
 	private String jualDetailTerimaNo;
 	
-	// ganti relasi
 	@Column(name="jualdet_terima_id")
 	private int jualDetailTerimaId;
 	
@@ -96,6 +87,9 @@ public class MJualDetail {
 	
 	@Column(name="jualdet_paket")
 	private char jualDetailPaket;
+	
+	@ManyToOne
+	private MJual jual;
 
 	public int getJualdet_id() {
 		return jualdet_id;
@@ -289,9 +283,17 @@ public class MJualDetail {
 		this.jualDetailPaket = jualDetailPaket;
 	}
 
+	public MJual getJual() {
+		return jual;
+	}
+
+	public void setJual(MJual jual) {
+		this.jual = jual;
+	}
+
 	@Override
 	public String toString() {
-		return "t_JualDetail [jualdet_id=" + jualdet_id + ", jualDetailJualId=" + jualDetailJualId
+		return "MJualDetail [jualdet_id=" + jualdet_id + ", jualDetailJualId=" + jualDetailJualId
 				+ ", jualDetailDepoId=" + jualDetailDepoId + ", jualDetailBarangId=" + jualDetailBarangId
 				+ ", jualDetailBarangNama=" + jualDetailBarangNama + ", jualDetailSatuanId=" + jualDetailSatuanId
 				+ ", jualDetailSatuanNama=" + jualDetailSatuanNama + ", jualDetailKadaluarsa=" + jualDetailKadaluarsa
@@ -302,7 +304,8 @@ public class MJualDetail {
 				+ ", jualDetailUpdatedDate=" + jualDetailUpdatedDate + ", jualDetailRevised=" + jualDetailRevised
 				+ ", jualDetailDeletedDate=" + jualDetailDeletedDate + ", jualDetailDepoNama=" + jualDetailDepoNama
 				+ ", jualDetailTerimaNo=" + jualDetailTerimaNo + ", jualDetailTerimaId=" + jualDetailTerimaId
-				+ ", jualDetailStatus=" + jualDetailStatus + ", jualDetailPaket=" + jualDetailPaket + "]";
+				+ ", jualDetailStatus=" + jualDetailStatus + ", jualDetailPaket=" + jualDetailPaket + ", jual=" + jual
+				+ "]";
 	}
 	
 	

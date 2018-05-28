@@ -1,12 +1,16 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -94,6 +98,9 @@ public class MReturJual {
 	
 	@Column(name="returjual_revised")
 	private int returJualRevised;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "returjual", cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<MReturJualDetail> detail;
 
 	public int getReturJual_id() {
 		return returJual_id;
@@ -311,9 +318,17 @@ public class MReturJual {
 		this.returJualRevised = returJualRevised;
 	}
 
+	public List<MReturJualDetail> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(List<MReturJualDetail> detail) {
+		this.detail = detail;
+	}
+
 	@Override
 	public String toString() {
-		return "t_ReturJual [returJual_id=" + returJual_id + ", returJualNo=" + returJualNo + ", returJualTanggal="
+		return "MReturJual [returJual_id=" + returJual_id + ", returJualNo=" + returJualNo + ", returJualTanggal="
 				+ returJualTanggal + ", returJualJual=" + returJualJual + ", returJualPasienId=" + returJualPasienId
 				+ ", returJualPasienNorm=" + returJualPasienNorm + ", returJualPasienNama=" + returJualPasienNama
 				+ ", returJualPasienAlamat=" + returJualPasienAlamat + ", returJualJenisPasienId="
@@ -326,9 +341,8 @@ public class MReturJual {
 				+ ", returJualDepoId=" + returJualDepoId + ", returJualBayarNama=" + returJualBayarNama
 				+ ", returJualCreatedBy=" + returJualCreatedBy + ", returJualCreatedDate=" + returJualCreatedDate
 				+ ", returJualUpdatedBy=" + returJualUpdatedBy + ", returJualUpdatedDate=" + returJualUpdatedDate
-				+ ", returJualRevised=" + returJualRevised + "]";
+				+ ", returJualRevised=" + returJualRevised + ", detail=" + detail + "]";
 	}
-	
 	
 	
 }

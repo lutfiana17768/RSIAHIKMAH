@@ -1,5 +1,6 @@
 package com.rsia.madura.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,16 @@ public class OpnameServiceAction implements OpnameService {
 	@Override
 	@Transactional
 	public int store(MOpname opnameModel) {
-
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if(opnameModel.getDetail() != null) {
+			opnameModel.getDetail().forEach((detail) ->{
+				detail.setOpname(opnameModel);
+				detail.setOpnameDetailCreatedBy("Admin");
+				detail.setOpnameDetailCreatedDate(currentTime);
+			});
+		}
+		
 		return opnameDAO.opnameStore(opnameModel);
 	}
 
