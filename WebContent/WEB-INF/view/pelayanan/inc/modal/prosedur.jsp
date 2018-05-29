@@ -16,12 +16,16 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-diagnosa9" class="from-horizontal">
                             <div class="form-group">
-                                <label>Kode ICD X</label>
-                                <input type="text" name="diagnosa9_icd9_id" id="diagnosa9_icd9_id" class="form-control boxed">
-                            </div>
-                            <div class="form-group">
-                                <label>Nama Diagnosa</label>
-                                <input type="text" name="diagnosa9_icd9_id" id="diagnosa9_icd9_id" class="form-control boxed">
+                                <div class="select2-wrapper">
+                                    <select name="icd9" id="icd9" class="form-control boxed select2-single">
+                                        <option value="">--- Pilih Diagnosa ---</option>
+                                        <c:forEach var="icd9" items="${icd9s}">
+                                            <option value="${icd9.icd9_id }" date-kode="${icd9.icd9_kode }">
+                                                ${icd9.icd9_nama }
+                                            </option>   
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
@@ -29,7 +33,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="date" name="diagnosa9_tanggal" id="diagnosa9_tanggal" class="form-control boxed">
+                                <input type="text" name="diagnosa9_tanggal" id="diagnosa9_tanggal" class="form-control boxed datepicker">
                             </div>
                             <input type="hidden" name="diagnosa9_id" id="diagnosa9_id">
                             <input type="hidden" name="diagnosa9_mode" id="diagnosa9_mode">

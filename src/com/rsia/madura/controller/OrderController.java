@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rsia.madura.entity.MPegawai;
 import com.rsia.madura.entity.MBarang;
@@ -42,7 +43,7 @@ public class OrderController {
 	@Autowired
 	private OrderDetailService orderDetailService;
 	
-	@RequestMapping(value="/list")
+	@RequestMapping(method=RequestMethod.GET)
 	public String OrderListView(Model model){
 		List<MOrder> result = orderService.getOrders();
 		
@@ -91,7 +92,7 @@ public class OrderController {
 		
 		orderDetailService.updateOrderId(orderService.store(orderModel));
 		
-		return "redirect:http://localhost:8080/com.rsia.modura/order/list";
+		return "redirect:/order/list";
 	}
 
 }

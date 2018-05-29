@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-18 09:58:19
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-27 16:24:01
+* @Last Modified time: 2018-05-29 08:29:36
 */
 
 package com.rsia.madura.service;
@@ -79,6 +79,18 @@ public class PelayananServiceAction implements PelayananService{
 
 		if (data.getDiagnosa9() != null) {
 			data.getDiagnosa9().forEach((diagnosa9) -> {
+				System.out.println("================");
+				System.out.println("================");
+				System.out.println("================");
+				System.out.println("================");
+				System.out.println("================");
+				System.out.println(diagnosa9);
+				System.out.println(diagnosa9.getIcd9());
+				System.out.println("================");
+				System.out.println("================");
+				System.out.println("================");
+				System.out.println("================");
+				System.out.println("================");
 				diagnosa9.setPendaftaran(data);
 			});
 		}

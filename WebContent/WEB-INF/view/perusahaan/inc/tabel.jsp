@@ -19,10 +19,10 @@
          <c:forEach var="tempResult" items="${result}">
             <tr>
             <c:url var="updateLink" value="form-update">
-           		<c:param name="perusahaanId" value="${tempResult.perusahaan_Id}" />
+           		<c:param name="perusahaanId" value="${tempResult.perusahaan_id}" />
            	</c:url>
            	<c:url var="deleteLink" value="delete">
-           		<c:param name="perusahaanId" value="${tempResult.perusahaan_Id}" />
+           		<c:param name="perusahaanId" value="${tempResult.perusahaan_id}" />
            	</c:url>
               <td> ${tempResult.perusahaanNama } </td>
               <td> ${tempResult.perusahaanKode } </td>
@@ -31,7 +31,7 @@
               <td> ${tempResult.perusahaanFax } </td>
               <td> ${tempResult.perusahaanEmail } </td>
               <td> ${tempResult.perusahaanBidang } </td>
-              <td> ${tempResult.perusahaanperusahaanContactPerson } </td>
+              <td> ${tempResult.perusahaanContactPerson } </td>
               <td> <a href="${updateLink }" class="btn btn-info">Update</a>
                <a href="${updateLink }" class="btn btn-warning">Delete</a></td>
             </tr>

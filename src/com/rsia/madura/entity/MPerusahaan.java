@@ -52,7 +52,7 @@ public class MPerusahaan {
 	private String perusahaanContactPerson;
 	
 	@Column(name="perusahaan_nocp")
-	private String perusahaanContacPersonNo;
+	private String perusahaanContactPersonNo;
 	
 	@Column(name="perusahaan_koderek_utang")
 	private int perusahaanKodeHutang;
@@ -201,12 +201,12 @@ public class MPerusahaan {
 		this.perusahaanContactPerson = perusahaanContactPerson;
 	}
 
-	public String getPerusahaanContacPersonNo() {
-		return perusahaanContacPersonNo;
+	public String getPerusahaanContactPersonNo() {
+		return perusahaanContactPersonNo;
 	}
 
-	public void setPerusahaanContacPersonNo(String perusahaanContacPersonNo) {
-		this.perusahaanContacPersonNo = perusahaanContacPersonNo;
+	public void setPerusahaanContactPersonNo(String perusahaanContactPersonNo) {
+		this.perusahaanContactPersonNo = perusahaanContactPersonNo;
 	}
 
 	public int getPerusahaanKodeHutang() {
@@ -352,7 +352,7 @@ public class MPerusahaan {
 				+ perusahaanAlamat + ", kotaId=" + kotaId + ", provinsiId=" + provinsiId + ", perusahaanNoTelp="
 				+ perusahaanNoTelp + ", perusahaanFax=" + perusahaanFax + ", perusahaanEmail=" + perusahaanEmail
 				+ ", perusahaanWebsite=" + perusahaanWebsite + ", perusahaanContactPerson=" + perusahaanContactPerson
-				+ ", perusahaanContacPersonNo=" + perusahaanContacPersonNo + ", perusahaanKodeHutang="
+				+ ", perusahaanContactPersonNo=" + perusahaanContactPersonNo + ", perusahaanKodeHutang="
 				+ perusahaanKodeHutang + ", perusahaanKodePiutang=" + perusahaanKodePiutang
 				+ ", perusahaanNomerKontrak=" + perusahaanNomerKontrak + ", perusahaanTglKontrak="
 				+ perusahaanTglKontrak + ", perusahaanTglMulai=" + perusahaanTglMulai + ", perusahaanTglAkhir="

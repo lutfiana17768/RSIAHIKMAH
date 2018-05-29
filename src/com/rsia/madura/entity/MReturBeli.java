@@ -82,7 +82,7 @@ public class MReturBeli {
 	@Column(name="returbeli_deleted_date")
 	private Timestamp returBeliDeletedDate;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "returbeli", cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "returBeli", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MReturBeliDetail> detail;
 
 	public int getReturBeli_id() {

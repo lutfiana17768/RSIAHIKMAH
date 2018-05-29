@@ -3,8 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../app/header.jsp" />
-<section>
-                class="section">
+        <section class="section">
             <div class="container">
                 <div class="container" id="add_kamar_form" style="display: none">
 
@@ -19,7 +18,7 @@
 
                         <div class="card-block" style="background-color: #f4f4f4">
                             <button class="btn btn-primary">
-                                <a href="http://localhost:8080/com.rsia.modura/Kamar/tambah" />Tambah
+                                <a href="/kamar/tambah" />Tambah
                                 Data</a>
                             </button>
 

@@ -59,97 +59,103 @@
 							<li><a href="/"><i class="fa fa-home"></i> Dashboard </a></li>
 							<li>
 								<a href="">
-									<i class="fa fa-desktop"></i> Transaksi <i class="fa arrow"></i>
+									<i class="fa fa-desktop"></i> Farmasi <i class="fa arrow"></i>
 								</a>
 								<ul class="sidebar-nav">
-									<li><a href="/pendaftaran"><i class="fa fa-users"></i> Pendaftaran</a></li>
-								</ul>
-								<ul class="sidebar-nav">
-									<li><a href="/pelayanan"><i class="fa fa-users"></i> Pelayanan</a></li>
-								</ul>
-							</li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-map-marker"></i> Master Wilayah
-                                    <i class="fa arrow"></i>
-                                </a>
-                                <ul class="sidebar-nav">
-                                    <li>
-                                        <a href="/provinsi/tambah">
-                                        <i class="fa fa-users"></i> Provinsi
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/kota/tambah">
-                                        <i class="fa fa-users"></i> Kota
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/kecamatan/tambah">
-                                        <i class="fa fa-users"></i> Kecamatan
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/kelurahan/tambah">
-                                        <i class="fa fa-users"></i> Kelurahan
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-							<li>
-								<a href=""> <i class="fa fa-plus-square"></i> Master Pelengkap <i class="fa arrow"></i> </a>
-								<ul class="sidebar-nav">
 									<li>
-										<a href="/kondisi"> 
-										<i class="fa fa-users"></i> Kondisi Pasien
-										</a>
+		                                <a href=""> Menu Master <i class="fa arrow"></i> </a>
+										<ul class="sidebar-nav collapse" aria-expanded="false" style="height: 0px;">
+											<li><a href="/barang/form-add"> Master Barang</a></li>
+											<li><a href="/satuan"> Master Satuan</a></li>
+											<li><a href="/perusahaan/list/?page=1&limit=10"> Master Perusahaan</a></li>
+										</ul>
 									</li>
-									<li>
-										<a href="/pegawai/tambah"> 
-											<i class="fa fa-users"></i> Pegawai
-										</a>
-									</li>
-									<li>
-										<a href="/agama"> 
-										<i class="fa fa-users"></i> Agama
-										</a>
-									</li>
-									<li>
-										<a href="/kelas">
-										<i class="fa fa-users"></i> Kelas
-										</a>
-									</li>
-									<li>
-										<a href="/pasien">
-										<i class="fa fa-users"></i> Pasien
-										</a>
-									</li>
-									<li>
-										<a href="/kamar">
-										<i class="fa fa-users"></i> Kamar
-										</a>
-									</li>
-									<li>
-										<a href="/penunjang">
-										<i class="fa fa-users"></i> Penunjang
-										</a>
-									</li>
-									<li>
-										<a href="/penunjang-group">
-										<i class="fa fa-users"></i> Penunjang Group
-										</a>
+										<li>
+			                                <a href=""> Transaksi <i class="fa arrow"></i> </a>
+											<ul class="sidebar-nav collapse" aria-expanded="false" style="height: 0px;">
+											<li><a href="/order/form-add"> order barang </a></li>
+											<li><a href="/terima"> penerimaan barang </a></li>
+											<li><a href="/retur-beli/form-add"> retur penerimaan  </a></li>
+											<li><a href="/jual/tambah"> penjualan </a></li>
+											<li><a href="/retur-jual"> retur penjualan </a></li>
+											<li><a href="/opnamet"> stock opname </a></li>
+											<li><a href="/stok-obat"> stok barang </a></li>
+											<li><a href="/laporan"> laporan expired </a></li>
+											<li><a href="/kartu-stok"> kartu stok	</a></li>
+										</ul>
 									</li>
 								</ul>
 							</li>
 							<li>
 								<a href="">
-									<i class="fa fa-hdd-o"></i> Master <i class="fa arrow"></i>
+									<i class="fa fa-desktop"></i> Rekam Medis <i class="fa arrow"></i>
 								</a>
 								<ul class="sidebar-nav">
-									<li><a href="/kelas"> Kelas </a></li>
-									<li><a href="/tindakan"> Tindakan </a></li>
-									<li><a href="/ruangan"> Ruang </a></li>
-									<li><a href="/paket"> Paket </a></li>
+									<li>
+		                                <a href=""> Menu Master <i class="fa arrow"></i> </a>
+										<ul class="sidebar-nav collapse" aria-expanded="false" style="height: 0px;">
+											<li><a href="/kamar">Master Kamar</a>
+											<li><a href="/kelas">Master Kelas</a>
+											<li><a href="/kondisi">Master Kondisi Pasien</a>
+											<li><a href="/paket">Master Paket</a>
+											<li><a href="/pasien">Master Pasien</a>
+											<li><a href="/penunjang">Master Penunjang</a>
+											<li><a href="/penunjang-group">Master Penunjang Group</a>
+											<li><a href="/ruangan">Master Ruangan</a>
+											<li><a href="/tindakan">Master Tindkan</a>
+										</ul>
+									</li>
+									<li>
+		                                <a href=""> Transaksi <i class="fa arrow"></i> </a>
+										<ul class="sidebar-nav collapse" aria-expanded="false" style="height: 0px;">
+											<li><a href="/pendaftaran"> pendaftaran</a></li>
+											<li><a href="/pelayanan"> pelayanan</a></li>
+											<li><a href="/kasir"> kasir</a></li>
+											<li><a href="/history"> History pasien</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="">
+									<i class="fa fa-desktop"></i> Penggajian <i class="fa arrow"></i>
+								</a>
+								<ul class="sidebar-nav">
+									<li><a href="/pegawai">Master Pegawai</a>
+									<li><a href="/gaji">Penggajian</a>
+								</ul>
+							</li>
+							<li>
+								<a href="">
+									<i class="fa fa-desktop"></i> Master Pelengkap <i class="fa arrow"></i>
+								</a>
+								<ul class="sidebar-nav">
+									<li><a href="/agama">Master Agama</a>
+									<li>
+		                                <a href=""> Master Wilayah <i class="fa arrow"></i> </a>
+										<ul class="sidebar-nav collapse" aria-expanded="false" style="height: 0px;">
+		                                    <li>
+		                                        <a href="/provinsi/tambah">
+		                                         Provinsi
+		                                        </a>
+		                                    </li>
+		                                    <li>
+		                                        <a href="/kota/tambah">
+		                                         Kota
+		                                        </a>
+		                                    </li>
+		                                    <li>
+		                                        <a href="/kecamatan/tambah">
+		                                         Kecamatan
+		                                        </a>
+		                                    </li>
+		                                    <li>
+		                                        <a href="/kelurahan/tambah">
+		                                         Kelurahan
+		                                        </a>
+		                                    </li>
+										</ul>
+									</li>
 								</ul>
 							</li>
 						</ul>

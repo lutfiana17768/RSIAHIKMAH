@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 16:38:01
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-28 09:07:58
+* @Last Modified time: 2018-05-29 06:36:44
 */
 
 package com.rsia.madura.entity;
@@ -131,7 +131,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_jenis;
 	}
 
-	public void SetDiagnosapasien_jenis(String diagnosapasien_jenis) {
+	public void setDiagnosapasien_jenis(String diagnosapasien_jenis) {
 		this.diagnosapasien_jenis = diagnosapasien_jenis;
 	}
 
@@ -139,7 +139,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_dokter;
 	}
 
-	public void SetDiagnosapasien_dokter(Integer diagnosapasien_dokter) {
+	public void setDiagnosapasien_dokter(Integer diagnosapasien_dokter) {
 		this.diagnosapasien_dokter = diagnosapasien_dokter;
 	}
 
@@ -147,7 +147,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_keterangan;
 	}
 
-	public void SetDiagnosapasien_keterangan(String diagnosapasien_keterangan) {
+	public void setDiagnosapasien_keterangan(String diagnosapasien_keterangan) {
 		this.diagnosapasien_keterangan = diagnosapasien_keterangan;
 	}
 
@@ -155,7 +155,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_aktif;
 	}
 
-	public void SetDiagnosapasien_aktif(String diagnosapasien_aktif) {
+	public void setDiagnosapasien_aktif(String diagnosapasien_aktif) {
 		this.diagnosapasien_aktif = diagnosapasien_aktif;
 	}
 
@@ -163,7 +163,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_created_by;
 	}
 
-	public void SetDiagnosapasien_created_by(String diagnosapasien_created_by) {
+	public void setDiagnosapasien_created_by(String diagnosapasien_created_by) {
 		this.diagnosapasien_created_by = diagnosapasien_created_by;
 	}
 
@@ -171,7 +171,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_created_date;
 	}
 
-	public void SetDiagnosapasien_created_date(Timestamp diagnosapasien_created_date) {
+	public void setDiagnosapasien_created_date(Timestamp diagnosapasien_created_date) {
 		this.diagnosapasien_created_date = diagnosapasien_created_date;
 	}
 
@@ -179,7 +179,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_updated_by;
 	}
 
-	public void SetDiagnosapasien_updated_by(String diagnosapasien_updated_by) {
+	public void setDiagnosapasien_updated_by(String diagnosapasien_updated_by) {
 		this.diagnosapasien_updated_by = diagnosapasien_updated_by;
 	}
 
@@ -187,7 +187,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_updated_date;
 	}
 
-	public void SetDiagnosapasien_updated_date(Timestamp diagnosapasien_updated_date) {
+	public void setDiagnosapasien_updated_date(Timestamp diagnosapasien_updated_date) {
 		this.diagnosapasien_updated_date = diagnosapasien_updated_date;
 	}
 
@@ -195,7 +195,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_revised;
 	}
 
-	public void SetDiagnosapasien_revised(Integer diagnosapasien_revised) {
+	public void setDiagnosapasien_revised(Integer diagnosapasien_revised) {
 		this.diagnosapasien_revised = diagnosapasien_revised;
 	}
 
@@ -203,7 +203,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_tanggal;
 	}
 
-	public void SetDiagnosapasien_tanggal(Timestamp diagnosapasien_tanggal) {
+	public void setDiagnosapasien_tanggal(Timestamp diagnosapasien_tanggal) {
 		this.diagnosapasien_tanggal = diagnosapasien_tanggal;
 	}
 
@@ -211,7 +211,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_m_pasien_norm;
 	}
 
-	public void SetDiagnosapasien_m_pasien_norm(String diagnosapasien_m_pasien_norm) {
+	public void setDiagnosapasien_m_pasien_norm(String diagnosapasien_m_pasien_norm) {
 		this.diagnosapasien_m_pasien_norm = diagnosapasien_m_pasien_norm;
 	}
 
@@ -219,7 +219,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_kamarpasien_id;
 	}
 
-	public void SetDiagnosapasien_kamarpasien_id(Integer diagnosapasien_kamarpasien_id) {
+	public void setDiagnosapasien_kamarpasien_id(Integer diagnosapasien_kamarpasien_id) {
 		this.diagnosapasien_kamarpasien_id = diagnosapasien_kamarpasien_id;
 	}
 
@@ -227,7 +227,7 @@ public class MDiagnosaPasien {
 		return m_unit_id;
 	}
 
-	public void SetM_unit_id(Integer m_unit_id) {
+	public void setM_unit_id(Integer m_unit_id) {
 		this.m_unit_id = m_unit_id;
 	}
 
@@ -235,7 +235,7 @@ public class MDiagnosaPasien {
 		return diagnosapasien_kasus;
 	}
 
-	public void SetDiagnosapasien_kasus(String diagnosapasien_kasus) {
+	public void setDiagnosapasien_kasus(String diagnosapasien_kasus) {
 		this.diagnosapasien_kasus = diagnosapasien_kasus;
 	}
 
@@ -243,7 +243,7 @@ public class MDiagnosaPasien {
 		return reg_company_id;
 	}
 
-	public void SetReg_company_id(Integer reg_company_id) {
+	public void setReg_company_id(Integer reg_company_id) {
 		this.reg_company_id = reg_company_id;
 	}
 
@@ -251,7 +251,7 @@ public class MDiagnosaPasien {
 		return reg_apps_id;
 	}
 
-	public void SetReg_apps_id(Integer reg_apps_id) {
+	public void setReg_apps_id(Integer reg_apps_id) {
 		this.reg_apps_id = reg_apps_id;
 	}
 

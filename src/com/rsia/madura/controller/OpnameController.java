@@ -8,10 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MOpname;
-import com.rsia.madura.entity.m_Satuan;
+import com.rsia.madura.entity.MSatuan;
 import com.rsia.madura.service.OpnameService;
 import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.SatuanService;
@@ -26,7 +27,7 @@ public class OpnameController {
 	@Autowired
 	private SatuanService satuanService;
 	
-	@RequestMapping(value="/list")
+	@RequestMapping(method=RequestMethod.GET)
 	public String OpnameListView(Model model){
 		List<MOpname> result = opnameService.getOpnames();
 		
@@ -39,7 +40,7 @@ public class OpnameController {
 	public String OpnameFormAddView(Model model){
 		MOpname opnameModel = new MOpname();
 		List<MBarang> resultBarang = barangService.getBarangs();
-		List<m_Satuan> resultSatuan = satuanService.getSatuans();
+		List<MSatuan> resultSatuan = satuanService.getSatuans();
 		
 		model.addAttribute("opnameModel", opnameModel);
 		model.addAttribute("satuan", resultSatuan);
@@ -60,6 +61,6 @@ public class OpnameController {
 		
 		opnameService.store(opnameModel);
 		
-		return "redirect:http://localhost:8080/com.rsia.modura/opname/list";
+		return "redirect:/opname";
 	}
 }

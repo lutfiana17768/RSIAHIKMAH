@@ -25,7 +25,7 @@
                          
                         <div class="form-group">
                             <label>Tanggal Order</label>
-                            <form:input path="order_tanggal" type="text" placeholder="Masukan Tgl Penjualan" class="form-control"/>
+                            <form:input path="jual_tanggal" type="text" placeholder="Masukan Tgl Penjualan" class="form-control"/>
                          </div>
                          
                          <div class="form-group">

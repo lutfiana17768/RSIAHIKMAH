@@ -8,10 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MReturBeli;
-import com.rsia.madura.entity.m_Satuan;
+import com.rsia.madura.entity.MSatuan;
 import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.ReturBeliService;
 import com.rsia.madura.service.SatuanService;
@@ -26,7 +27,7 @@ public class ReturBeliController {
 	@Autowired
 	private SatuanService satuanService;
 	
-	@RequestMapping(value="/list")
+	@RequestMapping(method=RequestMethod.GET)
 	public String returBeliList(Model model) {
 		List<MReturBeli> result = returBeliService.getReturBelis();
 		
@@ -39,7 +40,7 @@ public class ReturBeliController {
 	public String ReturBeliFormAddView(Model model){
 		MReturBeli returBeliModel = new MReturBeli();
 		List<MBarang> resultBarang = barangService.getBarangs();
-		List<m_Satuan> resultSatuan = satuanService.getSatuans();
+		List<MSatuan> resultSatuan = satuanService.getSatuans();
 		
 		
 		model.addAttribute("returBeliModel", returBeliModel);
@@ -60,7 +61,7 @@ public class ReturBeliController {
 		
 		returBeliService.store(returBeliModel);
 		
-		return "redirect:http://localhost:8080/com.rsia.modura/returBeli/list";
+		return "redirect:/returBeli";
 	}
 	
 	

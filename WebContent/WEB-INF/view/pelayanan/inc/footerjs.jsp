@@ -310,18 +310,22 @@
             diagnosapasien_id = $('#diagnosapasien_id').val();
             icd = $('#icd').val() ||0;
             icd_text = $('#icd option:selected').text();
-            diagnosapasien_jenis = $('#diagnosapasien_jenis').val() || '';
-            diagnosapasien_kasus = $('#diagnosapasien_kasus').val() || '';
+            diagnosapasien_jenis = $('#diagnosapasien_jenis').val();
+            diagnosapasien_jenis_text = $('#diagnosapasien_jenis option:selected').text();
+            diagnosapasien_kasus = $('#diagnosapasien_kasus').val();
+            diagnosapasien_kasus_text = $('#diagnosapasien_kasus option:selected').text();
             diagnosapasien_keterangan = $('#diagnosapasien_keterangan').val() || '';
             diagnosapasien_tanggal = $('#diagnosapasien_tanggal').val() ||0;
 
             tr.append('<td>'+icd_text+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_jenis" data-kolom-id="diagnosapasien_jenis">'+diagnosapasien_jenis+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_kasus" data-kolom-id="diagnosapasien_kasus">'+diagnosapasien_kasus+'</td>');
+            tr.append('<td>'+diagnosapasien_jenis_text+'</td>');
+            tr.append('<td>'+diagnosapasien_kasus_text+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_keterangan" data-kolom-id="diagnosapasien_keterangan">'+diagnosapasien_keterangan+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_tanggal" data-kolom-id="diagnosapasien_tanggal">'+diagnosapasien_tanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDiagnosapasien('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDiagnosapasien('+counter+')">Edit</button></td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="icd.icd_id" data-kolom-id="icd">' + icd + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasien_jenis" data-kolom-id="diagnosapasien_jenis">' + diagnosapasien_jenis + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasien_kasus" data-kolom-id="diagnosapasien_kasus">' + diagnosapasien_kasus + '</td>');
 
             if (diagnosapasien_id) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasien_id" data-kolom-id="diagnosapasien_id">' + diagnosapasien_id + '</td>');
@@ -358,16 +362,19 @@
             }
 
             diagnosa9_id = $('#diagnosa9_id').val();
-            diagnosa9_icd9_id = $('#diagnosa9_icd9_id').val() ||0;
+            icd9 = $('#icd9').val() ||0;
+            diagnosa9_icd9_text = $('#icd9 option:selected').text() || '';
+            diagnosa9_icd9_kode = $('#icd9 option:selected').attr('date-kode') || '';
             diagnosa9_nama = $('#diagnosa9_nama').val() ||0;
             diagnosa9_keterangan = $('#diagnosa9_keterangan').val() ||0;
             diagnosa9_tanggal = $('#diagnosa9_tanggal').val() ||0;
 
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9_icd9_id" data-kolom-id="diagnosa9_icd9_id">'+diagnosa9_icd9_id+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9_nama" data-kolom-id="diagnosa9_nama">'+diagnosa9_nama+'</td>');
+            tr.append('<td>' + diagnosa9_icd9_kode + '</td>');
+            tr.append('<td>' + diagnosa9_icd9_text + '</td>');
             tr.append('<td data-used="1" data-save="1" data-name="diagnosa9_keterangan" data-kolom-id="diagnosa9_keterangan">'+diagnosa9_keterangan+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="diagnosa9_tanggal" data-kolom-id="diagnosa9_tanggal">'+diagnosa9_tanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDiagnosa9('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDiagnosa9('+counter+')">Edit</button></td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="icd9.icd9_id" data-kolom-id="icd9">' + icd9 + '</td>');
 
             if (diagnosa9_id) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosa9_id" data-kolom-id="diagnosa9_id">' + diagnosa9_id + '</td>');
@@ -696,7 +703,7 @@
     }
 
     // procedur
-    function editDiagnos9(id)
+    function editDiagnosa9(id)
     {
         var tr;
         $('#diagnosa9_mode').val('edit');
@@ -712,7 +719,7 @@
         $('#modal-pelayanan-diagnosa9').modal('show');
     }
 
-    function deleteDiagnos9(id)
+    function deleteDiagnosa9(id)
     {
         var tr;
         tr = $('#diagnosa9_'+id);

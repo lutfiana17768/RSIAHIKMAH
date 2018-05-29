@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-17 14:53:46
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-27 14:21:13
+* @Last Modified time: 2018-05-29 05:41:29
 */
 
 package com.rsia.madura.controller;
@@ -31,6 +31,7 @@ import com.rsia.madura.entity.MSatuan;
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MParamPeriksa;
 import com.rsia.madura.entity.MIcd;
+import com.rsia.madura.entity.MIcd9;
 
 import com.rsia.madura.service.PendaftaranService;
 import com.rsia.madura.service.PelayananService;
@@ -45,6 +46,7 @@ import com.rsia.madura.service.SatuanService;
 import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.ParamPeriksaService;
 import com.rsia.madura.service.IcdService;
+import com.rsia.madura.service.Icd9Service;
 
 // pelayanan == pendaftaran
 
@@ -77,6 +79,8 @@ public class PelayananController {
 	private ParamPeriksaService paramperiksaService;
 	@Autowired
 	private IcdService icdService;
+	@Autowired
+	private Icd9Service icd9Service;
 	
 	private String uri ="redirect: /pelayanan";
 
@@ -102,6 +106,7 @@ public class PelayananController {
 		List<MBarang> barangs = barangService.getBarangs();
 		List<MParamPeriksa> params = paramperiksaService.findAll();
 		List<MIcd> icds = icdService.findAll();
+		List<MIcd9> icd9s = icd9Service.findAll();
 		
 		model.addAttribute("pelayananModel", pelayananModel);
 		model.addAttribute("pasiens", pasiens);
@@ -115,6 +120,7 @@ public class PelayananController {
 		model.addAttribute("barangs", barangs);
 		model.addAttribute("params", params);
 		model.addAttribute("icds", icds);
+		model.addAttribute("icd9s", icd9s);
 		model.addAttribute("footerjs", "../pelayanan/inc/footerjs.jsp");
 		
 		return "pelayanan/update";

@@ -29,7 +29,7 @@ public class PerusahaanController {
 		model.addAttribute("result", resultPerusahaan);
 		model.addAttribute("link", link);
 		
-		return "/perusahaan/index";
+		return "perusahaan/index";
 	}
 	
 	@RequestMapping(value="/form-add")
@@ -52,7 +52,7 @@ public class PerusahaanController {
 		
 		perusahaanService.store(perusahaanModel);
 		
-		return "redirect:http://localhost:8080/com.rsia.modura/perusahaan/list/?page=1&limit=10";
+		return "redirect:/perusahaan/list/?page=1&limit=10";
 	}
 	
 	@RequestMapping(value="/form-update")
@@ -61,7 +61,7 @@ public class PerusahaanController {
 		
 		model.addAttribute("perusahaanModel", result);
 		
-		return "/perusahaan/update";
+		return "perusahaan/update";
 	}
 	
 	@RequestMapping(value="/update")
@@ -75,7 +75,7 @@ public class PerusahaanController {
 		
 		perusahaanService.update(perusahaanModel);
 		
-		return "redirect:http://localhost:8080/com.rsia.modura/perusahaan/list/?page=1&limit=10";
+		return "redirect:/perusahaan/list/?page=1&limit=10";
 	}
 	
 	@RequestMapping(value="/delete")
@@ -88,6 +88,6 @@ public class PerusahaanController {
 		
 		perusahaanService.delete(perusahaanModel);
 		
-		return "redirect:http://localhost:8080/com.rsia.modura/perusahaan/list/?page=1&limit=10";
+		return "redirect:/perusahaan/list/?page=1&limit=10";
 	}
 }

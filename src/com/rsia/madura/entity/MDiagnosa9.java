@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-24 16:59:51
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-28 09:16:12
+* @Last Modified time: 2018-05-29 08:08:39
 */
 package com.rsia.madura.entity;
 
@@ -24,21 +24,6 @@ public class MDiagnosa9 {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "diagnosa9_id")
 	private int diagnosa9_id;
-	// hapus
-	@Column(name = "diagnosa9_kamarpasien_id")
-	private Integer diagnosa9_kamarpasien_id;
-
-	// ganti relasi
-	@Column(name = "diagnosa9_icd9_id")
-	private Integer diagnosa9_icd9_id;
-
-	// ganti relasi
-	@Column(name = "diagnosa9_pasien_id")
-	private Integer diagnosa9_pasien_id;
-
-	// hapus
-	@Column(name = "diagnosa9_pasien_norm")
-	private String diagnosa9_pasien_norm;
 
 	// ganti relasi
 	@Column(name = "diagnosa9_dokter")
@@ -80,44 +65,15 @@ public class MDiagnosa9 {
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 
+	@ManyToOne
+	private MIcd9 icd9;
+
 	public int getDiagnosa9_id() {
 		return diagnosa9_id;
 	}
 
 	public void setDiagnosa9_id(int diagnosa9_id) {
 		this.diagnosa9_id = diagnosa9_id;
-	}
-
-	public Integer getDiagnosa9_kamarpasien_id() {
-		return diagnosa9_kamarpasien_id;
-	}
-
-	public void setDiagnosa9_kamarpasien_id(Integer diagnosa9_kamarpasien_id) {
-		this.diagnosa9_kamarpasien_id = diagnosa9_kamarpasien_id;
-	}
-
-	public Integer getDiagnosa9_icd9_id() {
-		return diagnosa9_icd9_id;
-	}
-
-	public void setDiagnosa9_icd9_id(Integer diagnosa9_icd9_id) {
-		this.diagnosa9_icd9_id = diagnosa9_icd9_id;
-	}
-
-	public Integer getDiagnosa9_pasien_id() {
-		return diagnosa9_pasien_id;
-	}
-
-	public void setDiagnosa9_pasien_id(Integer diagnosa9_pasien_id) {
-		this.diagnosa9_pasien_id = diagnosa9_pasien_id;
-	}
-
-	public String getDiagnosa9_pasien_norm() {
-		return diagnosa9_pasien_norm;
-	}
-
-	public void setDiagnosa9_pasien_norm(String diagnosa9_pasien_norm) {
-		this.diagnosa9_pasien_norm = diagnosa9_pasien_norm;
 	}
 
 	public Integer getDiagnosa9_dokter() {
@@ -222,6 +178,14 @@ public class MDiagnosa9 {
 
 	public void setPendaftaran(MPendaftaran pendaftaran) {
 		this.pendaftaran = pendaftaran;
+	}
+
+	public MIcd9 getIcd9() {
+		return icd9;
+	}
+
+	public void setIcd9(MIcd9 icd9) {
+		this.icd9 = icd9;
 	}
 
 }

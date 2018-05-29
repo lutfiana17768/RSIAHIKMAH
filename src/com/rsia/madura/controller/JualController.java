@@ -8,10 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MJual;
-import com.rsia.madura.entity.m_Satuan;
+import com.rsia.madura.entity.MSatuan;
 import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.JualService;
 import com.rsia.madura.service.SatuanService;
@@ -26,7 +27,7 @@ public class JualController {
 	@Autowired
 	private SatuanService satuanService;
 	
-	@RequestMapping(value="/list")
+	@RequestMapping(method=RequestMethod.GET)
 	public String JualListView(Model model){
 		List<MJual> result = jualService.getJuals();
 		
@@ -35,11 +36,11 @@ public class JualController {
 		return "/jual/index";
 	}
 	
-	@RequestMapping(value="/form-add")
+	@RequestMapping(value="/tambah")
 	public String JualFormAdd(Model model) {
 		MJual jualModel = new MJual();
 		List<MBarang> resultBarang = barangService.getBarangs();
-		List<m_Satuan> resultSatuan = satuanService.getSatuans();
+		List<MSatuan> resultSatuan = satuanService.getSatuans();
 		
 		model.addAttribute("satuan", resultSatuan);
 		model.addAttribute("barang", resultBarang);
@@ -60,7 +61,7 @@ public class JualController {
 		
 		jualService.store(jualModel);
 		
-		return "redirect:http://localhost:8080/com.rsia.modura/jual/list";
+		return "redirect:/jual";
 	}
 
 }

@@ -99,7 +99,7 @@ public class MReturJual {
 	@Column(name="returjual_revised")
 	private int returJualRevised;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "returjual", cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "returJual", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MReturJualDetail> detail;
 
 	public int getReturJual_id() {

@@ -29,11 +29,17 @@
                             </div>
                             <div class="form-group">
                                 <label>Jenis Diagnosa</label>
-                                <input type="text" name="diagnosapasien_jenis" id="diagnosapasien_jenis" class="form-control boxed">
+                                <select name="diagnosapasien_jenis" id="diagnosapasien_jenis" class="form-control boxed">
+                                    <option>UTAMA</option>
+                                    <option>SEKUNDER</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>Kasus</label>
-                                <input type="text" name="diagnosapasien_kasus" id="diagnosapasien_kasus" class="form-control boxed">
+                                <select name="diagnosapasien_kasus" id="diagnosapasien_kasus" class="form-control boxed">
+                                    <option>LAMA</option>
+                                    <option>BARU</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rsia.madura.entity.MBarang;
-import com.rsia.madura.entity.m_JenisBarang;
-import com.rsia.madura.entity.m_Satuan;
+import com.rsia.madura.entity.MJenisBarang;
+import com.rsia.madura.entity.MSatuan;
 import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.JenisBarangService;
 import com.rsia.madura.service.SatuanService;
@@ -45,8 +45,8 @@ public class BarangController {
 	@RequestMapping(value="/form-add")
 	public String BarangFormView(Model model){
 		MBarang barangModel = new MBarang();
-		List<m_JenisBarang> jenisBarangResult = jenisBarangService.getJenisBarangs();
-		List<m_Satuan> satuanResult = satuanService.getSatuans();
+		List<MJenisBarang> jenisBarangResult = jenisBarangService.getJenisBarangs();
+		List<MSatuan> satuanResult = satuanService.getSatuans();
 		
 		model.addAttribute("barangModel", barangModel);
 		model.addAttribute("jenisBarang", jenisBarangResult);
@@ -66,7 +66,7 @@ public class BarangController {
 		
 		barangService.store(barangModel);
 		
-		return "com.rsia.modura/barang/list/?page=1&limit=10";
+		return "/barang/list/?page=1&limit=10";
 	}
 	
 	@RequestMapping(value="/form-update")
@@ -88,7 +88,7 @@ public class BarangController {
 		
 		barangService.update(barangModel);
 		
-		return "com.rsia.modura/barang/list/?page=1&limit=10";
+		return "/barang/list/?page=1&limit=10";
 	}
 	
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
@@ -102,6 +102,6 @@ public class BarangController {
 		
 		barangService.delete(barangModel);
 		
-		return "com.rsia.modura/barang/list/?page=1&limit=10";
+		return "/barang/list/?page=1&limit=10";
 	}
 }
