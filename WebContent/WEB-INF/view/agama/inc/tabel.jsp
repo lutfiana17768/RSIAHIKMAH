@@ -17,20 +17,20 @@
 		<tbody>
 			<c:forEach var="temp" items="${kamar}">
 				<c:choose>
-					<c:when test="${temp.kamar_aktif  == 'Y' }">
+					<c:when test="${temp.kamarAktif  == 'Y' }">
 						<c:url var="updateLink" value="../form-update">
-							<c:param name="Id" value="${temp.kamar_id}" />
+							<c:param name="Id" value="${temp.kamarID}" />
 						</c:url>
 						<c:url var="deleteLink" value="../delete">
-							<c:param name="Id" value="${temp.kamar_id}" />
+							<c:param name="Id" value="${temp.kamarID}" />
 						</c:url>
 
 						<tr>
-							<td>${temp.kamar_no }</td>
-							<td>${temp.m_kelas_id }</td>
+							<td>${temp.kamarNo }</td>
+							<td>${temp.mKelasID }</td>
 							<td>${temp.tarif }</td>
-							<td>${temp.jumlah_bed }</td>
-							<td>${temp.jenis_pelayanan }</td>
+							<td>${temp.jumlahBed }</td>
+							<td>${temp.jenisPelayanan }</td>
 							<td><a href="${updateLink }" class="btn btn-info">Update</a>
 								<a href="${deleteLink }" class="btn btn-warning">Delete</a>
 							</td>

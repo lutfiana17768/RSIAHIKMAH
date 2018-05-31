@@ -138,9 +138,9 @@ public class PasienController {
 		model.addAttribute("Pendidikan", pendidikan);
 		model.addAttribute("pasienModel", pasienModel);
 		
-		 // return "v_Mpasien_tambah";
-		 return "v_Mpasien_tambah_old";
-		// return "v_pendaftaran";
+		 // return "vMpasienTambah";
+		 return "vMpasienTambahOld";
+		// return "vPendaftaran";
 	} 
 	
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
@@ -148,12 +148,12 @@ public class PasienController {
 
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		pasienModel.setPasien_aktif("Y");
-		pasienModel.setPasien_created_by("Admin");
-		pasienModel.setPasien_created_date(currentTime);
-		pasienModel.setM_status_id(1);
+		pasienModel.setPasienAktif("Y");
+		pasienModel.setPasienCreatedBy("Admin");
+		pasienModel.setPasienCreatedDate(currentTime);
+		pasienModel.setStatusID(1);
 
-		pasienModel.setPasien_tanggallahir(currentTime);
+		pasienModel.setPasienTanggallahir(currentTime);
 
 		PasienService.store(pasienModel);
 
@@ -167,8 +167,8 @@ public class PasienController {
 
 		MPasien pasienModel = PasienService.getById(id);
 
-		pasienModel.setPasien_aktif("T");
-		pasienModel.setPasien_deleted_date(currentTime);
+		pasienModel.setPasienAktif("T");
+		pasienModel.setPasienDeletedDate(currentTime);
 
 		PasienService.delete(pasienModel);
 
@@ -214,12 +214,12 @@ public class PasienController {
 	public String Update(@ModelAttribute("pasienModel") MPasien pasienModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		pasienModel.setPasien_aktif("Y");
-		pasienModel.setPasien_updated_by("Admin");
-		pasienModel.setPasien_updated_date(currentTime);
-		pasienModel.setM_status_id(1);
+		pasienModel.setPasienAktif("Y");
+		pasienModel.setPasienUpdatedBy("Admin");
+		pasienModel.setPasienUpdatedDate(currentTime);
+		pasienModel.setStatusID(1);
 
-		pasienModel.setPasien_tanggallahir(currentTime);
+		pasienModel.setPasienTanggallahir(currentTime);
 
 		PasienService.update(pasienModel);
 		return this.uri;
@@ -227,16 +227,16 @@ public class PasienController {
 
 	@RequestMapping("/todaftar")
 	public String toDaftar(Model model) {
-		return "v_daftar";
+		return "vDaftar";
 	}
 
 	@RequestMapping("/todaftarrj")
 	public String toDaftarRj(Model model) {
-		return "v_daftar_rj";
+		return "vDaftarRj";
 	}
 
 	@RequestMapping("/todaftarrjtambah")
 	public String toDaftarRjtambah(Model model) {
-		return "v_DaftarRJ_tambah";
+		return "vDaftarRjTambah";
 	}
 }

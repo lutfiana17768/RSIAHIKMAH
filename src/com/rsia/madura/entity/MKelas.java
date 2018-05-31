@@ -21,139 +21,139 @@ public class MKelas {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "kelas_id")
-	private int kelas_id;
+	private int kelasID;
 
 	@Column(name = "kelas_kode")
-	private String kelas_kode;
+	private String kelasKode;
 
 	@Column(name = "kelas_nama")
-	private String kelas_nama;
+	private String kelasNama;
 
 	@Column(name = "kelas_keterangan")
-	private String kelas_keterangan;
+	private String kelasKeterangan;
 
 	@Column(name = "kelas_aktif")
-	private String kelas_aktif;
+	private String kelasAktif;
 
 	@Column(name = "kelas_created_by")
-	private String kelas_created_by;
+	private String kelasCreatedBy;
 
 	@Column(name = "kelas_created_date")
-	private Timestamp kelas_created_date;
+	private Timestamp kelasCreatedDate;
 
 	@Column(name = "kelas_updated_by")
-	private String kelas_updated_by;
+	private String kelasUpdatedBy;
 
 	@Column(name = "kelas_updated_date")
-	private Timestamp kelas_updated_date;
+	private Timestamp kelasUpdatedDate;
 
 	@Column(name = "kelas_revised")
-	private int kelas_revised;
+	private int kelasRevised;
 
 	@Column(name = "kelas_deleted_date")
-	private Timestamp kelas_deleted_date;
+	private Timestamp kelasDeletedDate;
 
 	@Column(name = "kelas_deleted_by")
-	private String kelas_deleted_by;
+	private String kelasDeletedBy;
 
-	public int getKelas_id() {
-		return this.kelas_id;
+	public int getKelasID() {
+		return this.kelasID;
 	}
 
-	public void setKelas_id(int kelas_id) {
-		this.kelas_id = kelas_id;
+	public void setKelasID(int kelasID) {
+		this.kelasID = kelasID;
 	}
 
-	public String getKelas_kode() {
-		return this.kelas_kode;
+	public String getKelasKode() {
+		return this.kelasKode;
 	}
 
-	public void setKelas_kode(String kelas_kode) {
-		this.kelas_kode = kelas_kode;
+	public void setKelasKode(String kelasKode) {
+		this.kelasKode = kelasKode;
 	}
 
-	public String getKelas_nama() {
-		return this.kelas_nama;
+	public String getKelasNama() {
+		return this.kelasNama;
 	}
 
-	public void setKelas_nama(String kelas_nama) {
-		this.kelas_nama = kelas_nama;
+	public void setKelasNama(String kelasNama) {
+		this.kelasNama = kelasNama;
 	}
 
-	public String getKelas_keterangan() {
-		return this.kelas_keterangan;
+	public String getKelasKeterangan() {
+		return this.kelasKeterangan;
 	}
 
-	public void setKelas_keterangan(String kelas_keterangan) {
-		this.kelas_keterangan = kelas_keterangan;
+	public void setKelasKeterangan(String kelasKeterangan) {
+		this.kelasKeterangan = kelasKeterangan;
 	}
 
-	public String getKelas_aktif() {
-		return this.kelas_aktif;
+	public String getKelasAktif() {
+		return this.kelasAktif;
 	}
 
-	public void setKelas_aktif(String kelas_aktif) {
-		this.kelas_aktif = kelas_aktif;
+	public void setKelasAktif(String kelasAktif) {
+		this.kelasAktif = kelasAktif;
 	}
 
-	public String getKelas_created_by() {
-		return this.kelas_created_by;
+	public String getKelasCreatedBy() {
+		return this.kelasCreatedBy;
 	}
 
-	public void setKelas_created_by(String kelas_created_by) {
-		this.kelas_created_by = kelas_created_by;
+	public void setKelasCreatedBy(String kelasCreatedBy) {
+		this.kelasCreatedBy = kelasCreatedBy;
 	}
 
-	public Timestamp getKelas_created_date() {
-		return this.kelas_created_date;
+	public Timestamp getKelasCreatedDate() {
+		return this.kelasCreatedDate;
 	}
 
-	public void setKelas_created_date(Timestamp kelas_created_date) {
-		this.kelas_created_date = kelas_created_date;
+	public void setKelasCreatedDate(Timestamp kelasCreatedDate) {
+		this.kelasCreatedDate = kelasCreatedDate;
 	}
 
-	public String getKelas_updated_by() {
-		return this.kelas_updated_by;
+	public String getKelasUpdatedBy() {
+		return this.kelasUpdatedBy;
 	}
 
-	public void setKelas_updated_by(String kelas_updated_by) {
-		this.kelas_updated_by = kelas_updated_by;
+	public void setKelasUpdatedBy(String kelasUpdatedBy) {
+		this.kelasUpdatedBy = kelasUpdatedBy;
 	}
 
-	public Timestamp getKelas_updated_date() {
-		return this.kelas_updated_date;
+	public Timestamp getKelasUpdatedDate() {
+		return this.kelasUpdatedDate;
 	}
 
-	public void setKelas_updated_date(Timestamp kelas_updated_date) {
-		this.kelas_updated_date = kelas_updated_date;
+	public void setKelasUpdatedDate(Timestamp kelasUpdatedDate) {
+		this.kelasUpdatedDate = kelasUpdatedDate;
 	}
 
-	public int getKelas_revised() {
-		return this.kelas_revised;
+	public int getKelasRevised() {
+		return this.kelasRevised;
 	}
 
-	public void setKelas_revised(int kelas_revised) {
-		this.kelas_revised = kelas_revised;
+	public void setKelasRevised(int kelasRevised) {
+		this.kelasRevised = kelasRevised;
 	}
 
-	public Timestamp getKelas_deleted_date() {
-		return this.kelas_deleted_date;
+	public Timestamp getKelasDeletedDate() {
+		return this.kelasDeletedDate;
 	}
 
-	public void setKelas_deleted_date(Timestamp kelas_deleted_date) {
-		this.kelas_deleted_date = kelas_deleted_date;
+	public void setKelasDeletedDate(Timestamp kelasDeletedDate) {
+		this.kelasDeletedDate = kelasDeletedDate;
 	}
 
-	public String getKelas_deleted_by() {
-		return this.kelas_deleted_by;
+	public String getKelasDeletedBy() {
+		return this.kelasDeletedBy;
 	}
 
-	public void setKelas_deleted_by(String kelas_deleted_by) {
-		this.kelas_deleted_by = kelas_deleted_by;
+	public void setKelasDeletedBy(String kelasDeletedBy) {
+		this.kelasDeletedBy = kelasDeletedBy;
 	}
 
 	@Override
 	public String toString() {
-		return "m_kelas [kelas_id=" + kelas_id + ", kelas_kode=" + kelas_kode + ", kelas_nama=" + kelas_nama + ", kelas_keterangan=" + kelas_keterangan +"]";
+		return "mKelas [kelasID=" + kelasID + ", kelasKode=" + kelasKode + ", kelasNama=" + kelasNama + ", kelasKeterangan=" + kelasKeterangan +"]";
 	}
 }

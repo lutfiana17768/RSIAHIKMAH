@@ -26,6 +26,8 @@ import com.rsia.madura.entity.MRujukan;
 import com.rsia.madura.entity.MTindakan;
 import com.rsia.madura.entity.MKondisi;
 import com.rsia.madura.entity.MPaket;
+import com.rsia.madura.entity.MPegawai;
+import com.rsia.madura.entity.MKelas;
 
 import com.rsia.madura.service.PendaftaranService;
 import com.rsia.madura.service.PendidikanService;
@@ -35,27 +37,34 @@ import com.rsia.madura.service.RujukanService;
 import com.rsia.madura.service.TindakanService;
 import com.rsia.madura.service.KondisiPasienService;
 import com.rsia.madura.service.PaketService;
+import com.rsia.madura.service.PegawaiService;
 
 @Controller
 @RequestMapping("/pendaftaran")
 public class PendaftaranController {
 	@Autowired
-	private PendaftaranService PendaftaranService;
+	private PendaftaranService pendaftaranService;
 	
 	@Autowired
-	private PasienService PasienService;
+	private PasienService pasienService;
 	
 	@Autowired
-	private RujukanService RujukanService;
+	private RujukanService rujukanService;
 	
 	@Autowired
-	private TindakanService TindakanService;
+	private TindakanService tindakanService;
 	
 	@Autowired
-	private KondisiPasienService KondisiPasienService;
+	private KondisiPasienService kondisiPasienService;
 	
 	@Autowired
-	private PaketService PaketService;
+	private PaketService paketService;
+
+	@Autowired
+	private PegawaiService pegawaiService;
+
+	@Autowired
+	private KelasService kelasService;
 
 	private String uri = "redirect: /pendaftaran";
 
@@ -63,20 +72,24 @@ public class PendaftaranController {
 	public String IndexView(Model model) {
 		MPendaftaran PendaftaranModel = new MPendaftaran();
 		
-		List<MPendaftaran> pendaftarans = PendaftaranService.getPendaftarans();
+		List<MPendaftaran> pendaftarans = pendaftaranService.getPendaftarans();
 		
-		List<MPasien> pasien = PasienService.findAll();
-		List<MRujukan> rujukan = RujukanService.getRujukans();
-		List<MTindakan> tindakan = TindakanService.findAll();
-		List<MKondisi> kondisipasien = KondisiPasienService.getKondisis();
-		List<MPaket> paket = PaketService.findAll();
+		List<MPasien> pasien = pasienService.findAll();
+		List<MRujukan> rujukan = rujukanService.getRujukans();
+		List<MTindakan> tindakan = tindakanService.findAll();
+		List<MKondisi> kondisipasien = kondisiPasienService.getKondisis();
+		List<MPaket> paket = paketService.findAll();
+		List<MPegawai> pegawais = pegawaiService.getPegawai();
+		List<MKelas> kelases = kelasService.findAll();
 
 		model.addAttribute("pendaftarans", pendaftarans);
-		model.addAttribute("Pasien", pasien);
-		model.addAttribute("Rujukan", rujukan);
-		model.addAttribute("Tindakan", tindakan);
-		model.addAttribute("Kondisipasien", kondisipasien);
-		model.addAttribute("Paket", paket);
+		model.addAttribute("pasiens", pasien);
+		model.addAttribute("rujukans", rujukan);
+		model.addAttribute("tindakans", tindakan);
+		model.addAttribute("kondisipasiens", kondisipasien);
+		model.addAttribute("pakets", paket);
+		model.addAttribute("pegawais", pegawais);
+		model.addAttribute("kelases", kelases);
 		model.addAttribute("footerjs", "../pendaftaran/inc/footerjs.jsp");
 		model.addAttribute("PendaftaranModel", PendaftaranModel);
 
@@ -102,11 +115,11 @@ public class PendaftaranController {
 	public String Store(@ModelAttribute("pendaftaranModel") MPendaftaran pendaftaranModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		pendaftaranModel.setPendaftaran_aktif("Y");
-		pendaftaranModel.setPendaftaran_created_by("Admin");
-		pendaftaranModel.setPendaftaran_created_date(currentTime);
+		pendaftaranModel.setPendaftaranAktif("Y");
+		pendaftaranModel.setPendaftaranCreatedBy("Admin");
+		pendaftaranModel.setPendaftaranCreatedDate(currentTime);
 
-		PendaftaranService.store(pendaftaranModel);
+		pendaftaranService.store(pendaftaranModel);
 
 		return this.uri;
 	}
@@ -116,12 +129,12 @@ public class PendaftaranController {
 
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		MPendaftaran pendaftaranModel = PendaftaranService.getPendaftaran(id);
+		MPendaftaran pendaftaranModel = pendaftaranService.getPendaftaran(id);
 
-		pendaftaranModel.setPendaftaran_aktif("T");
-		pendaftaranModel.setPendaftaran_deleted_date(currentTime);
+		pendaftaranModel.setPendaftaranAktif("T");
+		pendaftaranModel.setPendaftaranDeletedDate(currentTime);
 
-		PendaftaranService.delete(pendaftaranModel);
+		pendaftaranService.delete(pendaftaranModel);
 
 		return this.uri;
 	}
@@ -129,7 +142,7 @@ public class PendaftaranController {
 	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
 	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
 
-		MPendaftaran result = PendaftaranService.getPendaftaran(id);
+		MPendaftaran result = pendaftaranService.getPendaftaran(id);
 
 		Map<String, String> jenispendaftaran = new HashMap<String, String>();
 		jenispendaftaran.put("O", "Operatif");
@@ -146,11 +159,11 @@ public class PendaftaranController {
 	public String Update(@ModelAttribute("pendaftaranModel") MPendaftaran pendaftaranModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		pendaftaranModel.setPendaftaran_aktif("Y");
-		pendaftaranModel.setPendaftaran_updated_by("Admin");
-		pendaftaranModel.setPendaftaran_updated_date(currentTime);
+		pendaftaranModel.setPendaftaranAktif("Y");
+		pendaftaranModel.setPendaftaranUpdatedBy("Admin");
+		pendaftaranModel.setPendaftaranUpdatedDate(currentTime);
 
-		PendaftaranService.update(pendaftaranModel);
+		pendaftaranService.update(pendaftaranModel);
 
 		return this.uri;
 	}

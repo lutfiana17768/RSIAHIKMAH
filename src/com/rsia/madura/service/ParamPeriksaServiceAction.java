@@ -55,9 +55,9 @@ public class ParamPeriksaServiceAction implements ParamPeriksaService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setParamperiksa_aktif("Y");
-		data.setParamperiksa_created_by("Admin");	
-		data.setParamperiksa_created_date(currentTime);
+		data.setParamperiksaAktif("Y");
+		data.setParamperiksaCreatedBy("Admin");	
+		data.setParamperiksaCreatedDate(currentTime);
 		penunjangDAO.ParamPeriksaStore(data);
 	}
 
@@ -67,9 +67,9 @@ public class ParamPeriksaServiceAction implements ParamPeriksaService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setParamperiksa_aktif("Y");
-		data.setParamperiksa_updated_by("Admin");
-		data.setParamperiksa_updated_date(currentTime);
+		data.setParamperiksaAktif("Y");
+		data.setParamperiksaUpdatedBy("Admin");
+		data.setParamperiksaUpdatedDate(currentTime);
 		penunjangDAO.ParamPeriksaUpdate(data);
 	}
 
@@ -79,9 +79,9 @@ public class ParamPeriksaServiceAction implements ParamPeriksaService {
 		// // TODO Auto-generated method stub
 		// Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		// data.setParamperiksa_aktif("T");
-		// data.setParamperiksa_deleted_by("Admin");
-		// data.setParamperiksa_deleted_date(currentTime);
+		// data.setParamperiksaAktif("T");
+		// data.setParamperiksaDeletedBy("Admin");
+		// data.setParamperiksaDeletedDate(currentTime);
 		// penunjangDAO.ParamPeriksaDelete(data);
 	}
 }

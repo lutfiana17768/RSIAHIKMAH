@@ -15,18 +15,18 @@
                             var name = $(this).attr('data-name');
                             var value = $(this).text();
                             var new_input = $('<input type="hidden">');
-                            new_input.attr('name','paketHarga[' + line + '].' + name);
+                            new_input.attr('name','paketDetail[' + line + '].' + name);
                             new_input.attr('value',value);
 
                             $('#paket-form').append(new_input);
                         }
                     });
-                    var harga_type_name = $(this).attr('data-harga-type');
-                    if (harga_type_name) {
-                        var harga_type = $('<input type="hidden">');
-                        harga_type.attr('name','paketHarga[' + line + '].paketHarga_type');
-                        harga_type.attr('value', harga_type_name);
-                        $('#paket-form').append(harga_type);
+                    var paket_type_name = $(this).attr('data-harga-type');
+                    if (paket_type_name) {
+                        var paket_type = $('<input type="hidden">');
+                        paket_type.attr('name','paketDetail[' + line + '].paketDetail_type');
+                        paket_type.attr('value', paket_type_name);
+                        $('#paket-form').append(paket_type);
                     }
                 });
 
@@ -54,7 +54,7 @@
                 $('#form-paket-barang').modal('show');
             });
             $('#simpan-ruang').click(function(){
-                var m_ruang_id,paket_ruang_harga,ruang_text,mode,counter,id_row;
+                var mRuangID,paketRuangHarga,ruangText,mode,counter,id_row;
                 var mode = $('#ruang_mode').val();
 
                 if(mode == 'new')
@@ -72,15 +72,15 @@
                     tr.empty();
                 }
 
-                m_ruang_id = $('#m_ruang_id').val();
-                ruang_text = $('#m_ruang_id option:selected').text();
-                paket_ruang_harga = $('#paket_ruang_harga').val() ||0;
+                mRuangID = $('#mRuangID').val();
+                ruangText = $('#mRuangID option:selected').text();
+                paketRuangHarga = $('#paketRuangHarga').val() ||0;
                 
-                tr.append('<td>'+ruang_text+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_ruang_harga">'+paket_ruang_harga+'</td>');
+                tr.append('<td>'+ruangText+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paketRuangHarga">'+paketRuangHarga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteRuang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editRuang('+counter+')">Edit</button></td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="ruangs.ruang_id" data-kolom-id="m_ruang_id">'+m_ruang_id+'</td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="paketHarga_jumlah" >1</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="ruangs.ruangID" data-kolom-id="mRuangID">'+mRuangID+'</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="paketDetailJumlah" >1</td>');
 
                 if(mode == 'new')
                 {
@@ -93,7 +93,7 @@
 
             });
             $('#simpan-tindakan').click(function(){
-                var m_tindakan_id,paket_tindakan_jumlah,paket_tindakan_harga,paket_tindakan_subharga,tindakan_text,mode,counter,id_row,name_harga,name_jumlah;
+                var mTindakanID,paketTindakanJumlah,paket_tindakan_harga,paketTindakanSubharga,tindakan_text,mode,counter,id_row,name_harga,name_jumlah;
                 var mode = $('#tindakan_mode').val();
 
                 if(mode == 'new')
@@ -112,19 +112,19 @@
                 }
 
 
-                m_tindakan_id = $('#m_tindakan_id').val();
-                tindakan_text = $('#m_tindakan_id option:selected').text();
-                paket_tindakan_jumlah = $('#paket_tindakan_jumlah').val() ||'';
+                mTindakanID = $('#mTindakanID').val();
+                tindakan_text = $('#mTindakanID option:selected').text();
+                paketTindakanJumlah = $('#paketTindakanJumlah').val() ||'';
                 paket_tindakan_harga = $('#paket_tindakan_harga').val() ||0;
-                paket_tindakan_subharga = $('#paketHarga_subharga').val() || 0;
+                paketTindakanSubharga = $('#paketDetailSubharga').val() || 0;
                 
 
                 tr.append('<td>'+tindakan_text+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-name="paketHarga_jumlah" data-kolom-id="paket_tindakan_jumlah">'+paket_tindakan_jumlah+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_tindakan_harga">'+paket_tindakan_harga+'</td>');
-                tr.append('<td data-used="1" data-kolom-id="paketHarga_subharga">'+paket_tindakan_subharga+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-name="paketDetailJumlah" data-kolom-id="paketTindakanJumlah">'+paketTindakanJumlah+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paket_tindakan_harga">'+paket_tindakan_harga+'</td>');
+                tr.append('<td data-used="1" data-kolom-id="paketDetailSubharga">'+paketTindakanSubharga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteTindakan('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editTindakan('+counter+')">Edit</button></td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="tindakans.tindakan_id" data-kolom-id="m_tindakan_id">'+m_tindakan_id+'</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="tindakans.tindakanID" data-kolom-id="mTindakanID">'+mTindakanID+'</td>');
 
                 if(mode == 'new')
                 {
@@ -138,7 +138,7 @@
             });
 
             $('#simpan-penunjang').click(function(){
-                var m_penunjang_id,paket_penunjang_jumlah,paket_penunjang_harga,paket_penunjang_subharga,penunjang_text,mode,counter,id_row,name_harga,name_jumlah;
+                var m_penunjangID,paketPenunjangJumlah,paketPenunjangHarga,paketPenunjangSubharga,penunjangText,mode,counter,id_row,name_harga,name_jumlah;
                 var mode = $('#penunjang_mode').val();
 
                 if(mode == 'new')
@@ -157,19 +157,19 @@
                 }
 
 
-                penunjangmedis_id = $('#penunjangmedis_id').val();
-                penunjang_text = $('#penunjangmedis_id option:selected').text();
-                paket_penunjang_jumlah = $('#paket_penunjang_jumlah').val() ||'';
-                paket_penunjang_harga = $('#paket_penunjang_harga').val() ||0;
-                paket_penunjang_subharga = $('#paketHarga_subharga').val() || 0;
+                penunjangmedisID = $('#penunjangmedisID').val();
+                penunjangText = $('#penunjangmedisID option:selected').text();
+                paketPenunjangJumlah = $('#paketPenunjangJumlah').val() ||'';
+                paketPenunjangHarga = $('#paketPenunjangHarga').val() ||0;
+                paketPenunjangSubharga = $('#paketDetailSubharga').val() || 0;
                 
 
-                tr.append('<td>'+penunjang_text+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-name="paketHarga_jumlah" data-kolom-id="paket_penunjang_jumlah">'+paket_penunjang_jumlah+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_penunjang_harga">'+paket_penunjang_harga+'</td>');
-                tr.append('<td data-used="1" data-kolom-id="paketHarga_subharga">'+paket_penunjang_subharga+'</td>');
+                tr.append('<td>'+penunjangText+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-name="paketDetailJumlah" data-kolom-id="paketPenunjangJumlah">'+paketPenunjangJumlah+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paketPenunjangHarga">'+paketPenunjangHarga+'</td>');
+                tr.append('<td data-used="1" data-kolom-id="paketDetailSubharga">'+paketPenunjangSubharga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPenunjang('+counter+')">Edit</button></td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangs.penunjangmedis_id" data-kolom-id="penunjangmedis_id">'+penunjangmedis_id+'</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangs.penunjangmedisID" data-kolom-id="penunjangmedisID">'+penunjangmedisID+'</td>');
 
                 if(mode == 'new')
                 {
@@ -183,7 +183,7 @@
             });
 
             $('#simpan-barang').click(function(){
-                var m_barang_id,paket_barang_jumlah,paket_barang_harga,paket_satuan_id,paket_barang_subharga,barang_text,mode,counter,id_row,name_harga,name;
+                var mBarangID,paketBarangJumlah,paketBarangHarga,paketSatuanID,paketBarangSubharga,barang_text,mode,counter,id_row,name_harga,name;
                 var mode = $('#barang_mode').val();
 
                 if(mode == 'new')
@@ -201,23 +201,23 @@
                     tr.empty();
                 }
 
-                m_barang_id = $('#m_barang_id').val();
-                barang_text = $('#m_barang_id option:selected').text();
-                paket_satuan_id = $('#paket_satuan_id').val() || 0;
-                paket_satuan_text = $('#paket_satuan_id option:selected').text();
-                paket_barang_jumlah = $('#paket_barang_jumlah').val() ||'';
-                paket_barang_harga = $('#paket_barang_harga').val() ||0;
-                paket_barang_subharga = $('#paket_barang_subharga').val() || 0;
+                mBarangID = $('#mBarangID').val();
+                barang_text = $('#mBarangID option:selected').text();
+                paketSatuanID = $('#paketSatuanID').val() || 0;
+                paketSatuanText = $('#paketSatuanID option:selected').text();
+                paketBarangJumlah = $('#paketBarangJumlah').val() ||'';
+                paketBarangHarga = $('#paketBarangHarga').val() ||0;
+                paketBarangSubharga = $('#paketBarangSubharga').val() || 0;
                 
 
                 tr.append('<td>'+barang_text+'</td>');
-                tr.append('<td>'+paket_satuan_text+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-name="paketHarga_jumlah" data-kolom-id="paket_barang_jumlah">'+paket_barang_jumlah+'</td>');
-                tr.append('<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_barang_harga">'+paket_barang_harga+'</td>');
-                tr.append('<td data-used="1" data-kolom-id="paket_barang_subharga">'+paket_barang_subharga+'</td>');
+                tr.append('<td>'+paketSatuanText+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-name="paketDetailJumlah" data-kolom-id="paketBarangJumlah">'+paketBarangJumlah+'</td>');
+                tr.append('<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paketBarangHarga">'+paketBarangHarga+'</td>');
+                tr.append('<td data-used="1" data-kolom-id="paketBarangSubharga">'+paketBarangSubharga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteBarang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editBarang('+counter+')">Edit</button></td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="obats.obat_id" data-kolom-id="m_barang_id">'+m_barang_id+'</td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="paket_satuan_id">'+paket_satuan_id+'</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="obats.obatID" data-kolom-id="mBarangID">'+mBarangID+'</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="paketSatuanID">'+paketSatuanID+'</td>');
                 if(mode == 'new')
                 {
                     barang_length = counter;
@@ -241,8 +241,8 @@
             $.each(tr.find('td'),function(i,e){
                 if($(e).attr("data-used") == '1')
                 {
-                    var elem_id = $(e).attr('data-kolom-id');
-                    $('#'+elem_id).val($(e).text());
+                    var elemID = $(e).attr('data-kolom-id');
+                    $('#'+elemID).val($(e).text());
                 }
             });
             $('#form-paket-ruang').modal('show');
@@ -265,8 +265,8 @@
             $.each(tr.find('td'),function(i,e){
                 if($(e).attr("data-used") == '1')
                 {
-                    var elem_id = $(e).attr('data-kolom-id');
-                    $('#'+elem_id).val($(e).text());
+                    var elemID = $(e).attr('data-kolom-id');
+                    $('#'+elemID).val($(e).text());
                 }
             });
             $('#form-paket-tindakan').modal('show');
@@ -288,8 +288,8 @@
             $.each(tr.find('td'),function(i,e){
                 if($(e).attr("data-used") == '1')
                 {
-                    var elem_id = $(e).attr('data-kolom-id');
-                    $('#'+elem_id).val($(e).text());
+                    var elemID = $(e).attr('data-kolom-id');
+                    $('#'+elemID).val($(e).text());
                 }
             });
             $('#form-paket-penunjang').modal('show');
@@ -311,8 +311,8 @@
             $.each(tr.find('td'),function(i,e){
                 if($(e).attr("data-used") == '1')
                 {
-                    var elem_id = $(e).attr('data-kolom-id');
-                    $('#'+elem_id).val($(e).text());
+                    var elemID = $(e).attr('data-kolom-id');
+                    $('#'+elemID).val($(e).text());
                 }
             });
             $('#form-paket-barang').modal('show');

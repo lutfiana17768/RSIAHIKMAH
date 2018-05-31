@@ -22,7 +22,7 @@ public class MPegawai {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pegawai_id")
-	private int pegawai_id;
+	private int pegawaiID;
 	
 	@Column(name="pegawai_no")
 	private String pegawaiNo;
@@ -112,12 +112,12 @@ public class MPegawai {
 		
 	}
 
-	public int getPegawai_id() {
-		return pegawai_id;
+	public int getPegawaiID() {
+		return pegawaiID;
 	}
 
-	public void setPegawai_id(int pegawai_id) {
-		this.pegawai_id = pegawai_id;
+	public void setPegawaiID(int pegawaiID) {
+		this.pegawaiID = pegawaiID;
 	}
 
 	public String getPegawaiNo() {
@@ -346,7 +346,7 @@ public class MPegawai {
 
 	@Override
 	public String toString() {
-		return "MPegawai [pegawai_id=" + pegawai_id + ", pegawaiNo=" + pegawaiNo + ", pegawaiNama=" + pegawaiNama
+		return "MPegawai [pegawaiID=" + pegawaiID + ", pegawaiNo=" + pegawaiNo + ", pegawaiNama=" + pegawaiNama
 				+ ", pegawaiKelamin=" + pegawaiKelamin + ", pegawaiTglLahir=" + pegawaiTglLahir + ", pegawaiAlamat="
 				+ pegawaiAlamat + ", kotaId=" + kotaId + ", pegawaiAktif=" + pegawaiAktif + ", pegawaiCreatedBy="
 				+ pegawaiCreatedBy + ", pegawaiCreatedDate=" + pegawaiCreatedDate + ", pegawaiUpdatedBy="

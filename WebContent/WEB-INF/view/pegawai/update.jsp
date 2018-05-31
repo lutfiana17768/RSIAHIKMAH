@@ -11,7 +11,7 @@
 						<h3 class="title"> Data Pegawai </h3>
 					</div>
 					<form:form modelAttribute="pegawaiModel" method="POST" action="/pegawai/update">
-						<form:hidden path="pegawai_id" />
+						<form:hidden path="pegawaiID" />
 						<form:hidden path="pegawaiCreatedBy" />
 						<form:hidden path="pegawaiCreatedDate" />	
 						<div class="row">

@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-24 16:59:51
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-29 08:08:39
+* @Last Modified time: 2018-05-30 12:40:51
 */
 package com.rsia.madura.entity;
 
@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="t_diagnosa9")
@@ -23,44 +24,47 @@ public class MDiagnosa9 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "diagnosa9_id")
-	private int diagnosa9_id;
+	private int diagnosa9ID;
+
+    @Transient
+    private Integer remove;
 
 	// ganti relasi
 	@Column(name = "diagnosa9_dokter")
-	private Integer diagnosa9_dokter;
+	private Integer diagnosa9Dokter;
 
 	@Column(name = "diagnosa9_tanggal")
-	private Date diagnosa9_tanggal;
+	private Date diagnosa9Tanggal;
 
 	@Column(name = "diagnosa9_jenis")
-	private String diagnosa9_jenis;
+	private String diagnosa9Jenis;
 
 	@Column(name = "diagnosa9_kasus")
-	private String diagnosa9_kasus;
+	private String diagnosa9Kasus;
 
 	@Column(name = "diagnosa9_keterangan")
-	private String diagnosa9_keterangan;
+	private String diagnosa9Keterangan;
 
 	@Column(name = "diagnosa9_aktif")
-	private String diagnosa9_aktif;
+	private String diagnosa9Aktif;
 
 	@Column(name = "diagnosa9_created_by")
-	private String diagnosa9_created_by;
+	private String diagnosa9CreatedBy;
 
 	@Column(name = "diagnosa9_created_date")
-	private Timestamp diagnosa9_created_date;
+	private Timestamp diagnosa9CreatedDate;
 
 	@Column(name = "diagnosa9_update_by")
-	private String diagnosa9_update_by;
+	private String diagnosa9UpdateBy;
 
 	@Column(name = "diagnosa9_update_date")
-	private Timestamp diagnosa9_update_date;
+	private Timestamp diagnosa9UpdateDate;
 
 	@Column(name = "reg_company_id")
-	private Integer reg_company_id;
+	private Integer regCompanyID;
 
 	@Column(name = "reg_apps_id")
-	private Integer reg_apps_id;
+	private Integer regAppsID;
 
 	@ManyToOne
 	private MPendaftaran pendaftaran;
@@ -68,108 +72,117 @@ public class MDiagnosa9 {
 	@ManyToOne
 	private MIcd9 icd9;
 
-	public int getDiagnosa9_id() {
-		return diagnosa9_id;
+	public int getDiagnosa9ID() {
+		return diagnosa9ID;
 	}
 
-	public void setDiagnosa9_id(int diagnosa9_id) {
-		this.diagnosa9_id = diagnosa9_id;
+	public void setDiagnosa9ID(int diagnosa9ID) {
+		this.diagnosa9ID = diagnosa9ID;
 	}
 
-	public Integer getDiagnosa9_dokter() {
-		return diagnosa9_dokter;
+	public Integer getRemove(){
+		return remove;
 	}
 
-	public void setDiagnosa9_dokter(Integer diagnosa9_dokter) {
-		this.diagnosa9_dokter = diagnosa9_dokter;
+	public void setRemove(Integer remove) {
+		this.remove = remove;
 	}
 
-	public Date getDiagnosa9_tanggal() {
-		return diagnosa9_tanggal;
+
+	public Integer getDiagnosa9Dokter() {
+		return diagnosa9Dokter;
 	}
 
-	public void setDiagnosa9_tanggal(Date diagnosa9_tanggal) {
-		this.diagnosa9_tanggal = diagnosa9_tanggal;
+	public void setDiagnosa9Dokter(Integer diagnosa9Dokter) {
+		this.diagnosa9Dokter = diagnosa9Dokter;
 	}
 
-	public String getDiagnosa9_jenis() {
-		return diagnosa9_jenis;
+	public Date getDiagnosa9Tanggal() {
+		return diagnosa9Tanggal;
 	}
 
-	public void setDiagnosa9_jenis(String diagnosa9_jenis) {
-		this.diagnosa9_jenis = diagnosa9_jenis;
+	public void setDiagnosa9Tanggal(Date diagnosa9Tanggal) {
+		this.diagnosa9Tanggal = diagnosa9Tanggal;
 	}
 
-	public String getDiagnosa9_kasus() {
-		return diagnosa9_kasus;
+	public String getDiagnosa9Jenis() {
+		return diagnosa9Jenis;
 	}
 
-	public void setDiagnosa9_kasus(String diagnosa9_kasus) {
-		this.diagnosa9_kasus = diagnosa9_kasus;
+	public void setDiagnosa9Jenis(String diagnosa9Jenis) {
+		this.diagnosa9Jenis = diagnosa9Jenis;
 	}
 
-	public String getDiagnosa9_keterangan() {
-		return diagnosa9_keterangan;
+	public String getDiagnosa9Kasus() {
+		return diagnosa9Kasus;
 	}
 
-	public void setDiagnosa9_keterangan(String diagnosa9_keterangan) {
-		this.diagnosa9_keterangan = diagnosa9_keterangan;
+	public void setDiagnosa9Kasus(String diagnosa9Kasus) {
+		this.diagnosa9Kasus = diagnosa9Kasus;
 	}
 
-	public String getDiagnosa9_aktif() {
-		return diagnosa9_aktif;
+	public String getDiagnosa9Keterangan() {
+		return diagnosa9Keterangan;
 	}
 
-	public void setDiagnosa9_aktif(String diagnosa9_aktif) {
-		this.diagnosa9_aktif = diagnosa9_aktif;
+	public void setDiagnosa9Keterangan(String diagnosa9Keterangan) {
+		this.diagnosa9Keterangan = diagnosa9Keterangan;
 	}
 
-	public String getDiagnosa9_created_by() {
-		return diagnosa9_created_by;
+	public String getDiagnosa9Aktif() {
+		return diagnosa9Aktif;
 	}
 
-	public void setDiagnosa9_created_by(String diagnosa9_created_by) {
-		this.diagnosa9_created_by = diagnosa9_created_by;
+	public void setDiagnosa9Aktif(String diagnosa9Aktif) {
+		this.diagnosa9Aktif = diagnosa9Aktif;
 	}
 
-	public Timestamp getDiagnosa9_created_date() {
-		return diagnosa9_created_date;
+	public String getDiagnosa9CreatedBy() {
+		return diagnosa9CreatedBy;
 	}
 
-	public void setDiagnosa9_created_date(Timestamp diagnosa9_created_date) {
-		this.diagnosa9_created_date = diagnosa9_created_date;
+	public void setDiagnosa9CreatedBy(String diagnosa9CreatedBy) {
+		this.diagnosa9CreatedBy = diagnosa9CreatedBy;
 	}
 
-	public String getDiagnosa9_update_by() {
-		return diagnosa9_update_by;
+	public Timestamp getDiagnosa9CreatedDate() {
+		return diagnosa9CreatedDate;
 	}
 
-	public void setDiagnosa9_update_by(String diagnosa9_update_by) {
-		this.diagnosa9_update_by = diagnosa9_update_by;
+	public void setDiagnosa9CreatedDate(Timestamp diagnosa9CreatedDate) {
+		this.diagnosa9CreatedDate = diagnosa9CreatedDate;
 	}
 
-	public Timestamp getDiagnosa9_update_date() {
-		return diagnosa9_update_date;
+	public String getDiagnosa9UpdateBy() {
+		return diagnosa9UpdateBy;
 	}
 
-	public void setDiagnosa9_update_date(Timestamp diagnosa9_update_date) {
-		this.diagnosa9_update_date = diagnosa9_update_date;
+	public void setDiagnosa9UpdateBy(String diagnosa9UpdateBy) {
+		this.diagnosa9UpdateBy = diagnosa9UpdateBy;
 	}
 
-	public Integer getReg_company_id() {
-		return reg_company_id;
+	public Timestamp getDiagnosa9UpdateDate() {
+		return diagnosa9UpdateDate;
 	}
 
-	public void setReg_company_id(Integer reg_company_id) {
-		this.reg_company_id = reg_company_id;
+	public void setDiagnosa9UpdateDate(Timestamp diagnosa9UpdateDate) {
+		this.diagnosa9UpdateDate = diagnosa9UpdateDate;
 	}
 
-	public Integer getReg_apps_id() {
-		return reg_apps_id;
+	public Integer getRegCompanyID() {
+		return regCompanyID;
 	}
 
-	public void setReg_apps_id(Integer reg_apps_id) {
-		this.reg_apps_id = reg_apps_id;
+	public void setRegCompanyID(Integer regCompanyID) {
+		this.regCompanyID = regCompanyID;
+	}
+
+	public Integer getRegAppsID() {
+		return regAppsID;
+	}
+
+	public void setRegAppsID(Integer regAppsID) {
+		this.regAppsID = regAppsID;
 	}
 
 	public MPendaftaran getPendaftaran() {

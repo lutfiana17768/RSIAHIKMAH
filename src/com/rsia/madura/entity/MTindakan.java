@@ -1,8 +1,8 @@
 /*
 * @Author: PRADESGA
 * @Date:   2018-04-07 01:44:50
-* @Last Modified by:   PRADESGA
-* @Last Modified time: 2018-04-08 19:57:50
+* @Last Modified by:   Pradesga Indonesia
+* @Last Modified time: 2018-05-30 21:25:37
 */
 package com.rsia.madura.entity;
 
@@ -23,95 +23,95 @@ public class MTindakan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="tindakan_id")
-	private int tindakan_id;
+	private int tindakanID;
 
 	@Column(name="tindakan_jenis")
-	private String tindakan_jenis;
+	private String tindakanJenis;
 	
 	@Column(name="tindakan_kategori")
-	private String tindakan_kategori;
+	private String tindakanKategori;
 	
 	@Column(name="tindakan_kode")
-	private String tindakan_kode;
+	private String tindakanKode;
 	
 	@Column(name="tindakan_nama")
-	private String tindakan_nama;
+	private String tindakanNama;
 	
 	@Column(name="tindakan_keterangan")
-	private String tindakan_keterangan;
+	private String tindakanKeterangan;
 
 	@ManyToOne
 	private MKelas kelas;
 	
 	@Column(name="harga_tindakan")
-	private float harga_tindakan;
+	private float hargaTindakan;
 	
 	@Column(name="tindakan_aktif")
-	private String tindakan_aktif;
+	private String tindakanAktif;
 	
 	@Column(name="tindakan_created_by")
-	private String tindakan_created_by;
+	private String tindakanCreatedBy;
 	
 	@Column(name="tindakan_created_date")
-	private Timestamp tindakan_created_date;
+	private Timestamp tindakanCreatedDate;
 	
 	@Column(name="tindakan_updated_by")
-	private String tindakan_updated_by;
+	private String tindakanUpdatedBy;
 	
 	@Column(name="tindakan_updated_date")
-	private Timestamp tindakan_updated_date;
+	private Timestamp tindakanUpdatedDate;
 	
 	@Column(name="tindakan_revised")
-	private int tindakan_revised;
+	private int tindakanRevised;
 	
 	@Column(name="tindakan_deleted_by")
-	private String tindakan_deleted_by;
+	private String tindakanDeletedBy;
 	
 	@Column(name="tindakan_deleted_date")
-	private Timestamp tindakan_deleted_date;
+	private Timestamp tindakanDeletedDate;
 	
-	public int getTindakan_id() {
-		return tindakan_id;
+	public int getTindakanID() {
+		return tindakanID;
 	}
 
-	public void setTindakan_id(int tindakan_id) {
-		this.tindakan_id = tindakan_id;
+	public void setTindakanID(int tindakanID) {
+		this.tindakanID = tindakanID;
 	}
 
-	public String getTindakan_jenis() {
-		return tindakan_jenis;
+	public String getTindakanJenis() {
+		return tindakanJenis;
 	}
 
-	public void setTindakan_jenis(String tindakan_jenis) {
-		this.tindakan_jenis = tindakan_jenis;
+	public void setTindakanJenis(String tindakanJenis) {
+		this.tindakanJenis = tindakanJenis;
 	}
 
-	public String getTindakan_kategori() {
-		return tindakan_kategori;
+	public String getTindakanKategori() {
+		return tindakanKategori;
 	}
 
-	public void setTindakan_kategori(String tindakan_kategori) {
-		this.tindakan_kategori = tindakan_kategori;
+	public void setTindakanKategori(String tindakanKategori) {
+		this.tindakanKategori = tindakanKategori;
 	}
 
-	public String getTindakan_kode() {
-		return tindakan_kode;
+	public String getTindakanKode() {
+		return tindakanKode;
 	}
 
-	public void setTindakan_kode(String tindakan_kode) {
-		this.tindakan_kode = tindakan_kode;
+	public void setTindakanKode(String tindakanKode) {
+		this.tindakanKode = tindakanKode;
 	}
 
-	public String getTindakan_nama() {
-		return tindakan_nama;
+	public String getTindakanNama() {
+		return tindakanNama;
 	}
 
-	public void setTindakan_nama(String tindakan_nama) {
-		this.tindakan_nama = tindakan_nama;
+	public void setTindakanNama(String tindakanNama) {
+		this.tindakanNama = tindakanNama;
 	}
 
-	public String getTindakan_keterangan() {
-		return tindakan_keterangan;
+	public String getTindakanKeterangan() {
+		return tindakanKeterangan;
 	}
 
 	public MKelas getKelas() {
@@ -122,79 +122,79 @@ public class MTindakan {
 		this.kelas = kelas;
 	}
 
-	public float getHarga_tindakan() {
-		return harga_tindakan;
+	public float getHargaTindakan() {
+		return hargaTindakan;
 	}
 
-	public void setHarga_tindakan(float harga_tindakan) {
-		this.harga_tindakan = harga_tindakan;
+	public void setHargaTindakan(float hargaTindakan) {
+		this.hargaTindakan = hargaTindakan;
 	}
 
-	public void setTindakan_keterangan(String tindakan_keterangan) {
-		this.tindakan_keterangan = tindakan_keterangan;
+	public void setTindakanKeterangan(String tindakanKeterangan) {
+		this.tindakanKeterangan = tindakanKeterangan;
 	}
 
-	public String getTindakan_aktif() {
-		return tindakan_aktif;
+	public String getTindakanAktif() {
+		return tindakanAktif;
 	}
 
-	public void setTindakan_aktif(String tindakan_aktif) {
-		this.tindakan_aktif = tindakan_aktif;
+	public void setTindakanAktif(String tindakanAktif) {
+		this.tindakanAktif = tindakanAktif;
 	}
 
-	public String getTindakan_created_by() {
-		return tindakan_created_by;
+	public String getTindakanCreatedBy() {
+		return tindakanCreatedBy;
 	}
 
-	public void setTindakan_created_by(String tindakan_created_by) {
-		this.tindakan_created_by = tindakan_created_by;
+	public void setTindakanCreatedBy(String tindakanCreatedBy) {
+		this.tindakanCreatedBy = tindakanCreatedBy;
 	}
 
-	public Timestamp getTindakan_created_date() {
-		return tindakan_created_date;
+	public Timestamp getTindakanCreatedDate() {
+		return tindakanCreatedDate;
 	}
 
-	public void setTindakan_created_date(Timestamp tindakan_created_date) {
-		this.tindakan_created_date = tindakan_created_date;
+	public void setTindakanCreatedDate(Timestamp tindakanCreatedDate) {
+		this.tindakanCreatedDate = tindakanCreatedDate;
 	}
 
-	public String getTindakan_updated_by() {
-		return tindakan_updated_by;
+	public String getTindakanUpdatedBy() {
+		return tindakanUpdatedBy;
 	}
 
-	public void setTindakan_updated_by(String tindakan_updated_by) {
-		this.tindakan_updated_by = tindakan_updated_by;
+	public void setTindakanUpdatedBy(String tindakanUpdatedBy) {
+		this.tindakanUpdatedBy = tindakanUpdatedBy;
 	}
 
-	public Timestamp getTindakan_updated_date() {
-		return tindakan_updated_date;
+	public Timestamp getTindakanUpdatedDate() {
+		return tindakanUpdatedDate;
 	}
 
-	public void setTindakan_updated_date(Timestamp tindakan_updated_date) {
-		this.tindakan_updated_date = tindakan_updated_date;
+	public void setTindakanUpdatedDate(Timestamp tindakanUpdatedDate) {
+		this.tindakanUpdatedDate = tindakanUpdatedDate;
 	}
 
-	public int getTindakan_revised() {
-		return tindakan_revised;
+	public int getTindakanRevised() {
+		return tindakanRevised;
 	}
 
-	public void setTindakan_revised(int tindakan_revised) {
-		this.tindakan_revised = tindakan_revised;
+	public void setTindakanRevised(int tindakanRevised) {
+		this.tindakanRevised = tindakanRevised;
 	}
 
-	public Timestamp getTindakan_deleted_date() {
-		return tindakan_deleted_date;
+	public Timestamp getTindakanDeletedDate() {
+		return tindakanDeletedDate;
 	}
 
-	public void setTindakan_deleted_date(Timestamp tindakan_deleted_date) {
-		this.tindakan_deleted_date = tindakan_deleted_date;
+	public void setTindakanDeletedDate(Timestamp tindakanDeletedDate) {
+		this.tindakanDeletedDate = tindakanDeletedDate;
 	}
 
-	public String getTindakan_deleted_by() {
-		return tindakan_deleted_by;
+	public String getTindakanDeletedBy() {
+		return tindakanDeletedBy;
 	}
 
-	public void setTindakan_deleted_by(String tindakan_deleted_by) {
-		this.tindakan_deleted_by = tindakan_deleted_by;
+	public void setTindakanDeletedBy(String tindakanDeletedBy) {
+		this.tindakanDeletedBy = tindakanDeletedBy;
 	}
 }

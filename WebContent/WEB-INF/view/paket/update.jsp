@@ -19,40 +19,40 @@
 					<div class="card-block row">
 						<div class="col-4">
 							<form:form modelAttribute="paketModel" method="POST" action="/paket/update" id="paket-form">
-								<form:hidden path="paket_id" />
-								<form:hidden path="paket_created_by" />
-								<form:hidden path="paket_created_date" />
+								<form:hidden path="paketID" />
+								<form:hidden path="paketCreatedBy" />
+								<form:hidden path="paketCreatedDate" />
 								<div class="form-group">
 									<label>Nama Paket</label>
-									<form:input path="paket_nama" placeholder="Masukan Nama Paket" class="form-control boxed" />
+									<form:input path="paketNama" placeholder="Masukan Nama Paket" class="form-control boxed" />
 								</div>
 
 								<div class="form-group">
 									<label>Kelas</label>
 									<div class="select2-wrapper">
-										<form:select path="kelas.kelas_id" class="form-control boxed input-lg select2-single">
+										<form:select path="kelas.kelasID" class="form-control boxed input-lg select2-single">
 											<form:option value="-1" label="--- Pilih Select ---"></form:option>
 											<c:forEach var="kelas" items="${kelases}">
-												<form:option value="${kelas.kelas_id }" label="${kelas.kelas_nama }" />
+												<form:option value="${kelas.kelasID }" label="${kelas.kelas_nama }" />
 											</c:forEach>
 										</form:select>
 									</div>
 								</div>
 								<div class="form-group">
 									<label>Keterangan</label>
-									<form:input path="paket_keterangan" placeholder="Masukan Keterangan" class="form-control boxed" />
+									<form:input path="paketKeterangan" placeholder="Masukan Keterangan" class="form-control boxed" />
 								</div>
 
 								<div class="form-group">
 									<label>Harga</label>
-									<form:input path="paket_harga" placeholder="Masukan Harga" class="form-control boxed" />
+									<form:input path="paketDetail" placeholder="Masukan Harga" class="form-control boxed" />
 								</div>
 
 
 								<div class="form-group">
 									<label>Jenis</label>
 									<div class="select2-wrapper">
-										<form:select path="paket_jenis" items="${jenispaket}" class="form-control boxed" />
+										<form:select path="paketJenis" items="${jenispaket}" class="form-control boxed" />
 									</div>
 								</div>
 							</form:form>
@@ -97,18 +97,18 @@
 																</thead>
 																<tbody id="paket-ruang-list" class="table-form">
 
-																	<c:forEach var="harga" items="${paketModel.paketHarga}" varStatus="loop">
+																	<c:forEach var="harga" items="${paketModel.paketDetail}" varStatus="loop">
 																		<c:choose>
-																			<c:when test="${harga.paketHarga_type=='ruang'}">
+																			<c:when test="${harga.paketDetailType=='ruang'}">
 																				<tr id="ruang_${loop.index+1}" data-harga-type="ruang">
-																					<td>${harga.ruangs.ruang_nama}</td>
-																					<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_ruang_harga">${harga.paketHarga_harga}</td>
+																					<td>${harga.ruangs.ruangNama}</td>
+																					<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paketRuangHarga">${harga.paketDetailHarga}</td>
 																					<td>
 																						<button type="button" class="btn btn-danger btn-sm" onclick="deleteRuang(${loop.index+1})">Delete</button>
 																						<button type="button" class="btn btn-primary btn-sm" onclick="editRuang(${loop.index+1})">Edit</button>
 																					</td>
-																					<td style="display:none" data-used="1" data-save="1" data-name="paketHarga_id" data-kolom-id="paket-harga-id">${harga.paketHarga_id}</td>
-																					<td style="display:none" data-used="1" data-save="1" data-name="ruangs.ruang_id" data-kolom-id="m_tindakan_id">${harga.ruangs.ruang_id}</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="paketDetailID" data-kolom-id="paket-harga-id">${harga.paketDetailID}</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="ruangs.ruangID" data-kolom-id="mTindakanID">${harga.ruangs.ruangID}</td>
 																				</tr>
 																			</c:when>
 																		</c:choose>
@@ -140,20 +140,20 @@
 																</thead>
 																<tbody id="paket-tindakan-list" class="table-form">
 
-																	<c:forEach var="harga" items="${paketModel.paketHarga}" varStatus="loop">
+																	<c:forEach var="harga" items="${paketModel.paketDetail}" varStatus="loop">
 																		<c:choose>
-																			<c:when test="${harga.paketHarga_type=='tindakan'}">
+																			<c:when test="${harga.paketDetailType=='tindakan'}">
 																				<tr id="tindakan_${loop.index+1}" data-harga-type="tindakan">
-																					<td>${harga.tindakans.tindakan_nama}</td>
-																					<td data-used="1" data-save="1" data-name="paketHarga_jumlah" data-kolom-id="paket_tindakan_jumlah">${harga.paketHarga_jumlah}</td>
-																					<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_tindakan_harga">${harga.paketHarga_harga}</td>
+																					<td>${harga.tindakans.tindakanNama}</td>
+																					<td data-used="1" data-save="1" data-name="paketDetailJumlah" data-kolom-id="paketTindakanJumlah">${harga.paketDetailJumlah}</td>
+																					<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paketTindakanHarga">${harga.paketDetailHarga}</td>
 																					<td>cek lagi</td>
 																					<td>
 																						<button type="button" class="btn btn-danger btn-sm" onclick="deleteTindakan(${loop.index+1})">Delete</button>
 																						<button type="button" class="btn btn-primary btn-sm" onclick="editTindakan(${loop.index+1})">Edit</button>
 																					</td>
-																					<td style="display:none" data-used="1" data-save="1" data-name="paketHarga_id" data-kolom-id="paket-harga-id">${harga.paketHarga_id}</td>
-																					<td style="display:none" data-used="1" data-save="1" data-name="tindakans.tindakan_id" data-kolom-id="m_tindakan_id">${harga.tindakans.tindakan_id}</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="paketDetailID" data-kolom-id="paket-harga-id">${harga.paketDetailID}</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="tindakans.tindakanID" data-kolom-id="mTindakanID">${harga.tindakans.tindakanID}</td>
 																				</tr>
 																			</c:when>
 																		</c:choose>
@@ -187,20 +187,20 @@
 																</thead>
 																<tbody id="paket-penunjang-list" class="table-form">
 
-																	<c:forEach var="harga" items="${paketModel.paketHarga}" varStatus="loop">
+																	<c:forEach var="harga" items="${paketModel.paketDetail}" varStatus="loop">
 																		<c:choose>
-																			<c:when test="${harga.paketHarga_type=='penunjang'}">
+																			<c:when test="${harga.paketDetailType=='penunjang'}">
 																				<tr id="penunjang_${loop.index+1}" data-harga-type="penunjang">
-																					<td>${harga.penunjangs.penunjangmedis_nama}</td>
-																					<td data-used="1" data-save="1" data-name="paketHarga_jumlah" data-kolom-id="paket_penunjang_jumlah">${harga.paketHarga_jumlah}</td>
-																					<td data-used="1" data-save="1" data-name="paketHarga_harga" data-kolom-id="paket_penunjang_harga">${harga.paketHarga_harga}</td>
+																					<td>${harga.penunjangs.penunjangmedisNama}</td>
+																					<td data-used="1" data-save="1" data-name="paketDetailJumlah" data-kolom-id="paketPenunjangJumlah">${harga.paketDetailJumlah}</td>
+																					<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paketPenunjangHarga">${harga.paketDetailHarga}</td>
 																					<td>cek lagi</td>
 																					<td>
 																						<button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjang(${loop.index+1})">Delete</button>
 																						<button type="button" class="btn btn-primary btn-sm" onclick="editPenunjang(${loop.index+1})">Edit</button>
 																					</td>
-																					<td style="display:none" data-used="1" data-save="1" data-name="paketHarga_id" data-kolom-id="paket-harga-id">${harga.paketHarga_id}</td>
-																					<td style="display:none" data-used="1" data-save="1" data-name="penunjangs.penunjangmedis_id" data-kolom-id="penunjangmedis_id">${harga.penunjangs.penunjangmedis_id}</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="paketDetailID" data-kolom-id="paket-harga-id">${harga.paketDetailID}</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="penunjangs.penunjangmedisID" data-kolom-id="penunjangmedisID">${harga.penunjangs.penunjangmedisID}</td>
 																				</tr>
 																			</c:when>
 																		</c:choose>
@@ -264,17 +264,17 @@
 						<form id="form-ruang" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Ruang</label>
-								<select name="m_ruang_id" id="m_ruang_id" class="form-control boxed">
+								<select name="mRuangID" id="mRuangID" class="form-control boxed">
 									<c:forEach var="ruang" items="${ruangs}">
-										<option value="${ruang.ruang_id }">
-											${ruang.ruang_nama }
+										<option value="${ruang.ruangID }">
+											${ruang.ruangNama }
 										</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_ruang_harga" id="paket_ruang_harga" class="form-control boxed">
+								<input type="text" name="paketRuangHarga" id="paketRuangHarga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="ruang_mode" id="ruang_mode">
 							<input type="hidden" name="ruang_edit" id="ruang_edit">
@@ -303,25 +303,25 @@
 						<form id="form-tindakan" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Tindakan</label>
-								<select name="m_tindakan_id" id="m_tindakan_id" class="form-control boxed">
+								<select name="mTindakanID" id="mTindakanID" class="form-control boxed">
 									<c:forEach var="tindakans" items="${tindakans}">
-										<option value="${tindakans.tindakan_id }">
-											${tindakans.tindakan_nama }
+										<option value="${tindakans.tindakanID }">
+											${tindakans.tindakanNama }
 										</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>
-								<input type="text" name="paket_tindakan_jumlah" id="paket_tindakan_jumlah" class="form-control boxed">
+								<input type="text" name="paketTindakanJumlah" id="paketTindakanJumlah" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_tindakan_harga" id="paket_tindakan_harga" class="form-control boxed">
+								<input type="text" name="paketTindakanHarga" id="paketTindakanHarga" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Sub Harga</label>
-								<input type="text" name="paket_tindakan_subharga" id="paket_tindakan_subharga" class="form-control boxed">
+								<input type="text" name="paketTindakanSubharga" id="paketTindakanSubharga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="tindakan_mode" id="tindakan_mode">
 							<input type="hidden" name="tindakan_edit" id="tindakan_edit">
@@ -350,26 +350,26 @@
 						<form id="form-penunjang" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Penunjang</label>
-								<select name="penunjangmedis_id" id="penunjangmedis_id" class="form-control boxed">
+								<select name="penunjangmedisID" id="penunjangmedisID" class="form-control boxed">
 									<option value="">--- Pilih Penunjang ---</option>
 									<c:forEach var="penunjang" items="${penunjangs}">
-										<option value="${penunjang.penunjangmedis_id }">
-											${penunjang.penunjangmedis_nama }
+										<option value="${penunjang.penunjangmedisID }">
+											${penunjang.penunjangmedisNama }
 										</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>
-								<input type="text" name="paket_penunjang_jumlah" id="paket_penunjang_jumlah" class="form-control boxed">
+								<input type="text" name="paketPenunjangJumlah" id="paketPenunjangJumlah" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_penunjang_harga" id="paket_penunjang_harga" class="form-control boxed">
+								<input type="text" name="paketPenunjangHarga" id="paketPenunjangHarga" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Sub Harga</label>
-								<input type="text" name="paket_penunjang_subharga" id="paket_penunjang_subharga" class="form-control boxed">
+								<input type="text" name="paketPenunjangSubharga" id="paketPenunjangSubharga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="penunjang_mode" id="penunjang_mode">
 							<input type="hidden" name="penunjang_edit" id="penunjang_edit">
@@ -398,9 +398,9 @@
 						<form id="form-barang" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Obat/Alkes</label>
-								<select name="m_barang_id" id="m_barang_id" class="form-control boxed">
+								<select name="mBarangID" id="mBarangID" class="form-control boxed">
 									<c:forEach var="obat" items="${obats}">
-										<option value="${obat.obat_id }">
+										<option value="${obat.obatID }">
 											${obat.obat_nama }
 										</option>
 									</c:forEach>
@@ -408,7 +408,7 @@
 							</div>
 							<div class="form-group">
 								<label>Satuan</label>
-								<select name="paket_satuan_id" id="paket_satuan_id" class="form-control boxed">
+								<select name="paketSatuanID" id="paketSatuanID" class="form-control boxed">
 									<c:forEach var="satuan" items="${satuan}" varStatus="loop">
 										<option value="${satuan.key}">${satuan.value}</option>
 									</c:forEach>
@@ -416,15 +416,15 @@
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>
-								<input type="text" name="paket_barang_jumlah" id="paket_barang_jumlah" class="form-control boxed">
+								<input type="text" name="paketBarangJumlah" id="paketBarangJumlah" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_barang_harga" id="paket_barang_harga" class="form-control boxed">
+								<input type="text" name="paketBarangHarga" id="paketBarangHarga" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Sub Harga</label>
-								<input type="text" name="paket_barang_subharga" id="paket_barang_subharga" class="form-control boxed">
+								<input type="text" name="paketBarangSubharga" id="paketBarangSubharga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="barang_mode" id="barang_mode">
 							<input type="hidden" name="barang_edit" id="barang_edit">

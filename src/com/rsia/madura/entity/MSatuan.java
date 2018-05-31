@@ -21,7 +21,7 @@ public class MSatuan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="satuan_id")
-	private int satuan_id;
+	private int satuanID;
 	
 	@Column(name="satuan_kode")
 	private String satuanKode;
@@ -53,12 +53,12 @@ public class MSatuan {
 	@Column(name="satuan_deleted_date")
 	private Timestamp satuanDeletedDate;
 
-	public int getSatuan_id() {
-		return satuan_id;
+	public int getSatuanID() {
+		return satuanID;
 	}
 
-	public void setSatuan_id(int satuan_id) {
-		this.satuan_id = satuan_id;
+	public void setSatuanID(int satuanID) {
+		this.satuanID = satuanID;
 	}
 
 	public String getSatuanKode() {
@@ -143,7 +143,7 @@ public class MSatuan {
 
 	@Override
 	public String toString() {
-		return "m_Satuan [satuan_id=" + satuan_id + ", satuanKode=" + satuanKode + ", satuanNama=" + satuanNama
+		return "mSatuan [satuanID=" + satuanID + ", satuanKode=" + satuanKode + ", satuanNama=" + satuanNama
 				+ ", satuanKategori=" + satuanKategori + ", satuanAktif=" + satuanAktif + ", satuanCreatedBy="
 				+ satuanCreatedBy + ", satuanCreatedDate=" + satuanCreatedDate + ", satuanUpdatedBy=" + satuanUpdatedBy
 				+ ", satuanUpdatedDate=" + satuanUpdatedDate + ", satuanRevised=" + satuanRevised

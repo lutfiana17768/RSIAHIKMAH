@@ -14,35 +14,35 @@
 							<h3 class="title">Data Ruang</h3>
 						</div>
 						<form:form modelAttribute="kamarModel" method="POST" action="update">
-							<form:hidden path="kamar_id" />
-							<form:hidden path="kamar_created_date" />
-							<form:hidden path="kamar_created_by" />
-							<form:hidden path="kamar_aktif" />
-							<form:hidden path="kamar_id" />
+							<form:hidden path="kamarID" />
+							<form:hidden path="kamarCreatedDate" />
+							<form:hidden path="kamarCreatedBy" />
+							<form:hidden path="kamarAktif" />
+							<form:hidden path="kamarID" />
 							
                             <div class="form-group">
                                  <label>No Kamar</label>
-                                 <form:input path="kamar_no" placeholder="Masukan No Kamar" class="form-control"/>
+                                 <form:input path="kamarNo" placeholder="Masukan No Kamar" class="form-control"/>
                               </div>
                               
                              <div class="form-group">
                                  <label>Ruang</label>
-                                 <form:input path="m_ruang_id" placeholder="Masukan Ruang" class="form-control"/>
+                                 <form:input path="mRuangID" placeholder="Masukan Ruang" class="form-control"/>
                               </div>
                               
                               <div class="form-group">
                                  <label>Kelas</label>
-                                 <form:input path="m_kelas_id" placeholder="Masukan Kelas" class="form-control"/>
+                                 <form:input path="mKelasID" placeholder="Masukan Kelas" class="form-control"/>
                               </div>
                              
                              <div class="form-group">
                                  <label>Keterangan</label>
-                                 <form:input path="kamar_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
+                                 <form:input path="kamarKeterangan" placeholder="Masukan Keterangan" class="form-control"/>
                               </div>
                               
                               <div class="form-group">
                                  <label>Kategori</label>
-                                 <form:input path="kamar_kategori" placeholder="Masukan Kategori" class="form-control"/>
+                                 <form:input path="kamarKategori" placeholder="Masukan Kategori" class="form-control"/>
                               </div>
                           
 							<div class="form-group">

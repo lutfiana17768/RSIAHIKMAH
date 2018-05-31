@@ -22,450 +22,450 @@ public class MPasien {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pasien_id")
-	private int pasien_id;
+	private Integer pasienID;
 
 	@Column(name = "pasien_norm", unique = true, updatable = true)
-	private String pasien_norm;
+	private String pasienNorm;
 
 	@Column(name = "pasien_nik")
-	private String pasien_nik;
+	private String pasienNik;
 
 	@Column(name = "pasien_sebut")
-	private String pasien_sebut;
+	private String pasienSebut;
 
 	@Column(name = "pasien_nama")
-	private String pasien_nama;
+	private String pasienNama;
 
 	@Column(name = "pasien_kelamin")
-	private String pasien_kelamin;
+	private String pasienKelamin;
 
 	@Column(name = "pasien_alamat")
-	private String pasien_alamat;
+	private String pasienAlamat;
 
-	@Column(name = "m_kecamatan_id")
-	private int m_kecamatan_id;
+	@Column(name = "kecamatan_id")
+	private Integer kecamatanID;
 
-	@Column(name = "m_kota_id")
-	private int m_kota_id;
+	@Column(name = "kota_id")
+	private Integer kotaID;
 
-	@Column(name = "m_propinsi_id")
-	private int m_propinsi_id;
+	@Column(name = "propinsi_id")
+	private Integer propinsiID;
 
 	@Column(name = "pasien_notelp")
-	private String pasien_notelp;
+	private String pasienNotelp;
 
 	@Column(name = "pasien_nohp")
-	private String pasien_nohp;
+	private String pasienNohp;
 
 	@Column(name = "pasien_goldarah")
-	private String pasien_goldarah;
+	private String pasienGoldarah;
 
 	@Column(name = "pasien_bb")
-	private Double pasien_bb;
+	private Double pasienBb;
 
 	@Column(name = "pasien_tb")
-	private Double pasien_tb;
+	private Double pasienTb;
 
 	@Column(name = "pasien_aktif")
-	private String pasien_aktif;
+	private String pasienAktif;
 
 	@Column(name = "pasien_created_by")
-	private String pasien_created_by;
+	private String pasienCreatedBy;
 
 	@Column(name = "pasien_created_date")
-	private Timestamp pasien_created_date;
+	private Timestamp pasienCreatedDate;
 
 	@Column(name = "pasien_updated_by")
-	private String pasien_updated_by;
+	private String pasienUpdatedBy;
 
 	@Column(name = "pasien_updated_date")
-	private Timestamp pasien_updated_date;
+	private Timestamp pasienUpdatedDate;
 
-	@Column(name = "m_kota_id_tempatlahir")
-	private int m_kota_id_tempatlahir;
+	@Column(name = "kota_id_tempatlahir")
+	private Integer kotaIDTempatlahir;
 
 	@Column(name = "pasien_tanggallahir")
-	private Timestamp pasien_tanggallahir;
+	private Timestamp pasienTanggallahir;
 
-	@Column(name = "m_kelurahan_id")
-	private int m_kelurahan_id;
+	@Column(name = "kelurahan_id")
+	private Integer kelurahanID;
 
-	@Column(name = "m_status_id")
-	private int m_status_id;
+	@Column(name = "status_id")
+	private Integer statusID;
 
 	@Column(name = "pasien_keterangan")
-	private String pasien_keterangan;
+	private String pasienKeterangan;
 
 	@Column(name = "pasien_domisili")
-	private String pasien_domisili;
+	private String pasienDomisili;
 
 	@Column(name = "pasien_pekerjaan")
-	private String pasien_pekerjaan;
+	private String pasienPekerjaan;
 
 	@Column(name = "pasien_statusnikah")
-	private String pasien_statusnikah;
+	private String pasienStatusnikah;
 
-	@Column(name = "m_agama_id")
-	private int m_agama_id;
+	@Column(name = "agama_id")
+	private Integer agamaID;
 
-	@Column(name = "m_pendidikan_id")
-	private int m_pendidikan_id;
+	@Column(name = "pendidikan_id")
+	private Integer pendidikanID;
 
-	@Column(name = "m_pekerjaan_id")
-	private int m_pekerjaan_id;
+	@Column(name = "pekerjaan_id")
+	private Integer pekerjaanID;
 
 	@Column(name = "pasien_alergi")
-	private String pasien_alergi;
+	private String pasienAlergi;
 
 	@Column(name = "pasien_deleted_date")
-	private Timestamp pasien_deleted_date;
+	private Timestamp pasienDeletedDate;
 
 	@Column(name = "wali_nama")
-	private String wali_nama;
+	private String waliNama;
 
 	@Column(name = "wali_alamat")
-	private String wali_alamat;
+	private String waliAlamat;
 
 	@Column(name = "wali_hubungan")
-	private String wali_hubungan;
+	private String waliHubungan;
 
 	@Column(name = "wali_telepon")
-	private String wali_telepon;
+	private String waliTelepon;
 
 	@Column(name = "wali_kelamin")
-	private String wali_kelamin;
+	private String waliKelamin;
 
 	@Column(name = "wali_tgllahir")
-	private Timestamp wali_tgllahir;
+	private Timestamp waliTgllahir;
 
-	public String getPasien_norm() {
-		return pasien_norm;
+	public Integer getPasienID() {
+		return pasienID;
 	}
-
-	public void setPasien_norm(String pasien_norm) {
-		this.pasien_norm = pasien_norm;
+	
+	public void setPasienID(Integer pasienID) {
+		this.pasienID = pasienID;
 	}
 
-	public String getPasien_nik() {
-		return pasien_nik;
+	public String getPasienNorm() {
+		return pasienNorm;
 	}
 
-	public void setPasien_nik(String pasien_nik) {
-		this.pasien_nik = pasien_nik;
+	public void setPasienNorm(String pasienNorm) {
+		this.pasienNorm = pasienNorm;
 	}
 
-	public String getPasien_sebut() {
-		return pasien_sebut;
+	public String getPasienNik() {
+		return pasienNik;
 	}
 
-	public void setPasien_sebut(String pasien_sebut) {
-		this.pasien_sebut = pasien_sebut;
+	public void setPasienNik(String pasienNik) {
+		this.pasienNik = pasienNik;
 	}
 
-	public String getPasien_nama() {
-		return pasien_nama;
+	public String getPasienSebut() {
+		return pasienSebut;
 	}
 
-	public void setPasien_nama(String pasien_nama) {
-		this.pasien_nama = pasien_nama;
+	public void setPasienSebut(String pasienSebut) {
+		this.pasienSebut = pasienSebut;
 	}
 
-	public String getPasien_kelamin() {
-		return pasien_kelamin;
+	public String getPasienNama() {
+		return pasienNama;
 	}
 
-	public void setPasien_kelamin(String pasien_kelamin) {
-		this.pasien_kelamin = pasien_kelamin;
+	public void setPasienNama(String pasienNama) {
+		this.pasienNama = pasienNama;
 	}
 
-	public String getPasien_alamat() {
-		return pasien_alamat;
+	public String getPasienKelamin() {
+		return pasienKelamin;
 	}
 
-	public void setPasien_alamat(String pasien_alamat) {
-		this.pasien_alamat = pasien_alamat;
+	public void setPasienKelamin(String pasienKelamin) {
+		this.pasienKelamin = pasienKelamin;
 	}
 
-	public int getM_kecamatan_id() {
-		return m_kecamatan_id;
+	public String getPasienAlamat() {
+		return pasienAlamat;
 	}
 
-	public void setM_kecamatan_id(int m_kecamatan_id) {
-		this.m_kecamatan_id = m_kecamatan_id;
+	public void setPasienAlamat(String pasienAlamat) {
+		this.pasienAlamat = pasienAlamat;
 	}
 
-	public int getM_kota_id() {
-		return m_kota_id;
+	public Integer getKecamatanID() {
+		return kecamatanID;
 	}
 
-	public void setM_kota_id(int m_kota_id) {
-		this.m_kota_id = m_kota_id;
+	public void setKecamatanID(Integer kecamatanID) {
+		this.kecamatanID = kecamatanID;
 	}
 
-	public int getM_propinsi_id() {
-		return m_propinsi_id;
+	public Integer getKotaID() {
+		return kotaID;
 	}
 
-	public void setM_propinsi_id(int m_propinsi_id) {
-		this.m_propinsi_id = m_propinsi_id;
+	public void setKotaID(Integer kotaID) {
+		this.kotaID = kotaID;
 	}
 
-	public String getPasien_notelp() {
-		return pasien_notelp;
+	public Integer getPropinsiID() {
+		return propinsiID;
 	}
 
-	public void setPasien_notelp(String pasien_notelp) {
-		this.pasien_notelp = pasien_notelp;
+	public void setPropinsiID(Integer propinsiID) {
+		this.propinsiID = propinsiID;
 	}
 
-	public String getPasien_nohp() {
-		return pasien_nohp;
+	public String getPasienNotelp() {
+		return pasienNotelp;
 	}
 
-	public void setPasien_nohp(String pasien_nohp) {
-		this.pasien_nohp = pasien_nohp;
+	public void setPasienNotelp(String pasienNotelp) {
+		this.pasienNotelp = pasienNotelp;
 	}
 
-	public String getPasien_goldarah() {
-		return pasien_goldarah;
+	public String getPasienNohp() {
+		return pasienNohp;
 	}
 
-	public void setPasien_goldarah(String pasien_goldarah) {
-		this.pasien_goldarah = pasien_goldarah;
+	public void setPasienNohp(String pasienNohp) {
+		this.pasienNohp = pasienNohp;
 	}
 
-	public Double getPasien_bb() {
-		return pasien_bb;
+	public String getPasienGoldarah() {
+		return pasienGoldarah;
 	}
 
-	public void setPasien_bb(Double pasien_bb) {
-		this.pasien_bb = pasien_bb;
+	public void setPasienGoldarah(String pasienGoldarah) {
+		this.pasienGoldarah = pasienGoldarah;
 	}
 
-	public Double getPasien_tb() {
-		return pasien_tb;
+	public Double getPasienBb() {
+		return pasienBb;
 	}
 
-	public void setPasien_tb(Double pasien_tb) {
-		this.pasien_tb = pasien_tb;
+	public void setPasienBb(Double pasienBb) {
+		this.pasienBb = pasienBb;
 	}
 
-	public String getPasien_aktif() {
-		return pasien_aktif;
+	public Double getPasienTb() {
+		return pasienTb;
 	}
 
-	public void setPasien_aktif(String pasien_aktif) {
-		this.pasien_aktif = pasien_aktif;
+	public void setPasienTb(Double pasienTb) {
+		this.pasienTb = pasienTb;
 	}
 
-	public String getPasien_created_by() {
-		return pasien_created_by;
+	public String getPasienAktif() {
+		return pasienAktif;
 	}
 
-	public void setPasien_created_by(String pasien_created_by) {
-		this.pasien_created_by = pasien_created_by;
+	public void setPasienAktif(String pasienAktif) {
+		this.pasienAktif = pasienAktif;
 	}
 
-	public Timestamp getPasien_created_date() {
-		return pasien_created_date;
+	public String getPasienCreatedBy() {
+		return pasienCreatedBy;
 	}
 
-	public void setPasien_created_date(Timestamp pasien_created_date) {
-		this.pasien_created_date = pasien_created_date;
+	public void setPasienCreatedBy(String pasienCreatedBy) {
+		this.pasienCreatedBy = pasienCreatedBy;
 	}
 
-	public String getPasien_updated_by() {
-		return pasien_updated_by;
+	public Timestamp getPasienCreatedDate() {
+		return pasienCreatedDate;
 	}
 
-	public void setPasien_updated_by(String pasien_updated_by) {
-		this.pasien_updated_by = pasien_updated_by;
+	public void setPasienCreatedDate(Timestamp pasienCreatedDate) {
+		this.pasienCreatedDate = pasienCreatedDate;
 	}
 
-	public Timestamp getPasien_updated_date() {
-		return pasien_updated_date;
+	public String getPasienUpdatedBy() {
+		return pasienUpdatedBy;
 	}
 
-	public void setPasien_updated_date(Timestamp pasien_updated_date) {
-		this.pasien_updated_date = pasien_updated_date;
+	public void setPasienUpdatedBy(String pasienUpdatedBy) {
+		this.pasienUpdatedBy = pasienUpdatedBy;
 	}
 
-	public int getM_kota_id_tempatlahir() {
-		return m_kota_id_tempatlahir;
+	public Timestamp getPasienUpdatedDate() {
+		return pasienUpdatedDate;
 	}
 
-	public void setM_kota_id_tempatlahir(int m_kota_id_tempatlahir) {
-		this.m_kota_id_tempatlahir = m_kota_id_tempatlahir;
+	public void setPasienUpdatedDate(Timestamp pasienUpdatedDate) {
+		this.pasienUpdatedDate = pasienUpdatedDate;
 	}
 
-	public Timestamp getPasien_tanggallahir() {
-		return pasien_tanggallahir;
+	public Integer getKotaIDTempatlahir() {
+		return kotaIDTempatlahir;
 	}
 
-	public void setPasien_tanggallahir(Timestamp pasien_tanggallahir) {
-		this.pasien_tanggallahir = pasien_tanggallahir;
+	public void setKotaIDTempatlahir(Integer kotaIDTempatlahir) {
+		this.kotaIDTempatlahir = kotaIDTempatlahir;
 	}
 
-	public int getM_kelurahan_id() {
-		return m_kelurahan_id;
+	public Timestamp getPasienTanggallahir() {
+		return pasienTanggallahir;
 	}
 
-	public void setM_kelurahan_id(int m_kelurahan_id) {
-		this.m_kelurahan_id = m_kelurahan_id;
+	public void setPasienTanggallahir(Timestamp pasienTanggallahir) {
+		this.pasienTanggallahir = pasienTanggallahir;
 	}
 
-	public int getM_status_id() {
-		return m_status_id;
+	public Integer getKelurahanID() {
+		return kelurahanID;
 	}
 
-	public void setM_status_id(int m_status_id) {
-		this.m_status_id = m_status_id;
+	public void setKelurahanID(Integer kelurahanID) {
+		this.kelurahanID = kelurahanID;
 	}
 
-	public String getPasien_keterangan() {
-		return pasien_keterangan;
+	public Integer getSstatusID() {
+		return statusID;
 	}
 
-	public void setPasien_keterangan(String pasien_keterangan) {
-		this.pasien_keterangan = pasien_keterangan;
+	public void setStatusID(Integer statusID) {
+		this.statusID = statusID;
 	}
 
-	public String getPasien_domisili() {
-		return pasien_domisili;
+	public String getPasienKeterangan() {
+		return pasienKeterangan;
 	}
 
-	public void setPasien_domisili(String pasien_domisili) {
-		this.pasien_domisili = pasien_domisili;
+	public void setPasienKeterangan(String pasienKeterangan) {
+		this.pasienKeterangan = pasienKeterangan;
 	}
 
-	public String getPasien_pekerjaan() {
-		return pasien_pekerjaan;
+	public String getPasienDomisili() {
+		return pasienDomisili;
 	}
 
-	public void setPasien_pekerjaan(String pasien_pekerjaan) {
-		this.pasien_pekerjaan = pasien_pekerjaan;
+	public void setPasienDomisili(String pasienDomisili) {
+		this.pasienDomisili = pasienDomisili;
 	}
 
-	public String getPasien_statusnikah() {
-		return pasien_statusnikah;
+	public String getPasienPekerjaan() {
+		return pasienPekerjaan;
 	}
 
-	public void setPasien_statusnikah(String pasien_statusnikah) {
-		this.pasien_statusnikah = pasien_statusnikah;
+	public void setPasienPekerjaan(String pasienPekerjaan) {
+		this.pasienPekerjaan = pasienPekerjaan;
 	}
 
-	public int getM_agama_id() {
-		return m_agama_id;
+	public String getPasienStatusnikah() {
+		return pasienStatusnikah;
 	}
 
-	public void setM_agama_id(int m_agama_id) {
-		this.m_agama_id = m_agama_id;
+	public void setPasienStatusnikah(String pasienStatusnikah) {
+		this.pasienStatusnikah = pasienStatusnikah;
 	}
 
-	public int getM_pendidikan_id() {
-		return m_pendidikan_id;
+	public Integer getAgamaID() {
+		return agamaID;
 	}
 
-	public void setM_pendidikan_id(int m_pendidikan_id) {
-		this.m_pendidikan_id = m_pendidikan_id;
+	public void setAgamaID(Integer agamaID) {
+		this.agamaID = agamaID;
 	}
 
-	public int getM_pekerjaan_id() {
-		return m_pekerjaan_id;
+	public Integer getPendidikanID() {
+		return pendidikanID;
 	}
 
-	public void setM_pekerjaan_id(int m_pekerjaan_id) {
-		this.m_pekerjaan_id = m_pekerjaan_id;
+	public void setPendidikanID(Integer pendidikanID) {
+		this.pendidikanID = pendidikanID;
 	}
 
-	public String getPasien_alergi() {
-		return pasien_alergi;
+	public Integer getPekerjaanID() {
+		return pekerjaanID;
 	}
 
-	public void setPasien_alergi(String pasien_alergi) {
-		this.pasien_alergi = pasien_alergi;
+	public void setPekerjaanID(Integer pekerjaanID) {
+		this.pekerjaanID = pekerjaanID;
 	}
 
-	public String getWali_nama() {
-		return wali_nama;
+	public String getPasienAlergi() {
+		return pasienAlergi;
 	}
 
-	public void setWali_nama(String wali_nama) {
-		this.wali_nama = wali_nama;
+	public void setPasienAlergi(String pasienAlergi) {
+		this.pasienAlergi = pasienAlergi;
 	}
 
-	public String getWali_alamat() {
-		return wali_alamat;
+	public String getWaliNama() {
+		return waliNama;
 	}
 
-	public void setWali_alamat(String wali_alamat) {
-		this.wali_alamat = wali_alamat;
+	public void setWaliNama(String waliNama) {
+		this.waliNama = waliNama;
 	}
 
-	public String getWali_hubungan() {
-		return wali_hubungan;
+	public String getWaliAlamat() {
+		return waliAlamat;
 	}
 
-	public void setWali_hubungan(String wali_hubungan) {
-		this.wali_hubungan = wali_hubungan;
+	public void setWaliAlamat(String waliAlamat) {
+		this.waliAlamat = waliAlamat;
 	}
 
-	public String getWali_telepon() {
-		return wali_telepon;
+	public String getWaliHubungan() {
+		return waliHubungan;
 	}
 
-	public void setWali_telepon(String wali_telepon) {
-		this.wali_telepon = wali_telepon;
+	public void setWaliHubungan(String waliHubungan) {
+		this.waliHubungan = waliHubungan;
 	}
 
-	public String getWali_kelamin() {
-		return wali_kelamin;
+	public String getWaliTelepon() {
+		return waliTelepon;
 	}
 
-	public void setWali_kelamin(String wali_kelamin) {
-		this.wali_kelamin = wali_kelamin;
+	public void setWaliTelepon(String waliTelepon) {
+		this.waliTelepon = waliTelepon;
 	}
 
-	public Timestamp getWali_tgllahir() {
-		return wali_tgllahir;
+	public String getWaliKelamin() {
+		return waliKelamin;
 	}
 
-	public void setWali_tgllahir(Timestamp wali_tgllahir) {
-		this.wali_tgllahir = wali_tgllahir;
+	public void setWaliKelamin(String waliKelamin) {
+		this.waliKelamin = waliKelamin;
 	}
 
-	public Timestamp getPasien_deleted_date() {
-		return pasien_deleted_date;
+	public Timestamp getWaliTgllahir() {
+		return waliTgllahir;
 	}
 
-	public void setPasien_deleted_date(Timestamp pasien_deleted_date) {
-		this.pasien_deleted_date = pasien_deleted_date;
+	public void setWaliTgllahir(Timestamp waliTgllahir) {
+		this.waliTgllahir = waliTgllahir;
 	}
 
-	public void setPasien_id(int pasien_id) {
-		this.pasien_id = pasien_id;
+	public Timestamp getPasienDeletedDate() {
+		return pasienDeletedDate;
 	}
 
-	public int getPasien_id() {
-		return pasien_id;
+	public void setPasienDeletedDate(Timestamp pasienDeletedDate) {
+		this.pasienDeletedDate = pasienDeletedDate;
 	}
 
 	@Override
 	public String toString() {
-		return "m_pasien [pasien_id=" + pasien_id + ", pasien_norm=" + pasien_norm + ", pasien_nik=" + pasien_nik
-				+ ", pasien_nama=" + pasien_nama + ", pasien_kelamin=" + pasien_kelamin + ", pasien_alamat="
-				+ pasien_alamat + ", m_kecamatan_id=" + m_kecamatan_id + ", m_kota_id=" + m_kota_id + ", m_propinsi_id="
-				+ m_propinsi_id + ", pasien_notelp=" + pasien_notelp + ", pasien_nohp=" + pasien_nohp
-				+ ", pasien_goldarah=" + pasien_goldarah + ", pasien_bb=" + pasien_bb + ", pasien_tb=" + pasien_tb
-				+ ", pasien_aktif=" + pasien_aktif + ", pasien_created_by=" + pasien_created_by
-				+ ", pasien_created_date=" + pasien_created_date + ", pasien_updated_by=" + pasien_updated_by
-				+ ", pasien_updated_date=" + pasien_updated_date + ", m_kota_id_tempatlahir=" + m_kota_id_tempatlahir
-				+ ", pasien_tanggallahir=" + pasien_tanggallahir + ", m_kelurahan_id=" + m_kelurahan_id
-				+ ", m_status_id=" + m_status_id + ", pasien_keterangan=" + pasien_keterangan + ", pasien_domisili="
-				+ pasien_domisili + ", pasien_pekerjaan=" + pasien_pekerjaan + ", pasien_statusnikah="
-				+ pasien_statusnikah + ", m_agama_id=" + m_agama_id + ", m_pendidikan_id=" + m_pendidikan_id
-				+ ", m_pekerjaan_id=" + m_pekerjaan_id + ", pasien_alergi=" + pasien_alergi + ", pasien_deleted_date="
-				+ pasien_deleted_date + "]";
+		return "mPasien [pasienID=" + pasienID + ", pasienNorm=" + pasienNorm + ", pasienNik=" + pasienNik
+				+ ", pasienNama=" + pasienNama + ", pasienKelamin=" + pasienKelamin + ", pasienAlamat="
+				+ pasienAlamat + ", kecamatanID=" + kecamatanID + ", kotaID=" + kotaID + ", propinsiID="
+				+ propinsiID + ", pasienNotelp=" + pasienNotelp + ", pasienNohp=" + pasienNohp
+				+ ", pasienGoldarah=" + pasienGoldarah + ", pasienBb=" + pasienBb + ", pasienTb=" + pasienTb
+				+ ", pasienAktif=" + pasienAktif + ", pasienCreatedBy=" + pasienCreatedBy
+				+ ", pasienCreatedDate=" + pasienCreatedDate + ", pasienUpdatedBy=" + pasienUpdatedBy
+				+ ", pasienUpdatedDate=" + pasienUpdatedDate + ", kotaIDTempatlahir=" + kotaIDTempatlahir
+				+ ", pasienTanggallahir=" + pasienTanggallahir + ", kelurahanID=" + kelurahanID
+				+ ", statusID=" + statusID + ", pasienKeterangan=" + pasienKeterangan + ", pasienDomisili="
+				+ pasienDomisili + ", pasienPekerjaan=" + pasienPekerjaan + ", pasienStatusnikah="
+				+ pasienStatusnikah + ", agamaID=" + agamaID + ", pendidikanID=" + pendidikanID
+				+ ", pekerjaanID=" + pekerjaanID + ", pasienAlergi=" + pasienAlergi + ", pasienDeletedDate="
+				+ pasienDeletedDate + "]";
 	}
 
 }

@@ -1,8 +1,8 @@
 /*
  * @Author: Pradesga 
  * @Date: 2018-04-15 13:46:31 
- * @Last Modified by: Pradesga
- * @Last Modified time: 2018-04-15 13:54:48
+ * @Last Modified by:   Pradesga Indonesia
+ * @Last Modified time: 2018-05-30 15:04:31
  */
 package com.rsia.madura.controller;
 
@@ -27,21 +27,12 @@ import com.rsia.madura.service.ProvinsiService;
 @Controller
 @RequestMapping("/kondisi")
 public class KondisiController {
-	private String uri ="redirect: /kondisi/tambah" ;
+	private String uri ="redirect: /kondisi" ;
 	
 	@Autowired
 	private KondisiPasienService kondisiService;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model){
-		List<MKondisi> result = kondisiService.getKondisis();
-		MKondisi kondisiModel = new MKondisi();
-		
-		model.addAttribute("kondisi", result);
-		return "kondisi/index";
-	}
-
-	@RequestMapping(value="/tambah", method=RequestMethod.GET)
 	public String KondisiFormView(Model model, 
 			@RequestParam(value="page", required=false, defaultValue="1") int page, 
 			@RequestParam(value="limit", required=false, defaultValue="10") int limit){
@@ -62,9 +53,9 @@ public class KondisiController {
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		kondisiModel.setKondisi_aktif("Y");
-		kondisiModel.setKondisi_created_by("Admin");	
-		kondisiModel.setKondisi_created_date(currentTime);
+		kondisiModel.setKondisiAktif("Y");
+		kondisiModel.setKondisiCreatedBy("Admin");	
+		kondisiModel.setKondisiCreatedDate(currentTime);
 		
 		kondisiService.store(kondisiModel);
 		
@@ -78,8 +69,8 @@ public class KondisiController {
 		
 		MKondisi kondisiModel = kondisiService.getKondisi(id);
 		
-		kondisiModel.setKondisi_aktif("T");
-		kondisiModel.setKondisi_deleted_date(currentTime);
+		kondisiModel.setKondisiAktif("T");
+		kondisiModel.setKondisiDeletedDate(currentTime);
 		
 		kondisiService.delete(kondisiModel);
 		
@@ -100,9 +91,9 @@ public class KondisiController {
 	public String Update(@ModelAttribute("kondisiModel") MKondisi kondisiModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		kondisiModel.setKondisi_aktif("Y");
-		kondisiModel.setKondisi_created_by("Admin");
-		kondisiModel.setKondisi_updated_date(currentTime);;
+		kondisiModel.setKondisiAktif("Y");
+		kondisiModel.setKondisiCreatedBy("Admin");
+		kondisiModel.setKondisiUpdatedDate(currentTime);;
 		
 		kondisiService.update(kondisiModel);
 		

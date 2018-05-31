@@ -27,8 +27,8 @@ public class TindakanAction implements TindakanDAO {
 	public List<MTindakan> getTindakans() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MTindakan> query = current.createQuery("FROM MTindakan k WHERE k.tindakan_aktif = :tindakan_aktif", MTindakan.class);
-		query.setParameter("tindakan_aktif", "Y");
+		Query<MTindakan> query = current.createQuery("FROM MTindakan k WHERE k.tindakanAktif = :tindakanAktif", MTindakan.class);
+		query.setParameter("tindakanAktif", "Y");
 		List<MTindakan> result = query.getResultList();
 		return result;
 	}
@@ -43,8 +43,8 @@ public class TindakanAction implements TindakanDAO {
 
 	public List<MTindakan> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MTindakan> query = current.createQuery("FROM MTindakan k WHERE k.tindakan_aktif = :tindakan_aktif", MTindakan.class).setMaxResults(limit);
-		query.setParameter("tindakan_aktif", "Y");
+		Query<MTindakan> query = current.createQuery("FROM MTindakan k WHERE k.tindakanAktif = :tindakanAktif", MTindakan.class).setMaxResults(limit);
+		query.setParameter("tindakanAktif", "Y");
 		List<MTindakan> result = query.getResultList();
 		return result;
 	}

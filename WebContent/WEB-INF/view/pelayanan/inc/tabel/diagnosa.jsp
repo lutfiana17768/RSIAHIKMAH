@@ -19,17 +19,17 @@
                             <tbody id="pelayanan-diagnosapasien-list" class="table-form">
                             	<c:forEach var="dp" items="${pelayananModel.diagnosapasien}" varStatus="loop">
 									<tr id="diagnosapasien_${loop.index+1}">
-                                            <td data-used="1" data-save="1" data-name="icd.icd_id" data-kolom-id="icd">${dp.icd.icd_nama}</td>
-                                            <td data-used="1" data-save="1" data-name="diagnosapasien_jenis" data-kolom-id="diagnosapasien_jenis">${dp.diagnosapasien_jenis}</td>
-                                            <td data-used="1" data-save="1" data-name="diagnosapasien_kasus" data-kolom-id="diagnosapasien_kasus">${dp.diagnosapasien_kasus}</td>
-                                            <td data-used="1" data-save="1" data-name="diagnosapasien_keterangan" data-kolom-id="diagnosapasien_keterangan">${dp.diagnosapasien_keterangan}</td>
-                                            <td data-used="1" data-save="1" data-name="diagnosapasien_tanggal" data-kolom-id="diagnosapasien_tanggal">${dp.diagnosapasien_tanggal}</td>
+                                            <td data-used="1" data-save="1" data-name="icd.icdID" data-kolom-id="icd">${dp.icd.icdNama}</td>
+                                            <td data-used="1" data-save="1" data-name="diagnosapasienJenis" data-kolom-id="diagnosapasienJenis">${dp.diagnosapasienJenis}</td>
+                                            <td data-used="1" data-save="1" data-name="diagnosapasienKasus" data-kolom-id="diagnosapasienKasus">${dp.diagnosapasienKasus}</td>
+                                            <td data-used="1" data-save="1" data-name="diagnosapasienKeterangan" data-kolom-id="diagnosapasienKeterangan">${dp.diagnosapasienKeterangan}</td>
+                                            <td data-used="1" data-save="1" data-name="diagnosapasienTanggal" data-kolom-id="diagnosapasienTanggal">${dp.diagnosapasienTanggal}</td>
                                             <td>
 									        <button type="button" class="btn btn-danger btn-sm" onclick="deleteDiagnosapasien(${loop.index+1})">Delete</button>&nbsp;
 									        <button type="button" class="btn btn-primary btn-sm" onclick="editDiagnosapasien(${loop.index+1})">Edit</button>
 									    </td>
-                                        <td style="display:none" data-used="1" data-save="1" data-name="icd.icd_id" data-kolom-id="icd.icd_id">${dp.icd.icd_id}</td>
-                                        <td style="display:none" data-used="1" data-save="1" data-name="diagnosapasien_id" data-kolom-id="diagnosapasien_id">${dp.diagnosapasien_id}</td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="icd.icdID" data-kolom-id="icd.icdID">${dp.icd.icdID}</td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="diagnosapasienID" data-kolom-id="diagnosapasienID">${dp.diagnosapasienID}</td>
 									</tr>
 								</c:forEach>
 

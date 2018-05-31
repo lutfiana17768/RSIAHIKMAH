@@ -21,35 +21,35 @@
 							<form:form modelAttribute="paketModel" method="POST" action="/paket/store" id="paket-form">
 								<div class="form-group">
 									<label>Nama Paket</label>
-									<form:input path="paket_nama" placeholder="Masukan Nama Paket" class="form-control boxed" />
+									<form:input path="paketNama" placeholder="Masukan Nama Paket" class="form-control boxed" />
 								</div>
 
 								<div class="form-group">
 									<label>Kelas</label>
 									<div class="select2-wrapper">
-										<form:select path="kelas.kelas_id" class="form-control boxed input-lg select2-single">
+										<form:select path="kelas.kelasID" class="form-control boxed input-lg select2-single">
 											<option value="">--- Pilih Kelas ---</option>
 											<c:forEach var="kelas" items="${kelases}">
-												<form:option value="${kelas.kelas_id }" label="${kelas.kelas_nama }" />
+												<form:option value="${kelas.kelasID }" label="${kelas.kelas_nama }" />
 											</c:forEach>
 										</form:select>
 									</div>
 								</div>
 								<div class="form-group">
 									<label>Keterangan</label>
-									<form:input path="paket_keterangan" placeholder="Masukan Keterangan" class="form-control boxed" />
+									<form:input path="paketKeterangan" placeholder="Masukan Keterangan" class="form-control boxed" />
 								</div>
 
 								<div class="form-group">
 									<label>Harga</label>
-									<form:input path="paket_harga" placeholder="Masukan Harga" class="form-control boxed" />
+									<form:input path="paketHarga" placeholder="Masukan Harga" class="form-control boxed" />
 								</div>
 
 
 								<div class="form-group">
 									<label>Jenis</label>
 									<div class="select2-wrapper">
-										<form:select path="paket_jenis" items="${jenispaket}" class="form-control boxed" />
+										<form:select path="paketJenis" items="${jenispaket}" class="form-control boxed" />
 									</div>
 								</div>
 							</form:form>
@@ -201,18 +201,18 @@
 						<form id="form-ruang" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Ruang</label>
-								<select name="m_ruang_id" id="m_ruang_id" class="form-control boxed">
+								<select name="mRuangID" id="mRuangID" class="form-control boxed">
 									<option value="">--- Pilih Ruang ---</option>
 									<c:forEach var="ruang" items="${ruangs}">
-										<option value="${ruang.ruang_id }">
-											${ruang.ruang_nama }
+										<option value="${ruang.ruangID }">
+											${ruang.ruangNama }
 										</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_ruang_harga" id="paket_ruang_harga" class="form-control boxed">
+								<input type="text" name="paketRuangHarga" id="paketRuangHarga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="ruang_mode" id="ruang_mode">
 							<input type="hidden" name="ruang_edit" id="ruang_edit">
@@ -241,26 +241,26 @@
 						<form id="form-tindakan" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Tindakan</label>
-								<select name="m_tindakan_id" id="m_tindakan_id" class="form-control boxed">
+								<select name="mTindakanID" id="mTindakanID" class="form-control boxed">
 									<option value="">--- Pilih Tindakan ---</option>
 									<c:forEach var="tindakans" items="${tindakans}">
-										<option value="${tindakans.tindakan_id }">
-											${tindakans.tindakan_nama }
+										<option value="${tindakans.tindakanID }">
+											${tindakans.tindakanNama }
 										</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>
-								<input type="text" name="paket_tindakan_jumlah" id="paket_tindakan_jumlah" class="form-control boxed">
+								<input type="text" name="paketTindakanJumlah" id="paketTindakanJumlah" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_tindakan_harga" id="paket_tindakan_harga" class="form-control boxed">
+								<input type="text" name="paketTindakanHarga" id="paketTindakanHarga" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Sub Harga</label>
-								<input type="text" name="paket_tindakan_subharga" id="paket_tindakan_subharga" class="form-control boxed">
+								<input type="text" name="paketTindakanSubharga" id="paketTindakanSubharga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="tindakan_mode" id="tindakan_mode">
 							<input type="hidden" name="tindakan_edit" id="tindakan_edit">
@@ -289,26 +289,26 @@
 						<form id="form-penunjang" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Penunjang</label>
-								<select name="penunjangmedis_id" id="penunjangmedis_id" class="form-control boxed">
+								<select name="penunjangmedisID" id="penunjangmedisID" class="form-control boxed">
 									<option value="">--- Pilih Penunjang ---</option>
 									<c:forEach var="penunjang" items="${penunjangs}">
-										<option value="${penunjang.penunjangmedis_id }">
-											${penunjang.penunjangmedis_nama }
+										<option value="${penunjang.penunjangmedisID }">
+											${penunjang.penunjangmedisNama }
 										</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>
-								<input type="text" name="paket_penunjang_jumlah" id="paket_penunjang_jumlah" class="form-control boxed">
+								<input type="text" name="paketPenunjangJumlah" id="paketPenunjangJumlah" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_penunjang_harga" id="paket_penunjang_harga" class="form-control boxed">
+								<input type="text" name="paketPenunjangHarga" id="paketPenunjangHarga" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Sub Harga</label>
-								<input type="text" name="paket_penunjang_subharga" id="paket_penunjang_subharga" class="form-control boxed">
+								<input type="text" name="paketPenunjangSubharga" id="paketPenunjangSubharga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="penunjang_mode" id="penunjang_mode">
 							<input type="hidden" name="penunjang_edit" id="penunjang_edit">
@@ -337,18 +337,18 @@
 						<form id="form-barang" class="from-horizontal">
 							<div class="form-group">
 								<label>Nama Obat/Alkes</label>
-								<select name="m_barang_id" id="m_barang_id" class="form-control boxed">
+								<select name="mBarangID" id="mBarangID" class="form-control boxed">
 									<option value="">--- Pilih Obat ---</option>
 									<c:forEach var="obat" items="${obats}">
-										<option value="${obat.obat_id }">
-											${obat.obat_nama }
+										<option value="${obat.obatID }">
+											${obat.obatNama }
 										</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Satuan</label>
-								<select name="paket_satuan_id" id="paket_satuan_id" class="form-control boxed">
+								<select name="paketSatuanID" id="paketSatuanID" class="form-control boxed">
 									<c:forEach var="satuan" items="${satuan}" varStatus="loop">
 										<option value="${satuan.key}">${satuan.value}</option>
 									</c:forEach>
@@ -356,15 +356,15 @@
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>
-								<input type="text" name="paket_barang_jumlah" id="paket_barang_jumlah" class="form-control boxed">
+								<input type="text" name="paketBarangJumlah" id="paketBarangJumlah" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paket_barang_harga" id="paket_barang_harga" class="form-control boxed">
+								<input type="text" name="paketBarangHarga" id="paketBarangHarga" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Sub Harga</label>
-								<input type="text" name="paket_barang_subharga" id="paket_barang_subharga" class="form-control boxed">
+								<input type="text" name="paketBarangSubharga" id="paketBarangSubharga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="barang_mode" id="barang_mode">
 							<input type="hidden" name="barang_edit" id="barang_edit">

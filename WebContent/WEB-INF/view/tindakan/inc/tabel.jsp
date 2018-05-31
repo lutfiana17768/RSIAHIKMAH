@@ -27,13 +27,13 @@
 												<tbody>
 													<c:forEach var="tindakan" items="${tindakans}">
 														<tr>
-															<td>${tindakan.tindakan_kode}</td>
-															<td>${tindakan.tindakan_nama}</td>
-															<td>${tindakan.tindakan_keterangan}</td>
-															<td>${tindakan.kelas.kelas_nama}</td>
+															<td>${tindakan.tindakanKode}</td>
+															<td>${tindakan.tindakanNama}</td>
+															<td>${tindakan.tindakanKeterangan}</td>
+															<td>${tindakan.kelas.kelasNama}</td>
 															<td>
-																<a href="/tindakan/update/${tindakan.tindakan_id}" class="btn btn-info rounded-0">Update</a>
-																<a href="/tindakan/delete/${tindakan.tindakan_id}" class="btn btn-warning rounded-0">Delete</a>
+																<a href="/tindakan/update/${tindakan.tindakanID}" class="btn btn-info rounded-0">Update</a>
+																<a href="/tindakan/delete/${tindakan.tindakanID}" class="btn btn-warning rounded-0">Delete</a>
 															</td>
 														</tr>
 													</c:forEach>

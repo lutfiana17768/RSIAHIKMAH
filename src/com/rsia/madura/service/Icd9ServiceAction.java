@@ -55,9 +55,9 @@ public class Icd9ServiceAction implements Icd9Service {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setIcd9_aktif("Y");
-		data.setIcd9_created_by("Admin");	
-		data.setIcd9_created_date(currentTime);
+		data.setIcd9Aktif("Y");
+		data.setIcd9CreatedBy("Admin");	
+		data.setIcd9CreatedDate(currentTime);
 		icd9DAO.icd9Store(data);
 	}
 
@@ -67,9 +67,9 @@ public class Icd9ServiceAction implements Icd9Service {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setIcd9_aktif("Y");
-		data.setIcd9_updated_by("Admin");
-		data.setIcd9_updated_date(currentTime);
+		data.setIcd9Aktif("Y");
+		data.setIcd9UpdatedBy("Admin");
+		data.setIcd9UpdatedDate(currentTime);
 		icd9DAO.icd9Update(data);
 	}
 
@@ -79,7 +79,7 @@ public class Icd9ServiceAction implements Icd9Service {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setIcd9_aktif("T");
+		data.setIcd9Aktif("T");
 		icd9DAO.icd9Delete(data);
 	}
 }

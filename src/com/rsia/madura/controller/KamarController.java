@@ -66,9 +66,9 @@ public class KamarController {
 	public String Store(@ModelAttribute("kamarModel") MKamar kamarModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		kamarModel.setKamar_aktif("Y");
-		kamarModel.setKamar_created_by("Admin");
-		kamarModel.setKamar_created_date(currentTime);
+		kamarModel.setKamarAktif("Y");
+		kamarModel.setKamarCreatedBy("Admin");
+		kamarModel.setKamarCreatedDate(currentTime);
 
 		kamarService.store(kamarModel);
 
@@ -82,8 +82,8 @@ public class KamarController {
 
 		MKamar kamarModel = kamarService.getKamar(id);
 
-		kamarModel.setKamar_aktif("T");
-		kamarModel.setKamar_deleted_date(currentTime);
+		kamarModel.setKamarAktif("T");
+		kamarModel.setKamarDeletedDate(currentTime);
 
 		kamarService.delete(kamarModel);
 
@@ -115,9 +115,9 @@ public class KamarController {
 	public String Update(@ModelAttribute("kamarModel") MKamar kamarModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		kamarModel.setKamar_aktif("Y");
-		kamarModel.setKamar_updated_by("Admin");
-		kamarModel.setKamar_updated_date(currentTime);
+		kamarModel.setKamarAktif("Y");
+		kamarModel.setKamarUpdatedBy("Admin");
+		kamarModel.setKamarUpdatedDate(currentTime);
 
 		kamarService.update(kamarModel);
 

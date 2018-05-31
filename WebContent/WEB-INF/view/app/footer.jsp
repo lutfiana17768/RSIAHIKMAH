@@ -13,6 +13,7 @@
 	</div>
 	<script src="<c:url value='${baseURL}resources/js/vendor.js'/>"></script>
 	<script src="<c:url value='${baseURL}resources/bootstrap-datepicker/js/bootstrap-datepicker.min.js'/>"></script>
+	<script src="<c:url value='${baseURL}resources/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js'/>"></script>
 	<script src="<c:url value='${baseURL}resources/js/select2.min.js'/>"></script>
     <script src="<c:url value='${baseURL}resources/js/app.js'/>"></script>
     <jsp:include page="${footerjs}" />

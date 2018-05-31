@@ -20,14 +20,14 @@
 							<div class="col-lg-12">
 								<div class="form-group">
 									<label>Kode</label>
-						            <form:input path="penunjangmedis_kode" placeholder="Masukan Kode" class="form-control boxed" />
+						            <form:input path="penunjangmedisKode" placeholder="Masukan Kode" class="form-control boxed" />
 								</div>
 								<div class="form-group">
 									<label>Jenis</label>
-									<form:select path="penunjangGroup.pmedisgroup_id" class="form-control boxed input-lg">
+									<form:select path="penunjangGroup.pmedisgroupID" class="form-control boxed input-lg">
 										<option value="">--- Pilih Jenis ---</option>
 										<c:forEach var="penunjangGroup" items="${penunjangGroups}">
-											<form:option value="${penunjangGroup.pmedisgroup_id }" label="${penunjangGroup.pmedisgroup_detail }" />
+											<form:option value="${penunjangGroup.pmedisgroupID }" label="${penunjangGroup.pmedisgroupDetail }" />
 										</c:forEach>
 									</form:select>
 								</div>
@@ -36,19 +36,19 @@
 									<select name="pkategori[]" multiple class="form-control boxed select2-multiple">
 										<option value="">--- Pilih Kategori ---</option>
 										<c:forEach var="jenislayanan" items="${jenisLayanans}">
-											<option value="${jenislayanan.jenislayanan_id }">
-												${jenislayanan.jenislayanan_nama }
+											<option value="${jenislayanan.jenislayananID }">
+												${jenislayanan.jenislayananNama }
 											</option>
 										</c:forEach>
 									</select>
 								</div>
 								<div class="form-group">
 									<label>Pemeriksaan</label>
-						            <form:input path="penunjangmedis_nama" placeholder="Masukan Nama Pemeriksaan" class="form-control boxed" />
+						            <form:input path="penunjangmedisNama" placeholder="Masukan Nama Pemeriksaan" class="form-control boxed" />
 								</div>
 								<div class="form-group">
 									<label>Keterangan</label>
-						            <form:input path="penunjangmedis_keterangan" placeholder="Masukan Nama Keterangan" class="form-control boxed" />
+						            <form:input path="penunjangmedisKeterangan" placeholder="Masukan Nama Keterangan" class="form-control boxed" />
 								</div>
 							</div>
 						</div>
@@ -121,18 +121,18 @@
 						<form id="form-tarif" class="from-horizontal">
 							<div class="form-group">
 								<label>Kelas</label>
-								<select name="penunjang_tarif_kelas" id="penunjang_tarif_kelas" class="form-control boxed">
+								<select name="penunjangTarifKelas" id="penunjangTarifKelas" class="form-control boxed">
 									<option value="">--- Pilih Kelas ---</option>
 									<c:forEach var="kelas" items="${kelases}">
-										<option value="${kelas.kelas_id }">
-											${kelas.kelas_nama }
+										<option value="${kelas.kelasID }">
+											${kelas.kelasNama }
 										</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="penunjang_tarif_harga" id="penunjang_tarif_harga" class="form-control boxed">
+								<input type="text" name="penunjangTarifHarga" id="penunjangTarifHarga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="tarif_mode" id="tarif_mode">
 							<input type="hidden" name="tarif_edit" id="tarif_edit">
@@ -161,7 +161,7 @@
 						<form id="form-pemeriksaan" class="from-horizontal">
 							<div class="form-group">
 								<label>Detail Pemeriksaan</label>
-								<select name="pemeriksaan_id" id="pemeriksaan_detail" class="form-control boxed">
+								<select name="pemeriksaanID" id="pemeriksaanDetail" class="form-control boxed">
 									<option>SGO2</option>
 									<option>KSa</option>
 									<option>Laksas</option>
@@ -169,11 +169,11 @@
 							</div>
 							<div class="form-group">
 								<label>Nilai Normal</label>
-								<input type="text" name="paramperiksa_standar" id="paramperiksa_standar" class="form-control boxed">
+								<input type="text" name="paramperiksaStandar" id="paramperiksaStandar" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Satuan</label>
-								<input type="text" name="paramperiksa_satuan" id="paramperiksa_satuan" class="form-control boxed">
+								<input type="text" name="paramperiksaSatuan" id="paramperiksaSatuan" class="form-control boxed">
 							</div>
 							<input type="hidden" name="pemeriksaan_mode" id="pemeriksaan_mode">
 							<input type="hidden" name="pemeriksaan_edit" id="pemeriksaan_edit">

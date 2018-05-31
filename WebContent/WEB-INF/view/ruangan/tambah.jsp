@@ -14,27 +14,27 @@
 
 						<div class="form-group">
 							<label>Kode</label>
-							<form:input path="ruang_kode" placeholder="Masukan Kode" class="form-control boxed" />
+							<form:input path="ruangKode" placeholder="Masukan Kode" class="form-control boxed" />
 						</div>
 
 						<div class="form-group">
 							<label>Nama</label>
-							<form:input path="ruang_nama" placeholder="Masukan Nama" class="form-control boxed" />
+							<form:input path="ruangNama" placeholder="Masukan Nama" class="form-control boxed" />
 						</div>
 
 						<div class="form-group">
 							<label>Keterangan</label>
-							<form:input path="ruang_keterangan" placeholder="Masukan Keterangan" class="form-control boxed" />
+							<form:input path="ruangKeterangan" placeholder="Masukan Keterangan" class="form-control boxed" />
 						</div>
 
 						<div class="form-group">
 							<label>Kepala</label>
-							<form:input path="ruang_kepala" placeholder="Masukan Kepala" class="form-control boxed" />
+							<form:input path="ruangKepala" placeholder="Masukan Kepala" class="form-control boxed" />
 						</div>
 						<div class="form-group">
-							<form:select path="kelas.kelas_id" class="form-control boxed">
+							<form:select path="kelas.kelasID" class="form-control boxed">
 								<option value="">--- Pilih Kelas ---</option>
-								<form:options items="${kelases}" itemValue="kelas_id" itemLabel="kelas_nama" />
+								<form:options items="${kelases}" itemValue="kelasID" itemLabel="kelasNama" />
 							</form:select>
 						</div>
 						<div class="form-group">

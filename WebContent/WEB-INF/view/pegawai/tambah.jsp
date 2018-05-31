@@ -32,10 +32,10 @@
 				                    </form:select>
 								</div>
 								
-								<div class="form-group date" data-provide="datepicker">
+								<div class="form-group">
 									<label  for="form_control_1">Tanggal Lahir</label>
 									<div class="input-group">
-				                		<form:input path="pegawaiTglLahir" placeholder="Masukan Tanggal Lahir" class="form-control boxed" />
+				                		<form:input path="pegawaiTglLahir" placeholder="Masukan Tanggal Lahir" class="form-control boxed datepicker" />
 					                	<span class="input-group-addon"></span>
 									</div>
 								</div>

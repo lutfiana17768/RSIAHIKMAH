@@ -33,64 +33,64 @@ public class MPenunjang {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="penunjangmedis_id")
-	private Integer penunjangmedis_id;
+	private Integer penunjangmedisID;
 	
 	@Column(name="penunjangmedis_kode")
-	private String penunjangmedis_kode;
+	private String penunjangmedisKode;
 	
 	@Column(name="penunjangmedis_nama")
-	private String penunjangmedis_nama;
+	private String penunjangmedisNama;
 	
 	@Column(name="penunjangmedis_keterangan")
-	private String penunjangmedis_keterangan;
+	private String penunjangmedisKeterangan;
 	
 	@Column(name="penunjangmedis_aktif")
-	private String penunjangmedis_aktif;
+	private String penunjangmedisAktif;
 
 	@Column(name="penunjangmedis_template")
-	private String penunjangmedis_template;
+	private String penunjangmedisTemplate;
 
 	@Column(name="penunjangmedis_urut")
-	private String penunjangmedis_urut;
+	private String penunjangmedisUrut;
 	
 	@Column(name="penunjangmedis_group")
-	private String penunjangmedis_group;
+	private String penunjangmedisGroup;
 	
 	@Column(name="penunjangmedis_parent_id")
-	private Integer penunjangmedis_parent_id;
+	private Integer penunjangmedisParentID;
 	
 	@Column(name="penunjangmedis_parent_kode")
-	private Integer penunjangmedis_parent_kode;
+	private Integer penunjangmedisParentKode;
 	
 	@Column(name="penunjangmedis_template_pr")
-	private String penunjangmedis_template_pr;
+	private String penunjangmedisTemplatePr;
 	
 	@Column(name="penunjangmedis_label")
-	private String penunjangmedis_label;
+	private String penunjangmedisLabel;
 	
 	@Column(name="penunjangmedis_kegiatan")
-	private Integer penunjangmedis_kegiatan;
+	private Integer penunjangmedisKegiatan;
 	
 	@Column(name="penunjangmedis_created_by")
-	private String penunjangmedis_created_by;
+	private String penunjangmedisCreatedBy;
 	
 	@Column(name="penunjangmedis_created_date")
-	private Timestamp penunjangmedis_created_date;
+	private Timestamp penunjangmedisCreatedDate;
 	
 	@Column(name="penunjangmedis_updated_by")
-	private String penunjangmedis_updated_by;
+	private String penunjangmedisUpdatedBy;
 	
 	@Column(name="penunjangmedis_updated_date")
-	private Timestamp penunjangmedis_updated_date;
+	private Timestamp penunjangmedisUpdatedDate;
 	
 	@Column(name="penunjangmedis_revised")
-	private int penunjangmedis_revised;
+	private int penunjangmedisRevised;
 	
 	@Column(name="penunjangmedis_deleted_by")
-	private String penunjangmedis_deleted_by;
+	private String penunjangmedisDeletedBy;
 	
 	@Column(name="penunjangmedis_deleted_date")
-	private Timestamp penunjangmedis_deleted_date;
+	private Timestamp penunjangmedisDeletedDate;
 
 	@ManyToOne
 	private MPenunjangGroup penunjangGroup;
@@ -109,162 +109,162 @@ public class MPenunjang {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-        joinColumns = { @JoinColumn(name = "penunjangmedis_id") }, 
-        inverseJoinColumns = { @JoinColumn(name = "jenislayanan_id") }
+        joinColumns = { @JoinColumn(name = "penunjangmedisID") }, 
+        inverseJoinColumns = { @JoinColumn(name = "jenislayananID") }
     )
     // Set<MJenisLayanan> jenislayanans = new HashSet<MJenisLayanan>();
     List<MJenisLayanan> jenislayanans;
 
-	public Integer getPenunjangmedis_id() {
-		return penunjangmedis_id;
+	public Integer getPenunjangmedisID() {
+		return penunjangmedisID;
 	}
 
-	public void setPenunjangmedis_id(Integer penunjangmedis_id) {
-		this.penunjangmedis_id = penunjangmedis_id;
+	public void setPenunjangmedisID(Integer penunjangmedisID) {
+		this.penunjangmedisID = penunjangmedisID;
 	}
 
-	public String getPenunjangmedis_nama() {
-		return penunjangmedis_nama;
+	public String getPenunjangmedisNama() {
+		return penunjangmedisNama;
 	}
 
-	public void setPenunjangmedis_nama(String penunjangmedis_nama) {
-		this.penunjangmedis_nama = penunjangmedis_nama;
+	public void setPenunjangmedisNama(String penunjangmedisNama) {
+		this.penunjangmedisNama = penunjangmedisNama;
 	}
 
-	public String getPenunjangmedis_keterangan() {
-		return penunjangmedis_keterangan;
+	public String getPenunjangmedisKeterangan() {
+		return penunjangmedisKeterangan;
 	}
 
-	public void setPenunjangmedis_keterangan(String penunjangmedis_keterangan) {
-		this.penunjangmedis_keterangan = penunjangmedis_keterangan;
+	public void setPenunjangmedisKeterangan(String penunjangmedisKeterangan) {
+		this.penunjangmedisKeterangan = penunjangmedisKeterangan;
 	}
 
-	public String getPenunjangmedis_aktif() {
-		return penunjangmedis_aktif;
+	public String getPenunjangmedisAktif() {
+		return penunjangmedisAktif;
 	}
 
-	public void setPenunjangmedis_aktif(String penunjangmedis_aktif) {
-		this.penunjangmedis_aktif = penunjangmedis_aktif;
+	public void setPenunjangmedisAktif(String penunjangmedisAktif) {
+		this.penunjangmedisAktif = penunjangmedisAktif;
 	}
 
-	public String getPenunjangmedis_template() {
-		return penunjangmedis_template;
+	public String getPenunjangmedisTemplate() {
+		return penunjangmedisTemplate;
 	}
 
-	public void setPenunjangmedis_template(String penunjangmedis_template) {
-		this.penunjangmedis_template = penunjangmedis_template;
+	public void setPenunjangmedisTemplate(String penunjangmedisTemplate) {
+		this.penunjangmedisTemplate = penunjangmedisTemplate;
 	}
 
-	public String getPenunjangmedis_urut() {
-		return penunjangmedis_urut;
+	public String getPenunjangmedisUrut() {
+		return penunjangmedisUrut;
 	}
 
-	public void setPenunjangmedis_urut(String penunjangmedis_urut) {
-		this.penunjangmedis_urut = penunjangmedis_urut;
+	public void setPenunjangmedisUrut(String penunjangmedisUrut) {
+		this.penunjangmedisUrut = penunjangmedisUrut;
 	}
 
-	public String getPenunjangmedis_group() {
-		return penunjangmedis_group;
+	public String getPenunjangmedisGroup() {
+		return penunjangmedisGroup;
 	}
 
-	public void setPenunjangmedis_group(String penunjangmedis_group) {
-		this.penunjangmedis_group = penunjangmedis_group;
+	public void setPenunjangmedisGroup(String penunjangmedisGroup) {
+		this.penunjangmedisGroup = penunjangmedisGroup;
 	}
 
-	public Integer getPenunjangmedis_parent_id() {
-		return penunjangmedis_parent_id;
+	public Integer getPenunjangmedisParentID() {
+		return penunjangmedisParentID;
 	}
 
-	public void setPenunjangmedis_parent_id(Integer penunjangmedis_parent_id) {
-		this.penunjangmedis_parent_id = penunjangmedis_parent_id;
+	public void setPenunjangmedisParentID(Integer penunjangmedisParentID) {
+		this.penunjangmedisParentID = penunjangmedisParentID;
 	}
 
-	public String getPenunjangmedis_kode() {
-		return penunjangmedis_kode;
+	public String getPenunjangmedisKode() {
+		return penunjangmedisKode;
 	}
 
-	public void setPenunjangmedis_kode(String penunjangmedis_kode) {
-		this.penunjangmedis_kode = penunjangmedis_kode;
+	public void setPenunjangmedisKode(String penunjangmedisKode) {
+		this.penunjangmedisKode = penunjangmedisKode;
 	}
 
-	public String getPenunjangmedis_template_pr() {
-		return penunjangmedis_template_pr;
+	public String getPenunjangmedisTemplatePr() {
+		return penunjangmedisTemplatePr;
 	}
 
-	public void setPenunjangmedis_template_pr(String penunjangmedis_template_pr) {
-		this.penunjangmedis_template_pr = penunjangmedis_template_pr;
+	public void setPenunjangmedisTemplatePr(String penunjangmedisTemplatePr) {
+		this.penunjangmedisTemplatePr = penunjangmedisTemplatePr;
 	}
 
-	public String getPenunjangmedis_label() {
-		return penunjangmedis_label;
+	public String getPenunjangmedisLabel() {
+		return penunjangmedisLabel;
 	}
 
-	public void setPenunjangmedis_label(String penunjangmedis_label) {
-		this.penunjangmedis_label = penunjangmedis_label;
+	public void setPenunjangmedisLabel(String penunjangmedisLabel) {
+		this.penunjangmedisLabel = penunjangmedisLabel;
 	}
 
-	public Integer getPenunjangmedis_kegiatan() {
-		return penunjangmedis_kegiatan;
+	public Integer getPenunjangmedisKegiatan() {
+		return penunjangmedisKegiatan;
 	}
 
-	public void setPenunjangmedis_kegiatan(Integer penunjangmedis_kegiatan) {
-		this.penunjangmedis_kegiatan = penunjangmedis_kegiatan;
+	public void setPenunjangmedisKegiatan(Integer penunjangmedisKegiatan) {
+		this.penunjangmedisKegiatan = penunjangmedisKegiatan;
 	}
 
-	public String getPenunjangmedis_created_by() {
-		return penunjangmedis_created_by;
+	public String getPenunjangmedisCreatedBy() {
+		return penunjangmedisCreatedBy;
 	}
 
-	public void setPenunjangmedis_created_by(String penunjangmedis_created_by) {
-		this.penunjangmedis_created_by = penunjangmedis_created_by;
+	public void setPenunjangmedisCreatedBy(String penunjangmedisCreatedBy) {
+		this.penunjangmedisCreatedBy = penunjangmedisCreatedBy;
 	}
 
-	public Timestamp getPenunjangmedis_created_date() {
-		return penunjangmedis_created_date;
+	public Timestamp getPenunjangmedisCreatedDate() {
+		return penunjangmedisCreatedDate;
 	}
 
-	public void setPenunjangmedis_created_date(Timestamp penunjangmedis_created_date) {
-		this.penunjangmedis_created_date = penunjangmedis_created_date;
+	public void setPenunjangmedisCreatedDate(Timestamp penunjangmedisCreatedDate) {
+		this.penunjangmedisCreatedDate = penunjangmedisCreatedDate;
 	}
 
-	public String getPenunjangmedis_updated_by() {
-		return penunjangmedis_updated_by;
+	public String getPenunjangmedisUpdatedBy() {
+		return penunjangmedisUpdatedBy;
 	}
 
-	public void setPenunjangmedis_updated_by(String penunjangmedis_updated_by) {
-		this.penunjangmedis_updated_by = penunjangmedis_updated_by;
+	public void setPenunjangmedisUpdatedBy(String penunjangmedisUpdatedBy) {
+		this.penunjangmedisUpdatedBy = penunjangmedisUpdatedBy;
 	}
 
-	public Timestamp getPenunjangmedis_updated_date() {
-		return penunjangmedis_updated_date;
+	public Timestamp getPenunjangmedisUpdatedDate() {
+		return penunjangmedisUpdatedDate;
 	}
 
-	public void setPenunjangmedis_updated_date(Timestamp penunjangmedis_updated_date) {
-		this.penunjangmedis_updated_date = penunjangmedis_updated_date;
+	public void setPenunjangmedisUpdatedDate(Timestamp penunjangmedisUpdatedDate) {
+		this.penunjangmedisUpdatedDate = penunjangmedisUpdatedDate;
 	}
 
-	public int getPenunjangmedis_revised() {
-		return penunjangmedis_revised;
+	public int getPenunjangmedisRevised() {
+		return penunjangmedisRevised;
 	}
 
-	public void setPenunjangmedis_revised(int penunjangmedis_revised) {
-		this.penunjangmedis_revised = penunjangmedis_revised;
+	public void setPenunjangmedisRevised(int penunjangmedisRevised) {
+		this.penunjangmedisRevised = penunjangmedisRevised;
 	}
 
-	public Timestamp getPenunjangmedis_deleted_date() {
-		return penunjangmedis_deleted_date;
+	public Timestamp getPenunjangmedisDeletedDate() {
+		return penunjangmedisDeletedDate;
 	}
 
-	public void setPenunjangmedis_deleted_date(Timestamp penunjangmedis_deleted_date) {
-		this.penunjangmedis_deleted_date = penunjangmedis_deleted_date;
+	public void setPenunjangmedisDeletedDate(Timestamp penunjangmedisDeletedDate) {
+		this.penunjangmedisDeletedDate = penunjangmedisDeletedDate;
 	}
 
-	public String getPenunjangmedis_deleted_by() {
-		return penunjangmedis_deleted_by;
+	public String getPenunjangmedisDeletedBy() {
+		return penunjangmedisDeletedBy;
 	}
 
-	public void setPenunjangmedis_deleted_by(String penunjangmedis_deleted_by) {
-		this.penunjangmedis_deleted_by = penunjangmedis_deleted_by;
+	public void setPenunjangmedisDeletedBy(String penunjangmedisDeletedBy) {
+		this.penunjangmedisDeletedBy = penunjangmedisDeletedBy;
 	}
 
 	public MPenunjangGroup getPenunjangGroup() {
@@ -309,8 +309,8 @@ public class MPenunjang {
 
 	@Override
 	public String toString() {
-		return "MPenunjang [penunjangmedis_id=" + penunjangmedis_id + ", penunjangmedis_kode=" + penunjangmedis_kode + ", penunjangmedis_nama="
-				+ penunjangmedis_nama + ", penunjangmedis_created_by=" + penunjangmedis_created_by + ", jenislayanans=" + jenislayanans
+		return "MPenunjang [penunjangmedisID=" + penunjangmedisID + ", penunjangmedisKode=" + penunjangmedisKode + ", penunjangmedisNama="
+				+ penunjangmedisNama + ", penunjangmedisCreatedBy=" + penunjangmedisCreatedBy + ", jenislayanans=" + jenislayanans
 				+ ", penunjangkelas=" + penunjangkelas + "]";
 	}
 

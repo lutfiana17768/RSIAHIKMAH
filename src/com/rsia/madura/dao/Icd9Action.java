@@ -27,8 +27,8 @@ public class Icd9Action implements Icd9DAO {
 	public List<MIcd9> getIcd9s() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MIcd9> query = current.createQuery("FROM MIcd9 i WHERE i.icd9_aktif = :icd9_aktif", MIcd9.class);
-		query.setParameter("icd9_aktif", "Y");
+		Query<MIcd9> query = current.createQuery("FROM MIcd9 i WHERE i.icd9Aktif = :icd9Aktif", MIcd9.class);
+		query.setParameter("icd9Aktif", "Y");
 		List<MIcd9> result = query.getResultList();
 		return result;
 	}
@@ -44,8 +44,8 @@ public class Icd9Action implements Icd9DAO {
 
 	public List<MIcd9> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MIcd9> query = current.createQuery("FROM MIcd9 k WHERE k.icd9_aktif = :icd9_aktif", MIcd9.class).setMaxResults(limit);
-		query.setParameter("icd9_aktif", "Y");
+		Query<MIcd9> query = current.createQuery("FROM MIcd9 k WHERE k.icd9Aktif = :icd9Aktif", MIcd9.class).setMaxResults(limit);
+		query.setParameter("icd9Aktif", "Y");
 		List<MIcd9> result = query.getResultList();
 
 		return result;

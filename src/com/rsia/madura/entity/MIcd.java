@@ -17,207 +17,207 @@ import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 
-// disamakan aja dengan file dump m_icd
+// disamakan aja dengan file dump mIcd
 @Entity
 @Table(name="m_icd")
 public class MIcd {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "icd_id")
-	private int icd_id;
+	private int icdID;
 
 	@Column(name = "icd_parent_id")
-	private Integer icd_parent_id;
+	private Integer icdParentID;
 
 	@Column(name = "icd_parent_kode")
-	private String icd_parent_kode;
+	private String icdParentKode;
 
 	@Column(name = "icd_nama")
-	private String icd_nama;
+	private String icdNama;
 
 	@Column(name = "icd_keterangan")
-	private String icd_keterangan;
+	private String icdKeterangan;
 
 	@Column(name = "icd_aktif")
-	private String icd_aktif;
+	private String icdAktif;
 
 	@Column(name = "icd_created_by")
-	private String icd_created_by;
+	private String icdCreatedBy;
 
 	@Column(name = "icd_created_date")
-	private Timestamp icd_created_date;
+	private Timestamp icdCreatedDate;
 
 	@Column(name = "icd_updated_by")
-	private String icd_updated_by;
+	private String icdUpdatedBy;
 
 	@Column(name = "icd_updated_date")
-	private Timestamp icd_updated_date;
+	private Timestamp icdUpdatedDate;
 
 	@Column(name = "icd_revised")
-	private Integer icd_revised;
+	private Integer icdRevised;
 
 	@Column(name = "m_unit_id")
-	private Integer m_unit_id;
+	private Integer mUnitID;
 
 	@Column(name = "icd_kode")
-	private String icd_kode;
+	private String icdKode;
 
 	@Column(name = "icd_alias")
-	private String icd_alias;
+	private String icdAlias;
 
 	@Column(name = "icd_dtd_kode")
-	private String icd_dtd_kode;
+	private String icdDtdKode;
 
 	@Column(name = "icd_dtd_nama")
-	private String icd_dtd_nama;
+	private String icdDtdNama;
 
 	@Column(name = "icd_unit_id")
-	private String icd_unit_id;
+	private String icdUnitID;
 
 	@Column(name = "icd_dtd_id")
-	private Integer icd_dtd_id;
+	private Integer icdDtdID;
 
-	public int getIcd_id() {
-		return icd_id;
+	public int getIcdID() {
+		return icdID;
 	}
 
-	public void setIcd_id(int icd_id) {
-		this.icd_id = icd_id;
+	public void setIcdID(int icdID) {
+		this.icdID = icdID;
 	}
 
-	public Integer getIcd_parent_id() {
-		return icd_parent_id;
+	public Integer getIcdParentID() {
+		return icdParentID;
 	}
 
-	public void setIcd_parent_id(Integer icd_parent_id) {
-		this.icd_parent_id = icd_parent_id;
+	public void setIcdParentID(Integer icdParentID) {
+		this.icdParentID = icdParentID;
 	}
 
-	public String getIcd_parent_kode() {
-		return icd_parent_kode;
+	public String getIcdParentKode() {
+		return icdParentKode;
 	}
 
-	public void setIcd_parent_kode(String icd_parent_kode) {
-		this.icd_parent_kode = icd_parent_kode;
+	public void setIcdParentKode(String icdParentKode) {
+		this.icdParentKode = icdParentKode;
 	}
 
-	public String getIcd_nama() {
-		return icd_nama;
+	public String getIcdNama() {
+		return icdNama;
 	}
 
-	public void setIcd_nama(String icd_nama) {
-		this.icd_nama = icd_nama;
+	public void setIcdNama(String icdNama) {
+		this.icdNama = icdNama;
 	}
 
-	public String getIcd_keterangan() {
-		return icd_keterangan;
+	public String getIcdKeterangan() {
+		return icdKeterangan;
 	}
 
-	public void setIcd_keterangan(String icd_keterangan) {
-		this.icd_keterangan = icd_keterangan;
+	public void setIcdKeterangan(String icdKeterangan) {
+		this.icdKeterangan = icdKeterangan;
 	}
 
-	public String getIcd_aktif() {
-		return icd_aktif;
+	public String getIcdAktif() {
+		return icdAktif;
 	}
 
-	public void setIcd_aktif(String icd_aktif) {
-		this.icd_aktif = icd_aktif;
+	public void setIcdAktif(String icdAktif) {
+		this.icdAktif = icdAktif;
 	}
 
-	public String getIcd_created_by() {
-		return icd_created_by;
+	public String getIcdCreatedBy() {
+		return icdCreatedBy;
 	}
 
-	public void setIcd_created_by(String icd_created_by) {
-		this.icd_created_by = icd_created_by;
+	public void setIcdCreatedBy(String icdCreatedBy) {
+		this.icdCreatedBy = icdCreatedBy;
 	}
 
-	public Timestamp getIcd_created_date() {
-		return icd_created_date;
+	public Timestamp getIcdCreatedDate() {
+		return icdCreatedDate;
 	}
 
-	public void setIcd_created_date(Timestamp icd_created_date) {
-		this.icd_created_date = icd_created_date;
+	public void setIcdCreatedDate(Timestamp icdCreatedDate) {
+		this.icdCreatedDate = icdCreatedDate;
 	}
 
-	public String getIcd_updated_by() {
-		return icd_updated_by;
+	public String getIcdUpdatedBy() {
+		return icdUpdatedBy;
 	}
 
-	public void setIcd_updated_by(String icd_updated_by) {
-		this.icd_updated_by = icd_updated_by;
+	public void setIcdUpdatedBy(String icdUpdatedBy) {
+		this.icdUpdatedBy = icdUpdatedBy;
 	}
 
-	public Timestamp getIcd_updated_date() {
-		return icd_updated_date;
+	public Timestamp getIcdUpdatedDate() {
+		return icdUpdatedDate;
 	}
 
-	public void setIcd_updated_date(Timestamp icd_updated_date) {
-		this.icd_updated_date = icd_updated_date;
+	public void setIcdUpdatedDate(Timestamp icdUpdatedDate) {
+		this.icdUpdatedDate = icdUpdatedDate;
 	}
 
-	public Integer getIcd_revised() {
-		return icd_revised;
+	public Integer getIcdRevised() {
+		return icdRevised;
 	}
 
-	public void setIcd_revised(Integer icd_revised) {
-		this.icd_revised = icd_revised;
+	public void setIcdRevised(Integer icdRevised) {
+		this.icdRevised = icdRevised;
 	}
 
-	public Integer getM_unit_id() {
-		return m_unit_id;
+	public Integer getMUnitID() {
+		return mUnitID;
 	}
 
-	public void setI_unit_id(Integer m_unit_id) {
-		this.m_unit_id = m_unit_id;
+	public void setIUnitID(Integer mUnitID) {
+		this.mUnitID = mUnitID;
 	}
 
-	public String getIcd_kode() {
-		return icd_kode;
+	public String getIcdKode() {
+		return icdKode;
 	}
 
-	public void setIcd_kode(String icd_kode) {
-		this.icd_kode = icd_kode;
+	public void setIcdKode(String icdKode) {
+		this.icdKode = icdKode;
 	}
 
-	public String getIcd_alias() {
-		return icd_alias;
+	public String getIcdAlias() {
+		return icdAlias;
 	}
 
-	public void setIcd_alias(String icd_alias) {
-		this.icd_alias = icd_alias;
+	public void setIcdAlias(String icdAlias) {
+		this.icdAlias = icdAlias;
 	}
 
-	public String getIcd_dtd_kode() {
-		return icd_dtd_kode;
+	public String getIcdDtdKode() {
+		return icdDtdKode;
 	}
 
-	public void setIcd_dtd_kode(String icd_dtd_kode) {
-		this.icd_dtd_kode = icd_dtd_kode;
+	public void setIcdDtdKode(String icdDtdKode) {
+		this.icdDtdKode = icdDtdKode;
 	}
 
-	public String getIcd_dtd_nama() {
-		return icd_dtd_nama;
+	public String getIcdDtdNama() {
+		return icdDtdNama;
 	}
 
-	public void setIcd_dtd_nama(String icd_dtd_nama) {
-		this.icd_dtd_nama = icd_dtd_nama;
+	public void setIcdDtdNama(String icdDtdNama) {
+		this.icdDtdNama = icdDtdNama;
 	}
 
-	public String getIcd_unit_id() {
-		return icd_unit_id;
+	public String getIcdUnitID() {
+		return icdUnitID;
 	}
 
-	public void setIcd_unit_id(String icd_unit_id) {
-		this.icd_unit_id = icd_unit_id;
+	public void setIcdUnitID(String icdUnitID) {
+		this.icdUnitID = icdUnitID;
 	}
 
-	public Integer getIcd_dtd_id() {
-		return icd_dtd_id;
+	public Integer getIcdDtdID() {
+		return icdDtdID;
 	}
 
-	public void setIcd_dtd_id(Integer icd_dtd_id) {
-		this.icd_dtd_id = icd_dtd_id;
+	public void setIcdDtdID(Integer icdDtdID) {
+		this.icdDtdID = icdDtdID;
 	}
 }

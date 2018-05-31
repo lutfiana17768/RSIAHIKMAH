@@ -21,222 +21,222 @@ public class MRujukan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="rujukan_id")
-	private int rujukan_id;
+	private int rujukanID;
 	
 	@Column(name="rujukan_jenis")
-	private int rujukan_jenis;
+	private int rujukanJenis;
 	
 	@Column(name="rujukan_nama")
-	private String rujukan_nama;
+	private String rujukanNama;
 	
 	@Column(name="rujukan_alamat")
-	private String rujukan_alamat;
+	private String rujukanAlamat;
 	
 	@Column(name="rujukan_kecamatan")
-	private int rujukan_kecamatan;
+	private int rujukanKecamatan;
 	
 	@Column(name="rujukan_kota")
-	private int rujukan_kota;
+	private int rujukanKota;
 	
 	@Column(name="rujukan_propinsi")
-	private int rujukan_propinsi;
+	private int rujukanPropinsi;
 	
 	@Column(name="rujukan_telp")
-	private String rujukan_telp;
+	private String rujukanTelp;
 	
 	@Column(name="rujukan_email")
-	private String rujukan_email;
+	private String rujukanEmail;
 	
 	@Column(name="rujukan_fax")
-	private String rujukan_fax;
+	private String rujukanFax;
 	
 	@Column(name="rujukan_cp")
-	private String rujukan_cp;
+	private String rujukanCp;
 	
 	@Column(name="rujukan_cp_telp")
-	private String rujukan_cp_telp;
+	private String rujukanCpTelp;
 	
 	@Column(name="rujukan_aktif")
-	private String rujukan_aktif;
+	private String rujukanAktif;
 	
 	@Column(name="rujukan_revised")
-	private int rujukan_revised;
+	private int rujukanRevised;
 	
 	@Column(name="rujukan_created_by")
-	private String rujukan_created_by;
+	private String rujukanCreatedBy;
 	
 	@Column(name="rujukan_updated_by")
-	private String rujukan_updated_by;
+	private String rujukanUpdatedBy;
 	
 	@Column(name="rujukan_created_date")
-	private Timestamp rujukan_created_date;
+	private Timestamp rujukanCreatedDate;
 	
 	@Column(name="rujukan_updated_date")
-	private Timestamp rujukan_updated_date;
+	private Timestamp rujukanUpdatedDate;
 	
 	@Column(name="rujukan_kode")
-	private String rujukan_kode;
+	private String rujukanKode;
 	  
 	@Column(name="rujukan_deleted_date")
-	private Timestamp rujukan_deleted_date;
+	private Timestamp rujukanDeletedDate;
 
-	public int getRujukan_id() {
-		return rujukan_id;
+	public int getRujukanID() {
+		return rujukanID;
 	}
 
-	public void setRujukan_id(int rujukan_id) {
-		this.rujukan_id = rujukan_id;
+	public void setRujukanID(int rujukanID) {
+		this.rujukanID = rujukanID;
 	}
 
-	public int getRujukan_jenis() {
-		return rujukan_jenis;
+	public int getRujukanJenis() {
+		return rujukanJenis;
 	}
 
-	public void setRujukan_jenis(int rujukan_jenis) {
-		this.rujukan_jenis = rujukan_jenis;
+	public void setRujukanJenis(int rujukanJenis) {
+		this.rujukanJenis = rujukanJenis;
 	}
 
-	public String getRujukan_nama() {
-		return rujukan_nama;
+	public String getRujukanNama() {
+		return rujukanNama;
 	}
 
-	public void setRujukan_nama(String rujukan_nama) {
-		this.rujukan_nama = rujukan_nama;
+	public void setRujukanNama(String rujukanNama) {
+		this.rujukanNama = rujukanNama;
 	}
 
-	public String getRujukan_alamat() {
-		return rujukan_alamat;
+	public String getRujukanAlamat() {
+		return rujukanAlamat;
 	}
 
-	public void setRujukan_alamat(String rujukan_alamat) {
-		this.rujukan_alamat = rujukan_alamat;
+	public void setRujukanAlamat(String rujukanAlamat) {
+		this.rujukanAlamat = rujukanAlamat;
 	}
 
-	public int getRujukan_kecamatan() {
-		return rujukan_kecamatan;
+	public int getRujukanKecamatan() {
+		return rujukanKecamatan;
 	}
 
-	public void setRujukan_kecamatan(int rujukan_kecamatan) {
-		this.rujukan_kecamatan = rujukan_kecamatan;
+	public void setRujukanKecamatan(int rujukanKecamatan) {
+		this.rujukanKecamatan = rujukanKecamatan;
 	}
 
-	public int getRujukan_kota() {
-		return rujukan_kota;
+	public int getRujukanKota() {
+		return rujukanKota;
 	}
 
-	public void setRujukan_kota(int rujukan_kota) {
-		this.rujukan_kota = rujukan_kota;
+	public void setRujukanKota(int rujukanKota) {
+		this.rujukanKota = rujukanKota;
 	}
 
-	public int getRujukan_propinsi() {
-		return rujukan_propinsi;
+	public int getRujukanPropinsi() {
+		return rujukanPropinsi;
 	}
 
-	public void setRujukan_propinsi(int rujukan_propinsi) {
-		this.rujukan_propinsi = rujukan_propinsi;
+	public void setRujukanPropinsi(int rujukanPropinsi) {
+		this.rujukanPropinsi = rujukanPropinsi;
 	}
 
-	public String getRujukan_telp() {
-		return rujukan_telp;
+	public String getRujukanTelp() {
+		return rujukanTelp;
 	}
 
-	public void setRujukan_telp(String rujukan_telp) {
-		this.rujukan_telp = rujukan_telp;
+	public void setRujukanTelp(String rujukanTelp) {
+		this.rujukanTelp = rujukanTelp;
 	}
 
-	public String getRujukan_email() {
-		return rujukan_email;
+	public String getRujukanEmail() {
+		return rujukanEmail;
 	}
 
-	public void setRujukan_email(String rujukan_email) {
-		this.rujukan_email = rujukan_email;
+	public void setRujukanEmail(String rujukanEmail) {
+		this.rujukanEmail = rujukanEmail;
 	}
 
-	public String getRujukan_fax() {
-		return rujukan_fax;
+	public String getRujukanFax() {
+		return rujukanFax;
 	}
 
-	public void setRujukan_fax(String rujukan_fax) {
-		this.rujukan_fax = rujukan_fax;
+	public void setRujukanFax(String rujukanFax) {
+		this.rujukanFax = rujukanFax;
 	}
 
-	public String getRujukan_cp() {
-		return rujukan_cp;
+	public String getRujukanCp() {
+		return rujukanCp;
 	}
 
-	public void setRujukan_cp(String rujukan_cp) {
-		this.rujukan_cp = rujukan_cp;
+	public void setRujukanCp(String rujukanCp) {
+		this.rujukanCp = rujukanCp;
 	}
 
-	public String getRujukan_cp_telp() {
-		return rujukan_cp_telp;
+	public String getRujukanCpTelp() {
+		return rujukanCpTelp;
 	}
 
-	public void setRujukan_cp_telp(String rujukan_cp_telp) {
-		this.rujukan_cp_telp = rujukan_cp_telp;
+	public void setRujukanCpTelp(String rujukanCpTelp) {
+		this.rujukanCpTelp = rujukanCpTelp;
 	}
 
-	public String getRujukan_aktif() {
-		return rujukan_aktif;
+	public String getRujukanAktif() {
+		return rujukanAktif;
 	}
 
-	public void setRujukan_aktif(String rujukan_aktif) {
-		this.rujukan_aktif = rujukan_aktif;
+	public void setRujukanAktif(String rujukanAktif) {
+		this.rujukanAktif = rujukanAktif;
 	}
 
-	public int getRujukan_revised() {
-		return rujukan_revised;
+	public int getRujukanRevised() {
+		return rujukanRevised;
 	}
 
-	public void setRujukan_revised(int rujukan_revised) {
-		this.rujukan_revised = rujukan_revised;
+	public void setRujukanRevised(int rujukanRevised) {
+		this.rujukanRevised = rujukanRevised;
 	}
 
-	public String getRujukan_created_by() {
-		return rujukan_created_by;
+	public String getRujukanCreatedBy() {
+		return rujukanCreatedBy;
 	}
 
-	public void setRujukan_created_by(String rujukan_created_by) {
-		this.rujukan_created_by = rujukan_created_by;
+	public void setRujukanCreatedBy(String rujukanCreatedBy) {
+		this.rujukanCreatedBy = rujukanCreatedBy;
 	}
 
-	public String getRujukan_updated_by() {
-		return rujukan_updated_by;
+	public String getRujukanUpdatedBy() {
+		return rujukanUpdatedBy;
 	}
 
-	public void setRujukan_updated_by(String rujukan_updated_by) {
-		this.rujukan_updated_by = rujukan_updated_by;
+	public void setRujukanUpdatedBy(String rujukanUpdatedBy) {
+		this.rujukanUpdatedBy = rujukanUpdatedBy;
 	}
 
-	public Timestamp getRujukan_created_date() {
-		return rujukan_created_date;
+	public Timestamp getRujukanCreatedDate() {
+		return rujukanCreatedDate;
 	}
 
-	public void setRujukan_created_date(Timestamp rujukan_created_date) {
-		this.rujukan_created_date = rujukan_created_date;
+	public void setRujukanCreatedDate(Timestamp rujukanCreatedDate) {
+		this.rujukanCreatedDate = rujukanCreatedDate;
 	}
 
-	public Timestamp getRujukan_updated_date() {
-		return rujukan_updated_date;
+	public Timestamp getRujukanUpdatedDate() {
+		return rujukanUpdatedDate;
 	}
 
-	public void setRujukan_updated_date(Timestamp rujukan_updated_date) {
-		this.rujukan_updated_date = rujukan_updated_date;
+	public void setRujukanUpdatedDate(Timestamp rujukanUpdatedDate) {
+		this.rujukanUpdatedDate = rujukanUpdatedDate;
 	}
 
-	public String getRujukan_kode() {
-		return rujukan_kode;
+	public String getRujukanKode() {
+		return rujukanKode;
 	}
 
-	public void setRujukan_kode(String rujukan_kode) {
-		this.rujukan_kode = rujukan_kode;
+	public void setRujukanKode(String rujukanKode) {
+		this.rujukanKode = rujukanKode;
 	}
 
-	public Timestamp getRujukan_deleted_date() {
-		return rujukan_deleted_date;
+	public Timestamp getRujukanDeletedDate() {
+		return rujukanDeletedDate;
 	}
 
-	public void setRujukan_deleted_date(Timestamp rujukan_deleted_date) {
-		this.rujukan_deleted_date = rujukan_deleted_date;
+	public void setRujukanDeletedDate(Timestamp rujukanDeletedDate) {
+		this.rujukanDeletedDate = rujukanDeletedDate;
 	}	
 }

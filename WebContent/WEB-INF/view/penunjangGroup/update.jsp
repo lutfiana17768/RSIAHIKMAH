@@ -16,12 +16,12 @@
 							<div class="col-lg-12">
 								<div class="form-group">
 									<label for="form_control_1">Nama Penunjang</label>
-									<form:hidden path="pmedisgroup_id" />
-						            <form:input path="pmedisgroup_detail" placeholder="Masukan Nama Penunjang" class="form-control boxed" />
+									<form:hidden path="pmedisgroupID" />
+						            <form:input path="pmedisgroupDetail" placeholder="Masukan Nama Penunjang" class="form-control boxed" />
 								</div>
 								<div class="form-group">
 									<label for="form_control_1">Bentuk Laporan</label>
-									<form:select path="pmedisgroup_master" class="form-control boxed input-lg">
+									<form:select path="pmedisgroupMaster" class="form-control boxed input-lg">
 										<form:option value="" label="--- Pilih Laporan ---"></form:option>
 										<c:forEach var="laporan" items="${laporan}" varStatus="loop">
 											<option value="${laporan.key}">${laporan.value}</option>

@@ -22,170 +22,170 @@ public class MStatus {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "status_id")
-	private int status_id;
+	private int statusID;
 
 	@Column(name = "status_kode")
-	private String status_kode;
+	private String statusKode;
 
 	@Column(name = "status_nama")
-	private String status_nama;
+	private String statusNama;
 
 	@Column(name = "status_aktif")
-	private String status_aktif;
+	private String statusAktif;
 
 	@Column(name = "status_created_by")
-	private String status_created_by;
+	private String statusCreatedBy;
 
 	@Column(name = "status_created_date")
-	private Timestamp status_created_date;
+	private Timestamp statusCreatedDate;
 
 	@Column(name = "status_updated_by")
-	private String status_updated_by;
+	private String statusUpdatedBy;
 
 	@Column(name = "status_updated_date")
-	private Timestamp status_updated_date;
+	private Timestamp statusUpdatedDate;
 
 	@Column(name = "status_revised")
-	private Integer status_revised;
+	private Integer statusRevised;
 
 	@Column(name = "status_urut")
-	private Integer status_urut;
+	private Integer statusUrut;
 
 	@Column(name = "status_filter")
-	private String status_filter;
+	private String statusFilter;
 
 	@Column(name = "reg_company_id")
-	private Integer reg_company_id;
+	private Integer regCompanyID;
 
 	@Column(name = "reg_apps_id")
-	private Integer reg_apps_id;
+	private Integer regAppsID;
 
 	@Column(name = "status_keterangan")
-	private String status_keterangan;
+	private String statusKeterangan;
 
-	public int getStatus_id(int status_id) {
-		return status_id;
+	public int getStatusID(int statusID) {
+		return statusID;
 	}
 
-	public void setStatus_id(int status_id) {
-		this.status_id = status_id;
-	}
-
-
-	public String getStatus_kode(String status_kode) {
-		return status_kode;
-	}
-
-	public void setStatus_kode(String status_kode) {
-		this.status_kode = status_kode;
+	public void setStatusID(int statusID) {
+		this.statusID = statusID;
 	}
 
 
-	public String getStatus_nama(String status_nama) {
-		return status_nama;
+	public String getStatusKode(String statusKode) {
+		return statusKode;
 	}
 
-	public void setStatus_nama(String status_nama) {
-		this.status_nama = status_nama;
-	}
-
-
-	public String getStatus_aktif(String status_aktif) {
-		return status_aktif;
-	}
-
-	public void setStatus_aktif(String status_aktif) {
-		this.status_aktif = status_aktif;
+	public void setStatusKode(String statusKode) {
+		this.statusKode = statusKode;
 	}
 
 
-	public String getStatus_created_by(String status_created_by) {
-		return status_created_by;
+	public String getStatusNama(String statusNama) {
+		return statusNama;
 	}
 
-	public void setStatus_created_by(String status_created_by) {
-		this.status_created_by = status_created_by;
-	}
-
-
-	public Timestamp getStatus_created_date(Timestamp status_created_date) {
-		return status_created_date;
-	}
-
-	public void setStatus_created_date(Timestamp status_created_date) {
-		this.status_created_date = status_created_date;
+	public void setStatusNama(String statusNama) {
+		this.statusNama = statusNama;
 	}
 
 
-	public String getStatus_updated_by(String status_updated_by) {
-		return status_updated_by;
+	public String getStatusAktif(String statusAktif) {
+		return statusAktif;
 	}
 
-	public void setStatus_updated_by(String status_updated_by) {
-		this.status_updated_by = status_updated_by;
-	}
-
-
-	public Timestamp getStatus_updated_date(Timestamp status_updated_date) {
-		return status_updated_date;
-	}
-
-	public void setStatus_updated_date(Timestamp status_updated_date) {
-		this.status_updated_date = status_updated_date;
+	public void setStatusAktif(String statusAktif) {
+		this.statusAktif = statusAktif;
 	}
 
 
-	public Integer getStatus_revised(Integer status_revised) {
-		return status_revised;
+	public String getStatusCreatedBy(String statusCreatedBy) {
+		return statusCreatedBy;
 	}
 
-	public void setStatus_revised(Integer status_revised) {
-		this.status_revised = status_revised;
-	}
-
-
-	public Integer getStatus_urut(Integer status_urut) {
-		return status_urut;
-	}
-
-	public void setStatus_urut(Integer status_urut) {
-		this.status_urut = status_urut;
+	public void setStatusCreatedBy(String statusCreatedBy) {
+		this.statusCreatedBy = statusCreatedBy;
 	}
 
 
-	public String getStatus_filter(String status_filter) {
-		return status_filter;
+	public Timestamp getStatusCreatedDate(Timestamp statusCreatedDate) {
+		return statusCreatedDate;
 	}
 
-	public void setStatus_filter(String status_filter) {
-		this.status_filter = status_filter;
-	}
-
-
-	public Integer getReg_company_id(Integer reg_company_id) {
-		return reg_company_id;
-	}
-
-	public void setReg_company_id(Integer reg_company_id) {
-		this.reg_company_id = reg_company_id;
+	public void setStatusCreatedDate(Timestamp statusCreatedDate) {
+		this.statusCreatedDate = statusCreatedDate;
 	}
 
 
-	public Integer getReg_apps_id(Integer reg_apps_id) {
-		return reg_apps_id;
+	public String getStatusUpdatedBy(String statusUpdatedBy) {
+		return statusUpdatedBy;
 	}
 
-	public void setReg_apps_id(Integer reg_apps_id) {
-		this.reg_apps_id = reg_apps_id;
+	public void setStatusUpdatedBy(String statusUpdatedBy) {
+		this.statusUpdatedBy = statusUpdatedBy;
 	}
 
 
-	public String getStatus_keterangan(String status_keterangan) {
-		return status_keterangan;
+	public Timestamp getStatusUpdatedDate(Timestamp statusUpdatedDate) {
+		return statusUpdatedDate;
 	}
 
-	public void setStatus_keterangan(String status_keterangan) {
-		this.status_keterangan = status_keterangan;
+	public void setStatusUpdatedDate(Timestamp statusUpdatedDate) {
+		this.statusUpdatedDate = statusUpdatedDate;
+	}
+
+
+	public Integer getStatusRevised(Integer statusRevised) {
+		return statusRevised;
+	}
+
+	public void setStatusRevised(Integer statusRevised) {
+		this.statusRevised = statusRevised;
+	}
+
+
+	public Integer getStatusUrut(Integer statusUrut) {
+		return statusUrut;
+	}
+
+	public void setStatusUrut(Integer statusUrut) {
+		this.statusUrut = statusUrut;
+	}
+
+
+	public String getStatusFilter(String statusFilter) {
+		return statusFilter;
+	}
+
+	public void setStatusFilter(String statusFilter) {
+		this.statusFilter = statusFilter;
+	}
+
+
+	public Integer getRegCompanyID(Integer regCompanyID) {
+		return regCompanyID;
+	}
+
+	public void setRegCompanyID(Integer regCompanyID) {
+		this.regCompanyID = regCompanyID;
+	}
+
+
+	public Integer getRegAppsID(Integer regAppsID) {
+		return regAppsID;
+	}
+
+	public void setRegAppsID(Integer regAppsID) {
+		this.regAppsID = regAppsID;
+	}
+
+
+	public String getStatusKeterangan(String statusKeterangan) {
+		return statusKeterangan;
+	}
+
+	public void setStatusKeterangan(String statusKeterangan) {
+		this.statusKeterangan = statusKeterangan;
 	}
 
 }

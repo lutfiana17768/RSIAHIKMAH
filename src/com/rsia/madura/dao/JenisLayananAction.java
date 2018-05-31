@@ -27,8 +27,8 @@ public class JenisLayananAction implements JenisLayananDAO {
 	public List<MJenisLayanan> getJenisLayanans() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MJenisLayanan> query = current.createQuery("FROM MJenisLayanan k WHERE k.jenislayanan_aktif = :jenislayanan_aktif", MJenisLayanan.class);
-		query.setParameter("jenislayanan_aktif", "Y");
+		Query<MJenisLayanan> query = current.createQuery("FROM MJenisLayanan k WHERE k.jenislayananAktif = :jenislayananAktif", MJenisLayanan.class);
+		query.setParameter("jenislayananAktif", "Y");
 		List<MJenisLayanan> result = query.getResultList();
 		return result;
 	}
@@ -44,8 +44,8 @@ public class JenisLayananAction implements JenisLayananDAO {
 
 	public List<MJenisLayanan> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MJenisLayanan> query = current.createQuery("FROM MJenisLayanan k WHERE k.jenislayanan_aktif = :jenislayanan_aktif", MJenisLayanan.class).setMaxResults(limit);
-		query.setParameter("jenislayanan_aktif", "Y");
+		Query<MJenisLayanan> query = current.createQuery("FROM MJenisLayanan k WHERE k.jenislayananAktif = :jenislayananAktif", MJenisLayanan.class).setMaxResults(limit);
+		query.setParameter("jenislayananAktif", "Y");
 		List<MJenisLayanan> result = query.getResultList();
 
 		return result;

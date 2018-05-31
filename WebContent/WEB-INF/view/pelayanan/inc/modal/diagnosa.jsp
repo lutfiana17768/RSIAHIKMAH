@@ -20,8 +20,8 @@
                                     <select name="icd" id="icd" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Diagnosa ---</option>
                                         <c:forEach var="icd" items="${icds}">
-                                            <option value="${icd.icd_id }">
-                                                ${icd.icd_nama }
+                                            <option value="${icd.icdID }">
+                                                ${icd.icdNama }
                                             </option>   
                                         </c:forEach>
                                     </select>
@@ -29,27 +29,27 @@
                             </div>
                             <div class="form-group">
                                 <label>Jenis Diagnosa</label>
-                                <select name="diagnosapasien_jenis" id="diagnosapasien_jenis" class="form-control boxed">
+                                <select name="diagnosapasienJenis" id="diagnosapasienJenis" class="form-control boxed">
                                     <option>UTAMA</option>
                                     <option>SEKUNDER</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Kasus</label>
-                                <select name="diagnosapasien_kasus" id="diagnosapasien_kasus" class="form-control boxed">
+                                <select name="diagnosapasienKasus" id="diagnosapasienKasus" class="form-control boxed">
                                     <option>LAMA</option>
                                     <option>BARU</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <input type="text" name="diagnosapasien_keterangan" id="diagnosapasien_keterangan" class="form-control boxed">
+                                <input type="text" name="diagnosapasienKeterangan" id="diagnosapasienKeterangan" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" name="diagnosapasien_tanggal" id="diagnosapasien_tanggal" class="form-control boxed datepicker">
+                                <input type="text" name="diagnosapasienTanggal" id="diagnosapasienTanggal" class="form-control boxed datepicker">
                             </div>
-                            <input type="hidden" name="diagnosapasien_id" id="diagnosapasien_id">
+                            <input type="hidden" name="diagnosapasienID" id="diagnosapasienID">
                             <input type="hidden" name="diagnosapasien_mode" id="diagnosapasien_mode">
                             <input type="hidden" name="diagnosapasien_edit" id="diagnosapasien_edit">
                         </form>

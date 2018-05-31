@@ -17,21 +17,21 @@
                         <form id="form-pelayanan-tindakan" class="from-horizontal">
                             <div class="form-group">
                                 <label>Tindakan</label>
-                                <select name="tindakan_id" id="tindakan_id" class="form-control boxed">
+                                <select name="tindakanID" id="tindakanID" class="form-control boxed">
                                     <option value="">--- Pilih Tindakan ---</option>
                                     <c:forEach var="tindakan" items="${tindakans}">
-                                        <option value="${tindakan.tindakan_id }">
-                                            ${tindakan.tindakan_nama }
+                                        <option value="${tindakan.tindakanID }">
+                                            ${tindakan.tindakanNama }
                                         </option>
                                     </c:forEach>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Pelaksana</label>
-                                <select name="pegawai_id" id="pegawai_id" class="form-control boxed">
+                                <select name="pegawaiID" id="pegawaiID" class="form-control boxed">
                                     <option value="">--- Pilih Pelaksana ---</option>
                                     <c:forEach var="pegawai" items="${pegawais}">
-                                        <option value="${pegawai.pegawai_id }">
+                                        <option value="${pegawai.pegawaiID }">
                                             ${pegawai.pegawaiNama }
                                         </option>
                                     </c:forEach>
@@ -39,9 +39,9 @@
                             </div>
                             <div class="form-group">
                                 <label>Harga</label>
-                                <input type="text" name="tindakanpasien_harga" id="tindakanpasien_harga" class="form-control boxed">
+                                <input type="text" name="tindakanpasienHarga" id="tindakanpasien_harga" class="form-control boxed">
                             </div>
-                            <input type="hidden" name="tindakan_id" id="tindakan_id">
+                            <input type="hidden" name="tindakanID" id="tindakanID">
                             <input type="hidden" name="tindakan_mode" id="tindakan_mode">
                             <input type="hidden" name="tindakan_edit" id="tindakan_edit">
                         </form>

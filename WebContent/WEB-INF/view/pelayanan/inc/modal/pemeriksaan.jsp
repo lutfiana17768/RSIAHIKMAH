@@ -17,11 +17,11 @@
                             <div class="form-group">
                                 <label>Nama Pemeriksaan</label>
                                 <div class="select2-wrapper">
-                                    <select name="periksapasien_periksa_id" id="periksapasien_periksa_id" class="form-control boxed select2-single">
+                                    <select name="periksapasienPeriksaID" id="periksapasienPeriksaID" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Pemeriksaan ---</option>
                                         <c:forEach var="pr" items="${params}">
-                                            <option value="${pr.paramperiksa_id }">
-                                                ${pr.paramperiksa_nama }
+                                            <option value="${pr.paramperiksaID }">
+                                                ${pr.paramperiksaNama }
                                             </option>   
                                         </c:forEach>
                                     </select>
@@ -29,19 +29,19 @@
                             </div>
                             <div class="form-group">
                                 <label>Standar</label>
-                                <input type="text" name="periksapasien_periksa_standar" id="periksapasien_periksa_standar" class="form-control boxed">
+                                <input type="text" name="periksapasienPeriksaStandar" id="periksapasienPeriksaStandar" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Nilai</label>
-                                <input type="text" name="periksapasien_periksa_nilai" id="periksapasien_periksa_nilai" class="form-control boxed">
+                                <input type="text" name="periksapasienPeriksaNilai" id="periksapasienPeriksaNilai" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Dokter</label>
                                 <div class="select2-wrapper">
-                                    <select name="periksapasien_dokter_id" id="periksapasien_dokter_id" class="form-control boxed select2-single">
+                                    <select name="periksapasienDokterID" id="periksapasienDokterID" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Dokter ---</option>
                                         <c:forEach var="pegawai" items="${pegawais}">
-                                            <option value="${pegawai.pegawai_id }">
+                                            <option value="${pegawai.pegawaiID }">
                                                 ${pegawai.pegawaiNama }
                                             </option>
                                         </c:forEach>
@@ -50,13 +50,13 @@
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <input type="text" name="periksapasien_periksa_keterangan" id="periksapasien_periksa_keterangan" class="form-control boxed">
+                                <input type="text" name="periksapasienPeriksaKeterangan" id="periksapasienPeriksaKeterangan" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" name="periksapasien_tanggal" id="periksapasien_tanggal" class="form-control boxed datepicker">
+                                <input type="text" name="periksapasienTanggal" id="periksapasienTanggal" class="form-control boxed datepicker">
                             </div>
-                            <input type="hidden" name="periksapasien_id" id="periksapasien_id">
+                            <input type="hidden" name="periksapasienID" id="periksapasienID">
                             <input type="hidden" name="periksapasien_mode" id="periksapasien_mode">
                             <input type="hidden" name="periksapasien_edit" id="periksapasien_edit">
                         </form>

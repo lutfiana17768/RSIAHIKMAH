@@ -6,4 +6,14 @@
 			$("#add_Pendaftaran_form").slideToggle('slow');
 		});
 	});
+	$('#kondisi_pasien').on('change', function() {
+		var kondisi_datang = this.value ;
+
+		if (kondisi_datang == 'D') {
+			$('#form-rujukan').hide();
+		} else {
+			$('#form-rujukan').show();
+		}
+	})
+
 </script>

@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 07:50:08
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-24 11:57:04
+* @Last Modified time: 2018-05-30 12:49:49
 */
 package com.rsia.madura.entity;
 
@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="t_riwayat_periksa")
@@ -23,237 +24,251 @@ public class MRiwayatPeriksa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "periksa_id")
-	private int periksa_id;
+	private Integer periksaID;
+
+    @Transient // means "not a DB field"
+    private Integer remove; // boolean flag
 
 	@Column(name = "periksa_pendaftaran_id")
-	private Integer periksa_pendaftaran_id;
+	private Integer periksaPendaftaranID;
 
 	@Column(name = "periksa_tanggal")
-	private Date periksa_tanggal;
+	private Date periksaTanggal;
 
 	@Column(name = "periksa_tb")
-	private Double periksa_tb;
+	private Double periksaTb;
 
 	@Column(name = "periksa_bb")
-	private Double periksa_bb;
+	private Double periksaBb;
 
 	@Column(name = "periksa_jantung")
-	private Integer periksa_jantung;
+	private Integer periksaJantung;
 
 	@Column(name = "periksa_tensi")
-	private String periksa_tensi;
+	private String periksaTensi;
 
 	@Column(name = "periksa_suhu")
-	private Integer periksa_suhu;
+	private Integer periksaSuhu;
 
 	@Column(name = "periksa_nafas")
-	private Integer periksa_nafas;
+	private Integer periksaNafas;
 
 	@Column(name = "periksa_pemeriksa")
-	private Integer periksa_pemeriksa;
+	private Integer periksaPemeriksa;
 
 	@Column(name = "periksa_aktif")
-	private String periksa_aktif;
+	private String periksaAktif;
 
 	@Column(name = "periksa_created_date")
-	private Timestamp periksa_created_date;
+	private Timestamp periksaCreatedDate;
 
 	@Column(name = "periksa_created_by")
-	private String periksa_created_by;
+	private String periksaCreatedBy;
 
 	@Column(name = "periksa_updated_date")
-	private Timestamp periksa_updated_date;
+	private Timestamp periksaUpdatedDate;
 
 	@Column(name = "periksa_updated_by")
-	private String periksa_updated_by;
+	private String periksaUpdatedBy;
 
 	@Column(name = "periksa_revised")
-	private Integer periksa_revised;
+	private Integer periksaRevised;
 
 	@Column(name = "periksa_pasien_id")
-	private Integer periksa_pasien_id;
+	private Integer periksaPasienID;
 
 	@Column(name = "periksa_pasien_norm")
-	private String periksa_pasien_norm;
+	private String periksaPasienNorm;
 
 	@Column(name = "periksa_unit_id")
-	private Integer periksa_unit_id;
+	private Integer periksaUnitID;
 
 	@Column(name = "periksa_keluhan")
-	private String periksa_keluhan;
+	private String periksaKeluhan;
 
 	@Column(name = "periksa_keterangan")
-	private String periksa_keterangan;
+	private String periksaKeterangan;
 
 	@ManyToOne
 	private MPendaftaran pendaftaran;
+
+	@ManyToOne
+	private MPegawai pegawai;
 	
-	public int getPeriksa_id(){
-		return periksa_id;
+	public Integer getPeriksaID(){
+		return periksaID;
 	}
 
-	public void setPeriksa_id(int periksa_id) {
-		this.periksa_id = periksa_id;
+	public void setPeriksaID(Integer periksaID) {
+		this.periksaID = periksaID;
 	}
 
-	public Integer getPeriksa_pendaftaran_id(){
-		return periksa_pendaftaran_id;
+	public Integer getRemove(){
+		return remove;
 	}
 
-	public void setPeriksa_pendaftaran_id(Integer periksa_pendaftaran_id) {
-		this.periksa_pendaftaran_id = periksa_pendaftaran_id;
+	public void setRemove(Integer remove) {
+		this.remove = remove;
 	}
 
-	public Date getPeriksa_tanggal(){
-		return periksa_tanggal;
+	public Integer getPeriksaPendaftaranID(){
+		return periksaPendaftaranID;
 	}
 
-	public void setPeriksa_tanggal(Date periksa_tanggal) {
-		this.periksa_tanggal = periksa_tanggal;
+	public void setPeriksaPendaftaranID(Integer periksaPendaftaranID) {
+		this.periksaPendaftaranID = periksaPendaftaranID;
 	}
 
-	public Double getPeriksa_tb(){
-		return periksa_tb;
+	public Date getPeriksaTanggal(){
+		return periksaTanggal;
 	}
 
-	public void setPeriksa_tb(Double periksa_tb) {
-		this.periksa_tb = periksa_tb;
+	public void setPeriksaTanggal(Date periksaTanggal) {
+		this.periksaTanggal = periksaTanggal;
 	}
 
-	public Double getPeriksa_bb(){
-		return periksa_bb;
+	public Double getPeriksaTb(){
+		return periksaTb;
 	}
 
-	public void setPeriksa_bb(Double periksa_bb) {
-		this.periksa_bb = periksa_bb;
+	public void setPeriksaTb(Double periksaTb) {
+		this.periksaTb = periksaTb;
 	}
 
-	public Integer getPeriksa_jantung(){
-		return periksa_jantung;
+	public Double getPeriksaBb(){
+		return periksaBb;
 	}
 
-	public void setPeriksa_jantung(Integer periksa_jantung) {
-		this.periksa_jantung = periksa_jantung;
+	public void setPeriksaBb(Double periksaBb) {
+		this.periksaBb = periksaBb;
 	}
 
-	public String getPeriksa_tensi(){
-		return periksa_tensi;
+	public Integer getPeriksaJantung(){
+		return periksaJantung;
 	}
 
-	public void setPeriksa_tensi(String periksa_tensi) {
-		this.periksa_tensi = periksa_tensi;
+	public void setPeriksaJantung(Integer periksaJantung) {
+		this.periksaJantung = periksaJantung;
 	}
 
-	public Integer getPeriksa_suhu(){
-		return periksa_suhu;
+	public String getPeriksaTensi(){
+		return periksaTensi;
 	}
 
-	public void setPeriksa_suhu(Integer periksa_suhu) {
-		this.periksa_suhu = periksa_suhu;
+	public void setPeriksaTensi(String periksaTensi) {
+		this.periksaTensi = periksaTensi;
 	}
 
-	public Integer getPeriksa_nafas(){
-		return periksa_nafas;
+	public Integer getPeriksaSuhu(){
+		return periksaSuhu;
 	}
 
-	public void setPeriksa_nafas(Integer periksa_nafas) {
-		this.periksa_nafas = periksa_nafas;
+	public void setPeriksaSuhu(Integer periksaSuhu) {
+		this.periksaSuhu = periksaSuhu;
 	}
 
-	public Integer getPeriksa_pemeriksa(){
-		return periksa_pemeriksa;
+	public Integer getPeriksaNafas(){
+		return periksaNafas;
 	}
 
-	public void setPeriksa_pemeriksa(Integer periksa_pemeriksa) {
-		this.periksa_pemeriksa = periksa_pemeriksa;
+	public void setPeriksaNafas(Integer periksaNafas) {
+		this.periksaNafas = periksaNafas;
 	}
 
-	public String getPeriksa_aktif(){
-		return periksa_aktif;
+	public Integer getPeriksaPemeriksa(){
+		return periksaPemeriksa;
 	}
 
-	public void setPeriksa_aktif(String periksa_aktif) {
-		this.periksa_aktif = periksa_aktif;
+	public void setPeriksaPemeriksa(Integer periksaPemeriksa) {
+		this.periksaPemeriksa = periksaPemeriksa;
 	}
 
-	public Timestamp getPeriksa_created_date(){
-		return periksa_created_date;
+	public String getPeriksaAktif(){
+		return periksaAktif;
 	}
 
-	public void setPeriksa_created_date(Timestamp periksa_created_date) {
-		this.periksa_created_date = periksa_created_date;
+	public void setPeriksaAktif(String periksaAktif) {
+		this.periksaAktif = periksaAktif;
 	}
 
-	public String getPeriksa_created_by(){
-		return periksa_created_by;
+	public Timestamp getPeriksaCreatedDate(){
+		return periksaCreatedDate;
 	}
 
-	public void setPeriksa_created_by(String periksa_created_by) {
-		this.periksa_created_by = periksa_created_by;
+	public void setPeriksaCreatedDate(Timestamp periksaCreatedDate) {
+		this.periksaCreatedDate = periksaCreatedDate;
 	}
 
-	public Timestamp getPeriksa_updated_date(){
-		return periksa_updated_date;
+	public String getPeriksaCreatedBy(){
+		return periksaCreatedBy;
 	}
 
-	public void setPeriksa_updated_date(Timestamp periksa_updated_date) {
-		this.periksa_updated_date = periksa_updated_date;
+	public void setPeriksaCreatedBy(String periksaCreatedBy) {
+		this.periksaCreatedBy = periksaCreatedBy;
 	}
 
-	public String getPeriksa_updated_by(){
-		return periksa_updated_by;
+	public Timestamp getPeriksaUpdatedDate(){
+		return periksaUpdatedDate;
 	}
 
-	public void setPeriksa_updated_by(String periksa_updated_by) {
-		this.periksa_updated_by = periksa_updated_by;
+	public void setPeriksaUpdatedDate(Timestamp periksaUpdatedDate) {
+		this.periksaUpdatedDate = periksaUpdatedDate;
 	}
 
-	public Integer getPeriksa_revised(){
-		return periksa_revised;
+	public String getPeriksaUpdatedBy(){
+		return periksaUpdatedBy;
 	}
 
-	public void setPeriksa_revised(Integer periksa_revised) {
-		this.periksa_revised = periksa_revised;
+	public void setPeriksaUpdatedBy(String periksaUpdatedBy) {
+		this.periksaUpdatedBy = periksaUpdatedBy;
 	}
 
-	public Integer getPeriksa_pasien_id(){
-		return periksa_pasien_id;
+	public Integer getPeriksaRevised(){
+		return periksaRevised;
 	}
 
-	public void setPeriksa_pasien_id(Integer periksa_pasien_id) {
-		this.periksa_pasien_id = periksa_pasien_id;
+	public void setPeriksaRevised(Integer periksaRevised) {
+		this.periksaRevised = periksaRevised;
 	}
 
-	public String getPeriksa_pasien_norm(){
-		return periksa_pasien_norm;
+	public Integer getPeriksaPasienID(){
+		return periksaPasienID;
 	}
 
-	public void setPeriksa_pasien_norm(String periksa_pasien_norm) {
-		this.periksa_pasien_norm = periksa_pasien_norm;
+	public void setPeriksaPasienID(Integer periksaPasienID) {
+		this.periksaPasienID = periksaPasienID;
 	}
 
-	public Integer getPeriksa_unit_id(){
-		return periksa_unit_id;
+	public String getPeriksaPasienNorm(){
+		return periksaPasienNorm;
 	}
 
-	public void setPeriksa_unit_id(Integer periksa_unit_id) {
-		this.periksa_unit_id = periksa_unit_id;
+	public void setPeriksaPasienNorm(String periksaPasienNorm) {
+		this.periksaPasienNorm = periksaPasienNorm;
 	}
 
-	public String getPeriksa_keluhan(){
-		return periksa_keluhan;
+	public Integer getPeriksaUnitID(){
+		return periksaUnitID;
 	}
 
-	public void setPeriksa_keluhan(String periksa_keluhan) {
-		this.periksa_keluhan = periksa_keluhan;
+	public void setPeriksaUnitID(Integer periksaUnitID) {
+		this.periksaUnitID = periksaUnitID;
 	}
 
-	public String getPeriksa_keterangan(){
-		return periksa_keterangan;
+	public String getPeriksaKeluhan(){
+		return periksaKeluhan;
 	}
 
-	public void setPeriksa_keterangan(String periksa_keterangan) {
-		this.periksa_keterangan = periksa_keterangan;
+	public void setPeriksaKeluhan(String periksaKeluhan) {
+		this.periksaKeluhan = periksaKeluhan;
+	}
+
+	public String getPeriksaKeterangan(){
+		return periksaKeterangan;
+	}
+
+	public void setPeriksaKeterangan(String periksaKeterangan) {
+		this.periksaKeterangan = periksaKeterangan;
 	}
 
 	public MPendaftaran getPendaftaran() {
@@ -262,6 +277,20 @@ public class MRiwayatPeriksa {
 
 	public void setPendaftaran(MPendaftaran pendaftaran) {
 		this.pendaftaran = pendaftaran;
+	}
+
+	public MPegawai getPegawai() {
+		return pegawai;
+	}
+
+	public void setPegawai(MPegawai pegawai) {
+		this.pegawai = pegawai;
+	}
+
+
+	@Override
+	public String toString() {
+		return "tRiwayatPeriksa [periksaID=" + periksaID + ", pendaftaran=" + pendaftaran + "]";
 	}
 
 }

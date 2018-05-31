@@ -22,7 +22,7 @@ public class MPenunjangKategori {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="penunjangkategori_id")
-	private int penunjangkategori_id;
+	private int penunjangkategoriID;
 
 	@ManyToOne
 	private MPenunjang penunjang;
@@ -30,12 +30,12 @@ public class MPenunjangKategori {
 	@ManyToOne
 	private MJenisLayanan jenislayanan;
 
-	public int getPenunjangkategori_id() {
-		return penunjangkategori_id;
+	public int getPenunjangkategoriID() {
+		return penunjangkategoriID;
 	}
 
-	public void setPenunjangkategori_id(int penunjangkategori_id) {
-		this.penunjangkategori_id = penunjangkategori_id;
+	public void setPenunjangkategoriID(int penunjangkategoriID) {
+		this.penunjangkategoriID = penunjangkategoriID;
 	}
 
 	public MPenunjang getPenunjang() {

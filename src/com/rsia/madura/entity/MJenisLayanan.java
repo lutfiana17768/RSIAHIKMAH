@@ -31,138 +31,138 @@ public class MJenisLayanan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name= "jenislayanan_id")
-	private int jenislayanan_id;
+	private int jenislayananID;
 	
 	@Column(name= "jenislayanan_nomor")
-	private String jenislayanan_nomor;
+	private String jenislayananNomor;
 	
 	@Column(name= "jenislayanan_nama")
-	private String jenislayanan_nama;
+	private String jenislayananNama;
 	
 	@Column(name= "jenislayanan_kategori")
-	private String jenislayanan_kategori;
+	private String jenislayananKategori;
 	
 	@Column(name= "jenislayanan_aktif")
-	private String jenislayanan_aktif;
+	private String jenislayananAktif;
 	
 	@Column(name= "jenislayanan_created_by")
-	private String jenislayanan_created_by;
+	private String jenislayananCreatedBy;
 	
 	@Column(name= "jenislayanan_created_date")
-	private Timestamp jenislayanan_created_date;
+	private Timestamp jenislayananCreatedDate;
 	
 	@Column(name= "jenislayanan_updated_by")
-	private String jenislayanan_updated_by;
+	private String jenislayananUpdatedBy;
 	
 	@Column(name= "jenislayanan_updated_date")
-	private Timestamp jenislayanan_updated_date;
+	private Timestamp jenislayananUpdatedDate;
 	
 	@Column(name= "jenislayanan_revised")
-	private Integer jenislayanan_revised;
+	private Integer jenislayananRevised;
 	
 	@Column(name= "reg_company_id")
-	private Integer reg_company_id;
+	private Integer regCompanyID;
 	
 	@Column(name= "reg_apps_id")
-	private Integer reg_apps_id;
+	private Integer regAppsID;
 
     @ManyToMany(mappedBy = "jenislayanans")
     private Set<MPenunjang> penunjangs = new HashSet<>();
 
-	public int getJenislayanan_id() {
-		return jenislayanan_id;
+	public int getJenislayananID() {
+		return jenislayananID;
 	}
 
-	public void setJenislayanan_id(int jenislayanan_id) {
-		this.jenislayanan_id = jenislayanan_id;
+	public void setJenislayananID(int jenislayananID) {
+		this.jenislayananID = jenislayananID;
 	}
 
-	public String getJenislayanan_nomor() {
-		return jenislayanan_nomor;
+	public String getJenislayananNomor() {
+		return jenislayananNomor;
 	}
 
-	public void setJenislayanan_nomor(String jenislayanan_nomor) {
-		this.jenislayanan_nomor = jenislayanan_nomor;
+	public void setJenislayananNomor(String jenislayananNomor) {
+		this.jenislayananNomor = jenislayananNomor;
 	}
 
-	public String getJenislayanan_nama() {
-		return jenislayanan_nama;
+	public String getJenislayananNama() {
+		return jenislayananNama;
 	}
 
-	public void setJenislayanan_nama(String jenislayanan_nama) {
-		this.jenislayanan_nama = jenislayanan_nama;
+	public void setJenislayananNama(String jenislayananNama) {
+		this.jenislayananNama = jenislayananNama;
 	}
 
-	public String getJenislayanan_kategori() {
-		return jenislayanan_kategori;
+	public String getJenislayananKategori() {
+		return jenislayananKategori;
 	}
 
-	public void setJenislayanan_kategori(String jenislayanan_kategori) {
-		this.jenislayanan_kategori = jenislayanan_kategori;
+	public void setJenislayananKategori(String jenislayananKategori) {
+		this.jenislayananKategori = jenislayananKategori;
 	}
 
-	public String getJenislayanan_aktif() {
-		return jenislayanan_aktif;
+	public String getJenislayananAktif() {
+		return jenislayananAktif;
 	}
 
-	public void setJenislayanan_aktif(String jenislayanan_aktif) {
-		this.jenislayanan_aktif = jenislayanan_aktif;
+	public void setJenislayananAktif(String jenislayananAktif) {
+		this.jenislayananAktif = jenislayananAktif;
 	}
 
-	public String getJenislayanan_created_by() {
-		return jenislayanan_created_by;
+	public String getJenislayananCreatedBy() {
+		return jenislayananCreatedBy;
 	}
 
-	public void setJenislayanan_created_by(String jenislayanan_created_by) {
-		this.jenislayanan_created_by = jenislayanan_created_by;
+	public void setJenislayananCreatedBy(String jenislayananCreatedBy) {
+		this.jenislayananCreatedBy = jenislayananCreatedBy;
 	}
 
-	public Timestamp getJenislayanan_created_date() {
-		return jenislayanan_created_date;
+	public Timestamp getJenislayananCreatedDate() {
+		return jenislayananCreatedDate;
 	}
 
-	public void setJenislayanan_created_date(Timestamp jenislayanan_created_date) {
-		this.jenislayanan_created_date = jenislayanan_created_date;
+	public void setJenislayananCreatedDate(Timestamp jenislayananCreatedDate) {
+		this.jenislayananCreatedDate = jenislayananCreatedDate;
 	}
 
-	public String getJenislayanan_updated_by() {
-		return jenislayanan_updated_by;
+	public String getJenislayananUpdatedBy() {
+		return jenislayananUpdatedBy;
 	}
 
-	public void setJenislayanan_updated_by(String jenislayanan_updated_by) {
-		this.jenislayanan_updated_by = jenislayanan_updated_by;
+	public void setJenislayananUpdatedBy(String jenislayananUpdatedBy) {
+		this.jenislayananUpdatedBy = jenislayananUpdatedBy;
 	}
 
-	public Timestamp getJenislayanan_updated_date() {
-		return jenislayanan_updated_date;
+	public Timestamp getJenislayananUpdatedDate() {
+		return jenislayananUpdatedDate;
 	}
 
-	public void setJenislayanan_updated_date(Timestamp jenislayanan_updated_date) {
-		this.jenislayanan_updated_date = jenislayanan_updated_date;
+	public void setJenislayananUpdatedDate(Timestamp jenislayananUpdatedDate) {
+		this.jenislayananUpdatedDate = jenislayananUpdatedDate;
 	}
 
-	public Integer getJenislayanan_revised() {
-		return jenislayanan_revised;
+	public Integer getJenislayananRevised() {
+		return jenislayananRevised;
 	}
 
-	public void setJenislayanan_revised(Integer jenislayanan_revised) {
-		this.jenislayanan_revised = jenislayanan_revised;
+	public void setJenislayananRevised(Integer jenislayananRevised) {
+		this.jenislayananRevised = jenislayananRevised;
 	}
 
-	public Integer getReg_company_id() {
-		return reg_company_id;
+	public Integer getRegCompanyID() {
+		return regCompanyID;
 	}
 
-	public void setReg_company_id(Integer reg_company_id) {
-		this.reg_company_id = reg_company_id;
+	public void setRegCompanyID(Integer regCompanyID) {
+		this.regCompanyID = regCompanyID;
 	}
 
-	public Integer geRJeg_apps_id() {
-		return reg_apps_id;
+	public Integer geRJegAppsID() {
+		return regAppsID;
 	}
 
-	public void setReg_apps_id(Integer reg_apps_id) {
-		this.reg_apps_id = reg_apps_id;
+	public void setRegAppsID(Integer regAppsID) {
+		this.regAppsID = regAppsID;
 	}
 
 	public Set<MPenunjang> getPenunjangs() {

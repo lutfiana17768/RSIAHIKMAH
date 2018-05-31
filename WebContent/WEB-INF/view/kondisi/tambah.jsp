@@ -14,17 +14,17 @@
 					<form:form modelAttribute="kondisiModel" method="POST" action="/kondisi/store">
                         <div class="form-group">
                             <label>Kode</label>
-                            <form:input path="kondisi_kode" placeholder="Masukan Kode" class="form-control boxed"/>
+                            <form:input path="kondisiKode" placeholder="Masukan Kode" class="form-control boxed"/>
                         </div>
                     
                         <div class="form-group">
                             <label>Nama</label>
-                            <form:input path="kondisi_nama" placeholder="Masukan Nama" class="form-control boxed"/>
+                            <form:input path="kondisiNama" placeholder="Masukan Nama" class="form-control boxed"/>
                          </div>
                         
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <form:input path="kondisi_keterangan" placeholder="Masukan Keterangan" class="form-control boxed"/>
+                            <form:input path="kondisiKeterangan" placeholder="Masukan Keterangan" class="form-control boxed"/>
                          </div>
                     
                         <div class="form-group">

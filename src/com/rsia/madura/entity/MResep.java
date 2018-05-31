@@ -9,14 +9,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="t_resep")
 public class MResep {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="resep_id")
-	private Integer resep_id;
+	@Column(name="resepID")
+	private Integer resepID;
+
+    @Transient
+    private Integer remove;
 	
 	@Column(name="resep_pasien_id")
 	private Integer resepPasienId;
@@ -96,13 +100,22 @@ public class MResep {
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 
-	public Integer getResep_id() {
-		return resep_id;
+	public Integer getResepID() {
+		return resepID;
 	}
 
-	public void setResep_id(Integer resep_id) {
-		this.resep_id = resep_id;
+	public void setResepID(Integer resepID) {
+		this.resepID = resepID;
 	}
+
+	public Integer getRemove(){
+		return remove;
+	}
+
+	public void setRemove(Integer remove) {
+		this.remove = remove;
+	}
+
 
 	public Integer getResepPasienId() {
 		return resepPasienId;
@@ -314,7 +327,7 @@ public class MResep {
 
 	@Override
 	public String toString() {
-		return "t_Resep [resep_id=" + resep_id + ", resepPasienId=" + resepPasienId + ", resepPasienNorm="
+		return "t_Resep [resepID=" + resepID + ", resepPasienId=" + resepPasienId + ", resepPasienNorm="
 				+ resepPasienNorm + ", resepTanggal=" + resepTanggal + ", resepDokter=" + resepDokter
 				+ ", resepKeterangan=" + resepKeterangan + ", resepAktif=" + resepAktif + ", resep_status="
 				+ resep_status + ", resepCreatedBy=" + resepCreatedBy + ", resepCreatedDate=" + resepCreatedDate

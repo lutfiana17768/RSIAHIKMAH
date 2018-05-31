@@ -21,54 +21,55 @@
                         <tr>
                             <td>NO</td>
                             <td>:</td>
-                            <td>${pelayananModel.pendaftaran_no}</td>
+                            <td>${pelayananModel.pendaftaranNo}</td>
                         </tr>
                         <tr>
                             <td>NO. RM</td>
                             <td>:</td>
-                            <td>${pelayananModel.pasien.pasien_norm}</td>
+                            <td>${pelayananModel.pasien.pasienNorm}</td>
                         </tr>
                         <tr>
                             <td>Nama</td>
                             <td>:</td>
-                            <td>${pelayananModel.pasien.pasien_nama}</td>
+                            <td>${pelayananModel.pasien.pasienNama}</td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
                             <td>:</td>
-                            <td>${pelayananModel.pasien.pasien_alamat}</td>
+                            <td>${pelayananModel.pasien.pasienAlamat}</td>
                         </tr>
                         <tr>
                             <td>Tgl Lahir</td>
                             <td>:</td>
-                            <td>${pelayananModel.pasien.pasien_tanggallahir}</td>
+                            <td>${pelayananModel.pasien.pasienTanggallahir}</td>
                         </tr>
                         <tr>
                             <td>L/P</td>
                             <td>:</td>
-                            <td>${pelayananModel.pasien.pasien_kelamin}</td>
+                            <td>${pelayananModel.pasien.pasienKelamin}</td>
                         </tr>
                         <tr>
                             <td>Waktu MRS</td>
                             <td>:</td>
-                            <td>${pelayananModel.pendaftaran_mrs}</td>
+                            <td>${pelayananModel.pendaftaranMrs}</td>
                         </tr>
                     </table>
                 </div>
                 <div class="col-lg-8">
                     <form:form id="pelayanan-form" modelAttribute="pelayananModel" method="POST" action="/pelayanan/update">
-                        <form:hidden path="pendaftaran_id" />
-                        <form:hidden path="pendaftaran_created_date" />
-                        <form:hidden path="pendaftaran_created_by" />
-                        <form:hidden path="pendaftaran_aktif" />
+                        <form:hidden path="pendaftaranID" />
+                        <form:hidden path="pasien.pasienID" />
+                        <form:hidden path="pendaftaranCreatedDate" />
+                        <form:hidden path="pendaftaranCreatedBy" />
+                        <form:hidden path="pendaftaranAktif" />
                         <div class="form-group row">    
                             <label class="col-sm-3 col-form-label">Dokter</label>
                             <div class="col-sm-9">
                                 <div class="select2-wrapper">
-                                    <form:select path="m_pasien_id"
+                                    <form:select path="pendaftaranNo"
                                         class="form-control form-control-sm select2-single">
                                         <c:forEach var="pegawai" items="${pegawais}">
-                                            <form:option value="${pegawai.pegawai_id}"
+                                            <form:option value="${pegawai.pegawaiID}"
                                                 label="${pegawai.pegawaiNama}"/>
                                         </c:forEach>
                                     </form:select>
@@ -79,11 +80,11 @@
                             <label class="col-sm-3 col-form-label">Kondisi Masuk</label>
                             <div class="col-sm-9">
                                 <div class="select2-wrapper">
-                                    <form:select path="m_pasien_id"
+                                    <form:select path="pendaftaranNo"
                                         class="form-control form-control-sm select2-single">
                                         <c:forEach var="kondisipasien" items="${kondisis}">
-                                            <form:option value="${kondisipasien.kondisi_id}"
-                                                label="${kondisipasien.kondisi_nama}"/>
+                                            <form:option value="${kondisipasien.kondisiID}"
+                                                label="${kondisipasien.kondisiNama}"/>
                                         </c:forEach>
                                     </form:select>
                                 </div>
@@ -93,11 +94,11 @@
                             <label class="col-sm-3 col-form-label">Kamar</label>
                             <div class="col-sm-9">
                                 <div class="select2-wrapper">
-                                    <form:select path="m_pasien_id"
+                                    <form:select path="pendaftaranNo"
                                         class="form-control form-control-sm select2-single">
                                         <c:forEach var="kamar" items="${kamars}">
-                                            <form:option value="${kamar.kamar_id}"
-                                                label="${kamar.kamar_no}"/>
+                                            <form:option value="${kamar.kamarID}"
+                                                label="${kamar.kamarNo}"/>
                                         </c:forEach>
                                     </form:select>
                                 </div>

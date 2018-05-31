@@ -27,8 +27,8 @@
            		<td> ${tempPegawai.pegawaiMedis } </td>
            		<td> ${tempPegawai.pegawaiEmail } </td>
            		<td> ${tempPegawai.pegawaiNoHp } </td>
-           		<td> <a href="/pegawai/update/${tempPegawai.pegawai_id}" class="btn btn-info">Update</a>
-           		 <a href="/pegawai/delete/${tempPegawai.pegawai_id}" class="btn btn-warning">Delete</a></td>
+           		<td> <a href="/pegawai/update/${tempPegawai.pegawaiID}" class="btn btn-info">Update</a>
+           		 <a href="/pegawai/delete/${tempPegawai.pegawaiID}" class="btn btn-warning">Delete</a></td>
            	</tr>
         
         </c:forEach>

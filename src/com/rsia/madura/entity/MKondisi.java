@@ -1,8 +1,8 @@
 /*
  * @Author: Pradesga 
  * @Date: 2018-04-15 13:06:45 
- * @Last Modified by:   Pradesga 
- * @Last Modified time: 2018-04-15 13:06:45 
+ * @Last Modified by:   Pradesga Indonesia
+ * @Last Modified time: 2018-05-30 15:05:51
  */
 package com.rsia.madura.entity;
 
@@ -21,136 +21,135 @@ public class MKondisi {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="kondisi_id")
-	private int kondisi_id;
+	private int kondisiID;
 	
+	// nama kolom: snake_case
 	@Column(name="kondisi_kode")
-	private String kondisi_kode;
+	// nama property: camelCase
+	private String kondisiKode;
 	
 	@Column(name="kondisi_nama")
-	private String kondisi_nama;
+	private String kondisiNama;
 	
 	@Column(name="kondisi_aktif")
-	private String kondisi_aktif;
+	private String kondisiAktif;
 	
 	@Column(name="kondisi_created_by")
-	private String kondisi_created_by;
+	private String kondisiCreatedBy;
 	
 	@Column(name="kondisi_created_date")
-	private Timestamp kondisi_created_date;
+	private Timestamp kondisiCreatedDate;
 	
 	@Column(name="kondisi_updated_by")
-	private String kondisi_updated_by;
+	private String kondisiUpdatedBy;
 	
 	@Column(name="kondisi_updated_date")
-	private Timestamp kondisi_updated_date;
+	private Timestamp kondisiUpdatedDate;
 	
 	@Column(name="kondisi_revised")
-	private int kondisi_revised;
+	private int kondisiRevised;
 	
 	@Column(name="kondisi_keterangan")
-	private String kondisi_keterangan;
+	private String kondisiKeterangan;
 	
 	@Column(name="kondisi_deleted_date")
-	private Timestamp kondisi_deleted_date;
+	private Timestamp kondisiDeletedDate;
 
-	public int getKondisi_id() {
-		return kondisi_id;
+	public int getKondisiID() {
+		return kondisiID;
 	}
 
-	public void setKondisi_id(int kondisi_id) {
-		this.kondisi_id = kondisi_id;
+	public void setKondisiID(int kondisiID) {
+		this.kondisiID = kondisiID;
 	}
 
-	public String getKondisi_kode() {
-		return kondisi_kode;
+	public String getKondisiKode() {
+		return kondisiKode;
 	}
 
-	public void setKondisi_kode(String kondisi_kode) {
-		this.kondisi_kode = kondisi_kode;
+	public void setKondisiKode(String kondisiKode) {
+		this.kondisiKode = kondisiKode;
 	}
 
-	public String getKondisi_nama() {
-		return kondisi_nama;
+	public String getKondisiNama() {
+		return kondisiNama;
 	}
 
-	public void setKondisi_nama(String kondisi_nama) {
-		this.kondisi_nama = kondisi_nama;
+	public void setKondisiNama(String kondisiNama) {
+		this.kondisiNama = kondisiNama;
 	}
 
-	public String getKondisi_aktif() {
-		return kondisi_aktif;
+	public String getKondisiAktif() {
+		return kondisiAktif;
 	}
 	
-	public void setKondisi_aktif(String c) {
-		this.kondisi_aktif = c;
+	public void setKondisiAktif(String kondisiAktif) {
+		this.kondisiAktif = kondisiAktif;
 	}
 
-	public String getKondisi_created_by() {
-		return kondisi_created_by;
+	public String getKondisiCreatedBy() {
+		return kondisiCreatedBy;
 	}
 
-	public void setKondisi_created_by(String kondisi_created_by) {
-		this.kondisi_created_by = kondisi_created_by;
+	public void setKondisiCreatedBy(String kondisiCreatedBy) {
+		this.kondisiCreatedBy = kondisiCreatedBy;
 	}
 
-	public Timestamp getKondisi_created_date() {
-		return kondisi_created_date;
+	public Timestamp getKondisiCreatedDate() {
+		return kondisiCreatedDate;
 	}
 
-	public void setKondisi_created_date(Timestamp kondisi_created_date) {
-		this.kondisi_created_date = kondisi_created_date;
+	public void setKondisiCreatedDate(Timestamp kondisiCreatedDate) {
+		this.kondisiCreatedDate = kondisiCreatedDate;
 	}
 
-	public String getKondisi_updated_by() {
-		return kondisi_updated_by;
+	public String getKondisiUpdatedBy() {
+		return kondisiUpdatedBy;
 	}
 
-	public void setKondisi_updated_by(String kondisi_updated_by) {
-		this.kondisi_updated_by = kondisi_updated_by;
+	public void setKondisiUpdatedBy(String kondisiUpdatedBy) {
+		this.kondisiUpdatedBy = kondisiUpdatedBy;
 	}
 
-	public Timestamp getKondisi_updated_date() {
-		return kondisi_updated_date;
+	public Timestamp getKondisiUpdatedDate() {
+		return kondisiUpdatedDate;
 	}
 
-	public void setKondisi_updated_date(Timestamp kondisi_updated_date) {
-		this.kondisi_updated_date = kondisi_updated_date;
+	public void setKondisiUpdatedDate(Timestamp kondisiUpdatedDate) {
+		this.kondisiUpdatedDate = kondisiUpdatedDate;
 	}
 
-	public int getKondisi_revised() {
-		return kondisi_revised;
+	public int getKondisiRevised() {
+		return kondisiRevised;
 	}
 
-	public void setKondisi_revised(int kondisi_revised) {
-		this.kondisi_revised = kondisi_revised;
+	public void setKondisiRevised(int kondisiRevised) {
+		this.kondisiRevised = kondisiRevised;
 	}
 
-	public String getKondisi_keterangan() {
-		return kondisi_keterangan;
+	public String getKondisiKeterangan() {
+		return kondisiKeterangan;
 	}
 
-	public void setKondisi_keterangan(String kondisi_keterangan) {
-		this.kondisi_keterangan = kondisi_keterangan;
+	public void setKondisiKeterangan(String kondisiKeterangan) {
+		this.kondisiKeterangan = kondisiKeterangan;
 	}
 
-	public Timestamp getKondisi_deleted_date() {
-		return kondisi_deleted_date;
+	public Timestamp getKondisiDeletedDate() {
+		return kondisiDeletedDate;
 	}
 
-	public void setKondisi_deleted_date(Timestamp kondisi_deleted_date) {
-		this.kondisi_deleted_date = kondisi_deleted_date;
+	public void setKondisiDeletedDate(Timestamp kondisiDeletedDate) {
+		this.kondisiDeletedDate = kondisiDeletedDate;
 	}
 
 	@Override
 	public String toString() {
-		return "MKondisi [kondisi_id=" + kondisi_id + ", kondisi_kode=" + kondisi_kode + ", kondisi_nama="
-				+ kondisi_nama + ", kondisi_aktif=" + kondisi_aktif + ", kondisi_created_by=" + kondisi_created_by
-				+ ", kondisi_created_date=" + kondisi_created_date + ", kondisi_updated_by=" + kondisi_updated_by
-				+ ", kondisi_updated_date=" + kondisi_updated_date + ", kondisi_revised=" + kondisi_revised
-				+ ", kondisi_keterangan=" + kondisi_keterangan + ", kondisi_deleted_date=" + kondisi_deleted_date + "]";
+		return "MKondisi [kondisiID=" + kondisiID + ", kondisiKode=" + kondisiKode + ", kondisiNama="
+				+ kondisiNama + ", kondisiAktif=" + kondisiAktif + ", kondisiCreatedBy=" + kondisiCreatedBy
+				+ ", kondisiCreatedDate=" + kondisiCreatedDate + ", kondisiUpdatedBy=" + kondisiUpdatedBy
+				+ ", kondisiUpdatedDate=" + kondisiUpdatedDate + ", kondisiRevised=" + kondisiRevised
+				+ ", kondisiKeterangan=" + kondisiKeterangan + ", kondisiDeletedDate=" + kondisiDeletedDate + "]";
 	}
- 
-	  
-		 
 
 }

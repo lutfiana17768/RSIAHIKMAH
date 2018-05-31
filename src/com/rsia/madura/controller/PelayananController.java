@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-17 14:53:46
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-29 05:41:29
+* @Last Modified time: 2018-05-31 09:15:15
 */
 
 package com.rsia.madura.controller;
@@ -130,12 +130,12 @@ public class PelayananController {
 	public String Update(@ModelAttribute("pendaftaranModel") MPendaftaran pendaftaranModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		MPendaftaran dtPelayanan = pelayananService.getPelayanan(pendaftaranModel.getPendaftaran_id());		
+		MPendaftaran dtPelayanan = pelayananService.getPelayanan(pendaftaranModel.getPendaftaranID());		
 
 		if (dtPelayanan != null) {
 			pendaftaranModel.setPasien(dtPelayanan.getPasien());
-			pendaftaranModel.setPendaftaran_updated_by("Admin");
-			pendaftaranModel.setPendaftaran_updated_date(currentTime);
+			pendaftaranModel.setPendaftaranUpdatedBy("Admin");
+			pendaftaranModel.setPendaftaranUpdatedDate(currentTime);
 			pelayananService.update(pendaftaranModel);
 		}
 

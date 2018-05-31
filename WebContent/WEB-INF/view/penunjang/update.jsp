@@ -16,19 +16,19 @@
 			<div class="card-block row">
 				<div class="col-lg-4">
 					<form:form modelAttribute="penunjangModel" method="POST" id="penunjang-form" action="/penunjang/update">
-						<form:hidden path="penunjangmedis_id" />
+						<form:hidden path="penunjangmedisID" />
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="form-group">
 									<label>Kode</label>
-						            <form:input path="penunjangmedis_kode" placeholder="Masukan Kode" class="form-control boxed" />
+						            <form:input path="penunjangmedisKode" placeholder="Masukan Kode" class="form-control boxed" />
 								</div>
 								<div class="form-group">
 									<label>Jenis</label>
-									<form:select path="penunjangGroup.pmedisgroup_id" class="form-control boxed input-lg">
+									<form:select path="penunjangGroup.pmedisgroupID" class="form-control boxed input-lg">
 										<option value="">--- Pilih Jenis ---</option>
 										<c:forEach var="penunjangGroup" items="${penunjangGroups}">
-											<form:option value="${penunjangGroup.pmedisgroup_id }" label="${penunjangGroup.pmedisgroup_detail }" />
+											<form:option value="${penunjangGroup.pmedisgroupID }" label="${penunjangGroup.pmedisgroupDetail }" />
 										</c:forEach>
 									</form:select>
 								</div>
@@ -37,19 +37,19 @@
 									<select name="pkategori[]" multiple class="form-control boxed select2-multiple">
 										<option value="">--- Pilih Kategori ---</option>
 										<c:forEach var="jenislayanan" items="${jenisLayanans}">
-											<option value="${jenislayanan.jenislayanan_id }">
-												${jenislayanan.jenislayanan_nama }
+											<option value="${jenislayanan.jenislayananID }">
+												${jenislayanan.jenislayananNama }
 											</option>
 										</c:forEach>
 									</select>
 								</div>
 								<div class="form-group">
 									<label>Pemeriksaan</label>
-						            <form:input path="penunjangmedis_nama" placeholder="Masukan Nama Pemeriksaan" class="form-control boxed" />
+						            <form:input path="penunjangmedisNama" placeholder="Masukan Nama Pemeriksaan" class="form-control boxed" />
 								</div>
 								<div class="form-group">
 									<label>Keterangan</label>
-						            <form:input path="penunjangmedis_keterangan" placeholder="Masukan Nama Keterangan" class="form-control boxed" />
+						            <form:input path="penunjangmedisKeterangan" placeholder="Masukan Nama Keterangan" class="form-control boxed" />
 								</div>
 							</div>
 						</div>
@@ -84,15 +84,15 @@
 										<tbody id="penunjang-tarif-list" class="table-form">
 
 											<c:forEach var="penunjangkelas" items="${penunjangModel.penunjangkelas}" varStatus="loop">
-												<tr id="tarif_${loop.index+1}">
-													<td>${penunjangkelas.kelases.kelas_nama}</td>
-													<td data-used="1" data-save="1" data-name="penunjangkelas_harga" data-kolom-id="penunjang_tarif_harga">${penunjangkelas.penunjangkelas_harga}</td>
+												<tr id="tarif${loop.index+1}">
+													<td>${penunjangkelas.kelases.kelasNama}</td>
+													<td data-used="1" data-save="1" data-name="penunjangkelasHarga" data-kolom-id="penunjangTarifHarga">${penunjangkelas.penunjangkelasHarga}</td>
 													<td>
 														<button type="button" class="btn btn-danger btn-sm" onclick="deleteTarif(${loop.index+1})">Delete</button>
 														<button type="button" class="btn btn-primary btn-sm" onclick="editTarif(${loop.index+1})">Edit</button>
 													</td>
-													<td style="display:none" data-used="1" data-save="1" data-name="penunjangkelas_id" data-kolom-id="penunjangkelas_id">${penunjangkelas.penunjangkelas_id}</td>
-													<td style="display:none" data-used="1" data-save="1" data-name="kelases.kelas_id" data-kolom-id="penunjangtarif_kelas">${penunjangkelas.kelases.kelas_id}</td>
+													<td style="display:none" data-used="1" data-save="1" data-name="penunjangkelasID" data-kolom-id="penunjangkelasID">${penunjangkelas.penunjangkelasID}</td>
+													<td style="display:none" data-used="1" data-save="1" data-name="kelases.kelasID" data-kolom-id="penunjangtarifKelas">${penunjangkelas.kelases.kelasID}</td>
 												</tr>
 											</c:forEach>
 
@@ -115,15 +115,15 @@
 										<tbody id="penunjang-pemeriksaan-list" class="table-form">
 
 											<c:forEach var="periksa" items="${penunjangModel.paramperiksa}" varStatus="loop">
-												<tr id="pemeriksaan_${loop.index+1}">
-													<td>${periksa.paramperiksa_nama}</td>
-													<td data-used="1" data-save="1" data-name="paramperiksa_standar" data-kolom-id="paramperiksa_standar">${periksa.paramperiksa_standar}</td>
-													<td data-used="1" data-save="1" data-name="paramperiksa_satuan" data-kolom-id="paramperiksa_satuan">${periksa.paramperiksa_satuan}</td>
+												<tr id="pemeriksaan${loop.index+1}">
+													<td>${periksa.paramperiksaNama}</td>
+													<td data-used="1" data-save="1" data-name="paramperiksaStandar" data-kolom-id="paramperiksaStandar">${periksa.paramperiksaStandar}</td>
+													<td data-used="1" data-save="1" data-name="paramperiksaSatuan" data-kolom-id="paramperiksaSatuan">${periksa.paramperiksaSatuan}</td>
 													<td>
 														<button type="button" class="btn btn-danger btn-sm" onclick="deletePemeriksaan(${loop.index+1})">Delete</button>
 														<button type="button" class="btn btn-primary btn-sm" onclick="editPemeriksaan(${loop.index+1})">Edit</button>
 													</td>
-													<td style="display:none" data-used="1" data-save="1" data-name="paramperiksa_id" data-kolom-id="paramperiksa_id">${periksa.paramperiksa_id}</td>
+													<td style="display:none" data-used="1" data-save="1" data-name="paramperiksaID" data-kolom-id="paramperiksaID">${periksa.paramperiksaID}</td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -149,20 +149,20 @@
 						<form id="form-tarif" class="from-horizontal">
 							<div class="form-group">
 								<label>Kelas</label>
-								<select name="penunjang_tarif_kelas" id="penunjang_tarif_kelas" class="form-control boxed">
+								<select name="penunjangTarifKelas" id="penunjangTarifKelas" class="form-control boxed">
 									<option value="">--- Pilih Kelas ---</option>
 									<c:forEach var="kelas" items="${kelases}">
-										<option value="${kelas.kelas_id }">
-											${kelas.kelas_nama }
+										<option value="${kelas.kelasID }">
+											${kelas.kelasNama }
 										</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="penunjang_tarif_harga" id="penunjang_tarif_harga" class="form-control boxed">
+								<input type="text" name="penunjangTarifHarga" id="penunjangTarifHarga" class="form-control boxed">
 							</div>
-							<input type="hidden" name="penunjangkelas_id" id="penunjangkelas_id">
+							<input type="hidden" name="penunjangkelasID" id="penunjangkelasID">
 							<input type="hidden" name="tarif_mode" id="tarif_mode">
 							<input type="hidden" name="tarif_edit" id="tarif_edit">
 						</form>
@@ -190,7 +190,7 @@
 						<form id="form-pemeriksaan" class="from-horizontal">
 							<div class="form-group">
 								<label>Detail Pemeriksaan</label>
-								<select name="pemeriksaan_id" id="pemeriksaan_detail" class="form-control boxed">
+								<select name="pemeriksaanID" id="pemeriksaanDetail" class="form-control boxed">
 									<option>SGO2</option>
 									<option>KSa</option>
 									<option>Laksas</option>
@@ -198,11 +198,11 @@
 							</div>
 							<div class="form-group">
 								<label>Nilai Normal</label>
-								<input type="text" name="paramperiksa_standar" id="paramperiksa_standar" class="form-control boxed">
+								<input type="text" name="paramperiksaStandar" id="paramperiksaStandar" class="form-control boxed">
 							</div>
 							<div class="form-group">
 								<label>Satuan</label>
-								<input type="text" name="paramperiksa_satuan" id="paramperiksa_satuan" class="form-control boxed">
+								<input type="text" name="paramperiksaSatuan" id="paramperiksaSatuan" class="form-control boxed">
 							</div>
 							<input type="hidden" name="pemeriksaan_mode" id="pemeriksaan_mode">
 							<input type="hidden" name="pemeriksaan_edit" id="pemeriksaan_edit">

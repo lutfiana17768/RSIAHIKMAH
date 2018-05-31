@@ -19,23 +19,23 @@
                             <div class="form-group">
                                 <label>Barang</label>
                                 <div class="select2-wrapper">
-                                    <select name="resep_barang" id="resep_barang" class="form-control boxed select2-single">
+                                    <select name="resepBarang" id="resepBarang" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Barang ---</option>
-                                        <c:forEach var="barang" items="${barangs}">
-                                            <option value="${barang.barang_id }">
-                                                ${barang.barangNama }
+                                        <% /**<c:forEach var="barang" items="${barangs}">
+                                            <option value="${barang.IdBarang }">
+                                                ${barang.NamaBarang }
                                             </option>
                                         </c:forEach>
-                                    </select>
+                                        **/ %>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Satuan</label>
                                 <div class="select2-wrapper">
-                                    <select name="resep_satuan" id="resep_satuan" class="form-control boxed select2-single">
+                                    <select name="resepSatuan" id="resepSatuan" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Satuan ---</option>
                                         <c:forEach var="satuan" items="${satuans}">
-                                            <option value="${satuan.satuan_id }">
+                                            <option value="${satuan.satuanID }">
                                                 ${satuan.satuanNama }
                                             </option>
                                         </c:forEach>
@@ -44,17 +44,17 @@
                             </div>
                             <div class="form-group">
                                 <label>Jumlah</label>
-                                <input type="text" name="resep_jumlah" id="resep_jumlah" class="form-control boxed">
+                                <input type="text" name="resep_jumlah" id="resepJumlah" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Aturan Pakai</label>
-                                <input type="text" name="resep_aturan" id="resep_aturan" class="form-control boxed">
+                                <input type="text" name="resepAturan" id="resepAturan" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <input type="text" name="resep_keterangan" id="resep_keterangan" class="form-control boxed">
+                                <input type="text" name="resepKeterangan" id="resepKeterangan" class="form-control boxed">
                             </div>
-                            <input type="hidden" name="resep_id" id="resep_id">
+                            <input type="hidden" name="resepID" id="resepID">
                             <input type="hidden" name="resep_mode" id="resep_mode">
                             <input type="hidden" name="resep_edit" id="resep_edit">
                         </form>

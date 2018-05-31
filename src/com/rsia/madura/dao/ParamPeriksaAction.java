@@ -27,8 +27,8 @@ public class ParamPeriksaAction implements ParamPeriksaDAO {
 	public List<MParamPeriksa> getParamPeriksases() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MParamPeriksa> query = current.createQuery("FROM MParamPeriksa p WHERE p.paramperiksa_aktif = :paramperiksa_aktif", MParamPeriksa.class);
-		query.setParameter("paramperiksa_aktif", "Y");
+		Query<MParamPeriksa> query = current.createQuery("FROM MParamPeriksa p WHERE p.paramperiksaAktif = :paramperiksaAktif", MParamPeriksa.class);
+		query.setParameter("paramperiksaAktif", "Y");
 		List<MParamPeriksa> result = query.getResultList();
 		return result;
 	}
@@ -44,8 +44,8 @@ public class ParamPeriksaAction implements ParamPeriksaDAO {
 
 	public List<MParamPeriksa> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MParamPeriksa> query = current.createQuery("FROM MParamPeriksa p WHERE p.paramperiksa_aktif = :paramperiksa_aktif", MParamPeriksa.class).setMaxResults(limit);
-		query.setParameter("paramperiksa_aktif", "Y");
+		Query<MParamPeriksa> query = current.createQuery("FROM MParamPeriksa p WHERE p.paramperiksaAktif = :paramperiksaAktif", MParamPeriksa.class).setMaxResults(limit);
+		query.setParameter("paramperiksaAktif", "Y");
 		List<MParamPeriksa> result = query.getResultList();
 
 		return result;

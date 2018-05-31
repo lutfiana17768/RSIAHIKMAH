@@ -55,15 +55,15 @@ public class PenunjangServiceAction implements PenunjangService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setPenunjangmedis_aktif("Y");
-		data.setPenunjangmedis_created_by("Admin");	
-		data.setPenunjangmedis_created_date(currentTime);
+		data.setPenunjangmedisAktif("Y");
+		data.setPenunjangmedisCreatedBy("Admin");	
+		data.setPenunjangmedisCreatedDate(currentTime);
 		if (data.getParamperiksa() != null) {
 			data.getParamperiksa().forEach((paramperiksa) -> {
 				paramperiksa.setPenunjang(data);
-				paramperiksa.setParamperiksa_aktif("Y");
-				paramperiksa.setParamperiksa_created_by("Admin");
-				paramperiksa.setParamperiksa_created_date(currentTime);
+				paramperiksa.setParamperiksaAktif("Y");
+				paramperiksa.setParamperiksaCreatedBy("Admin");
+				paramperiksa.setParamperiksaCreatedDate(currentTime);
 			});
 		}
 		
@@ -91,15 +91,15 @@ public class PenunjangServiceAction implements PenunjangService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setPenunjangmedis_aktif("Y");
-		data.setPenunjangmedis_updated_by("Admin");
-		data.setPenunjangmedis_updated_date(currentTime);
+		data.setPenunjangmedisAktif("Y");
+		data.setPenunjangmedisUpdatedBy("Admin");
+		data.setPenunjangmedisUpdatedDate(currentTime);
 
 		if (data.getParamperiksa() != null) {
 			data.getParamperiksa().forEach((paramperiksa) -> {
 				paramperiksa.setPenunjang(data);
-				paramperiksa.setParamperiksa_updated_by("Admin");
-				paramperiksa.setParamperiksa_updated_date(currentTime);
+				paramperiksa.setParamperiksaUpdatedBy("Admin");
+				paramperiksa.setParamperiksaUpdatedDate(currentTime);
 			});
 		}
 
@@ -118,9 +118,9 @@ public class PenunjangServiceAction implements PenunjangService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setPenunjangmedis_aktif("T");
-		data.setPenunjangmedis_deleted_by("Admin");
-		data.setPenunjangmedis_deleted_date(currentTime);
+		data.setPenunjangmedisAktif("T");
+		data.setPenunjangmedisDeletedBy("Admin");
+		data.setPenunjangmedisDeletedDate(currentTime);
 		penunjangDAO.PenunjangDelete(data);
 	}
 }

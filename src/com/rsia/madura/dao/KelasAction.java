@@ -27,8 +27,8 @@ public class KelasAction implements KelasDAO {
 	public List<MKelas> getKelases() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MKelas> query = current.createQuery("FROM MKelas k WHERE k.kelas_aktif = :kelas_aktif", MKelas.class);
-		query.setParameter("kelas_aktif", "Y");
+		Query<MKelas> query = current.createQuery("FROM MKelas k WHERE k.kelasAktif = :kelasAktif", MKelas.class);
+		query.setParameter("kelasAktif", "Y");
 		List<MKelas> result = query.getResultList();
 		return result;
 	}
@@ -44,8 +44,8 @@ public class KelasAction implements KelasDAO {
 
 	public List<MKelas> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MKelas> query = current.createQuery("FROM MKelas k WHERE k.kelas_aktif = :kelas_aktif", MKelas.class).setMaxResults(limit);
-		query.setParameter("kelas_aktif", "Y");
+		Query<MKelas> query = current.createQuery("FROM MKelas k WHERE k.kelasAktif = :kelasAktif", MKelas.class).setMaxResults(limit);
+		query.setParameter("kelasAktif", "Y");
 		List<MKelas> result = query.getResultList();
 
 		return result;

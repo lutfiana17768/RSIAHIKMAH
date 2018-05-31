@@ -15,11 +15,11 @@
             <tbody>
                 <c:forEach var="tempKondisi" items="${kondisi}">
                         <tr>
-                            <td> ${tempKondisi.kondisi_kode } </td>
-                            <td> ${tempKondisi.kondisi_nama } </td>
-                            <td> ${tempKondisi.kondisi_keterangan } </td>
-                            <td> <a href="/kondisi/update/${tempKondisi.kondisi_id}" class="btn btn-info">Update</a>
-                             <a href="/kondisi/delete/${tempKondisi.kondisi_id}" class="btn btn-warning">Delete</a></td>
+                            <td> ${tempKondisi.kondisiKode } </td>
+                            <td> ${tempKondisi.kondisiNama } </td>
+                            <td> ${tempKondisi.kondisiKeterangan } </td>
+                            <td> <a href="/kondisi/update/${tempKondisi.kondisiID}" class="btn btn-info">Update</a>
+                             <a href="/kondisi/delete/${tempKondisi.kondisiID}" class="btn btn-warning">Delete</a></td>
                         </tr>
                 </c:forEach>
             </tbody>

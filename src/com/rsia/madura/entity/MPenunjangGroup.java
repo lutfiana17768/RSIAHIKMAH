@@ -23,68 +23,68 @@ public class MPenunjangGroup {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pmedisgroup_id")
-	private int pmedisgroup_id;
+	private int pmedisgroupID;
 	
 	@Column(name="pmedisgroup_master")
-	private String pmedisgroup_master;
+	private String pmedisgroupMaster;
 	
 	@Column(name="pmedisgroup_detail")
-	private String pmedisgroup_detail;
+	private String pmedisgroupDetail;
 	
 	@Column(name="pmedisgroup_urut")
-	private Integer pmedisgroup_urut;
+	private Integer pmedisgroupUrut;
 	
 	@Column(name="reg_company_id ")
-	private Integer reg_company_id ;
+	private Integer regCompanyID ;
 	
 	@Column(name="reg_apps_id ")
-	private Integer reg_apps_id ;
+	private Integer regAppsID ;
 	
-	public int getPmedisgroup_id() {
-		return this.pmedisgroup_id;
+	public int getPmedisgroupID() {
+		return this.pmedisgroupID;
 	}
 
-	public void setPmedisgroup_id(int pmedisgroup_id) {
-		this.pmedisgroup_id = pmedisgroup_id;
+	public void setPmedisgroupID(int pmedisgroupID) {
+		this.pmedisgroupID = pmedisgroupID;
 	}
 
-	public String getPmedisgroup_master() {
-		return this.pmedisgroup_master;
+	public String getPmedisgroupMaster() {
+		return this.pmedisgroupMaster;
 	}
 
-	public void setPmedisgroup_master(String pmedisgroup_master) {
-		this.pmedisgroup_master = pmedisgroup_master;
+	public void setPmedisgroupMaster(String pmedisgroupMaster) {
+		this.pmedisgroupMaster = pmedisgroupMaster;
 	}
 
-	public String getPmedisgroup_detail() {
-		return this.pmedisgroup_detail;
+	public String getPmedisgroupDetail() {
+		return this.pmedisgroupDetail;
 	}
 
-	public void setPmedisgroup_detail(String pmedisgroup_detail) {
-		this.pmedisgroup_detail = pmedisgroup_detail;
+	public void setPmedisgroupDetail(String pmedisgroupDetail) {
+		this.pmedisgroupDetail = pmedisgroupDetail;
 	}
 
-	public Integer getPmedisgroup_urut() {
-		return this.pmedisgroup_urut;
+	public Integer getPmedisgroupUrut() {
+		return this.pmedisgroupUrut;
 	}
 
-	public void setPmedisgroup_urut(Integer pmedisgroup_urut) {
-		this.pmedisgroup_urut = pmedisgroup_urut;
+	public void setPmedisgroupUrut(Integer pmedisgroupUrut) {
+		this.pmedisgroupUrut = pmedisgroupUrut;
 	}
 
-	public Integer getRegCompany_id() {
-		return this.reg_company_id;
+	public Integer getRegCompanyID() {
+		return this.regCompanyID;
 	}
 
-	public void setRegCompany_id(Integer reg_company_id) {
-		this.reg_company_id = reg_company_id;
+	public void setRegCompanyID(Integer regCompanyID) {
+		this.regCompanyID = regCompanyID;
 	}
 
-	public Integer getRegApps_id() {
-		return this.reg_apps_id;
+	public Integer getRegAppsID() {
+		return this.regAppsID;
 	}
 
-	public void setRegApps_id(Integer reg_apps_id) {
-		this.reg_apps_id = reg_apps_id;
+	public void setRegAppsID(Integer regAppsID) {
+		this.regAppsID = regAppsID;
 	}
 }

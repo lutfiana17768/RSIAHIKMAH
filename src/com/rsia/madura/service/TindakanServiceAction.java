@@ -55,9 +55,9 @@ public class TindakanServiceAction implements TindakanService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setTindakan_aktif("Y");
-		data.setTindakan_created_by("Admin");	
-		data.setTindakan_created_date(currentTime);
+		data.setTindakanAktif("Y");
+		data.setTindakanCreatedBy("Admin");	
+		data.setTindakanCreatedDate(currentTime);
 		tindakanDAO.TindakanStore(data);
 	}
 
@@ -67,9 +67,9 @@ public class TindakanServiceAction implements TindakanService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setTindakan_aktif("Y");
-		data.setTindakan_updated_by("Admin");
-		data.setTindakan_updated_date(currentTime);
+		data.setTindakanAktif("Y");
+		data.setTindakanUpdatedBy("Admin");
+		data.setTindakanUpdatedDate(currentTime);
 		tindakanDAO.TindakanUpdate(data);
 	}
 
@@ -79,9 +79,9 @@ public class TindakanServiceAction implements TindakanService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setTindakan_aktif("T");
-		data.setTindakan_deleted_by("Admin");
-		data.setTindakan_deleted_date(currentTime);
+		data.setTindakanAktif("T");
+		data.setTindakanDeletedBy("Admin");
+		data.setTindakanDeletedDate(currentTime);
 		tindakanDAO.TindakanDelete(data);
 	}
 }

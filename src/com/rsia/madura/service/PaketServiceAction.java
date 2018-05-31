@@ -15,9 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.PaketDAO;
-import com.rsia.madura.dao.PaketHargaDAO;
 import com.rsia.madura.entity.MPaket;
-import com.rsia.madura.entity.MPaketHarga;
+import com.rsia.madura.entity.MPaketDetail;
 
 @Service
 public class PaketServiceAction implements PaketService {
@@ -58,16 +57,16 @@ public class PaketServiceAction implements PaketService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setPaket_aktif("Y");
-		data.setPaket_created_by("Admin");	
-		data.setPaket_created_date(currentTime);
+		data.setPaketAktif("Y");
+		data.setPaketCreatedBy("Admin");	
+		data.setPaketCreatedDate(currentTime);
 
-		if (data.getPaketHarga() != null) {
-			data.getPaketHarga().forEach((harga) -> {
+		if (data.getPaketDetail() != null) {
+			data.getPaketDetail().forEach((harga) -> {
 				harga.setPaket(data);
-				harga.setPaketHarga_created_by("Admin");
-				harga.setPaketHarga_created_date(currentTime);
-				harga.setPaketHarga_updated_date(currentTime);
+				harga.setPaketDetailCreatedBy("Admin");
+				harga.setPaketDetailCreatedDate(currentTime);
+				harga.setPaketDetailUpdatedDate(currentTime);
 			});
 		}
 
@@ -80,15 +79,15 @@ public class PaketServiceAction implements PaketService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setPaket_aktif("Y");
-		data.setPaket_updated_by("Admin");
-		data.setPaket_updated_date(currentTime);
+		data.setPaketAktif("Y");
+		data.setPaketUpdatedBy("Admin");
+		data.setPaketUpdatedDate(currentTime);
 
-		if (data.getPaketHarga() != null) {
-			data.getPaketHarga().forEach((harga) -> {
+		if (data.getPaketDetail() != null) {
+			data.getPaketDetail().forEach((harga) -> {
 				harga.setPaket(data);
-				harga.setPaketHarga_updated_by("Admin");
-				harga.setPaketHarga_updated_date(currentTime);
+				harga.setPaketDetailUpdatedBy("Admin");
+				harga.setPaketDetailUpdatedDate(currentTime);
 			});
 		}
 
@@ -102,14 +101,14 @@ public class PaketServiceAction implements PaketService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		data.getPaketHarga().forEach((harga) -> {
+		data.getPaketDetail().forEach((harga) -> {
 			harga.setPaket(data);
-			harga.setPaketHarga_deleted_by("Admin");
-			harga.setPaketHarga_deleted_date(currentTime);
+			harga.setPaketDetailDeletedBy("Admin");
+			harga.setPaketDetailDeletedDate(currentTime);
 		});		
-		data.setPaket_aktif("T");
-		data.setPaket_deleted_by("Admin");
-		data.setPaket_deleted_date(currentTime);
+		data.setPaketAktif("T");
+		data.setPaketDeletedBy("Admin");
+		data.setPaketDeletedDate(currentTime);
 		paketDAO.PaketDelete(data);
 	}
 }

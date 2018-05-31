@@ -18,16 +18,16 @@
 
 								<c:forEach var="tp" items="${pelayananModel.tindakanpasien}" varStatus="loop">
 									<tr id="tindakan_${loop.index+1}">
-										<td>${tp.tindakan.tindakan_nama}</td>
-										<td data-used="1" data-save="1" data-name="tindakanpasien_harga" data-kolom-id="tindakanpasien_harga">${tp.tindakanpasien_harga}</td>
+										<td>${tp.tindakan.tindakanNama}</td>
+										<td data-used="1" data-save="1" data-name="tindakanpasienHarga" data-kolom-id="tindakanpasienHarga">${tp.tindakanpasienHarga}</td>
 										<td>${tp.pegawai.pegawaiNama}</td>
 										<td>
 											<button type="button" class="btn btn-danger btn-sm" onclick="deleteTIndakan(${loop.index+1})">Delete</button>
 											<button type="button" class="btn btn-primary btn-sm" onclick="editTIndakan(${loop.index+1})">Edit</button>
 										</td>
-										<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawai_id" data-kolom-id="pegawai_id">${tp.pegawai.pegawai_id}</td>
-										<td style="display:none" data-used="1" data-save="1" data-name="tindakan_id" data-kolom-id="tindakan_id">${tp.tindakan.tindakan_id}</td>
-										<td style="display:none" data-used="1" data-save="1" data-name="tindakanpasien_id" data-kolom-id="tindakanpasien_id">${tp.tindakanpasien_id}</td>
+										<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="pegawaiID">${tp.pegawai.pegawaiID}</td>
+										<td style="display:none" data-used="1" data-save="1" data-name="tindakanID" data-kolom-id="tindakanID">${tp.tindakan.tindakanID}</td>
+										<td style="display:none" data-used="1" data-save="1" data-name="tindakanpasienID" data-kolom-id="tindakanpasienID">${tp.tindakanpasienID}</td>
 									</tr>
 								</c:forEach>
                             </tbody>

@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-17 12:24:35
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-26 09:26:42
+* @Last Modified time: 2018-05-30 12:41:08
 */
 
 package com.rsia.madura.entity;
@@ -17,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "t_periksa_pasien")
@@ -25,282 +26,294 @@ public class MPeriksaPasien {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "periksapasien_id")
-	private int periksapasien_id;
+	private int periksapasienID;
+	
+    @Transient // means "not a DB field"
+    private Integer remove; // boolean flag
 
 	// change to relation
 	@Column(name = "periksapasien_pasien_id")
-	private Integer periksapasien_pasien_id;
+	private Integer periksapasienPasienID;
 
 	@Column(name = "periksapasien_pasien_norm")
-	private String periksapasien_pasien_norm;
+	private String periksapasienPasienNorm;
 
 	@Column(name = "periksapasien_periksa_kode")
-	private String periksapasien_periksa_kode;
+	private String periksapasienPeriksaKode;
 
 	@Column(name = "periksapasien_periksa_nama")
-	private String periksapasien_periksa_nama;
+	private String periksapasienPeriksaNama;
 
 	@Column(name = "periksapasien_periksa_nilai")
-	private String periksapasien_periksa_nilai;
+	private String periksapasienPeriksaNilai;
 
 	@Column(name = "periksapasien_periksa_satuan")
-	private String periksapasien_periksa_satuan;
+	private String periksapasienPeriksaSatuan;
 
 	@Column(name = "periksapasien_periksa_standar")
-	private String periksapasien_periksa_standar;
+	private String periksapasienPeriksaStandar;
 
 	@Column(name = "periksapasien_periksa_label")
-	private String periksapasien_periksa_label;
+	private String periksapasienPeriksaLabel;
 
 	@Column(name = "periksapasien_periksa_group")
-	private String periksapasien_periksa_group;
+	private String periksapasienPeriksaGroup;
 
 	@Column(name = "periksapasien_periksa_file")
-	private String periksapasien_periksa_file;
+	private String periksapasienPeriksaFile;
 
 	@Column(name = "periksapasien_periksa_keterangan")
-	private String periksapasien_periksa_keterangan;
+	private String periksapasienPeriksaKeterangan;
 
 	@Column(name = "periksapasien_dokter_id")
-	private Integer periksapasien_dokter_id;
+	private Integer periksapasienDokterID;
 
 	@Column(name = "periksapasien_unit_id")
-	private Integer periksapasien_unit_id;
+	private Integer periksapasienUnitID;
 
 	@Column(name = "periksapasien_kamarpasien_id")
-	private String periksapasien_kamarpasien_id;
+	private String periksapasienKamarpasienID;
 
 	@Column(name = "periksapasien_aktif")
-	private String periksapasien_aktif;
+	private String periksapasienAktif;
 
 	@Column(name = "periksapasien_created_by")
-	private String periksapasien_created_by;
+	private String periksapasienCreatedBy;
 
 	@Column(name = "periksapasien_created_date")
-	private Timestamp periksapasien_created_date;
+	private Timestamp periksapasienCreatedDate;
 
 	@Column(name = "periksapasien_updated_by")
-	private String periksapasien_updated_by;
+	private String periksapasienUpdatedBy;
 
 	@Column(name = "periksapasien_updated_date")
-	private Timestamp periksapasien_updated_date;
+	private Timestamp periksapasienUpdatedDate;
 
 	@Column(name = "periksapasien_revised")
-	private Integer periksapasien_revised;
+	private Integer periksapasienRevised;
 
 	@Column(name = "periksapasien_pendaftaran_id")
-	private Integer periksapasien_pendaftaran_id;
+	private Integer periksapasienPendaftaranID;
 
 	@Column(name = "periksapasien_tanggal")
-	private Date periksapasien_tanggal;
+	private Date periksapasienTanggal;
 
 	@Column(name = "periksapasien_urut")
-	private Integer periksapasien_urut;
+	private Integer periksapasienUrut;
 
 	@Column(name = "periksapasien_indent")
-	private Integer periksapasien_indent;
+	private Integer periksapasienIndent;
 
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 
-	public int getPeriksapasien_id() {
-		return periksapasien_id;
+	public int getPeriksapasienID() {
+		return periksapasienID;
 	}
 
-	public void setPeriksapasien_id(int periksapasien_id) {
-		this.periksapasien_id = periksapasien_id;
+	public void setPeriksapasienID(int periksapasienID) {
+		this.periksapasienID = periksapasienID;
 	}
 
-	public Integer getPeriksapasien_pasien_id() {
-		return periksapasien_pasien_id;
+	public Integer getRemove(){
+		return remove;
 	}
 
-	public void setPeriksapasien_pasien_id(Integer periksapasien_pasien_id) {
-		this.periksapasien_pasien_id = periksapasien_pasien_id;
+	public void setRemove(Integer remove) {
+		this.remove = remove;
 	}
 
-	public String getPeriksapasien_pasien_norm() {
-		return periksapasien_pasien_norm;
+
+	public Integer getPeriksapasienPasienID() {
+		return periksapasienPasienID;
 	}
 
-	public void setPeriksapasien_pasien_norm(String periksapasien_pasien_norm) {
-		this.periksapasien_pasien_norm = periksapasien_pasien_norm;
+	public void setPeriksapasienPasienID(Integer periksapasienPasienID) {
+		this.periksapasienPasienID = periksapasienPasienID;
 	}
 
-	public String getPeriksapasien_periksa_kode() {
-		return periksapasien_periksa_kode;
+	public String getPeriksapasienPasienNorm() {
+		return periksapasienPasienNorm;
 	}
 
-	public void setPeriksapasien_periksa_kode(String periksapasien_periksa_kode) {
-		this.periksapasien_periksa_kode = periksapasien_periksa_kode;
+	public void setPeriksapasienPasienNorm(String periksapasienPasienNorm) {
+		this.periksapasienPasienNorm = periksapasienPasienNorm;
 	}
 
-	public String getPeriksapasien_periksa_nama() {
-		return periksapasien_periksa_nama;
+	public String getPeriksapasienPeriksaKode() {
+		return periksapasienPeriksaKode;
 	}
 
-	public void setPeriksapasien_periksa_nama(String periksapasien_periksa_nama) {
-		this.periksapasien_periksa_nama = periksapasien_periksa_nama;
+	public void setPeriksapasienPeriksaKode(String periksapasienPeriksaKode) {
+		this.periksapasienPeriksaKode = periksapasienPeriksaKode;
 	}
 
-	public String getPeriksapasien_periksa_nilai() {
-		return periksapasien_periksa_nilai;
+	public String getPeriksapasienPeriksaNama() {
+		return periksapasienPeriksaNama;
 	}
 
-	public void setPeriksapasien_periksa_nilai(String periksapasien_periksa_nilai) {
-		this.periksapasien_periksa_nilai = periksapasien_periksa_nilai;
+	public void setPeriksapasienPeriksaNama(String periksapasienPeriksaNama) {
+		this.periksapasienPeriksaNama = periksapasienPeriksaNama;
 	}
 
-	public String getPeriksapasien_periksa_satuan() {
-		return periksapasien_periksa_satuan;
+	public String getPeriksapasienPeriksaNilai() {
+		return periksapasienPeriksaNilai;
 	}
 
-	public void setPeriksapasien_periksa_satuan(String periksapasien_periksa_satuan) {
-		this.periksapasien_periksa_satuan = periksapasien_periksa_satuan;
+	public void setPeriksapasienPeriksaNilai(String periksapasienPeriksaNilai) {
+		this.periksapasienPeriksaNilai = periksapasienPeriksaNilai;
 	}
 
-	public String getPeriksapasien_periksa_standar() {
-		return periksapasien_periksa_standar;
+	public String getPeriksapasienPeriksaSatuan() {
+		return periksapasienPeriksaSatuan;
 	}
 
-	public void setPeriksapasien_periksa_standar(String periksapasien_periksa_standar) {
-		this.periksapasien_periksa_standar = periksapasien_periksa_standar;
+	public void setPeriksapasienPeriksaSatuan(String periksapasienPeriksaSatuan) {
+		this.periksapasienPeriksaSatuan = periksapasienPeriksaSatuan;
 	}
 
-	public String getPeriksapasien_periksa_label() {
-		return periksapasien_periksa_label;
+	public String getPeriksapasienPeriksaStandar() {
+		return periksapasienPeriksaStandar;
 	}
 
-	public void setPeriksapasien_periksa_label(String periksapasien_periksa_label) {
-		this.periksapasien_periksa_label = periksapasien_periksa_label;
+	public void setPeriksapasienPeriksaStandar(String periksapasienPeriksaStandar) {
+		this.periksapasienPeriksaStandar = periksapasienPeriksaStandar;
 	}
 
-	public String getPeriksapasien_periksa_group() {
-		return periksapasien_periksa_group;
+	public String getPeriksapasienPeriksaLabel() {
+		return periksapasienPeriksaLabel;
 	}
 
-	public void setPeriksapasien_periksa_group(String periksapasien_periksa_group) {
-		this.periksapasien_periksa_group = periksapasien_periksa_group;
+	public void setPeriksapasienPeriksaLabel(String periksapasienPeriksaLabel) {
+		this.periksapasienPeriksaLabel = periksapasienPeriksaLabel;
 	}
 
-	public String getPeriksapasien_periksa_file() {
-		return periksapasien_periksa_file;
+	public String getPeriksapasienPeriksaGroup() {
+		return periksapasienPeriksaGroup;
 	}
 
-	public void setPeriksapasien_periksa_file(String periksapasien_periksa_file) {
-		this.periksapasien_periksa_file = periksapasien_periksa_file;
+	public void setPeriksapasienPeriksaGroup(String periksapasienPeriksaGroup) {
+		this.periksapasienPeriksaGroup = periksapasienPeriksaGroup;
 	}
 
-	public String getPeriksapasien_periksa_keterangan() {
-		return periksapasien_periksa_keterangan;
+	public String getPeriksapasienPeriksaFile() {
+		return periksapasienPeriksaFile;
 	}
 
-	public void setPeriksapasien_periksa_keterangan(String periksapasien_periksa_keterangan) {
-		this.periksapasien_periksa_keterangan = periksapasien_periksa_keterangan;
+	public void setPeriksapasienPeriksaFile(String periksapasienPeriksaFile) {
+		this.periksapasienPeriksaFile = periksapasienPeriksaFile;
 	}
 
-	public Integer getPeriksapasien_dokter_id() {
-		return periksapasien_dokter_id;
+	public String getPeriksapasienPeriksaKeterangan() {
+		return periksapasienPeriksaKeterangan;
 	}
 
-	public void setPeriksapasien_dokter_id(Integer periksapasien_dokter_id) {
-		this.periksapasien_dokter_id = periksapasien_dokter_id;
+	public void setPeriksapasienPeriksaKeterangan(String periksapasienPeriksaKeterangan) {
+		this.periksapasienPeriksaKeterangan = periksapasienPeriksaKeterangan;
 	}
 
-	public Integer getPeriksapasien_unit_id() {
-		return periksapasien_unit_id;
+	public Integer getPeriksapasienDokterID() {
+		return periksapasienDokterID;
 	}
 
-	public void setPeriksapasien_unit_id(Integer periksapasien_unit_id) {
-		this.periksapasien_unit_id = periksapasien_unit_id;
+	public void setPeriksapasienDokterID(Integer periksapasienDokterID) {
+		this.periksapasienDokterID = periksapasienDokterID;
 	}
 
-	public String getPeriksapasien_kamarpasien_id() {
-		return periksapasien_kamarpasien_id;
+	public Integer getPeriksapasienUnitID() {
+		return periksapasienUnitID;
 	}
 
-	public void setPeriksapasien_kamarpasien_id(String periksapasien_kamarpasien_id) {
-		this.periksapasien_kamarpasien_id = periksapasien_kamarpasien_id;
+	public void setPeriksapasienUnitID(Integer periksapasienUnitID) {
+		this.periksapasienUnitID = periksapasienUnitID;
 	}
 
-	public String getPeriksapasien_aktif() {
-		return periksapasien_aktif;
+	public String getPeriksapasienKamarpasienID() {
+		return periksapasienKamarpasienID;
 	}
 
-	public void setPeriksapasien_aktif(String periksapasien_aktif) {
-		this.periksapasien_aktif = periksapasien_aktif;
+	public void setPeriksapasienKamarpasienID(String periksapasienKamarpasienID) {
+		this.periksapasienKamarpasienID = periksapasienKamarpasienID;
 	}
 
-	public String getPeriksapasien_created_by() {
-		return periksapasien_created_by;
+	public String getPeriksapasienAktif() {
+		return periksapasienAktif;
 	}
 
-	public void setPeriksapasien_created_by(String periksapasien_created_by) {
-		this.periksapasien_created_by = periksapasien_created_by;
+	public void setPeriksapasienAktif(String periksapasienAktif) {
+		this.periksapasienAktif = periksapasienAktif;
 	}
 
-	public Timestamp getPeriksapasien_created_date() {
-		return periksapasien_created_date;
+	public String getPeriksapasienCreatedBy() {
+		return periksapasienCreatedBy;
 	}
 
-	public void setPeriksapasien_created_date(Timestamp periksapasien_created_date) {
-		this.periksapasien_created_date = periksapasien_created_date;
+	public void setPeriksapasienCreatedBy(String periksapasienCreatedBy) {
+		this.periksapasienCreatedBy = periksapasienCreatedBy;
 	}
 
-	public String getPeriksapasien_updated_by() {
-		return periksapasien_updated_by;
+	public Timestamp getPeriksapasienCreatedDate() {
+		return periksapasienCreatedDate;
 	}
 
-	public void setPeriksapasien_updated_by(String periksapasien_updated_by) {
-		this.periksapasien_updated_by = periksapasien_updated_by;
+	public void setPeriksapasienCreatedDate(Timestamp periksapasienCreatedDate) {
+		this.periksapasienCreatedDate = periksapasienCreatedDate;
 	}
 
-	public Timestamp getPeriksapasien_updated_date() {
-		return periksapasien_updated_date;
+	public String getPeriksapasienUpdatedBy() {
+		return periksapasienUpdatedBy;
 	}
 
-	public void setPeriksapasien_updated_date(Timestamp periksapasien_updated_date) {
-		this.periksapasien_updated_date = periksapasien_updated_date;
+	public void setPeriksapasienUpdatedBy(String periksapasienUpdatedBy) {
+		this.periksapasienUpdatedBy = periksapasienUpdatedBy;
 	}
 
-	public Integer getPeriksapasien_revised() {
-		return periksapasien_revised;
+	public Timestamp getPeriksapasienUpdatedDate() {
+		return periksapasienUpdatedDate;
 	}
 
-	public void setPeriksapasien_revised(Integer periksapasien_revised) {
-		this.periksapasien_revised = periksapasien_revised;
+	public void setPeriksapasienUpdatedDate(Timestamp periksapasienUpdatedDate) {
+		this.periksapasienUpdatedDate = periksapasienUpdatedDate;
 	}
 
-	public Integer getPeriksapasien_pendaftaran_id() {
-		return periksapasien_pendaftaran_id;
+	public Integer getPeriksapasienRevised() {
+		return periksapasienRevised;
 	}
 
-	public void setPeriksapasien_pendaftaran_id(Integer periksapasien_pendaftaran_id) {
-		this.periksapasien_pendaftaran_id = periksapasien_pendaftaran_id;
+	public void setPeriksapasienRevised(Integer periksapasienRevised) {
+		this.periksapasienRevised = periksapasienRevised;
 	}
 
-	public Date getPeriksapasien_tanggal() {
-		return periksapasien_tanggal;
+	public Integer getPeriksapasienPendaftaranID() {
+		return periksapasienPendaftaranID;
 	}
 
-	public void setPeriksapasien_tanggal(Date periksapasien_tanggal) {
-		this.periksapasien_tanggal = periksapasien_tanggal;
+	public void setPeriksapasienPendaftaranID(Integer periksapasienPendaftaranID) {
+		this.periksapasienPendaftaranID = periksapasienPendaftaranID;
 	}
 
-	public Integer getPeriksapasien_urut() {
-		return periksapasien_urut;
+	public Date getPeriksapasienTanggal() {
+		return periksapasienTanggal;
 	}
 
-	public void setPeriksapasien_urut(Integer periksapasien_urut) {
-		this.periksapasien_urut = periksapasien_urut;
+	public void setPeriksapasienTanggal(Date periksapasienTanggal) {
+		this.periksapasienTanggal = periksapasienTanggal;
 	}
 
-	public Integer getPeriksapasien_indent() {
-		return periksapasien_indent;
+	public Integer getPeriksapasienUrut() {
+		return periksapasienUrut;
 	}
 
-	public void setPeriksapasien_indent(Integer periksapasien_indent) {
-		this.periksapasien_indent = periksapasien_indent;
+	public void setPeriksapasienUrut(Integer periksapasienUrut) {
+		this.periksapasienUrut = periksapasienUrut;
+	}
+
+	public Integer getPeriksapasienIndent() {
+		return periksapasienIndent;
+	}
+
+	public void setPeriksapasienIndent(Integer periksapasienIndent) {
+		this.periksapasienIndent = periksapasienIndent;
 	}
 
 	public void setPendaftaran(MPendaftaran pendaftaran) {

@@ -25,7 +25,7 @@
             <tr>
               <td> ${tempresep.resepNo } </td>
               <td> ${tempresep.resepTanggal } </td>
-              <td> ${tempresep.resep_status } </td>
+              <td> ${tempresep.resepStatus } </td>
               <td> ${tempresep.resepPasienNama } </td>
               <td> ${tempresep.resepPasienAlamat } </td>
               <td> ${tempresep.resepDokterNama } </td>
@@ -35,8 +35,8 @@
               <td> ${tempresep.resepDimension } </td>
               <td> ${tempresep.resepRuangNama } </td>
               <td> ${tempresep.resepKeterangan } </td>
-              <td> <a href="/resep/update/${tempresep.resep_id}" class="btn btn-info">Update</a>
-               <a href="/resep/delete/${tempresep.resep_id}" class="btn btn-warning">Delete</a></td>
+              <td> <a href="/resep/update/${tempresep.resepID}" class="btn btn-info">Update</a>
+               <a href="/resep/delete/${tempresep.resepID}" class="btn btn-warning">Delete</a></td>
             </tr>
         </c:forEach>
     </tbody>

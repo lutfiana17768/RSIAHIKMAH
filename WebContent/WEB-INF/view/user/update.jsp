@@ -13,7 +13,7 @@
                         <h3 class="title"> Data user </h3>
                     </div>
                     <form:form modelAttribute="userModel" method="POST" action="/user/update">
-                        <form:hidden path="user_id" />
+                        <form:hidden path="userID" />
                         <form:hidden path="userCreatedBy" />
                         <form:hidden path="userCreatedDate" />
                         <form:hidden path="userAktif" />

@@ -55,9 +55,9 @@ public class KelasServiceAction implements KelasService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setKelas_aktif("Y");
-		data.setKelas_created_by("Admin");	
-		data.setKelas_created_date(currentTime);
+		data.setKelasAktif("Y");
+		data.setKelasCreatedBy("Admin");	
+		data.setKelasCreatedDate(currentTime);
 		kelasDAO.KelasStore(data);
 	}
 
@@ -67,9 +67,9 @@ public class KelasServiceAction implements KelasService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setKelas_aktif("Y");
-		data.setKelas_updated_by("Admin");
-		data.setKelas_updated_date(currentTime);
+		data.setKelasAktif("Y");
+		data.setKelasUpdatedBy("Admin");
+		data.setKelasUpdatedDate(currentTime);
 		kelasDAO.KelasUpdate(data);
 	}
 
@@ -79,9 +79,9 @@ public class KelasServiceAction implements KelasService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setKelas_aktif("T");
-		data.setKelas_deleted_by("Admin");
-		data.setKelas_deleted_date(currentTime);
+		data.setKelasAktif("T");
+		data.setKelasDeletedBy("Admin");
+		data.setKelasDeletedDate(currentTime);
 		kelasDAO.KelasDelete(data);
 	}
 }

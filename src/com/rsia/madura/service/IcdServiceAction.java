@@ -55,9 +55,9 @@ public class IcdServiceAction implements IcdService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setIcd_aktif("Y");
-		data.setIcd_created_by("Admin");	
-		data.setIcd_created_date(currentTime);
+		data.setIcdAktif("Y");
+		data.setIcdCreatedBy("Admin");	
+		data.setIcdCreatedDate(currentTime);
 		icdDAO.icdStore(data);
 	}
 
@@ -67,9 +67,9 @@ public class IcdServiceAction implements IcdService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setIcd_aktif("Y");
-		data.setIcd_updated_by("Admin");
-		data.setIcd_updated_date(currentTime);
+		data.setIcdAktif("Y");
+		data.setIcdUpdatedBy("Admin");
+		data.setIcdUpdatedDate(currentTime);
 		icdDAO.icdUpdate(data);
 	}
 
@@ -79,7 +79,7 @@ public class IcdServiceAction implements IcdService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setIcd_aktif("T");
+		data.setIcdAktif("T");
 		icdDAO.icdDelete(data);
 	}
 }

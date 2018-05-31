@@ -17,14 +17,14 @@
 		<tbody>
 			<c:forEach var="tempPasien" items="${pasiens}">
 					<tr>
-						<td> ${tempPasien.pasien_norm} </td>
-						<td> ${tempPasien.pasien_nama } </td>
-						<td> ${tempPasien.pasien_kelamin } </td> 
-						<td> ${tempPasien.pasien_alamat } </td>
-						<td> ${tempPasien.pasien_notelp } </td> 
+						<td> ${tempPasien.pasienNorm} </td>
+						<td> ${tempPasien.pasienNama } </td>
+						<td> ${tempPasien.pasienKelamin } </td> 
+						<td> ${tempPasien.pasienAlamat } </td>
+						<td> ${tempPasien.pasienNotelp } </td> 
 						<td> 
-							<a class="btn btn-warning" href="/pasien/delete/${tempPasien.pasien_id}">Delete</a>
-							<a class="btn btn-info" href="/pasien/update/${tempPasien.pasien_id}">Update</a>
+							<a class="btn btn-warning" href="/pasien/delete/${tempPasien.pasienID}">Delete</a>
+							<a class="btn btn-info" href="/pasien/update/${tempPasien.pasienID}">Update</a>
 						</td>
 					</tr>
 				</c:forEach>

@@ -28,14 +28,14 @@
 												<tbody>
 													<c:forEach var="paket" items="${paketan}">
 														<tr>
-															<td>${paket.paket_nama}</td>
-															<td>${paket.kelas.kelas_nama}</td>
-															<td>${paket.paket_keterangan}</td>
-															<td>${paket.paket_harga}</td>
-															<td>${paket.paket_jenis}</td>
+															<td>${paket.paketNama}</td>
+															<td>${paket.kelas.kelasNama}</td>
+															<td>${paket.paketKeterangan}</td>
+															<td>${paket.paketHarga}</td>
+															<td>${paket.paketJenis}</td>
 															<td>
-																<a href="/paket/update/${paket.paket_id}" class="btn btn-info rounded-0">Update</a>
-																<a href="/paket/delete/${paket.paket_id}" class="btn btn-warning rounded-0">Delete</a>
+																<a href="/paket/update/${paket.paketID}" class="btn btn-info rounded-0">Update</a>
+																<a href="/paket/delete/${paket.paketID}" class="btn btn-warning rounded-0">Delete</a>
 															</td>
 														</tr>
 													</c:forEach>

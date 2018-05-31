@@ -17,41 +17,50 @@
 						<form id="form-pelayanan-riwayatperiksa" class="from-horizontal">
 							<div class="form-group">
 								<label>TInggi</label>
-								<input type="text" name="periksa_tb" id="periksa_tb" class="form-control boxed">
+								<input type="text" name="periksaTb" id="periksaTb" class="form-control boxed">
 							</div>
                             <div class="form-group">
                                 <label>Berat</label>
-                                <input type="text" name="periksa_bb" id="periksa_bb" class="form-control boxed">
+                                <input type="text" name="periksaBb" id="periksaBb" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Detak Jantung</label>
-                                <input type="text" name="periksa_jantung" id="periksa_jantung" class="form-control boxed">
+                                <input type="text" name="periksaJantung" id="periksaJantung" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Tekanan Darah </label>
-                                <input type="text" name="periksa_darah" id="periksa_darah" class="form-control boxed">
+                                <input type="text" name="periksaDarah" id="periksaDarah" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Suhu</label>
-                                <input type="text" name="periksa_suhu" id="periksa_suhu" class="form-control boxed">
+                                <input type="text" name="periksaSuhu" id="periksaSuhu" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Nafas</label>
-                                <input type="text" name="periksa_nafas" id="periksa_nafas" class="form-control boxed">
+                                <input type="text" name="periksaNafas" id="periksaNafas" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Keluhan</label>
-                                <input type="text" name="periksa_keluhan" id="periksa_keluhan" class="form-control boxed">
+                                <input type="text" name="periksaKeluhan" id="periksaKeluhan" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Pemeriksa</label>
-                                <input type="text" name="periksa_pemeriksa" id="periksa_pemeriksa" class="form-control boxed">
+                                <div class="select2-wrapper">
+                                    <select name="pegawai" id="pegawai" class="form-control boxed select2-single">
+                                        <option value="">--- Pilih Pemeriksa ---</option>
+                                        <c:forEach var="pegawai" items="${pegawais}">
+                                            <option value="${pegawai.pegawaiID }">
+                                                ${pegawai.pegawaiNama }
+                                            </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" name="periksa_tanggal" id="periksa_tanggal" class="form-control boxed">
+                                <input type="text" name="periksaTanggal" id="periksaTanggal" class="form-control boxed datetimepicker2">
                             </div>
-                            <input type="hidden" name="periksa_id" id="periksa_id">
+                            <input type="hidden" name="periksaID" id="periksaID">
 							<input type="hidden" name="riwayatperiksa_mode" id="riwayatperiksa_mode">
 							<input type="hidden" name="riwayatperiksa_edit" id="riwayatperiksa_edit">
 						</form>

@@ -54,9 +54,9 @@ public class JenisLayananServiceAction implements JenisLayananService{
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setJenislayanan_aktif("Y");
-		data.setJenislayanan_created_by("Admin");	
-		data.setJenislayanan_created_date(currentTime);
+		data.setJenislayananAktif("Y");
+		data.setJenislayananCreatedBy("Admin");	
+		data.setJenislayananCreatedDate(currentTime);
 		jenisLayananDAO.JenisLayananStore(data);
 		
 	}

@@ -14,18 +14,18 @@
 					</div>
 				</div>
 				<form:form modelAttribute="pasienModel" method="POST" action="/pasien/update">
-								<form:hidden path="pasien_id" />
-								<form:hidden path="pasien_created_date" />
-								<form:hidden path="pasien_created_by" />
-								<form:hidden path="pasien_aktif" />
+								<form:hidden path="pasienID" />
+								<form:hidden path="pasienCreatedDate" />
+								<form:hidden path="pasienCreatedBy" />
+								<form:hidden path="pasienAktif" />
 								<div class="form-group">
 				<div class="row sameheight-container" style="background: white">
 					<div class="col-md-6 d_pasien-content">
 						<div class="card card-block sameheight-item d_pasien-form">
-								<form:hidden path="pasien_id" />
+								<form:hidden path="pasienID" />
 								<div class="form-group">
                                     <label>No RM</label>
-                                    <form:input path="pasien_norm" placeholder="Masukan No RM" class="form-control" readonly="true"/>
+                                    <form:input path="pasienNorm" placeholder="Masukan No RM" class="form-control" readonly="true"/>
                                  </div>		                                         
                                  
                                 <div class="form-group">
@@ -35,30 +35,30 @@
 
                                 <div class="form-group">
                                     <label>Sebutan</label>
-                                    <form:input path="pasien_sebut" placeholder="Tuan/Nona/Nyonya/Anak" class="form-control" maxlength="5"/>
+                                    <form:input path="pasienSebut" placeholder="Tuan/Nona/Nyonya/Anak" class="form-control" maxlength="5"/>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Nama</label>
-                                    <form:input path="pasien_nama" placeholder="Masukan Nama" class="form-control"/>
+                                    <form:input path="pasienNama" placeholder="Masukan Nama" class="form-control"/>
                                 </div>
 								
 								<div class="form-group">
 									<label>Kelamin</label>
 									<div class="select2-wrapper">	
-										<form:select path="pasien_kelamin" items="${Jeniskelamin}" class="form-control"/>
+										<form:select path="pasienKelamin" items="${Jeniskelamin}" class="form-control"/>
 									</div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <form:input path="pasien_alamat" placeholder="Masukan Alamat" class="form-control"/>
+                                    <form:input path="pasienAlamat" placeholder="Masukan Alamat" class="form-control"/>
                                 </div>
 								
 								<div class="form-group">
 									<label>Provinsi</label>
 									<div class="select2-wrapper">	
-										<form:select path="m_propinsi_id" class="form-control input-lg select2-single">
+										<form:select path="m_propinsiID" class="form-control input-lg select2-single">
 											<c:forEach var="prov" items="${provinsi}">
 	                                         	<form:option value="${prov.propinsi_id }" label="${prov.propinsiNama }" />
 	                                         </c:forEach>
@@ -69,7 +69,7 @@
 								<div class="form-group">
 									<label>Kota</label>
 									<div class="select2-wrapper">
-										<form:select path="m_kota_id" class="form-control input-lg select2-single">
+										<form:select path="m_kotaID" class="form-control input-lg select2-single">
 											<c:forEach var="tempKota" items="${Kota}">
 	                                         	<form:option value="${tempKota.kota_id }" label="${tempKota.kotaNama }" />
 	                                         </c:forEach>
@@ -80,7 +80,7 @@
 								<div class="form-group">
 									<label>Kecamatan</label>
 									<div class="select2-wrapper">
-										<form:select path="m_kecamatan_id" class="form-control input-lg select2-single">
+										<form:select path="m_kecamatanID" class="form-control input-lg select2-single">
 											<c:forEach var="Kecamatan" items="${Kecamatan}">
 	                                         	<form:option value="${Kecamatan.kecamatan_id }" label="${Kecamatan.kecamatanNama }" />
 	                                         </c:forEach>
@@ -91,7 +91,7 @@
 								<div class="form-group">
 									<label>Kelurahan</label>
 									<div class="select2-wrapper">
-										<form:select path="m_kelurahan_id" class="form-control input-lg select2-single">
+										<form:select path="m_kelurahanID" class="form-control input-lg select2-single">
 											<c:forEach var="kelurahan" items="${Kelurahan}">
 	                                         	<form:option value="${kelurahan.kelurahan_id }" label="${kelurahan.kelurahanNama }" />
 	                                         </c:forEach>
@@ -101,36 +101,36 @@
                                 
                                 <div class="form-group">
 									<label>Telepon</label>
-                                    <form:input path="pasien_notelp" placeholder="Telepon" class="form-control"/>
+                                    <form:input path="pasienNotelp" placeholder="Telepon" class="form-control"/>
                                 </div>
 								
 								 <div class="form-group">
 									<label>HP</label>
-                                    <form:input path="pasien_nohp" placeholder="HP" class="form-control"/>
+                                    <form:input path="pasienNohp" placeholder="HP" class="form-control"/>
                                 </div>
                                 
                                 <div class="form-group">
 									<label>Golongan Darah</label>
 									<div class="select2-wrapper">	
-										<form:select path="pasien_goldarah" items="${Goldar}" class="form-control"/>
+										<form:select path="pasienGoldarah" items="${Goldar}" class="form-control"/>
 									</div>
                                 </div>
 
 								<div class="form-group">
                                     <label>BB</label>
-                                    <form:input path="pasien_bb" placeholder="Masukan BB" class="form-control"/>
+                                    <form:input path="pasienBb" placeholder="Masukan BB" class="form-control"/>
                                 </div>
 
                                 <div class="form-group">
                                     <label>TB</label>
-                                    <form:input path="pasien_tb" placeholder="Masukan TB" class="form-control"/>
+                                    <form:input path="pasienTb" placeholder="Masukan TB" class="form-control"/>
                                 </div>
                                 
                                 												
 								<div class="form-group">
 									<label for="exampleInputPassword1">Kota Lahir</label>
 									<div class="select2-wrapper">
-										<form:select path="m_kota_id_tempatlahir" class="form-control input-lg select2-single">
+										<form:select path="m_kotaID_tempatlahir" class="form-control input-lg select2-single">
 											<c:forEach var="tempKota" items="${Kota}">
 	                                         	<form:option value="${tempKota.kota_id }" label="${tempKota.kotaNama }" />
 	                                         </c:forEach>
@@ -140,31 +140,31 @@
                                 
                                 <div class="form-group">
                                     <label>Domisili</label>
-                                    <form:input path="pasien_domisili" placeholder="Masukan Domisili" class="form-control"/>
+                                    <form:input path="pasienDomisili" placeholder="Masukan Domisili" class="form-control"/>
                                 </div>
                                 
                                 
                                 <div class="form-group">
                                     <label>Keterangan</label>
-                                    <form:input path="pasien_keterangan" placeholder="Masukan Keterangan" class="form-control"/>
+                                    <form:input path="pasienKeterangan" placeholder="Masukan Keterangan" class="form-control"/>
                                 </div>	
                                 
                                 <div class="form-group">
                                     <label>Status Pekerjaan</label>
-                                    <form:input path="pasien_pekerjaan" placeholder="Masukan Pekerjaan" class="form-control"/>
+                                    <form:input path="pasienPekerjaan" placeholder="Masukan Pekerjaan" class="form-control"/>
                                 </div>
                                 
 								<div class="form-group">
                                     <label>Status Nikah</label>
-                                    <form:input path="pasien_statusnikah" placeholder="Masukan Status Nikah" class="form-control"/>
+                                    <form:input path="pasienStatusnikah" placeholder="Masukan Status Nikah" class="form-control"/>
                                 </div>
                                 
                                 <div class="form-group">
-									<label class="control-label" id="m_pendidikan_id">Pekerjaan</label>
+									<label class="control-label" id="m_pendidikanID">Pekerjaan</label>
 									<div class="select2-wrapper">
-										<form:select path="m_pekerjaan_id" class="form-control input-lg select2-single">
+										<form:select path="m_pekerjaanID" class="form-control input-lg select2-single">
 											<c:forEach var="pend" items="${Pendidikan}">
-	                                         	<form:option value="${pend.pendidikan_id }" label="${pend.pendidikanNama }" />
+	                                         	<form:option value="${pend.pendidikanID }" label="${pend.pendidikanNama }" />
 	                                         </c:forEach>
 										</form:select>
 									</div>
@@ -173,16 +173,16 @@
 								<div class="form-group">
 									<label for="exampleInputPassword1">Agama</label>
 									<div class="select2-wrapper">
-										<form:select path="m_agama_id" items="${Agama}" class="form-control"/>
+										<form:select path="m_agamaID" items="${Agama}" class="form-control"/>
 									</div>
                                 </div>
 
 								<div class="form-group">
-									<label class="control-label" id="m_pendidikan_id">Pendidikan</label>
+									<label class="control-label" id="m_pendidikanID">Pendidikan</label>
 									<div class="select2-wrapper">
-										<form:select path="m_pendidikan_id" class="form-control input-lg select2-single">
+										<form:select path="m_pendidikanID" class="form-control input-lg select2-single">
 											<c:forEach var="pend" items="${Pendidikan}">
-	                                         	<form:option value="${pend.pendidikan_id }" label="${pend.pendidikanNama }" />
+	                                         	<form:option value="${pend.pendidikanID }" label="${pend.pendidikanNama }" />
 	                                         </c:forEach>
 										</form:select>
 									</div>
@@ -190,7 +190,7 @@
 								
 								<div class="form-group">
                                     <label>Alergi</label>
-                                    <form:input path="pasien_alergi" placeholder="Masukan Alergi" class="form-control"/>
+                                    <form:input path="pasienAlergi" placeholder="Masukan Alergi" class="form-control"/>
                                 </div>	  
 								
 								<div class="card-header" style="min-height: 0">
@@ -201,14 +201,14 @@
 					<div class="card-block" style="background-color: #f4f4f4">
 						<div class="form-group">
 							<label>Nama Wali</label>
-							<form:input path="wali_nama" placeholder="Masukan Nama Wali"
+							<form:input path="waliNama" placeholder="Masukan Nama Wali"
 								class="form-control" />
 						</div>
 
 						<div class="form-group">
 							<label>Tanggal Lahir</label>
 							<!-- 
-								<form:input path="wali_tgllahir"
+								<form:input path="waliTgllahir"
 									class="form-control" type='date'/>
 								 -->
 						</div>
@@ -216,7 +216,7 @@
 						<div class="form-group">
 							<label>Kelamin</label>
 							<div class="select2-wrapper">
-								<form:select path="wali_kelamin" items="${Jeniskelamin}"
+								<form:select path="waliKelamin" items="${Jeniskelamin}"
 									class="form-control" />
 
 							</div>
@@ -224,19 +224,19 @@
 
 						<div class="form-group">
 							<label>No. Telpon</label>
-							<form:input path="wali_telepon" placeholder="Masukan No Telp"
+							<form:input path="waliTelepon" placeholder="Masukan No Telp"
 								class="form-control" />
 						</div>
 
 						<div class="form-group">
 							<label>Alamat</label>
-							<form:input path="wali_alamat" placeholder="Masukan Alamat"
+							<form:input path="waliAlamat" placeholder="Masukan Alamat"
 								class="form-control" />
 						</div>
 
 						<div class="form-group">
 							<label>Hubungan</label>
-							<form:input path="wali_hubungan"
+							<form:input path="waliHubungan"
 								placeholder="Masukan Hubungan" class="form-control" />
 						</div>
 								

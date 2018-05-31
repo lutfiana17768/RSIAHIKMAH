@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-23 14:23:55
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-25 17:15:27
+* @Last Modified time: 2018-05-30 12:40:01
 */
 package com.rsia.madura.entity;
 
@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="t_tindakan_pasein")
@@ -23,31 +24,34 @@ public class MTindakanPasien {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="tindakanpasienpasien_id")
-	private int tindakanpasien_id;
+	private int tindakanpasienID;
+
+    @Transient
+    private Integer remove;
 
 	@Column(name="tindakanpasien_harga")
-	private Integer tindakanpasien_harga;
+	private Integer tindakanpasienHarga;
 
 	@Column(name="tindakanpasien_created_by")
-	private String tindakanpasien_created_by;
+	private String tindakanpasienCreatedBy;
 	
 	@Column(name="tindakanpasien_created_date")
-	private Timestamp tindakanpasien_created_date;
+	private Timestamp tindakanpasienCreatedDate;
 	
 	@Column(name="tindakanpasien_updated_by")
-	private String tindakanpasien_updated_by;
+	private String tindakanpasienUpdatedBy;
 	
 	@Column(name="tindakanpasien_updated_date")
-	private Timestamp tindakanpasien_updated_date;
+	private Timestamp tindakanpasienUpdatedDate;
 
 	@Column(name="tindakanpasien_deleted_by")
-	private String tindakanpasien_deleted_by;
+	private String tindakanpasienDeletedBy;
 
 	@Column(name="tindakanpasien_deleted_date")
-	private Timestamp tindakanpasien_deleted_date;
+	private Timestamp tindakanpasienDeletedDate;
 
 	@Column(name="tindakanpasien_revised")
-	private int tindakanpasien_revised;
+	private int tindakanpasienRevised;
 
 	@ManyToOne
 	private MTindakan tindakan;
@@ -58,76 +62,85 @@ public class MTindakanPasien {
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 	
-	public int getTindakanpasien_id() {
-		return tindakanpasien_id;
+	public int getTindakanpasienID() {
+		return tindakanpasienID;
 	}
 
-	public void setTindakanpasien_id(int tindakanpasien_id) {
-		this.tindakanpasien_id = tindakanpasien_id;
+	public void setTindakanpasienID(int tindakanpasienID) {
+		this.tindakanpasienID = tindakanpasienID;
 	}
+
+	public Integer getRemove(){
+		return remove;
+	}
+
+	public void setRemove(Integer remove) {
+		this.remove = remove;
+	}
+
 	
-	public Integer getTindakanpasien_harga() {
-		return tindakanpasien_harga;
+	public Integer getTindakanpasienHarga() {
+		return tindakanpasienHarga;
 	}
 
-	public void setTindakanpasien_harga(Integer tindakanpasien_harga) {
-		this.tindakanpasien_harga = tindakanpasien_harga;
+	public void setTindakanpasienHarga(Integer tindakanpasienHarga) {
+		this.tindakanpasienHarga = tindakanpasienHarga;
 	}
 
-	public String getTindakanpasien_created_by() {
-		return tindakanpasien_created_by;
+	public String getTindakanpasienCreatedBy() {
+		return tindakanpasienCreatedBy;
 	}
 
-	public void setTindakanpasien_created_by(String tindakanpasien_created_by) {
-		this.tindakanpasien_created_by = tindakanpasien_created_by;
+	public void setTindakanpasienCreatedBy(String tindakanpasienCreatedBy) {
+		this.tindakanpasienCreatedBy = tindakanpasienCreatedBy;
 	}
 
-	public Timestamp getTindakanpasien_created_date() {
-		return tindakanpasien_created_date;
+	public Timestamp getTindakanpasienCreatedDate() {
+		return tindakanpasienCreatedDate;
 	}
 
-	public void setTindakanpasien_created_date(Timestamp tindakanpasien_created_date) {
-		this.tindakanpasien_created_date = tindakanpasien_created_date;
+	public void setTindakanpasienCreatedDate(Timestamp tindakanpasienCreatedDate) {
+		this.tindakanpasienCreatedDate = tindakanpasienCreatedDate;
 	}
 
-	public String getTindakanpasien_updated_by() {
-		return tindakanpasien_updated_by;
+	public String getTindakanpasienUpdatedBy() {
+		return tindakanpasienUpdatedBy;
 	}
 
-	public void setTindakanpasien_updated_by(String tindakanpasien_updated_by) {
-		this.tindakanpasien_updated_by = tindakanpasien_updated_by;
+	public void setTindakanpasienUpdatedBy(String tindakanpasienUpdatedBy) {
+		this.tindakanpasienUpdatedBy = tindakanpasienUpdatedBy;
 	}
 
-	public Timestamp getTindakanpasien_updated_date() {
-		return tindakanpasien_updated_date;
+	public Timestamp getTindakanpasienUpdatedDate() {
+		return tindakanpasienUpdatedDate;
 	}
 
-	public void setTindakanpasien_updated_date(Timestamp tindakanpasien_updated_date) {
-		this.tindakanpasien_updated_date = tindakanpasien_updated_date;
+	public void setTindakanpasienUpdatedDate(Timestamp tindakanpasienUpdatedDate) {
+		this.tindakanpasienUpdatedDate = tindakanpasienUpdatedDate;
 	}
 
-	public int getTindakanpasien_revised() {
-		return tindakanpasien_revised;
+	public int getTindakanpasienRevised() {
+		return tindakanpasienRevised;
 	}
 
-	public void setTindakanpasien_revised(int tindakanpasien_revised) {
-		this.tindakanpasien_revised = tindakanpasien_revised;
+	public void setTindakanpasienRevised(int tindakanpasienRevised) {
+		this.tindakanpasienRevised = tindakanpasienRevised;
 	}
 
-	public Timestamp getTindakanpasien_deleted_date() {
-		return tindakanpasien_deleted_date;
+	public Timestamp getTindakanpasienDeletedDate() {
+		return tindakanpasienDeletedDate;
 	}
 
-	public void setTindakanpasien_deleted_date(Timestamp tindakanpasien_deleted_date) {
-		this.tindakanpasien_deleted_date = tindakanpasien_deleted_date;
+	public void setTindakanpasienDeletedDate(Timestamp tindakanpasienDeletedDate) {
+		this.tindakanpasienDeletedDate = tindakanpasienDeletedDate;
 	}
 
-	public String getTindakanpasien_deleted_by() {
-		return tindakanpasien_deleted_by;
+	public String getTindakanpasienDeletedBy() {
+		return tindakanpasienDeletedBy;
 	}
 
-	public void setTindakanpasien_deleted_by(String tindakanpasien_deleted_by) {
-		this.tindakanpasien_deleted_by = tindakanpasien_deleted_by;
+	public void setTindakanpasienDeletedBy(String tindakanpasienDeletedBy) {
+		this.tindakanpasienDeletedBy = tindakanpasienDeletedBy;
 	}
 
 	public MTindakan getTindakan() {

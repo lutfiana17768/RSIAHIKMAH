@@ -18,23 +18,24 @@
                             <div class="form-group">
                                 <label>Barang</label>
                                 <div class="select2-wrapper">
-                                    <select name="pakai_barang" id="pakai_barang" class="form-control boxed select2-single">
+                                    <select name="pakaiBarang" id="pakaiBarang" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Barang ---</option>
-                                        <c:forEach var="barang" items="${barangs}">
-                                            <option value="${barang.barang_id }">
-                                                ${barang.barangNama }
+                                        <% /**<c:forEach var="barang" items="${barangs}">
+                                            <option value="${barang.IdBarang }">
+                                                ${barang.NamaBarang }
                                             </option>
                                         </c:forEach>
+                                        **/ %>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Satuan</label>
                                 <div class="select2-wrapper">
-                                    <select name="pakai_satuan" id="pakai_satuan" class="form-control boxed select2-single">
+                                    <select name="pakaiSatuan" id="pakaiSatuan" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Satuan ---</option>
                                         <c:forEach var="satuan" items="${satuans}">
-                                            <option value="${satuan.satuan_id }">
+                                            <option value="${satuan.satuanID }">
                                                 ${satuan.satuanNama }
                                             </option>
                                         </c:forEach>
@@ -43,21 +44,21 @@
                             </div>
                             <div class="form-group">
                                 <label>Jumlah</label>
-                                <input type="text" name="pakai_jumlah" id="pakai_Jumlah" class="form-control boxed">
+                                <input type="text" name="pakaiJumlah" id="pakaiJumlah" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Harga</label>
-                                <input type="text" name="pakai_harga" id="pakai_harga" class="form-control boxed">
+                                <input type="text" name="pakaiHarga" id="pakaiHarga" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Sub Total</label>
-                                <input type="text" name="pakai_subtotal" id="pakai_subtotal" class="form-control boxed">
+                                <input type="text" name="pakaiSubtotal" id="pakaiSubtotal" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <input type="text" name="pakai_keterangan" id="pakai_keterangan" class="form-control boxed">
+                                <input type="text" name="pakaiKeterangan" id="pakaiKeterangan" class="form-control boxed">
                             </div>
-                            <input type="hidden" name="pakai_id" id="pakai_id">
+                            <input type="hidden" name="pakaiID" id="pakaiID">
                             <input type="hidden" name="pakai_mode" id="pakai_mode">
                             <input type="hidden" name="pakai_edit" id="pakai_edit">
                         </form>

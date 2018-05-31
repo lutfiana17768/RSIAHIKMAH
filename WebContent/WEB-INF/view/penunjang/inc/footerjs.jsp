@@ -63,7 +63,7 @@
 		});
 
         $('#simpan-tarif').click(function(){
-            var penunjang_tarif_kelas,penunjangkelas_id,kelas_text,penunjang_tarif_harga,mode,counter,id_row;
+            var penunjangTarifKelas,penunjangkelas_id,kelas_text,penunjangTarifHarga,mode,counter,id_row;
             var mode = $('#tarif_mode').val();
 
             if(mode == 'new')
@@ -81,14 +81,14 @@
             }
 
             penunjangkelas_id = $('#penunjangkelas_id').val() || false;
-            kelas_text = $('#penunjang_tarif_kelas option:selected').text();
-            penunjang_tarif_kelas = $('#penunjang_tarif_kelas').val() ||0;
-            penunjang_tarif_harga = $('#penunjang_tarif_harga').val() ||0;
+            kelas_text = $('#penunjangTarifKelas option:selected').text();
+            penunjangTarifKelas = $('#penunjangTarifKelas').val() ||0;
+            penunjangTarifHarga = $('#penunjangTarifHarga').val() ||0;
             
             tr.append('<td>'+kelas_text+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="penunjangkelas_harga" data-kolom-id="penunjang_tarif_harga">'+penunjang_tarif_harga+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="penunjangkelasHarga" data-kolom-id="penunjangTarifHarga">'+penunjangTarifHarga+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteTarif('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editTarif('+counter+')">Edit</button></td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="kelases.kelas_id" data-kolom-id="penunjang_tarif_kelas">'+penunjang_tarif_kelas+'</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="kelases.kelas_id" data-kolom-id="penunjangTarifKelas">'+penunjangTarifKelas+'</td>');
             console.log(penunjangkelas_id)
             if (penunjangkelas_id) {
                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangkelas_id" data-kolom-id="penunjangkelas_id">'+penunjangkelas_id+'</td>');

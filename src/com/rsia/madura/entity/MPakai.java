@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 15:20:14
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-28 10:34:47
+* @Last Modified time: 2018-05-30 12:40:26
 */
 package com.rsia.madura.entity;
 
@@ -16,11 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.FetchType;
-import javax.persistence.CascadeType;
-import org.hibernate.annotations.LazyCollectionOption;
-import org.hibernate.annotations.LazyCollection;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="t_pakai")
@@ -28,41 +24,44 @@ public class MPakai {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pakai_id")
-	private int pakai_id;
+	private int pakaiID;
+
+    @Transient
+    private Integer remove;
 
 	// ganti relasi ke Msatuan
 	@Column(name="pakai_satuan")
-	private String pakai_satuan;
+	private String pakaiSatuan;
 
 	@Column(name="pakai_jumlah")
-	private Integer pakai_jumlah;
+	private Integer pakaiJumlah;
 	
 	@Column(name="pakai_harga")
-	private Integer pakai_harga;
+	private Integer pakaiHarga;
 	
 	@Column(name="pakai_keterangan")
-	private String pakai_keterangan;
+	private String pakaiKeterangan;
 
 	@Column(name="pakai_created_by")
-	private String pakai_created_by;
+	private String pakaiCreatedBy;
 	
 	@Column(name="pakai_created_date")
-	private Timestamp pakai_created_date;
+	private Timestamp pakaiCreatedDate;
 	
 	@Column(name="pakai_updated_by")
-	private String pakai_updated_by;
+	private String pakaiUpdatedBy;
 	
 	@Column(name="pakai_updated_date")
-	private Timestamp pakai_updated_date;
+	private Timestamp pakaiUpdatedDate;
 	
 	@Column(name="pakai_revised")
-	private int pakai_revised;
+	private int pakaiRevised;
 	
 	@Column(name="pakai_deleted_by")
-	private String pakai_deleted_by;
+	private String pakaiDeletedBy;
 	
 	@Column(name="pakai_deleted_date")
-	private Timestamp pakai_deleted_date;
+	private Timestamp pakaiDeletedDate;
 
 	@ManyToOne
 	private MBarang barang;
@@ -70,84 +69,93 @@ public class MPakai {
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 
-	public int getPakai_id() {
-		return pakai_id;
+	public int getPakaiID() {
+		return pakaiID;
 	}
 
-	public void setPakai_id(int pakai_id) {
-		this.pakai_id = pakai_id;
+	public void setPakaiID(int pakaiID) {
+		this.pakaiID = pakaiID;
 	}
 
-	public String getPakai_satuan() {
-		return pakai_satuan;
+	public Integer getRemove(){
+		return remove;
 	}
 
-	public void setPakai_satuan(String pakai_satuan) {
-		this.pakai_satuan = pakai_satuan;
+	public void setRemove(Integer remove) {
+		this.remove = remove;
 	}
 
-	public Integer getPakai_jumlah() {
-		return pakai_jumlah;
+
+	public String getPakaiSatuan() {
+		return pakaiSatuan;
 	}
 
-	public void setPakai_jumlah(Integer pakai_jumlah) {
-		this.pakai_jumlah = pakai_jumlah;
+	public void setPakaiSatuan(String pakaiSatuan) {
+		this.pakaiSatuan = pakaiSatuan;
 	}
 
-	public Integer getPakai_harga() {
-		return pakai_harga;
+	public Integer getPakaiJumlah() {
+		return pakaiJumlah;
 	}
 
-	public void setPakai_harga(Integer pakai_harga) {
-		this.pakai_harga = pakai_harga;
+	public void setPakaiJumlah(Integer pakaiJumlah) {
+		this.pakaiJumlah = pakaiJumlah;
 	}
 
-	public String getPakai_keterangan() {
-		return pakai_keterangan;
+	public Integer getPakaiHarga() {
+		return pakaiHarga;
 	}
 
-	public void setPakai_keterangan(String pakai_keterangan) {
-		this.pakai_keterangan = pakai_keterangan;
+	public void setPakaiHarga(Integer pakaiHarga) {
+		this.pakaiHarga = pakaiHarga;
 	}
 
-	public String getPakai_created_by() {
-		return pakai_created_by;
+	public String getPakaiKeterangan() {
+		return pakaiKeterangan;
 	}
 
-	public void setPakai_created_by(String pakai_created_by) {
-		this.pakai_created_by = pakai_created_by;
+	public void setPakaiKeterangan(String pakaiKeterangan) {
+		this.pakaiKeterangan = pakaiKeterangan;
 	}
 
-	public Timestamp getPakai_created_date() {
-		return pakai_created_date;
+	public String getPakaiCreatedBy() {
+		return pakaiCreatedBy;
 	}
 
-	public void setPakai_created_date(Timestamp pakai_created_date) {
-		this.pakai_created_date = pakai_created_date;
+	public void setPakaiCreatedBy(String pakaiCreatedBy) {
+		this.pakaiCreatedBy = pakaiCreatedBy;
 	}
 
-	public String getPakai_updated_by() {
-		return pakai_updated_by;
+	public Timestamp getPakaiCreatedDate() {
+		return pakaiCreatedDate;
 	}
 
-	public void setPakai_updated_by(String pakai_updated_by) {
-		this.pakai_updated_by = pakai_updated_by;
+	public void setPakaiCreatedDate(Timestamp pakaiCreatedDate) {
+		this.pakaiCreatedDate = pakaiCreatedDate;
 	}
 
-	public Timestamp getPakai_updated_date() {
-		return pakai_updated_date;
+	public String getPakaiUpdatedBy() {
+		return pakaiUpdatedBy;
 	}
 
-	public void setPakai_updated_date(Timestamp pakai_updated_date) {
-		this.pakai_updated_date = pakai_updated_date;
+	public void setPakaiUpdatedBy(String pakaiUpdatedBy) {
+		this.pakaiUpdatedBy = pakaiUpdatedBy;
 	}
 
-	public Integer getPakai_revised() {
-		return pakai_revised;
+	public Timestamp getPakaiUpdatedDate() {
+		return pakaiUpdatedDate;
 	}
 
-	public void setPakai_revised(Integer pakai_revised) {
-		this.pakai_revised = pakai_revised;
+	public void setPakaiUpdatedDate(Timestamp pakaiUpdatedDate) {
+		this.pakaiUpdatedDate = pakaiUpdatedDate;
+	}
+
+	public Integer getPakaiRevised() {
+		return pakaiRevised;
+	}
+
+	public void setPakaiRevised(Integer pakaiRevised) {
+		this.pakaiRevised = pakaiRevised;
 	}
 
 	public MBarang getBarang() {

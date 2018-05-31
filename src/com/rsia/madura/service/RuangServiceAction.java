@@ -55,9 +55,9 @@ public class RuangServiceAction implements RuangService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setRuang_aktif("Y");
-		data.setRuang_created_by("Admin");	
-		data.setRuang_created_date(currentTime);
+		data.setRuangAktif("Y");
+		data.setRuangCreatedBy("Admin");	
+		data.setRuangCreatedDate(currentTime);
 		ruangDAO.RuangStore(data);
 	}
 
@@ -67,9 +67,9 @@ public class RuangServiceAction implements RuangService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setRuang_aktif("Y");
-		data.setRuang_updated_by("Admin");
-		data.setRuang_updated_date(currentTime);
+		data.setRuangAktif("Y");
+		data.setRuangUpdatedBy("Admin");
+		data.setRuangUpdatedDate(currentTime);
 		ruangDAO.RuangUpdate(data);
 	}
 
@@ -79,9 +79,9 @@ public class RuangServiceAction implements RuangService {
 		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		data.setRuang_aktif("T");
-		data.setRuang_deleted_by("Admin");
-		data.setRuang_deleted_date(currentTime);
+		data.setRuangAktif("T");
+		data.setRuangDeletedBy("Admin");
+		data.setRuangDeletedDate(currentTime);
 		ruangDAO.RuangDelete(data);
 	}
 }

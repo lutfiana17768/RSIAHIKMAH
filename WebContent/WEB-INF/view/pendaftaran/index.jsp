@@ -13,205 +13,150 @@
                                     </div>
                                 </div>
                                 
-                                <div class="card-block row" style="background-color: #f4f4f4">
-                                <div class="col-6">
-                                    
-                                    <form:form modelAttribute="PendaftaranModel" method="POST" action="/pendaftaran/store">
-                                        <div class="form-group">
-                                            <label>Nomor Rekam Medis</label>
-                                            <div class="select2-wrapper">
-                                                <form:select path="pasien.pasien_id"
-                                                    class="form-control input-lg select2-single">
-                                                    <c:forEach var="pasien" items="${Pasien}">
-                                                        <form:option value="${pasien.pasien_id}"
-                                                            label="${pasien.pasien_norm} - ${pasien.pasien_nama}"/>
-                                                    </c:forEach>
-                                                </form:select>
+                                <form:form modelAttribute="PendaftaranModel" method="POST" action="/pendaftaran/store">
+                                    <div class="card-block row" style="background-color: #f4f4f4">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Nomor Rekam Medis</label>
+                                                <div class="select2-wrapper">
+                                                    <form:select path="pasien.pasienID"
+                                                        class="form-control input-lg select2-single">
+                                                        <c:forEach var="pasien" items="${pasiens}">
+                                                            <form:option value="${pasien.pasienID}"
+                                                                label="${pasien.pasienNorm} - ${pasien.pasienNama}"/>
+                                                        </c:forEach>
+                                                    </form:select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label class="control-label">Kondisi Pasien</label>
-                                            <div class="select2-wrapper">
-                                                <form:select path="kondisi.kondisi_id"
-                                                    class="form-control input-lg select2-single">
-                                                    <c:forEach var="kondisipasien" items="${Kondisipasien}">
-                                                        <form:option value="${kondisipasien.kondisi_id}"
-                                                            label="${kondisipasien.kondisi_nama}"/>
-                                                    </c:forEach>
-                                                </form:select>
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                        <div class="form-group">
-                                            <label class="control-label">Kondisi Kedatangan Pasien</label>
-                                            <select class="form-control boxed form-control-sm" id="kondisi_pasien">
-                                                <option value="D">Datang Sendiri</option>
-                                                <option value="R">Rujukan</option>
-                                            </select>
-                                        </div>
-                                        
-                                        <div class="form-group" id="rujukan_id">
-                                            <label>Rujukan</label>
-                                            <div class="select2-wrapper">
-                                                <form:select path="m_rujukan_id"
-                                                    class="form-control input-lg select2-single">
-                                                    <c:forEach var="rujukan" items="${Rujukan}">
-                                                        <form:option value="${rujukan.rujukan_id}"
-                                                            label="${rujukan.rujukan_nama}"/>
-                                                    </c:forEach>
-                                                </form:select>
-                                            </div> 
                                             
-                                            <label>Tindakan</label>
-                                            <div class="select2-wrapper">
-                                                <form:select path="m_rujukan_id"
-                                                    class="form-control input-lg select2-single">
-                                                    <c:forEach var="tindakan" items="${Tindakan}">
-                                                        <form:option value="${tindakan.tindakan_id}"
-                                                            label="${tindakan.tindakan_nama}"/>
-                                                    </c:forEach>
-                                                </form:select>
+                                            <div class="form-group">
+                                                <label class="control-label">Kondisi Pasien</label>
+                                                <div class="select2-wrapper">
+                                                    <form:select path="kondisi.kondisiID"
+                                                        class="form-control input-lg select2-single">
+                                                        <c:forEach var="kondisipasien" items="${kondisipasiens}">
+                                                            <form:option value="${kondisipasien.kondisiID}"
+                                                                label="${kondisipasien.kondisiNama}"/>
+                                                        </c:forEach>
+                                                    </form:select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label class="control-label">Poli</label>
-                                            <select class="form-control boxed form-control-sm">
-                                                <option value=O">Obyn</option>
-                                                <option value="A">Anak</option>
-                                            </select>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label class="control-label">Dokter</label>
-                                            <select class="form-control boxed form-control-sm">
-                                                    <option>Rahayu</option>
-                                                    <option>Sri</option>
+                                            
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label">Kondisi Kedatangan Pasien</label>
+                                                <select class="form-control boxed form-control-sm" id="kondisi_pasien">
+                                                    <option value="D">Datang Sendiri</option>
+                                                    <option value="R">Rujukan</option>
                                                 </select>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label class="control-label">Jenis Pendaftaran</label>
-                                            <select class="form-control boxed form-control-sm">
+                                            </div>
+                                            
+                                            <div id="form-rujukan">
+                                                <div class="form-group">
+                                                    <label>Rujukan</label>
+                                                    <div class="select2-wrapper">
+                                                        <form:select path="rujukan.rujukanID"
+                                                            class="form-control input-lg select2-single">
+                                                            <c:forEach var="rujukan" items="${rujukans}">
+                                                                <form:option value="${rujukan.rujukanID}"
+                                                                    label="${rujukan.rujukanNama}"/>
+                                                            </c:forEach>
+                                                        </form:select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Tindakan</label>
+                                                    <div class="select2-wrapper">
+                                                        <form:select path="tindakan.tindakanID"
+                                                            class="form-control input-lg select2-single">
+                                                            <c:forEach var="tindakan" items="${tindakans}">
+                                                                <form:option value="${tindakan.tindakanID}"
+                                                                    label="${tindakan.tindakanNama}"/>
+                                                            </c:forEach>
+                                                        </form:select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label">Poli</label>
+                                                <select class="form-control boxed form-control-sm">
+                                                    <option value=O">Obyn</option>
+                                                    <option value="A">Anak</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label">Jenis Pendaftaran</label>
+                                                <form:select path="pendaftaranJenis" class="form-control boxed form-control-sm">
                                                     <option>Rawat Inap</option>
                                                     <option>Rawat Jalan</option>
-                                                </select>
+                                                </form:select>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label">Paket</label>
+                                                <div class="select2-wrapper">
+                                                    <select class="form-control input-lg select2-single">
+                                                        <c:forEach var="paket" items="${pakets}">
+                                                            <form:option value="${paket.paketID}"
+                                                                label="${paket.paketNama}"/>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
+                                                <button type="button" class="btn btn-danger d_pasien-button">
+                                                    <a href="/pasien/list" />Batal</a>
+                                                </button>
+                                            </div>
                                         </div>
-                                        
-                                        <div class="form-group">
-                                            <label class="control-label">Paket</label>
-                                            <div class="select2-wrapper">
-                                                <form:select path="m_pasien_id"
-                                                    class="form-control input-lg select2-single">
-                                                    <c:forEach var="paket" items="${Paket}">
-                                                        <form:option value="${paket.paket_id}"
-                                                            label="${paket.paket_nama}"/>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Tgl MRS</label>
+                                                <form:input path="pendaftaranMrs" placeholder="Masukan Kode" class="form-control boxed form-control-sm" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Jam MRS</label>
+                                                <input type="text" class="form-control boxed form-control-sm" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Jenis Pendaftaran</label>
+                                                <form:select path="pendaftaranJenis" class="form-control boxed form-control-sm">
+                                                    <option>RJ</option>
+                                                    <option>RI</option>
+                                                </form:select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Kelas Pendaftaran</label>
+                                                <form:select path="pendaftaranJenis" class="form-control boxed form-control-sm">
+                                                        <option>I</option>
+                                                        <option>II</option>
+                                                        <option>III</option>
+                                                        <option>VIP</option>
+                                                        <option>VVIP</option>
+                                                </form:select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Dokter</label>
+                                                <form:select path="pendaftaranJenis" class="form-control boxed form-control-sm">
+                                                    <option value="">--- Pilih Dokter ---</option>
+                                                    <c:forEach var="pegawai" items="${pegawais}">
+                                                        <option value="${pegawai.pegawaiID }">
+                                                            ${pegawai.pegawaiNama }
+                                                        </option>
                                                     </c:forEach>
                                                 </form:select>
                                             </div>
+                                            <div class="container form-group" style="float: right;">
+                                                <button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
+                                            </div>
                                         </div>
-                                        
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
-                                            <button type="button" class="btn btn-danger d_pasien-button">
-                                                <a href="/pasien/list" />Batal</a>
-                                            </button>
-                                        </div>
-                                    </form:form>
-                                    
-                                    
-                                   <div class="form-group">
-                                        <label for="exampleInputEmail1">Nomor Rekam medis</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="Cari Nomer Rekan Medis">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Nama Pasien</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tanggal Lahir</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-                                    </div>
-                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Alamat</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-                                    </div>
-                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">L/P</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-                                    </div>
-                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">No. Telp</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Cara Masuk Pasien</label>
-                                        <select class="form-control boxed form-control-sm">
-                                                <option>Dari Kondisi Pasien</option>
-                                                <option>Datang Sendiri</option>
-                                                <option>Tidak Sadar</option>
-                                                <option>Rujukan</option>
-                                                <option>Dibawa Polisi</option>
-                                            </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Keterangan</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tgl MRS</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Jam MRS</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Jenis Pendaftaran</label>
-                                        <select class="form-control boxed form-control-sm">
-                                                <option>RJ</option>
-                                                <option>RI</option>
-                                            </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Kelas Pendaftaran</label>
-                                        <select class="form-control boxed form-control-sm">
-                                                <option>I</option>
-                                                <option>II</option>
-                                                <option>III</option>
-                                                <option>VIP</option>
-                                                <option>VVIP</option>
-                                            </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Dokter</label>
-                                        <select class="form-control boxed form-control-sm">
-                                                <option>A</option>
-                                                <option>B</option>
-                                                <option>C</option>
-                                                <option>D</option>
-                                                <option>E</option>
-                                            </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Paket Pelayanan</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Harga Pendaftaran</label>
-                                        <input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-                                    </div>
-                                </div>
-                                    <div class="container form-group" style="float: right;">
-                                        <button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
-                                    </div>
-                                </div>
+                                </form:form>
                             </div>
-                            
                         </div>
                         <div class="container">
                             <div class="form-group">
@@ -239,12 +184,12 @@
                                             <tbody>
                                                 <c:forEach var="pendaftaran" items="${pendaftarans}">
                                                     <tr>
-                                                        <td>${pendaftaran.pasien.pasien_norm}</td>
-                                                        <td>${pendaftaran.pasien.pasien_nama}</td>
-                                                        <td>${pendaftaran.pasien.pasien_alamat}</td>
+                                                        <td>${pendaftaran.pasien.pasienNorm}</td>
+                                                        <td>${pendaftaran.pasien.pasienNama}</td>
+                                                        <td>${pendaftaran.pasien.pasienAlamat}</td>
                                                         <!-- <td>
-                                                            <a href="/pendaftaran/update/${pendaftaran.pendaftaran_id}" class="btn btn-info rounded-0">Update</a>
-                                                            <a href="/pendaftaran/delete/${pendaftaran.pendaftaran_id}" class="btn btn-warning rounded-0">Delete</a>
+                                                            <a href="/pendaftaran/update/${pendaftaran.pendaftaranID}" class="btn btn-info rounded-0">Update</a>
+                                                            <a href="/pendaftaran/delete/${pendaftaran.pendaftaranID}" class="btn btn-warning rounded-0">Delete</a>
                                                         </td> -->
                                                     </tr>
                                                 </c:forEach>
@@ -254,7 +199,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </section>
 <jsp:include page="../app/footer.jsp" />

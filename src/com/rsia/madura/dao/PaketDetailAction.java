@@ -14,37 +14,37 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.MPaketHarga;
+import com.rsia.madura.entity.MPaketDetail;
 
 @Repository
-public class PaketHargaAction implements PaketHargaDAO {
+public class PaketDetailAction implements PaketDetailDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	public int total;
 	
 
 	@Override
-	public List<MPaketHarga> getPaketHargas() {
+	public List<MPaketDetail> getPaketDetails() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPaketHarga> query = current.createQuery("FROM MPaketHarga", MPaketHarga.class);
-		List<MPaketHarga> result = query.getResultList();
+		Query<MPaketDetail> query = current.createQuery("FROM MPaketDetail", MPaketDetail.class);
+		List<MPaketDetail> result = query.getResultList();
 		return result;
 	}
 
 	@Override
-	public List<MPaketHarga> getPaketHargas(int page, int limit) {
+	public List<MPaketDetail> getPaketDetails(int page, int limit) {
 		// TODO Auto-generated method stub
-		List<MPaketHarga> result = this.getData(page, limit);
-		this.total = this.getPaketHargas().size();
+		List<MPaketDetail> result = this.getData(page, limit);
+		this.total = this.getPaketDetails().size();
 
 		return result;
 	}
 
-	public List<MPaketHarga> getData(int page, int limit) {
+	public List<MPaketDetail> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPaketHarga> query = current.createQuery("FROM MPaketHarga", MPaketHarga.class).setMaxResults(limit);
-		List<MPaketHarga> result = query.getResultList();
+		Query<MPaketDetail> query = current.createQuery("FROM MPaketDetail", MPaketDetail.class).setMaxResults(limit);
+		List<MPaketDetail> result = query.getResultList();
 
 		return result;
 	}
@@ -85,28 +85,28 @@ public class PaketHargaAction implements PaketHargaDAO {
 	}
 
 	@Override
-	public MPaketHarga getPaketHarga(int Id) {
+	public MPaketDetail getPaketDetail(int Id) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		MPaketHarga result = current.get(MPaketHarga.class, Id);
+		MPaketDetail result = current.get(MPaketDetail.class, Id);
 		return result;
 	}
 
 	@Override
-	public void PaketHargaStore(MPaketHarga PaketHargaModel) {
+	public void PaketDetailStore(MPaketDetail PaketDetailModel) {
 		Session current = sessionFactory.getCurrentSession();
-		current.save(PaketHargaModel);
+		current.save(PaketDetailModel);
 	}
 
 	@Override
-	public void PaketHargaUpdate(MPaketHarga PaketHargaModel) {
+	public void PaketDetailUpdate(MPaketDetail PaketDetailModel) {
 		Session current = sessionFactory.getCurrentSession();
-		current.saveOrUpdate(PaketHargaModel);
+		current.saveOrUpdate(PaketDetailModel);
 	}
 
 	@Override
-	public void PaketHargaDelete(MPaketHarga PaketHargaModel) {
+	public void PaketDetailDelete(MPaketDetail PaketDetailModel) {
 		Session current = sessionFactory.getCurrentSession();
-		current.saveOrUpdate(PaketHargaModel);
+		current.saveOrUpdate(PaketDetailModel);
 	}
 }

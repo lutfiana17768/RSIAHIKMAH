@@ -29,7 +29,7 @@
 									<label class="control-label">Supplier</label>
 									<form:select class="form-control boxed form-control-sm" path="terimaPerusahaanId">
 									<c:forEach var="tempPerusahaan" items="${perusahaan}">
-                                         <option value="${tempPerusahaan.perusahaan_id }">
+                                         <option value="${tempPerusahaan.perusahaanID }">
                                          ${tempPerusahaan.perusahaanNama }
                                          </option>
                                      </c:forEach>
@@ -132,7 +132,7 @@
                              <label>Satuan</label>
                              <select name="terimaDetailSatuan" id="terimaDetailSatuan">
                                  <c:forEach var="tempSatuan" items="${satuan}">
-                                         <option value="${tempSatuan.satuan_id }">
+                                         <option value="${tempSatuan.satuanID }">
                                          ${tempSatuan.satuanNama }
                                          </option>
                                      </c:forEach>

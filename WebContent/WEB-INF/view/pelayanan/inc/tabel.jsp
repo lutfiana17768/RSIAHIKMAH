@@ -26,12 +26,12 @@
 												<tbody>
 													<c:forEach var="pelayanan" items="${pelayanans}">
 														<tr>
-															<td>${pelayanan.pasien.pasien_norm}</td>
-															<td>${pelayanan.pasien.pasien_nama}</td>
-															<td>${pelayanan.pasien.pasien_alamat}</td>
+															<td>${pelayanan.pasien.pasienNorm}</td>
+															<td>${pelayanan.pasien.pasienNama}</td>
+															<td>${pelayanan.pasien.pasienAlamat}</td>
 															<td>
-																<a href="/pelayanan/update/${pelayanan.pendaftaran_id}" class="btn btn-info rounded-0">Update</a>
-																<a href="/pelayanan/delete/${pelayanan.pendaftaran_id}" class="btn btn-warning rounded-0">Delete</a>
+																<a href="/pelayanan/update/${pelayanan.pendaftaranID}" class="btn btn-info rounded-0">Update</a>
+																<a href="/pelayanan/delete/${pelayanan.pendaftaranID}" class="btn btn-warning rounded-0">Delete</a>
 															</td>
 														</tr>
 													</c:forEach>

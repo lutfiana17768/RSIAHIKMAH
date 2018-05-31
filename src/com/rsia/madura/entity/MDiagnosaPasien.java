@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 16:38:01
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-29 06:36:44
+* @Last Modified time: 2018-05-30 12:40:56
 */
 
 package com.rsia.madura.entity;
@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="t_diagnosa_pasien")
@@ -24,70 +25,73 @@ public class MDiagnosaPasien {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "diagnosapasien_id")
-	private int diagnosapasien_id;
+	private int diagnosapasienID;
+
+    @Transient
+    private Integer remove;
 	
 	// ganti relasi
 	@Column(name = "m_icd_id")
-	private Integer m_icd_id;
+	private Integer mIcdID;
 	
 	// ganti relasi
 	@Column(name = "m_pasien_id")
-	private Integer m_pasien_id;
+	private Integer mPasienID;
 	
 	// ganti relasi || di pelayanan ndak ada inputan pilih kamar
 	@Column(name = "m_kamar_id")
-	private Integer m_kamar_id;
+	private Integer mKamarID;
 	
 	// jenis apa ?
 	@Column(name = "diagnosapasien_jenis")
-	private String diagnosapasien_jenis;
+	private String diagnosapasienJenis;
 
 	// ganti relasi dokter ambil dari pegawai ??
 	@Column(name = "diagnosapasien_dokter")
-	private Integer diagnosapasien_dokter;
+	private Integer diagnosapasienDokter;
 
 	@Column(name = "diagnosapasien_keterangan")
-	private String diagnosapasien_keterangan;
+	private String diagnosapasienKeterangan;
 
 	@Column(name = "diagnosapasien_aktif")
-	private String diagnosapasien_aktif;
+	private String diagnosapasienAktif;
 
 	@Column(name = "diagnosapasien_created_by")
-	private String diagnosapasien_created_by;
+	private String diagnosapasienCreatedBy;
 
 	@Column(name = "diagnosapasien_created_date")
-	private Timestamp diagnosapasien_created_date;
+	private Timestamp diagnosapasienCreatedDate;
 
 	@Column(name = "diagnosapasien_updated_by")
-	private String diagnosapasien_updated_by;
+	private String diagnosapasienUpdatedBy;
 
 	@Column(name = "diagnosapasien_updated_date")
-	private Timestamp diagnosapasien_updated_date;
+	private Timestamp diagnosapasienUpdatedDate;
 
 	@Column(name = "diagnosapasien_revised")
-	private Integer diagnosapasien_revised;
+	private Integer diagnosapasienRevised;
 
 	@Column(name = "diagnosapasien_tanggal")
-	private Timestamp diagnosapasien_tanggal;
+	private Timestamp diagnosapasienTanggal;
 
 	@Column(name = "diagnosapasien_m_pasien_norm")
-	private String diagnosapasien_m_pasien_norm;
+	private String diagnosapasienMPasienNorm;
 
 	@Column(name = "diagnosapasien_kamarpasien_id")
-	private Integer diagnosapasien_kamarpasien_id;
+	private Integer diagnosapasienKamarpasienID;
 
-	// ganti relasi || di tab diagnosa tidak ada isian m_unit
+	// ganti relasi || di tab diagnosa tidak ada isian mUnit
 	@Column(name = "m_unit_id")
-	private Integer m_unit_id;
+	private Integer mUnitID;
 
 	@Column(name = "diagnosapasien_kasus")
-	private String diagnosapasien_kasus;
+	private String diagnosapasienKasus;
 
 	@Column(name = "reg_company_id")
-	private Integer reg_company_id;
+	private Integer regCompanyID;
 
 	@Column(name = "reg_apps_id")
-	private Integer reg_apps_id;
+	private Integer regAppsID;
 
 	@ManyToOne
 	private MPendaftaran pendaftaran;
@@ -95,164 +99,173 @@ public class MDiagnosaPasien {
 	@ManyToOne
 	private MIcd icd;
 	
-	public int getDiagnosapasien_id() {
-		return diagnosapasien_id;
+	public int getDiagnosapasienID() {
+		return diagnosapasienID;
 	}
 
-	public void setDiagnosapasien_id(int diagnosapasien_id) {
-		this.diagnosapasien_id = diagnosapasien_id;
+	public void setDiagnosapasienID(int diagnosapasienID) {
+		this.diagnosapasienID = diagnosapasienID;
 	}
 
-	public Integer getM_icd_id() {
-		return m_icd_id;
+	public Integer getRemove(){
+		return remove;
 	}
 
-	public void setM_icd_id(Integer m_icd_id) {
-		this.m_icd_id = m_icd_id;
+	public void setRemove(Integer remove) {
+		this.remove = remove;
 	}
 
-	public Integer getM_pasien_id() {
-		return m_pasien_id;
+
+	public Integer getMIcdID() {
+		return mIcdID;
 	}
 
-	public void setM_pasien_id(Integer m_pasien_id) {
-		this.m_pasien_id = m_pasien_id;
+	public void setMIcdID(Integer mIcdID) {
+		this.mIcdID = mIcdID;
 	}
 
-	public Integer getM_kamar_id() {
-		return m_kamar_id;
+	public Integer getMPasienID() {
+		return mPasienID;
 	}
 
-	public void setM_kamar_id(Integer m_kamar_id) {
-		this.m_kamar_id = m_kamar_id;
+	public void setMPasienID(Integer mPasienID) {
+		this.mPasienID = mPasienID;
 	}
 
-	public String getDiagnosapasien_jenis() {
-		return diagnosapasien_jenis;
+	public Integer getMKamarID() {
+		return mKamarID;
 	}
 
-	public void setDiagnosapasien_jenis(String diagnosapasien_jenis) {
-		this.diagnosapasien_jenis = diagnosapasien_jenis;
+	public void setMKamarID(Integer mKamarID) {
+		this.mKamarID = mKamarID;
 	}
 
-	public Integer getDiagnosapasien_dokter() {
-		return diagnosapasien_dokter;
+	public String getDiagnosapasienJenis() {
+		return diagnosapasienJenis;
 	}
 
-	public void setDiagnosapasien_dokter(Integer diagnosapasien_dokter) {
-		this.diagnosapasien_dokter = diagnosapasien_dokter;
+	public void setDiagnosapasienJenis(String diagnosapasienJenis) {
+		this.diagnosapasienJenis = diagnosapasienJenis;
 	}
 
-	public String getDiagnosapasien_keterangan() {
-		return diagnosapasien_keterangan;
+	public Integer getDiagnosapasienDokter() {
+		return diagnosapasienDokter;
 	}
 
-	public void setDiagnosapasien_keterangan(String diagnosapasien_keterangan) {
-		this.diagnosapasien_keterangan = diagnosapasien_keterangan;
+	public void setDiagnosapasienDokter(Integer diagnosapasienDokter) {
+		this.diagnosapasienDokter = diagnosapasienDokter;
 	}
 
-	public String getDiagnosapasien_aktif() {
-		return diagnosapasien_aktif;
+	public String getDiagnosapasienKeterangan() {
+		return diagnosapasienKeterangan;
 	}
 
-	public void setDiagnosapasien_aktif(String diagnosapasien_aktif) {
-		this.diagnosapasien_aktif = diagnosapasien_aktif;
+	public void setDiagnosapasienKeterangan(String diagnosapasienKeterangan) {
+		this.diagnosapasienKeterangan = diagnosapasienKeterangan;
 	}
 
-	public String getDiagnosapasien_created_by() {
-		return diagnosapasien_created_by;
+	public String getDiagnosapasienAktif() {
+		return diagnosapasienAktif;
 	}
 
-	public void setDiagnosapasien_created_by(String diagnosapasien_created_by) {
-		this.diagnosapasien_created_by = diagnosapasien_created_by;
+	public void setDiagnosapasienAktif(String diagnosapasienAktif) {
+		this.diagnosapasienAktif = diagnosapasienAktif;
 	}
 
-	public Timestamp getDiagnosapasien_created_date() {
-		return diagnosapasien_created_date;
+	public String getDiagnosapasienCreatedBy() {
+		return diagnosapasienCreatedBy;
 	}
 
-	public void setDiagnosapasien_created_date(Timestamp diagnosapasien_created_date) {
-		this.diagnosapasien_created_date = diagnosapasien_created_date;
+	public void setDiagnosapasienCreatedBy(String diagnosapasienCreatedBy) {
+		this.diagnosapasienCreatedBy = diagnosapasienCreatedBy;
 	}
 
-	public String getDiagnosapasien_updated_by() {
-		return diagnosapasien_updated_by;
+	public Timestamp getDiagnosapasienCreatedDate() {
+		return diagnosapasienCreatedDate;
 	}
 
-	public void setDiagnosapasien_updated_by(String diagnosapasien_updated_by) {
-		this.diagnosapasien_updated_by = diagnosapasien_updated_by;
+	public void setDiagnosapasienCreatedDate(Timestamp diagnosapasienCreatedDate) {
+		this.diagnosapasienCreatedDate = diagnosapasienCreatedDate;
 	}
 
-	public Timestamp getDiagnosapasien_updated_date() {
-		return diagnosapasien_updated_date;
+	public String getDiagnosapasienUpdatedBy() {
+		return diagnosapasienUpdatedBy;
 	}
 
-	public void setDiagnosapasien_updated_date(Timestamp diagnosapasien_updated_date) {
-		this.diagnosapasien_updated_date = diagnosapasien_updated_date;
+	public void setDiagnosapasienUpdatedBy(String diagnosapasienUpdatedBy) {
+		this.diagnosapasienUpdatedBy = diagnosapasienUpdatedBy;
 	}
 
-	public Integer getDiagnosapasien_revised() {
-		return diagnosapasien_revised;
+	public Timestamp getDiagnosapasienUpdatedDate() {
+		return diagnosapasienUpdatedDate;
 	}
 
-	public void setDiagnosapasien_revised(Integer diagnosapasien_revised) {
-		this.diagnosapasien_revised = diagnosapasien_revised;
+	public void setDiagnosapasienUpdatedDate(Timestamp diagnosapasienUpdatedDate) {
+		this.diagnosapasienUpdatedDate = diagnosapasienUpdatedDate;
 	}
 
-	public Timestamp getDiagnosapasien_tanggal() {
-		return diagnosapasien_tanggal;
+	public Integer getDiagnosapasienRevised() {
+		return diagnosapasienRevised;
 	}
 
-	public void setDiagnosapasien_tanggal(Timestamp diagnosapasien_tanggal) {
-		this.diagnosapasien_tanggal = diagnosapasien_tanggal;
+	public void setDiagnosapasienRevised(Integer diagnosapasienRevised) {
+		this.diagnosapasienRevised = diagnosapasienRevised;
 	}
 
-	public String getDiagnosapasien_m_pasien_norm() {
-		return diagnosapasien_m_pasien_norm;
+	public Timestamp getDiagnosapasienTanggal() {
+		return diagnosapasienTanggal;
 	}
 
-	public void setDiagnosapasien_m_pasien_norm(String diagnosapasien_m_pasien_norm) {
-		this.diagnosapasien_m_pasien_norm = diagnosapasien_m_pasien_norm;
+	public void setDiagnosapasienTanggal(Timestamp diagnosapasienTanggal) {
+		this.diagnosapasienTanggal = diagnosapasienTanggal;
 	}
 
-	public Integer getDiagnosapasien_kamarpasien_id() {
-		return diagnosapasien_kamarpasien_id;
+	public String getDiagnosapasienMPasienNorm() {
+		return diagnosapasienMPasienNorm;
 	}
 
-	public void setDiagnosapasien_kamarpasien_id(Integer diagnosapasien_kamarpasien_id) {
-		this.diagnosapasien_kamarpasien_id = diagnosapasien_kamarpasien_id;
+	public void setDiagnosapasienMPasienNorm(String diagnosapasienMPasienNorm) {
+		this.diagnosapasienMPasienNorm = diagnosapasienMPasienNorm;
 	}
 
-	public Integer getM_unit_id() {
-		return m_unit_id;
+	public Integer getDiagnosapasienKamarpasienID() {
+		return diagnosapasienKamarpasienID;
 	}
 
-	public void setM_unit_id(Integer m_unit_id) {
-		this.m_unit_id = m_unit_id;
+	public void setDiagnosapasienKamarpasienID(Integer diagnosapasienKamarpasienID) {
+		this.diagnosapasienKamarpasienID = diagnosapasienKamarpasienID;
 	}
 
-	public String getDiagnosapasien_kasus() {
-		return diagnosapasien_kasus;
+	public Integer getMUnitID() {
+		return mUnitID;
 	}
 
-	public void setDiagnosapasien_kasus(String diagnosapasien_kasus) {
-		this.diagnosapasien_kasus = diagnosapasien_kasus;
+	public void setMUnitID(Integer mUnitID) {
+		this.mUnitID = mUnitID;
 	}
 
-	public Integer getReg_company_id() {
-		return reg_company_id;
+	public String getDiagnosapasienKasus() {
+		return diagnosapasienKasus;
 	}
 
-	public void setReg_company_id(Integer reg_company_id) {
-		this.reg_company_id = reg_company_id;
+	public void setDiagnosapasienKasus(String diagnosapasienKasus) {
+		this.diagnosapasienKasus = diagnosapasienKasus;
 	}
 
-	public Integer getReg_apps_id() {
-		return reg_apps_id;
+	public Integer getRegCompanyID() {
+		return regCompanyID;
 	}
 
-	public void setReg_apps_id(Integer reg_apps_id) {
-		this.reg_apps_id = reg_apps_id;
+	public void setRegCompanyID(Integer regCompanyID) {
+		this.regCompanyID = regCompanyID;
+	}
+
+	public Integer getRegAppsID() {
+		return regAppsID;
+	}
+
+	public void setRegAppsID(Integer regAppsID) {
+		this.regAppsID = regAppsID;
 	}
 
 	public MPendaftaran getPendaftaran() {

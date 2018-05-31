@@ -19,17 +19,17 @@
                             <tbody id="pelayanan-pakai-list" class="table-form">
                             	<c:forEach var="p" items="${pelayananModel.pakai}" varStatus="loop">
 									<tr id="pakai_${loop.index+1}">
-										<td data-used="1" data-save="1" data-name="pakai_barang" data-kolom-id="pakai_barang">${p.barang.NamaBarang}</td>
-										<td data-used="1" data-save="1" data-name="pakai_satuan" data-kolom-id="pakai_satuan">${p.pakai_satuan}</td>
-										<td data-used="1" data-save="1" data-name="pakai_jumlah" data-kolom-id="pakai_jumlah">${p.pakai_jumlah}</td>
-										<td data-used="1" data-save="1" data-name="pakai_harga" data-kolom-id="pakai_harga">${p.pakai_harga}</td>
-										<td data-used="1" data-save="1" data-name="pakai_subtotal" data-kolom-id="pakai_subtotal">${p.pakai_jumlah*p.pakai_harga}</td>
-										<td data-used="1" data-save="1" data-name="pakai_keterangan" data-kolom-id="pakai_keterangan">${p.pakai_keterangan}</td>
+										<td data-used="1" data-save="1" data-name="pakaiBarang" data-kolom-id="pakaiBarang">${p.barang.NamaBarang}</td>
+										<td data-used="1" data-save="1" data-name="pakaiSatuan" data-kolom-id="pakaiSatuan">${p.pakaiSatuan}</td>
+										<td data-used="1" data-save="1" data-name="pakaiJumlah" data-kolom-id="pakaiJumlah">${p.pakaiJumlah}</td>
+										<td data-used="1" data-save="1" data-name="pakaiHarga" data-kolom-id="pakaiHarga">${p.pakaiHarga}</td>
+										<td data-used="1" data-save="1" data-name="pakaiSubtotal" data-kolom-id="pakaiSubtotal">${p.pakaiJumlah*p.pakaiHarga}</td>
+										<td data-used="1" data-save="1" data-name="pakaiKeterangan" data-kolom-id="pakaiKeterangan">${p.pakaiKeterangan}</td>
 										<td>
 											<button type="button" class="btn btn-danger btn-sm" onclick="deletePakai(${loop.index+1})">Delete</button>
 											<button type="button" class="btn btn-primary btn-sm" onclick="editPakai(${loop.index+1})">Edit</button>
 										</td>
-                                        <td style="display:none" data-used="1" data-save="1" data-name="pakai_id" data-kolom-id="pakai_id">${p.pakai_id}</td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="pakaiID" data-kolom-id="pakaiID">${p.pakaiID}</td>
 									</tr>
 								</c:forEach>
                             </tbody>

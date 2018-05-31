@@ -21,165 +21,165 @@ public class MKamar {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "kamar_id")
-	private Integer kamar_id;
+	private Integer kamarID;
 
 	@Column(name = "kamar_no")
-	private String kamar_no;
+	private String kamarNo;
 
 	// ganti relasi
 	@Column(name = "m_ruang_id")
-	private Integer m_ruang_id;
+	private Integer mRuangID;
 
 	// ganti relasi
 	@Column(name = "m_kelas_id")
-	private Integer m_kelas_id;
+	private Integer mKelasID;
 
 	@Column(name = "kamar_keterangan")
-	private String kamar_keterangan;
+	private String kamarKeterangan;
 
 	@Column(name = "kamar_aktif")
-	private String kamar_aktif;
+	private String kamarAktif;
 
 	@Column(name = "kamar_created_by")
-	private String kamar_created_by;
+	private String kamarCreatedBy;
 
 	@Column(name = "kamar_created_date")
-	private Timestamp kamar_created_date;
+	private Timestamp kamarCreatedDate;
 
 	@Column(name = "kamar_updated_by")
-	private String kamar_updated_by;
+	private String kamarUpdatedBy;
 
 	@Column(name = "kamar_updated_date")
-	private Timestamp kamar_updated_date;
+	private Timestamp kamarUpdatedDate;
 
 	@Column(name = "kamar_revised")
-	private Integer kamar_revised;
+	private Integer kamarRevised;
 
 	@Column(name = "kamar_kategori")
-	private String kamar_kategori;
+	private String kamarKategori;
 
 	@Column(name = "kamar_deleted_date")
-	private Timestamp kamar_deleted_date;
+	private Timestamp kamarDeletedDate;
 
 	@Column(name = "jumlah_bed")
-	private Integer jumlah_bed;
+	private Integer jumlahBed;
 
 	@Column(name = "tarif")
 	private Integer tarif;
 
 	@Column(name = "jenis_pelayanan")
-	private String jenis_pelayanan;
+	private String jenisPelayanan;
 
-	public Integer getKamar_id() {
-		return kamar_id;
+	public Integer getKamarID() {
+		return kamarID;
 	}
 
-	public void setKamar_id(Integer kamar_id) {
-		this.kamar_id = kamar_id;
+	public void setKamarID(Integer kamarID) {
+		this.kamarID = kamarID;
 	}
 
-	public String getKamar_no() {
-		return kamar_no;
+	public String getKamarNo() {
+		return kamarNo;
 	}
 
-	public void setKamar_no(String kamar_no) {
-		this.kamar_no = kamar_no;
+	public void setKamarNo(String kamarNo) {
+		this.kamarNo = kamarNo;
 	}
 
-	public Integer getM_ruang_id() {
-		return m_ruang_id;
+	public Integer getMRuangID() {
+		return mRuangID;
 	}
 
-	public void setM_ruang_id(Integer m_ruang_id) {
-		this.m_ruang_id = m_ruang_id;
+	public void setMRuangID(Integer mRuangID) {
+		this.mRuangID = mRuangID;
 	}
 
-	public Integer getM_kelas_id() {
-		return m_kelas_id;
+	public Integer getMKelasID() {
+		return mKelasID;
 	}
 
-	public void setM_kelas_id(Integer m_kelas_id) {
-		this.m_kelas_id = m_kelas_id;
+	public void setMKelasID(Integer mKelasID) {
+		this.mKelasID = mKelasID;
 	}
 
-	public String getKamar_keterangan() {
-		return kamar_keterangan;
+	public String getKamarKeterangan() {
+		return kamarKeterangan;
 	}
 
-	public void setKamar_keterangan(String kamar_keterangan) {
-		this.kamar_keterangan = kamar_keterangan;
+	public void setKamarKeterangan(String kamarKeterangan) {
+		this.kamarKeterangan = kamarKeterangan;
 	}
 
-	public String getKamar_aktif() {
-		return kamar_aktif;
+	public String getKamarAktif() {
+		return kamarAktif;
 	}
 
-	public void setKamar_aktif(String kamar_aktif) {
-		this.kamar_aktif = kamar_aktif;
+	public void setKamarAktif(String kamarAktif) {
+		this.kamarAktif = kamarAktif;
 	}
 
-	public String getKamar_created_by() {
-		return kamar_created_by;
+	public String getKamarCreatedBy() {
+		return kamarCreatedBy;
 	}
 
-	public void setKamar_created_by(String kamar_created_by) {
-		this.kamar_created_by = kamar_created_by;
+	public void setKamarCreatedBy(String kamarCreatedBy) {
+		this.kamarCreatedBy = kamarCreatedBy;
 	}
 
-	public Timestamp getKamar_created_date() {
-		return kamar_created_date;
+	public Timestamp getKamarCreatedDate() {
+		return kamarCreatedDate;
 	}
 
-	public void setKamar_created_date(Timestamp kamar_created_date) {
-		this.kamar_created_date = kamar_created_date;
+	public void setKamarCreatedDate(Timestamp kamarCreatedDate) {
+		this.kamarCreatedDate = kamarCreatedDate;
 	}
 
-	public String getKamar_updated_by() {
-		return kamar_updated_by;
+	public String getKamarUpdatedBy() {
+		return kamarUpdatedBy;
 	}
 
-	public void setKamar_updated_by(String kamar_updated_by) {
-		this.kamar_updated_by = kamar_updated_by;
+	public void setKamarUpdatedBy(String kamarUpdatedBy) {
+		this.kamarUpdatedBy = kamarUpdatedBy;
 	}
 
-	public Timestamp getKamar_updated_date() {
-		return kamar_updated_date;
+	public Timestamp getKamarUpdatedDate() {
+		return kamarUpdatedDate;
 	}
 
-	public void setKamar_updated_date(Timestamp kamar_updated_date) {
-		this.kamar_updated_date = kamar_updated_date;
+	public void setKamarUpdatedDate(Timestamp kamarUpdatedDate) {
+		this.kamarUpdatedDate = kamarUpdatedDate;
 	}
 
-	public Integer getKamar_revised() {
-		return kamar_revised;
+	public Integer getKamarRevised() {
+		return kamarRevised;
 	}
 
-	public void setKamar_revised(Integer kamar_revised) {
-		this.kamar_revised = kamar_revised;
+	public void setKamarRevised(Integer kamarRevised) {
+		this.kamarRevised = kamarRevised;
 	}
 
-	public String getKamar_kategori() {
-		return kamar_kategori;
+	public String getKamarKategori() {
+		return kamarKategori;
 	}
 
-	public void setKamar_kategori(String kamar_kategori) {
-		this.kamar_kategori = kamar_kategori;
+	public void setKamarKategori(String kamarKategori) {
+		this.kamarKategori = kamarKategori;
 	}
 
-	public Timestamp getKamar_deleted_date() {
-		return kamar_deleted_date;
+	public Timestamp getKamarDeletedDate() {
+		return kamarDeletedDate;
 	}
 
-	public void setKamar_deleted_date(Timestamp kamar_deleted_date) {
-		this.kamar_deleted_date = kamar_deleted_date;
+	public void setKamarDeletedDate(Timestamp kamarDeletedDate) {
+		this.kamarDeletedDate = kamarDeletedDate;
 	}
 
-	public Integer getJumlah_bed() {
-		return jumlah_bed;
+	public Integer getJumlahBed() {
+		return jumlahBed;
 	}
 
-	public void setJumlah_bed(Integer jumlah_bed) {
-		this.jumlah_bed = jumlah_bed;
+	public void setJumlahBed(Integer jumlahBed) {
+		this.jumlahBed = jumlahBed;
 	}
 
 	public Integer getTarif() {
@@ -190,12 +190,12 @@ public class MKamar {
 		this.tarif = tarif;
 	}
 
-	public String getJenis_pelayanan() {
-		return jenis_pelayanan;
+	public String getJenisPelayanan() {
+		return jenisPelayanan;
 	}
 
-	public void setJenis_pelayanan(String jenis_pelayanan) {
-		this.jenis_pelayanan = jenis_pelayanan;
+	public void setJenisPelayanan(String jenisPelayanan) {
+		this.jenisPelayanan = jenisPelayanan;
 	}
 
 }

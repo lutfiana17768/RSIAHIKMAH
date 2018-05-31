@@ -24,204 +24,204 @@ public class MParamPeriksa {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="paramperiksa_id")
-	private Integer paramperiksa_id;
+	private Integer paramperiksaID;
 	
 	@Column(name="paramperiksa_kode")
-	private String paramperiksa_kode ;
+	private String paramperiksaKode ;
 	
 	@Column(name="paramperiksa_nama")
-	private String paramperiksa_nama;
+	private String paramperiksaNama;
 	
 	@Column(name="paramperiksa_satuan")
-	private String paramperiksa_satuan;
+	private String paramperiksaSatuan;
 	
 	@Column(name="paramperiksa_standar")
-	private String paramperiksa_standar;
+	private String paramperiksaStandar;
 	
 	@Column(name="paramperiksa_label")
-	private String paramperiksa_label;
+	private String paramperiksaLabel;
 
 	@Column(name="paramperiksa_group")
-	private String paramperiksa_group;
+	private String paramperiksaGroup;
 
 	@Column(name="paramperiksa_keterangan")
-	private String paramperiksa_keterangan;
+	private String paramperiksaKeterangan;
 
 	@Column(name="paramperiksa_unit_id")
-	private Integer paramperiksa_unit_id;
+	private Integer paramperiksaUnitID;
 
 	@Column(name="paramperiksa_aktif")
-	private String paramperiksa_aktif;
+	private String paramperiksaAktif;
 
 	@Column(name="paramperiksa_created_by")
-	private String paramperiksa_created_by;
+	private String paramperiksaCreatedBy;
 
 	@Column(name="paramperiksa_created_date")
-	private Timestamp paramperiksa_created_date;
+	private Timestamp paramperiksaCreatedDate;
 
 	@Column(name="paramperiksa_updated_by")
-	private String paramperiksa_updated_by;
+	private String paramperiksaUpdatedBy;
 
 	@Column(name="paramperiksa_updated_date")
-	private Timestamp paramperiksa_updated_date;
+	private Timestamp paramperiksaUpdatedDate;
 
 	@Column(name="paramperiksa_revised")
-	private int paramperiksa_revised;
+	private int paramperiksaRevised;
 
 	@Column(name="paramperiksa_metode")
-	private String paramperiksa_metode;
+	private String paramperiksaMetode;
 
 	@Column(name="paramperiksa_urut")
-	private int paramperiksa_urut;
+	private int paramperiksaUrut;
 
 	@Column(name="paramperiksa_indent")
-	private int paramperiksa_indent;
+	private int paramperiksaIndent;
 
 	@ManyToOne
 	private MPenunjang penunjang;
 
-	public Integer getParamperiksa_id() {
-		return paramperiksa_id;
+	public Integer getParamperiksaID() {
+		return paramperiksaID;
 	}
 
-	public void setParamperiksa_id(Integer paramperiksa_id) {
-		this.paramperiksa_id = paramperiksa_id;
+	public void setParamperiksaID(Integer paramperiksaID) {
+		this.paramperiksaID = paramperiksaID;
 	}
 
-	public String getParamperiksa_kode() {
-		return paramperiksa_kode;
+	public String getParamperiksaKode() {
+		return paramperiksaKode;
 	}
 
-	public void setParamperiksa_kode(String paramperiksa_kode) {
-		this.paramperiksa_kode = paramperiksa_kode;
+	public void setParamperiksaKode(String paramperiksaKode) {
+		this.paramperiksaKode = paramperiksaKode;
 	}
 
-	public String getParamperiksa_nama() {
-		return paramperiksa_nama;
+	public String getParamperiksaNama() {
+		return paramperiksaNama;
 	}
 
-	public void setParamperiksa_nama(String paramperiksa_nama) {
-		this.paramperiksa_nama = paramperiksa_nama;
+	public void setParamperiksaNama(String paramperiksaNama) {
+		this.paramperiksaNama = paramperiksaNama;
 	}
 
-	public String getParamperiksa_satuan() {
-		return paramperiksa_satuan;
+	public String getParamperiksaSatuan() {
+		return paramperiksaSatuan;
 	}
 
-	public void setParamperiksa_satuan(String paramperiksa_satuan) {
-		this.paramperiksa_satuan = paramperiksa_satuan;
+	public void setParamperiksaSatuan(String paramperiksaSatuan) {
+		this.paramperiksaSatuan = paramperiksaSatuan;
 	}
 
-	public String getParamperiksa_standar() {
-		return paramperiksa_standar;
+	public String getParamperiksaStandar() {
+		return paramperiksaStandar;
 	}
 
-	public void setParamperiksa_standar(String paramperiksa_standar) {
-		this.paramperiksa_standar = paramperiksa_standar;
+	public void setParamperiksaStandar(String paramperiksaStandar) {
+		this.paramperiksaStandar = paramperiksaStandar;
 	}
 
-	public String getParamperiksa_label() {
-		return paramperiksa_label;
+	public String getParamperiksaLabel() {
+		return paramperiksaLabel;
 	}
 
-	public void setParamperiksa_label(String paramperiksa_label) {
-		this.paramperiksa_label = paramperiksa_label;
+	public void setParamperiksaLabel(String paramperiksaLabel) {
+		this.paramperiksaLabel = paramperiksaLabel;
 	}
 
-	public String getParamperiksa_group() {
-		return paramperiksa_group;
+	public String getParamperiksaGroup() {
+		return paramperiksaGroup;
 	}
 
-	public void setParamperiksa_group(String paramperiksa_group) {
-		this.paramperiksa_group = paramperiksa_group;
+	public void setParamperiksaGroup(String paramperiksaGroup) {
+		this.paramperiksaGroup = paramperiksaGroup;
 	}
 
-	public String getParamperiksa_keterangan() {
-		return paramperiksa_keterangan;
+	public String getParamperiksaKeterangan() {
+		return paramperiksaKeterangan;
 	}
 
-	public void setParamperiksa_keterangan(String paramperiksa_keterangan) {
-		this.paramperiksa_keterangan = paramperiksa_keterangan;
+	public void setParamperiksaKeterangan(String paramperiksaKeterangan) {
+		this.paramperiksaKeterangan = paramperiksaKeterangan;
 	}
 
-	public Integer getParamperiksa_unit_id() {
-		return paramperiksa_unit_id;
+	public Integer getParamperiksaUnitID() {
+		return paramperiksaUnitID;
 	}
 
-	public void setParamperiksa_unit_id(Integer paramperiksa_unit_id) {
-		this.paramperiksa_unit_id = paramperiksa_unit_id;
+	public void setParamperiksaUnitID(Integer paramperiksaUnitID) {
+		this.paramperiksaUnitID = paramperiksaUnitID;
 	}
 
-	public String getParamperiksa_aktif() {
-		return paramperiksa_aktif;
+	public String getParamperiksaAktif() {
+		return paramperiksaAktif;
 	}
 
-	public void setParamperiksa_aktif(String paramperiksa_aktif) {
-		this.paramperiksa_aktif = paramperiksa_aktif;
+	public void setParamperiksaAktif(String paramperiksaAktif) {
+		this.paramperiksaAktif = paramperiksaAktif;
 	}
 
-	public String getParamperiksa_created_by() {
-		return paramperiksa_created_by;
+	public String getParamperiksaCreatedBy() {
+		return paramperiksaCreatedBy;
 	}
 
-	public void setParamperiksa_created_by(String paramperiksa_created_by) {
-		this.paramperiksa_created_by = paramperiksa_created_by;
+	public void setParamperiksaCreatedBy(String paramperiksaCreatedBy) {
+		this.paramperiksaCreatedBy = paramperiksaCreatedBy;
 	}
 
-	public Timestamp getParamperiksa_created_date() {
-		return paramperiksa_created_date;
+	public Timestamp getParamperiksaCreatedDate() {
+		return paramperiksaCreatedDate;
 	}
 
-	public void setParamperiksa_created_date(Timestamp paramperiksa_created_date) {
-		this.paramperiksa_created_date = paramperiksa_created_date;
+	public void setParamperiksaCreatedDate(Timestamp paramperiksaCreatedDate) {
+		this.paramperiksaCreatedDate = paramperiksaCreatedDate;
 	}
 
-	public String getParamperiksa_updated_by() {
-		return paramperiksa_updated_by;
+	public String getParamperiksaUpdatedBy() {
+		return paramperiksaUpdatedBy;
 	}
 
-	public void setParamperiksa_updated_by(String paramperiksa_updated_by) {
-		this.paramperiksa_updated_by = paramperiksa_updated_by;
+	public void setParamperiksaUpdatedBy(String paramperiksaUpdatedBy) {
+		this.paramperiksaUpdatedBy = paramperiksaUpdatedBy;
 	}
 
-	public Timestamp getParamperiksa_updated_date() {
-		return paramperiksa_updated_date;
+	public Timestamp getParamperiksaUpdatedDate() {
+		return paramperiksaUpdatedDate;
 	}
 
-	public void setParamperiksa_updated_date(Timestamp paramperiksa_updated_date) {
-		this.paramperiksa_updated_date = paramperiksa_updated_date;
+	public void setParamperiksaUpdatedDate(Timestamp paramperiksaUpdatedDate) {
+		this.paramperiksaUpdatedDate = paramperiksaUpdatedDate;
 	}
 
-	public int getParamperiksa_revised() {
-		return paramperiksa_revised;
+	public int getParamperiksaRevised() {
+		return paramperiksaRevised;
 	}
 
-	public void setParamperiksa_revised(int paramperiksa_revised) {
-		this.paramperiksa_revised = paramperiksa_revised;
+	public void setParamperiksaRevised(int paramperiksaRevised) {
+		this.paramperiksaRevised = paramperiksaRevised;
 	}
 
-	public String getParamperiksa_metode() {
-		return paramperiksa_metode;
+	public String getParamperiksaMetode() {
+		return paramperiksaMetode;
 	}
 
-	public void setParamperiksa_metode(String paramperiksa_metode) {
-		this.paramperiksa_metode = paramperiksa_metode;
+	public void setParamperiksaMetode(String paramperiksaMetode) {
+		this.paramperiksaMetode = paramperiksaMetode;
 	}
 
-	public int getParamperiksa_urut() {
-		return paramperiksa_urut;
+	public int getParamperiksaUrut() {
+		return paramperiksaUrut;
 	}
 
-	public void setParamperiksa_urut(int paramperiksa_urut) {
-		this.paramperiksa_urut = paramperiksa_urut;
+	public void setParamperiksaUrut(int paramperiksaUrut) {
+		this.paramperiksaUrut = paramperiksaUrut;
 	}
 
-	public int getParamperiksa_indent() {
-		return paramperiksa_indent;
+	public int getParamperiksaIndent() {
+		return paramperiksaIndent;
 	}
 
-	public void setParamperiksa_indent(int paramperiksa_indent) {
-		this.paramperiksa_indent = paramperiksa_indent;
+	public void setParamperiksaIndent(int paramperiksaIndent) {
+		this.paramperiksaIndent = paramperiksaIndent;
 	}
 
 	public MPenunjang getPenunjang() {
@@ -234,15 +234,15 @@ public class MParamPeriksa {
 
 	@Override
 	public String toString() {
-		return "m_parameter_periksa [paramperiksa_id=" + paramperiksa_id + ",paramperiksa_kode=" + paramperiksa_kode 
-				+ ",paramperiksa_nama=" + paramperiksa_nama + ",paramperiksa_satuan=" + paramperiksa_satuan 
-				+ ",paramperiksa_standar=" + paramperiksa_standar + ",paramperiksa_label=" + paramperiksa_label 
-				+ ",paramperiksa_group=" + paramperiksa_group + ",paramperiksa_keterangan=" + paramperiksa_keterangan 
-				+ ",paramperiksa_unit_id=" + paramperiksa_unit_id + ",paramperiksa_aktif=" + paramperiksa_aktif 
-				+ ",paramperiksa_created_by=" + paramperiksa_created_by + ",paramperiksa_created_date=" + paramperiksa_created_date 
-				+ ",paramperiksa_updated_by=" + paramperiksa_updated_by + ",paramperiksa_updated_date=" + paramperiksa_updated_date 
-				+ ",paramperiksa_revised=" + paramperiksa_revised + ",paramperiksa_metode=" + paramperiksa_metode 
-				+ ",paramperiksa_urut=" + paramperiksa_urut + ",paramperiksa_indent=" + paramperiksa_indent + "]";
+		return "mParameterPeriksa [paramperiksaID=" + paramperiksaID + ",paramperiksaKode=" + paramperiksaKode 
+				+ ",paramperiksaNama=" + paramperiksaNama + ",paramperiksaSatuan=" + paramperiksaSatuan 
+				+ ",paramperiksaStandar=" + paramperiksaStandar + ",paramperiksaLabel=" + paramperiksaLabel 
+				+ ",paramperiksaGroup=" + paramperiksaGroup + ",paramperiksaKeterangan=" + paramperiksaKeterangan 
+				+ ",paramperiksaUnitID=" + paramperiksaUnitID + ",paramperiksaAktif=" + paramperiksaAktif 
+				+ ",paramperiksaCreatedBy=" + paramperiksaCreatedBy + ",paramperiksaCreatedDate=" + paramperiksaCreatedDate 
+				+ ",paramperiksaUpdatedBy=" + paramperiksaUpdatedBy + ",paramperiksaUpdatedDate=" + paramperiksaUpdatedDate 
+				+ ",paramperiksaRevised=" + paramperiksaRevised + ",paramperiksaMetode=" + paramperiksaMetode 
+				+ ",paramperiksaUrut=" + paramperiksaUrut + ",paramperiksaIndent=" + paramperiksaIndent + "]";
 	}
 
 }

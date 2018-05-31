@@ -13,7 +13,7 @@
                         <h3 class="title"> update Data Resep </h3>
                     </div>
                     <form:form modelAttribute="resepModel" method="POST" action="/resep/update">
-                        <form:hidden path="resep_id" />
+                        <form:hidden path="resepID" />
                         <form:hidden path="resepCreatedBy" />
                         <form:hidden path="resepCreatedDate" />
                         <form:hidden path="resepAktif" />
@@ -28,7 +28,7 @@
                          
                          <div class="form-group">
                             <label>Resep Status</label>
-                            <form:input path="resep_status" placeholder="resep status" class="form-control"/>
+                            <form:input path="resepStatus" placeholder="resep status" class="form-control"/>
                          </div>
                          <div class="form-group">
                             <label>Nama Pasien</label>

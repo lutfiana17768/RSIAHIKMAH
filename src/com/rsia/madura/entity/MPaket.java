@@ -26,156 +26,156 @@ public class MPaket {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="paket_id")
-	private int paket_id;
+	private int paketID;
 	
 	@Column(name="paket_nama")
-	private String paket_nama;
+	private String paketNama;
 	
 	@Column(name="paket_keterangan")
-	private String paket_keterangan;
+	private String paketKeterangan;
 	
 	@Column(name="paket_harga")
-	private int paket_harga;
+	private int paketHarga;
 	
 	@Column(name="paket_aktif")
-	private String paket_aktif;
+	private String paketAktif;
 
 	@Column(name="paket_created_by")
-	private String paket_created_by;
+	private String paketCreatedBy;
 	
 	@Column(name="paket_created_date")
-	private Timestamp paket_created_date;
+	private Timestamp paketCreatedDate;
 	
 	@Column(name="paket_updated_by")
-	private String paket_updated_by;
+	private String paketUpdatedBy;
 	  
 	@Column(name="paket_updated_date")
-	private Timestamp paket_updated_date;
+	private Timestamp paketUpdatedDate;
 	
 	@Column(name="paket_jenis")
-	private String paket_jenis;
+	private String paketJenis;
 	
 	@Column(name="paket_revised")
-	private int paket_revised;
+	private int paketRevised;
 	  
 	@Column(name="paket_deleted_date")
-	private Timestamp paket_deleted_date;
+	private Timestamp paketDeletedDate;
 
 	@Column(name="paket_deleted_by")
-	private String paket_deleted_by;
+	private String paketDeletedBy;
 
 	@ManyToOne
 	private MKelas kelas;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "paket", cascade = CascadeType.ALL, orphanRemoval=true)
-	private List<MPaketHarga> paketHarga;
+	private List<MPaketDetail> paketDetail;
 
 	public MPaket() {
 
 	}
 
-	public int getPaket_id() {
-		return paket_id;
+	public int getPaketID() {
+		return paketID;
 	}
 
-	public void setPaket_id(int paket_id) {
-		this.paket_id = paket_id;
+	public void setPaketID(int paketID) {
+		this.paketID = paketID;
 	}
 
-	public String getPaket_nama() {
-		return paket_nama;
+	public String getPaketNama() {
+		return paketNama;
 	}
 
-	public void setPaket_nama(String paket_nama) {
-		this.paket_nama = paket_nama;
+	public void setPaketNama(String paketNama) {
+		this.paketNama = paketNama;
 	}
 
-	public String getPaket_keterangan() {
-		return paket_keterangan;
+	public String getPaketKeterangan() {
+		return paketKeterangan;
 	}
 
-	public void setPaket_keterangan(String paket_keterangan) {
-		this.paket_keterangan = paket_keterangan;
+	public void setPaketKeterangan(String paketKeterangan) {
+		this.paketKeterangan = paketKeterangan;
 	}
 
-	public int getPaket_harga() {
-		return paket_harga;
+	public int getPaketHarga() {
+		return paketHarga;
 	}
 
-	public void setPaket_harga(int paket_harga) {
-		this.paket_harga = paket_harga;
+	public void setPaketHarga(int paketHarga) {
+		this.paketHarga = paketHarga;
 	}
 
-	public String getPaket_aktif() {
-		return paket_aktif;
+	public String getPaketAktif() {
+		return paketAktif;
 	}
 
-	public void setPaket_aktif(String paket_aktif) {
-		this.paket_aktif = paket_aktif;
+	public void setPaketAktif(String paketAktif) {
+		this.paketAktif = paketAktif;
 	}
 
-	public String getPaket_created_by() {
-		return paket_created_by;
+	public String getPaketCreatedBy() {
+		return paketCreatedBy;
 	}
 
-	public void setPaket_created_by(String paket_created_by) {
-		this.paket_created_by = paket_created_by;
+	public void setPaketCreatedBy(String paketCreatedBy) {
+		this.paketCreatedBy = paketCreatedBy;
 	}
 
-	public Timestamp getPaket_created_date() {
-		return paket_created_date;
+	public Timestamp getPaketCreatedDate() {
+		return paketCreatedDate;
 	}
 
-	public void setPaket_created_date(Timestamp paket_created_date) {
-		this.paket_created_date = paket_created_date;
+	public void setPaketCreatedDate(Timestamp paketCreatedDate) {
+		this.paketCreatedDate = paketCreatedDate;
 	}
 
-	public String getPaket_updated_by() {
-		return paket_updated_by;
+	public String getPaketUpdatedBy() {
+		return paketUpdatedBy;
 	}
 
-	public void setPaket_updated_by(String paket_updated_by) {
-		this.paket_updated_by = paket_updated_by;
+	public void setPaketUpdatedBy(String paketUpdatedBy) {
+		this.paketUpdatedBy = paketUpdatedBy;
 	}
 
-	public Timestamp getPaket_updated_date() {
-		return paket_updated_date;
+	public Timestamp getPaketUpdatedDate() {
+		return paketUpdatedDate;
 	}
 
-	public void setPaket_updated_date(Timestamp paket_updated_date) {
-		this.paket_updated_date = paket_updated_date;
+	public void setPaketUpdatedDate(Timestamp paketUpdatedDate) {
+		this.paketUpdatedDate = paketUpdatedDate;
 	}
 
-	public String getPaket_jenis() {
-		return paket_jenis;
+	public String getPaketJenis() {
+		return paketJenis;
 	}
 
-	public void setPaket_jenis(String paket_jenis) {
-		this.paket_jenis = paket_jenis;
+	public void setPaketJenis(String paketJenis) {
+		this.paketJenis = paketJenis;
 	}
 
-	public int getPaket_revised() {
-		return paket_revised;
+	public int getPaketRevised() {
+		return paketRevised;
 	}
 
-	public void setPaket_revised(int paket_revised) {
-		this.paket_revised = paket_revised;
+	public void setPaketRevised(int paketRevised) {
+		this.paketRevised = paketRevised;
 	}
 
-	public Timestamp getPaket_deleted_date() {
-		return paket_deleted_date;
+	public Timestamp getPaketDeletedDate() {
+		return paketDeletedDate;
 	}
 
-	public void setPaket_deleted_date(Timestamp paket_deleted_date) {
-		this.paket_deleted_date = paket_deleted_date;
+	public void setPaketDeletedDate(Timestamp paketDeletedDate) {
+		this.paketDeletedDate = paketDeletedDate;
 	}
 
-	public String getPaket_deleted_by() {
-		return paket_deleted_by;
+	public String getPaketDeletedBy() {
+		return paketDeletedBy;
 	}
 
-	public void setPaket_deleted_by(String paket_deleted_by) {
-		this.paket_deleted_by = paket_deleted_by;
+	public void setPaketDeletedBy(String paketDeletedBy) {
+		this.paketDeletedBy = paketDeletedBy;
 	}
 
 	public MKelas getKelas() {
@@ -186,16 +186,16 @@ public class MPaket {
 		this.kelas = kelas;
 	}
 
-	public List<MPaketHarga> getPaketHarga() {
-		return paketHarga;
+	public List<MPaketDetail> getPaketDetail() {
+		return paketDetail;
 	}
 
-	public void setPaketHarga(List<MPaketHarga> paketHarga) {
-		this.paketHarga = paketHarga;
+	public void setPaketDetail(List<MPaketDetail> paketDetail) {
+		this.paketDetail = paketDetail;
 	}
 
 	@Override
 	public String toString() {
-		return "m_paket [order_id=" + paket_id + ", paket_nama=" + paket_nama + ", paketHarga=" + paketHarga + ", kelases=" + kelas +"]";
+		return "mPaket [orderID=" + paketID + ", paketNama=" + paketNama + ", paketDetail=" + paketDetail + ", kelases=" + kelas +"]";
 	}
 }

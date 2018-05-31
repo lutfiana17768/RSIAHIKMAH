@@ -50,8 +50,8 @@
                                         <c:forEach var="tempusers" items="${user}">
                                                 <tr>
                                                     <td> ${tempusers.userName } </td>
-                                                    <td> <a href="/user/update/${tempusers.user_id }" class="btn btn-info">Update</a>
-                                                     <a href="/user/delete/${tempusers.user_id }" class="btn btn-warning">Delete</a></td>
+                                                    <td> <a href="/user/update/${tempusers.userID }" class="btn btn-info">Update</a>
+                                                     <a href="/user/delete/${tempusers.userID }" class="btn btn-warning">Delete</a></td>
                                                 </tr>                                        
                                         </c:forEach>
                                     </tbody>

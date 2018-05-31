@@ -12,12 +12,16 @@
 <html>
 <head>
 	<title>RSI AL-HIKMAH</title>
-	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/app.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/vendor.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/gh-pages.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/style.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/bootstrap-datepicker/css/bootstrap-datepicker.min.css'/>">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/app.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/vendor.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/gh-pages.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/style.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/bootstrap-datepicker/css/bootstrap-datepicker.min.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/select2.min.css'/>" />
+	<script type="text/javascript">
+		var BASE_URL = "${baseURL}/";
+	</script>
 </head>
 <body>
 	<div class="main-wrapper">
@@ -64,7 +68,7 @@
 								<ul class="sidebar-nav">
 									<li>
 		                                <a href=""> Menu Master <i class="fa arrow"></i> </a>
-										<ul class="sidebar-nav collapse" aria-expanded="false" style="height: 0px;">
+										<ul class="sidebar-nav collapse" aria-expanded="false">
 											<li><a href="/barang/form-add"> Master Barang</a></li>
 											<li><a href="/satuan"> Master Satuan</a></li>
 											<li><a href="/perusahaan/list/?page=1&limit=10"> Master Perusahaan</a></li>
@@ -72,7 +76,7 @@
 									</li>
 										<li>
 			                                <a href=""> Transaksi <i class="fa arrow"></i> </a>
-											<ul class="sidebar-nav collapse" aria-expanded="false" style="height: 0px;">
+											<ul class="sidebar-nav collapse" aria-expanded="false">
 											<li><a href="/order/form-add"> order barang </a></li>
 											<li><a href="/terima"> penerimaan barang </a></li>
 											<li><a href="/retur-beli/form-add"> retur penerimaan  </a></li>
@@ -93,7 +97,7 @@
 								<ul class="sidebar-nav">
 									<li>
 		                                <a href=""> Menu Master <i class="fa arrow"></i> </a>
-										<ul class="sidebar-nav collapse" aria-expanded="false" style="height: 0px;">
+										<ul class="sidebar-nav collapse" aria-expanded="false">
 											<li><a href="/kamar">Master Kamar</a>
 											<li><a href="/kelas">Master Kelas</a>
 											<li><a href="/kondisi">Master Kondisi Pasien</a>
@@ -107,7 +111,7 @@
 									</li>
 									<li>
 		                                <a href=""> Transaksi <i class="fa arrow"></i> </a>
-										<ul class="sidebar-nav collapse" aria-expanded="false" style="height: 0px;">
+										<ul class="sidebar-nav collapse" aria-expanded="false">
 											<li><a href="/pendaftaran"> pendaftaran</a></li>
 											<li><a href="/pelayanan"> pelayanan</a></li>
 											<li><a href="/kasir"> kasir</a></li>
@@ -133,7 +137,7 @@
 									<li><a href="/agama">Master Agama</a>
 									<li>
 		                                <a href=""> Master Wilayah <i class="fa arrow"></i> </a>
-										<ul class="sidebar-nav collapse" aria-expanded="false" style="height: 0px;">
+										<ul class="sidebar-nav collapse" aria-expanded="false">
 		                                    <li>
 		                                        <a href="/provinsi/tambah">
 		                                         Provinsi

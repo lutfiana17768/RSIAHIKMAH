@@ -81,10 +81,10 @@ public class ResepAction implements ResepDAO {
 	}
 
 	@Override
-	public MResep getResep(int resepId) {
+	public MResep getResep(int resepID) {
 		Session current = sessionFactory.	getCurrentSession();
 		
-		MResep result = current.get(MResep.class, resepId);
+		MResep result = current.get(MResep.class, resepID);
 		
 		return result;
 	}
@@ -96,7 +96,7 @@ public class ResepAction implements ResepDAO {
 		current.save(resepModel);
 		current.flush();
 		
-		return resepModel.getResep_id();
+		return resepModel.getResepID();
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class ResepAction implements ResepDAO {
 		current.saveOrUpdate(resepModel);
 		current.flush();
 		
-		return resepModel.getResep_id();
+		return resepModel.getResepID();
 	}
 
 	@Override
@@ -116,6 +116,6 @@ public class ResepAction implements ResepDAO {
 		current.saveOrUpdate(resepModel);
 		current.flush();
 		
-		return resepModel.getResep_id();
+		return resepModel.getResepID();
 	}
 }

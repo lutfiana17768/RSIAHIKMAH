@@ -12,23 +12,23 @@
 						<h3 class="title"> Data Kondisi </h3>
 					</div>
 					<form:form modelAttribute="kondisiModel" method="POST" action="/kondisi/update">
-						<form:hidden path="kondisi_id" />
-						<form:hidden path="kondisi_created_date" />
-						<form:hidden path="kondisi_created_by" />
-						<form:hidden path="kondisi_aktif" />
-						<form:hidden path="kondisi_id" />
+						<form:hidden path="kondisiID" />
+						<form:hidden path="kondisiCreatedDate" />
+						<form:hidden path="kondisiCreatedBy" />
+						<form:hidden path="kondisiAktif" />
+						<form:hidden path="kondisiID" />
 						
 						<div class="form-group">
 							<label for="exampleInputEmail1">Kode</label>
-							<form:input path="kondisi_kode" class="form-control boxed"/>
+							<form:input path="kondisiKode" class="form-control boxed"/>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama</label>
-							<form:input path="kondisi_nama" class="form-control boxed"/>
+							<form:input path="kondisiNama" class="form-control boxed"/>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Keterangan</label>
-							<form:input path="kondisi_keterangan" class="form-control boxed"/>
+							<form:input path="kondisiKeterangan" class="form-control boxed"/>
 						</div>
 						
 						<div class="form-group">

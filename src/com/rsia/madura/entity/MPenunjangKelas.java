@@ -26,7 +26,7 @@ public class MPenunjangKelas {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="penunjangkelas_id")
-	private int penunjangkelas_id;
+	private int penunjangkelasID;
 
 	@ManyToOne
 	private MPenunjang penunjang;
@@ -35,14 +35,14 @@ public class MPenunjangKelas {
 	private MKelas kelases;
 
 	@Column(name="penunjangkelas_harga")
-	private Integer penunjangkelas_harga;
+	private Integer penunjangkelasHarga;
 
-	public int getPenunjangkelas_id() {
-		return penunjangkelas_id;
+	public int getPenunjangkelasID() {
+		return penunjangkelasID;
 	}
 
-	public void setPenunjangkelas_id(int penunjangkelas_id) {
-		this.penunjangkelas_id = penunjangkelas_id;
+	public void setPenunjangkelasID(int penunjangkelasID) {
+		this.penunjangkelasID = penunjangkelasID;
 	}
 	public MPenunjang getPenunjang() {
 		return penunjang;
@@ -60,12 +60,12 @@ public class MPenunjangKelas {
 		this.kelases = kelases;
 	}
 
-	public Integer getPenunjangkelas_harga() {
-		return penunjangkelas_harga;
+	public Integer getPenunjangkelasHarga() {
+		return penunjangkelasHarga;
 	}
 
-	public void setPenunjangkelas_harga(Integer penunjangkelas_harga) {
-		this.penunjangkelas_harga = penunjangkelas_harga;
+	public void setPenunjangkelasHarga(Integer penunjangkelasHarga) {
+		this.penunjangkelasHarga = penunjangkelasHarga;
 	}
 
 }

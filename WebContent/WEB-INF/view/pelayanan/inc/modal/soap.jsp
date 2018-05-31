@@ -17,25 +17,25 @@
                         <form id="form-pelayanan-soap" class="from-horizontal">
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="date" name="soap_tanggal" id="soap_tanggal" class="form-control boxed">
+                                <input type="date" name="soapTanggal" id="soapTanggal" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Subject</label>
-                                <input type="text" name="soap_subject" id="soap_subject" class="form-control boxed">
+                                <input type="text" name="soapSubject" id="soapSubject" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Obejct</label>
-                                <input type="text" name="soap_object" id="soap_object" class="form-control boxed">
+                                <input type="text" name="soapObject" id="soapObject" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Kesimpulan</label>
-                                <input type="text" name="soap_assesment" id="soap_assesment" class="form-control boxed">
+                                <input type="text" name="soapAssesment" id="soapAssesment" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Rencana</label>
-                                <input type="text" name="soap_plan" id="soap_plan" class="form-control boxed">
+                                <input type="text" name="soapPlan" id="soapPlan" class="form-control boxed">
                             </div>
-                            <input type="hidden" name="soap_id" id="soap_id">
+                            <input type="hidden" name="soapID" id="soapID">
                             <input type="hidden" name="soap_mode" id="soap_mode">
                             <input type="hidden" name="soap_edit" id="soap_edit">
                         </form>

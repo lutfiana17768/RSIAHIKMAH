@@ -15,164 +15,135 @@ import javax.persistence.FetchType;
 import javax.persistence.CascadeType;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@DynamicUpdate(true)
-@Table(name="t_Pendaftaran")
+@Table(name="t_pendaftaran")
 public class MPendaftaran {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pendaftaran_id")
-	private int pendaftaran_id;
+	private int pendaftaranID;
 	
 	@Column(name="pendaftaran_no")
-	private String pendaftaran_no;
+	private String pendaftaranNo;
 	
 	@Column(name="pendaftaran_nourut")
-	private int pendaftaran_nourut;
+	private int pendaftaranNourut;
 	
-	@Column(name="m_unit_id")
-	private int m_unit_id;
+	// @Column(name="m_unit_id")
+	// private int mUnitID;
 	
 	@Column(name="pendaftaran_mrs")
-	private Timestamp pendaftaran_mrs;
-
-	@Column(name="m_pasien_id")
-	private int m_pasien_id;
-
-	@Column(name="m_kondisi_id")
-	private int m_kondisi_id;
+	private Timestamp pendaftaranMrs;
 	
 	@Column(name="pendaftaran_krs")
-	private Timestamp pendaftaran_krs;
+	private Timestamp pendaftaranKrs;
 	
-	@Column(name="m_status_id")
-	private int m_status_id;
+	// @Column(name="m_status_id")
+	// private int mStatusID;
 	
 	@Column(name="m_rujuk_id_keluar")
-	private int m_rujuk_id_keluar;
+	private int mRujukIDKeluar;
 	
 	@Column(name="pendaftaran_aktif")
-	private String pendaftaran_aktif;
+	private String pendaftaranAktif;
 	
 	@Column(name="pendaftaran_created_by")
-	private String pendaftaran_created_by;
+	private String pendaftaranCreatedBy;
 	
 	@Column(name="pendaftaran_created_date")
-	private Timestamp pendaftaran_created_date;
+	private Timestamp pendaftaranCreatedDate;
 	
 	@Column(name="pendaftaran_updated_by")
-	private String pendaftaran_updated_by;
+	private String pendaftaranUpdatedBy;
 	
 	@Column(name="pendaftaran_updated_date")
-	private Timestamp pendaftaran_updated_date;
+	private Timestamp pendaftaranUpdatedDate;
 	
 	@Column(name="pendaftaran_revised")
-	private int pendaftaran_revised;
+	private int pendaftaranRevised;
 	
-	@Column(name="m_kondisi_id_keluar")
-	private int m_kondisi_id_keluar;
+	// @Column(name="m_kondisi_id_keluar")
+	// private int mKondisiIDKeluar;
 	
 	@Column(name="pendaftaran_keterangan")
-	private String pendaftaran_keterangan;
+	private String pendaftaranKeterangan;
 	
 	@Column(name="pendaftaran_tarif")
-	private int pendaftaran_tarif;
+	private int pendaftaranTarif;
 	
-	@Column(name="m_status_id_masuk")
-	private int m_status_id_masuk;
+	// @Column(name="m_status_id_masuk")
+	// private int mStatusIDMasuk;
 	
-	@Column(name="m_status_id_pelayanan")
-	private String m_status_id_pelayanan;
+	// @Column(name="m_status_id_pelayanan")
+	// private String mStatusIDPelayanan;
 	
 	@Column(name="pendaftaran_status_kunjungan")
-	private String pendaftaran_status_kunjungan;
+	private String pendaftaranStatusKunjungan;
 	
-	@Column(name="m_kondisi_id_masuk")
-	private int m_kondisi_id_masuk;
+	// @Column(name="m_kondisi_id_masuk")
+	// private int mKondisiIDMasuk;
 	
-	@Column(name="m_rujukan_id")
-	private int m_rujukan_id;
+	// @Column(name="m_rujukan_id")
+	// private int mRujukanID;
 	
 	@Column(name="pendaftaran_jenis")
-	private String pendaftaran_jenis;
+	private String pendaftaranJenis;
 	
 	@Column(name="pendaftaran_status_konsul")
-	private String pendaftaran_status_konsul;
+	private String pendaftaranStatusKonsul;
 	
 	@Column(name="m_unit_id_asal")
-	private int m_unit_id_asal;
-	
-	@Column(name="pendaftaran_m_pasien_norm")
-	private String pendaftaran_m_pasien_norm;
+	private int mUnitIDAsal;
 	
 	@Column(name="m_kelas_id_standar")
-	private int m_kelas_id_standar;
-	
-	@Column(name="pendaftaran_dokter")
-	private int pendaftaran_dokter;
-	
-	@Column(name="pendaftaran_pasien_nama")
-	private String pendaftaran_pasien_nama;
-	
-	@Column(name="pendaftaran_pasien_alamat")
-	private String pendaftaran_pasien_alamat;
-	
-	@Column(name="pendaftaran_pasien_tgllahir")
-	private Timestamp pendaftaran_pasien_tgllahir;
-	
-	@Column(name="pendaftaran_pasien_kelamin")
-	private String pendaftaran_pasien_kelamin;
-	
-	@Column(name="pendaftaran_pasien_notelp")
-	private String pendaftaran_pasien_notelp;
+	private int mKelasIDStandar;
 	
 	@Column(name="pendaftaran_deleted_date")
-	private Timestamp pendaftaran_deleted_date;
+	private Timestamp pendaftaranDeletedDate;
 
-	// // Tab fisik -> t_riwayat_periksa
-	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	// Tab fisik 
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MRiwayatPeriksa> riwayatperiksa;
 
-	// Tab pemeriksaan -> t_periksa_pasien
-	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	// Tab pemeriksaan -> tPeriksaPasien
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MPeriksaPasien> periksapasien;
 
-	// // Tab diagnosa -> t_diagnosa_pasien ???
-	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	// // Tab diagnosa -> tDiagnosaPasien ???
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MDiagnosaPasien> diagnosapasien;
 
 	// // Tab prosedur -> ???
-	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MDiagnosa9> diagnosa9;
 	
-	// // Tab tindakan -> t_tindakan_pasien
-	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	// // Tab tindakan -> tTindakanPasien
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MTindakanPasien> tindakanpasien;
 
-	// Tab bph -> t_pakai ???
-	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	// Tab bph -> tPakai ???
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MPakai> pakai;
 	
-	// Tab resep -> t_resep 
-	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	// Tab resep -> tResep 
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MResep> resep;
 
 	// Tab file -> penunjang
-	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MPenunjangTrans> penunjangtrans;
 
 	// tab soap
-	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MSoap> soap;
 
@@ -182,295 +153,227 @@ public class MPendaftaran {
 	@ManyToOne
 	private MKondisi kondisi;
 
-	public int getPendaftaran_id() {
-		return pendaftaran_id;
-	}
-
-	public void setPendaftaran_id(int pendaftaran_id) {
-		this.pendaftaran_id = pendaftaran_id;
-	}
-
-	public String getPendaftaran_no() {
-		return pendaftaran_no;
-	}
-
-	public void setPendaftaran_no(String pendaftaran_no) {
-		this.pendaftaran_no = pendaftaran_no;
-	}
-
-	public int getPendaftaran_nourut() {
-		return pendaftaran_nourut;
-	}
-
-	public void setPendaftaran_nourut(int pendaftaran_nourut) {
-		this.pendaftaran_nourut = pendaftaran_nourut;
-	}
-
-	public int getM_unit_id() {
-		return m_unit_id;
-	}
-
-	public void setM_unit_id(int m_unit_id) {
-		this.m_unit_id = m_unit_id;
-	}
-
-	public Timestamp getPendaftaran_mrs() {
-		return pendaftaran_mrs;
-	}
-
-	public void setPendaftaran_mrs(Timestamp pendaftaran_mrs) {
-		this.pendaftaran_mrs = pendaftaran_mrs;
-	}
-
-	public int getM_pasien_id() {
-		return m_pasien_id;
-	}
-
-	public void setM_pasien_id(int m_pasien_id) {
-		this.m_pasien_id = m_pasien_id;
-	}
-
-	public int getM_kondisi_id() {
-		return m_kondisi_id;
-	}
-
-	public void setM_kondisi_id(int m_kondisi_id) {
-		this.m_kondisi_id = m_kondisi_id;
-	}
-
-	public Timestamp getPendaftaran_krs() {
-		return pendaftaran_krs;
-	}
-
-	public void setPendaftaran_krs(Timestamp pendaftaran_krs) {
-		this.pendaftaran_krs = pendaftaran_krs;
-	}
-
-	public int getM_status_id() {
-		return m_status_id;
-	}
+	@ManyToOne
+	private MRujukan rujukan;
 
-	public void setM_status_id(int m_status_id) {
-		this.m_status_id = m_status_id;
-	}
+	@ManyToOne
+	private MPegawai pegawai;
 
-	public int getM_rujuk_id_keluar() {
-		return m_rujuk_id_keluar;
-	}
+	@ManyToOne
+	private MTindakan tindakan;
 
-	public void setM_rujuk_id_keluar(int m_rujuk_id_keluar) {
-		this.m_rujuk_id_keluar = m_rujuk_id_keluar;
-	}
+	// @ManyToOne
+	// private MPaket paket;
 
-	public String getPendaftaran_aktif() {
-		return pendaftaran_aktif;
+	public int getPendaftaranID() {
+		return pendaftaranID;
 	}
 
-	public void setPendaftaran_aktif(String pendaftaran_aktif) {
-		this.pendaftaran_aktif = pendaftaran_aktif;
+	public void setPendaftaranID(int pendaftaranID) {
+		this.pendaftaranID = pendaftaranID;
 	}
 
-	public String getPendaftaran_created_by() {
-		return pendaftaran_created_by;
+	public String getPendaftaranNo() {
+		return pendaftaranNo;
 	}
 
-	public void setPendaftaran_created_by(String pendaftaran_created_by) {
-		this.pendaftaran_created_by = pendaftaran_created_by;
+	public void setPendaftaranNo(String pendaftaranNo) {
+		this.pendaftaranNo = pendaftaranNo;
 	}
 
-	public Timestamp getPendaftaran_created_date() {
-		return pendaftaran_created_date;
+	public int getPendaftaranNourut() {
+		return pendaftaranNourut;
 	}
 
-	public void setPendaftaran_created_date(Timestamp pendaftaran_created_date) {
-		this.pendaftaran_created_date = pendaftaran_created_date;
+	public void setPendaftaranNourut(int pendaftaranNourut) {
+		this.pendaftaranNourut = pendaftaranNourut;
 	}
 
-	public String getPendaftaran_updated_by() {
-		return pendaftaran_updated_by;
-	}
+	// public int getMUnitID() {
+	// 	return mUnitID;
+	// }
 
-	public void setPendaftaran_updated_by(String pendaftaran_updated_by) {
-		this.pendaftaran_updated_by = pendaftaran_updated_by;
-	}
+	// public void setMUnitID(int mUnitID) {
+	// 	this.mUnitID = mUnitID;
+	// }
 
-	public Timestamp getPendaftaran_updated_date() {
-		return pendaftaran_updated_date;
+	public Timestamp getPendaftaranMrs() {
+		return pendaftaranMrs;
 	}
 
-	public void setPendaftaran_updated_date(Timestamp pendaftaran_updated_date) {
-		this.pendaftaran_updated_date = pendaftaran_updated_date;
+	public void setPendaftaranMrs(Timestamp pendaftaranMrs) {
+		this.pendaftaranMrs = pendaftaranMrs;
 	}
 
-	public int getPendaftaran_revised() {
-		return pendaftaran_revised;
+	public Timestamp getPendaftaranKrs() {
+		return pendaftaranKrs;
 	}
 
-	public void setPendaftaran_revised(int pendaftaran_revised) {
-		this.pendaftaran_revised = pendaftaran_revised;
+	public void setPendaftaranKrs(Timestamp pendaftaranKrs) {
+		this.pendaftaranKrs = pendaftaranKrs;
 	}
 
-	public int getM_kondisi_id_keluar() {
-		return m_kondisi_id_keluar;
-	}
+	// public int getMStatusID() {
+	// 	return mStatusID;
+	// }
 
-	public void setM_kondisi_id_keluar(int m_kondisi_id_keluar) {
-		this.m_kondisi_id_keluar = m_kondisi_id_keluar;
-	}
+	// public void setMStatusID(int mStatusID) {
+	// 	this.mStatusID = mStatusID;
+	// }
 
-	public String getPendaftaran_keterangan() {
-		return pendaftaran_keterangan;
-	}
+	// public int getMRujukIDKeluar() {
+	// 	return mRujukIDKeluar;
+	// }
 
-	public void setPendaftaran_keterangan(String pendaftaran_keterangan) {
-		this.pendaftaran_keterangan = pendaftaran_keterangan;
-	}
+	// public void setMRujukIDKeluar(int mRujukIDKeluar) {
+	// 	this.mRujukIDKeluar = mRujukIDKeluar;
+	// }
 
-	public int getPendaftaran_tarif() {
-		return pendaftaran_tarif;
+	public String getPendaftaranAktif() {
+		return pendaftaranAktif;
 	}
 
-	public void setPendaftaran_tarif(int pendaftaran_tarif) {
-		this.pendaftaran_tarif = pendaftaran_tarif;
+	public void setPendaftaranAktif(String pendaftaranAktif) {
+		this.pendaftaranAktif = pendaftaranAktif;
 	}
 
-	public int getM_status_id_masuk() {
-		return m_status_id_masuk;
+	public String getPendaftaranCreatedBy() {
+		return pendaftaranCreatedBy;
 	}
 
-	public void setM_status_id_masuk(int m_status_id_masuk) {
-		this.m_status_id_masuk = m_status_id_masuk;
+	public void setPendaftaranCreatedBy(String pendaftaranCreatedBy) {
+		this.pendaftaranCreatedBy = pendaftaranCreatedBy;
 	}
 
-	public String getM_status_id_pelayanan() {
-		return m_status_id_pelayanan;
+	public Timestamp getPendaftaranCreatedDate() {
+		return pendaftaranCreatedDate;
 	}
 
-	public void setM_status_id_pelayanan(String m_status_id_pelayanan) {
-		this.m_status_id_pelayanan = m_status_id_pelayanan;
+	public void setPendaftaranCreatedDate(Timestamp pendaftaranCreatedDate) {
+		this.pendaftaranCreatedDate = pendaftaranCreatedDate;
 	}
 
-	public String getPendaftaran_status_kunjungan() {
-		return pendaftaran_status_kunjungan;
+	public String getPendaftaranUpdatedBy() {
+		return pendaftaranUpdatedBy;
 	}
 
-	public void setPendaftaran_status_kunjungan(String pendaftaran_status_kunjungan) {
-		this.pendaftaran_status_kunjungan = pendaftaran_status_kunjungan;
+	public void setPendaftaranUpdatedBy(String pendaftaranUpdatedBy) {
+		this.pendaftaranUpdatedBy = pendaftaranUpdatedBy;
 	}
 
-	public int getM_kondisi_id_masuk() {
-		return m_kondisi_id_masuk;
+	public Timestamp getPendaftaranUpdatedDate() {
+		return pendaftaranUpdatedDate;
 	}
 
-	public void setM_kondisi_id_masuk(int m_kondisi_id_masuk) {
-		this.m_kondisi_id_masuk = m_kondisi_id_masuk;
+	public void setPendaftaranUpdatedDate(Timestamp pendaftaranUpdatedDate) {
+		this.pendaftaranUpdatedDate = pendaftaranUpdatedDate;
 	}
 
-	public int getM_rujukan_id() {
-		return m_rujukan_id;
+	public int getPendaftaranRevised() {
+		return pendaftaranRevised;
 	}
 
-	public void setM_rujukan_id(int m_rujukan_id) {
-		this.m_rujukan_id = m_rujukan_id;
+	public void setPendaftaranRevised(int pendaftaranRevised) {
+		this.pendaftaranRevised = pendaftaranRevised;
 	}
 
-	public String getPendaftaran_jenis() {
-		return pendaftaran_jenis;
-	}
+	// public int getMKondisiIDKeluar() {
+	// 	return mKondisiIDKeluar;
+	// }
 
-	public void setPendaftaran_jenis(String pendaftaran_jenis) {
-		this.pendaftaran_jenis = pendaftaran_jenis;
-	}
+	// public void setMKondisiIDKeluar(int mKondisiIDKeluar) {
+	// 	this.mKondisiIDKeluar = mKondisiIDKeluar;
+	// }
 
-	public String getPendaftaran_status_konsul() {
-		return pendaftaran_status_konsul;
+	public String getPendaftaranKeterangan() {
+		return pendaftaranKeterangan;
 	}
 
-	public void setPendaftaran_status_konsul(String pendaftaran_status_konsul) {
-		this.pendaftaran_status_konsul = pendaftaran_status_konsul;
+	public void setPendaftaranKeterangan(String pendaftaranKeterangan) {
+		this.pendaftaranKeterangan = pendaftaranKeterangan;
 	}
 
-	public int getM_unit_id_asal() {
-		return m_unit_id_asal;
+	public int getPendaftaranTarif() {
+		return pendaftaranTarif;
 	}
 
-	public void setM_unit_id_asal(int m_unit_id_asal) {
-		this.m_unit_id_asal = m_unit_id_asal;
+	public void setPendaftaranTarif(int pendaftaranTarif) {
+		this.pendaftaranTarif = pendaftaranTarif;
 	}
 
-	public String getPendaftaran_m_pasien_norm() {
-		return pendaftaran_m_pasien_norm;
-	}
+	// public int getMStatusIDMasuk() {
+	// 	return mStatusIDMasuk;
+	// }
 
-	public void setPendaftaran_m_pasien_norm(String pendaftaran_m_pasien_norm) {
-		this.pendaftaran_m_pasien_norm = pendaftaran_m_pasien_norm;
-	}
+	// public void setMStatusIDMasuk(int mStatusIDMasuk) {
+	// 	this.mStatusIDMasuk = mStatusIDMasuk;
+	// }
 
-	public int getM_kelas_id_standar() {
-		return m_kelas_id_standar;
-	}
+	// public String getMStatusIDPelayanan() {
+	// 	return mStatusIDPelayanan;
+	// }
 
-	public void setM_kelas_id_standar(int m_kelas_id_standar) {
-		this.m_kelas_id_standar = m_kelas_id_standar;
-	}
+	// public void setMStatusIDPelayanan(String mStatusIDPelayanan) {
+	// 	this.mStatusIDPelayanan = mStatusIDPelayanan;
+	// }
 
-	public int getPendaftaran_dokter() {
-		return pendaftaran_dokter;
+	public String getPendaftaranStatusKunjungan() {
+		return pendaftaranStatusKunjungan;
 	}
 
-	public void setPendaftaran_dokter(int pendaftaran_dokter) {
-		this.pendaftaran_dokter = pendaftaran_dokter;
+	public void setPendaftaranStatusKunjungan(String pendaftaranStatusKunjungan) {
+		this.pendaftaranStatusKunjungan = pendaftaranStatusKunjungan;
 	}
 
-	public String getPendaftaran_pasien_nama() {
-		return pendaftaran_pasien_nama;
-	}
+	// public int getMKondisiIDMasuk() {
+	// 	return mKondisiIDMasuk;
+	// }
 
-	public void setPendaftaran_pasien_nama(String pendaftaran_pasien_nama) {
-		this.pendaftaran_pasien_nama = pendaftaran_pasien_nama;
-	}
+	// public void setMKondisiIDMasuk(int mKondisiIDMasuk) {
+	// 	this.mKondisiIDMasuk = mKondisiIDMasuk;
+	// }
 
-	public String getPendaftaran_pasien_alamat() {
-		return pendaftaran_pasien_alamat;
-	}
+	// public int getMRujukanID() {
+	// 	return mRujukanID;
+	// }
 
-	public void setPendaftaran_pasien_alamat(String pendaftaran_pasien_alamat) {
-		this.pendaftaran_pasien_alamat = pendaftaran_pasien_alamat;
-	}
+	// public void setMRujukanID(int mRujukanID) {
+	// 	this.mRujukanID = mRujukanID;
+	// }
 
-	public Timestamp getPendaftaran_pasien_tgllahir() {
-		return pendaftaran_pasien_tgllahir;
+	public String getPendaftaranJenis() {
+		return pendaftaranJenis;
 	}
 
-	public void setPendaftaran_pasien_tgllahir(Timestamp pendaftaran_pasien_tgllahir) {
-		this.pendaftaran_pasien_tgllahir = pendaftaran_pasien_tgllahir;
+	public void setPendaftaranJenis(String pendaftaranJenis) {
+		this.pendaftaranJenis = pendaftaranJenis;
 	}
 
-	public String getPendaftaran_pasien_kelamin() {
-		return pendaftaran_pasien_kelamin;
+	public String getPendaftaranStatusKonsul() {
+		return pendaftaranStatusKonsul;
 	}
 
-	public void setPendaftaran_pasien_kelamin(String pendaftaran_pasien_kelamin) {
-		this.pendaftaran_pasien_kelamin = pendaftaran_pasien_kelamin;
+	public void setPendaftaranStatusKonsul(String pendaftaranStatusKonsul) {
+		this.pendaftaranStatusKonsul = pendaftaranStatusKonsul;
 	}
 
-	public String getPendaftaran_pasien_notelp() {
-		return pendaftaran_pasien_notelp;
+	public int getMUnitIDAsal() {
+		return mUnitIDAsal;
 	}
 
-	public void setPendaftaran_pasien_notelp(String pendaftaran_pasien_notelp) {
-		this.pendaftaran_pasien_notelp = pendaftaran_pasien_notelp;
+	public void setMUnitIDAsal(int mUnitIDAsal) {
+		this.mUnitIDAsal = mUnitIDAsal;
 	}
 
-	public Timestamp getPendaftaran_deleted_date() {
-		return pendaftaran_deleted_date;
+	public Timestamp getPendaftaranDeletedDate() {
+		return pendaftaranDeletedDate;
 	}
 
-	public void setPendaftaran_deleted_date(Timestamp pendaftaran_deleted_date) {
-		this.pendaftaran_deleted_date = pendaftaran_deleted_date;
+	public void setPendaftaranDeletedDate(Timestamp pendaftaranDeletedDate) {
+		this.pendaftaranDeletedDate = pendaftaranDeletedDate;
 	}
 
-	// Tab fisik -> t_riwayat_periksa
+	// Tab fisik -> tRiwayatPeriksa
 	public List<MRiwayatPeriksa> getRiwayatperiksa() {
 		return riwayatperiksa;
 	}
@@ -478,7 +381,7 @@ public class MPendaftaran {
 	public void setRiwayatperiksa(List<MRiwayatPeriksa> riwayatperiksa) {
 		this.riwayatperiksa = riwayatperiksa;
 	}
-	// Tab pemeriksaan -> t_periksa_pasien
+	// Tab pemeriksaan -> tPeriksaPasien
 	public List<MPeriksaPasien> getPeriksapasien() {
 		return periksapasien;
 	}
@@ -487,7 +390,7 @@ public class MPendaftaran {
 		this.periksapasien = periksapasien;
 	}
 
-	// // Tab diagnosa -> t_diagnosa_pasien ???
+	// Tab diagnosa -> tDiagnosaPasien ???
 	public List<MDiagnosaPasien> getDiagnosapasien() {
 		return diagnosapasien;
 	}
@@ -504,7 +407,7 @@ public class MPendaftaran {
 		this.diagnosa9 = diagnosa9;
 	}
 	
-	// // Tab tindakan -> t_tindakan_pasien
+	// // Tab tindakan -> tTindakanPasien
 	public List<MTindakanPasien> getTindakanpasien() {
 		return tindakanpasien;
 	}
@@ -513,7 +416,7 @@ public class MPendaftaran {
 		this.tindakanpasien = tindakanpasien;
 	}
 
-	// Tab bph -> t_pakai ???
+	// Tab bph -> tPakai ???
 	public List<MPakai> getPakai() {
 		return pakai;
 	}
@@ -522,7 +425,7 @@ public class MPendaftaran {
 		this.pakai = pakai;
 	}
 	
-	// Tab resep -> t_resep 
+	// Tab resep -> tResep 
 	public List<MResep> getResep() {
 		return resep;
 	}
@@ -565,30 +468,35 @@ public class MPendaftaran {
 		this.kondisi = kondisi;
 	}
 
-	@Override
-	public String toString() {
-		return "t_Pendaftaran [pendaftaran_id=" + pendaftaran_id + ", pendaftaran_no=" + pendaftaran_no
-				+ ", pendaftaran_nourut=" + pendaftaran_nourut + ", m_unit_id=" + m_unit_id + ", pendaftaran_mrs="
-				+ pendaftaran_mrs + ", m_pasien_id=" + m_pasien_id + ", m_kondisi_id=" + m_kondisi_id
-				+ ", pendaftaran_krs=" + pendaftaran_krs + ", m_status_id=" + m_status_id + ", m_rujuk_id_keluar="
-				+ m_rujuk_id_keluar + ", pendaftaran_aktif=" + pendaftaran_aktif + ", pendaftaran_created_by="
-				+ pendaftaran_created_by + ", pendaftaran_created_date=" + pendaftaran_created_date
-				+ ", pendaftaran_updated_by=" + pendaftaran_updated_by + ", pendaftaran_updated_date="
-				+ pendaftaran_updated_date + ", pendaftaran_revised=" + pendaftaran_revised + ", m_kondisi_id_keluar="
-				+ m_kondisi_id_keluar + ", pendaftaran_keterangan=" + pendaftaran_keterangan + ", pendaftaran_tarif="
-				+ pendaftaran_tarif + ", m_status_id_masuk=" + m_status_id_masuk + ", m_status_id_pelayanan="
-				+ m_status_id_pelayanan + ", pendaftaran_status_kunjungan=" + pendaftaran_status_kunjungan
-				+ ", m_kondisi_id_masuk=" + m_kondisi_id_masuk + ", m_rujukan_id=" + m_rujukan_id
-				+ ", pendaftaran_jenis=" + pendaftaran_jenis + ", pendaftaran_status_konsul="
-				+ pendaftaran_status_konsul + ", m_unit_id_asal=" + m_unit_id_asal + ", pendaftaran_m_pasien_norm="
-				+ pendaftaran_m_pasien_norm + ", m_kelas_id_standar=" + m_kelas_id_standar + ", pendaftaran_dokter="
-				+ pendaftaran_dokter + ", pendaftaran_pasien_nama=" + pendaftaran_pasien_nama
-				+ ", pendaftaran_pasien_alamat=" + pendaftaran_pasien_alamat + ", pendaftaran_pasien_tgllahir="
-				+ pendaftaran_pasien_tgllahir + ", pendaftaran_pasien_kelamin=" + pendaftaran_pasien_kelamin
-				+ ", pendaftaran_pasien_notelp=" + pendaftaran_pasien_notelp + ", pendaftaran_deleted_date="
-				+ pendaftaran_deleted_date + "]";
+	public MTindakan getTindakan() {
+		return tindakan;
 	}
-	
-	
 
+	public void setTindakan(MTindakan tindakan) {
+		this.tindakan = tindakan;
+	}
+
+	public MRujukan getRujukan() {
+		return rujukan;
+	}
+
+	public void setRujukan(MRujukan rujukan) {
+		this.rujukan = rujukan;
+	}
+
+	public MPegawai getPegawai() {
+		return pegawai;
+	}
+
+	public void setPegawai(MPegawai pegawai) {
+		this.pegawai = pegawai;
+	}
+
+	// public MPaket getPaket() {
+	// 	return paket;
+	// }
+
+	// public void setPaket(MPaket paket) {
+	// 	this.paket = paket;
+	// }
 }

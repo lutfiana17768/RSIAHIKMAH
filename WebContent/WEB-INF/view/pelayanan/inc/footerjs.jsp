@@ -202,28 +202,31 @@
                 tr.empty();
             }
 
-            periksa_id = $('#periksa_id').val();
-            periksa_tb = $('#periksa_tb').val() ||0;
-            periksa_bb = $('#periksa_bb').val() ||0;
-            periksa_jantung = $('#periksa_jantung').val() ||0;
-            periksa_tensi = $('#periksa_tensi').val() ||0;
-            periksa_suhu = $('#periksa_suhu').val() ||0;
-            periksa_nafas = $('#periksa_nafas').val() ||0;
-            periksa_keluhan = $('#periksa_keluhan').val() ||'';
-            periksa_pemeriksa = $('#periksa_pemeriksa').val() ||'';
-            periksa_tanggal = $('#periksa_tanggal').val() ||0;
-            tr.append('<td data-used="1" data-save="1" data-name="periksa_tb" data-kolom-id="periksa_tb">'+periksa_tb+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksa_bb" data-kolom-id="periksa_bb">'+periksa_bb+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksa_jantung" data-kolom-id="periksa_jantung">'+periksa_jantung+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksa_tensi" data-kolom-id="periksa_tensi">'+periksa_tensi+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksa_suhu" data-kolom-id="periksa_suhu">'+periksa_suhu+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksa_nafas" data-kolom-id="periksa_nafas">'+periksa_nafas+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksa_keluhan" data-kolom-id="periksa_keluhan">'+periksa_keluhan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksa_pemeriksa" data-kolom-id="periksa_pemeriksa">'+periksa_pemeriksa+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksa_tanggal" data-kolom-id="periksa_tanggal">'+periksa_tanggal+'</td>');
+            periksaID = $('#periksaID').val();
+            periksaTb = $('#periksaTb').val() ||0;
+            periksaBb = $('#periksaBb').val() ||0;
+            periksaJantung = $('#periksaJantung').val() ||0;
+            periksaTensi = $('#periksaTensi').val() ||0;
+            periksaSuhu = $('#periksaSuhu').val() ||0;
+            periksaNafas = $('#periksaNafas').val() ||0;
+            periksaKeluhan = $('#periksaKeluhan').val() ||'';
+            pegawai = $('#pegawai').val();
+            pegawaiText = $('#pegawai option:selected').text();
+            periksaPemeriksa = $('#periksaPemeriksa').val() ||'';
+            periksaTanggal = $('#periksaTanggal').val() ||0;
+            tr.append('<td data-used="1" data-save="1" data-name="periksaTb" data-kolom-id="periksaTb">'+periksaTb+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksaBb" data-kolom-id="periksaBb">'+periksaBb+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksaJantung" data-kolom-id="periksaJantung">'+periksaJantung+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksaTensi" data-kolom-id="periksaTensi">'+periksaTensi+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksaSuhu" data-kolom-id="periksaSuhu">'+periksaSuhu+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksaNafas" data-kolom-id="periksaNafas">'+periksaNafas+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksaKeluhan" data-kolom-id="periksaKeluhan">'+periksaKeluhan+'</td>');
+            tr.append('<td>'+pegawaiText+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksaTanggal" data-kolom-id="periksaTanggal">'+periksaTanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteRiwayatperiksa('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editRiwayatperiksa('+counter+')">Edit</button></td>');
-            if (periksa_id) {
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksa_id" data-kolom-id="periksa_id">' + periksa_id + '</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="pegawai">' + pegawai + '</td>');
+            if (periksaID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksaID" data-kolom-id="periksaID">' + periksaID + '</td>');
             }
 
             if(mode == 'new')
@@ -237,7 +240,7 @@
 
         });
          $('#simpan-periksapasien').click(function(){
-            var periksapasien_id,periksapasien_tinggi,mode,counter,id_row;
+            var periksapasienID,periksapasienTinggi,mode,counter,id_row;
             var mode = $('#periksapasien_mode').val();
 
             if(mode == 'new')
@@ -254,28 +257,28 @@
                 tr.empty();
             }
 
-            periksapasien_id = $('#periksapasien_id').val();
-            periksapasien_periksa_id = $('#periksapasien_periksa_id').val();
-            periksapasien_periksa_nama = $('#periksapasien_periksa_id option:selected').text();
-            periksapasien_periksa_standar = $('#periksapasien_periksa_standar').val() ||0;
-            periksapasien_periksa_nilai = $('#periksapasien_periksa_nilai').val() ||0;
-            periksapasien_dokter_id = $('#periksapasien_dokter_id').val() ||0;
-            periksapasien_dokter_text = $('#periksapasien_dokter_id option:selected').text();
-            periksapasien_periksa_keterangan = $('#periksapasien_periksa_keterangan').val() || '';
-            periksapasien_tanggal = $('#periksapasien_tanggal').val() ||0;
+            periksapasienID = $('#periksapasienID').val();
+            periksapasienPeriksaID = $('#periksapasienPeriksaID').val();
+            periksapasienPeriksaNama = $('#periksapasienPeriksaID option:selected').text();
+            periksapasienPeriksaStandar = $('#periksapasienPeriksaStandar').val() ||0;
+            periksapasienPeriksaNilai = $('#periksapasienPeriksaNilai').val() ||0;
+            periksapasienDokterID = $('#periksapasienDokterID').val() ||0;
+            periksapasienDokterText = $('#periksapasienDokterID option:selected').text();
+            periksapasienPeriksaKeterangan = $('#periksapasienPeriksaKeterangan').val() || '';
+            periksapasienTanggal = $('#periksapasienTanggal').val() ||0;
             
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_nama" data-kolom-id="periksapasien_periksa_nama">'+periksapasien_periksa_nama+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_standar" data-kolom-id="periksapasien_periksa_standar">'+periksapasien_periksa_standar+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_nilai" data-kolom-id="periksapasien_periksa_nilai">'+periksapasien_periksa_nilai+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_dokter_text" data-kolom-id="periksapasien_dokter_text">'+periksapasien_dokter_text+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_periksa_keterangan" data-kolom-id="periksapasien_periksa_keterangan">'+periksapasien_periksa_keterangan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasien_tanggal" data-kolom-id="periksapasien_tanggal">'+periksapasien_tanggal+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasienPeriksaNama" data-kolom-id="periksapasienPeriksaNama">'+periksapasienPeriksaNama+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasienPeriksaStandar" data-kolom-id="periksapasienPeriksaStandar">'+periksapasienPeriksaStandar+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasienPeriksaNilai" data-kolom-id="periksapasienPeriksaNilai">'+periksapasienPeriksaNilai+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasienDokterText" data-kolom-id="periksapasienDokterText">'+periksapasienDokterText+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasienPeriksaKeterangan" data-kolom-id="periksapasienPeriksaKeterangan">'+periksapasienPeriksaKeterangan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasienTanggal" data-kolom-id="periksapasienTanggal">'+periksapasienTanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePeriksapasien('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPeriksapasien('+counter+')">Edit</button></td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasien_periksa_id" data-kolom-id="periksapasien_periksa_id">' + periksapasien_periksa_id + '</td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasien_dokter_id" data-kolom-id="periksapasien_dokter_id">' + periksapasien_dokter_id + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasienPeriksaID" data-kolom-id="periksapasienPeriksaID">' + periksapasienPeriksaID + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasienDokterID" data-kolom-id="periksapasienDokterID">' + periksapasienDokterID + '</td>');
 
-            if (periksapasien_id) {
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasien_id" data-kolom-id="periksapasien_id">' + periksapasien_id + '</td>');
+            if (periksapasienID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasienID" data-kolom-id="periksapasienID">' + periksapasienID + '</td>');
             }
 
             if(mode == 'new')
@@ -290,7 +293,7 @@
         }); 
         
         $('#simpan-diagnosapasien').click(function(){
-            var diagnosapasien_id,diagnosapasien_tinggi,mode,counter,id_row;
+            var diagnosapasienID,diagnosapasien_tinggi,mode,counter,id_row;
             var mode = $('#diagnosapasien_mode').val();
 
             if(mode == 'new')
@@ -307,28 +310,28 @@
                 tr.empty();
             }
 
-            diagnosapasien_id = $('#diagnosapasien_id').val();
+            diagnosapasienID = $('#diagnosapasienID').val();
             icd = $('#icd').val() ||0;
-            icd_text = $('#icd option:selected').text();
-            diagnosapasien_jenis = $('#diagnosapasien_jenis').val();
-            diagnosapasien_jenis_text = $('#diagnosapasien_jenis option:selected').text();
-            diagnosapasien_kasus = $('#diagnosapasien_kasus').val();
-            diagnosapasien_kasus_text = $('#diagnosapasien_kasus option:selected').text();
-            diagnosapasien_keterangan = $('#diagnosapasien_keterangan').val() || '';
-            diagnosapasien_tanggal = $('#diagnosapasien_tanggal').val() ||0;
+            icdText = $('#icd option:selected').text();
+            diagnosapasienJenis = $('#diagnosapasienJenis').val();
+            diagnosapasienJenisText = $('#diagnosapasienJenis option:selected').text();
+            diagnosapasienKasus = $('#diagnosapasienKasus').val();
+            diagnosapasienKasusText = $('#diagnosapasienKasus option:selected').text();
+            diagnosapasienKeterangan = $('#diagnosapasienKeterangan').val() || '';
+            diagnosapasienTanggal = $('#diagnosapasienTanggal').val() ||0;
 
-            tr.append('<td>'+icd_text+'</td>');
-            tr.append('<td>'+diagnosapasien_jenis_text+'</td>');
-            tr.append('<td>'+diagnosapasien_kasus_text+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_keterangan" data-kolom-id="diagnosapasien_keterangan">'+diagnosapasien_keterangan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasien_tanggal" data-kolom-id="diagnosapasien_tanggal">'+diagnosapasien_tanggal+'</td>');
+            tr.append('<td>'+icdText+'</td>');
+            tr.append('<td>'+diagnosapasienJenisText+'</td>');
+            tr.append('<td>'+diagnosapasienKasusText+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasienKeterangan" data-kolom-id="diagnosapasienKeterangan">'+diagnosapasienKeterangan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasienTanggal" data-kolom-id="diagnosapasienTanggal">'+diagnosapasienTanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDiagnosapasien('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDiagnosapasien('+counter+')">Edit</button></td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="icd.icd_id" data-kolom-id="icd">' + icd + '</td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasien_jenis" data-kolom-id="diagnosapasien_jenis">' + diagnosapasien_jenis + '</td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasien_kasus" data-kolom-id="diagnosapasien_kasus">' + diagnosapasien_kasus + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="icd.icdID" data-kolom-id="icd">' + icd + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasienJenis" data-kolom-id="diagnosapasienJenis">' + diagnosapasienJenis + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasienKasus" data-kolom-id="diagnosapasienKasus">' + diagnosapasienKasus + '</td>');
 
-            if (diagnosapasien_id) {
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasien_id" data-kolom-id="diagnosapasien_id">' + diagnosapasien_id + '</td>');
+            if (diagnosapasienID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasienID" data-kolom-id="diagnosapasienID">' + diagnosapasienID + '</td>');
             }
 
             if(mode == 'new')
@@ -344,7 +347,7 @@
 
         //prosedur
         $('#simpan-diagnosa9').click(function(){
-            var diagnosa9_id,diagnosa9_tinggi,mode,counter,id_row;
+            var diagnosa9ID,diagnosa9_tinggi,mode,counter,id_row;
             var mode = $('#diagnosa9_mode').val();
 
             if(mode == 'new')
@@ -361,23 +364,23 @@
                 tr.empty();
             }
 
-            diagnosa9_id = $('#diagnosa9_id').val();
+            diagnosa9ID = $('#diagnosa9ID').val();
             icd9 = $('#icd9').val() ||0;
-            diagnosa9_icd9_text = $('#icd9 option:selected').text() || '';
-            diagnosa9_icd9_kode = $('#icd9 option:selected').attr('date-kode') || '';
-            diagnosa9_nama = $('#diagnosa9_nama').val() ||0;
-            diagnosa9_keterangan = $('#diagnosa9_keterangan').val() ||0;
-            diagnosa9_tanggal = $('#diagnosa9_tanggal').val() ||0;
+            diagnosa9Icd9Text = $('#icd9 option:selected').text() || '';
+            diagnosa9Icd9Kode = $('#icd9 option:selected').attr('date-kode') || '';
+            diagnosa9Nama = $('#diagnosa9Nama').val() ||0;
+            diagnosa9Keterangan = $('#diagnosa9Keterangan').val() ||0;
+            diagnosa9Tanggal = $('#diagnosa9Tanggal').val() ||0;
 
-            tr.append('<td>' + diagnosa9_icd9_kode + '</td>');
-            tr.append('<td>' + diagnosa9_icd9_text + '</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9_keterangan" data-kolom-id="diagnosa9_keterangan">'+diagnosa9_keterangan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9_tanggal" data-kolom-id="diagnosa9_tanggal">'+diagnosa9_tanggal+'</td>');
+            tr.append('<td>' + diagnosa9Icd9Kode + '</td>');
+            tr.append('<td>' + diagnosa9Icd9Text + '</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9Keterangan" data-kolom-id="diagnosa9Keterangan">'+diagnosa9Keterangan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9Tanggal" data-kolom-id="diagnosa9Tanggal">'+diagnosa9Tanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDiagnosa9('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDiagnosa9('+counter+')">Edit</button></td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="icd9.icd9_id" data-kolom-id="icd9">' + icd9 + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="icd9.icd9ID" data-kolom-id="icd9">' + icd9 + '</td>');
 
-            if (diagnosa9_id) {
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosa9_id" data-kolom-id="diagnosa9_id">' + diagnosa9_id + '</td>');
+            if (diagnosa9ID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosa9ID" data-kolom-id="diagnosa9ID">' + diagnosa9ID + '</td>');
             }
 
             if(mode == 'new')
@@ -392,7 +395,7 @@
         }); 
 
         $('#simpan-tindakan').click(function(){
-            var tindakanpasien_harga,mode,counter,id_row;
+            var tindakanpasienHarga,mode,counter,id_row;
             var mode = $('#tindakan_mode').val();
 
             if(mode == 'new')
@@ -409,21 +412,21 @@
                 tr.empty();
             }
 
-            tindakanpasien_id = $('#tindakanpasien_id').val();
-            tindakan_id = $('#tindakan_id').val();
-            tindakan_text = $('#tindakan_id option:selected').text();
-            pegawai_id = $('#pegawai_id').val();
-            pegawai_text = $('#pegawai_id option:selected').text();
-        	tindakanpasien_harga = $('#tindakanpasien_harga').val() ||0;
+            tindakanpasienID = $('#tindakanpasienID').val();
+            tindakanID = $('#tindakanID').val();
+            tindakanText = $('#tindakanID option:selected').text();
+            pegawaiID = $('#pegawaiID').val();
+            pegawaiText = $('#pegawaiID option:selected').text();
+        	tindakanpasienHarga = $('#tindakanpasienHarga').val() ||0;
 
-            tr.append('<td>'+tindakan_text+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="tindakanpasien_harga" data-kolom-id="tindakanpasien_harga">'+tindakanpasien_harga+'</td>');
-            tr.append('<td>'+pegawai_text+'</td>');
+            tr.append('<td>'+tindakanText+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="tindakanpasienHarga" data-kolom-id="tindakanpasienHarga">'+tindakanpasienHarga+'</td>');
+            tr.append('<td>'+pegawaiText+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteTindakan('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editTindakan('+counter+')">Edit</button></td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="tindakan.tindakan_id" data-kolom-id="tindakan_id">'+tindakan_id+'</td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawai_id" data-kolom-id="pegawai_id">'+pegawai_id+'</td>');
-            if (tindakanpasien_id) {
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="tindakanpasien_id" data-kolom-id="tindakanpasien_id">' + tindakanpasien_id + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="tindakan.tindakanID" data-kolom-id="tindakanID">'+tindakanID+'</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="pegawaiID">'+pegawaiID+'</td>');
+            if (tindakanpasienID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="tindakanpasienID" data-kolom-id="tindakanpasienID">' + tindakanpasienID + '</td>');
             }
 
             if(mode == 'new')
@@ -455,24 +458,24 @@
                 tr.empty();
             }
 
-            pakai_id = $('#pakai_id').val();
-            pakai_barang = $('#pakai_barang').val() ||0;
-            pakai_satuan = $('#pakai_satuan').val() ||0;
-            pakai_jumlah = $('#pakai_jumlah').val() ||0;
-            pakai_harga = $('#pakai_harga').val() ||0;
-            pakai_subtotal = $('#pakai_subtotal').val() ||0;
-            pakai_Keterangan = $('#pakai_Keterangan').val() ||0;
+            pakaiID = $('#pakaiID').val();
+            pakaiBarang = $('#pakaiBarang').val() ||0;
+            pakaiSatuan = $('#pakaiSatuan').val() ||0;
+            pakaiJumlah = $('#pakaiJumlah').val() ||0;
+            pakaiHarga = $('#pakaiHarga').val() ||0;
+            pakaiSubtotal = $('#pakaiSubtotal').val() ||0;
+            pakaiKeterangan = $('#pakaiKeterangan').val() ||0;
             
-            tr.append('<td data-used="1" data-save="1" data-name="pakai_barang" data-kolom-id="pakai_barang">'+pakai_barang+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="pakai_satuan" data-kolom-id="pakai_satuan">'+pakai_satuan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="pakai_jumlah" data-kolom-id="pakai_jumlah">'+pakai_jumlah+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="pakai_harga" data-kolom-id="pakai_harga">'+pakai_harga+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="pakai_subtotal" data-kolom-id="pakai_subtotal">'+pakai_subtotal+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="pakai_Keterangan" data-kolom-id="pakai_Keterangan">'+pakai_Keterangan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="pakaiBarang" data-kolom-id="pakaiBarang">'+pakaiBarang+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="pakaiSatuan" data-kolom-id="pakaiSatuan">'+pakaiSatuan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="pakaiJumlah" data-kolom-id="pakaiJumlah">'+pakaiJumlah+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="pakaiHarga" data-kolom-id="pakaiHarga">'+pakaiHarga+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="pakaiSubtotal" data-kolom-id="pakaiSubtotal">'+pakaiSubtotal+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="pakaiKeterangan" data-kolom-id="pakaiKeterangan">'+pakaiKeterangan+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePakai('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPakai('+counter+')">Edit</button></td>');
 
-            if (pakai_id) {
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pakai_id" data-kolom-id="pakai_id">' + pakai_id + '</td>');
+            if (pakaiID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pakaiID" data-kolom-id="pakaiID">' + pakaiID + '</td>');
             }
 
             if(mode == 'new')
@@ -504,21 +507,21 @@
                 tr.empty();
             }
 
-            resep_id = $('#resep_id').val();
-            resep_barang = $('#resep_barang').val() ||0;
-            resep_satuan = $('#resep_satuan').val() ||0;
-            resep_jumlah = $('#resep_jumlah').val() ||0;
-            resep_aturan = $('#resep_aturan').val() ||0;
-            resep_keterangan = $('#resep_keterangan').val() ||0;
+            resepID = $('#resepID').val();
+            resepBarang = $('#resepBarang').val() ||0;
+            resepSatuan = $('#resepSatuan').val() ||0;
+            resepJumlah = $('#resepJumlah').val() ||0;
+            resepAturan = $('#resepAturan').val() ||0;
+            resepKeterangan = $('#resepKeterangan').val() ||0;
             
-            tr.append('<td data-used="1" data-save="1" data-name="resep_barang" data-kolom-id="resep_barang">'+resep_barang+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="resep_satuan" data-kolom-id="resep_satuan">'+resep_satuan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="resep_jumlah" data-kolom-id="resep_jumlah">'+resep_jumlah+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="resep_aturan" data-kolom-id="resep_aturan">'+resep_aturan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="resep_keterangan" data-kolom-id="resep_keterangan">'+resep_keterangan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="resepBarang" data-kolom-id="resepBarang">'+resepBarang+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="resepSatuan" data-kolom-id="resepSatuan">'+resepSatuan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="resepJumlah" data-kolom-id="resepJumlah">'+resepJumlah+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="resepAturan" data-kolom-id="resepAturan">'+resepAturan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="resepKeterangan" data-kolom-id="resepKeterangan">'+resepKeterangan+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteResep('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editResep('+counter+')">Edit</button></td>');
-            if (resep_id) {
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="resep_id" data-kolom-id="resep_id">' + resep_id + '</td>');
+            if (resepID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="resepID" data-kolom-id="resepID">' + resepID + '</td>');
             }
 
             if(mode == 'new')
@@ -550,25 +553,25 @@
                 tr.empty();
             }
 
-            penunjangtrans_id = $('#penunjangtrans_id').val() ||0;
-            penunjangtrans_nama = $('#penunjangtrans_nama').val() ||0;
-            penunjangtrans_hasil = $('#penunjangtrans_hasil').val() ||0;
-            penunjangtrans_standar = $('#penunjangtrans_standar').val() ||0;
-            penunjangtrans_satuan = $('#penunjangtrans_satuan').val() ||0;
-            penunjangtrans_jumlah = $('#penunjangtrans_jumlah').val() ||0;
-            penunjangtrans_harga = $('#penunjangtrans_harga').val() ||0;
-            penunjangtrans_subtotal = $('#penunjangtrans_subtotal').val() ||0;
+            penunjangtransID = $('#penunjangtransID').val() ||0;
+            penunjangtransNama = $('#penunjangtransNama').val() ||0;
+            penunjangtransHasil = $('#penunjangtransHasil').val() ||0;
+            penunjangtransStandar = $('#penunjangtransStandar').val() ||0;
+            penunjangtransSatuan = $('#penunjangtransSatuan').val() ||0;
+            penunjangtransJumlah = $('#penunjangtransJumlah').val() ||0;
+            penunjangtransHarga = $('#penunjangtransHarga').val() ||0;
+            penunjangtransSubtotal = $('#penunjangtransSubtotal').val() ||0;
             
-            tr.append('<td data-used="1" data-save="1" data-name="penunjangtrans_nama" data-kolom-id="penunjangtrans_nama">'+penunjangtrans_nama+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="penunjangtrans_hasil" data-kolom-id="penunjangtrans_hasil">'+penunjangtrans_hasil+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="penunjangtrans_standar" data-kolom-id="penunjangtrans_standar">'+penunjangtrans_standar+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="penunjangtrans_satuan" data-kolom-id="penunjangtrans_satuan">'+penunjangtrans_satuan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="penunjangtrans_jumlah" data-kolom-id="penunjangtrans_jumlah">'+penunjangtrans_jumlah+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="penunjangtrans_harga" data-kolom-id="penunjangtrans_harga">'+penunjangtrans_harga+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="penunjangtrans_subtotal" data-kolom-id="penunjangtrans_subtotal">'+penunjangtrans_subtotal+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="penunjangtransNama" data-kolom-id="penunjangtransNama">'+penunjangtransNama+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="penunjangtransHasil" data-kolom-id="penunjangtransHasil">'+penunjangtransHasil+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="penunjangtransStandar" data-kolom-id="penunjangtransStandar">'+penunjangtransStandar+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="penunjangtransSatuan" data-kolom-id="penunjangtransSatuan">'+penunjangtransSatuan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="penunjangtransJumlah" data-kolom-id="penunjangtransJumlah">'+penunjangtransJumlah+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="penunjangtransHarga" data-kolom-id="penunjangtransHarga">'+penunjangtransHarga+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="penunjangtransSubtotal" data-kolom-id="penunjangtransSubtotal">'+penunjangtransSubtotal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjangtrans('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPenunjangtrans('+counter+')">Edit</button></td>');
-            if (penunjangtrans_id) {
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangtrans_id" data-kolom-id="penunjangtrans_id">' + penunjangtrans_id + '</td>');
+            if (penunjangtransID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangtransID" data-kolom-id="penunjangtransID">' + penunjangtransID + '</td>');
             }
 
             if(mode == 'new')
@@ -600,21 +603,21 @@
                 tr.empty();
             }
 
-            soap_id = $('#soap_id').val() ||0;
-            soap_tanggal = $('#soap_tanggal').val() ||0;
-            soap_subject = $('#soap_subject').val() ||0;
-            soap_object = $('#soap_object').val() ||0;
-            soap_assesment = $('#soap_assesment').val() ||0;
-            soap_plan = $('#soap_plan').val() ||0;
+            soapID = $('#soapID').val() ||0;
+            soapTanggal = $('#soapTanggal').val() ||0;
+            soapSubject = $('#soapSubject').val() ||0;
+            soapObject = $('#soapObject').val() ||0;
+            soapAssesment = $('#soapAssesment').val() ||0;
+            soapPlan = $('#soapPlan').val() ||0;
             
-            tr.append('<td data-used="1" data-save="1" data-name="soap_tanggal" data-kolom-id="soap_tanggal">'+soap_tanggal+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="soap_subject" data-kolom-id="soap_subject">'+soap_subject+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="soap_object" data-kolom-id="soap_object">'+soap_object+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="soap_assesment" data-kolom-id="soap_assesment">'+soap_assesment+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="soap_plan" data-kolom-id="soap_plan">'+soap_plan+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="soapTanggal" data-kolom-id="soapTanggal">'+soapTanggal+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="soapSubject" data-kolom-id="soapSubject">'+soapSubject+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="soapObject" data-kolom-id="soapObject">'+soapObject+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="soapAssesment" data-kolom-id="soapAssesment">'+soapAssesment+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="soapPlan" data-kolom-id="soapPlan">'+soapPlan+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteSoap('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editSoap('+counter+')">Edit</button></td>');
-            if (soap_id) {
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="soap_id" data-kolom-id="soap_id">' + soap_id + '</td>');
+            if (soapID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="soapID" data-kolom-id="soapID">' + soapID + '</td>');
             }
 
             if(mode == 'new')
@@ -642,8 +645,8 @@
         $.each(tr.find('td'),function(i,e){
             if($(e).attr("data-used") == '1')
             {
-                var elem_id = $(e).attr('data-kolom-id');
-                $('#'+elem_id).val($(e).text());
+                var elemID = $(e).attr('data-kolom-id');
+                $('#'+elemID).val($(e).text());
             }
         });
         $('#modal-pelayanan-riwayatperiksa').modal('show');
@@ -653,7 +656,8 @@
     {
         var tr;
         tr = $('#riwayatperiksa_'+id);
-        tr.remove();
+        tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
+        tr.hide();
     }
     
     function editPeriksapasien(id)
@@ -665,8 +669,8 @@
         $.each(tr.find('td'),function(i,e){
             if($(e).attr("data-used") == '1')
             {
-                var elem_id = $(e).attr('data-kolom-id');
-                $('#'+elem_id).val($(e).text());
+                var elemID = $(e).attr('data-kolom-id');
+                $('#'+elemID).val($(e).text());
             }
         });
         $('#modal-pelayanan-periksapasien').modal('show');
@@ -676,7 +680,8 @@
     {
         var tr;
         tr = $('#periksapasien_'+id);
-        tr.remove();
+        tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
+        tr.hide();
     }  
 
     function editDiagnosapasien(id)
@@ -688,8 +693,8 @@
         $.each(tr.find('td'),function(i,e){
             if($(e).attr("data-used") == '1')
             {
-                var elem_id = $(e).attr('data-kolom-id');
-                $('#'+elem_id).val($(e).text());
+                var elemID = $(e).attr('data-kolom-id');
+                $('#'+elemID).val($(e).text());
             }
         });
         $('#modal-pelayanan-diagnosapasien').modal('show');
@@ -699,7 +704,8 @@
     {
         var tr;
         tr = $('#diagnosapasien_'+id);
-        tr.remove();
+        tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
+        tr.hide();
     }
 
     // procedur
@@ -712,8 +718,8 @@
         $.each(tr.find('td'),function(i,e){
             if($(e).attr("data-used") == '1')
             {
-                var elem_id = $(e).attr('data-kolom-id');
-                $('#'+elem_id).val($(e).text());
+                var elemID = $(e).attr('data-kolom-id');
+                $('#'+elemID).val($(e).text());
             }
         });
         $('#modal-pelayanan-diagnosa9').modal('show');
@@ -723,7 +729,8 @@
     {
         var tr;
         tr = $('#diagnosa9_'+id);
-        tr.remove();
+        tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
+        tr.hide();
     }
 
     function editTindakan(id)
@@ -735,8 +742,8 @@
         $.each(tr.find('td'),function(i,e){
             if($(e).attr("data-used") == '1')
             {
-                var elem_id = $(e).attr('data-kolom-id');
-                $('#'+elem_id).val($(e).text());
+                var elemID = $(e).attr('data-kolom-id');
+                $('#'+elemID).val($(e).text());
             }
         });
         $('#modal-pelayanan-tindakan').modal('show');
@@ -746,7 +753,8 @@
     {
         var tr;
         tr = $('#tindakan_'+id);
-        tr.remove();
+        tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
+        tr.hide();
     }
 
     function editPakai(id)
@@ -758,8 +766,8 @@
         $.each(tr.find('td'),function(i,e){
             if($(e).attr("data-used") == '1')
             {
-                var elem_id = $(e).attr('data-kolom-id');
-                $('#'+elem_id).val($(e).text());
+                var elemID = $(e).attr('data-kolom-id');
+                $('#'+elemID).val($(e).text());
             }
         });
         $('#modal-pelayanan-pakai').modal('show');
@@ -769,7 +777,8 @@
     {
         var tr;
         tr = $('#pakai_'+id);
-        tr.remove();
+        tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
+        tr.hide();
     }  
 
     function editResep(id)
@@ -781,10 +790,8 @@
         $.each(tr.find('td'),function(i,e){
             if($(e).attr("data-used") == '1')
             {
-                var elem_id = $(e).attr('data-kolom-id');
-                $('#'+elem_id).val($(e).text());
-                console.log($('#'+elem_id))
-                console.log('value=',$('#'+elem_id).val())
+                var elemID = $(e).attr('data-kolom-id');
+                $('#'+elemID).val($(e).text());
             }
         });
         $('#modal-pelayanan-resep').modal('show');
@@ -794,7 +801,8 @@
     {
         var tr;
         tr = $('#resep_'+id);
-        tr.remove();
+        tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
+        tr.hide();
     }  
 
     function editPenunjangtrans(id)
@@ -806,10 +814,8 @@
         $.each(tr.find('td'),function(i,e){
             if($(e).attr("data-used") == '1')
             {
-                var elem_id = $(e).attr('data-kolom-id');
-                $('#'+elem_id).val($(e).text());
-                console.log($('#'+elem_id))
-                console.log('value=',$('#'+elem_id).val())
+                var elemID = $(e).attr('data-kolom-id');
+                $('#'+elemID).val($(e).text());
             }
         });
         $('#modal-pelayanan-penunjangtrans').modal('show');
@@ -819,7 +825,8 @@
     {
         var tr;
         tr = $('#penunjangtrans_'+id);
-        tr.remove();
+        tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
+        tr.hide();
     }  
 
     function editSoap(id)
@@ -831,10 +838,8 @@
         $.each(tr.find('td'),function(i,e){
             if($(e).attr("data-used") == '1')
             {
-                var elem_id = $(e).attr('data-kolom-id');
-                $('#'+elem_id).val($(e).text());
-                console.log($('#'+elem_id))
-                console.log('value=',$('#'+elem_id).val())
+                var elemID = $(e).attr('data-kolom-id');
+                $('#'+elemID).val($(e).text());
             }
         });
         $('#modal-pelayanan-soap').modal('show');
@@ -844,7 +849,8 @@
     {
         var tr;
         tr = $('#soap_'+id);
-        tr.remove();
+        tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
+        tr.hide();
     }  
 
 </script>

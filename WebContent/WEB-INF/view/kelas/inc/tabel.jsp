@@ -26,12 +26,12 @@
 												<tbody>
 													<c:forEach var="kelas" items="${kelases}">
 														<tr>
-															<td>${kelas.kelas_kode}</td>
-															<td>${kelas.kelas_nama}</td>
-															<td>${kelas.kelas_keterangan}</td>
+															<td>${kelas.kelasKode}</td>
+															<td>${kelas.kelasNama}</td>
+															<td>${kelas.kelasKeterangan}</td>
 															<td>
-																<a href="/kelas/update/${kelas.kelas_id}" class="btn btn-info rounded-0">Update</a>
-																<a href="/kelas/delete/${kelas.kelas_id}" class="btn btn-warning rounded-0">Delete</a>
+																<a href="/kelas/update/${kelas.kelasID}" class="btn btn-info rounded-0">Update</a>
+																<a href="/kelas/delete/${kelas.kelasID}" class="btn btn-warning rounded-0">Delete</a>
 															</td>
 														</tr>
 													</c:forEach>

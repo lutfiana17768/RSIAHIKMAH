@@ -16,12 +16,12 @@
                 <c:forEach var="jenislayanan" items="${jenislayanans}">
                 
                 	<tr>
-                		<td> ${jenislayanan.jenislayanan_nomor } </td>
-                		<td> ${jenislayanan.jenislayanan_nama } </td>
-                		<td> ${jenislayanan.jenislayanan_kategori } </td>
+                		<td> ${jenislayanan.jenislayananNomor } </td>
+                		<td> ${jenislayanan.jenislayananNama } </td>
+                		<td> ${jenislayanan.jenislayananKategori } </td>
                 		<td>  </td>
-                		<td> <a href="/jenis-layanan/update/${jenislayanan.jenislayanan_id }" class="btn btn-info rounded-0">Update</a>
-                         <a href="/jenis-layanan/delete/${jenislayanan.jenislayanan_id }" class="btn btn-warning rounded-0">Delete</a></td>
+                		<td> <a href="/jenis-layanan/update/${jenislayanan.jenislayananID }" class="btn btn-info rounded-0">Update</a>
+                         <a href="/jenis-layanan/delete/${jenislayanan.jenislayananID }" class="btn btn-warning rounded-0">Delete</a></td>
                 	</tr>
                 
                 </c:forEach>

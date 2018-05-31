@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-18 10:02:39
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-26 13:49:19
+* @Last Modified time: 2018-05-30 07:13:05
 */
 
 package com.rsia.madura.dao;
@@ -111,7 +111,7 @@ public class PelayananAction implements PelayananDAO {
 	public void update(MPendaftaran PelayananModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.merge(PelayananModel);
+		current.saveOrUpdate(PelayananModel);
 	}
 
 	@Override

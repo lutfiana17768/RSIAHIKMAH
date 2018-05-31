@@ -20,8 +20,8 @@
                                     <select name="icd9" id="icd9" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Diagnosa ---</option>
                                         <c:forEach var="icd9" items="${icd9s}">
-                                            <option value="${icd9.icd9_id }" date-kode="${icd9.icd9_kode }">
-                                                ${icd9.icd9_nama }
+                                            <option value="${icd9.icd9ID }" date-kode="${icd9.icd9Kode }">
+                                                ${icd9.icd9Nama }
                                             </option>   
                                         </c:forEach>
                                     </select>
@@ -29,13 +29,13 @@
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <input type="text" name="diagnosa9_keterangan" id="diagnosa9_keterangan" class="form-control boxed">
+                                <input type="text" name="diagnosa9Keterangan" id="diagnosa9Keterangan" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" name="diagnosa9_tanggal" id="diagnosa9_tanggal" class="form-control boxed datepicker">
+                                <input type="text" name="diagnosa9_tanggal" id="diagnosa9Tanggal" class="form-control boxed datepicker">
                             </div>
-                            <input type="hidden" name="diagnosa9_id" id="diagnosa9_id">
+                            <input type="hidden" name="diagnosa9ID" id="diagnosa9ID">
                             <input type="hidden" name="diagnosa9_mode" id="diagnosa9_mode">
                             <input type="hidden" name="diagnosa9_edit" id="diagnosa9_edit">
                         </form>

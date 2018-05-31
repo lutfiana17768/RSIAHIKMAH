@@ -18,30 +18,30 @@
 									</div>
 									<section class="form-kelas-baru">
 										<form:form modelAttribute="tindakanModel" method="POST" action="/tindakan/update">
-											<form:hidden path="tindakan_id" />
-											<form:hidden path="tindakan_aktif" />
-											<form:hidden path="tindakan_created_by" />
-											<form:hidden path="tindakan_created_date" />
+											<form:hidden path="tindakanID" />
+											<form:hidden path="tindakanAktif" />
+											<form:hidden path="tindakanCreatedBy" />
+											<form:hidden path="tindakanCreatedDate" />
 											<div class="form-group">
 												<label>Kode</label>
-												<form:input path="tindakan_kode" placeholder="Masukan Kode" class="form-control boxed"/>
+												<form:input path="tindakanKode" placeholder="Masukan Kode" class="form-control boxed"/>
 											</div>
 
 											<div class="form-group">
 												<label>Nama</label>
-												<form:input path="tindakan_nama" placeholder="Masukan Nama" class="form-control boxed"/>
+												<form:input path="tindakanNama" placeholder="Masukan Nama" class="form-control boxed"/>
 											</div>
 
 											<div class="form-group">
 												<label>Keterangan</label>
-												<form:input path="tindakan_keterangan" placeholder="Masukan Keterangan" class="form-control boxed"/>
+												<form:input path="tindakanKeterangan" placeholder="Masukan Keterangan" class="form-control boxed"/>
 											</div>
 
 											<div class="form-group">
 												<label>Kelas</label>
-												<form:select path="kelas.kelas_id" class="form-control boxed">
+												<form:select path="kelas.kelasID" class="form-control boxed">
 													<option value="">--- Pilih Kelas ---</option>
-													<form:options items="${kelases}" itemValue="kelas_id" itemLabel="kelas_nama"  />
+													<form:options items="${kelases}" itemValue="kelasID" itemLabel="kelasNama"  />
 												</form:select>
 											</div>
 										</form:form>

@@ -10,45 +10,45 @@ import java.sql.Timestamp;
 
 import javax.persistence.*;
 @Entity
-@Table(name="m_paketHarga")
+@Table(name="m_paket_harga")
 public class MPaketHarga {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "paketharga_id")
-	private Integer paketHarga_id;
+	private Integer paketHargaID;
 
 	@Column(name = "paketharga_harga")
-	private int paketHarga_harga;
+	private int paketHargaHarga;
 
 	@Column(name = "paketharga_nama")
-	private String paketHarga_nama;
+	private String paketHargaNama;
 
 	@Column(name = "paketharga_type")
-	private String paketHarga_type;
+	private String paketHargaType;
 
 	@Column(name = "paketharga_jumlah")
-	private int paketHarga_jumlah;
+	private int paketHargaJumlah;
 
 	@Column(name = "paketharga_total")
-	private int paketHarga_total;
+	private int paketHargaTotal;
 
 	@Column(name="paketharga_created_by")
-	private String paketHarga_created_by;
+	private String paketHargaCreatedBy;
 
 	@Column(name = "paketharga_created_date")
-	private Timestamp paketHarga_created_date;
+	private Timestamp paketHargaCreatedDate;
 	
 	@Column(name = "paketharga_updated_by")
-	private String paketHarga_updated_by;
+	private String paketHargaUpdatedBy;
 	  
 	@Column(name = "paketharga_updated_date")
-	private Timestamp paketHarga_updated_date;
+	private Timestamp paketHargaUpdatedDate;
 
 	@Column(name="paketharga_deleted_date")
-	private Timestamp paketHarga_deleted_date;
+	private Timestamp paketHargaDeletedDate;
 
 	@Column(name="paketharga_deleted_by")
-	private String paketHarga_deleted_by;
+	private String paketHargaDeletedBy;
 
 	@ManyToOne
 	private MPaket paket;
@@ -69,100 +69,100 @@ public class MPaketHarga {
 
 	}
 
-	public Integer getPaketHarga_id() {
-		return paketHarga_id;
+	public Integer getPaketHargaID() {
+		return paketHargaID;
 	}
 
-	public void setPaketHarga_id(Integer paketHarga_id) {
-		this.paketHarga_id = paketHarga_id;
+	public void setPaketHargaID(Integer paketHargaID) {
+		this.paketHargaID = paketHargaID;
 	}
 
-	public int getPaketHarga_harga() {
-		return paketHarga_harga;
+	public int getPaketHargaHarga() {
+		return paketHargaHarga;
 	}
 
-	public void setPaketHarga_harga(int paketHarga_harga) {
-		this.paketHarga_harga = paketHarga_harga;
+	public void setPaketHargaHarga(int paketHargaHarga) {
+		this.paketHargaHarga = paketHargaHarga;
 	}
 
-	public String getPaketHarga_nama() {
-		return paketHarga_nama;
+	public String getPaketHargaNama() {
+		return paketHargaNama;
 	}
 
-	public void setPaketHarga_nama(String paketHarga_nama) {
-		this.paketHarga_nama = paketHarga_nama;
+	public void setPaketHargaNama(String paketHargaNama) {
+		this.paketHargaNama = paketHargaNama;
 	}
 
-	public String getPaketHarga_type() {
-		return paketHarga_type;
+	public String getPaketHargaType() {
+		return paketHargaType;
 	}
 
-	public void setPaketHarga_type(String paketHarga_type) {
-		this.paketHarga_type = paketHarga_type;
+	public void setPaketHargaType(String paketHargaType) {
+		this.paketHargaType = paketHargaType;
 	}
 
-	public int getPaketHarga_jumlah() {
-		return paketHarga_jumlah;
+	public int getPaketHargaJumlah() {
+		return paketHargaJumlah;
 	}
 
-	public void setPaketHarga_jumlah(int paketHarga_jumlah) {
-		this.paketHarga_jumlah = paketHarga_jumlah;
+	public void setPaketHargaJumlah(int paketHargaJumlah) {
+		this.paketHargaJumlah = paketHargaJumlah;
 	}
 
-	public int getPaketHarga_total() {
-		return paketHarga_total;
+	public int getPaketHargaTotal() {
+		return paketHargaTotal;
 	}
 
-	public void setPaketHarga_total(int paketHarga_total) {
-		this.paketHarga_total = paketHarga_total;
+	public void setPaketHargaTotal(int paketHargaTotal) {
+		this.paketHargaTotal = paketHargaTotal;
 	}
 
-	public String getPaketHarga_created_by() {
-		return paketHarga_created_by;
+	public String getPaketHargaCreatedBy() {
+		return paketHargaCreatedBy;
 	}
 
-	public void setPaketHarga_created_by(String paketHarga_created_by) {
-		this.paketHarga_created_by = paketHarga_created_by;
+	public void setPaketHargaCreatedBy(String paketHargaCreatedBy) {
+		this.paketHargaCreatedBy = paketHargaCreatedBy;
 	}
 
-	public Timestamp getPaketHarga_created_date() {
-		return paketHarga_created_date;
+	public Timestamp getPaketHargaCreatedDate() {
+		return paketHargaCreatedDate;
 	}
 
-	public void setPaketHarga_created_date(Timestamp paketHarga_created_date) {
-		this.paketHarga_created_date = paketHarga_created_date;
+	public void setPaketHargaCreatedDate(Timestamp paketHargaCreatedDate) {
+		this.paketHargaCreatedDate = paketHargaCreatedDate;
 	}
 
-	public String getPaketHarga_updated_by() {
-		return paketHarga_updated_by;
+	public String getPaketHargaUpdatedBy() {
+		return paketHargaUpdatedBy;
 	}
 
-	public void setPaketHarga_updated_by(String paketHarga_updated_by) {
-		this.paketHarga_updated_by = paketHarga_updated_by;
+	public void setPaketHargaUpdatedBy(String paketHargaUpdatedBy) {
+		this.paketHargaUpdatedBy = paketHargaUpdatedBy;
 	}
 
-	public Timestamp getPaketHarga_updated_date() {
-		return paketHarga_updated_date;
+	public Timestamp getPaketHargaUpdatedDate() {
+		return paketHargaUpdatedDate;
 	}
 
-	public void setPaketHarga_updated_date(Timestamp paketHarga_updated_date) {
-		this.paketHarga_updated_date = paketHarga_updated_date;
+	public void setPaketHargaUpdatedDate(Timestamp paketHargaUpdatedDate) {
+		this.paketHargaUpdatedDate = paketHargaUpdatedDate;
 	}
 
-	public String getPaketHarga_deleted_by() {
-		return paketHarga_deleted_by;
+	public String getPaketHargaDeletedBy() {
+		return paketHargaDeletedBy;
 	}
 
-	public void setPaketHarga_deleted_by(String paketHarga_deleted_by) {
-		this.paketHarga_deleted_by = paketHarga_deleted_by;
+	public void setPaketHargaDeletedBy(String paketHargaDeletedBy) {
+		this.paketHargaDeletedBy = paketHargaDeletedBy;
 	}
 
-	public Timestamp getPaketHarga_deleted_date() {
-		return paketHarga_deleted_date;
+	public Timestamp getPaketHargaDeletedDate() {
+		return paketHargaDeletedDate;
 	}
 
-	public void setPaketHarga_deleted_date(Timestamp paketHarga_deleted_date) {
-		this.paketHarga_deleted_date = paketHarga_deleted_date;
+	public void setPaketHargaDeletedDate(Timestamp paketHargaDeletedDate) {
+		this.paketHargaDeletedDate = paketHargaDeletedDate;
 	}
 
 	public MRuang getRuangs() {
@@ -207,6 +207,6 @@ public class MPaketHarga {
 
 	@Override
 	public String toString() {
-		return "m_paketHarga [paketHarga_id=" + paketHarga_id + ", paketHarga_harga=" + paketHarga_harga +", paketHarga_total=" + paketHarga_total + "]";
+		return "mPaketHarga [paketHargaID=" + paketHargaID + ", paketHargaHarga=" + paketHargaHarga +", paketHargaTotal=" + paketHargaTotal + "]";
 	}
 }

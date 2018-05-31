@@ -25,11 +25,11 @@
 												<tbody>
 													<c:forEach var="penunjang" items="${penunjangs}">
 														<tr>
-															<td>${penunjang.penunjangmedis_nama}</td>
-															<td>${penunjang.penunjangmedis_keterangan}</td>
+															<td>${penunjang.penunjangmedisNama}</td>
+															<td>${penunjang.penunjangmedisKeterangan}</td>
 															<td>
-																<a href="/penunjang/update/${penunjang.penunjangmedis_id}" class="btn btn-info rounded-0">Update</a>
-																<a href="/penunjang/delete/${penunjang.penunjangmedis_id}" class="btn btn-warning rounded-0">Delete</a>
+																<a href="/penunjang/update/${penunjang.penunjangmedisID}" class="btn btn-info rounded-0">Update</a>
+																<a href="/penunjang/delete/${penunjang.penunjangmedisID}" class="btn btn-warning rounded-0">Delete</a>
 															</td>
 														</tr>
 													</c:forEach>

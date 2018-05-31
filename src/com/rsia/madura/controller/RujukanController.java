@@ -51,9 +51,9 @@ public class RujukanController {
 	public String Store(@ModelAttribute("rujukanModel") MRujukan rujukanModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		rujukanModel.setRujukan_aktif("Y");
-		rujukanModel.setRujukan_created_by("Admin");
-		rujukanModel.setRujukan_created_date(currentTime);
+		rujukanModel.setRujukanAktif("Y");
+		rujukanModel.setRujukanCreatedBy("Admin");
+		rujukanModel.setRujukanCreatedDate(currentTime);
 
 		rujukanService.store(rujukanModel);
 
@@ -74,9 +74,9 @@ public class RujukanController {
 	public String Update(@ModelAttribute("rujukanModel") MRujukan rujukanModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		rujukanModel.setRujukan_aktif("Y");
-		rujukanModel.setRujukan_updated_by("Admin");
-		rujukanModel.setRujukan_updated_date(currentTime);
+		rujukanModel.setRujukanAktif("Y");
+		rujukanModel.setRujukanUpdatedBy("Admin");
+		rujukanModel.setRujukanUpdatedDate(currentTime);
 		;
 
 		rujukanService.update(rujukanModel);
@@ -91,8 +91,8 @@ public class RujukanController {
 
 		MRujukan rujukanModel = rujukanService.getRujukan(id);
 
-		rujukanModel.setRujukan_aktif("T");
-		rujukanModel.setRujukan_deleted_date(currentTime);
+		rujukanModel.setRujukanAktif("T");
+		rujukanModel.setRujukanDeletedDate(currentTime);
 
 		rujukanService.delete(rujukanModel);
 

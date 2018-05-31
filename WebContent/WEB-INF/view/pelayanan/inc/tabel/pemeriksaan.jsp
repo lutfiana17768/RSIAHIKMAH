@@ -19,17 +19,17 @@
                             <tbody id="pelayanan-periksapasien-list" class="table-form">
                                 <c:forEach var="pp" items="${pelayananModel.periksapasien}" varStatus="loop">
                                     <tr id="periksapasien_${loop.index+1}">
-                                            <td data-used="1" data-save="1" data-name="periksapasien_periksa_nama" data-kolom-id="periksapasien_periksa_nama">${pp.periksapasien_periksa_nama}</td>
-                                            <td data-used="1" data-save="1" data-name="periksapasien_periksa_standar" data-kolom-id="periksapasien_periksa_standar">${pp.periksapasien_periksa_standar}</td>
-                                            <td data-used="1" data-save="1" data-name="periksapasien_periksa_nilai" data-kolom-id="periksapasien_periksa_nilai">${pp.periksapasien_periksa_nilai}</td>
-                                            <td data-used="1" data-save="1" data-name="periksapasien_dokter_id" data-kolom-id="periksapasien_dokter_id">${pp.periksapasien_dokter_id}</td>
-                                            <td data-used="1" data-save="1" data-name="periksapasien_periksa_keterangan" data-kolom-id="periksapasien_periksa_keterangan">${pp.periksapasien_periksa_keterangan}</td>
-                                            <td data-used="1" data-save="1" data-name="periksapasien_tanggal" data-kolom-id="periksapasien_tanggal">${pp.periksapasien_tanggal}</td>
+                                            <td data-used="1" data-save="1" data-name="periksapasienPeriksaNama" data-kolom-id="periksapasienPeriksaNama">${pp.periksapasienPeriksaNama}</td>
+                                            <td data-used="1" data-save="1" data-name="periksapasienPeriksaStandar" data-kolom-id="periksapasienPeriksaStandar">${pp.periksapasienPeriksaStandar}</td>
+                                            <td data-used="1" data-save="1" data-name="periksapasienPeriksaNilai" data-kolom-id="periksapasienPeriksaNilai">${pp.periksapasienPeriksaNilai}</td>
+                                            <td data-used="1" data-save="1" data-name="periksapasienDokterID" data-kolom-id="periksapasienDokterID">${pp.periksapasienDokterID}</td>
+                                            <td data-used="1" data-save="1" data-name="periksapasienPeriksaKeterangan" data-kolom-id="periksapasienPeriksaKeterangan">${pp.periksapasienPeriksaKeterangan}</td>
+                                            <td data-used="1" data-save="1" data-name="periksapasienTanggal" data-kolom-id="periksapasienTanggal">${pp.periksapasienTanggal}</td>
                                         <td>
                                             <button type="button" class="btn btn-danger btn-sm" onclick="deletePeriksapasien(${loop.index+1})">Delete</button>
                                             <button type="button" class="btn btn-primary btn-sm" onclick="editPeriksapasien(${loop.index+1})">Edit</button>
                                         </td>
-                                        <td style="display:none" data-used="1" data-save="1" data-name="periksapasien_id" data-kolom-id="periksapasien_id">${pp.periksapasien_id}</td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="periksapasienID" data-kolom-id="periksapasienID">${pp.periksapasienID}</td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

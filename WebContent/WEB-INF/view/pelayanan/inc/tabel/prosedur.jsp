@@ -17,17 +17,16 @@
                             <tbody id="pelayanan-diagnosa9-list" class="table-form">
                                 <c:forEach var="dp" items="${pelayananModel.diagnosa9}" varStatus="loop">
                                     <tr id="diagnosa9_${loop.index+1}">
-                                        <td>${dp.icd9}</td>
-                                        <td>${dp.icd9.icd9_kode}</td>
-                                        <td>${dp.icd9.icd9_nama}</td>
-                                        <td data-used="1" data-save="1" data-name="diagnosa9_keterangan" data-kolom-id="diagnosa9_keterangan">${dp.diagnosa9_keterangan}</td>
-                                        <td data-used="1" data-save="1" data-name="diagnosa9_tanggal" data-kolom-id="diagnosa9_tanggal">${dp.diagnosa9_tanggal}</td>
+                                        <td>${dp.icd9.icd9Kode}</td>
+                                        <td>${dp.icd9.icd9Nama}</td>
+                                        <td data-used="1" data-save="1" data-name="diagnosa9Keterangan" data-kolom-id="diagnosa9Keterangan">${dp.diagnosa9Keterangan}</td>
+                                        <td data-used="1" data-save="1" data-name="diagnosa9Tanggal" data-kolom-id="diagnosa9Tanggal">${dp.diagnosa9Tanggal}</td>
                                         <td>
                                             <button type="button" class="btn btn-danger btn-sm" onclick="deleteDiagnosa9(${loop.index+1})">Delete</button>&nbsp;
                                             <button type="button" class="btn btn-primary btn-sm" onclick="editDiagnosa9(${loop.index+1})">Edit</button>
                                         </td>
-                                        <td style="display:none" data-used="1" data-save="1" data-name="diagnosa9_icd9_id" data-kolom-id="icd9">${dp.icd9.icd9_id}</td>
-                                        <td style="display:none" data-used="1" data-save="1" data-name="diagnosa9_id" data-kolom-id="diagnosa9_id">${dp.diagnosa9_id}</td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="icd9.icd9ID" data-kolom-id="icd9">${dp.icd9.icd9ID}</td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="diagnosa9ID" data-kolom-id="diagnosa9ID">${dp.diagnosa9ID}</td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

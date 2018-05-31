@@ -28,16 +28,16 @@
 							<tbody>
 								<c:forEach var="temp" items="${ruangs}">
 									<c:choose>
-										<c:when test="${temp.ruang_aktif  == 'Y' }">
+										<c:when test="${temp.ruangAktif  == 'Y' }">
 											<tr>
-												<td>${temp.ruang_kode }</td>
-												<td>${temp.ruang_nama }</td>
-												<td>${temp.kelas.kelas_nama }</td>
-												<td>${temp.ruang_kepala }</td>
-												<td>${temp.tarif_sarana }</td>
+												<td>${temp.ruangKode }</td>
+												<td>${temp.ruangNama }</td>
+												<td>${temp.kelas.kelasNama }</td>
+												<td>${temp.ruangKepala }</td>
+												<td>${temp.tarifSarana }</td>
 												<td>
-													<a href="ruangan/update/${temp.ruang_id }" class="btn btn-info rounded-0">Update</a>
-													<a href="ruangan/delete/${temp.ruang_id }" class="btn btn-warning rounded-0">Delete</a>
+													<a href="ruangan/update/${temp.ruangID }" class="btn btn-info rounded-0">Update</a>
+													<a href="ruangan/delete/${temp.ruangID }" class="btn btn-warning rounded-0">Delete</a>
 												</td>
 											</tr>
 										</c:when>

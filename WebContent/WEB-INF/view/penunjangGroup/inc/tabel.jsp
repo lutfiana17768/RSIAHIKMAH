@@ -19,11 +19,11 @@
 							<tbody>
 								<c:forEach var="penunjangGroup" items="${penunjangGroups}">
 									<tr>
-										<td>${penunjangGroup.pmedisgroup_detail}</td>
-										<td>${penunjangGroup.pmedisgroup_master}</td>
+										<td>${penunjangGroup.pmedisgroupDetail}</td>
+										<td>${penunjangGroup.pmedisgroupMaster}</td>
 										<td>
-											<a href="/penunjang-group/update/${penunjangGroup.pmedisgroup_id}" class="btn btn-info rounded-0">Update</a>
-											<a href="/penunjang-group/delete/${penunjangGroup.pmedisgroup_id}" class="btn btn-warning rounded-0">Delete</a>
+											<a href="/penunjang-group/update/${penunjangGroup.pmedisgroupID}" class="btn btn-info rounded-0">Update</a>
+											<a href="/penunjang-group/delete/${penunjangGroup.pmedisgroupID}" class="btn btn-warning rounded-0">Delete</a>
 										</td>
 									</tr>
 								</c:forEach>

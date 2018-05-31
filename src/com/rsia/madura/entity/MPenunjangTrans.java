@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 16:01:27
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-24 07:06:55
+* @Last Modified time: 2018-05-30 12:42:09
 */
 package com.rsia.madura.entity;
 
@@ -18,6 +18,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="t_penunjang")
@@ -25,13 +26,16 @@ public class MPenunjangTrans {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="penunjangtrans_id")
-	private int penunjangtrans_id;
+	private int penunjangtransID;
+
+    @Transient
+    private Integer remove;
 
 	@Column(name="penunjangtrans_hasil")
-	private Integer penunjangtrans_hasil;
+	private Integer penunjangtransHasil;
 
 	@Column(name="penunjangtrans_jumlah")
-	private Integer penunjangtrans_jumlah;
+	private Integer penunjangtransJumlah;
 	
 	@ManyToOne
 	private MPenunjang penunjang;	
@@ -39,28 +43,36 @@ public class MPenunjangTrans {
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 
-	public int getPenunjangtrans_id() {
-		return penunjangtrans_id;
+	public int getPenunjangtransID() {
+		return penunjangtransID;
 	}
 
-	public void setPenunjangtrans_id(int penunjangtrans_id) {
-		this.penunjangtrans_id = penunjangtrans_id;
+	public void setPenunjangtransID(int penunjangtransID) {
+		this.penunjangtransID = penunjangtransID;
 	}
 
-	public Integer getPenunjangtrans_hasil() {
-		return penunjangtrans_hasil;
+	public Integer getRemove(){
+		return remove;
 	}
 
-	public void setPenunjangtrans_hasil(Integer penunjangtrans_hasil) {
-		this.penunjangtrans_hasil = penunjangtrans_hasil;
+	public void setRemove(Integer remove) {
+		this.remove = remove;
 	}
 
-	public Integer getPenunjangtrans_jumlah() {
-		return penunjangtrans_jumlah;
+	public Integer getPenunjangtransHasil() {
+		return penunjangtransHasil;
 	}
 
-	public void setPenunjangtrans_jumlah(Integer penunjangtrans_jumlah) {
-		this.penunjangtrans_jumlah = penunjangtrans_jumlah;
+	public void setPenunjangtransHasil(Integer penunjangtransHasil) {
+		this.penunjangtransHasil = penunjangtransHasil;
+	}
+
+	public Integer getPenunjangtransJumlah() {
+		return penunjangtransJumlah;
+	}
+
+	public void setPenunjangtransJumlah(Integer penunjangtransJumlah) {
+		this.penunjangtransJumlah = penunjangtransJumlah;
 	}
 
 	public MPenunjang getPenunjang() {

@@ -19,11 +19,11 @@
                             <div class="form-group">
                                 <label class="control-label">Ruang</label>
                                 <div class="select2-wrapper">
-                                    <form:select path="m_ruang_id"
+                                    <form:select path="mRuangID"
                                         class="form-control input-lg select2-single">
                                         <c:forEach var="ruang" items="${ruang}">
-                                            <form:option value="${ruang.ruang_id }"
-                                                label="${ruang.ruang_nama }" />
+                                            <form:option value="${ruang.ruangID }"
+                                                label="${ruang.ruangNama }" />
                                         </c:forEach>
                                     </form:select>
                                 </div>
@@ -31,18 +31,18 @@
 
                             <div class="form-group">
                                 <label>No / Nama Kamar</label>
-                                <form:input path="kamar_no" placeholder="Masukan No Kamar"
+                                <form:input path="kamarNo" placeholder="Masukan No Kamar"
                                     class="form-control" />
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label">Kelas Ruangan</label>
                                 <div class="select2-wrapper">
-                                    <form:select path="m_kelas_id"
+                                    <form:select path="mKelasID"
                                         class="form-control input-lg select2-single">
                                         <c:forEach var="kelas" items="${kelas}">
-                                            <form:option value="${kelas.kelas_id }"
-                                                label="${kelas.kelas_nama }" />
+                                            <form:option value="${kelas.kelasID }"
+                                                label="${kelas.kelasNama }" />
                                         </c:forEach>
                                     </form:select>
                                 </div>
@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <label class="control-label">Jenis Pelayanan</label>
                                 <div class="select2-wrapper">
-                                    <form:select path="jenis_pelayanan" items="${pelayanan}"
+                                    <form:select path="jenisPelayanan" items="${pelayanan}"
                                         class="form-control" />
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Jumlah Bed</label>
-                                <form:input path="jumlah_bed" placeholder="Masukan Jumlah Bed"
+                                <form:input path="jumlahBed" placeholder="Masukan Jumlah Bed"
                                     class="form-control" />
                             </div>
 
@@ -72,7 +72,7 @@
 
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <form:input path="kamar_keterangan"
+                                <form:input path="kamarKeterangan"
                                     placeholder="Masukan Keterangan" class="form-control" />
                             </div>
                         </div>

@@ -17,33 +17,33 @@
                         <form id="form-pelayanan-penunjangtrans" class="from-horizontal">
                             <div class="form-group">
                                 <label>Nama Pemeriksaan</label>
-                                <input type="text" name="penunjangtrans.penunjang_id" id="penunjang_id" class="form-control boxed">
+                                <input type="text" name="penunjangtrans.penunjangID" id="penunjangID" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Hasil</label>
-                                <input type="text" name="penunjangtrans_hasil" id="penunjangtrans_hasil" class="form-control boxed">
+                                <input type="text" name="penunjangtransHasil" id="penunjangtransHasil" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Nilai Normal</label>
-                                <input type="text" name="penunjangtrans_standar" id="penunjangtrans_standar" class="form-control boxed">
+                                <input type="text" name="penunjangtransStandar" id="penunjangtransStandar" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Satuan</label>
-                                <input type="text" name="penunjangtrans_satuan" id="penunjangtrans_satuan" class="form-control boxed">
+                                <input type="text" name="penunjangtransSatuan" id="penunjangtransSatuan" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Jumlah</label>
-                                <input type="text" name="penunjangtrans_jumlah" id="penunjangtrans_jumlah" class="form-control boxed">
+                                <input type="text" name="penunjangtransJumlah" id="penunjangtransJumlah" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Harga</label>
-                                <input type="text" name="penunjangtrans_harga" id="penunjangtrans_harga" class="form-control boxed">
+                                <input type="text" name="penunjangtransHarga" id="penunjangtransHarga" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Sub Total</label>
-                                <input type="text" name="penunjangtrans_subtotal" id="penunjangtrans_subtotal" class="form-control boxed">
+                                <input type="text" name="penunjangtransSubtotal" id="penunjangtransSubtotal" class="form-control boxed">
                             </div>
-                            <input type="hidden" name="penunjangtrans_id" id="penunjangtrans_id">
+                            <input type="hidden" name="penunjangtransID" id="penunjangtransID">
                             <input type="hidden" name="penunjangtrans_mode" id="penunjangtrans_mode">
                             <input type="hidden" name="penunjangtrans_edit" id="penunjangtrans_edit">
                         </form>

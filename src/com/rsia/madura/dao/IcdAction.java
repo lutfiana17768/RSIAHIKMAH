@@ -27,8 +27,8 @@ public class IcdAction implements IcdDAO {
 	public List<MIcd> getIcds() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MIcd> query = current.createQuery("FROM MIcd i WHERE i.icd_aktif = :icd_aktif", MIcd.class);
-		query.setParameter("icd_aktif", "Y");
+		Query<MIcd> query = current.createQuery("FROM MIcd i WHERE i.icdAktif = :icdAktif", MIcd.class);
+		query.setParameter("icdAktif", "Y");
 		List<MIcd> result = query.getResultList();
 		return result;
 	}
@@ -44,8 +44,8 @@ public class IcdAction implements IcdDAO {
 
 	public List<MIcd> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MIcd> query = current.createQuery("FROM MIcd k WHERE k.icd_aktif = :icd_aktif", MIcd.class).setMaxResults(limit);
-		query.setParameter("icd_aktif", "Y");
+		Query<MIcd> query = current.createQuery("FROM MIcd k WHERE k.icdAktif = :icdAktif", MIcd.class).setMaxResults(limit);
+		query.setParameter("icdAktif", "Y");
 		List<MIcd> result = query.getResultList();
 
 		return result;

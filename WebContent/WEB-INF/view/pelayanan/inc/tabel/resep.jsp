@@ -19,16 +19,16 @@
                             <tbody id="pelayanan-resep-list" class="table-form">
                             	<c:forEach var="rsp" items="${pelayananModel.resep}" varStatus="loop">
 									<tr id="resep_${loop.index+1}">
-										<td data-used="1" data-save="1" data-name="resep_barang" data-kolom-id="resep_barang">${rsp.resep.resepNo}</td>
-										<td data-used="1" data-save="1" data-name="resep_satuan" data-kolom-id="resep_satuan">${rsp.resepDimension}</td>
-										<td data-used="1" data-save="1" data-name="resep_jumlah" data-kolom-id="resep_jumlah">${rsp.resep_jumlah}</td>
-										<td data-used="1" data-save="1" data-name="resep_aturan" data-kolom-id="resep_aturan">${rsp.resep_aturan}</td>
-										<td data-used="1" data-save="1" data-name="resep_keterangan" data-kolom-id="resep_keterangan">${rsp.resep_keterangan}</td>
+										<td data-used="1" data-save="1" data-name="resepBarang" data-kolom-id="resepBarang">${rsp.resep.resepNo}</td>
+										<td data-used="1" data-save="1" data-name="resepSatuan" data-kolom-id="resepSatuan">${rsp.resepDimension}</td>
+										<td data-used="1" data-save="1" data-name="resepJumlah" data-kolom-id="resepJumlah">${rsp.resepJumlah}</td>
+										<td data-used="1" data-save="1" data-name="resepAturan" data-kolom-id="resepAturan">${rsp.resepAturan}</td>
+										<td data-used="1" data-save="1" data-name="resepKeterangan" data-kolom-id="resepKeterangan">${rsp.resepKeterangan}</td>
 										<td>
 											<button type="button" class="btn btn-danger btn-sm" onclick="deleteResep(${loop.index+1})">Delete</button>
 											<button type="button" class="btn btn-primary btn-sm" onclick="editResep(${loop.index+1})">Edit</button>
 										</td>
-                                        <td style="display:none" data-used="1" data-save="1" data-name="resep_id" data-kolom-id="resep_id">${rsp.pakai_id}</td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="resepID" data-kolom-id="resepID">${rsp.pakaiID}</td>
 
 									</tr>
 								</c:forEach>

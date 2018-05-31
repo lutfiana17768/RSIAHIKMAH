@@ -20,178 +20,178 @@ public class MWali {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="wali_id")
-	private int wali_id;
+	private int waliID;
 	
 	@Column(name="m_pasien_id")
-	private int m_pasien_id;
+	private int mPasienID;
 	
 	@Column(name="wali_kode")
-	private String wali_kode;
+	private String waliKode;
 	
 	@Column(name="wali_nama")
-	private String wali_nama;
+	private String waliNama;
 	
 	@Column(name="wali_kelamin")
-	private String wali_kelamin;
+	private String waliKelamin;
 	
 	@Column(name="wali_alamat")
-	private String wali_alamat;
+	private String waliAlamat;
 	
 	@Column(name="wali_hubungan")
-	private String wali_hubungan;
+	private String waliHubungan;
 	
 	@Column(name="wali_aktif")
-	private String wali_aktif;
+	private String waliAktif;
 	
 	@Column(name="wali_created_by")
-	private String wali_created_by;
+	private String waliCreatedBy;
 	
 	@Column(name="wali_created_date")
-	private Timestamp wali_created_date;
+	private Timestamp waliCreatedDate;
 	
 	@Column(name="wali_updated_by")
-	private String wali_updated_by;
+	private String waliUpdatedBy;
 	
 	@Column(name="wali_updated_date")
-	private Timestamp wali_updated_date;
+	private Timestamp waliUpdatedDate;
 	
 	@Column(name="wali_revised")
-	private int wali_revised;
+	private int waliRevised;
 	
 	@Column(name="wali_tgllahir")
-	private Timestamp wali_tgllahir;
+	private Timestamp waliTgllahir;
 	
 	@Column(name="wali_deleted_date")
-	private Timestamp wali_deleted_date;
+	private Timestamp waliDeletedDate;
 
-	public int getWali_id() {
-		return wali_id;
+	public int getWaliID() {
+		return waliID;
 	}
 
-	public void setWali_id(int wali_id) {
-		this.wali_id = wali_id;
+	public void setWaliID(int waliID) {
+		this.waliID = waliID;
 	}
 
-	public int getM_pasien_id() {
-		return m_pasien_id;
+	public int getMPasienID() {
+		return mPasienID;
 	}
 
-	public void setM_pasien_id(int m_pasien_id) {
-		this.m_pasien_id = m_pasien_id;
+	public void setMPasienID(int mPasienID) {
+		this.mPasienID = mPasienID;
 	}
 
-	public String getWali_kode() {
-		return wali_kode;
+	public String getWaliKode() {
+		return waliKode;
 	}
 
-	public void setWali_kode(String wali_kode) {
-		this.wali_kode = wali_kode;
+	public void setWaliKode(String waliKode) {
+		this.waliKode = waliKode;
 	}
 
-	public String getWali_nama() {
-		return wali_nama;
+	public String getWaliNama() {
+		return waliNama;
 	}
 
-	public void setWali_nama(String wali_nama) {
-		this.wali_nama = wali_nama;
+	public void setWaliNama(String waliNama) {
+		this.waliNama = waliNama;
 	}
 
-	public String getWali_kelamin() {
-		return wali_kelamin;
+	public String getWaliKelamin() {
+		return waliKelamin;
 	}
 
-	public void setWali_kelamin(String wali_kelamin) {
-		this.wali_kelamin = wali_kelamin;
+	public void setWaliKelamin(String waliKelamin) {
+		this.waliKelamin = waliKelamin;
 	}
 
-	public String getWali_alamat() {
-		return wali_alamat;
+	public String getWaliAlamat() {
+		return waliAlamat;
 	}
 
-	public void setWali_alamat(String wali_alamat) {
-		this.wali_alamat = wali_alamat;
+	public void setWaliAlamat(String waliAlamat) {
+		this.waliAlamat = waliAlamat;
 	}
 
-	public String getWali_hubungan() {
-		return wali_hubungan;
+	public String getWaliHubungan() {
+		return waliHubungan;
 	}
 
-	public void setWali_hubungan(String wali_hubungan) {
-		this.wali_hubungan = wali_hubungan;
+	public void setWaliHubungan(String waliHubungan) {
+		this.waliHubungan = waliHubungan;
 	}
 
-	public String getWali_aktif() {
-		return wali_aktif;
+	public String getWaliAktif() {
+		return waliAktif;
 	}
 
-	public void setWali_aktif(String wali_aktif) {
-		this.wali_aktif = wali_aktif;
+	public void setWaliAktif(String waliAktif) {
+		this.waliAktif = waliAktif;
 	}
 
-	public String getWali_created_by() {
-		return wali_created_by;
+	public String getWaliCreatedBy() {
+		return waliCreatedBy;
 	}
 
-	public void setWali_created_by(String wali_created_by) {
-		this.wali_created_by = wali_created_by;
+	public void setWaliCreatedBy(String waliCreatedBy) {
+		this.waliCreatedBy = waliCreatedBy;
 	}
 
-	public Timestamp getWali_created_date() {
-		return wali_created_date;
+	public Timestamp getWaliCreatedDate() {
+		return waliCreatedDate;
 	}
 
-	public void setWali_created_date(Timestamp wali_created_date) {
-		this.wali_created_date = wali_created_date;
+	public void setWaliCreatedDate(Timestamp waliCreatedDate) {
+		this.waliCreatedDate = waliCreatedDate;
 	}
 
-	public String getWali_updated_by() {
-		return wali_updated_by;
+	public String getWaliUpdatedBy() {
+		return waliUpdatedBy;
 	}
 
-	public void setWali_updated_by(String wali_updated_by) {
-		this.wali_updated_by = wali_updated_by;
+	public void setWaliUpdatedBy(String waliUpdatedBy) {
+		this.waliUpdatedBy = waliUpdatedBy;
 	}
 
-	public Timestamp getWali_updated_date() {
-		return wali_updated_date;
+	public Timestamp getWaliUpdatedDate() {
+		return waliUpdatedDate;
 	}
 
-	public void setWali_updated_date(Timestamp wali_updated_date) {
-		this.wali_updated_date = wali_updated_date;
+	public void setWaliUpdatedDate(Timestamp waliUpdatedDate) {
+		this.waliUpdatedDate = waliUpdatedDate;
 	}
 
-	public int getWali_revised() {
-		return wali_revised;
+	public int getWaliRevised() {
+		return waliRevised;
 	}
 
-	public void setWali_revised(int wali_revised) {
-		this.wali_revised = wali_revised;
+	public void setWaliRevised(int waliRevised) {
+		this.waliRevised = waliRevised;
 	}
 
-	public Timestamp getWali_tgllahir() {
-		return wali_tgllahir;
+	public Timestamp getWaliTgllahir() {
+		return waliTgllahir;
 	}
 
-	public void setWali_tgllahir(Timestamp wali_tgllahir) {
-		this.wali_tgllahir = wali_tgllahir;
+	public void setWaliTgllahir(Timestamp waliTgllahir) {
+		this.waliTgllahir = waliTgllahir;
 	}
 
-	public Timestamp getWali_deleted_date() {
-		return wali_deleted_date;
+	public Timestamp getWaliDeletedDate() {
+		return waliDeletedDate;
 	}
 
-	public void setWali_deleted_date(Timestamp wali_deleted_date) {
-		this.wali_deleted_date = wali_deleted_date;
+	public void setWaliDeletedDate(Timestamp waliDeletedDate) {
+		this.waliDeletedDate = waliDeletedDate;
 	}
 
 	@Override
 	public String toString() {
-		return "MWali [wali_id=" + wali_id + ", m_pasien_id=" + m_pasien_id + ", wali_kode=" + wali_kode
-				+ ", wali_nama=" + wali_nama + ", wali_kelamin=" + wali_kelamin + ", wali_alamat=" + wali_alamat
-				+ ", wali_hubungan=" + wali_hubungan + ", wali_aktif=" + wali_aktif + ", wali_created_by="
-				+ wali_created_by + ", wali_created_date=" + wali_created_date + ", wali_updated_by=" + wali_updated_by
-				+ ", wali_updated_date=" + wali_updated_date + ", wali_revised=" + wali_revised + ", wali_tgllahir="
-				+ wali_tgllahir + ", wali_deleted_date=" + wali_deleted_date + "]";
+		return "MWali [waliID=" + waliID + ", mPasienID=" + mPasienID + ", waliKode=" + waliKode
+				+ ", waliNama=" + waliNama + ", waliKelamin=" + waliKelamin + ", waliAlamat=" + waliAlamat
+				+ ", waliHubungan=" + waliHubungan + ", waliAktif=" + waliAktif + ", waliCreatedBy="
+				+ waliCreatedBy + ", waliCreatedDate=" + waliCreatedDate + ", waliUpdatedBy=" + waliUpdatedBy
+				+ ", waliUpdatedDate=" + waliUpdatedDate + ", waliRevised=" + waliRevised + ", waliTgllahir="
+				+ waliTgllahir + ", waliDeletedDate=" + waliDeletedDate + "]";
 	}
 	
 	

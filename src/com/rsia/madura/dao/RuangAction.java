@@ -27,8 +27,8 @@ public class RuangAction implements RuangDAO {
 	public List<MRuang> getRuangs() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MRuang> query = current.createQuery("FROM MRuang k WHERE k.ruang_aktif = :ruang_aktif", MRuang.class);
-		query.setParameter("ruang_aktif", "Y");
+		Query<MRuang> query = current.createQuery("FROM MRuang k WHERE k.ruangAktif = :ruangAktif", MRuang.class);
+		query.setParameter("ruangAktif", "Y");
 		List<MRuang> result = query.getResultList();
 		return result;
 	}
@@ -43,8 +43,8 @@ public class RuangAction implements RuangDAO {
 
 	public List<MRuang> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MRuang> query = current.createQuery("FROM MRuang k WHERE k.ruang_aktif = :ruang_aktif", MRuang.class).setMaxResults(limit);
-		query.setParameter("ruang_aktif", "Y");
+		Query<MRuang> query = current.createQuery("FROM MRuang k WHERE k.ruangAktif = :ruangAktif", MRuang.class).setMaxResults(limit);
+		query.setParameter("ruangAktif", "Y");
 		List<MRuang> result = query.getResultList();
 		return result;
 	}

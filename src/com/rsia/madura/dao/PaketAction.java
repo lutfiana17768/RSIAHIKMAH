@@ -27,8 +27,8 @@ public class PaketAction implements PaketDAO {
 	public List<MPaket> getPakets() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPaket> query = current.createQuery("FROM MPaket k WHERE k.paket_aktif = :paket_aktif", MPaket.class);
-		query.setParameter("paket_aktif", "Y");
+		Query<MPaket> query = current.createQuery("FROM MPaket k WHERE k.paketAktif = :paketAktif", MPaket.class);
+		query.setParameter("paketAktif", "Y");
 		List<MPaket> result = query.getResultList();
 		return result;
 	}
@@ -44,8 +44,8 @@ public class PaketAction implements PaketDAO {
 
 	public List<MPaket> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPaket> query = current.createQuery("FROM MPaket k WHERE k.paket_aktif = :paket_aktif", MPaket.class).setMaxResults(limit);
-		query.setParameter("paket_aktif", "Y");
+		Query<MPaket> query = current.createQuery("FROM MPaket k WHERE k.paketAktif = :paketAktif", MPaket.class).setMaxResults(limit);
+		query.setParameter("paketAktif", "Y");
 		List<MPaket> result = query.getResultList();
 
 		return result;

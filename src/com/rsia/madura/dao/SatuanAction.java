@@ -33,10 +33,10 @@ public class SatuanAction implements SatuanDAO {
 	}
 
 	@Override
-	public MSatuan getSatuan(int satuanId) {
+	public MSatuan getSatuan(int satuanID) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		MSatuan result = current.get(MSatuan.class, satuanId);
+		MSatuan result = current.get(MSatuan.class, satuanID);
 		
 		return result;
 	}
@@ -48,7 +48,7 @@ public class SatuanAction implements SatuanDAO {
 		current.save(satuanModel);
 		current.flush();
 		
-		return satuanModel.getSatuan_id();
+		return satuanModel.getSatuanID();
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class SatuanAction implements SatuanDAO {
 		current.saveOrUpdate(satuanModel);
 		current.flush();
 		
-		return satuanModel.getSatuan_id();
+		return satuanModel.getSatuanID();
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class SatuanAction implements SatuanDAO {
 		current.saveOrUpdate(satuanModel);
 		current.flush();
 		
-		return satuanModel.getSatuan_id();
+		return satuanModel.getSatuanID();
 
 	}
 

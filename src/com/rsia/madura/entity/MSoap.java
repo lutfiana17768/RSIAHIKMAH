@@ -2,7 +2,7 @@
 * @Author: Pradesga Indonesia
 * @Date:   2018-05-22 07:08:49
 * @Last Modified by:   Pradesga Indonesia
-* @Last Modified time: 2018-05-22 14:19:41
+* @Last Modified time: 2018-05-30 12:42:13
 */
 package com.rsia.madura.entity;
 
@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="t_soap")
@@ -23,226 +24,237 @@ public class MSoap {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "soap_id")
-	private int soap_id;
+	private int soapID;
+
+    @Transient
+    private Integer remove;
 	
 	@Column(name = "m_pasien_id")
-	private Integer m_pasien_id;
+	private Integer mPasienID;
 	
 	@Column(name = "soap_tanggal")
-	private Date soap_tanggal;
+	private Date soapTanggal;
 	
 	@Column(name = "soap_dokter")
-	private Integer soap_dokter;
+	private Integer soapDokter;
 	
 	@Column(name = "soap_subject")
-	private String soap_subject;
+	private String soapSubject;
 	
 	@Column(name = "soap_object")
-	private String soap_object;
+	private String soapObject;
 	
 	@Column(name = "soap_assesment")
-	private String soap_assesment;
+	private String soapAssesment;
 	
 	@Column(name = "soap_plan")
-	private String soap_plan;
+	private String soapPlan;
 	
 	@Column(name = "soap_created_by")
-	private String soap_created_by;
+	private String soapCreatedBy;
 	
 	@Column(name = "soap_created_date")
-	private Timestamp soap_created_date;
+	private Timestamp soapCreatedDate;
 	
 	@Column(name = "soap_updated_by")
-	private String soap_updated_by;
+	private String soapUpdatedBy;
 	
 	@Column(name = "soap_updated_date")
-	private Timestamp soap_updated_date;
+	private Timestamp soapUpdatedDate;
 	
 	@Column(name = "soap_revised")
-	private Integer soap_revised;
+	private Integer soapRevised;
 	
 	@Column(name = "t_pendaftaran_id")
-	private Integer t_pendaftaran_id;
+	private Integer tPendaftaranID;
 	
 	@Column(name = "m_bed_id")
-	private Integer m_bed_id;
+	private Integer mBedID;
 	
 	@Column(name = "soap_m_pasien_norm")
-	private String soap_m_pasien_norm;
+	private String soapMPasienNorm;
 	
 	@Column(name = "soap_kamarpasien_id")
-	private Integer soap_kamarpasien_id;
+	private Integer soapKamarpasienID;
 	
 	@Column(name = "soap_aktif")
-	private String soap_aktif;
+	private String soapAktif;
 	
 	@Column(name = "reg_company_id")
-	private Integer reg_company_id;
+	private Integer regCompanyID;
 	
 	@Column(name = "reg_apps_id")
-	private Integer reg_apps_id;
+	private Integer regAppsID;
 
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 
-	public int getSoap_id() {
-		return soap_id;
+	public int getSoapID() {
+		return soapID;
 	}
 
-	public void setSoap_id(int soap_id){
-		this.soap_id = soap_id;
+	public void setSoapID(int soapID){
+		this.soapID = soapID;
 	}
 
-	public Integer getM_pasien_id() {
-		return m_pasien_id;
+	public Integer getRemove(){
+		return remove;
 	}
 
-	public void setM_pasien_id(Integer m_pasien_id){
-		this.m_pasien_id = m_pasien_id;
+	public void setRemove(Integer remove) {
+		this.remove = remove;
 	}
 
-	public Date getSoap_tanggal() {
-		return soap_tanggal;
+	public Integer getMPasienID() {
+		return mPasienID;
 	}
 
-	public void setSoap_tanggal(Date soap_tanggal){
-		this.soap_tanggal = soap_tanggal;
+	public void setMPasienID(Integer mPasienID){
+		this.mPasienID = mPasienID;
 	}
 
-	public Integer getSoap_dokter() {
-		return soap_dokter;
+	public Date getSoapTanggal() {
+		return soapTanggal;
 	}
 
-	public void setSoap_dokter(Integer soap_dokter){
-		this.soap_dokter = soap_dokter;
+	public void setSoapTanggal(Date soapTanggal){
+		this.soapTanggal = soapTanggal;
 	}
 
-	public String getSoap_subject() {
-		return soap_subject;
+	public Integer getSoapDokter() {
+		return soapDokter;
 	}
 
-	public void setSoap_subject(String soap_subject){
-		this.soap_subject = soap_subject;
+	public void setSoapDokter(Integer soapDokter){
+		this.soapDokter = soapDokter;
 	}
 
-	public String getSoap_object() {
-		return soap_object;
+	public String getSoapSubject() {
+		return soapSubject;
 	}
 
-	public void setSoap_object(String soap_object){
-		this.soap_object = soap_object;
+	public void setSoapSubject(String soapSubject){
+		this.soapSubject = soapSubject;
 	}
 
-	public String getSoap_assesment() {
-		return soap_assesment;
+	public String getSoapObject() {
+		return soapObject;
 	}
 
-	public void setSoap_assesment(String soap_assesment){
-		this.soap_assesment = soap_assesment;
+	public void setSoapObject(String soapObject){
+		this.soapObject = soapObject;
 	}
 
-	public String getSoap_plan() {
-		return soap_plan;
+	public String getSoapAssesment() {
+		return soapAssesment;
 	}
 
-	public void setSoap_plan(String soap_plan){
-		this.soap_plan = soap_plan;
+	public void setSoapAssesment(String soapAssesment){
+		this.soapAssesment = soapAssesment;
 	}
 
-	public String getSoap_created_by() {
-		return soap_created_by;
+	public String getSoapPlan() {
+		return soapPlan;
 	}
 
-	public void setSoap_created_by(String soap_created_by){
-		this.soap_created_by = soap_created_by;
+	public void setSoapPlan(String soapPlan){
+		this.soapPlan = soapPlan;
 	}
 
-	public Timestamp getSoap_created_date() {
-		return soap_created_date;
+	public String getSoapCreatedBy() {
+		return soapCreatedBy;
 	}
 
-	public void setSoap_created_date(Timestamp soap_created_date){
-		this.soap_created_date = soap_created_date;
+	public void setSoapCreatedBy(String soapCreatedBy){
+		this.soapCreatedBy = soapCreatedBy;
 	}
 
-	public String getSoap_updated_by() {
-		return soap_updated_by;
+	public Timestamp getSoapCreatedDate() {
+		return soapCreatedDate;
 	}
 
-	public void setSoap_updated_by(String soap_updated_by){
-		this.soap_updated_by = soap_updated_by;
+	public void setSoapCreatedDate(Timestamp soapCreatedDate){
+		this.soapCreatedDate = soapCreatedDate;
 	}
 
-	public Timestamp getSoap_updated_date() {
-		return soap_updated_date;
+	public String getSoapUpdatedBy() {
+		return soapUpdatedBy;
 	}
 
-	public void setSoap_updated_date(Timestamp soap_updated_date){
-		this.soap_updated_date = soap_updated_date;
+	public void setSoapUpdatedBy(String soapUpdatedBy){
+		this.soapUpdatedBy = soapUpdatedBy;
 	}
 
-	public Integer getSoap_revised() {
-		return soap_revised;
+	public Timestamp getSoapUpdatedDate() {
+		return soapUpdatedDate;
 	}
 
-	public void setSoap_revised(Integer soap_revised){
-		this.soap_revised = soap_revised;
+	public void setSoapUpdatedDate(Timestamp soapUpdatedDate){
+		this.soapUpdatedDate = soapUpdatedDate;
 	}
 
-	public Integer getT_pendaftaran_id() {
-		return t_pendaftaran_id;
+	public Integer getSoapRevised() {
+		return soapRevised;
 	}
 
-	public void setT_pendaftaran_id(Integer t_pendaftaran_id){
-		this.t_pendaftaran_id = t_pendaftaran_id;
+	public void setSoapRevised(Integer soapRevised){
+		this.soapRevised = soapRevised;
 	}
 
-	public Integer getM_bed_id() {
-		return m_bed_id;
+	public Integer getTPendaftaranID() {
+		return tPendaftaranID;
 	}
 
-	public void setM_bed_id(Integer m_bed_id){
-		this.m_bed_id = m_bed_id;
+	public void setTPendaftaranID(Integer tPendaftaranID){
+		this.tPendaftaranID = tPendaftaranID;
 	}
 
-	public String getSoap_m_pasien_norm() {
-		return soap_m_pasien_norm;
+	public Integer getMBedID() {
+		return mBedID;
 	}
 
-	public void setSoap_m_pasien_norm(String soap_m_pasien_norm){
-		this.soap_m_pasien_norm = soap_m_pasien_norm;
+	public void setMBedID(Integer mBedID){
+		this.mBedID = mBedID;
 	}
 
-	public Integer getSoap_kamarpasien_id() {
-		return soap_kamarpasien_id;
+	public String getSoapMPasienNorm() {
+		return soapMPasienNorm;
 	}
 
-	public void setSoap_kamarpasien_id(Integer soap_kamarpasien_id){
-		this.soap_kamarpasien_id = soap_kamarpasien_id;
+	public void setSoapMPasienNorm(String soapMPasienNorm){
+		this.soapMPasienNorm = soapMPasienNorm;
 	}
 
-	public String getSoap_aktif() {
-		return soap_aktif;
+	public Integer getSoapKamarpasienID() {
+		return soapKamarpasienID;
 	}
 
-	public void setSoap_aktif(String soap_aktif){
-		this.soap_aktif = soap_aktif;
+	public void setSoapKamarpasienID(Integer soapKamarpasienID){
+		this.soapKamarpasienID = soapKamarpasienID;
 	}
 
-	public Integer getReg_company_id() {
-		return reg_company_id;
+	public String getSoapAktif() {
+		return soapAktif;
 	}
 
-	public void setReg_company_id(Integer reg_company_id){
-		this.reg_company_id = reg_company_id;
+	public void setSoapAktif(String soapAktif){
+		this.soapAktif = soapAktif;
 	}
 
-	public Integer getReg_apps_id() {
-		return reg_apps_id;
+	public Integer getRegCompanyID() {
+		return regCompanyID;
 	}
 
-	public void setReg_apps_id(Integer reg_apps_id){
-		this.reg_apps_id = reg_apps_id;
+	public void setRegCompanyID(Integer regCompanyID){
+		this.regCompanyID = regCompanyID;
+	}
+
+	public Integer getRegAppsID() {
+		return regAppsID;
+	}
+
+	public void setRegAppsID(Integer regAppsID){
+		this.regAppsID = regAppsID;
 	}
 
 	public MPendaftaran getPendaftaran() {
