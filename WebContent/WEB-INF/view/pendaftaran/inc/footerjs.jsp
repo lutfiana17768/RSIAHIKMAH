@@ -10,9 +10,21 @@
 		var kondisi_datang = this.value ;
 
 		if (kondisi_datang == 'D') {
-			$('#form-rujukan').hide();
+			$('#form-rujukan').hide(500);
 		} else {
-			$('#form-rujukan').show();
+			$('#form-rujukan').show(500);
+		}
+	})
+	$('#jenis_daftar').on('change', function() {
+		if (this.value == 'RI') {
+			$('#form-rawat-inap').show(500);
+			$('#form-rawat-jalan').hide(500);
+		} else if (this.value == 'RJ') {
+			$('#form-rawat-inap').hide(500);
+			$('#form-rawat-jalan').show(500);
+		} else {
+			$('#form-rawat-inap').hide(500);
+			$('#form-rawat-jalan').hide(500);
 		}
 	})
 

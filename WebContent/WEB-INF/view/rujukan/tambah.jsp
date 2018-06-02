@@ -14,62 +14,62 @@
     				<form:form modelAttribute="rujukanModel" method="POST" action="store">                                         
                         <div class="form-group">
                             <label>Jenis</label>
-                            <form:input path="rujukan_jenis" placeholder="Masukan Jenis" class="form-control"/>
+                            <form:input path="rujukanJenis" placeholder="Masukan Jenis" class="form-control"/>
                          </div>
                          
                         <div class="form-group">
                             <label>Nama</label>
-                            <form:input path="rujukan_nama" placeholder="Masukan Nama" class="form-control"/>
+                            <form:input path="rujukanNama" placeholder="Masukan Nama" class="form-control"/>
                          </div>
                          
                          <div class="form-group">
                             <label>Nama Alamat</label>
-                            <form:input path="rujukan_alamat" placeholder="Masukan Alamat" class="form-control"/>
+                            <form:input path="rujukanAlamat" placeholder="Masukan Alamat" class="form-control"/>
                          </div>
                          
                          <div class="form-group">
                             <label>Kecamatan</label>
-                            <form:input path="rujukan_kecamatan" placeholder="Masukan Kecamatan" class="form-control"/>
+                            <form:input path="rujukanKecamatan" placeholder="Masukan Kecamatan" class="form-control"/>
                          </div>
                          
                          <div class="form-group">
                             <label>Kota</label>
-                            <form:input path="rujukan_kota" placeholder="Masukan Kota" class="form-control"/>
+                            <form:input path="rujukanKota" placeholder="Masukan Kota" class="form-control"/>
                          </div>
                         
                         <div class="form-group">
                             <label>Propinsi</label>
-                            <form:input path="rujukan_propinsi" placeholder="Masukan Propinsi" class="form-control"/>
+                            <form:input path="rujukanPropinsi" placeholder="Masukan Propinsi" class="form-control"/>
                          </div>
                          
                          <div class="form-group">
                             <label>Telp</label>
-                            <form:input path="rujukan_telp" placeholder="Masukan Telp" class="form-control"/>
+                            <form:input path="rujukanTelp" placeholder="Masukan Telp" class="form-control"/>
                          </div>
                          
                          <div class="form-group">
                             <label>Email</label>
-                            <form:input path="rujukan_email" placeholder="Masukan Email" class="form-control"/>
+                            <form:input path="rujukanEmail" placeholder="Masukan Email" class="form-control"/>
                          </div>
                          
                          <div class="form-group">
                             <label>Fax</label>
-                            <form:input path="rujukan_fax" placeholder="Masukan Fax" class="form-control"/>
+                            <form:input path="rujukanFax" placeholder="Masukan Fax" class="form-control"/>
                          </div>
                          
                          <div class="form-group">
                             <label>Nama CP</label>
-                            <form:input path="rujukan_cp" placeholder="Masukan CP " class="form-control"/>
+                            <form:input path="rujukanCp" placeholder="Masukan CP " class="form-control"/>
                          </div>                                        
                          
                          <div class="form-group">
                             <label>CP Telp</label>
-                            <form:input path="rujukan_cp_telp" placeholder="Masukan CP Telp" class="form-control"/>
+                            <form:input path="rujukanCpTelp" placeholder="Masukan CP Telp" class="form-control"/>
                          </div>
                         
                         <div class="form-group">
                             <label>Kode</label>
-                            <form:input path="rujukan_kode" placeholder="Masukan Keterangan" class="form-control"/>
+                            <form:input path="rujukanKode" placeholder="Masukan Keterangan" class="form-control"/>
                          </div>
                     
                         <div class="form-group">

@@ -30,7 +30,6 @@ import com.rsia.madura.entity.MRuang;
 import com.rsia.madura.entity.MTindakan;
 import com.rsia.madura.entity.MObat;
 import com.rsia.madura.entity.MPenunjang;
-import com.rsia.madura.entity.MPaketHarga;
 
 import com.rsia.madura.service.PaketService;
 import com.rsia.madura.service.KelasService;

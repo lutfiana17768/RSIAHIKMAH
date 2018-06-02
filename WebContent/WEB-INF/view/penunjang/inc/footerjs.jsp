@@ -88,7 +88,7 @@
             tr.append('<td>'+kelas_text+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="penunjangkelasHarga" data-kolom-id="penunjangTarifHarga">'+penunjangTarifHarga+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteTarif('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editTarif('+counter+')">Edit</button></td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="kelases.kelas_id" data-kolom-id="penunjangTarifKelas">'+penunjangTarifKelas+'</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="kelases.kelasID" data-kolom-id="penunjangTarifKelas">'+penunjangTarifKelas+'</td>');
             console.log(penunjangkelas_id)
             if (penunjangkelas_id) {
                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangkelas_id" data-kolom-id="penunjangkelas_id">'+penunjangkelas_id+'</td>');

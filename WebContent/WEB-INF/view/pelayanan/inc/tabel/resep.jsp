@@ -19,7 +19,7 @@
                             <tbody id="pelayanan-resep-list" class="table-form">
                             	<c:forEach var="rsp" items="${pelayananModel.resep}" varStatus="loop">
 									<tr id="resep_${loop.index+1}">
-										<td data-used="1" data-save="1" data-name="resepBarang" data-kolom-id="resepBarang">${rsp.resep.resepNo}</td>
+										<td>${rsp.resep.resepNo}</td>
 										<td data-used="1" data-save="1" data-name="resepSatuan" data-kolom-id="resepSatuan">${rsp.resepDimension}</td>
 										<td data-used="1" data-save="1" data-name="resepJumlah" data-kolom-id="resepJumlah">${rsp.resepJumlah}</td>
 										<td data-used="1" data-save="1" data-name="resepAturan" data-kolom-id="resepAturan">${rsp.resepAturan}</td>
@@ -28,6 +28,7 @@
 											<button type="button" class="btn btn-danger btn-sm" onclick="deleteResep(${loop.index+1})">Delete</button>
 											<button type="button" class="btn btn-primary btn-sm" onclick="editResep(${loop.index+1})">Edit</button>
 										</td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="resepBarang" data-kolom-id="resepBarang">${rsp.resep.resepNo}</td>
                                         <td style="display:none" data-used="1" data-save="1" data-name="resepID" data-kolom-id="resepID">${rsp.pakaiID}</td>
 
 									</tr>

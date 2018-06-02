@@ -8,6 +8,7 @@
 						<table class="table table-striped table-bordered table-hover">
 							<thead>
 								<tr>
+									<th>Tanggal</th>
 									<th>Tinggi</th>
 									<th>Berat</th>
 									<th>Detak Jantung</th>
@@ -16,13 +17,13 @@
 									<th>Nafas</th>
 									<th>Keluhan</th>
 									<th>Pemeriksa</th>
-									<th>Tanggal</th>
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody id="pelayanan-riwayatperiksa-list" class="table-form">
 								<c:forEach var="rp" items="${pelayananModel.riwayatperiksa}" varStatus="loop">
 									<tr id="riwayatperiksa_${loop.index+1}">
+										<td data-used="1" data-save="1" data-name="periksaTanggal" data-kolom-id="periksaTanggal">${rp.periksaTanggal}</td>
 										<td data-used="1" data-save="1" data-name="periksaTb" data-kolom-id="periksaTb">${rp.periksaTb}</td>
 										<td data-used="1" data-save="1" data-name="periksaBb" data-kolom-id="periksaBb">${rp.periksaBb}</td>
 										<td data-used="1" data-save="1" data-name="periksaJantung" data-kolom-id="periksaJantung">${rp.periksaJantung}</td>
@@ -31,7 +32,6 @@
 										<td data-used="1" data-save="1" data-name="periksaNafas" data-kolom-id="periksaNafas">${rp.periksaNafas}</td>
 										<td data-used="1" data-save="1" data-name="periksaKeluhan" data-kolom-id="periksaKeluhan">${rp.periksaKeluhan}</td>
 										<td>${rp.pegawai.pegawaiNama}</td>
-										<td data-used="1" data-save="1" data-name="periksaTanggal" data-kolom-id="periksaTanggal">${rp.periksaTanggal}</td>
 										<td>
 											<button type="button" class="btn btn-danger btn-sm" onclick="deleteRiwayatperiksa(${loop.index+1})">Delete</button>
 											<button type="button" class="btn btn-primary btn-sm" onclick="editRiwayatperiksa(${loop.index+1})">Edit</button>

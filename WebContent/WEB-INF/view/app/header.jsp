@@ -20,7 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css'/>" />
 	<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/select2.min.css'/>" />
 	<script type="text/javascript">
-		var BASE_URL = "${baseURL}/";
+		var BASE_URL = "${baseURL}";
 	</script>
 </head>
 <body>
@@ -107,6 +107,7 @@
 											<li><a href="/penunjang-group">Master Penunjang Group</a>
 											<li><a href="/ruangan">Master Ruangan</a>
 											<li><a href="/tindakan">Master Tindkan</a>
+											<li><a href="/rujukan">Master Rujukan</a>
 										</ul>
 									</li>
 									<li>

@@ -27,13 +27,12 @@ public class RujukanController {
 	@Autowired
 	private RujukanService rujukanService;
 
-	private String uri = "redirect: /rujukan/tambah/";
+	private String uri = "redirect: /rujukan/";
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model){
-		List<MRujukan> result = rujukanService.getRujukans();
-		System.out.println(result);
-		model.addAttribute("rujukan", result);
+		List<MRujukan> rujukans = rujukanService.getRujukans();
+		model.addAttribute("rujukans", rujukans);
 
 		return "rujukan/index";
 	}

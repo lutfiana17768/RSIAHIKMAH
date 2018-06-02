@@ -62,6 +62,7 @@
                         <form:hidden path="pendaftaranCreatedDate" />
                         <form:hidden path="pendaftaranCreatedBy" />
                         <form:hidden path="pendaftaranAktif" />
+                        <form:hidden path="pendaftaranMrs" />
                         <div class="form-group row">    
                             <label class="col-sm-3 col-form-label">Dokter</label>
                             <div class="col-sm-9">
@@ -127,7 +128,7 @@
                     <a href="#tab-tindakan" class="nav-link" data-target="#tab-tindakan" aria-controls="tab-tindakan" data-toggle="tab" role="tab">tindakan</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#tab-bhp" class="nav-link" data-target="#tab-bhp" aria-controls="tab-bhp" data-toggle="tab" role="tab">bhp</a>
+                    <a href="#tab-bhp" class="nav-link" data-target="#tab-bhp" aria-controls="tab-bhp" data-toggle="tab" role="tab">Terapi</a>
                 </li>
                 <li class="nav-item">
                     <a href="#tab-resep" class="nav-link" data-target="#tab-resep" aria-controls="tab-resep" data-toggle="tab" role="tab">resep</a>

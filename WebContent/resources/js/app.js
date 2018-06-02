@@ -1433,11 +1433,11 @@ $(function(){
     	var current = location.pathname;
 	    $('.sidebar-menu li a').each(function(){
 	        var $this = $(this);
-		        if($this.attr('href').indexOf(current) !== -1) {
-					$this.parents('.sidebar-nav').addClass('collapse in')
-					$this.parents('.sidebar-nav').parents('li').addClass('open active')
-		        }
+	        if($this.attr('href').indexOf(current) !== -1) {
+				$this.parents('.sidebar-nav').addClass('collapse in')
+				$this.parents('.sidebar-nav').parents('li').addClass('open active')
 	        }
+	        
 	    })
 	}
 })

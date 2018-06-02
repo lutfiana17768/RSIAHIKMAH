@@ -30,7 +30,7 @@
 										<form:select path="kelas.kelasID" class="form-control boxed input-lg select2-single">
 											<option value="">--- Pilih Kelas ---</option>
 											<c:forEach var="kelas" items="${kelases}">
-												<form:option value="${kelas.kelasID }" label="${kelas.kelas_nama }" />
+												<form:option value="${kelas.kelasID }" label="${kelas.kelasNama }" />
 											</c:forEach>
 										</form:select>
 									</div>

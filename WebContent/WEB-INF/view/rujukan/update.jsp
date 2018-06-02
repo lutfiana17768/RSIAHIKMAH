@@ -6,103 +6,81 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../app/header.jsp" />
 	<section class="section">
-		<div class="container">
-			<div class="container" id="add_Rujukan_form" style="display: none">
-				<div class="card card-success">
-					<div class="card-header" style="min-height:0">
-						<div class="header-block" style="padding: 5px 20px">
-							<p class="title"> Tambah Rujukan </p>
-						</div>
-					</div>
-					<div class="row card-block" style="background-color: #f4f4f4;margin:0;">
-						<div class="col-6">
-							<div class="form-group">
-								<label class="control-label">Jenis Rujukan<span style="color:red">*</span></label>
-								<select class="form-control boxed form-control-sm">
-									<option>Option one</option>
-									<option>Option two</option>
-									<option>Option three</option>
-									<option>Option four</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Kode Rujukan</label>
-								<input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Nama Rujukan<span style="color:red">*</span></label>
-								<input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Alamat</label>
-								<input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Kelurahan</label>
-								<input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-							</div>
-							<small>Keterangan : <span style="color:red">*</span> Wajib Diisi</small>
-						</div>
-						<div class="col-6">
-							<div class="form-group">
-								<label for="exampleInputEmail1">Kecamatan</label>
-								<input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Provinsi</label>
-								<input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Telp</label>
-								<input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Email</label>
-								<input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Fax</label>
-								<input type="text" class="form-control boxed form-control-sm" id="exampleInputEmail1" placeholder="">
-							</div>
-							
-						</div>
-					</div>
-					<div class="container form-group"  style="float: right;background-color: #f5f5f5;margin-bottom: 0">
-						<button type="button" class="btn btn-danger d_pasien-button">Batal</button>
-						<button type="button" class="btn btn-primary d_pasien-button">Simpan</button>
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="form-group">
-					<button type="button" class="btn btn-sm btn-primary" id="add_Rujukan">Tambah</button>
-				</div>
-			</div>
-			<div class="container">
-				<div class="card card-success">
-					<div class="card-header" style="min-height:0">
-						<div class="header-block" style="padding: 5px 20px">
-							<p class="title"> Data Rujukan </p>
-						</div>
-					</div>
-					<div class="card-block" style="background-color: #f4f4f4">
-						<div class="table-responsive">
-							<table class="table table-striped table-bordered table-hover">
-								<thead>
-									<tr>
-										<th>Jenis Rujukan</th>
-										 <th>Nama Rujukan</th>
-										<th>Alamat</th>
-										<th>Aksi</th>
-									</tr>
-								</thead>
-								
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
+    	<div class="row sameheight-container">
+    		<div class="col-md-3"></div>
+    		<div class="col-md-6">
+    			<div class="card card-block sameheight-item">
+    				<div class="title-block">
+    					<h3 class="title"> Data Rujukan </h3>
+    				</div>
+    				<form:form modelAttribute="rujukanModel" method="POST" action="/rujukan/update">
+    					<form:hidden path="rujukanID">
+                        <div class="form-group">
+                            <label>Jenis</label>
+                            <form:input path="rujukanJenis" placeholder="Masukan Jenis" class="form-control"/>
+                         </div>
+                         
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <form:input path="rujukanNama" placeholder="Masukan Nama" class="form-control"/>
+                         </div>
+                         
+                         <div class="form-group">
+                            <label>Nama Alamat</label>
+                            <form:input path="rujukanAlamat" placeholder="Masukan Alamat" class="form-control"/>
+                         </div>
+                         
+                         <div class="form-group">
+                            <label>Kecamatan</label>
+                            <form:input path="rujukanKecamatan" placeholder="Masukan Kecamatan" class="form-control"/>
+                         </div>
+                         
+                         <div class="form-group">
+                            <label>Kota</label>
+                            <form:input path="rujukanKota" placeholder="Masukan Kota" class="form-control"/>
+                         </div>
+                        
+                        <div class="form-group">
+                            <label>Propinsi</label>
+                            <form:input path="rujukanPropinsi" placeholder="Masukan Propinsi" class="form-control"/>
+                         </div>
+                         
+                         <div class="form-group">
+                            <label>Telp</label>
+                            <form:input path="rujukanTelp" placeholder="Masukan Telp" class="form-control"/>
+                         </div>
+                         
+                         <div class="form-group">
+                            <label>Email</label>
+                            <form:input path="rujukanEmail" placeholder="Masukan Email" class="form-control"/>
+                         </div>
+                         
+                         <div class="form-group">
+                            <label>Fax</label>
+                            <form:input path="rujukanFax" placeholder="Masukan Fax" class="form-control"/>
+                         </div>
+                         
+                         <div class="form-group">
+                            <label>Nama CP</label>
+                            <form:input path="rujukanCp" placeholder="Masukan CP " class="form-control"/>
+                         </div>                                        
+                         
+                         <div class="form-group">
+                            <label>CP Telp</label>
+                            <form:input path="rujukanCpTelp" placeholder="Masukan CP Telp" class="form-control"/>
+                         </div>
+                        
+                        <div class="form-group">
+                            <label>Kode</label>
+                            <form:input path="rujukanKode" placeholder="Masukan Keterangan" class="form-control"/>
+                         </div>
+                    
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form:form>    
+    			</div>
+    		</div>
+    	</div>
 	</section>
 <jsp:include page="../app/footer.jsp" />

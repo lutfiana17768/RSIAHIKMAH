@@ -66,9 +66,6 @@ public class MJenisLayanan {
 	@Column(name= "reg_apps_id")
 	private Integer regAppsID;
 
-    @ManyToMany(mappedBy = "jenislayanans")
-    private Set<MPenunjang> penunjangs = new HashSet<>();
-
 	public int getJenislayananID() {
 		return jenislayananID;
 	}
@@ -163,13 +160,5 @@ public class MJenisLayanan {
 
 	public void setRegAppsID(Integer regAppsID) {
 		this.regAppsID = regAppsID;
-	}
-
-	public Set<MPenunjang> getPenunjangs() {
-		return penunjangs;
-	}
-
-	public void setPenunjangs(Set<MPenunjang> penunjangs) {
-		this.penunjangs = penunjangs;
 	}
 }

@@ -17,18 +17,22 @@
 											<table class="table table-striped table-bordered table-hover">
 												<thead>
 													<tr>
+														<th>Tanggal MRS</th>
 														<th>Nomor RM</th>
 														<th>Nama</th>
 														<th>Alamat</th>
+														<th>Dokter</th>
 														<th>Aksi</th>
 													</tr>
 												</thead>
 												<tbody>
 													<c:forEach var="pelayanan" items="${pelayanans}">
 														<tr>
+															<td>${pelayanan.pendaftaranMrs}</td>
 															<td>${pelayanan.pasien.pasienNorm}</td>
 															<td>${pelayanan.pasien.pasienNama}</td>
 															<td>${pelayanan.pasien.pasienAlamat}</td>
+															<td>${pelayanan.pegawai.pegawaiNama}</td>
 															<td>
 																<a href="/pelayanan/update/${pelayanan.pendaftaranID}" class="btn btn-info rounded-0">Update</a>
 																<a href="/pelayanan/delete/${pelayanan.pendaftaranID}" class="btn btn-warning rounded-0">Delete</a>

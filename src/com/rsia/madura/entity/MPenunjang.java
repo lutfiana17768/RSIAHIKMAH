@@ -95,25 +95,16 @@ public class MPenunjang {
 	@ManyToOne
 	private MPenunjangGroup penunjangGroup;
 
-	@OneToMany(mappedBy = "penunjang", cascade = CascadeType.ALL, orphanRemoval=true)
+	@ManyToOne
+	private MJenisLayanan jenislayanan;
+
+	@OneToMany(mappedBy = "penunjang", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MParamPeriksa> paramperiksa;
 
-	@OneToMany(mappedBy = "penunjang", cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(mappedBy = "penunjang", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MPenunjangKelas> penunjangkelas;
-
-	// @OneToMany(mappedBy = "penunjang", cascade = CascadeType.ALL, orphanRemoval=true)
-	// @LazyCollection(LazyCollectionOption.FALSE)
-	// private List<MPenunjangKategori> penunjangkategori;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-        joinColumns = { @JoinColumn(name = "penunjangmedisID") }, 
-        inverseJoinColumns = { @JoinColumn(name = "jenislayananID") }
-    )
-    // Set<MJenisLayanan> jenislayanans = new HashSet<MJenisLayanan>();
-    List<MJenisLayanan> jenislayanans;
 
 	public Integer getPenunjangmedisID() {
 		return penunjangmedisID;
@@ -291,26 +282,19 @@ public class MPenunjang {
 		this.penunjangkelas = penunjangkelas;
 	}
 
-	public List<MJenisLayanan> getJenislayanan() {
-		return jenislayanans;
+	public MJenisLayanan getJenislayanan() {
+		return jenislayanan;
 	}
 
-	public void setJenislayanan(List<MJenisLayanan> jenislayanans) {
-		this.jenislayanans = jenislayanans;
+	public void setJenislayanan(MJenisLayanan jenislayanan) {
+		this.jenislayanan = jenislayanan;
 	}
 
-	// public List<MPenunjangKategori> getPenunjangkategori() {
-	// 	return penunjangkategori;
-	// }
-
-	// public void setPenunjangkategori(List<MPenunjangKategori> penunjangkategori) {
-	// 	this.penunjangkategori = penunjangkategori;
-	// }
 
 	@Override
 	public String toString() {
 		return "MPenunjang [penunjangmedisID=" + penunjangmedisID + ", penunjangmedisKode=" + penunjangmedisKode + ", penunjangmedisNama="
-				+ penunjangmedisNama + ", penunjangmedisCreatedBy=" + penunjangmedisCreatedBy + ", jenislayanans=" + jenislayanans
+				+ penunjangmedisNama + ", penunjangmedisCreatedBy=" + penunjangmedisCreatedBy + ", jenislayanan=" + jenislayanan
 				+ ", penunjangkelas=" + penunjangkelas + "]";
 	}
 

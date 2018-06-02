@@ -85,9 +85,14 @@ public class PelayananController {
 	private String uri ="redirect: /pelayanan";
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model) {
-		List<MPendaftaran> pelayanans = pelayananService.getPelayanans();
+	public String IndexView(Model model,
+			@RequestParam(value="page", required=false, defaultValue = "1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue = "10") int limit) {
+		List<MPendaftaran> pelayanans = pelayananService.getPelayanans(page, limit);
+		String link = pelayananService.createLinks(page, limit);
+		
 		model.addAttribute("pelayanans", pelayanans);
+		model.addAttribute("link", link);
 		
 		return "pelayanan/index";
 	}

@@ -34,14 +34,12 @@
 								</div>
 								<div class="form-group">
 									<label>Kategori</label>
-									<select name="pkategori[]" multiple class="form-control boxed select2-multiple">
+									<form:select path="jenislayanan.jenislayananID" class="form-control boxed">
 										<option value="">--- Pilih Kategori ---</option>
 										<c:forEach var="jenislayanan" items="${jenisLayanans}">
-											<option value="${jenislayanan.jenislayananID }">
-												${jenislayanan.jenislayananNama }
-											</option>
+											<form:option value="${jenislayanan.jenislayananID }" label="${jenislayanan.jenislayananNama }" />
 										</c:forEach>
-									</select>
+									</form:select>
 								</div>
 								<div class="form-group">
 									<label>Pemeriksaan</label>

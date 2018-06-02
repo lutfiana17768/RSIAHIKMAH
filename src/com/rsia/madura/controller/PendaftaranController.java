@@ -19,25 +19,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.rsia.madura.entity.MKelas;
-import com.rsia.madura.entity.MPasien;
 import com.rsia.madura.entity.MPendaftaran;
+import com.rsia.madura.entity.MPasien;
+import com.rsia.madura.entity.MKondisi;
+import com.rsia.madura.entity.MPegawai;
+import com.rsia.madura.entity.MPaket;
 import com.rsia.madura.entity.MRujukan;
 import com.rsia.madura.entity.MTindakan;
-import com.rsia.madura.entity.MKondisi;
-import com.rsia.madura.entity.MPaket;
-import com.rsia.madura.entity.MPegawai;
-import com.rsia.madura.entity.MKelas;
+import com.rsia.madura.entity.MKamar;
 
-import com.rsia.madura.service.PendaftaranService;
-import com.rsia.madura.service.PendidikanService;
-import com.rsia.madura.service.KelasService;
 import com.rsia.madura.service.PasienService;
+import com.rsia.madura.service.PendaftaranService;
+import com.rsia.madura.service.KondisiPasienService;
+import com.rsia.madura.service.PegawaiService;
+import com.rsia.madura.service.PaketService;
 import com.rsia.madura.service.RujukanService;
 import com.rsia.madura.service.TindakanService;
-import com.rsia.madura.service.KondisiPasienService;
-import com.rsia.madura.service.PaketService;
-import com.rsia.madura.service.PegawaiService;
+import com.rsia.madura.service.KamarService;
+// import com.rsia.madura.service.PendidikanService;
 
 @Controller
 @RequestMapping("/pendaftaran")
@@ -64,7 +63,7 @@ public class PendaftaranController {
 	private PegawaiService pegawaiService;
 
 	@Autowired
-	private KelasService kelasService;
+	private KamarService kamarService;
 
 	private String uri = "redirect: /pendaftaran";
 
@@ -78,18 +77,18 @@ public class PendaftaranController {
 		List<MRujukan> rujukan = rujukanService.getRujukans();
 		List<MTindakan> tindakan = tindakanService.findAll();
 		List<MKondisi> kondisipasien = kondisiPasienService.getKondisis();
-		List<MPaket> paket = paketService.findAll();
+		List<MPaket> pakets = paketService.findAll();
 		List<MPegawai> pegawais = pegawaiService.getPegawai();
-		List<MKelas> kelases = kelasService.findAll();
+		List<MKamar> kamars = kamarService.findAll();
 
 		model.addAttribute("pendaftarans", pendaftarans);
 		model.addAttribute("pasiens", pasien);
 		model.addAttribute("rujukans", rujukan);
 		model.addAttribute("tindakans", tindakan);
 		model.addAttribute("kondisipasiens", kondisipasien);
-		model.addAttribute("pakets", paket);
+		model.addAttribute("pakets", pakets);
 		model.addAttribute("pegawais", pegawais);
-		model.addAttribute("kelases", kelases);
+		model.addAttribute("kamars", kamars);
 		model.addAttribute("footerjs", "../pendaftaran/inc/footerjs.jsp");
 		model.addAttribute("PendaftaranModel", PendaftaranModel);
 

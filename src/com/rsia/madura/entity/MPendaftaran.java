@@ -28,10 +28,10 @@ public class MPendaftaran {
 	private String pendaftaranNo;
 	
 	@Column(name="pendaftaran_nourut")
-	private int pendaftaranNourut;
+	private Integer pendaftaranNourut;
 	
 	// @Column(name="m_unit_id")
-	// private int mUnitID;
+	// private Integer mUnitID;
 	
 	@Column(name="pendaftaran_mrs")
 	private Timestamp pendaftaranMrs;
@@ -40,10 +40,10 @@ public class MPendaftaran {
 	private Timestamp pendaftaranKrs;
 	
 	// @Column(name="m_status_id")
-	// private int mStatusID;
+	// private Integer mStatusID;
 	
 	@Column(name="m_rujuk_id_keluar")
-	private int mRujukIDKeluar;
+	private Integer mRujukIDKeluar;
 	
 	@Column(name="pendaftaran_aktif")
 	private String pendaftaranAktif;
@@ -61,19 +61,19 @@ public class MPendaftaran {
 	private Timestamp pendaftaranUpdatedDate;
 	
 	@Column(name="pendaftaran_revised")
-	private int pendaftaranRevised;
+	private Integer pendaftaranRevised;
 	
 	// @Column(name="m_kondisi_id_keluar")
-	// private int mKondisiIDKeluar;
+	// private Integer mKondisiIDKeluar;
 	
 	@Column(name="pendaftaran_keterangan")
 	private String pendaftaranKeterangan;
 	
 	@Column(name="pendaftaran_tarif")
-	private int pendaftaranTarif;
+	private Integer pendaftaranTarif;
 	
 	// @Column(name="m_status_id_masuk")
-	// private int mStatusIDMasuk;
+	// private Integer mStatusIDMasuk;
 	
 	// @Column(name="m_status_id_pelayanan")
 	// private String mStatusIDPelayanan;
@@ -81,11 +81,11 @@ public class MPendaftaran {
 	@Column(name="pendaftaran_status_kunjungan")
 	private String pendaftaranStatusKunjungan;
 	
-	// @Column(name="m_kondisi_id_masuk")
-	// private int mKondisiIDMasuk;
+	@Column(name="kondisi_masuk")
+	private String kondisiMasuk;
 	
 	// @Column(name="m_rujukan_id")
-	// private int mRujukanID;
+	// private Integer mRujukanID;
 	
 	@Column(name="pendaftaran_jenis")
 	private String pendaftaranJenis;
@@ -94,10 +94,16 @@ public class MPendaftaran {
 	private String pendaftaranStatusKonsul;
 	
 	@Column(name="m_unit_id_asal")
-	private int mUnitIDAsal;
+	private Integer mUnitIDAsal;
 	
 	@Column(name="m_kelas_id_standar")
-	private int mKelasIDStandar;
+	private Integer mKelasIDStandar;
+
+	@Column(name="pendaftaran_poli")
+	private String pendaftaranPoli;
+
+	@Column(name="paket_id")
+	private Integer paketID;
 	
 	@Column(name="pendaftaran_deleted_date")
 	private Timestamp pendaftaranDeletedDate;
@@ -162,9 +168,6 @@ public class MPendaftaran {
 	@ManyToOne
 	private MTindakan tindakan;
 
-	// @ManyToOne
-	// private MPaket paket;
-
 	public int getPendaftaranID() {
 		return pendaftaranID;
 	}
@@ -181,19 +184,19 @@ public class MPendaftaran {
 		this.pendaftaranNo = pendaftaranNo;
 	}
 
-	public int getPendaftaranNourut() {
+	public Integer getPendaftaranNourut() {
 		return pendaftaranNourut;
 	}
 
-	public void setPendaftaranNourut(int pendaftaranNourut) {
+	public void setPendaftaranNourut(Integer pendaftaranNourut) {
 		this.pendaftaranNourut = pendaftaranNourut;
 	}
 
-	// public int getMUnitID() {
+	// public Integer getMUnitID() {
 	// 	return mUnitID;
 	// }
 
-	// public void setMUnitID(int mUnitID) {
+	// public void setMUnitID(Integer mUnitID) {
 	// 	this.mUnitID = mUnitID;
 	// }
 
@@ -213,19 +216,19 @@ public class MPendaftaran {
 		this.pendaftaranKrs = pendaftaranKrs;
 	}
 
-	// public int getMStatusID() {
+	// public Integer getMStatusID() {
 	// 	return mStatusID;
 	// }
 
-	// public void setMStatusID(int mStatusID) {
+	// public void setMStatusID(Integer mStatusID) {
 	// 	this.mStatusID = mStatusID;
 	// }
 
-	// public int getMRujukIDKeluar() {
+	// public Integer getMRujukIDKeluar() {
 	// 	return mRujukIDKeluar;
 	// }
 
-	// public void setMRujukIDKeluar(int mRujukIDKeluar) {
+	// public void setMRujukIDKeluar(Integer mRujukIDKeluar) {
 	// 	this.mRujukIDKeluar = mRujukIDKeluar;
 	// }
 
@@ -269,19 +272,19 @@ public class MPendaftaran {
 		this.pendaftaranUpdatedDate = pendaftaranUpdatedDate;
 	}
 
-	public int getPendaftaranRevised() {
+	public Integer getPendaftaranRevised() {
 		return pendaftaranRevised;
 	}
 
-	public void setPendaftaranRevised(int pendaftaranRevised) {
+	public void setPendaftaranRevised(Integer pendaftaranRevised) {
 		this.pendaftaranRevised = pendaftaranRevised;
 	}
 
-	// public int getMKondisiIDKeluar() {
+	// public Integer getMKondisiIDKeluar() {
 	// 	return mKondisiIDKeluar;
 	// }
 
-	// public void setMKondisiIDKeluar(int mKondisiIDKeluar) {
+	// public void setMKondisiIDKeluar(Integer mKondisiIDKeluar) {
 	// 	this.mKondisiIDKeluar = mKondisiIDKeluar;
 	// }
 
@@ -293,19 +296,19 @@ public class MPendaftaran {
 		this.pendaftaranKeterangan = pendaftaranKeterangan;
 	}
 
-	public int getPendaftaranTarif() {
+	public Integer getPendaftaranTarif() {
 		return pendaftaranTarif;
 	}
 
-	public void setPendaftaranTarif(int pendaftaranTarif) {
+	public void setPendaftaranTarif(Integer pendaftaranTarif) {
 		this.pendaftaranTarif = pendaftaranTarif;
 	}
 
-	// public int getMStatusIDMasuk() {
+	// public Integer getMStatusIDMasuk() {
 	// 	return mStatusIDMasuk;
 	// }
 
-	// public void setMStatusIDMasuk(int mStatusIDMasuk) {
+	// public void setMStatusIDMasuk(Integer mStatusIDMasuk) {
 	// 	this.mStatusIDMasuk = mStatusIDMasuk;
 	// }
 
@@ -325,19 +328,19 @@ public class MPendaftaran {
 		this.pendaftaranStatusKunjungan = pendaftaranStatusKunjungan;
 	}
 
-	// public int getMKondisiIDMasuk() {
-	// 	return mKondisiIDMasuk;
-	// }
+	public String getKondisiMasuk() {
+		return kondisiMasuk;
+	}
 
-	// public void setMKondisiIDMasuk(int mKondisiIDMasuk) {
-	// 	this.mKondisiIDMasuk = mKondisiIDMasuk;
-	// }
+	public void setKondisiMasuk(String kondisiMasuk) {
+		this.kondisiMasuk = kondisiMasuk;
+	}
 
-	// public int getMRujukanID() {
+	// public Integer getMRujukanID() {
 	// 	return mRujukanID;
 	// }
 
-	// public void setMRujukanID(int mRujukanID) {
+	// public void setMRujukanID(Integer mRujukanID) {
 	// 	this.mRujukanID = mRujukanID;
 	// }
 
@@ -357,12 +360,28 @@ public class MPendaftaran {
 		this.pendaftaranStatusKonsul = pendaftaranStatusKonsul;
 	}
 
-	public int getMUnitIDAsal() {
+	public Integer getMUnitIDAsal() {
 		return mUnitIDAsal;
 	}
 
-	public void setMUnitIDAsal(int mUnitIDAsal) {
+	public void setMUnitIDAsal(Integer mUnitIDAsal) {
 		this.mUnitIDAsal = mUnitIDAsal;
+	}
+
+	public String getPendaftaranPoli() {
+		return pendaftaranPoli;
+	}
+
+	public void setPendaftaranPoli(String pendaftaranPoli) {
+		this.pendaftaranPoli = pendaftaranPoli;
+	}
+
+	public Integer getPaketID() {
+		return paketID;
+	}
+
+	public void setPaketID(Integer paketID) {
+		this.paketID = paketID;
 	}
 
 	public Timestamp getPendaftaranDeletedDate() {
@@ -491,12 +510,4 @@ public class MPendaftaran {
 	public void setPegawai(MPegawai pegawai) {
 		this.pegawai = pegawai;
 	}
-
-	// public MPaket getPaket() {
-	// 	return paket;
-	// }
-
-	// public void setPaket(MPaket paket) {
-	// 	this.paket = paket;
-	// }
 }

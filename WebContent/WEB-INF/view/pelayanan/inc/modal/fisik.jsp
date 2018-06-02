@@ -15,6 +15,10 @@
 					</div>
 					<div class="modal-body">
 						<form id="form-pelayanan-riwayatperiksa" class="from-horizontal">
+                            <div class="form-group">
+                                <label>Tanggal</label>
+                                <input type="text" name="periksaTanggal" id="periksaTanggal" class="form-control boxed datetimepicker2">
+                            </div>
 							<div class="form-group">
 								<label>TInggi</label>
 								<input type="text" name="periksaTb" id="periksaTb" class="form-control boxed">
@@ -55,10 +59,6 @@
                                         </c:forEach>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="text" name="periksaTanggal" id="periksaTanggal" class="form-control boxed datetimepicker2">
                             </div>
                             <input type="hidden" name="periksaID" id="periksaID">
 							<input type="hidden" name="riwayatperiksa_mode" id="riwayatperiksa_mode">

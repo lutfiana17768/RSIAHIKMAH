@@ -203,6 +203,7 @@
             }
 
             periksaID = $('#periksaID').val();
+            periksaTanggal = $('#periksaTanggal').val() ||0;
             periksaTb = $('#periksaTb').val() ||0;
             periksaBb = $('#periksaBb').val() ||0;
             periksaJantung = $('#periksaJantung').val() ||0;
@@ -213,7 +214,7 @@
             pegawai = $('#pegawai').val();
             pegawaiText = $('#pegawai option:selected').text();
             periksaPemeriksa = $('#periksaPemeriksa').val() ||'';
-            periksaTanggal = $('#periksaTanggal').val() ||0;
+            tr.append('<td data-used="1" data-save="1" data-name="periksaTanggal" data-kolom-id="periksaTanggal">'+periksaTanggal+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksaTb" data-kolom-id="periksaTb">'+periksaTb+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksaBb" data-kolom-id="periksaBb">'+periksaBb+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksaJantung" data-kolom-id="periksaJantung">'+periksaJantung+'</td>');
@@ -222,7 +223,6 @@
             tr.append('<td data-used="1" data-save="1" data-name="periksaNafas" data-kolom-id="periksaNafas">'+periksaNafas+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksaKeluhan" data-kolom-id="periksaKeluhan">'+periksaKeluhan+'</td>');
             tr.append('<td>'+pegawaiText+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksaTanggal" data-kolom-id="periksaTanggal">'+periksaTanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteRiwayatperiksa('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editRiwayatperiksa('+counter+')">Edit</button></td>');
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="pegawai">' + pegawai + '</td>');
             if (periksaID) {
@@ -509,17 +509,19 @@
 
             resepID = $('#resepID').val();
             resepBarang = $('#resepBarang').val() ||0;
+            resepBarangText = (resepBarang) ? $('#resepBarang option:selected').text() : '';
             resepSatuan = $('#resepSatuan').val() ||0;
             resepJumlah = $('#resepJumlah').val() ||0;
             resepAturan = $('#resepAturan').val() ||0;
             resepKeterangan = $('#resepKeterangan').val() ||0;
             
-            tr.append('<td data-used="1" data-save="1" data-name="resepBarang" data-kolom-id="resepBarang">'+resepBarang+'</td>');
+            tr.append('<td>'+resepBarangText+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="resepSatuan" data-kolom-id="resepSatuan">'+resepSatuan+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="resepJumlah" data-kolom-id="resepJumlah">'+resepJumlah+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="resepAturan" data-kolom-id="resepAturan">'+resepAturan+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="resepKeterangan" data-kolom-id="resepKeterangan">'+resepKeterangan+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteResep('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editResep('+counter+')">Edit</button></td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="resepBarang" data-kolom-id="resepBarang">' + resepBarang + '</td>');
             if (resepID) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="resepID" data-kolom-id="resepID">' + resepID + '</td>');
             }
