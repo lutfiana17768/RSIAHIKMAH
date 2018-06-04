@@ -10,6 +10,7 @@
 				<h3 class="title">Pelayanan </h3>
 			</div>
 			<div class="header-block pull-right">
+                <a href="/kasir/pembayaran?pendaftaran=${pelayananModel.pendaftaranID}" class="btn btn-warning float-right rounded-0 pull-right" style="margin: 0px;">Pembayaran</a>
 				<button type="button" id="simpan-pelayanan" class="btn btn-primary float-right rounded-0 pull-right" style="margin: 0px;">Simpan</button>
 			</div>
 		</div>

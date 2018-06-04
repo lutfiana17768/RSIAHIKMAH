@@ -6,23 +6,23 @@
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th>NO RM</th>
-				<th>Nama Pasien</th>
-				<th>Jenis Kelamin</th>
-				<th>Alamat</th>
-				<th>No Telp</th>
-				<th>Aksi</th>
+				<th style="font-size: 14px;">NO RM</th>
+				<th style="font-size: 14px;">Nama Pasien</th>
+				<th style="font-size: 14px;">Jenis Kelamin</th>
+				<th style="font-size: 14px;">Alamat</th>
+				<th style="font-size: 14px;">No Telp</th>
+				<th style="font-size: 14px;">Aksi</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="tempPasien" items="${pasiens}">
 					<tr>
-						<td> ${tempPasien.pasienNorm} </td>
-						<td> ${tempPasien.pasienNama } </td>
-						<td> ${tempPasien.pasienKelamin } </td> 
-						<td> ${tempPasien.pasienAlamat } </td>
-						<td> ${tempPasien.pasienNotelp } </td> 
-						<td> 
+						<td style="font-size: 12px;"> ${tempPasien.pasienNorm} </td>
+						<td style="font-size: 12px;"> ${tempPasien.pasienNama } </td>
+						<td style="font-size: 12px;"> ${tempPasien.pasienKelamin } </td> 
+						<td style="font-size: 12px;"> ${tempPasien.pasienAlamat } </td>
+						<td style="font-size: 12px;"> ${tempPasien.pasienNotelp } </td> 
+						<td style="font-size: 12px;"> 
 							<a class="btn btn-warning" href="/pasien/delete/${tempPasien.pasienID}">Delete</a>
 							<a class="btn btn-info" href="/pasien/update/${tempPasien.pasienID}">Update</a>
 						</td>

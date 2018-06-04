@@ -44,7 +44,7 @@ public class KasirController {
 		return "kasir/index";
 	}
 
-	@RequestMapping(value="/tambah", method=RequestMethod.GET)
+	@RequestMapping(value="/pembayaran", method=RequestMethod.GET)
 	public String TransaksiPasienFormView(Model model, @RequestParam(value="pendaftaran", required=false) Integer daftarID){
 
 		MTransaksiPasien transaksiModel = new MTransaksiPasien();
@@ -52,6 +52,7 @@ public class KasirController {
 		
 		model.addAttribute("daftar", daftar);
 		model.addAttribute("transaksiModel", transaksiModel);
+		model.addAttribute("footerjs", "../kasir/inc/footerjs.jsp");
 		
 		return "kasir/tambah";
 	}

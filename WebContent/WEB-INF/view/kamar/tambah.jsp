@@ -6,14 +6,14 @@
     <section class="section">
         <div class="container">
             <div class="container" id="add_kamar_form">
-                <div class="card card-success">
-                    <div class="card-header" style="min-height: 0">
-                        <div class="header-block " style="padding: 5px 20px">
-                            <p class="title">Tambah Kamar</p>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="header-block ">
+                            <h3 class="title">Tambah Kamar</h3>
                         </div>
                     </div>
                     <form:form modelAttribute="kamarModel" method="POST" action="/kamar/store">
-                    <div class="card-block row" style="background-color: #f4f4f4">
+                    <div class="card-block row">
                         
                         <div class="col-6">
                             <div class="form-group">
@@ -80,7 +80,7 @@
                         <div class="container form-group" style="float: right;">
                             <button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
                             <button type="button" class="btn btn-danger d_pasien-button">
-                                <a href="/kamar/list">Batal</a>
+                                <a href="/kamar/list" style="color: white; text-decoration: none;">Batal</a>
                             </button>
                         </div>
                         

@@ -9,19 +9,15 @@
 
                 </div>
                 <div class="container">
-                    <div class="card card-success">
-                        <div class="card-header" style="min-height: 0">
-                            <div class="header-block" style="padding: 5px 20px">
-                                <p class="title">List Kamar</p>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="header-block">
+                                <h3 class="title">List Kamar</h3>
+                                <a href="/kamar/tambah" class="btn btn-success btn-sm" style="color: white" >Tambah Data</a>
                             </div>
                         </div>
 
-                        <div class="card-block" style="background-color: #f4f4f4">
-                            <button class="btn btn-primary">
-                                <a href="/kamar/tambah" />Tambah
-                                Data</a>
-                            </button>
-
+                        <div class="card-block">
                             <div class="table-responsive">
                                  <jsp:include page="inc/tabel.jsp" />
                             </div>

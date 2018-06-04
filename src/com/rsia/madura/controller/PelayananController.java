@@ -18,6 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 
 import com.rsia.madura.entity.MPendaftaran;
 import com.rsia.madura.entity.MPasien;
@@ -32,6 +38,7 @@ import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MParamPeriksa;
 import com.rsia.madura.entity.MIcd;
 import com.rsia.madura.entity.MIcd9;
+import com.rsia.madura.entity.MPenunjang;
 
 import com.rsia.madura.service.PendaftaranService;
 import com.rsia.madura.service.PelayananService;
@@ -47,6 +54,7 @@ import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.ParamPeriksaService;
 import com.rsia.madura.service.IcdService;
 import com.rsia.madura.service.Icd9Service;
+import com.rsia.madura.service.PenunjangService;
 
 // pelayanan == pendaftaran
 
@@ -81,8 +89,12 @@ public class PelayananController {
 	private IcdService icdService;
 	@Autowired
 	private Icd9Service icd9Service;
+	@Autowired
+	private PenunjangService penunjangService;
 	
 	private String uri ="redirect: /pelayanan";
+
+	private String json;
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model,
@@ -112,6 +124,7 @@ public class PelayananController {
 		List<MParamPeriksa> params = paramperiksaService.findAll();
 		List<MIcd> icds = icdService.findAll();
 		List<MIcd9> icd9s = icd9Service.findAll();
+		List<MPenunjang> penunjangs = penunjangService.findAll();
 		
 		model.addAttribute("pelayananModel", pelayananModel);
 		model.addAttribute("pasiens", pasiens);
@@ -126,6 +139,7 @@ public class PelayananController {
 		model.addAttribute("params", params);
 		model.addAttribute("icds", icds);
 		model.addAttribute("icd9s", icd9s);
+		model.addAttribute("penunjangs", penunjangs);
 		model.addAttribute("footerjs", "../pelayanan/inc/footerjs.jsp");
 		
 		return "pelayanan/update";
@@ -153,5 +167,14 @@ public class PelayananController {
 		
 		return "pelayanan/update";
 	}
+
+	@RequestMapping("data/{id}")
+	@ResponseBody
+	public MPendaftaran getById(@PathVariable int id) {
+		return pelayananService.getPelayanan(id);
+	}
+	
+
+
 
 }

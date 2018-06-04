@@ -42,8 +42,9 @@ public class PenunjangGroupController {
 		MPenunjangGroup penunjangGroupModel = new MPenunjangGroup();
 		
 		Map<String, String> laporan = new HashMap<String, String>();
-		laporan.put("1", "Nilai");
-		laporan.put("2", "Resum");
+		laporan.put("nilai", "Nilai");
+		laporan.put("file", "File");
+		laporan.put("kesimpulan", "kesimpulan");
 
 		model.addAttribute("penunjangGroups", penunjangGroups);
 		model.addAttribute("laporan", laporan);
@@ -63,8 +64,9 @@ public class PenunjangGroupController {
 		MPenunjangGroup penunjangGroupModel = penunjangGroupService.getById(id);
 
 		Map<String, String> laporan = new HashMap<String, String>();
-		laporan.put("1", "Nilai");
-		laporan.put("2", "Resum");
+		laporan.put("nilai", "Nilai");
+		laporan.put("file", "File");
+		laporan.put("kesimpulan", "kesimpulan");
 
 		model.addAttribute("penunjangGroups", penunjangGroups);
 		model.addAttribute("laporan", laporan);

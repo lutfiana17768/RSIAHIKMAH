@@ -77,6 +77,9 @@ public class MParamPeriksa {
 	@Column(name="paramperiksa_indent")
 	private int paramperiksaIndent;
 
+	@Column(name="paramperiksa_harga")
+	private Integer paramperiksaHarga;
+
 	@ManyToOne
 	private MPenunjang penunjang;
 
@@ -222,6 +225,14 @@ public class MParamPeriksa {
 
 	public void setParamperiksaIndent(int paramperiksaIndent) {
 		this.paramperiksaIndent = paramperiksaIndent;
+	}
+
+	public Integer getParamperiksaHarga() {
+		return paramperiksaHarga;
+	}
+
+	public void setParamperiksaHarga(Integer paramperiksaHarga) {
+		this.paramperiksaHarga = paramperiksaHarga;
 	}
 
 	public MPenunjang getPenunjang() {

@@ -31,16 +31,6 @@ public class MPeriksaPasien {
     @Transient // means "not a DB field"
     private Integer remove; // boolean flag
 
-	// change to relation
-	@Column(name = "periksapasien_pasien_id")
-	private Integer periksapasienPasienID;
-
-	@Column(name = "periksapasien_pasien_norm")
-	private String periksapasienPasienNorm;
-
-	@Column(name = "periksapasien_periksa_kode")
-	private String periksapasienPeriksaKode;
-
 	@Column(name = "periksapasien_periksa_nama")
 	private String periksapasienPeriksaNama;
 
@@ -65,14 +55,11 @@ public class MPeriksaPasien {
 	@Column(name = "periksapasien_periksa_keterangan")
 	private String periksapasienPeriksaKeterangan;
 
-	@Column(name = "periksapasien_dokter_id")
-	private Integer periksapasienDokterID;
+	// @Column(name = "periksapasien_dokter_id")
+	// private Integer periksapasienDokterID;
 
-	@Column(name = "periksapasien_unit_id")
-	private Integer periksapasienUnitID;
-
-	@Column(name = "periksapasien_kamarpasien_id")
-	private String periksapasienKamarpasienID;
+	// @Column(name = "periksapasien_unit_id")
+	// private Integer periksapasienUnitID;
 
 	@Column(name = "periksapasien_aktif")
 	private String periksapasienAktif;
@@ -107,6 +94,9 @@ public class MPeriksaPasien {
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 
+	@ManyToOne
+	private MPegawai pegawai;
+
 	public int getPeriksapasienID() {
 		return periksapasienID;
 	}
@@ -121,31 +111,6 @@ public class MPeriksaPasien {
 
 	public void setRemove(Integer remove) {
 		this.remove = remove;
-	}
-
-
-	public Integer getPeriksapasienPasienID() {
-		return periksapasienPasienID;
-	}
-
-	public void setPeriksapasienPasienID(Integer periksapasienPasienID) {
-		this.periksapasienPasienID = periksapasienPasienID;
-	}
-
-	public String getPeriksapasienPasienNorm() {
-		return periksapasienPasienNorm;
-	}
-
-	public void setPeriksapasienPasienNorm(String periksapasienPasienNorm) {
-		this.periksapasienPasienNorm = periksapasienPasienNorm;
-	}
-
-	public String getPeriksapasienPeriksaKode() {
-		return periksapasienPeriksaKode;
-	}
-
-	public void setPeriksapasienPeriksaKode(String periksapasienPeriksaKode) {
-		this.periksapasienPeriksaKode = periksapasienPeriksaKode;
 	}
 
 	public String getPeriksapasienPeriksaNama() {
@@ -212,29 +177,21 @@ public class MPeriksaPasien {
 		this.periksapasienPeriksaKeterangan = periksapasienPeriksaKeterangan;
 	}
 
-	public Integer getPeriksapasienDokterID() {
-		return periksapasienDokterID;
-	}
+	// public Integer getPeriksapasienDokterID() {
+	// 	return periksapasienDokterID;
+	// }
 
-	public void setPeriksapasienDokterID(Integer periksapasienDokterID) {
-		this.periksapasienDokterID = periksapasienDokterID;
-	}
+	// public void setPeriksapasienDokterID(Integer periksapasienDokterID) {
+	// 	this.periksapasienDokterID = periksapasienDokterID;
+	// }
 
-	public Integer getPeriksapasienUnitID() {
-		return periksapasienUnitID;
-	}
+	// public Integer getPeriksapasienUnitID() {
+	// 	return periksapasienUnitID;
+	// }
 
-	public void setPeriksapasienUnitID(Integer periksapasienUnitID) {
-		this.periksapasienUnitID = periksapasienUnitID;
-	}
-
-	public String getPeriksapasienKamarpasienID() {
-		return periksapasienKamarpasienID;
-	}
-
-	public void setPeriksapasienKamarpasienID(String periksapasienKamarpasienID) {
-		this.periksapasienKamarpasienID = periksapasienKamarpasienID;
-	}
+	// public void setPeriksapasienUnitID(Integer periksapasienUnitID) {
+	// 	this.periksapasienUnitID = periksapasienUnitID;
+	// }
 
 	public String getPeriksapasienAktif() {
 		return periksapasienAktif;
@@ -316,11 +273,20 @@ public class MPeriksaPasien {
 		this.periksapasienIndent = periksapasienIndent;
 	}
 
-	public void setPendaftaran(MPendaftaran pendaftaran) {
-		this.pendaftaran = pendaftaran;
-	}
-	
 	public MPendaftaran getPendaftaran() {
 		return pendaftaran;
 	}
+
+	public void setPendaftaran(MPendaftaran pendaftaran) {
+		this.pendaftaran = pendaftaran;
+	}
+
+	public MPegawai getPegawai() {
+		return pegawai;
+	}
+	
+	public void setPegawai(MPegawai pegawai) {
+		this.pegawai = pegawai;
+	}
+	
 }

@@ -39,7 +39,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Harga</label>
-                                <input type="text" name="tindakanpasienHarga" id="tindakanpasien_harga" class="form-control boxed">
+                                <input type="text" name="tindakanpasienHarga" id="tindakanpasienHarga" class="form-control boxed">
                             </div>
                             <input type="hidden" name="tindakanID" id="tindakanID">
                             <input type="hidden" name="tindakan_mode" id="tindakan_mode">

@@ -168,6 +168,16 @@ public class MPendaftaran {
 	@ManyToOne
 	private MTindakan tindakan;
 
+	public MPendaftaran() {
+
+	}
+
+	public MPendaftaran(int pendaftaranID, String pendaftaranNo, Integer pendaftaranNourut) {
+		this.pendaftaranID = pendaftaranID;
+		this.pendaftaranNo = pendaftaranNo;
+		this.pendaftaranNourut = pendaftaranNourut;
+	}
+
 	public int getPendaftaranID() {
 		return pendaftaranID;
 	}

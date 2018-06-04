@@ -8,15 +8,15 @@
 			 
 				 			 
 			<div class="container">
-				<div class="card card-success">
-					<div class="card-header" style="min-height:0">
-						<div class="header-block" style="padding: 5px 20px">
-							<p class="title"> Data Pasien </p>
+				<div class="card">
+					<div class="card-header">
+						<div class="header-block">
+							<h3 class="title"> Data Pasien </h3>
+							<a class="btn btn-primary btn-sm rounded-0" href="/pasien/tambah"/>Tambah Data</a>
 						</div>
 					</div>
 					
-					<div class="card-block" style="background-color: #f4f4f4">
-					<a class="btn btn-primary" href="/pasien/tambah"/>Tambah Data</a>
+					<div class="card-block">
                         <jsp:include page="inc/tabel.jsp" />
 					</div>
 				</div>

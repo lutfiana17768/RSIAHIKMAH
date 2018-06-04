@@ -131,36 +131,26 @@ public class PelayananServiceAction implements PelayananService{
 		}
 		
         List<MRiwayatPeriksa> delRiwayat = manageRiwayatPeriksa(data);
-        // List<MRiwayatPeriksa> delRiwayat = manageRiwayatPeriksa(data);
-        // List<MRiwayatPeriksa> delRiwayat = manageRiwayatPeriksa(data);
-        // List<MRiwayatPeriksa> delRiwayat = manageRiwayatPeriksa(data);
-        // List<MRiwayatPeriksa> delRiwayat = manageRiwayatPeriksa(data);
-        // List<MRiwayatPeriksa> delRiwayat = manageRiwayatPeriksa(data);
-        // List<MRiwayatPeriksa> delRiwayat = manageRiwayatPeriksa(data);
-        // List   xxxxxxxxxx
+        List<MPeriksaPasien> delPeriksa = managePeriksaPasien(data);
+        List<MDiagnosaPasien> delDiagnosaPasien = manageDiagnosaPasien(data);
+        List<MTindakanPasien> delTindakanPasien = manageTindakanPasien(data);
+        List<MDiagnosa9> delDiagnosa9 = manageDiagnosa9(data);
+        List<MPakai> delPakai = managePakai(data);
+        List<MResep> delResep = manageResep(data);
+        List<MPenunjangTrans> delPenunjangTrans = managePenunjangTrans(data);
+        List<MSoap> delSoap = manageSoap(data);
 
 		pelayananDAO.update(data);
 
-		// ini conto pertama
 		delRiwayat.forEach((riwayatperiksa) -> {
 			if (riwayatperiksa.getPeriksaID() != null) {
 				riwayatPeriksaDAO.RiwayatPeriksaDelete(riwayatperiksa);
 			}	
 		});
-		// lanjutakan kedua
-		// delRiwayat.forEach((riwayatperiksa) -> {
-		// 	if (riwayatperiksa.getPeriksaID() != null) {
-		// 		riwayatPeriksaDAO.RiwayatPeriksaDelete(riwayatperiksa);
-		// 	}	
-		// });
-		// delRiwayat.forEach((riwayatperiksa) -> {
-		// 	if (riwayatperiksa.getPeriksaID() != null) {
-		// 		riwayatPeriksaDAO.RiwayatPeriksaDelete(riwayatperiksa);
-		// 	}	
-		// });
-		// delRiwayat.forEach((riwayatperiksa) -> {
-		// 	if (riwayatperiksa.getPeriksaID() != null) {
-		// 		riwayatPeriksaDAO.RiwayatPeriksaDelete(riwayatperiksa);
+
+		// delPeriksa.forEach((periksa) -> {
+		// 	if (periksa.getPeriksaID() != null) {
+		// 		PeriksaPasienDAO.PeriksaPasienDelete(periksa);
 		// 	}	
 		// });
 

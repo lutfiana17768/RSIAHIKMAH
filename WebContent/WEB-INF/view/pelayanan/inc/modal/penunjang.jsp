@@ -7,7 +7,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Fisik</h4>
+                        <h4 class="modal-title">Tambah Penunjang Medis</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">X</span>
                             <span class="sr-only">Close</span>
@@ -16,8 +16,20 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-penunjangtrans" class="from-horizontal">
                             <div class="form-group">
-                                <label>Nama Pemeriksaan</label>
-                                <input type="text" name="penunjangtrans.penunjangID" id="penunjangID" class="form-control boxed">
+                                <label>Penunjang medis</label>
+                                <div class="select2-wrapper">
+                                    <select name="penunjangMedis" id="penunjangMedis" class="form-control boxed select2-single">
+                                        <option value="">--- Pilih Penunjang ---</option>
+                                        <c:forEach var="pnj" items="${penunjangs}">
+                                            <option value="${pnj.penunjangmedisID }" 
+                                                    data-standar="${pnj.paramperiksa[0].paramperiksaStandar}" 
+                                                    data-satuan="${pnj.paramperiksa[0].paramperiksaHarga}" 
+                                                    data-harga="${pnj.penunjangkelas[0].penunjangkelasHarga}">
+                                                ${pnj.penunjangmedisNama }
+                                            </option>   
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Hasil</label>

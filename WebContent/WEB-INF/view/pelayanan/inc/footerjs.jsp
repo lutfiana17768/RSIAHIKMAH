@@ -537,7 +537,17 @@
 
         }); 
 
-         $('#simpan-penunjangtrans').click(function(){
+
+         $('#penunjangMedis').change(function(){
+            var pnjSelected = $('#penunjangMedis option:selected')
+            console.log(pnjSelected)
+            console.log(pnjSelected.attr('data-harga'))
+            $('#penunjangtransStandar').val(pnjSelected.attr('data-standar'));
+            $('#penunjangtransSatuan').val(pnjSelected.attr('data-satuan'));
+            $('#penunjangtransHarga').val(pnjSelected.attr('data-harga'));
+         });
+
+        $('#simpan-penunjangtrans').click(function(){
             var penunjangtrans_tinggi,mode,counter,id_row;
             var mode = $('#penunjangtrans_mode').val();
 
@@ -556,15 +566,16 @@
             }
 
             penunjangtransID = $('#penunjangtransID').val() ||0;
-            penunjangtransNama = $('#penunjangtransNama').val() ||0;
+            penunjangMedis = $('#penunjangMedis').val();
+            penunjangtransNama = $('#penunjangMedis option:selected').text();
             penunjangtransHasil = $('#penunjangtransHasil').val() ||0;
             penunjangtransStandar = $('#penunjangtransStandar').val() ||0;
             penunjangtransSatuan = $('#penunjangtransSatuan').val() ||0;
             penunjangtransJumlah = $('#penunjangtransJumlah').val() ||0;
             penunjangtransHarga = $('#penunjangtransHarga').val() ||0;
-            penunjangtransSubtotal = $('#penunjangtransSubtotal').val() ||0;
+            penunjangtransSubtotal = $('#penunjangtransSubtotal').val(penunjangtransJumlah*penunjangtransHarga);
             
-            tr.append('<td data-used="1" data-save="1" data-name="penunjangtransNama" data-kolom-id="penunjangtransNama">'+penunjangtransNama+'</td>');
+            tr.append('<td>' + penunjangtransNama + '</td>');
             tr.append('<td data-used="1" data-save="1" data-name="penunjangtransHasil" data-kolom-id="penunjangtransHasil">'+penunjangtransHasil+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="penunjangtransStandar" data-kolom-id="penunjangtransStandar">'+penunjangtransStandar+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="penunjangtransSatuan" data-kolom-id="penunjangtransSatuan">'+penunjangtransSatuan+'</td>');
@@ -572,6 +583,7 @@
             tr.append('<td data-used="1" data-save="1" data-name="penunjangtransHarga" data-kolom-id="penunjangtransHarga">'+penunjangtransHarga+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="penunjangtransSubtotal" data-kolom-id="penunjangtransSubtotal">'+penunjangtransSubtotal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjangtrans('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPenunjangtrans('+counter+')">Edit</button></td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangtrans.penunjangtransID" data-kolom-id="penunjangMedis">' + penunjangMedis + '</td>');
             if (penunjangtransID) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangtransID" data-kolom-id="penunjangtransID">' + penunjangtransID + '</td>');
             }

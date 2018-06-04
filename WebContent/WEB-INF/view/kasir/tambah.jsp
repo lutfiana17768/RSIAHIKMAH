@@ -2,6 +2,8 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value = "in_ID"/>
 <jsp:include page="../app/header.jsp" />
 
 	<section class="section">
@@ -22,7 +24,7 @@
 					<div class="card-block">
 						<div class="form-group">
 		                    <label>Total Tagihan</label>
-		                    <input type="text" placeholder="Masukan Total Tagihan" class="form-control boxed">
+		                    <input type="text" id="total_tagihan" placeholder="Masukan Total Tagihan" class="form-control boxed">
 		                </div>
 						<div class="form-group">
 		                    <label>Total Dibayar</label>
@@ -119,37 +121,24 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</section>
-					</div>
-					<div class="card-block">
-						<section class="list-paket">
-							<div class="table-responsive">
-								<table class="table table-striped table-bordered table-hover">
-									<thead>
-										<tr>
-											<th>Keterangan</th>
-											<th>Jumlah</th>
-											<th>Biaya</th>
-											<th>Cover</th>
-											<th>Subtotal</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										</tr>
+										<c:forEach var="tp" items="${daftar.tindakanpasien}" varStatus="loop">
+											<tr>
+												<td>${tp.tindakan.tindakanNama}</td>
+												<td>1</td>
+										        <td><fmt:formatNumber value = "${tp.tindakanpasienHarga}" type = "currency"/></td>
+												<td>0</td>
+												<td class="kasir-sub-total"><fmt:formatNumber value = "${tp.tindakanpasienHarga}" type = "currency"/></td>
+											</tr>
+										</c:forEach>
+										<c:forEach var="pnj" items="${daftar.penunjangtrans}" varStatus="loop">
+											<tr>
+												<td>${pnj.penunjang.penunjangmedisNama}</td>
+												<td>${pnj.penunjangtransJumlah}</td>
+										        <td><fmt:formatNumber value = "${pnj.penunjangtransHarga}" type = "currency"/></td>
+												<td>0</td>
+												<td class="kasir-sub-total"><fmt:formatNumber value = "${pnj.penunjangtransHarga * pnj.penunjangtransJumlah}" type = "currency"/></td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>

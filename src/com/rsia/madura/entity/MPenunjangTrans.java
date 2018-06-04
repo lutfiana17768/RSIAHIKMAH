@@ -36,6 +36,9 @@ public class MPenunjangTrans {
 
 	@Column(name="penunjangtrans_jumlah")
 	private Integer penunjangtransJumlah;
+
+	@Column(name="penunjangtrans_harga")
+	private Integer penunjangtransHarga;
 	
 	@ManyToOne
 	private MPenunjang penunjang;	
@@ -73,6 +76,14 @@ public class MPenunjangTrans {
 
 	public void setPenunjangtransJumlah(Integer penunjangtransJumlah) {
 		this.penunjangtransJumlah = penunjangtransJumlah;
+	}
+
+	public Integer getPenunjangtransHarga() {
+		return penunjangtransHarga;
+	}
+
+	public void setPenunjangtransHarga(Integer penunjangtransHarga) {
+		this.penunjangtransHarga = penunjangtransHarga;
 	}
 
 	public MPenunjang getPenunjang() {
