@@ -2,6 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html>
 <head>
@@ -135,9 +136,7 @@
                             </td>
                             
                             <td>
-                                Acme Corp.<br>
-                                John Doe<br>
-                                john@example.com
+                                ${daftar.pendaftaranNo}
                             </td>
                         </tr>
                     </table>
@@ -145,71 +144,71 @@
             </tr>
             
             <tr class="heading">
-                <td>
-                    Payment Method
-                </td>
-                
-                <td>
-                    Check #
-                </td>
-            </tr>
-            
-            <tr class="details">
-                <td>
-                    Check
-                </td>
-                
-                <td>
-                    1000
-                </td>
-            </tr>
-            
-            <tr class="heading">
-                <td>
-                    Item
-                </td>
-                
-                <td>
-                    Price
-                </td>
-            </tr>
-            
-            <tr class="item">
-                <td>
-                    Website design
-                </td>
-                
-                <td>
-                    $300.00
-                </td>
-            </tr>
-            
-            <tr class="item">
-                <td>
-                    Hosting (3 months)
-                </td>
-                
-                <td>
-                    $75.00
-                </td>
-            </tr>
-            
-            <tr class="item last">
-                <td>
-                    Domain name (1 year)
-                </td>
-                
-                <td>
-                    $10.00
-                </td>
-            </tr>
-            
-            <tr class="total">
-                <td></td>
-                
-                <td>
-                   Total: $385.00
-                </td>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Keterangan</th>
+                            <th>Jumlah</th>
+                            <th>Biaya</th>
+                            <th>Cover</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:set var = "totalTindakan" value = "${0}"/>
+                        <c:forEach var="tp" items="${daftar.tindakanpasien}" varStatus="loop">
+                            <c:set var = "subTindakan" value = "${tp.tindakanpasienHarga}"/>
+                            <c:set var = "totalTindakan" value = "${totalTindakan + subTindakan}"/>
+                            <tr>
+                                <td>${tp.tindakan.tindakanNama}</td>
+                                <td>1</td>
+                                <td><fmt:formatNumber value = "${tp.tindakanpasienHarga}" maxFractionDigits = "3"/></td>
+                                <td>0</td>
+                                <td class="kasir-sub-total"><fmt:formatNumber value = "${subTindakan}" maxFractionDigits = "3"/></td>
+                            </tr>
+                        </c:forEach>
+
+                        <c:set var = "totalPenunjang" value = "${0}"/>
+                        <c:forEach var="pnj" items="${daftar.penunjangtrans}" varStatus="loop">
+                            <c:set var = "subPenunjang" value = "${pnj.penunjangtransHarga * pnj.penunjangtransJumlah}"/>
+                            <c:set var = "totalPenunjang" value = "${totalPenunjang + subPenunjang}"/>
+                            <tr>
+                                <td>${pnj.penunjang.penunjangmedisNama}</td>
+                                <td>${pnj.penunjangtransJumlah}</td>
+                                <td><fmt:formatNumber value = "${pnj.penunjangtransHarga}" maxFractionDigits = "3"/></td>
+                                <td>0</td>
+                                <td class="kasir-sub-total"><fmt:formatNumber value = "${subPenunjang}" maxFractionDigits = "3"/></td>
+                            </tr>
+                        </c:forEach>
+
+                        <c:set var = "totalTerapi" value = "${0}"/>
+                        <c:forEach var="trp" items="${daftar.terapi}" varStatus="loop">
+                            <c:set var = "subTerapi" value = "${trp.terapiJumlah * trp.terapiHarga}"/>
+                            <c:set var = "totalTerapi" value = "${totalTerapi + subTerapi}"/>
+                            <tr>
+                                <td><% /**${trp.barang.NamaBarang} **/ %></td>
+                                <td>${trp.terapiJumlah}</td>
+                                <td><fmt:formatNumber value = "${trp.terapiHarga}" maxFractionDigits = "3"/></td>
+                                <td>0</td>
+                                <td class="kasir-sub-total"><fmt:formatNumber value = "${subTerapi}" maxFractionDigits = "3"/></td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" align="right">Total Tagihan</td>
+                            <td>${totalTindakan+totalPenunjang+totalTerapi}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="right">Uang Bayar</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="right">Uang Kembali</td>
+                            <td>-</td>
+                        </tr>
+                    </tfoot>
+                </table>
             </tr>
         </table>
     </div>

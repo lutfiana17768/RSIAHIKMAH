@@ -5,29 +5,29 @@
 <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
-            <th>No Gaji</th>
-            <th>Tanggal Bayar Gaji</th>
-            <th>Gaji Bulanan</th>
-            <th>Gaji Tahunan</th>
-            <th>Gaji Pokok</th>
-            <th>Pendapatan Gaji</th>
-            <th>Bonus Gaji</th>
-            <th>Keterangan</th>
-            <th colspan="2">Action</th>
+            <th style="font-size: 14px;">No Gaji</th>
+            <th style="font-size: 14px;">Tanggal Bayar Gaji</th>
+            <th style="font-size: 14px;">Gaji Bulanan</th>
+            <th style="font-size: 14px;">Gaji Tahunan</th>
+            <th style="font-size: 14px;">Gaji Pokok</th>
+            <th style="font-size: 14px;">Pendapatan Gaji</th>
+            <th style="font-size: 14px;">Bonus Gaji</th>
+            <th style="font-size: 14px;">Keterangan</th>
+            <th colspan="2" style="font-size: 14px;">Action</th>
         </tr>
     </thead>
     <tbody>
          <c:forEach var="tempgaji" items="${gaji}">
             <tr>
-              <td> ${tempgaji.gajiNo } </td>
-              <td> ${tempgaji.gajiTglBayar } </td>
-              <td> ${tempgaji.gajiBulan } </td>
-              <td> ${tempgaji.gajiTahun } </td>
-              <td> ${tempgaji.gajiPokok } </td>
-              <td> ${tempgaji.gajiPendapatan } </td>
-              <td> ${tempgaji.gajiBonus } </td>
-              <td> ${tempgaji.gajiKeterangan } </td>
-              <td> <a href="/gaji/update/${tempgaji.gaji_id}" class="btn btn-info">Update</a>
+              <td style="font-size: 12px;"> ${tempgaji.gajiNo } </td>
+              <td style="font-size: 12px;"> ${tempgaji.gajiTglBayar } </td>
+              <td style="font-size: 12px;"> ${tempgaji.gajiBulan } </td>
+              <td style="font-size: 12px;"> ${tempgaji.gajiTahun } </td>
+              <td style="font-size: 12px;"> ${tempgaji.gajiPokok } </td>
+              <td style="font-size: 12px;"> ${tempgaji.gajiPendapatan } </td>
+              <td style="font-size: 12px;"> ${tempgaji.gajiBonus } </td>
+              <td style="font-size: 12px;"> ${tempgaji.gajiKeterangan } </td>
+              <td style="font-size: 12px;"> <a href="/gaji/update/${tempgaji.gaji_id}" class="btn btn-info">Update</a>
                <a href="/gaji/delete/${tempgaji.gaji_id}" class="btn btn-warning">Delete</a></td>
             </tr>
         </c:forEach>

@@ -3,7 +3,6 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:setLocale value = "in_ID"/>
 <jsp:include page="../app/header.jsp" />
 
 	<section class="section">
@@ -12,204 +11,183 @@
 				<div class="header-block w-100">
 					<h3 class="title pt-2"> Kasir </h3>
 					<div class="btn-group btn-group pull-right" role="group">
-						<button class="btn btn-success rounded-0">Simpan dan Cetak Kuitansi</button>
-						<button class="btn btn-success rounded-0">Simpan dan Cetak Bukti</button>
-						<button class="btn btn-success rounded-0">Simpan</button>
+						<button class="btn btn-success rounded-0" id="kasir-submit-kuitansi">Simpan dan Cetak Kuitansi</button>
+						<button class="btn btn-success rounded-0" id="kasir-submit-tagihan">Simpan dan Cetak Bukti</button>
+						<button class="btn btn-success rounded-0" id="kasir-submit">Simpan</button>
 						<button class="btn btn-danger rounded-0">Batas</button>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="card-block">
-						<div class="form-group">
-		                    <label>Total Tagihan</label>
-		                    <input type="text" id="total_tagihan" placeholder="Masukan Total Tagihan" class="form-control boxed">
-		                </div>
-						<div class="form-group">
-		                    <label>Total Dibayar</label>
-		                    <input type="text" placeholder="Masukan Total Bayar" class="form-control boxed">
-		                </div>
-						<div class="form group">
-		                    <label>Deposit</label>
-		                    <input type="text" placeholder="Deposit" class="form-control boxed">
-		                </div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="card-block">
-						<ul class="nav nav-tabs nav-tabs-bordered" id="myTab" role="tablist">
-							<li class="nav-item">
-								<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Cara Bayar 1</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Cara Bayar 2</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Cara Bayar 3</a>
-							</li>
-						</ul>
-						<div class="tab-content tabs-bordered" id="myTabContent">
-							<div class="tab-pane fade pb-3 show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-								<div class="form group row mb-3">
-		        		            <label class="col-sm-2 col-form-label" for="select-harga">Cara bayar</label>
-		        		            <div class="col-sm-10">
-			                		    <select name="" class="boxed form-control" id="select-harga">
-			                		    	<option value="">TUNAI</option>
-			                		    	<option value="">KREDIT</option>
-			                		    </select>
-		        		            </div>
-		                		</div>
-		                		<div class="form group row mb-3">
-		        		            <label class="col-sm-2 col-form-label" for="select-harga">Kembalian</label>
-		        		            <div class="col-sm-10">
-			                		    <input type="text" class="form-control boxed" placeholder="Kembalian">
-		        		            </div>
-		                		</div>
+			<form:form modelAttribute="transaksiModel" id="kasir-form" method="POST" action="/kasir/store">
+				<c:if test="${transaksiDaftarID.transaksiID != null}">
+					<input type="hidden" name="transaksiID" value="${transaksiDaftarID.transaksiID}">
+				</c:if>
+				<input type="hidden" name="pendaftaran.pendaftaranID" value="${daftarID}" />
+				<div class="row">
+					<div class="col-sm-7">
+						<div class="card-block">
+							<div class="form-group row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">Tgl. MRS : </label>
+								<div class="col-sm-8">
+									${daftar.pendaftaranMrs}
+								</div>
 							</div>
-							<div class="tab-pane fade pb-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-								<div class="form group row mb-3">
-		        		            <label class="col-sm-2 col-form-label" for="select-harga">Cara bayar</label>
-		        		            <div class="col-sm-10">
-			                		    <select name="" class="boxed form-control" id="select-harga">
-			                		    	<option value="">TUNAI</option>
-			                		    	<option value="">KREDIT</option>
-			                		    </select>
-		        		            </div>
-		                		</div>
-		                		<div class="form group row mb-3">
-		        		            <label class="col-sm-2 col-form-label" for="select-harga">Kembalian</label>
-		        		            <div class="col-sm-10">
-			                		    <input type="text" class="form-control boxed" placeholder="Kembalian">
-		        		            </div>
-		                		</div>
+							<div class="form-group row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">No Daftar : </label>
+								<div class="col-sm-8">
+									${daftar.pendaftaranNo}
+								</div>
 							</div>
-							<div class="tab-pane fade pb-3" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-								<div class="form group row mb-3">
-		        		            <label class="col-sm-2 col-form-label" for="select-harga">Cara bayar</label>
-		        		            <div class="col-sm-10">
-			                		    <select name="" class="boxed form-control" id="select-harga">
-			                		    	<option value="">TUNAI</option>
-			                		    	<option value="">KREDIT</option>
-			                		    </select>
-		        		            </div>
-		                		</div>
-		                		<div class="form group row mb-3">
-		        		            <label class="col-sm-2 col-form-label" for="select-harga">Kembalian</label>
-		        		            <div class="col-sm-10">
-			                		    <input type="text" class="form-control boxed" placeholder="Kembalian">
-		        		            </div>
-		                		</div>
+							<div class="form-group row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">Dokter : </label>
+								<div class="col-sm-8">
+									${daftar.pegawai.pegawaiNama}
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">No. RM : </label>
+								<div class="col-sm-8">
+									${daftar.pasien.pasienNorm}
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">Nama : </label>
+								<div class="col-sm-8">
+									${daftar.pasien.pasienNama}
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">Tgl Lahir : </label>
+								<div class="col-sm-8">
+									${daftar.pasien.pasienTanggallahir}
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">Alamat : </label>
+								<div class="col-sm-8">
+									${daftar.pasien.pasienAlamat}
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">L/P : </label>
+								<div class="col-sm-8">
+									${daftar.pasien.pasienKelamin}
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">No. Telp : </label>
+								<div class="col-sm-8">
+									${daftar.pasien.pasienNotelp}
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">Pembayaran : </label>
+								<div class="col-sm-8">
+									_++_+_+_+_+_+
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-8">
-					<div class="card-block">
-						<section class="list-paket">
-							<div class="table-responsive">
-								<table class="table table-striped table-bordered table-hover">
-									<thead>
-										<tr>
-											<th>Keterangan</th>
-											<th>Jumlah</th>
-											<th>Biaya</th>
-											<th>Cover</th>
-											<th>Subtotal</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="tp" items="${daftar.tindakanpasien}" varStatus="loop">
+						<div class="card-block">
+							<section class="list-paket">
+								<div class="table-responsive">
+									<table class="table table-sm table-striped table-bordered table-hover">
+										<thead>
 											<tr>
-												<td>${tp.tindakan.tindakanNama}</td>
-												<td>1</td>
-										        <td><fmt:formatNumber value = "${tp.tindakanpasienHarga}" type = "currency"/></td>
-												<td>0</td>
-												<td class="kasir-sub-total"><fmt:formatNumber value = "${tp.tindakanpasienHarga}" type = "currency"/></td>
+												<th>Keterangan</th>
+												<th>Jumlah</th>
+												<th>Biaya</th>
+												<th>Cover</th>
+												<th>Subtotal</th>
 											</tr>
-										</c:forEach>
-										<c:forEach var="pnj" items="${daftar.penunjangtrans}" varStatus="loop">
-											<tr>
-												<td>${pnj.penunjang.penunjangmedisNama}</td>
-												<td>${pnj.penunjangtransJumlah}</td>
-										        <td><fmt:formatNumber value = "${pnj.penunjangtransHarga}" type = "currency"/></td>
-												<td>0</td>
-												<td class="kasir-sub-total"><fmt:formatNumber value = "${pnj.penunjangtransHarga * pnj.penunjangtransJumlah}" type = "currency"/></td>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+										</thead>
+										<tbody>
+											<c:set var = "totalTindakan" value = "${0}"/>
+											<c:set var = "itemIndex" value = "${0}"/>
+											<c:forEach var="tp" items="${daftar.tindakanpasien}" varStatus="loop">
+												<c:set var = "subTindakan" value = "${tp.tindakanpasienHarga}"/>
+												<c:set var = "totalTindakan" value = "${totalTindakan + subTindakan}"/>
+												<tr>
+													<td>${tp.tindakan.tindakanNama}</td>
+													<td>1</td>
+											        <td><fmt:formatNumber value = "${tp.tindakanpasienHarga}" maxFractionDigits = "3"/></td>
+													<td>0</td>
+													<td class="kasir-sub-total"><fmt:formatNumber value = "${subTindakan}" maxFractionDigits = "3"/></td>
+												</tr>
+												<input type="hidden" name="item[${loop.index}].transaksiItemNama" value="${tp.tindakan.tindakanNama}">
+												<input type="hidden" name="item[${loop.index}].transaksiItemJumlah" value="1">
+												<input type="hidden" name="item[${loop.index}].transaksiItemharga" value="${tp.tindakanpasienHarga}">
+												<c:set var = "itemIndex" value = "${itemIndex}+1"/>
+											</c:forEach>
+
+											<c:set var = "totalPenunjang" value = "${0}"/>
+											<c:forEach var="pnj" items="${daftar.penunjangtrans}" varStatus="loop">
+												<c:set var = "subPenunjang" value = "${pnj.penunjangtransHarga * pnj.penunjangtransJumlah}"/>
+												<c:set var = "totalPenunjang" value = "${totalPenunjang + subPenunjang}"/>
+												<tr>
+													<td>${pnj.penunjang.penunjangmedisNama}</td>
+													<td>${pnj.penunjangtransJumlah}</td>
+											        <td><fmt:formatNumber value = "${pnj.penunjangtransHarga}" maxFractionDigits = "3"/></td>
+													<td>0</td>
+													<td class="kasir-sub-total"><fmt:formatNumber value = "${subPenunjang}" maxFractionDigits = "3"/></td>
+												</tr>
+												<input type="hidden" name="item[${loop.index}].transaksiItemNama">
+												<input type="hidden" name="item[${loop.index}].transaksiItemJumlah">
+												<input type="hidden" name="item[${loop.index}].transaksiItemharga">
+												<c:set var = "itemIndex" value = "${itemIndex}+1"/>
+											</c:forEach>
+
+											<c:set var = "totalTerapi" value = "${0}"/>
+											<c:forEach var="trp" items="${daftar.terapi}" varStatus="loop">
+												<c:set var = "subTerapi" value = "${trp.terapiJumlah * trp.terapiHarga}"/>
+												<c:set var = "totalTerapi" value = "${totalTerapi + subTerapi}"/>
+												<tr>
+													<td><% /**${trp.barang.NamaBarang} **/ %></td>
+													<td>${trp.terapiJumlah}</td>
+											        <td><fmt:formatNumber value = "${trp.terapiHarga}" maxFractionDigits = "3"/></td>
+													<td>0</td>
+													<td class="kasir-sub-total"><fmt:formatNumber value = "${subTerapi}" maxFractionDigits = "3"/></td>
+												</tr>
+												<input type="hidden" name="item[${loop.index}].transaksiItemNama">
+												<input type="hidden" name="item[${loop.index}].transaksiItemJumlah">
+												<input type="hidden" name="item[${loop.index}].transaksiItemharga">
+												<c:set var = "itemIndex" value = "${itemIndex}+1"/>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</section>
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div class="card-block">
+							<div class="form-group">
+								<c:set var = "totalTagihan" value = "${totalTindakan+totalPenunjang+totalTerapi}"/>
+			                    <label>Total Tagihan</label>
+			                    <input type="text" name="transaksiTagihan" class="form-control form-control-sm boxed" 
+			                    value='<fmt:formatNumber value = "${totalTagihan}" maxFractionDigits = "3"/>' disabled />
+			                </div>
+							<div class="form-group">
+			                    <label>Total Terbayar</label>
+			                    <input type="text" class="form-control form-control-sm boxed"
+			                    value='<fmt:formatNumber value = "${sudahBayar}" maxFractionDigits = "3"/>' disabled />
+			                </div>
+							<div class="form-group">
+			                    <label>Harus Dibayar</label>
+			                    <input type="text" class="form-control form-control-sm boxed" id="harus-bayar"
+			                    value='<fmt:formatNumber value = "${totalTagihan-sudahBayar}" maxFractionDigits = "3"/>' disabled />
+			                </div>
+							<div class="form-group">
+								<label>Uang Bayar</label>
+								<input type="text" name="bayar[0].transaksiBayarNominal" id="uang-bayar" class="form-control form-control-sm">
 							</div>
-						</section>
+							<div class="form-group">
+								<label>Kembalian</label>
+								<input type="text" id="kembalian" class="form-control form-control-sm" disabled>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-sm-4">
-					<form>
-						<div class="form-group row">
-							<label for="staticEmail" class="col-sm-4 col-form-label">Tgl. MRS : </label>
-							<div class="col-sm-8">
-								${daftar.pendaftaranMrs}
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="staticEmail" class="col-sm-4 col-form-label">No Daftar : </label>
-							<div class="col-sm-8">
-								${daftar.pendaftaranNo}
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="staticEmail" class="col-sm-4 col-form-label">Dokter : </label>
-							<div class="col-sm-8">
-								${daftar.pegawai.pegawaiNama}
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="staticEmail" class="col-sm-4 col-form-label">No. RM : </label>
-							<div class="col-sm-8">
-								${daftar.pasien.pasienNorm}
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="staticEmail" class="col-sm-4 col-form-label">Nama : </label>
-							<div class="col-sm-8">
-								${daftar.pasien.pasienNama}
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="staticEmail" class="col-sm-4 col-form-label">Tgl Lahir : </label>
-							<div class="col-sm-8">
-								${daftar.pasien.pasienTanggallahir}
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="staticEmail" class="col-sm-4 col-form-label">Alamat : </label>
-							<div class="col-sm-8">
-								${daftar.pasien.pasienAlamat}
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="staticEmail" class="col-sm-4 col-form-label">L/P : </label>
-							<div class="col-sm-8">
-								${daftar.pasien.pasienKelamin}
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="staticEmail" class="col-sm-4 col-form-label">No. Telp : </label>
-							<div class="col-sm-8">
-								${daftar.pasien.pasienNotelp}
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="staticEmail" class="col-sm-4 col-form-label">Pembayaran : </label>
-							<div class="col-sm-8">
-								_++_+_+_+_+_+
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
+			</form:form>
 		</div>
 	</section>
 <jsp:include page="../app/footer.jsp" />

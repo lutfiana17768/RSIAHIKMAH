@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.FetchType;
 import javax.persistence.CascadeType;
+import javax.persistence.Transient;
+import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.LazyCollection;
 
 @Entity
 @Table(name="t_transaksi_pasien")
@@ -20,7 +23,7 @@ public class MTransaksiPasien {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="transaksi_id")
-	private int transaksiID;
+	private Integer transaksiID;
 	
 	@Column(name="transaksi_nomor")
 	private String transaksiNomor;
@@ -66,16 +69,21 @@ public class MTransaksiPasien {
 	private Timestamp transaksiDeletedDate;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "transaksi", cascade = CascadeType.ALL, orphanRemoval=true)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MTransaksiBayar> bayar;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "transaksi", cascade = CascadeType.ALL, orphanRemoval=true)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MTransaksiItem> item;
 
-	public int getTransaksiID() {
+    @Transient
+    private Integer uangBayar;
+
+	public Integer getTransaksiID() {
 		return transaksiID;
 	}
 
-	public void setTransaksiID(int transaksiID) {
+	public void setTransaksiID(Integer transaksiID) {
 		this.transaksiID = transaksiID;
 	}
 
@@ -206,11 +214,25 @@ public class MTransaksiPasien {
 	public void setItem(List<MTransaksiItem> item) {
 		this.item = item;
 	}
+
+	public Integer getUangBayar() {
+		return uangBayar;
+	}
+
+	public void setUangBayar(Integer uangBayar) {
+		this.uangBayar = uangBayar;
+	}
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "MTransaksiPasien [transaksiID=" + transaksiID + " transaksiNomor=" + transaksiNomor + " transaksiKeterangan=" 
+				+ transaksiKeterangan + " transaksiAktif=" + transaksiAktif + " pendaftaran=" 
+				+ pendaftaran + " transaksiTagihan=" + transaksiTagihan + " transaksiPotongan=" 
+				+ transaksiPotongan + " transaksiDiskon=" + transaksiDiskon + " transaksiStatus=" 
+				+ transaksiStatus + " transaksiCreatedBy=" + transaksiCreatedBy + " transaksiCreatedDate=" 
+				+ transaksiCreatedDate + " transaksiUpdatedBy=" + transaksiUpdatedBy + " transaksiUpdatedDate=" 
+				+ transaksiUpdatedDate + " transaksiRevised=" + transaksiRevised + " transaksiDeletedDate=" 
+				+ transaksiDeletedDate + "]";
 	}
 	
 }

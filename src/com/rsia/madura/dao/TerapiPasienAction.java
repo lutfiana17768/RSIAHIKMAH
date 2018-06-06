@@ -1,3 +1,9 @@
+/*
+* @Author: Pradesga Indonesia
+* @Date:   2018-05-30 11:15:23
+* @Last Modified by:   Pradesga Indonesia
+* @Last Modified time: 2018-05-30 11:22:51
+*/
 package com.rsia.madura.dao;
 
 import java.util.List;
@@ -8,68 +14,46 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rsia.madura.entity.MTransaksiPasien;
+import com.rsia.madura.entity.MTerapiPasien;
 
 @Repository
-public class TransaksiPasienAction implements TransaksiPasienDAO {
+public class TerapiPasienAction implements TerapiPasienDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	public int total;
 
 	@Override
-	public List<MTransaksiPasien> getTransaksiPasiens() {
+	public List<MTerapiPasien> getTerapiPasiens() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<MTransaksiPasien> query = current.createQuery("from MTransaksiPasien", MTransaksiPasien.class);
+		Query<MTerapiPasien> query = current.createQuery("from MTerapiPasien", MTerapiPasien.class);
 
-		List<MTransaksiPasien> transaksi = query.getResultList();
+		List<MTerapiPasien> terapi = query.getResultList();
 
-		return transaksi;
+		return terapi;
 	}
 
 	@Override
-	public List<MTransaksiPasien> getTransaksiPasiens(int page, int limit) {
+	public List<MTerapiPasien> getTerapiPasiens(int page, int limit) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MTransaksiPasien> query = current.createQuery("from MTransaksiPasien", MTransaksiPasien.class);
-		List<MTransaksiPasien> transaksi = query.getResultList();
-		this.total = transaksi.size();
-		transaksi = this.getData(page, limit);
+		Query<MTerapiPasien> query = current.createQuery("from MTerapiPasien", MTerapiPasien.class);
+		List<MTerapiPasien> terapi = query.getResultList();
+		this.total = terapi.size();
+		terapi = this.getData(page, limit);
 
-		return transaksi;
+		return terapi;
 	}
 
-	public List<MTransaksiPasien> getData(int page, int limit) {
+	public List<MTerapiPasien> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MTransaksiPasien> query = current.createQuery("from MTransaksiPasien", MTransaksiPasien.class).setFirstResult((page - 1) * limit)
+		Query<MTerapiPasien> query = current.createQuery("from MTerapiPasien", MTerapiPasien.class).setFirstResult((page - 1) * limit)
 				.setMaxResults(limit);
-		List<MTransaksiPasien> Result = query.getResultList();
+		List<MTerapiPasien> Result = query.getResultList();
 
 		return Result;
-	}
-
-	@Override
-	public MTransaksiPasien findBy(String key, String value) {
-		// TODO Auto-generated method stub
-		Session current = sessionFactory.getCurrentSession();
-		Query<MTransaksiPasien> query = current.createQuery("from MTransaksiPasien where " + key + " = '" + value + "'", MTransaksiPasien.class);		
-		query.setMaxResults(1);
-		MTransaksiPasien transaksi = (MTransaksiPasien) query.uniqueResult();
-
-
-		return transaksi;
-	}
-
-	@Override
-	public List<MTransaksiPasien> findsBy(String key, String value) {
-		// TODO Auto-generated method stub
-		Session current = sessionFactory.getCurrentSession();
-		Query<MTransaksiPasien> query = current.createQuery("from MTransaksiPasien where " + key + " = '" + value + "'", MTransaksiPasien.class);
-		List<MTransaksiPasien> transaksi = query.getResultList();
-
-		return transaksi;
 	}
 
 	@Override
@@ -113,35 +97,35 @@ public class TransaksiPasienAction implements TransaksiPasienDAO {
 	}
 
 	@Override
-	public MTransaksiPasien getTransaksiPasien(int id) {
+	public MTerapiPasien getTerapiPasien(int terapiId) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		MTransaksiPasien result = current.get(MTransaksiPasien.class, id);
+		MTerapiPasien result = current.get(MTerapiPasien.class, terapiId);
 
 		return result;
 	}
 
 	@Override
-	public int TransaksiPasienStore(MTransaksiPasien TransaksiPasienModel) {
+	public int TerapiPasienStore(MTerapiPasien TerapiPasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		return (int)current.save(TransaksiPasienModel);
+		return (int)current.save(TerapiPasienModel);
 
 	}
 
 	@Override
-	public void TransaksiPasienUpdate(MTransaksiPasien TransaksiPasienModel) {
+	public void TerapiPasienUpdate(MTerapiPasien TerapiPasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.saveOrUpdate(TransaksiPasienModel);
+		current.saveOrUpdate(TerapiPasienModel);
 	}
 
 	@Override
-	public void TransaksiPasienDelete(MTransaksiPasien TransaksiPasienModel) {
+	public void TerapiPasienDelete(MTerapiPasien TerapiPasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.saveOrUpdate(TransaksiPasienModel);
+		current.saveOrUpdate(TerapiPasienModel);
 
 	}
 }

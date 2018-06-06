@@ -8,7 +8,7 @@
                             <thead>
                                 <tr>
                                     <th>Barang</th>
-                                    <th>Satuan</th>
+                                    <th>Dosis</th>
                                     <th>Jumlah</th>
                                     <th>Harga</th>
                                     <th>Sub Total</th>
@@ -17,19 +17,19 @@
                                 </tr>
                             </thead>
                             <tbody id="pelayanan-pakai-list" class="table-form">
-                            	<c:forEach var="p" items="${pelayananModel.pakai}" varStatus="loop">
+                            	<c:forEach var="trp" items="${pelayananModel.terapi}" varStatus="loop">
 									<tr id="pakai_${loop.index+1}">
-										<td data-used="1" data-save="1" data-name="pakaiBarang" data-kolom-id="pakaiBarang">${p.barang.NamaBarang}</td>
-										<td data-used="1" data-save="1" data-name="pakaiSatuan" data-kolom-id="pakaiSatuan">${p.pakaiSatuan}</td>
-										<td data-used="1" data-save="1" data-name="pakaiJumlah" data-kolom-id="pakaiJumlah">${p.pakaiJumlah}</td>
-										<td data-used="1" data-save="1" data-name="pakaiHarga" data-kolom-id="pakaiHarga">${p.pakaiHarga}</td>
-										<td data-used="1" data-save="1" data-name="pakaiSubtotal" data-kolom-id="pakaiSubtotal">${p.pakaiJumlah*p.pakaiHarga}</td>
-										<td data-used="1" data-save="1" data-name="pakaiKeterangan" data-kolom-id="pakaiKeterangan">${p.pakaiKeterangan}</td>
+										<td data-used="1" data-save="1" data-name="pakaiBarang" data-kolom-id="pakaiBarang"><% /**${trp.barang.NamaBarang} **/ %></td> 
+										<td data-used="1" data-save="1" data-name="pakaiSatuan" data-kolom-id="pakaiSatuan">${trp.terapiDosis}</td>
+										<td data-used="1" data-save="1" data-name="pakaiJumlah" data-kolom-id="pakaiJumlah">${trp.terapiJumlah}</td>
+										<td data-used="1" data-save="1" data-name="pakaiHarga" data-kolom-id="pakaiHarga">${trp.terapiHarga}</td>
+										<td data-used="1" data-save="1" data-name="pakaiSubtotal" data-kolom-id="pakaiSubtotal">${trp.terapiJumlah*p.pakaiHarga}</td>
+										<td data-used="1" data-save="1" data-name="pakaiKeterangan" data-kolom-id="pakaiKeterangan">${trp.terapiKeterangan}</td>
 										<td>
 											<button type="button" class="btn btn-danger btn-sm" onclick="deletePakai(${loop.index+1})">Delete</button>
 											<button type="button" class="btn btn-primary btn-sm" onclick="editPakai(${loop.index+1})">Edit</button>
 										</td>
-                                        <td style="display:none" data-used="1" data-save="1" data-name="pakaiID" data-kolom-id="pakaiID">${p.pakaiID}</td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="pakaiID" data-kolom-id="pakaiID">${trp.terapiID}</td>
 									</tr>
 								</c:forEach>
                             </tbody>

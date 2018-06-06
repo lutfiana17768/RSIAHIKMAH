@@ -30,9 +30,9 @@ public class PakaiAction implements PakaiDAO {
 
 		Query<MPakai> query = current.createQuery("from MPakai", MPakai.class);
 
-		List<MPakai> agama = query.getResultList();
+		List<MPakai> pakai = query.getResultList();
 
-		return agama;
+		return pakai;
 	}
 
 	@Override
@@ -40,11 +40,11 @@ public class PakaiAction implements PakaiDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 		Query<MPakai> query = current.createQuery("from MPakai", MPakai.class);
-		List<MPakai> agama = query.getResultList();
-		this.total = agama.size();
-		agama = this.getData(page, limit);
+		List<MPakai> pakai = query.getResultList();
+		this.total = pakai.size();
+		pakai = this.getData(page, limit);
 
-		return agama;
+		return pakai;
 	}
 
 	public List<MPakai> getData(int page, int limit) {
@@ -97,11 +97,11 @@ public class PakaiAction implements PakaiDAO {
 	}
 
 	@Override
-	public MPakai getPakai(int agamaId) {
+	public MPakai getPakai(int pakaiId) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		MPakai result = current.get(MPakai.class, agamaId);
+		MPakai result = current.get(MPakai.class, pakaiId);
 
 		return result;
 	}

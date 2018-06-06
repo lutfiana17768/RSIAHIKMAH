@@ -168,13 +168,4 @@ public class PelayananController {
 		return "pelayanan/update";
 	}
 
-	@RequestMapping("data/{id}")
-	@ResponseBody
-	public MPendaftaran getById(@PathVariable int id) {
-		return pelayananService.getPelayanan(id);
-	}
-	
-
-
-
 }

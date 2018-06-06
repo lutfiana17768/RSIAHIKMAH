@@ -9,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.FetchType;
@@ -133,10 +136,10 @@ public class MPendaftaran {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MTindakanPasien> tindakanpasien;
 
-	// Tab bph -> tPakai ???
+	// Tab terap -> 
 	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
-	private List<MPakai> pakai;
+	private List<MTerapiPasien> terapi;
 	
 	// Tab resep -> tResep 
 	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
@@ -403,6 +406,7 @@ public class MPendaftaran {
 	}
 
 	// Tab fisik -> tRiwayatPeriksa
+	@JsonIgnore
 	public List<MRiwayatPeriksa> getRiwayatperiksa() {
 		return riwayatperiksa;
 	}
@@ -411,6 +415,7 @@ public class MPendaftaran {
 		this.riwayatperiksa = riwayatperiksa;
 	}
 	// Tab pemeriksaan -> tPeriksaPasien
+	@JsonIgnore
 	public List<MPeriksaPasien> getPeriksapasien() {
 		return periksapasien;
 	}
@@ -420,6 +425,7 @@ public class MPendaftaran {
 	}
 
 	// Tab diagnosa -> tDiagnosaPasien ???
+	@JsonIgnore
 	public List<MDiagnosaPasien> getDiagnosapasien() {
 		return diagnosapasien;
 	}
@@ -428,6 +434,7 @@ public class MPendaftaran {
 		this.diagnosapasien = diagnosapasien;
 	}
 
+	@JsonIgnore
 	public List<MDiagnosa9> getDiagnosa9() {
 		return diagnosa9;
 	}
@@ -437,6 +444,7 @@ public class MPendaftaran {
 	}
 	
 	// // Tab tindakan -> tTindakanPasien
+	@JsonIgnore
 	public List<MTindakanPasien> getTindakanpasien() {
 		return tindakanpasien;
 	}
@@ -445,16 +453,18 @@ public class MPendaftaran {
 		this.tindakanpasien = tindakanpasien;
 	}
 
-	// Tab bph -> tPakai ???
-	public List<MPakai> getPakai() {
-		return pakai;
+	// Tab bph -> tTerapi ???
+	@JsonIgnore
+	public List<MTerapiPasien> getTerapi() {
+		return terapi;
 	}
 
-	public void setPakai(List<MPakai> pakai) {
-		this.pakai = pakai;
+	public void setTerapi(List<MTerapiPasien> terapi) {
+		this.terapi = terapi;
 	}
 	
 	// Tab resep -> tResep 
+	@JsonIgnore
 	public List<MResep> getResep() {
 		return resep;
 	}
@@ -464,6 +474,7 @@ public class MPendaftaran {
 	}
 
 	// Tab file -> penunjang
+	@JsonIgnore
 	public List<MPenunjangTrans> getPenunjangtrans() {
 		return penunjangtrans;
 	}
@@ -473,6 +484,7 @@ public class MPendaftaran {
 	}
 
 	// tab soap
+	@JsonIgnore
 	public List<MSoap> getSoap() {
 		return soap;
 	}

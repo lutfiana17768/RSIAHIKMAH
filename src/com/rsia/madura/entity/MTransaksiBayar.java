@@ -152,8 +152,13 @@ public class MTransaksiBayar {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "MTransaksiBayar =[transaksiBayarID=" +transaksiBayarID +"transaksiBayarNomor=" 
+				+transaksiBayarNomor +"transaksiBayarKeterangan=" +transaksiBayarKeterangan +"transaksiBayarJenis=" 
+				+transaksiBayarJenis +"transaksiBayarAktif=" +transaksiBayarAktif +"transaksiBayarNominal=" 
+				+transaksiBayarNominal +"transaksiBayarCreatedBy=" +transaksiBayarCreatedBy +"transaksiBayarCreatedDate=" 
+				+transaksiBayarCreatedDate +"transaksiBayarUpdatedBy=" +transaksiBayarUpdatedBy +"transaksiBayarUpdatedDate=" 
+				+transaksiBayarUpdatedDate +"transaksiBayarRevised=" +transaksiBayarRevised +"transaksiBayarDeletedDate=" 
+				+transaksiBayarDeletedDate +"transaksi=" +transaksi +"]";
 	}
 	
 }

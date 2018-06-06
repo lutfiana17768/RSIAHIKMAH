@@ -1,6 +1,7 @@
 package com.rsia.madura.service;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.TransaksiPasienDAO;
 import com.rsia.madura.entity.MTransaksiPasien;
+import com.rsia.madura.entity.MTransaksiBayar;
 
 @Service
 public class TransaksiPasienServiceAction implements TransaksiPasienService {
@@ -45,6 +47,20 @@ public class TransaksiPasienServiceAction implements TransaksiPasienService {
 
 	@Override
 	@Transactional
+	public MTransaksiPasien findBy(String key, String value) {
+		// TODO Auto-generated method stub
+		return transaksiPasienDAO.findBy(key, value);
+	}
+
+	@Override
+	@Transactional
+	public List<MTransaksiPasien> findsBy(String key, String value) {
+		// TODO Auto-generated method stub
+		return transaksiPasienDAO.findsBy(key, value);
+	}
+
+	@Override
+	@Transactional
 	public int store(MTransaksiPasien data) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
@@ -54,12 +70,14 @@ public class TransaksiPasienServiceAction implements TransaksiPasienService {
 
 		if (data.getBayar() != null) {
 			data.getBayar().forEach((bayar) -> {
-				bayar.setTransaksi(data);
-				bayar.setTransaksiBayarCreatedBy("Admin");
-				bayar.setTransaksiBayarCreatedDate(currentTime);
-				bayar.setTransaksiBayarUpdatedDate(currentTime);
+				if (bayar.getTransaksiBayarNominal() != null) {
+					bayar.setTransaksi(data);
+					bayar.setTransaksiBayarCreatedBy("Admin");
+					bayar.setTransaksiBayarCreatedDate(currentTime);
+				}
 			});
 		}
+		
 		if (data.getItem() != null) {
 			data.getItem().forEach((item) -> {
 				item.setTransaksi(data);
@@ -82,9 +100,11 @@ public class TransaksiPasienServiceAction implements TransaksiPasienService {
 
 		if (data.getBayar() != null) {
 			data.getBayar().forEach((bayar) -> {
-				bayar.setTransaksi(data);
-				bayar.setTransaksiBayarUpdatedBy("Admin");
-				bayar.setTransaksiBayarUpdatedDate(currentTime);
+				if (bayar.getTransaksiBayarNominal() != null) {
+					bayar.setTransaksi(data);
+					bayar.setTransaksiBayarUpdatedBy("Admin");
+					bayar.setTransaksiBayarUpdatedDate(currentTime);
+				}
 			});
 		}
 		if (data.getItem() != null) {

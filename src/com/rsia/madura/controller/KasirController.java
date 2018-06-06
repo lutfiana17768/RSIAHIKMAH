@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.sql.Timestamp;
 
 import com.rsia.madura.entity.MTransaksiPasien;
+import com.rsia.madura.entity.MTransaksiBayar;
 import com.rsia.madura.entity.MPendaftaran;
 import com.rsia.madura.service.TransaksiPasienService;
 import com.rsia.madura.service.PendaftaranService;
@@ -49,62 +50,67 @@ public class KasirController {
 
 		MTransaksiPasien transaksiModel = new MTransaksiPasien();
 		MPendaftaran daftar = pendaftaranService.getPendaftaran(daftarID);
-		
+		MTransaksiPasien transaksiDaftarID = transaksiService.findBy("pendaftaran_pendaftaran_id", daftarID.toString());
+		Integer sudahBayar = 0;
+
+		if (transaksiDaftarID != null) {
+			for (MTransaksiBayar bayar : transaksiDaftarID.getBayar()) {
+				sudahBayar += bayar.getTransaksiBayarNominal();
+			};
+		}
+
 		model.addAttribute("daftar", daftar);
 		model.addAttribute("transaksiModel", transaksiModel);
+		model.addAttribute("transaksiDaftarID", transaksiDaftarID);
+		model.addAttribute("daftarID", daftarID);
+		model.addAttribute("sudahBayar", sudahBayar);
 		model.addAttribute("footerjs", "../kasir/inc/footerjs.jsp");
 		
 		return "kasir/tambah";
 	}
 	
 	@RequestMapping(value="/store", method=RequestMethod.POST)
-	public String transaksiStore(@ModelAttribute("transaksiModel") MTransaksiPasien transaksiModel) {
+	public String transaksiStore(@ModelAttribute("transaksiModel") MTransaksiPasien transaksiModel,
+		@RequestParam(value="cetak", required=false) String cetak ) {
 		
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
-		transaksiModel.setTransaksiAktif("Y");
-		transaksiModel.setTransaksiCreatedBy("Admin");
-		transaksiModel.setTransaksiCreatedDate(currentTime);
-		
-		transaksiService.store(transaksiModel);
-		
-		return "redirect: /kasir";
-	}
-	
-	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
-	public String TransaksiPasienUpdateFormView(Model model, @PathVariable int id){
-		MTransaksiPasien result = transaksiService.getTransaksiPasien(id);
-		
-		model.addAttribute("transaksiModel", result);
-		
-		return "kasir/update";
-	}
-	
-	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String transaksiUpdate(@ModelAttribute("transaksiModel") MTransaksiPasien transaksiModel) {
-		
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
-		transaksiModel.setTransaksiUpdatedBy("Admin");
-		transaksiModel.setTransaksiUpdatedDate(currentTime);
-		
-		transaksiService.update(transaksiModel);
-		
-		return "redirect: /kasir";
-	}
-	
-	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-	public String transaksiUpdate(Model model, @PathVariable int id) {
-		
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
-		MTransaksiPasien transaksiModel = transaksiService.getTransaksiPasien(id);
-		
-		transaksiModel.setTransaksiAktif("T");
-		
-		transaksiService.delete(transaksiModel);
-		
+		int transaksiID;
+
+		if (transaksiModel.getTransaksiID() == null) {
+			transaksiID = transaksiService.store(transaksiModel);
+		} else {
+			transaksiService.update(transaksiModel);
+			transaksiID = transaksiModel.getTransaksiID();
+		}
+
+		if (cetak.equals("kuitansi")) {
+			return "redirect: /kasir/cetak-kuitansi/"+ transaksiID;		
+		}
+
 		return "redirect: /kasir";
 	}
 
+	@RequestMapping(value="/cetak-tagihan", method=RequestMethod.GET)
+	public String CetakTagihan(Model model, @RequestParam(value="pendaftaran", required=false) Integer daftarID){
+
+		MTransaksiPasien transaksiModel = new MTransaksiPasien();
+		MPendaftaran daftar = pendaftaranService.getPendaftaran(daftarID);
+		
+		model.addAttribute("daftar", daftar);
+		model.addAttribute("transaksiModel", transaksiModel);
+		model.addAttribute("footerjs", "../kasir/inc/footerjs.jsp");
+		
+		return "kasir/inc/templateInvoice";
+	}
+
+	@RequestMapping(value="/cetak-kuitansi/{id}", method=RequestMethod.GET)
+	public String CetakKuitansi(Model model, @PathVariable int id) {
+
+		MTransaksiPasien transaksiModel = transaksiService.getTransaksiPasien(id);
+		
+		model.addAttribute("transaksiModel", transaksiModel);
+		model.addAttribute("footerjs", "../kasir/inc/footerjs.jsp");
+		
+		return "kasir/kuitansi";
+	}
+	
 }

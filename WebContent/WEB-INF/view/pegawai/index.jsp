@@ -7,14 +7,16 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-block">
-                        <div class="card-title-block">
+                    <div class="card-header">
+                        <div class="header-block">
                             <h3 class="title"> List Pegawai </h3>
+                            <a class="btn btn-primary btn-sm" href="/pegawai/tambah" align="right"> Tambah </a>
                         </div>
+                    </div>
+                    <div class="card-block">
                         <section class="example">
                             <div class="table-responsive">
-                            <a class="btn btn-primary" href="/pegawai/tambah" align="right"> Tambah </a>
-                            <jsp:include page="inc/tabel.jsp" />
+                                <jsp:include page="inc/tabel.jsp" />
                             </div>
                         </section>
                     </div>

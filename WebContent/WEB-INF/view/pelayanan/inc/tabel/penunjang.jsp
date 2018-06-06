@@ -48,7 +48,7 @@
 										<td data-used="1" 
                                             data-save="1" 
                                             data-name="penunjangtransSubtotal" 
-                                            data-kolom-id="penunjangtransSubtotal">${pt.penunjangTransHarga }</td>
+                                            data-kolom-id="penunjangtransSubtotal">${pt.penunjangtransHarga}</td>
                                         <td>
                                             <button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjangtrans(${loop.index+1})">Delete</button>
                                             <button type="button" class="btn btn-primary btn-sm" onclick="editPenunjangtrans(${loop.index+1})">Edit</button>

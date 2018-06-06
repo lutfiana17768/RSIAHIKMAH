@@ -17,6 +17,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.FetchType;
@@ -266,6 +269,7 @@ public class MPenunjang {
 		this.penunjangGroup = penunjangGroup;
 	}
 
+	@JsonManagedReference
 	public List<MParamPeriksa> getParamperiksa() {
 		return paramperiksa;
 	}
@@ -274,6 +278,7 @@ public class MPenunjang {
 		this.paramperiksa = paramperiksa;
 	}
 
+	@JsonManagedReference
 	public List<MPenunjangKelas> getPenunjangkelas() {
 		return penunjangkelas;
 	}

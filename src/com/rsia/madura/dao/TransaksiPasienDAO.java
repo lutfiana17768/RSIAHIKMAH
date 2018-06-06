@@ -9,6 +9,8 @@ public interface TransaksiPasienDAO {
 	public List<MTransaksiPasien> getTransaksiPasiens(int page, int limit);
 	public String createLinks(int page, int limit);
 	public MTransaksiPasien getTransaksiPasien(int TransaksiPasienId);
+	public MTransaksiPasien findBy(String key, String value);
+	public List<MTransaksiPasien> findsBy(String key, String value);
 	
 	public int TransaksiPasienStore(MTransaksiPasien TransaksiPasienModel);
 	public void TransaksiPasienUpdate(MTransaksiPasien TransaksiPasienModel);

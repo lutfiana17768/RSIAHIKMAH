@@ -15,6 +15,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 
@@ -235,6 +238,7 @@ public class MParamPeriksa {
 		this.paramperiksaHarga = paramperiksaHarga;
 	}
 
+	@JsonBackReference
 	public MPenunjang getPenunjang() {
 		return penunjang;
 	}

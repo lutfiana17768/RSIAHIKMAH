@@ -20,7 +20,7 @@ import com.rsia.madura.entity.MPeriksaPasien;
 import com.rsia.madura.entity.MDiagnosaPasien;
 import com.rsia.madura.entity.MDiagnosa9;
 import com.rsia.madura.entity.MTindakanPasien;
-import com.rsia.madura.entity.MPakai;
+import com.rsia.madura.entity.MTerapiPasien;
 import com.rsia.madura.entity.MResep;
 import com.rsia.madura.entity.MPenunjangTrans;
 import com.rsia.madura.entity.MSoap;
@@ -31,7 +31,7 @@ import com.rsia.madura.dao.PeriksaPasienDAO;
 import com.rsia.madura.dao.DiagnosaPasienDAO;
 import com.rsia.madura.dao.Diagnosa9DAO;
 import com.rsia.madura.dao.TindakanPasienDAO;
-import com.rsia.madura.dao.PakaiDAO;
+import com.rsia.madura.dao.TerapiPasienDAO;
 import com.rsia.madura.dao.ResepDAO;
 import com.rsia.madura.dao.PenunjangTransDAO;
 import com.rsia.madura.dao.SoapDAO;
@@ -106,8 +106,8 @@ public class PelayananServiceAction implements PelayananService{
 			});
 		}
 
-		if (data.getPakai() != null) {
-			data.getPakai().forEach((pakai) -> {
+		if (data.getTerapi() != null) {
+			data.getTerapi().forEach((pakai) -> {
 				pakai.setPendaftaran(data);
 			});
 		}
@@ -135,7 +135,7 @@ public class PelayananServiceAction implements PelayananService{
         List<MDiagnosaPasien> delDiagnosaPasien = manageDiagnosaPasien(data);
         List<MTindakanPasien> delTindakanPasien = manageTindakanPasien(data);
         List<MDiagnosa9> delDiagnosa9 = manageDiagnosa9(data);
-        List<MPakai> delPakai = managePakai(data);
+        List<MTerapiPasien> delTerapiPasien = manageTerapiPasien(data);
         List<MResep> delResep = manageResep(data);
         List<MPenunjangTrans> delPenunjangTrans = managePenunjangTrans(data);
         List<MSoap> delSoap = manageSoap(data);
@@ -255,14 +255,14 @@ public class PelayananServiceAction implements PelayananService{
         return delDiagnosa9;
     }
 
-    private List<MPakai> managePakai(MPendaftaran pendaftaran) {
-        List<MPakai> delPakai = new ArrayList<MPakai>();
-        if (pendaftaran.getPakai() != null) {
-            for (Iterator<MPakai> i = pendaftaran.getPakai().iterator(); i.hasNext();) {
-                MPakai pakai = i.next();
+    private List<MTerapiPasien> manageTerapiPasien(MPendaftaran pendaftaran) {
+        List<MTerapiPasien> delTerapiPasien = new ArrayList<MTerapiPasien>();
+        if (pendaftaran.getTerapi() != null) {
+            for (Iterator<MTerapiPasien> i = pendaftaran.getTerapi().iterator(); i.hasNext();) {
+                MTerapiPasien pakai = i.next();
                 if ( pakai.getRemove() != null ) {
                 	// delete: 
-                    delPakai.add(pakai);
+                    delTerapiPasien.add(pakai);
                     i.remove();
                 } else {
                 	// create || update 
@@ -270,7 +270,7 @@ public class PelayananServiceAction implements PelayananService{
                 }
             }
         }
-        return delPakai;
+        return delTerapiPasien;
     }
 
     private List<MResep> manageResep(MPendaftaran pendaftaran) {

@@ -1,82 +1,174 @@
-// /*
-// * @Author: Pradesga Indonesia
-// * @Date:   2018-05-22 10:27:21
-// * @Last Modified by:   Pradesga Indonesia
-// * @Last Modified time: 2018-05-22 14:22:02
-// */
-// package com.rsia.madura.entity;
+package com.rsia.madura.entity;
 
-// import java.sql.Timestamp;
+import java.sql.Timestamp;
+import java.util.List;
 
-// import javax.persistence.Column;
-// import javax.persistence.Entity;
-// import javax.persistence.GeneratedValue;
-// import javax.persistence.GenerationType;
-// import javax.persistence.Id;
-// import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
-// @Entity
-// @Table(name="m_kelas")
-// public class MTerapiPasien {
-// 	@Id
-// 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-// 	@Column(name = "terapipasien_id")
-// 	private int terapipasien_id;
+@Entity
+@Table(name="t_terapi_pasien")
+public class MTerapiPasien {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="terapi_id")
+	private int terapiID;
 
-// 	@Column(name = "t_pendaftaran_id")
-// 	private Integer t_pendaftaran_id;
+    @Transient
+    private Integer remove;
 
-// 	@Column(name = "m_obat_id")
-// 	private Integer m_obat_id;
+	@Column(name="terapi_jumlah")
+	private Integer terapiJumlah;
+	
+	@Column(name="terapi_harga")
+	private Integer terapiHarga;
+	
+	@Column(name="terapi_dosis")
+	private String terapiDosis;
 
-// 	@Column(name = "m_kamar_id")
-// 	private Integer m_kamar_id;
+	@Column(name="terapi_keterangan")
+	private String terapiKeterangan;
 
-// 	@Column(name = "terapipasien_jumlah")
-// 	private Integer terapipasien_jumlah;
+	@Column(name="terapi_aktif")
+	private String terapiAktif;
 
-// 	@Column(name = "terapipasien_dosis")
-// 	private String terapipasien_dosis;
+	@Column(name="terapi_created_by")
+	private String terapiCreatedBy;
+	
+	@Column(name="terapi_created_date")
+	private Timestamp terapiCreatedDate;
+	
+	@Column(name="terapi_updated_by")
+	private String terapiUpdatedBy;
+	
+	@Column(name="terapi_updated_date")
+	private Timestamp terapiUpdatedDate;
+	
+	@Column(name="terapi_revised")
+	private int terapiRevised;
 
-// 	@Column(name = "terapipasien_keterangan")
-// 	private String terapipasien_keterangan;
+	@ManyToOne
+	private MBarang barang;
 
-// 	@Column(name = "terapipasien_aktif")
-// 	private String terapipasien_aktif;
+	@ManyToOne
+	private MPendaftaran pendaftaran;
 
-// 	@Column(name = "terapipasien_created_by")
-// 	private String terapipasien_created_by;
+	public int getTerapiID() {
+		return terapiID;
+	}
 
-// 	@Column(name = "terapipasien_created_date")
-// 	private Timestamp terapipasien_created_date;
+	public void setTerapiID(int terapiID) {
+		this.terapiID = terapiID;
+	}
 
-// 	@Column(name = "terapipasien_updated_by")
-// 	private String terapipasien_updated_by;
+	public Integer getRemove(){
+		return remove;
+	}
 
-// 	@Column(name = "terapipasien_updated_date")
-// 	private Timestamp terapipasien_updated_date;
+	public void setRemove(Integer remove) {
+		this.remove = remove;
+	}
 
-// 	@Column(name = "terapipasien_revised")
-// 	private Integer terapipasien_revised;
+	public Integer getTerapiJumlah() {
+		return terapiJumlah;
+	}
 
-// 	@Column(name = "terapipasien_biaya")
-// 	private Integer terapipasien_biaya;
+	public void setTerapiJumlah(Integer terapiJumlah) {
+		this.terapiJumlah = terapiJumlah;
+	}
 
-// 	@Column(name = "terapipasien_m_pasien_norm")
-// 	private String terapipasien_m_pasien_norm;
+	public Integer getTerapiHarga() {
+		return terapiHarga;
+	}
 
-// 	@Column(name = "terapipasien_biaya_cover")
-// 	private Integer terapipasien_biaya_cover;
+	public void setTerapiHarga(Integer terapiHarga) {
+		this.terapiHarga = terapiHarga;
+	}
 
-// 	@Column(name = "terapipasien_kamarpasien_id")
-// 	private Integer terapipasien_kamarpasien_id;
+	public String getTerapiDosis() {
+		return terapiDosis;
+	}
 
-// 	@Column(name = "reg_company_id")
-// 	private Integer reg_company_id;
+	public void setTerapiDosis(String terapiDosis) {
+		this.terapiDosis = terapiDosis;
+	}
 
-// 	@Column(name = "reg_apps_id")
-// 	private Integer reg_apps_id;
+	public String getTerapiKeterangan() {
+		return terapiKeterangan;
+	}
 
+	public void setTerapiKeterangan(String terapiKeterangan) {
+		this.terapiKeterangan = terapiKeterangan;
+	}
 
+	public String getTerapiAktif() {
+		return terapiAktif;
+	}
 
-// }
+	public void setTerapiAktif(String terapiAktif) {
+		this.terapiAktif = terapiAktif;
+	}
+
+	public String getTerapiCreatedBy() {
+		return terapiCreatedBy;
+	}
+
+	public void setTerapiCreatedBy(String terapiCreatedBy) {
+		this.terapiCreatedBy = terapiCreatedBy;
+	}
+
+	public Timestamp getTerapiCreatedDate() {
+		return terapiCreatedDate;
+	}
+
+	public void setTerapiCreatedDate(Timestamp terapiCreatedDate) {
+		this.terapiCreatedDate = terapiCreatedDate;
+	}
+
+	public String getTerapiUpdatedBy() {
+		return terapiUpdatedBy;
+	}
+
+	public void setTerapiUpdatedBy(String terapiUpdatedBy) {
+		this.terapiUpdatedBy = terapiUpdatedBy;
+	}
+
+	public Timestamp getTerapiUpdatedDate() {
+		return terapiUpdatedDate;
+	}
+
+	public void setTerapiUpdatedDate(Timestamp terapiUpdatedDate) {
+		this.terapiUpdatedDate = terapiUpdatedDate;
+	}
+
+	public Integer getTerapiRevised() {
+		return terapiRevised;
+	}
+
+	public void setTerapiRevised(Integer terapiRevised) {
+		this.terapiRevised = terapiRevised;
+	}
+
+	public MBarang getBarang() {
+		return barang;
+	}
+
+	public void setBarang(MBarang barang) {
+		this.barang = barang;
+	}
+
+	public MPendaftaran getPendaftaran() {
+		return pendaftaran;
+	}
+
+	public void setPendaftaran(MPendaftaran pendaftaran) {
+		this.pendaftaran = pendaftaran;
+	}
+
+}

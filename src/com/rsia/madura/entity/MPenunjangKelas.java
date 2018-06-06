@@ -15,6 +15,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.FetchType;
@@ -44,6 +47,8 @@ public class MPenunjangKelas {
 	public void setPenunjangkelasID(int penunjangkelasID) {
 		this.penunjangkelasID = penunjangkelasID;
 	}
+	
+	@JsonBackReference
 	public MPenunjang getPenunjang() {
 		return penunjang;
 	}

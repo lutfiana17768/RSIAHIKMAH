@@ -7,11 +7,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-block">
-                        <div class="card-title-block">
-                        <a href="/gaji/tambah"/><button class="btn btn-primary">Tambah Data</button></a>
+                    <div class="card-header">
+                        <div class="header-block">
                             <h3 class="title"> List Gaji </h3>
+                            <a href="/gaji/tambah"/><button class="btn btn-primary btn-sm">Tambah Data</button></a>
                         </div>
+                    </div>
+                    <div class="card-block">
                         <section class="example">
                             <jsp:include page="inc/tabel.jsp" />
                             <div class="fixed-table-pagination" style="display: block; margin-top:25px">
