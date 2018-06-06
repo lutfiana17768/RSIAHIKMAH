@@ -2,7 +2,12 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="req" value="${pageContext.request}" />
+<c:set var="url">${req.requestURL}</c:set>
+<c:set var="uri" value="${req.requestURI}" />
+<c:set var="baseURL" value="${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}/" />
 <!doctype html>
 <html>
 <head>
@@ -102,6 +107,9 @@
         text-align: left;
     }
     </style>
+    <script type="text/javascript">
+    	var BASE_URL = "${baseURL}";
+    </script>
 </head>
 
 <body>
@@ -116,9 +124,9 @@
                             </td>
                             
                             <td>
-                                Invoice #: 123<br>
-                                Created: January 1, 2015<br>
-                                Due: February 1, 2015
+                                Rumah Sakit Al-Hikmah<br>
+                                Jl. Baru no 112 B<br>
+                                Telp. (031) 0222, Fax (031) 01212
                             </td>
                         </tr>
                     </table>
@@ -136,17 +144,17 @@
                         <tr>
                             <td>Terima dari</td>
                             <td>:</td>
-                            <td>lorem ipsum</td>
+                            <td>${transaksiModel.pendaftaran.pasien.pasienNama}, ${transaksiModel.pendaftaran.pasien.pasienSebut} ( No. RM ${transaksiModel.pendaftaran.pasien.pasienNorm } ${transaksiModel.pendaftaran.pasien.pasienAlamat} )</td>
                         </tr>
                         <tr>
                             <td>Untuk pembayaran</td>
                             <td>:</td>
-                            <td>lorem ipsum</td>
+                            <td>${transaksiModel.pendaftaran.pendaftaranJenis}</td>
                         </tr>
                         <tr>
                             <td>Dokter</td>
                             <td>:</td>
-                            <td>lorem ipsum</td>
+                            <td>${transaksiModel.pendaftaran.pegawai.pegawaiNama}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -156,7 +164,9 @@
                     <table>
                         <tbody>
                             <tr>
-                                <td colspan="2">Jumlah # 1300000</td>
+                                <td colspan="2">
+                                	Jumlah # <fmt:formatNumber value = "${transaksiModel.bayar[transaksiModel.bayar.size()-1].transaksiBayarNominal}" maxFractionDigits = "3"/>
+                                </td>
                                 <td>
                                 Surabaya, 12 Mei 2012<br/>
                                 Telah bayar <br/>
@@ -173,5 +183,11 @@
             </tr>
         </table>
     </div>
+    <script>
+		window.onafterprint = function(){
+		   window.location.href = BASE_URL+'kasir/pembayaran?pendaftaran=${transaksiModel.pendaftaran.pendaftaranID}';
+		}
+		window.print();
+    </script>
 </body>
 </html>

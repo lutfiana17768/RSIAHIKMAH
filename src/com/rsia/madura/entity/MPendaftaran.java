@@ -107,7 +107,10 @@ public class MPendaftaran {
 
 	@Column(name="paket_id")
 	private Integer paketID;
-	
+
+	@Column(name="pendaftaran_status")
+	private String pendaftaranStatus;
+
 	@Column(name="pendaftaran_deleted_date")
 	private Timestamp pendaftaranDeletedDate;
 
@@ -170,6 +173,9 @@ public class MPendaftaran {
 
 	@ManyToOne
 	private MTindakan tindakan;
+
+	@ManyToOne
+	private MKamar kamar;
 
 	public MPendaftaran() {
 
@@ -397,6 +403,14 @@ public class MPendaftaran {
 		this.paketID = paketID;
 	}
 
+	public String getPendaftaranStatus() {
+		return pendaftaranStatus;
+	}
+
+	public void setPendaftaranStatus(String pendaftaranStatus) {
+		this.pendaftaranStatus = pendaftaranStatus;
+	}
+
 	public Timestamp getPendaftaranDeletedDate() {
 		return pendaftaranDeletedDate;
 	}
@@ -531,5 +545,13 @@ public class MPendaftaran {
 
 	public void setPegawai(MPegawai pegawai) {
 		this.pegawai = pegawai;
+	}
+
+	public MKamar getKamar() {
+		return kamar;
+	}
+
+	public void setKamar(MKamar kamar) {
+		this.kamar = kamar;
 	}
 }

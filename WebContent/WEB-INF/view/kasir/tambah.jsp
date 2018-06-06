@@ -80,12 +80,6 @@
 									${daftar.pasien.pasienNotelp}
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="staticEmail" class="col-sm-4 col-form-label">Pembayaran : </label>
-								<div class="col-sm-8">
-									_++_+_+_+_+_+
-								</div>
-							</div>
 						</div>
 						<div class="card-block">
 							<section class="list-paket">

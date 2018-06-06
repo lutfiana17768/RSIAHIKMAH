@@ -26,7 +26,7 @@
 											<button type="button" class="btn btn-primary btn-sm" onclick="editTIndakan(${loop.index+1})">Edit</button>
 										</td>
 										<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="pegawaiID">${tp.pegawai.pegawaiID}</td>
-										<td style="display:none" data-used="1" data-save="1" data-name="tindakanID" data-kolom-id="tindakanID">${tp.tindakan.tindakanID}</td>
+										<td style="display:none" data-used="1" data-save="1" data-name="tindakan.tindakanID" data-kolom-id="tindakanID">${tp.tindakan.tindakanID}</td>
 										<td style="display:none" data-used="1" data-save="1" data-name="tindakanpasienID" data-kolom-id="tindakanpasienID">${tp.tindakanpasienID}</td>
 									</tr>
 								</c:forEach>

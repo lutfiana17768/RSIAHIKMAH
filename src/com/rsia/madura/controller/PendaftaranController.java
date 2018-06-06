@@ -69,6 +69,13 @@ public class PendaftaranController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model) {
+		List<MPendaftaran> pendaftarans = pendaftaranService.getPendaftarans();
+		model.addAttribute("pendaftarans", pendaftarans);
+		return "pendaftaran/index";
+	}
+
+	@RequestMapping("/tambah")
+	public String addForm(Model model) {
 		MPendaftaran PendaftaranModel = new MPendaftaran();
 		
 		List<MPendaftaran> pendaftarans = pendaftaranService.getPendaftarans();
@@ -92,22 +99,7 @@ public class PendaftaranController {
 		model.addAttribute("footerjs", "../pendaftaran/inc/footerjs.jsp");
 		model.addAttribute("PendaftaranModel", PendaftaranModel);
 
-		return "pendaftaran/index";
-	
-	}
-
-	@RequestMapping("/tambah")
-	public String addForm(Model model) {
-		MPendaftaran pendaftaranModel = new MPendaftaran();
-
-		Map<String, String> jenispendaftaran = new HashMap<String, String>();
-		jenispendaftaran.put("O", "Operatif");
-		jenispendaftaran.put("N", "Non Operatif");
-
-		model.addAttribute("jenispendaftaran", jenispendaftaran);
-		model.addAttribute("pendaftaranModel", pendaftaranModel);
-
-		return "PendaftaranAddForm";
+		return "pendaftaran/tambah";
 	}
 
 	@RequestMapping(value = "/store", method = RequestMethod.POST)

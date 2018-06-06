@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <div class="header-block">
                         <h3 class="title"> Data Pendaftaran </h3> 
-                        <a class="btn btn-sm btn-primary" href="">Tambah</a>
+                        <a class="btn btn-sm btn-primary" href="/pendaftaran/tambah">Tambah</a>
                     </div>
                 </div>
                 <div class="card-block">

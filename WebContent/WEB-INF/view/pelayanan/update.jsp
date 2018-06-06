@@ -68,7 +68,7 @@
                             <label class="col-sm-3 col-form-label">Dokter</label>
                             <div class="col-sm-9">
                                 <div class="select2-wrapper">
-                                    <form:select path="pendaftaranNo"
+                                    <form:select path="pegawai.pegawaiID"
                                         class="form-control form-control-sm select2-single">
                                         <c:forEach var="pegawai" items="${pegawais}">
                                             <form:option value="${pegawai.pegawaiID}"
@@ -96,12 +96,26 @@
                             <label class="col-sm-3 col-form-label">Kamar</label>
                             <div class="col-sm-9">
                                 <div class="select2-wrapper">
-                                    <form:select path="pendaftaranNo"
+                                    <form:select path="kamar.kamarID"
                                         class="form-control form-control-sm select2-single">
                                         <c:forEach var="kamar" items="${kamars}">
                                             <form:option value="${kamar.kamarID}"
                                                 label="${kamar.kamarNo}"/>
                                         </c:forEach>
+                                    </form:select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Status</label>
+                            <div class="col-sm-9">
+                                <div class="select2-wrapper">
+                                    <form:select path="pendaftaranStatus" class="form-control form-control-sm select2-single">
+                                        <option value="">--- Pilih Status ---</option>
+                                        <form:option value="1" label="Status A"/>
+                                        <form:option value="2" label="Status B"/>
+                                        <form:option value="3" label="Status C"/>
+                                        <form:option value="4" label="Status D"/>
                                     </form:select>
                                 </div>
                             </div>
