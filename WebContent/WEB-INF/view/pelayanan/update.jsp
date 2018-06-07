@@ -2,6 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="../app/header.jsp" />
 			
 	<section class="card">
@@ -42,7 +43,7 @@
                         <tr>
                             <td>Tgl Lahir</td>
                             <td>:</td>
-                            <td>${pelayananModel.pasien.pasienTanggallahir}</td>
+                            <td><fmt:formatDate value="${pelayananModel.pasien.pasienTanggallahir}" pattern="dd MMMM yyyy" /></td>
                         </tr>
                         <tr>
                             <td>L/P</td>
@@ -52,7 +53,7 @@
                         <tr>
                             <td>Waktu MRS</td>
                             <td>:</td>
-                            <td>${pelayananModel.pendaftaranMrs}</td>
+                            <td><fmt:formatDate value="${pelayananModel.pendaftaranMrs}" pattern="EEEE, dd MMMM yyyy" /></td>
                         </tr>
                     </table>
                 </div>

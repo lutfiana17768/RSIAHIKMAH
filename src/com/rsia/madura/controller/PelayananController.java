@@ -8,22 +8,21 @@
 package com.rsia.madura.controller;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 
 import com.rsia.madura.entity.MPendaftaran;
 import com.rsia.madura.entity.MPasien;
@@ -40,7 +39,6 @@ import com.rsia.madura.entity.MIcd;
 import com.rsia.madura.entity.MIcd9;
 import com.rsia.madura.entity.MPenunjang;
 
-import com.rsia.madura.service.PendaftaranService;
 import com.rsia.madura.service.PelayananService;
 import com.rsia.madura.service.PasienService;
 import com.rsia.madura.service.PegawaiService;
@@ -63,8 +61,6 @@ import com.rsia.madura.service.PenunjangService;
 public class PelayananController {
 	@Autowired
 	private PelayananService pelayananService;
-	@Autowired
-	private PendaftaranService pendaftaranService;
 	@Autowired
 	private PasienService pasienService;
 	@Autowired
@@ -166,6 +162,13 @@ public class PelayananController {
 		
 		
 		return "pelayanan/update";
+	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}
 
 }

@@ -1,7 +1,8 @@
 package com.rsia.madura.entity;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,12 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.FetchType;
 import javax.persistence.CascadeType;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.LazyCollection;
@@ -36,11 +38,13 @@ public class MPendaftaran {
 	// @Column(name="m_unit_id")
 	// private Integer mUnitID;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="pendaftaran_mrs")
-	private Timestamp pendaftaranMrs;
+	private Date pendaftaranMrs;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="pendaftaran_krs")
-	private Timestamp pendaftaranKrs;
+	private Date pendaftaranKrs;
 	
 	// @Column(name="m_status_id")
 	// private Integer mStatusID;
@@ -54,14 +58,16 @@ public class MPendaftaran {
 	@Column(name="pendaftaran_created_by")
 	private String pendaftaranCreatedBy;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="pendaftaran_created_date")
-	private Timestamp pendaftaranCreatedDate;
+	private Date pendaftaranCreatedDate;
 	
 	@Column(name="pendaftaran_updated_by")
 	private String pendaftaranUpdatedBy;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="pendaftaran_updated_date")
-	private Timestamp pendaftaranUpdatedDate;
+	private Date pendaftaranUpdatedDate;
 	
 	@Column(name="pendaftaran_revised")
 	private Integer pendaftaranRevised;
@@ -111,8 +117,9 @@ public class MPendaftaran {
 	@Column(name="pendaftaran_status")
 	private String pendaftaranStatus;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="pendaftaran_deleted_date")
-	private Timestamp pendaftaranDeletedDate;
+	private Date pendaftaranDeletedDate;
 
 	// Tab fisik 
 	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
@@ -177,6 +184,9 @@ public class MPendaftaran {
 	@ManyToOne
 	private MKamar kamar;
 
+	@ManyToOne
+	private MKelas kelas;
+
 	public MPendaftaran() {
 
 	}
@@ -219,19 +229,19 @@ public class MPendaftaran {
 	// 	this.mUnitID = mUnitID;
 	// }
 
-	public Timestamp getPendaftaranMrs() {
+	public Date getPendaftaranMrs() {
 		return pendaftaranMrs;
 	}
 
-	public void setPendaftaranMrs(Timestamp pendaftaranMrs) {
+	public void setPendaftaranMrs(Date pendaftaranMrs) {
 		this.pendaftaranMrs = pendaftaranMrs;
 	}
 
-	public Timestamp getPendaftaranKrs() {
+	public Date getPendaftaranKrs() {
 		return pendaftaranKrs;
 	}
 
-	public void setPendaftaranKrs(Timestamp pendaftaranKrs) {
+	public void setPendaftaranKrs(Date pendaftaranKrs) {
 		this.pendaftaranKrs = pendaftaranKrs;
 	}
 
@@ -267,11 +277,11 @@ public class MPendaftaran {
 		this.pendaftaranCreatedBy = pendaftaranCreatedBy;
 	}
 
-	public Timestamp getPendaftaranCreatedDate() {
+	public Date getPendaftaranCreatedDate() {
 		return pendaftaranCreatedDate;
 	}
 
-	public void setPendaftaranCreatedDate(Timestamp pendaftaranCreatedDate) {
+	public void setPendaftaranCreatedDate(Date pendaftaranCreatedDate) {
 		this.pendaftaranCreatedDate = pendaftaranCreatedDate;
 	}
 
@@ -283,11 +293,11 @@ public class MPendaftaran {
 		this.pendaftaranUpdatedBy = pendaftaranUpdatedBy;
 	}
 
-	public Timestamp getPendaftaranUpdatedDate() {
+	public Date getPendaftaranUpdatedDate() {
 		return pendaftaranUpdatedDate;
 	}
 
-	public void setPendaftaranUpdatedDate(Timestamp pendaftaranUpdatedDate) {
+	public void setPendaftaranUpdatedDate(Date pendaftaranUpdatedDate) {
 		this.pendaftaranUpdatedDate = pendaftaranUpdatedDate;
 	}
 
@@ -411,11 +421,11 @@ public class MPendaftaran {
 		this.pendaftaranStatus = pendaftaranStatus;
 	}
 
-	public Timestamp getPendaftaranDeletedDate() {
+	public Date getPendaftaranDeletedDate() {
 		return pendaftaranDeletedDate;
 	}
 
-	public void setPendaftaranDeletedDate(Timestamp pendaftaranDeletedDate) {
+	public void setPendaftaranDeletedDate(Date pendaftaranDeletedDate) {
 		this.pendaftaranDeletedDate = pendaftaranDeletedDate;
 	}
 
@@ -553,5 +563,13 @@ public class MPendaftaran {
 
 	public void setKamar(MKamar kamar) {
 		this.kamar = kamar;
+	}
+
+	public MKelas getKelas() {
+		return kelas;
+	}
+
+	public void setKelas(MKelas kelas) {
+		this.kelas = kelas;
 	}
 }

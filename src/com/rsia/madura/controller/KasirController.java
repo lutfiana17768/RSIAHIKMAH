@@ -84,22 +84,23 @@ public class KasirController {
 
 		if (cetak.equals("kuitansi")) {
 			return "redirect: /kasir/cetak-kuitansi/"+ transaksiID;		
+		} else if (cetak.equals("tagihan")) {
+			return "redirect: /kasir/cetak-tagihan/"+ transaksiID;
+		} else {
+			return "redirect: /kasir?pendaftaran="+ transaksiModel.getPendaftaran().getPendaftaranID();
 		}
 
-		return "redirect: /kasir";
 	}
 
-	@RequestMapping(value="/cetak-tagihan", method=RequestMethod.GET)
-	public String CetakTagihan(Model model, @RequestParam(value="pendaftaran", required=false) Integer daftarID){
+	@RequestMapping(value="/cetak-tagihan/{id}", method=RequestMethod.GET)
+	public String CetakTagihan(Model model, @PathVariable int id) {
 
-		MTransaksiPasien transaksiModel = new MTransaksiPasien();
-		MPendaftaran daftar = pendaftaranService.getPendaftaran(daftarID);
+		MTransaksiPasien transaksiModel = transaksiService.getTransaksiPasien(id);
 		
-		model.addAttribute("daftar", daftar);
 		model.addAttribute("transaksiModel", transaksiModel);
 		model.addAttribute("footerjs", "../kasir/inc/footerjs.jsp");
 		
-		return "kasir/inc/templateInvoice";
+		return "kasir/tagihan";
 	}
 
 	@RequestMapping(value="/cetak-kuitansi/{id}", method=RequestMethod.GET)

@@ -258,24 +258,24 @@
             }
 
             periksapasienID = $('#periksapasienID').val();
+            periksapasienTanggal = $('#periksapasienTanggal').val() ||0;
             periksapasienPeriksaID = $('#periksapasienPeriksaID').val();
             periksapasienPeriksaNama = $('#periksapasienPeriksaID option:selected').text();
             periksapasienPeriksaStandar = $('#periksapasienPeriksaStandar').val() ||0;
             periksapasienPeriksaNilai = $('#periksapasienPeriksaNilai').val() ||0;
-            periksapasienDokterID = $('#periksapasienDokterID').val() ||0;
-            periksapasienDokterText = $('#periksapasienDokterID option:selected').text();
+            pegawaiID = $('#pegawaiID').val();
+            pegawaiNama = $('#pegawaiID option:selected').text();
             periksapasienPeriksaKeterangan = $('#periksapasienPeriksaKeterangan').val() || '';
-            periksapasienTanggal = $('#periksapasienTanggal').val() ||0;
             
+            tr.append('<td data-used="1" data-save="1" data-name="periksapasienTanggal" data-kolom-id="periksapasienTanggal">'+periksapasienTanggal+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksapasienPeriksaNama" data-kolom-id="periksapasienPeriksaNama">'+periksapasienPeriksaNama+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksapasienPeriksaStandar" data-kolom-id="periksapasienPeriksaStandar">'+periksapasienPeriksaStandar+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksapasienPeriksaNilai" data-kolom-id="periksapasienPeriksaNilai">'+periksapasienPeriksaNilai+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasienDokterText" data-kolom-id="periksapasienDokterText">'+periksapasienDokterText+'</td>');
+            tr.append('<td>'+ pegawaiNama +'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="periksapasienPeriksaKeterangan" data-kolom-id="periksapasienPeriksaKeterangan">'+periksapasienPeriksaKeterangan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="periksapasienTanggal" data-kolom-id="periksapasienTanggal">'+periksapasienTanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePeriksapasien('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPeriksapasien('+counter+')">Edit</button></td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasienPeriksaID" data-kolom-id="periksapasienPeriksaID">' + periksapasienPeriksaID + '</td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasienDokterID" data-kolom-id="periksapasienDokterID">' + periksapasienDokterID + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="pegawaiID">' + pegawaiID + '</td>');
 
             if (periksapasienID) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasienID" data-kolom-id="periksapasienID">' + periksapasienID + '</td>');

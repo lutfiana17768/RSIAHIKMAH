@@ -6,14 +6,19 @@
 */
 package com.rsia.madura.controller;
 
-import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -73,7 +78,7 @@ public class PendaftaranController {
 		model.addAttribute("pendaftarans", pendaftarans);
 		return "pendaftaran/index";
 	}
-
+	
 	@RequestMapping("/tambah")
 	public String addForm(Model model) {
 		MPendaftaran PendaftaranModel = new MPendaftaran();
@@ -104,7 +109,7 @@ public class PendaftaranController {
 
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
 	public String Store(@ModelAttribute("pendaftaranModel") MPendaftaran pendaftaranModel) {
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		Date currentTime = new Date(System.currentTimeMillis());
 
 		pendaftaranModel.setPendaftaranAktif("Y");
 		pendaftaranModel.setPendaftaranCreatedBy("Admin");
@@ -118,7 +123,7 @@ public class PendaftaranController {
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String DeleteUpdate(Model model, @RequestParam(value = "Id", required = false) int id) {
 
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		Date currentTime = new Date(System.currentTimeMillis());
 
 		MPendaftaran pendaftaranModel = pendaftaranService.getPendaftaran(id);
 
@@ -148,7 +153,7 @@ public class PendaftaranController {
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String Update(@ModelAttribute("pendaftaranModel") MPendaftaran pendaftaranModel) {
-		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		Date currentTime = new Date(System.currentTimeMillis());
 
 		pendaftaranModel.setPendaftaranAktif("Y");
 		pendaftaranModel.setPendaftaranUpdatedBy("Admin");
@@ -158,5 +163,10 @@ public class PendaftaranController {
 
 		return this.uri;
 	}
-
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+    }
 }

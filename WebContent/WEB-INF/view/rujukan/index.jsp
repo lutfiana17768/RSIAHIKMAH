@@ -7,8 +7,8 @@
 		<div class="card">
 			<div class="card-header">
 				<div class="header-block">
-					<h3 class="title"> Data Rujukan </h3>
-					<a href="/rujukan/tambah" class="btn btn-primary">Tambah</a>
+					<h3 class="title">Data Rujukan</h3>
+					<a href="/rujukan/tambah" class="btn btn-primary btn-sm">Tambah</a>
 				</div>
 			</div>
 			<div class="card-block">

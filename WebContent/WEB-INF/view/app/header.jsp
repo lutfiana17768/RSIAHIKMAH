@@ -106,16 +106,16 @@
 											<li><a href="/penunjang">Master Penunjang</a>
 											<li><a href="/penunjang-group">Master Penunjang Group</a>
 											<li><a href="/ruangan">Master Ruangan</a>
-											<li><a href="/tindakan">Master Tindkan</a>
+											<li><a href="/tindakan">Master Tindakan</a>
 											<li><a href="/rujukan">Master Rujukan</a>
 										</ul>
 									</li>
 									<li>
 		                                <a href=""> Transaksi <i class="fa arrow"></i> </a>
 										<ul class="sidebar-nav collapse" aria-expanded="false">
-											<li><a href="/pendaftaran"> pendaftaran</a></li>
-											<li><a href="/pelayanan"> pelayanan</a></li>
-											<li><a href="/kasir"> kasir</a></li>
+											<li><a href="/pendaftaran"> Pendaftaran</a></li>
+											<li><a href="/pelayanan"> Pelayanan</a></li>
+											<li><a href="/kasir"> Kasir</a></li>
 											<li><a href="/history"> History pasien</a></li>
 										</ul>
 									</li>

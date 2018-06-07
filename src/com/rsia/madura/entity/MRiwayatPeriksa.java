@@ -6,8 +6,8 @@
 */
 package com.rsia.madura.entity;
 
+import java.util.Date;
 import java.sql.Timestamp;
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
@@ -32,6 +34,7 @@ public class MRiwayatPeriksa {
 	@Column(name = "periksa_pendaftaran_id")
 	private Integer periksaPendaftaranID;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "periksa_tanggal")
 	private Date periksaTanggal;
 
@@ -59,14 +62,16 @@ public class MRiwayatPeriksa {
 	@Column(name = "periksa_aktif")
 	private String periksaAktif;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "periksa_created_date")
-	private Timestamp periksaCreatedDate;
+	private Date periksaCreatedDate;
 
 	@Column(name = "periksa_created_by")
 	private String periksaCreatedBy;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "periksa_updated_date")
-	private Timestamp periksaUpdatedDate;
+	private Date periksaUpdatedDate;
 
 	@Column(name = "periksa_updated_by")
 	private String periksaUpdatedBy;
@@ -191,11 +196,11 @@ public class MRiwayatPeriksa {
 		this.periksaAktif = periksaAktif;
 	}
 
-	public Timestamp getPeriksaCreatedDate(){
+	public Date getPeriksaCreatedDate(){
 		return periksaCreatedDate;
 	}
 
-	public void setPeriksaCreatedDate(Timestamp periksaCreatedDate) {
+	public void setPeriksaCreatedDate(Date periksaCreatedDate) {
 		this.periksaCreatedDate = periksaCreatedDate;
 	}
 
@@ -207,11 +212,11 @@ public class MRiwayatPeriksa {
 		this.periksaCreatedBy = periksaCreatedBy;
 	}
 
-	public Timestamp getPeriksaUpdatedDate(){
+	public Date getPeriksaUpdatedDate(){
 		return periksaUpdatedDate;
 	}
 
-	public void setPeriksaUpdatedDate(Timestamp periksaUpdatedDate) {
+	public void setPeriksaUpdatedDate(Date periksaUpdatedDate) {
 		this.periksaUpdatedDate = periksaUpdatedDate;
 	}
 

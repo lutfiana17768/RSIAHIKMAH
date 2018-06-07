@@ -56,6 +56,7 @@
                                         <div class="form-group">
                                             <label>Poli</label>
                                             <form:select path="pendaftaranPoli" class="form-control">
+                                                <option value="">--- Pilih Poli ---</option>
                                                 <option value="Obyn">Obyn</option>
                                                 <option value="Anak">Anak</option>
                                             </form:select>
@@ -107,7 +108,7 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label>Tgl Waktu MRS</label>
-                                        <form:input path="pendaftaranMrs" class="form-control boxed" />
+                                        <form:input path="pendaftaranMrs" class="form-control boxed datetimepicker" />
                                     </div>
                                     <% /** <div class="form-group">
                                         <label class="control-label">Kelas Pendaftaran</label>

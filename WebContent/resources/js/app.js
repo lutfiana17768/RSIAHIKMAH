@@ -1423,7 +1423,7 @@ $('.datepicker').datepicker({
 // $('.select2-single').select2();
 
 $(function () {
-    $('#datetimepicker2').datetimepicker({
+    $('.datetimepicker').datetimepicker({
         locale: 'id'
     });
 });

@@ -2,6 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 
 					<div class="table-responsive">
@@ -23,7 +24,7 @@
 							<tbody id="pelayanan-riwayatperiksa-list" class="table-form">
 								<c:forEach var="rp" items="${pelayananModel.riwayatperiksa}" varStatus="loop">
 									<tr id="riwayatperiksa_${loop.index+1}">
-										<td data-used="1" data-save="1" data-name="periksaTanggal" data-kolom-id="periksaTanggal">${rp.periksaTanggal}</td>
+										<td data-used="1" data-save="1" data-name="periksaTanggal" data-kolom-id="periksaTanggal"><fmt:formatDate value="${rp.periksaTanggal}" pattern="yyyy-MM-dd HH:mm" /></td>
 										<td data-used="1" data-save="1" data-name="periksaTb" data-kolom-id="periksaTb">${rp.periksaTb}</td>
 										<td data-used="1" data-save="1" data-name="periksaBb" data-kolom-id="periksaBb">${rp.periksaBb}</td>
 										<td data-used="1" data-save="1" data-name="periksaJantung" data-kolom-id="periksaJantung">${rp.periksaJantung}</td>

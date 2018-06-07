@@ -15,6 +15,10 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-periksapasien" class="from-horizontal">
                             <div class="form-group">
+                                <label>Tanggal</label>
+                                <input type="text" name="periksapasienTanggal" id="periksapasienTanggal" class="form-control boxed datetimepicker">
+                            </div>
+                            <div class="form-group">
                                 <label>Nama Pemeriksaan</label>
                                 <div class="select2-wrapper">
                                     <select name="periksapasienPeriksaID" id="periksapasienPeriksaID" class="form-control boxed select2-single">
@@ -38,7 +42,7 @@
                             <div class="form-group">
                                 <label>Dokter</label>
                                 <div class="select2-wrapper">
-                                    <select name="periksapasienDokterID" id="periksapasienDokterID" class="form-control boxed select2-single">
+                                    <select name="pegawai.pegawaiID" id="pegawaiID" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Dokter ---</option>
                                         <c:forEach var="pegawai" items="${pegawais}">
                                             <option value="${pegawai.pegawaiID }">
@@ -51,10 +55,6 @@
                             <div class="form-group">
                                 <label>Keterangan</label>
                                 <input type="text" name="periksapasienPeriksaKeterangan" id="periksapasienPeriksaKeterangan" class="form-control boxed">
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="text" name="periksapasienTanggal" id="periksapasienTanggal" class="form-control boxed datepicker">
                             </div>
                             <input type="hidden" name="periksapasienID" id="periksapasienID">
                             <input type="hidden" name="periksapasien_mode" id="periksapasien_mode">

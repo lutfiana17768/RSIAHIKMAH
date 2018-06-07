@@ -7,8 +7,9 @@
 
 package com.rsia.madura.service;
 
-// import java.util.List;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,35 +48,30 @@ public class PelayananServiceAction implements PelayananService{
 	@Override
 	@Transactional
 	public List<MPendaftaran> getPelayanans() {
-		// TODO Auto-generated method stub
 		return pelayananDAO.getPelayanans();
 	}
 
 	@Override
 	@Transactional
 	public List<MPendaftaran> getPelayanans(int page, int limit) {
-		// TODO Auto-generated method stub
 		return pelayananDAO.getPelayanans(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public String createLinks(int page, int limit) {
-		// TODO Auto-generated method stub
 		return pelayananDAO.createLinks(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public MPendaftaran getPelayanan(int id) {
-		// TODO Auto-generated method stub
 		return pelayananDAO.getPelayanan(id);
 	}
 
 	@Override
 	@Transactional
 	public void update(MPendaftaran data) {
-		// TODO Auto-generated method stub
 		if (data.getRiwayatperiksa() != null) {
 			data.getRiwayatperiksa().forEach((riwayatperiksa) -> {
 				riwayatperiksa.setPendaftaran(data);
@@ -160,7 +156,6 @@ public class PelayananServiceAction implements PelayananService{
 	@Override
 	@Transactional
 	public void delete(MPendaftaran data) {
-		// TODO Auto-generated method stub
 		pelayananDAO.delete(data);
 	}
 

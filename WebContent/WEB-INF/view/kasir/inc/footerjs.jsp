@@ -6,6 +6,14 @@
 		$('#kasir-form').submit();
 	});
 
+	$('#kasir-submit-tagihan').click(function() {
+		$('<input />').attr('type', 'hidden')
+			.attr('name', "cetak")
+			.attr('value', "tagihan")
+			.appendTo('#kasir-form');
+		$('#kasir-form').submit();
+	});
+
 	$('#kasir-submit-kuitansi').click(function() {
 		$('<input />').attr('type', 'hidden')
 			.attr('name', "cetak")

@@ -17,7 +17,7 @@
 						<form id="form-pelayanan-riwayatperiksa" class="from-horizontal">
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" name="periksaTanggal" id="periksaTanggal" class="form-control boxed datetimepicker2">
+                                <input type="text" name="periksaTanggal" id="periksaTanggal" class="form-control boxed datetimepicker">
                             </div>
 							<div class="form-group">
 								<label>TInggi</label>
