@@ -35,9 +35,6 @@ public class MPendaftaran {
 	@Column(name="pendaftaran_nourut")
 	private Integer pendaftaranNourut;
 	
-	// @Column(name="m_unit_id")
-	// private Integer mUnitID;
-	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="pendaftaran_mrs")
 	private Date pendaftaranMrs;
@@ -45,12 +42,6 @@ public class MPendaftaran {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="pendaftaran_krs")
 	private Date pendaftaranKrs;
-	
-	// @Column(name="m_status_id")
-	// private Integer mStatusID;
-	
-	@Column(name="m_rujuk_id_keluar")
-	private Integer mRujukIDKeluar;
 	
 	@Column(name="pendaftaran_aktif")
 	private String pendaftaranAktif;
@@ -72,41 +63,20 @@ public class MPendaftaran {
 	@Column(name="pendaftaran_revised")
 	private Integer pendaftaranRevised;
 	
-	// @Column(name="m_kondisi_id_keluar")
-	// private Integer mKondisiIDKeluar;
-	
 	@Column(name="pendaftaran_keterangan")
 	private String pendaftaranKeterangan;
 	
 	@Column(name="pendaftaran_tarif")
 	private Integer pendaftaranTarif;
 	
-	// @Column(name="m_status_id_masuk")
-	// private Integer mStatusIDMasuk;
-	
-	// @Column(name="m_status_id_pelayanan")
-	// private String mStatusIDPelayanan;
-	
 	@Column(name="pendaftaran_status_kunjungan")
 	private String pendaftaranStatusKunjungan;
-	
-	@Column(name="kondisi_masuk")
-	private String kondisiMasuk;
-	
-	// @Column(name="m_rujukan_id")
-	// private Integer mRujukanID;
 	
 	@Column(name="pendaftaran_jenis")
 	private String pendaftaranJenis;
 	
 	@Column(name="pendaftaran_status_konsul")
 	private String pendaftaranStatusKonsul;
-	
-	@Column(name="m_unit_id_asal")
-	private Integer mUnitIDAsal;
-	
-	@Column(name="m_kelas_id_standar")
-	private Integer mKelasIDStandar;
 
 	@Column(name="pendaftaran_poli")
 	private String pendaftaranPoli;
@@ -170,10 +140,16 @@ public class MPendaftaran {
 	private MPasien pasien;
 
 	@ManyToOne
-	private MKondisi kondisi;
+	private MKondisi kondisiMasuk;
 
 	@ManyToOne
-	private MRujukan rujukan;
+	private MKondisi kondisiKeluar;
+
+	@ManyToOne
+	private MRujukan rujukanMasuk;
+
+	@ManyToOne
+	private MRujukan rujukanKeluar;
 
 	@ManyToOne
 	private MPegawai pegawai;
@@ -189,12 +165,6 @@ public class MPendaftaran {
 
 	public MPendaftaran() {
 
-	}
-
-	public MPendaftaran(int pendaftaranID, String pendaftaranNo, Integer pendaftaranNourut) {
-		this.pendaftaranID = pendaftaranID;
-		this.pendaftaranNo = pendaftaranNo;
-		this.pendaftaranNourut = pendaftaranNourut;
 	}
 
 	public int getPendaftaranID() {
@@ -221,14 +191,6 @@ public class MPendaftaran {
 		this.pendaftaranNourut = pendaftaranNourut;
 	}
 
-	// public Integer getMUnitID() {
-	// 	return mUnitID;
-	// }
-
-	// public void setMUnitID(Integer mUnitID) {
-	// 	this.mUnitID = mUnitID;
-	// }
-
 	public Date getPendaftaranMrs() {
 		return pendaftaranMrs;
 	}
@@ -244,22 +206,6 @@ public class MPendaftaran {
 	public void setPendaftaranKrs(Date pendaftaranKrs) {
 		this.pendaftaranKrs = pendaftaranKrs;
 	}
-
-	// public Integer getMStatusID() {
-	// 	return mStatusID;
-	// }
-
-	// public void setMStatusID(Integer mStatusID) {
-	// 	this.mStatusID = mStatusID;
-	// }
-
-	// public Integer getMRujukIDKeluar() {
-	// 	return mRujukIDKeluar;
-	// }
-
-	// public void setMRujukIDKeluar(Integer mRujukIDKeluar) {
-	// 	this.mRujukIDKeluar = mRujukIDKeluar;
-	// }
 
 	public String getPendaftaranAktif() {
 		return pendaftaranAktif;
@@ -309,14 +255,6 @@ public class MPendaftaran {
 		this.pendaftaranRevised = pendaftaranRevised;
 	}
 
-	// public Integer getMKondisiIDKeluar() {
-	// 	return mKondisiIDKeluar;
-	// }
-
-	// public void setMKondisiIDKeluar(Integer mKondisiIDKeluar) {
-	// 	this.mKondisiIDKeluar = mKondisiIDKeluar;
-	// }
-
 	public String getPendaftaranKeterangan() {
 		return pendaftaranKeterangan;
 	}
@@ -333,22 +271,6 @@ public class MPendaftaran {
 		this.pendaftaranTarif = pendaftaranTarif;
 	}
 
-	// public Integer getMStatusIDMasuk() {
-	// 	return mStatusIDMasuk;
-	// }
-
-	// public void setMStatusIDMasuk(Integer mStatusIDMasuk) {
-	// 	this.mStatusIDMasuk = mStatusIDMasuk;
-	// }
-
-	// public String getMStatusIDPelayanan() {
-	// 	return mStatusIDPelayanan;
-	// }
-
-	// public void setMStatusIDPelayanan(String mStatusIDPelayanan) {
-	// 	this.mStatusIDPelayanan = mStatusIDPelayanan;
-	// }
-
 	public String getPendaftaranStatusKunjungan() {
 		return pendaftaranStatusKunjungan;
 	}
@@ -356,22 +278,6 @@ public class MPendaftaran {
 	public void setPendaftaranStatusKunjungan(String pendaftaranStatusKunjungan) {
 		this.pendaftaranStatusKunjungan = pendaftaranStatusKunjungan;
 	}
-
-	public String getKondisiMasuk() {
-		return kondisiMasuk;
-	}
-
-	public void setKondisiMasuk(String kondisiMasuk) {
-		this.kondisiMasuk = kondisiMasuk;
-	}
-
-	// public Integer getMRujukanID() {
-	// 	return mRujukanID;
-	// }
-
-	// public void setMRujukanID(Integer mRujukanID) {
-	// 	this.mRujukanID = mRujukanID;
-	// }
 
 	public String getPendaftaranJenis() {
 		return pendaftaranJenis;
@@ -387,14 +293,6 @@ public class MPendaftaran {
 
 	public void setPendaftaranStatusKonsul(String pendaftaranStatusKonsul) {
 		this.pendaftaranStatusKonsul = pendaftaranStatusKonsul;
-	}
-
-	public Integer getMUnitIDAsal() {
-		return mUnitIDAsal;
-	}
-
-	public void setMUnitIDAsal(Integer mUnitIDAsal) {
-		this.mUnitIDAsal = mUnitIDAsal;
 	}
 
 	public String getPendaftaranPoli() {
@@ -525,12 +423,20 @@ public class MPendaftaran {
 		this.pasien = pasien;
 	}
 
-	public MKondisi getKondisi() {
-		return kondisi;
+	public MKondisi getKondisiMasuk() {
+		return kondisiMasuk;
 	}
 
-	public void setKondisi(MKondisi kondisi) {
-		this.kondisi = kondisi;
+	public void setKondisiMasuk(MKondisi kondisiMasuk) {
+		this.kondisiMasuk = kondisiMasuk;
+	}
+
+	public MKondisi getKondisiKeluar() {
+		return kondisiKeluar;
+	}
+
+	public void setKondisiKeluar(MKondisi kondisiKeluar) {
+		this.kondisiKeluar = kondisiKeluar;
 	}
 
 	public MTindakan getTindakan() {
@@ -541,12 +447,20 @@ public class MPendaftaran {
 		this.tindakan = tindakan;
 	}
 
-	public MRujukan getRujukan() {
-		return rujukan;
+	public MRujukan getRujukanMasuk() {
+		return rujukanMasuk;
 	}
 
-	public void setRujukan(MRujukan rujukan) {
-		this.rujukan = rujukan;
+	public void setRujukanMasuk(MRujukan rujukanMasuk) {
+		this.rujukanMasuk = rujukanMasuk;
+	}
+
+	public MRujukan getRujukanKeluar() {
+		return rujukanKeluar;
+	}
+
+	public void setRujukanKeluar(MRujukan rujukanKeluar) {
+		this.rujukanKeluar = rujukanKeluar;
 	}
 
 	public MPegawai getPegawai() {

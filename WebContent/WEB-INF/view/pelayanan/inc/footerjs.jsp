@@ -1,6 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <script type="text/javascript">
+$(document).ready(function(){
+    if ($('#select-selesai').val() == 'Y') {
+        $('#form-selesai').show();
+    } else {
+        $('#form-selesai').find('input, select').each(function () {
+            $(this).attr('disabled',true);
+        });
+    }
+    $('#select-selesai').change(function () {
+        if ($(this).val() == 'Y') {
+            $('#form-selesai').find('input, select').each(function () {
+                $(this).attr('disabled',false);
+            });
+            $('#form-selesai').show(500);
+        } else {
+            $('#form-selesai').find('input, select').each(function () {
+                $(this).attr('disabled',true);
+            });
+            $('#form-selesai').hide(500);
+        }
+    });
+});
+
+</script>
+
+<script type="text/javascript">
     var riwayatperiksa_length = $('#pelayanan-riwayatperiksa-list').find('tr').length;
     var periksapasien_length = $('#pelayanan-periksapasien-list').find('tr').length;
 	var tindakan_length = $('#pelayanan-tindakan-list').find('tr').length;
@@ -11,9 +37,6 @@
     var penunjangtrans_length = $('#pelayanan-penunjangtrans-list').find('tr').length;
     var soap_length = $('#pelayanan-soap-list').find('tr').length;
 
-
-
-	
     $(function(){
 		$('#simpan-pelayanan').click(function () {
             $('#pelayanan-riwayatperiksa-list tr').map(function(line){
@@ -263,8 +286,8 @@
             periksapasienPeriksaNama = $('#periksapasienPeriksaID option:selected').text();
             periksapasienPeriksaStandar = $('#periksapasienPeriksaStandar').val() ||0;
             periksapasienPeriksaNilai = $('#periksapasienPeriksaNilai').val() ||0;
-            pegawaiID = $('#pegawaiID').val();
-            pegawaiNama = $('#pegawaiID option:selected').text();
+            periksaPegawaiID = $('#periksaPegawaiID').val();
+            pegawaiNama = $('#periksaPegawaiID option:selected').text();
             periksapasienPeriksaKeterangan = $('#periksapasienPeriksaKeterangan').val() || '';
             
             tr.append('<td data-used="1" data-save="1" data-name="periksapasienTanggal" data-kolom-id="periksapasienTanggal">'+periksapasienTanggal+'</td>');
@@ -275,7 +298,7 @@
             tr.append('<td data-used="1" data-save="1" data-name="periksapasienPeriksaKeterangan" data-kolom-id="periksapasienPeriksaKeterangan">'+periksapasienPeriksaKeterangan+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePeriksapasien('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPeriksapasien('+counter+')">Edit</button></td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasienPeriksaID" data-kolom-id="periksapasienPeriksaID">' + periksapasienPeriksaID + '</td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="pegawaiID">' + pegawaiID + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="periksaPegawaiID">' + periksaPegawaiID + '</td>');
 
             if (periksapasienID) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="periksapasienID" data-kolom-id="periksapasienID">' + periksapasienID + '</td>');
@@ -415,8 +438,8 @@
             tindakanpasienID = $('#tindakanpasienID').val();
             tindakanID = $('#tindakanID').val();
             tindakanText = $('#tindakanID option:selected').text();
-            pegawaiID = $('#pegawaiID').val();
-            pegawaiText = $('#pegawaiID option:selected').text();
+            tindakanPegawaiID = $('#tindakanPegawaiID').val();
+            pegawaiText = $('#tindakanPegawaiID option:selected').text();
         	tindakanpasienHarga = $('#tindakanpasienHarga').val() ||0;
 
             tr.append('<td>'+tindakanText+'</td>');
@@ -424,7 +447,7 @@
             tr.append('<td>'+pegawaiText+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteTindakan('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editTindakan('+counter+')">Edit</button></td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="tindakan.tindakanID" data-kolom-id="tindakanID">'+tindakanID+'</td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="pegawaiID">'+pegawaiID+'</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="tindakanPegawaiID">'+tindakanPegawaiID+'</td>');
             if (tindakanpasienID) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="tindakanpasienID" data-kolom-id="tindakanpasienID">' + tindakanpasienID + '</td>');
             }
@@ -540,11 +563,14 @@
 
          $('#penunjangMedis').change(function(){
             var pnjSelected = $('#penunjangMedis option:selected')
-            console.log(pnjSelected)
-            console.log(pnjSelected.attr('data-harga'))
             $('#penunjangtransStandar').val(pnjSelected.attr('data-standar'));
             $('#penunjangtransSatuan').val(pnjSelected.attr('data-satuan'));
             $('#penunjangtransHarga').val(pnjSelected.attr('data-harga'));
+         });
+
+         $('#tindakanID').change(function(){
+            var harga = $('option:selected', this).attr('data-harga')
+            $('#tindakanpasienHarga').val(harga);
          });
 
         $('#simpan-penunjangtrans').click(function(){
@@ -573,17 +599,17 @@
             penunjangtransSatuan = $('#penunjangtransSatuan').val() ||0;
             penunjangtransJumlah = $('#penunjangtransJumlah').val() ||0;
             penunjangtransHarga = $('#penunjangtransHarga').val() ||0;
-            penunjangtransSubtotal = $('#penunjangtransSubtotal').val(penunjangtransJumlah*penunjangtransHarga);
-            
+            penunjangtransSubtotal = penunjangtransJumlah * penunjangtransHarga
+
             tr.append('<td>' + penunjangtransNama + '</td>');
             tr.append('<td data-used="1" data-save="1" data-name="penunjangtransHasil" data-kolom-id="penunjangtransHasil">'+penunjangtransHasil+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="penunjangtransStandar" data-kolom-id="penunjangtransStandar">'+penunjangtransStandar+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="penunjangtransSatuan" data-kolom-id="penunjangtransSatuan">'+penunjangtransSatuan+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="penunjangtransJumlah" data-kolom-id="penunjangtransJumlah">'+penunjangtransJumlah+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="penunjangtransHarga" data-kolom-id="penunjangtransHarga">'+penunjangtransHarga+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="penunjangtransSubtotal" data-kolom-id="penunjangtransSubtotal">'+penunjangtransSubtotal+'</td>');
+            tr.append('<td>'+penunjangtransSubtotal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjangtrans('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPenunjangtrans('+counter+')">Edit</button></td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangtrans.penunjangtransID" data-kolom-id="penunjangMedis">' + penunjangMedis + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjang.penunjangmedisID" data-kolom-id="penunjangMedis">' + penunjangMedis + '</td>');
             if (penunjangtransID) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangtransID" data-kolom-id="penunjangtransID">' + penunjangtransID + '</td>');
             }

@@ -53,6 +53,7 @@
                                             <button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjangtrans(${loop.index+1})">Delete</button>
                                             <button type="button" class="btn btn-primary btn-sm" onclick="editPenunjangtrans(${loop.index+1})">Edit</button>
                                         </td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="penunjang.penunjangmedisID" data-kolom-id="penunjangMedis">${pt.penunjang.penunjangmedisID}</td>
                                         <td style="display:none" data-used="1" data-save="1" data-name="penunjangtransID" data-kolom-id="penunjangtransID">${pt.penunjangtransID}</td>
 									</tr>
 								</c:forEach>

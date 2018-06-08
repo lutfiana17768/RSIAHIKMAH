@@ -30,7 +30,7 @@
                                             <button type="button" class="btn btn-danger btn-sm" onclick="deletePeriksapasien(${loop.index+1})">Delete</button>
                                             <button type="button" class="btn btn-primary btn-sm" onclick="editPeriksapasien(${loop.index+1})">Edit</button>
                                         </td>
-                                        <td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="pegawaiID">${pp.pegawai.pegawaiID}</td>
+                                        <td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="periksaPegawaiID">${pp.pegawai.pegawaiID}</td>
                                         <td style="display:none" data-used="1" data-save="1" data-name="periksapasienID" data-kolom-id="periksapasienID">${pp.periksapasienID}</td>
                                     </tr>
                                 </c:forEach>

@@ -23,7 +23,7 @@
                                         <c:forEach var="pnj" items="${penunjangs}">
                                             <option value="${pnj.penunjangmedisID }" 
                                                     data-standar="${pnj.paramperiksa[0].paramperiksaStandar}" 
-                                                    data-satuan="${pnj.paramperiksa[0].paramperiksaHarga}" 
+                                                    data-satuan="${pnj.paramperiksa[0].paramperiksaSatuan}" 
                                                     data-harga="${pnj.penunjangkelas[0].penunjangkelasHarga}">
                                                 ${pnj.penunjangmedisNama }
                                             </option>   
@@ -50,10 +50,6 @@
                             <div class="form-group">
                                 <label>Harga</label>
                                 <input type="text" name="penunjangtransHarga" id="penunjangtransHarga" class="form-control boxed">
-                            </div>
-                            <div class="form-group">
-                                <label>Sub Total</label>
-                                <input type="text" name="penunjangtransSubtotal" id="penunjangtransSubtotal" class="form-control boxed">
                             </div>
                             <input type="hidden" name="penunjangtransID" id="penunjangtransID">
                             <input type="hidden" name="penunjangtrans_mode" id="penunjangtrans_mode">

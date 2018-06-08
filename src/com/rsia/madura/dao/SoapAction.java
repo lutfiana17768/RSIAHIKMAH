@@ -125,7 +125,7 @@ public class SoapAction implements SoapDAO {
 	public void SoapDelete(MSoap SoapModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.saveOrUpdate(SoapModel);
+		current.remove(SoapModel);
 
 	}
 }

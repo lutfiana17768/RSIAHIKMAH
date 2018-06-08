@@ -95,6 +95,17 @@
 											</tr>
 										</thead>
 										<tbody>
+											<c:set var = "totalKamar" value = "${0}"/>
+											<c:if test="${daftar.kelas != null}">
+												<c:set var = "totalKamar" value = "${daftar.kamar.tarif * rentangHari}"/>
+												<tr>
+													<td>${daftar.kamar.kamarNo}</td>
+													<td>${rentangHari}</td>
+													<td>${daftar.kamar.tarif}</td>
+													<td>0</td>
+													<td>${totalKamar}</td>
+												</tr>
+											</c:if>
 											<c:set var = "totalTindakan" value = "${0}"/>
 											<c:set var = "itemIndex" value = "${0}"/>
 											<c:forEach var="tp" items="${daftar.tindakanpasien}" varStatus="loop">
@@ -155,7 +166,7 @@
 					<div class="col-sm-5">
 						<div class="card-block">
 							<div class="form-group">
-								<c:set var = "totalTagihan" value = "${totalTindakan+totalPenunjang+totalTerapi}"/>
+								<c:set var = "totalTagihan" value = "${totalTindakan+totalPenunjang+totalTerapi+totalKamar}"/>
 			                    <label>Total Tagihan</label>
 			                    <input type="text" name="transaksiTagihan" class="form-control form-control-sm boxed" 
 			                    value='<fmt:formatNumber value = "${totalTagihan}" maxFractionDigits = "3"/>' disabled />

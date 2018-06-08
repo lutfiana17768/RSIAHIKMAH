@@ -28,7 +28,7 @@ public class MPeriksaPasien {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "periksapasien_id")
-	private int periksapasienID;
+	private Integer periksapasienID;
 	
     @Transient // means "not a DB field"
     private Integer remove; // boolean flag
@@ -100,11 +100,11 @@ public class MPeriksaPasien {
 	@ManyToOne
 	private MPegawai pegawai;
 
-	public int getPeriksapasienID() {
+	public Integer getPeriksapasienID() {
 		return periksapasienID;
 	}
 
-	public void setPeriksapasienID(int periksapasienID) {
+	public void setPeriksapasienID(Integer periksapasienID) {
 		this.periksapasienID = periksapasienID;
 	}
 
@@ -290,6 +290,30 @@ public class MPeriksaPasien {
 	
 	public void setPegawai(MPegawai pegawai) {
 		this.pegawai = pegawai;
+	}
+
+	@Override
+	public String toString() {
+		return "MPeriksaPasien [ periksapasienID=" +periksapasienID +" periksapasienPeriksaNama=" 
+		+ periksapasienPeriksaNama +" periksapasienPeriksaNilai=" 
+		+ periksapasienPeriksaNilai +" periksapasienPeriksaSatuan=" 
+		+ periksapasienPeriksaSatuan +" periksapasienPeriksaStandar=" 
+		+ periksapasienPeriksaStandar +" periksapasienPeriksaLabel=" 
+		+ periksapasienPeriksaLabel +" periksapasienPeriksaGroup=" 
+		+ periksapasienPeriksaGroup +" periksapasienPeriksaFile=" 
+		+ periksapasienPeriksaFile +" periksapasienPeriksaKeterangan=" 
+		+ periksapasienPeriksaKeterangan +" periksapasienAktif=" 
+		+ periksapasienAktif +" periksapasienCreatedBy=" 
+		+ periksapasienCreatedBy +" periksapasienCreatedDate=" 
+		+ periksapasienCreatedDate +" periksapasienUpdatedBy=" 
+		+ periksapasienUpdatedBy +" periksapasienUpdatedDate=" 
+		+ periksapasienUpdatedDate +" periksapasienRevised=" 
+		+ periksapasienRevised +" periksapasienPendaftaranID=" 
+		+ periksapasienPendaftaranID +" periksapasienTanggal=" 
+		+ periksapasienTanggal +" periksapasienUrut=" 
+		+ periksapasienUrut +" periksapasienIndent=" 
+		+ periksapasienIndent +" pendaftaran=" 
+		+ pendaftaran +" pegawai=" + pegawai + "]";
 	}
 	
 }

@@ -125,7 +125,7 @@ public class TerapiPasienAction implements TerapiPasienDAO {
 	public void TerapiPasienDelete(MTerapiPasien TerapiPasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.saveOrUpdate(TerapiPasienModel);
+		current.remove(TerapiPasienModel);
 
 	}
 }

@@ -2,6 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
         <div class="modal fade" id="modal-pelayanan-tindakan">
             <div class="modal-dialog modal-lg">
@@ -20,7 +21,7 @@
                                 <select name="tindakanID" id="tindakanID" class="form-control boxed">
                                     <option value="">--- Pilih Tindakan ---</option>
                                     <c:forEach var="tindakan" items="${tindakans}">
-                                        <option value="${tindakan.tindakanID }">
+                                        <option value="${tindakan.tindakanID }" data-harga="<fmt:formatNumber value = "${tindakan.tindakanHarga}" minFractionDigits="0" maxFractionDigits="0"/>">
                                             ${tindakan.tindakanNama }
                                         </option>
                                     </c:forEach>
@@ -28,7 +29,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Pelaksana</label>
-                                <select name="pegawaiID" id="pegawaiID" class="form-control boxed">
+                                <select name="pegawai.pegawaiID" id="tindakanPegawaiID" class="form-control boxed">
                                     <option value="">--- Pilih Pelaksana ---</option>
                                     <c:forEach var="pegawai" items="${pegawais}">
                                         <option value="${pegawai.pegawaiID }">

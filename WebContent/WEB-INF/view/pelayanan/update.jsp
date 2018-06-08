@@ -83,7 +83,7 @@
                             <label class="col-sm-3 col-form-label">Kondisi Masuk</label>
                             <div class="col-sm-9">
                                 <div class="select2-wrapper">
-                                    <form:select path="pendaftaranNo"
+                                    <form:select path="kondisiMasuk.kondisiID"
                                         class="form-control form-control-sm select2-single">
                                         <c:forEach var="kondisipasien" items="${kondisis}">
                                             <form:option value="${kondisipasien.kondisiID}"
@@ -118,6 +118,39 @@
                                         <form:option value="3" label="Status C"/>
                                         <form:option value="4" label="Status D"/>
                                     </form:select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Selesai ?</label>
+                            <div class="col-sm-9">
+                                <div class="select2-wrapper">
+                                    <select id="select-selesai" class="form-control form-control-sm select2-single">
+                                        <option value="T" label="Tidak"/>
+                                        <option value="Y" label="Ya"/>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="form-selesai" style="display: none">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Tanggal Keluar</label>
+                                <div class="col-sm-9">
+                                    <form:input path="pendaftaranKrs" class="form-control form-control-sm datetimepicker" />
+                                </div>
+                            </div>
+                            <div class="form-group row">    
+                                <label class="col-sm-3 col-form-label">Kondisi Keluar</label>
+                                <div class="col-sm-9">
+                                    <div class="select2-wrapper">
+                                        <form:select path="kondisiKeluar.kondisiID"
+                                            class="form-control form-control-sm select2-single">
+                                            <c:forEach var="kondisipasien" items="${kondisis}">
+                                                <form:option value="${kondisipasien.kondisiID}"
+                                                    label="${kondisipasien.kondisiNama}"/>
+                                            </c:forEach>
+                                        </form:select>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -43,8 +43,8 @@ public class MTindakan {
 	@ManyToOne
 	private MKelas kelas;
 	
-	@Column(name="harga_tindakan")
-	private float hargaTindakan;
+	@Column(name="tindakan_harga")
+	private Integer tindakanHarga;
 	
 	@Column(name="tindakan_aktif")
 	private String tindakanAktif;
@@ -122,12 +122,12 @@ public class MTindakan {
 		this.kelas = kelas;
 	}
 
-	public float getHargaTindakan() {
-		return hargaTindakan;
+	public Integer getTindakanHarga() {
+		return tindakanHarga;
 	}
 
-	public void setHargaTindakan(float hargaTindakan) {
-		this.hargaTindakan = hargaTindakan;
+	public void setTindakanHarga(Integer tindakanHarga) {
+		this.tindakanHarga = tindakanHarga;
 	}
 
 	public void setTindakanKeterangan(String tindakanKeterangan) {

@@ -25,7 +25,7 @@ public class MDiagnosaPasien {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "diagnosapasien_id")
-	private int diagnosapasienID;
+	private Integer diagnosapasienID;
 
     @Transient
     private Integer remove;
@@ -99,11 +99,11 @@ public class MDiagnosaPasien {
 	@ManyToOne
 	private MIcd icd;
 	
-	public int getDiagnosapasienID() {
+	public Integer getDiagnosapasienID() {
 		return diagnosapasienID;
 	}
 
-	public void setDiagnosapasienID(int diagnosapasienID) {
+	public void setDiagnosapasienID(Integer diagnosapasienID) {
 		this.diagnosapasienID = diagnosapasienID;
 	}
 

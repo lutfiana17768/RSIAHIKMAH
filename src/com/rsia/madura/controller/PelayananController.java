@@ -90,8 +90,6 @@ public class PelayananController {
 	
 	private String uri ="redirect: /pelayanan";
 
-	private String json;
-
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model,
 			@RequestParam(value="page", required=false, defaultValue = "1") int page, 
@@ -154,7 +152,7 @@ public class PelayananController {
 			pelayananService.update(pendaftaranModel);
 		}
 
-		return this.uri;
+		return "redirect: /pelayanan/update/" + pendaftaranModel.getPendaftaranID();
 	}	
 
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)

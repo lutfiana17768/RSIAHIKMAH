@@ -42,7 +42,7 @@
                             <div class="form-group">
                                 <label>Dokter</label>
                                 <div class="select2-wrapper">
-                                    <select name="pegawai.pegawaiID" id="pegawaiID" class="form-control boxed select2-single">
+                                    <select name="pegawai.pegawaiID" id="periksaPegawaiID" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Dokter ---</option>
                                         <c:forEach var="pegawai" items="${pegawais}">
                                             <option value="${pegawai.pegawaiID }">

@@ -125,7 +125,7 @@ public class Diagnosa9Action implements Diagnosa9DAO {
 	public void Diagnosa9Delete(MDiagnosa9 Diagnosa9Model) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.saveOrUpdate(Diagnosa9Model);
+		current.remove(Diagnosa9Model);
 
 	}
 }

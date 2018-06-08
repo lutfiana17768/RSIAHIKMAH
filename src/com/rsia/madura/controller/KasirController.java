@@ -6,6 +6,7 @@
  */
 package com.rsia.madura.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import java.io.IOException;
 import java.sql.Timestamp;
+import java.time.temporal.ChronoUnit;
 
 import com.rsia.madura.entity.MTransaksiPasien;
 import com.rsia.madura.entity.MTransaksiBayar;
@@ -59,11 +63,14 @@ public class KasirController {
 			};
 		}
 
+		Long rentangHari = this.betweenDates(daftar.getPendaftaranMrs(), daftar.getPendaftaranKrs());
+		
 		model.addAttribute("daftar", daftar);
 		model.addAttribute("transaksiModel", transaksiModel);
 		model.addAttribute("transaksiDaftarID", transaksiDaftarID);
 		model.addAttribute("daftarID", daftarID);
 		model.addAttribute("sudahBayar", sudahBayar);
+		model.addAttribute("rentangHari", rentangHari);
 		model.addAttribute("footerjs", "../kasir/inc/footerjs.jsp");
 		
 		return "kasir/tambah";
@@ -112,6 +119,10 @@ public class KasirController {
 		model.addAttribute("footerjs", "../kasir/inc/footerjs.jsp");
 		
 		return "kasir/kuitansi";
+	}
+
+	public static long betweenDates(Date firstDate, Date secondDate) {
+			return ChronoUnit.DAYS.between(firstDate.toInstant(), secondDate.toInstant());
 	}
 	
 }

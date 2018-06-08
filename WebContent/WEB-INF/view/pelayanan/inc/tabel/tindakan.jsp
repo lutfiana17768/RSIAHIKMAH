@@ -25,7 +25,7 @@
 											<button type="button" class="btn btn-danger btn-sm" onclick="deleteTIndakan(${loop.index+1})">Delete</button>
 											<button type="button" class="btn btn-primary btn-sm" onclick="editTIndakan(${loop.index+1})">Edit</button>
 										</td>
-										<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="pegawaiID">${tp.pegawai.pegawaiID}</td>
+										<td style="display:none" data-used="1" data-save="1" data-name="pegawai.pegawaiID" data-kolom-id="tindakanPegawaiID">${tp.pegawai.pegawaiID}</td>
 										<td style="display:none" data-used="1" data-save="1" data-name="tindakan.tindakanID" data-kolom-id="tindakanID">${tp.tindakan.tindakanID}</td>
 										<td style="display:none" data-used="1" data-save="1" data-name="tindakanpasienID" data-kolom-id="tindakanpasienID">${tp.tindakanpasienID}</td>
 									</tr>

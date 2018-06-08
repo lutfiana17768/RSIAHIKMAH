@@ -125,7 +125,7 @@ public class TindakanPasienAction implements TindakanPasienDAO {
 	public void TindakanPasienDelete(MTindakanPasien TindakanPasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.saveOrUpdate(TindakanPasienModel);
+		current.remove(TindakanPasienModel);
 
 	}
 }

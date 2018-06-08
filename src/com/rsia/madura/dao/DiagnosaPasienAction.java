@@ -125,7 +125,7 @@ public class DiagnosaPasienAction implements DiagnosaPasienDAO {
 	public void DiagnosaPasienDelete(MDiagnosaPasien DiagnosaPasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.saveOrUpdate(DiagnosaPasienModel);
+		current.remove(DiagnosaPasienModel);
 
 	}
 }

@@ -125,7 +125,7 @@ public class PeriksaPasienAction implements PeriksaPasienDAO {
 	public void PeriksaPasienDelete(MPeriksaPasien PeriksaPasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.saveOrUpdate(PeriksaPasienModel);
+		current.remove(PeriksaPasienModel);
 
 	}
 }

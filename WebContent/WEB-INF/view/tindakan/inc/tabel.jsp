@@ -8,7 +8,6 @@
 								<div class="card-header">
 									<div class="header-block">
 										<h3 class="title"> List Tindakan </h3>
-										<a href="/tindakan/tambah" class="btn btn-primary btn-sm">Tambah</a>
 									</div>
 								</div>
 								<div class="card-block">
@@ -20,6 +19,7 @@
 														<th>Kode</th>
 														<th>Nama</th>
 														<th>Keterangan</th>
+														<th>Harga</th>
 														<th>Kelas</th>
 														<th>Aksi</th>
 													</tr>
@@ -30,6 +30,7 @@
 															<td>${tindakan.tindakanKode}</td>
 															<td>${tindakan.tindakanNama}</td>
 															<td>${tindakan.tindakanKeterangan}</td>
+															<td>${tindakan.tindakanHarga}</td>
 															<td>${tindakan.kelas.kelasNama}</td>
 															<td>
 																<a href="/tindakan/update/${tindakan.tindakanID}" class="btn btn-info rounded-0">Update</a>

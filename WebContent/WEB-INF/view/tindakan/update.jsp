@@ -38,6 +38,11 @@
 											</div>
 
 											<div class="form-group">
+												<label>Harga</label>
+												<form:input path="tindakanHarga" placeholder="Masukan Harga" class="form-control boxed"/>
+											</div>
+											
+											<div class="form-group">
 												<label>Kelas</label>
 												<form:select path="kelas.kelasID" class="form-control boxed">
 													<option value="">--- Pilih Kelas ---</option>

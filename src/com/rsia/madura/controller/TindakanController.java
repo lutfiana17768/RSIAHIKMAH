@@ -35,14 +35,6 @@ public class TindakanController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model) {
-		List<MTindakan> tindakans = tindakanService.findAll();
-		model.addAttribute("tindakans", tindakans);
-		model.addAttribute("footerjs", "");
-		return "tindakan/index";
-	}
-
-	@RequestMapping(value="/tambah", method=RequestMethod.GET)
-	public String FormView(Model model) {
 		List<MKelas> kelases = kelasService.findAll();
 		List<MTindakan> tindakans = tindakanService.findAll();
 		MTindakan tindakanModel = new MTindakan();
@@ -50,7 +42,7 @@ public class TindakanController {
 		model.addAttribute("tindakans", tindakans);
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("tindakanModel", tindakanModel);
-		return "tindakan/tambah";
+		return "tindakan/index";
 	}
 
 	@RequestMapping(value="/store", method=RequestMethod.POST)

@@ -43,7 +43,31 @@ public class PelayananServiceAction implements PelayananService{
 	private PelayananDAO pelayananDAO;
 
 	@Autowired
-	private RiwayatPeriksaDAO riwayatPeriksaDAO;
+    private RiwayatPeriksaDAO riwayatPeriksaDAO;
+    
+    @Autowired
+    private PeriksaPasienDAO periksaPasienDAO;
+    
+    @Autowired
+    private DiagnosaPasienDAO diagnosaPasienDAO;
+
+    @Autowired
+    private Diagnosa9DAO diagnosa9DAO;
+
+    @Autowired
+    private TindakanPasienDAO tindakanPasienDAO;
+
+    @Autowired
+    private TerapiPasienDAO terapiPasienDAO;
+
+    @Autowired
+    private ResepDAO resepDAO;
+    
+    @Autowired
+    private PenunjangTransDAO penunjangTransDAO;
+
+    @Autowired
+    private SoapDAO soapDAO;
 
 	@Override
 	@Transactional
@@ -144,12 +168,17 @@ public class PelayananServiceAction implements PelayananService{
 			}	
 		});
 
-		// delPeriksa.forEach((periksa) -> {
-		// 	if (periksa.getPeriksaID() != null) {
-		// 		PeriksaPasienDAO.PeriksaPasienDelete(periksa);
-		// 	}	
-		// });
-
+		delPeriksa.forEach((periksa) -> {
+			if (periksa.getPeriksapasienID() != null) {
+				periksaPasienDAO.PeriksaPasienDelete(periksa);
+			}	
+        });
+        
+        delDiagnosaPasien.forEach((diagnosa) -> {
+            if (diagnosa.getDiagnosapasienID() != null) {
+                diagnosaPasienDAO.DiagnosaPasienDelete(diagnosa);
+            }
+        });
 
 	}
 

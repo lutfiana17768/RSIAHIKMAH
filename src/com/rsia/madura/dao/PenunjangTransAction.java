@@ -125,7 +125,7 @@ public class PenunjangTransAction implements PenunjangTransDAO {
 	public void PenunjangTransDelete(MPenunjangTrans PenunjangTransModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.saveOrUpdate(PenunjangTransModel);
+		current.remove(PenunjangTransModel);
 
 	}
 }
