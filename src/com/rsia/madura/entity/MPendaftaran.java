@@ -87,6 +87,12 @@ public class MPendaftaran {
 	@Column(name="pendaftaran_status")
 	private String pendaftaranStatus;
 
+	@Column(name="pendaftaran_cara_masuk")
+	private String pendaftaranCaraMasuk;
+
+	@Column(name="pendaftaran_selesai")
+	private String pendaftaranSelesai;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="pendaftaran_deleted_date")
 	private Date pendaftaranDeletedDate;
@@ -162,6 +168,9 @@ public class MPendaftaran {
 
 	@ManyToOne
 	private MKelas kelas;
+
+	@ManyToOne
+	private MRuang ruang;
 
 	public MPendaftaran() {
 
@@ -317,6 +326,22 @@ public class MPendaftaran {
 
 	public void setPendaftaranStatus(String pendaftaranStatus) {
 		this.pendaftaranStatus = pendaftaranStatus;
+	}
+
+	public String getPendaftaranCaraMasuk() {
+		return pendaftaranCaraMasuk;
+	}
+
+	public void setPendaftaranCaraMasuk(String pendaftaranCaraMasuk) {
+		this.pendaftaranCaraMasuk = pendaftaranCaraMasuk;
+	}
+
+	public String getPendaftaranSelesai() {
+		return pendaftaranSelesai;
+	}
+
+	public void setPendaftaranSelesai(String pendaftaranSelesai) {
+		this.pendaftaranSelesai = pendaftaranSelesai;
 	}
 
 	public Date getPendaftaranDeletedDate() {
@@ -485,5 +510,13 @@ public class MPendaftaran {
 
 	public void setKelas(MKelas kelas) {
 		this.kelas = kelas;
+	}
+
+	public MRuang getRuang() {
+		return ruang;
+	}
+
+	public void setRuang(MRuang ruang) {
+		this.ruang = ruang;
 	}
 }

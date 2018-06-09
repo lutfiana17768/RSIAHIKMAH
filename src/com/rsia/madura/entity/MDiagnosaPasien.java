@@ -283,4 +283,5 @@ public class MDiagnosaPasien {
 	public void setIcd(MIcd icd) {
 		this.icd = icd;
 	}
+
 }
