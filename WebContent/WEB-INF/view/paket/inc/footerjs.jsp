@@ -24,7 +24,7 @@
                     var paket_type_name = $(this).attr('data-harga-type');
                     if (paket_type_name) {
                         var paket_type = $('<input type="hidden">');
-                        paket_type.attr('name','paketDetail[' + line + '].paketDetail_type');
+                        paket_type.attr('name','paketDetail[' + line + '].paketDetailType');
                         paket_type.attr('value', paket_type_name);
                         $('#paket-form').append(paket_type);
                     }
@@ -116,7 +116,7 @@
                 tindakan_text = $('#mTindakanID option:selected').text();
                 paketTindakanJumlah = $('#paketTindakanJumlah').val() ||'';
                 paket_tindakan_harga = $('#paket_tindakan_harga').val() ||0;
-                paketTindakanSubharga = $('#paketDetailSubharga').val() || 0;
+                paketTindakanSubharga = paket_tindakan_harga * paketTindakanJumlah  || 0;
                 
 
                 tr.append('<td>'+tindakan_text+'</td>');
@@ -161,7 +161,7 @@
                 penunjangText = $('#penunjangmedisID option:selected').text();
                 paketPenunjangJumlah = $('#paketPenunjangJumlah').val() ||'';
                 paketPenunjangHarga = $('#paketPenunjangHarga').val() ||0;
-                paketPenunjangSubharga = $('#paketDetailSubharga').val() || 0;
+                paketPenunjangSubharga = paketPenunjangJumlah * paketPenunjangHarga  || 0;
                 
 
                 tr.append('<td>'+penunjangText+'</td>');

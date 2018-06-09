@@ -4,58 +4,60 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="../app/header.jsp" />
-			
-	<section class="card">
-		<div class="card-header bordered">
-			<div class="header-block">
-				<h3 class="title">Pelayanan </h3>
-			</div>
-			<div class="header-block pull-right">
+            
+    <section class="card">
+        <div class="card-header bordered">
+            <div class="header-block">
+                <h3 class="title">Pelayanan </h3>
+            </div>
+            <div class="header-block pull-right">
                 <a href="/kasir/pembayaran?pendaftaran=${pelayananModel.pendaftaranID}" class="btn btn-warning float-right rounded-0 pull-right" style="margin: 0px;">Pembayaran</a>
-				<button type="button" id="simpan-pelayanan" class="btn btn-primary float-right rounded-0 pull-right" style="margin: 0px;">Simpan</button>
-			</div>
-		</div>
+                <button type="button" id="simpan-pelayanan" class="btn btn-primary float-right rounded-0 pull-right" style="margin: 0px;">Simpan</button>
+            </div>
+        </div>
 
         <div class="card card-success" style="box-shadow: none; border: none;">
             <div class="card-block row">
                 <div class="col-lg-4">
-                    <table>
-                        <tr>
-                            <td>NO</td>
-                            <td>:</td>
-                            <td>${pelayananModel.pendaftaranNo}</td>
-                        </tr>
-                        <tr>
-                            <td>NO. RM</td>
-                            <td>:</td>
-                            <td>${pelayananModel.pasien.pasienNorm}</td>
-                        </tr>
-                        <tr>
-                            <td>Nama</td>
-                            <td>:</td>
-                            <td>${pelayananModel.pasien.pasienNama}</td>
-                        </tr>
-                        <tr>
-                            <td>Alamat</td>
-                            <td>:</td>
-                            <td>${pelayananModel.pasien.pasienAlamat}</td>
-                        </tr>
-                        <tr>
-                            <td>Tgl Lahir</td>
-                            <td>:</td>
-                            <td><fmt:formatDate value="${pelayananModel.pasien.pasienTanggallahir}" pattern="dd MMMM yyyy" /></td>
-                        </tr>
-                        <tr>
-                            <td>L/P</td>
-                            <td>:</td>
-                            <td>${pelayananModel.pasien.pasienKelamin}</td>
-                        </tr>
-                        <tr>
-                            <td>Waktu MRS</td>
-                            <td>:</td>
-                            <td><fmt:formatDate value="${pelayananModel.pendaftaranMrs}" pattern="EEEE, dd MMMM yyyy" /></td>
-                        </tr>
-                    </table>
+                    <div class="table-responsive"  style="background-color: #e9ecef;padding: 1em;">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>No.</td>
+                                <td>:</td>
+                                <td style="border-bottom: 1px solid green">${pelayananModel.pendaftaranNo}</td>
+                            </tr>
+                            <tr>
+                                <td>No. RM</td>
+                                <td>:</td>
+                                <td style="border-bottom: 1px solid green">${pelayananModel.pasien.pasienNorm}</td>
+                            </tr>
+                            <tr>
+                                <td>Nama</td>
+                                <td>:</td>
+                                <td style="border-bottom: 1px solid green">${pelayananModel.pasien.pasienNama}</td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td>:</td>
+                                <td style="border-bottom: 1px solid green">${pelayananModel.pasien.pasienAlamat}</td>
+                            </tr>
+                            <tr>
+                                <td>Tgl Lahir</td>
+                                <td>:</td>
+                                <td style="border-bottom: 1px solid green"><fmt:formatDate value="${pelayananModel.pasien.pasienTanggallahir}" pattern="dd MMMM yyyy" /></td>
+                            </tr>
+                            <tr>
+                                <td>L/P</td>
+                                <td>:</td>
+                                <td style="border-bottom: 1px solid green">${pelayananModel.pasien.pasienKelamin}</td>
+                            </tr>
+                            <tr>
+                                <td>Waktu MRS</td>
+                                <td>:</td>
+                                <td style="border-bottom: 1px solid green"><fmt:formatDate value="${pelayananModel.pendaftaranMrs}" pattern="EEEE, dd MMMM yyyy" /></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <div class="col-lg-8">
                     <form:form id="pelayanan-form" modelAttribute="pelayananModel" method="POST" action="/pelayanan/update">
@@ -165,8 +167,7 @@
                 </div>
             </div>
         </div>
-
-		<div class="card-block">
+        <div class="card-block">
             <ul class="nav nav-tabs nav-tabs-bordered">
                 <li class="nav-item">
                     <a href="#tab-fisik" class="nav-link active" data-target="#tab-fisik" data-toggle="tab" aria-controls="tab-fisik" role="tab">Fisik</a>
@@ -199,11 +200,11 @@
             <!-- Tab panes -->
             <div class="tab-content tabs-bordered">
                 <div class="tab-pane fade in active show" id="tab-fisik">
-					<button type="button" id="add_riwayatperiksa" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-riwayatperiksa">Tambah</button>
+                    <button type="button" id="add_riwayatperiksa" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-riwayatperiksa">Tambah</button>
                     
                     <jsp:include page="inc/tabel/fisik.jsp" />
 
-				</div>
+                </div>
                 <div class="tab-pane fade" id="tab-pemeriksaan">
                     <button type="button" id="add_periksapasien" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-periksapasien">Tambah</button>
 
@@ -215,34 +216,34 @@
 
                     <jsp:include page="inc/tabel/diagnosa.jsp" />
 
-            	</div>
+                </div>
                 <div class="tab-pane fade" id="tab-prosedur">
                     <button type="button" id="add_diagnosa9" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-diagnosa9">Tambah</button>
 
                     <jsp:include page="inc/tabel/prosedur.jsp" />
 
                 </div>
-            	<div class="tab-pane fade" id="tab-tindakan">
+                <div class="tab-pane fade" id="tab-tindakan">
                     <button type="button" id="add_tindakan" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-tindakan">Tambah</button>
 
                     <jsp:include page="inc/tabel/tindakan.jsp" />
 
-            	</div>
-            	<div class="tab-pane fade" id="tab-bhp">
+                </div>
+                <div class="tab-pane fade" id="tab-bhp">
                     <button type="button" id="add_pakai" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-pakai">Tambah</button>
                     <div class="table-responsive">
 
                     <jsp:include page="inc/tabel/bhp.jsp" />
 
                     </div>
-            	</div>
-            	<div class="tab-pane fade" id="tab-resep">
+                </div>
+                <div class="tab-pane fade" id="tab-resep">
                     <button type="button" id="add_resep" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-resep">Tambah</button>
 
                     <jsp:include page="inc/tabel/resep.jsp" />
 
-            	</div>
-            	<div class="tab-pane fade" id="tab-penunjang">
+                </div>
+                <div class="tab-pane fade" id="tab-penunjang">
                     <button type="button" id="add_penunjangtrans" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-penunjangtrans">Tambah</button>
 
                     <jsp:include page="inc/tabel/penunjang.jsp" />
@@ -253,8 +254,8 @@
 
                     <jsp:include page="inc/tabel/soap.jsp" />
 
-            	</div>
-        	</div>
+                </div>
+            </div>
 
             <jsp:include page="inc/modal/fisik.jsp" />
             <jsp:include page="inc/modal/pemeriksaan.jsp" />
@@ -265,7 +266,8 @@
             <jsp:include page="inc/modal/resep.jsp" />
             <jsp:include page="inc/modal/penunjang.jsp" />
             <jsp:include page="inc/modal/soap.jsp" />
+        </div>
 
 
-	</section>
+    </section>
 <jsp:include page="../app/footer.jsp" />

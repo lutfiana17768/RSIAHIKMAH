@@ -3,11 +3,13 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="now" class="java.util.Date"/>    
+
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>A simple, clean, and responsive HTML invoice template</title>
+    <title>RSIA - Kasir Tagihan</title>
     
     <style>
     .invoice-box {
@@ -20,6 +22,8 @@
         line-height: 24px;
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
+        margin-top: 50px;
+        font-style: italic;
     }
     
     .invoice-box table {
@@ -107,9 +111,7 @@
                             </td>
                             
                             <td>
-                                Invoice #: 123<br>
-                                Created: January 1, 2015<br>
-                                Due: February 1, 2015
+                                <fmt:formatDate value="${now}" pattern="dd MMMM yyyy"/><br/>
                             </td>
                         </tr>
                     </table>
@@ -117,12 +119,12 @@
             </tr>
             
             <tr>
-                <table>
+                <table style="border-top: 1px solid red;padding-top: 15px;padding-bottom: 15px;border-bottom: 1px solid red;margin-bottom: 15px;background-color: antiquewhite;">
                     <tbody>
                         <tr>
-                            <td>No. RM </td>
+                            <td style="font-weight: bold;">No. RM </td>
                             <td>:</td>
-                            <td>${transaksiModel.pendaftaran.pasien.pasienNorm}</td>
+                            <td style="font-weight: bold;">${transaksiModel.pendaftaran.pasien.pasienNorm}</td>
                         </tr>
                         <tr>
                             <td>Nama</td>
@@ -171,7 +173,7 @@
             <tr class="heading">
                 <table>
                     <thead>
-                        <tr>
+                        <tr style="background-color: #ddd;">
                             <th>Keterangan</th>
                             <th>Jumlah</th>
                             <th>Biaya</th>
@@ -180,6 +182,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <c:set var = "totalKamar" value = "${0}"/>
+                        <c:if test="${daftar.kamar != null}">
+                            <c:set var = "totalKamar" value = "${daftar.kamar.tarif * rentangHari}"/>
+                            <tr>
+                                <td>${daftar.kamar.kamarNo}</td>
+                                <td>${rentangHari}</td>
+                                <td><fmt:formatNumber value = "${daftar.kamar.tarif}" maxFractionDigits = "3"/></td>
+                                <td>0</td>
+                                <td><fmt:formatNumber value = "${totalKamar}" maxFractionDigits = "3"/></td>
+                            </tr>
+                        </c:if>
                         <c:set var = "totalTindakan" value = "${0}"/>
                         <c:forEach var="tp" items="${transaksiModel.pendaftaran.tindakanpasien}" varStatus="loop">
                             <c:set var = "subTindakan" value = "${tp.tindakanpasienHarga}"/>
@@ -220,7 +233,7 @@
                         </c:forEach>
                     </tbody>
                     <tfoot>
-                        <tr>
+                        <tr style="background-color: #ddd; font-weight: bold;">
                             <td colspan="4" align="right">Total Tagihan</td>
                             <td><fmt:formatNumber value = "${totalTindakan+totalPenunjang+totalTerapi}" maxFractionDigits = "3"/></td>
                         </tr>

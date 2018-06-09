@@ -6,15 +6,16 @@
 <jsp:include page="../app/header.jsp" />
 
 	<section class="section">
-		<div class="card">
-			<div class="card-header">
+		<div class="card sameheight-item items">
+			<div class="card-header bordered">
 				<div class="header-block w-100">
 					<h3 class="title pt-2"> Kasir </h3>
 					<div class="btn-group btn-group pull-right" role="group">
-						<button class="btn btn-success rounded-0" id="kasir-submit-kuitansi">Simpan dan Cetak Kuitansi</button>
-						<button class="btn btn-success rounded-0" id="kasir-submit-tagihan">Simpan dan Cetak Bukti</button>
-						<button class="btn btn-success rounded-0" id="kasir-submit">Simpan</button>
-						<button class="btn btn-danger rounded-0">Batas</button>
+						<button style="color: white;" class="btn btn-primary rounded-0" id="kasir-submit-kuitansi">
+							<em class="fa fa-print"></em> Simpan dan Cetak Kuitansi</button>
+						<button style="color: white;" class="btn btn-primary rounded-0" id="kasir-submit-tagihan"><em class="fa fa-print"></em> Simpan dan Cetak Bukti</button>
+						<button style="color: white;" class="btn btn-primary rounded-0" id="kasir-submit"><em class="fa fa-save"></em> Simpan</button>
+						<button style="color: white;" class="btn btn-danger rounded-0">Batas</button>
 					</div>
 				</div>
 			</div>
@@ -24,60 +25,60 @@
 				</c:if>
 				<input type="hidden" name="pendaftaran.pendaftaranID" value="${daftarID}" />
 				<div class="row">
-					<div class="col-sm-7">
-						<div class="card-block">
-							<div class="form-group row">
-								<label for="staticEmail" class="col-sm-4 col-form-label">Tgl. MRS : </label>
+					<div class="col-sm-6">
+						<div class="card-block m-2" style="padding-right: 2em;border: 1px solid #0003;background-color: #e9ecef;font-weight: 14px;">
+							<div class="form-group row has-success">
+								<label for="staticEmail" class="col-sm-4 col-form-label control-label text-right">Tgl. MRS</label>
 								<div class="col-sm-8">
-									<fmt:formatDate value="${daftar.pendaftaranMrs}" pattern="EEEE, dd MMMM yyyy" />
+									<p class="und_ln py-2 m-0" >: <fmt:formatDate value="${daftar.pendaftaranMrs}" pattern="EEEE, dd MMMM yyyy"/></p>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="staticEmail" class="col-sm-4 col-form-label">No Daftar : </label>
+							<div class="form-group row has-success">
+								<label for="staticEmail" class="col-sm-4 col-form-label control-label text-right">No Daftar</label>
 								<div class="col-sm-8">
-									${daftar.pendaftaranNo}
+									<p class="form-control-static underlined und_ln py-2 m-0">: ${daftar.pendaftaranNo}</p>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="staticEmail" class="col-sm-4 col-form-label">Dokter : </label>
+							<div class="form-group row has-success">
+								<label for="staticEmail" class="col-sm-4 col-form-label control-label text-right">Dokter</label>
 								<div class="col-sm-8">
-									${daftar.pegawai.pegawaiNama}
+									<p class="control-static underlined und_ln py-2 m-0">: ${daftar.pegawai.pegawaiNama} </p>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="staticEmail" class="col-sm-4 col-form-label">No. RM : </label>
+							<div class="form-group row has-success">
+								<label for="staticEmail" class="col-sm-4 col-form-label control-label text-right">No. RM</label>
 								<div class="col-sm-8">
-									${daftar.pasien.pasienNorm}
+									<p class="control-static underlined und_ln py-2 m-0">: ${daftar.pasien.pasienNorm} </p>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="staticEmail" class="col-sm-4 col-form-label">Nama : </label>
+							<div class="form-group row has-success">
+								<label for="staticEmail" class="col-sm-4 col-form-label control-label text-right">Nama</label>
 								<div class="col-sm-8">
-									${daftar.pasien.pasienNama}
+									<p class="control-static underlined und_ln py-2 m-0">: ${daftar.pasien.pasienNama}</p>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="staticEmail" class="col-sm-4 col-form-label">Tgl Lahir : </label>
+							<div class="form-group row has-success">
+								<label for="staticEmail" class="col-sm-4 col-form-label control-label text-right">Tgl Lahir</label>
 								<div class="col-sm-8">
-									<fmt:formatDate value="${daftar.pasien.pasienTanggallahir}" pattern="dd MMMM yyyy" />
+									<p class="und_ln py-2 m-0" > : <fmt:formatDate value="${daftar.pasien.pasienTanggallahir}" pattern="dd MMMM yyyy"/></p>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="staticEmail" class="col-sm-4 col-form-label">Alamat : </label>
+							<div class="form-group row has-success">
+								<label for="staticEmail" class="col-sm-4 col-form-label control-label text-right">Alamat</label>
 								<div class="col-sm-8">
-									${daftar.pasien.pasienAlamat}
+									<p class="control-static underlined und_ln py-2 m-0">: ${daftar.pasien.pasienAlamat} </p>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="staticEmail" class="col-sm-4 col-form-label">L/P : </label>
+							<div class="form-group row has-success">
+								<label for="staticEmail" class="col-sm-4 col-form-label control-label text-right">L/P</label>
 								<div class="col-sm-8">
-									${daftar.pasien.pasienKelamin}
+									<p class="-control-static underlined und_ln py-2 m-0">: ${daftar.pasien.pasienKelamin} </p>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="staticEmail" class="col-sm-4 col-form-label">No. Telp : </label>
+							<div class="form-group row has-success">
+								<label for="staticEmail" class="col-sm-4 col-form-label control-label text-right">No. Telp</label>
 								<div class="col-sm-8">
-									${daftar.pasien.pasienNotelp}
+									<p class="-control-static underlined und_ln py-2 m-0">: ${daftar.pasien.pasienNotelp} </p>
 								</div>
 							</div>
 						</div>
@@ -163,7 +164,7 @@
 							</section>
 						</div>
 					</div>
-					<div class="col-sm-5">
+					<div class="col-sm-6">
 						<div class="card-block">
 							<div class="form-group">
 								<c:set var = "totalTagihan" value = "${totalTindakan+totalPenunjang+totalTerapi+totalKamar}"/>
@@ -183,11 +184,11 @@
 			                </div>
 							<div class="form-group">
 								<label>Uang Bayar</label>
-								<input type="text" name="bayar[0].transaksiBayarNominal" id="uang-bayar" class="form-control form-control-sm">
+								<input type="text" name="bayar[0].transaksiBayarNominal" id="uang-bayar" class="form-control form-control-sm boxed">
 							</div>
 							<div class="form-group">
 								<label>Kembalian</label>
-								<input type="text" id="kembalian" class="form-control form-control-sm" disabled>
+								<input type="text" id="kembalian" class="form-control boxed form-control-sm" disabled>
 							</div>
 							<input type="hidden" name="harusBayar" value="${totalTagihan-sudahBayar}">
 						</div>

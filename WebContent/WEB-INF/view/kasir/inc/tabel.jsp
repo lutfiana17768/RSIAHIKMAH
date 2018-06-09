@@ -38,8 +38,7 @@
 										<td>${transaksi.pendaftaran.pasien.pasienAlamat}</td>
 										<td>${transaksi.transaksiStatus}</td>
 										<td>
-											<a href="/kasir/update/${transaksi.transaksiID}" class="btn btn-info rounded-0">Update</a>
-											<a href="/kasir/delete/${transaksi.transaksiID}" class="btn btn-warning rounded-0">Delete</a>
+											<a href="/kasir/pembayaran?pendaftaran=${transaksi.pendaftaran.pendaftaranNo}" class="btn btn-info rounded-0">Update</a>
 										</td>
 									</tr>
 								</c:forEach>

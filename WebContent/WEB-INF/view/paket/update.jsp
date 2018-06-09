@@ -45,7 +45,7 @@
 
 								<div class="form-group">
 									<label>Harga</label>
-									<form:input path="paketDetail" placeholder="Masukan Harga" class="form-control boxed" />
+									<form:input path="paketHarga" placeholder="Masukan Harga" class="form-control boxed" />
 								</div>
 
 
@@ -147,7 +147,7 @@
 																					<td>${harga.tindakans.tindakanNama}</td>
 																					<td data-used="1" data-save="1" data-name="paketDetailJumlah" data-kolom-id="paketTindakanJumlah">${harga.paketDetailJumlah}</td>
 																					<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paketTindakanHarga">${harga.paketDetailHarga}</td>
-																					<td>cek lagi</td>
+																					<td>${harga.paketDetailJumlah*harga.paketDetailHarga}</td>
 																					<td>
 																						<button type="button" class="btn btn-danger btn-sm" onclick="deleteTindakan(${loop.index+1})">Delete</button>
 																						<button type="button" class="btn btn-primary btn-sm" onclick="editTindakan(${loop.index+1})">Edit</button>
@@ -194,7 +194,7 @@
 																					<td>${harga.penunjangs.penunjangmedisNama}</td>
 																					<td data-used="1" data-save="1" data-name="paketDetailJumlah" data-kolom-id="paketPenunjangJumlah">${harga.paketDetailJumlah}</td>
 																					<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paketPenunjangHarga">${harga.paketDetailHarga}</td>
-																					<td>cek lagi</td>
+																					<td>${harga.paketDetailJumlah*harga.paketDetailHarga}</td>
 																					<td>
 																						<button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjang(${loop.index+1})">Delete</button>
 																						<button type="button" class="btn btn-primary btn-sm" onclick="editPenunjang(${loop.index+1})">Edit</button>
@@ -367,10 +367,6 @@
 								<label>Harga</label>
 								<input type="text" name="paketPenunjangHarga" id="paketPenunjangHarga" class="form-control boxed">
 							</div>
-							<div class="form-group">
-								<label>Sub Harga</label>
-								<input type="text" name="paketPenunjangSubharga" id="paketPenunjangSubharga" class="form-control boxed">
-							</div>
 							<input type="hidden" name="penunjang_mode" id="penunjang_mode">
 							<input type="hidden" name="penunjang_edit" id="penunjang_edit">
 						</form>
@@ -421,10 +417,6 @@
 							<div class="form-group">
 								<label>Harga</label>
 								<input type="text" name="paketBarangHarga" id="paketBarangHarga" class="form-control boxed">
-							</div>
-							<div class="form-group">
-								<label>Sub Harga</label>
-								<input type="text" name="paketBarangSubharga" id="paketBarangSubharga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="barang_mode" id="barang_mode">
 							<input type="hidden" name="barang_edit" id="barang_edit">

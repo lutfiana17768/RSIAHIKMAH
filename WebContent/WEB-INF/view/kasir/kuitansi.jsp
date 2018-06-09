@@ -8,23 +8,27 @@
 <c:set var="url">${req.requestURL}</c:set>
 <c:set var="uri" value="${req.requestURI}" />
 <c:set var="baseURL" value="${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}/" />
+<jsp:useBean id="now" class="java.util.Date"/>    
+
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>A simple, clean, and responsive HTML invoice template</title>
+    <title>RSIA - Kasir Kuitansi</title>
     
     <style>
     .invoice-box {
         max-width: 800px;
         margin: auto;
-        padding: 30px;
+        padding: 3em;
         border: 1px solid #eee;
         box-shadow: 0 0 10px rgba(0, 0, 0, .15);
         font-size: 16px;
         line-height: 24px;
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
+        margin-top: 50px;
+        font-style: italic;
     }
     
     .invoice-box table {
@@ -134,12 +138,12 @@
             </tr>
             
             <tr>
-                <table>
+                <table style="border-top: 1px solid red;padding-top: 15px;padding-bottom: 15px;border-bottom: 1px solid red;margin-bottom: 15px;background-color: antiquewhite;">
                     <tbody>
                         <tr>
-                            <td>No. Kuitansi</td>
+                            <td style="font-weight: bold">No. Kuitansi</td>
                             <td>:</td>
-                            <td>KUI-11</td>
+                            <td style="font-weight: bold">KUI-11</td>
                         </tr>
                         <tr>
                             <td>Terima dari</td>
@@ -164,18 +168,18 @@
                     <table>
                         <tbody>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color: black;font-weight: 600;font-size: 18px;">
                                 	Jumlah # <fmt:formatNumber value = "${transaksiModel.bayar[transaksiModel.bayar.size()-1].transaksiBayarNominal}" maxFractionDigits = "3"/>
                                 </td>
                                 <td>
-                                Surabaya, 12 Mei 2012<br/>
+                                Surabaya, <fmt:formatDate value="${now}" pattern="dd MMMM yyyy"/><br/>
                                 Telah bayar <br/>
                                 Kasir <br/><br/><br/>    
                                 </td>
                             </tr>
                             <tr align="right">
-                            	<td colspan="2">(Keluarga)</td>
-                                <td>dr. Udin</td>
+                            	<td colspan="2" style="text-decoration: underline;font-weight: bold;">(Keluarga)</td>
+                                <td style="text-decoration: underline;font-weight: bold;">dr. Udin</td>
                              </tr>
                         </tbody>
                     </table>
@@ -183,11 +187,11 @@
             </tr>
         </table>
     </div>
-    <script>
+    <!-- <script>
 		window.onafterprint = function(){
 		   window.location.href = BASE_URL+'kasir/pembayaran?pendaftaran=${transaksiModel.pendaftaran.pendaftaranID}';
 		}
 		window.print();
-    </script>
+    </script> -->
 </body>
 </html>

@@ -258,10 +258,6 @@
 								<label>Harga</label>
 								<input type="text" name="paketTindakanHarga" id="paketTindakanHarga" class="form-control boxed">
 							</div>
-							<div class="form-group">
-								<label>Sub Harga</label>
-								<input type="text" name="paketTindakanSubharga" id="paketTindakanSubharga" class="form-control boxed">
-							</div>
 							<input type="hidden" name="tindakan_mode" id="tindakan_mode">
 							<input type="hidden" name="tindakan_edit" id="tindakan_edit">
 						</form>
@@ -305,10 +301,6 @@
 							<div class="form-group">
 								<label>Harga</label>
 								<input type="text" name="paketPenunjangHarga" id="paketPenunjangHarga" class="form-control boxed">
-							</div>
-							<div class="form-group">
-								<label>Sub Harga</label>
-								<input type="text" name="paketPenunjangSubharga" id="paketPenunjangSubharga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="penunjang_mode" id="penunjang_mode">
 							<input type="hidden" name="penunjang_edit" id="penunjang_edit">
@@ -361,10 +353,6 @@
 							<div class="form-group">
 								<label>Harga</label>
 								<input type="text" name="paketBarangHarga" id="paketBarangHarga" class="form-control boxed">
-							</div>
-							<div class="form-group">
-								<label>Sub Harga</label>
-								<input type="text" name="paketBarangSubharga" id="paketBarangSubharga" class="form-control boxed">
 							</div>
 							<input type="hidden" name="barang_mode" id="barang_mode">
 							<input type="hidden" name="barang_edit" id="barang_edit">
