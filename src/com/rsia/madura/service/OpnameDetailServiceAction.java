@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rsia.madura.dao.OpnameDetaiDAO;
+import com.rsia.madura.dao.OpnameDetailDAO;
 import com.rsia.madura.entity.MOpnameDetail;
 
 @Service
 public class OpnameDetailServiceAction implements OpnameDetailService {
 	@Autowired
-	private OpnameDetaiDAO opnameDetailDAO;
+	private OpnameDetailDAO opnameDetailDAO;
 	
 	@Override
 	@Transactional

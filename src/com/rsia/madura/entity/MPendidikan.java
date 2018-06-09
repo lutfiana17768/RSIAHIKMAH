@@ -21,7 +21,7 @@ public class MPendidikan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pendidikan_id")
-	private int pendidikan_id;
+	private int pendidikanId;
 	
 	@Column(name="pendidikan_kode")
 	private String pendidikanKode;
@@ -56,12 +56,12 @@ public class MPendidikan {
 	@Column(name="pendidikan_deleted_date")
 	private Timestamp pendidikanDeletedDate;
 
-	public int getPendidikan_id() {
-		return pendidikan_id;
+	public int getPendidikanId() {
+		return pendidikanId;
 	}
 
-	public void setPendidikan_id(int pendidikan_id) {
-		this.pendidikan_id = pendidikan_id;
+	public void setPendidikanId(int pendidikanId) {
+		this.pendidikanId = pendidikanId;
 	}
 
 	public String getPendidikanKode() {
@@ -154,7 +154,7 @@ public class MPendidikan {
 
 	@Override
 	public String toString() {
-		return "MPendidikan [pendidikan_id=" + pendidikan_id + ", pendidikanKode=" + pendidikanKode
+		return "MPendidikan [pendidikanId=" + pendidikanId + ", pendidikanKode=" + pendidikanKode
 				+ ", pendidikanNama=" + pendidikanNama + ", pendidikanUrut=" + pendidikanUrut + ", pendidikanAktif="
 				+ pendidikanAktif + ", pendidikanCreatedBy=" + pendidikanCreatedBy + ", pendidikanCreatedDate="
 				+ pendidikanCreatedDate + ", pendidikanUpdatedBy=" + pendidikanUpdatedBy + ", pendidikanUpdatedDate="

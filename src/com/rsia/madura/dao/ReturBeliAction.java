@@ -102,7 +102,7 @@ public class ReturBeliAction implements ReturBeliDAO {
 		current.save(returBeliModel);
 		current.flush();
 		
-		return returBeliModel.getReturBeli_id();
+		return returBeliModel.getReturBeliId();
 	}
 
 	@Override
@@ -112,7 +112,7 @@ public class ReturBeliAction implements ReturBeliDAO {
 		current.saveOrUpdate(returBeliModel);
 		current.flush();
 		
-		return returBeliModel.getReturBeli_id();
+		return returBeliModel.getReturBeliId();
 	}
 
 	@Override
@@ -122,7 +122,7 @@ public class ReturBeliAction implements ReturBeliDAO {
 		current.saveOrUpdate(returBeliModel);
 		current.flush();
 		
-		return returBeliModel.getReturBeli_id();
+		return returBeliModel.getReturBeliId();
 	}
 
 }

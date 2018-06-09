@@ -15,8 +15,8 @@ import javax.persistence.Table;
 public class MGaji {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="gaji_id")
-	private int gaji_id;
+	@Column(name="gajiId")
+	private int gajiId;
 	
 	@Column(name="gaji_no")
 	private String gajiNo;
@@ -72,12 +72,12 @@ public class MGaji {
 	@Column(name="gaji_deleted_date")
 	private Timestamp gajiDeletedDate;
 	
-	public int getGaji_id() {
-		return gaji_id;
+	public int getGajiId() {
+		return gajiId;
 	}
 
-	public void setGaji_id(int gaji_id) {
-		this.gaji_id = gaji_id;
+	public void setGajiId(int gajiId) {
+		this.gajiId = gajiId;
 	}
 
 	public String getGajiNo() {
@@ -226,7 +226,7 @@ public class MGaji {
 
 	@Override
 	public String toString() {
-		return "t_Gaji [gaji_id=" + gaji_id + ", gajiNo=" + gajiNo + ", gajiTglBayar=" + gajiTglBayar + ", gajiBulan="
+		return "t_Gaji [gajiId=" + gajiId + ", gajiNo=" + gajiNo + ", gajiTglBayar=" + gajiTglBayar + ", gajiBulan="
 				+ gajiBulan + ", gajiTahun=" + gajiTahun + ", gajiPegawaiId="
 				+ gajiPegawaiId + ", gajiPokok=" + gajiPokok + ", gajiPendapatan=" + gajiPendapatan + ", gajiPotongan="
 				+ gajiPotongan + ", gajiBonus=" + gajiBonus + ", gajiKeterangan=" + gajiKeterangan + ", gajiAktif="

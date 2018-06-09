@@ -15,154 +15,154 @@ public class MJenisBarang {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	@Column(name="barangjenis_id")
-	private int IdBarangJenis;
+	private int barangJenisId;
 	
 	@Column(name="barangjenis_kode")
-	private String KodeJB;
+	private String barangJenisKode;
 	
 	@Column(name="barangjenis_nama")
-	private String NamaJB;
+	private String barangJenisNama;
 	
 	@Column(name="barangjenis_parent")
-	private Integer ParentBJ;
+	private Integer barangJenisParent;
 	
 	@Column(name="barangjenis_keterangan")
-	private String KeteranganBJ;
+	private String barangJenisKeterangan;
 	
 	@Column(name="barangjenis_aktif")
-	private String AktifBJ;
+	private String barangJenisAktif;
 	
 	@Column(name="barangjenis_created_by")
-	private String CreateByBJ;
+	private String barangJenisCreatedBy;
 	
 	@Column(name="barangjenis_created_date")
-	private Timestamp CreatedDateBJ;
+	private Timestamp barangJenisCreatedDate;
 	
 	@Column(name="barangjenis_updated_by")
-	private String UpdateByBJ;
+	private String barangJenisUpdatedBy;
 	
 	@Column(name="barangjenis_updated_date")
-	private Timestamp UpdatedateBJ;
+	private Timestamp barangJenisUpdatedDate;
 	
 	@Column(name="barangjenis_revised")
-	private int revisedBJ;
+	private int barangJenisRevised;
 	
 	@Column(name="barangjenis_group")
-	private String groupBJ;
+	private String barangJenisGroup;
 	
 	@Column(name="barang_jenis_deleted_date")
-	private Timestamp DeleteDateBJ;
+	private Timestamp barangJenisDeletedDate;
 
-	public int getIdBarangJenis() {
-		return IdBarangJenis;
+	public int getBarangJenisId() {
+		return barangJenisId;
 	}
 
-	public void setIdBarangJenis(int idBarangJenis) {
-		IdBarangJenis = idBarangJenis;
+	public void setBarangJenisId(int idBarangJenis) {
+		barangJenisId = idBarangJenis;
 	}
 
-	public String getKodeJB() {
-		return KodeJB;
+	public String getBarangJenisKode() {
+		return barangJenisKode;
 	}
 
-	public void setKodeJB(String kodeJB) {
-		KodeJB = kodeJB;
+	public void setBarangJenisKode(String kodeJB) {
+		barangJenisKode = kodeJB;
 	}
 
-	public String getNamaJB() {
-		return NamaJB;
+	public String getBarangJenisNama() {
+		return barangJenisNama;
 	}
 
-	public void setNamaJB(String namaJB) {
-		NamaJB = namaJB;
+	public void setBarangJenisNama(String namaJB) {
+		barangJenisNama = namaJB;
 	}
 
-	public int getParentBJ() {
-		return ParentBJ;
+	public int getBarangJenisParent() {
+		return barangJenisParent;
 	}
 
-	public void setParentBJ(int parentBJ) {
-		ParentBJ = parentBJ;
+	public void setBarangJenisParent(int parentBJ) {
+		barangJenisParent = parentBJ;
 	}
 
-	public String getKeteranganBJ() {
-		return KeteranganBJ;
+	public String getBarangJenisKeterangan() {
+		return barangJenisKeterangan;
 	}
 
-	public void setKeteranganBJ(String keteranganBJ) {
-		KeteranganBJ = keteranganBJ;
+	public void setBarangJenisKeterangan(String keteranganBJ) {
+		barangJenisKeterangan = keteranganBJ;
 	}
 
-	public String getAktifBJ() {
-		return AktifBJ;
+	public String getBarangJenisAktif() {
+		return barangJenisAktif;
 	}
 
-	public void setAktifBJ(String aktifBJ) {
-		AktifBJ = aktifBJ;
+	public void setBarangJenisAktif(String aktifBJ) {
+		barangJenisAktif = aktifBJ;
 	}
 
-	public String getCreateByBJ() {
-		return CreateByBJ;
+	public String getBarangJenisCreatedBy() {
+		return barangJenisCreatedBy;
 	}
 
-	public void setCreateByBJ(String createByBJ) {
-		CreateByBJ = createByBJ;
+	public void setBarangJenisCreatedBy(String createByBJ) {
+		barangJenisCreatedBy = createByBJ;
 	}
 
-	public Timestamp getCreatedDateBJ() {
-		return CreatedDateBJ;
+	public Timestamp getBarangJenisCreatedDate() {
+		return barangJenisCreatedDate;
 	}
 
-	public void setCreatedDateBJ(Timestamp createdDateBJ) {
-		CreatedDateBJ = createdDateBJ;
+	public void setBarangJenisCreatedDate(Timestamp createdDateBJ) {
+		barangJenisCreatedDate = createdDateBJ;
 	}
 
-	public String getUpdateByBJ() {
-		return UpdateByBJ;
+	public String getBarangJenisUpdatedBy() {
+		return barangJenisUpdatedBy;
 	}
 
-	public void setUpdateByBJ(String updateByBJ) {
-		UpdateByBJ = updateByBJ;
+	public void setBarangJenisUpdatedBy(String updateByBJ) {
+		barangJenisUpdatedBy = updateByBJ;
 	}
 
-	public Timestamp getUpdatedateBJ() {
-		return UpdatedateBJ;
+	public Timestamp getBarangJenisUpdatedDate() {
+		return barangJenisUpdatedDate;
 	}
 
-	public void setUpdatedateBJ(Timestamp updatedateBJ) {
-		UpdatedateBJ = updatedateBJ;
+	public void setBarangJenisUpdatedDate(Timestamp updatedateBJ) {
+		barangJenisUpdatedDate = updatedateBJ;
 	}
 
 	public int getRevisedBJ() {
-		return revisedBJ;
+		return barangJenisRevised;
 	}
 
-	public void setRevisedBJ(int revisedBJ) {
-		this.revisedBJ = revisedBJ;
+	public void setRevisedBJ(int barangJenisRevised) {
+		this.barangJenisRevised = barangJenisRevised;
 	}
 
 	public String getGroupBJ() {
-		return groupBJ;
+		return barangJenisGroup;
 	}
 
-	public void setGroupBJ(String groupBJ) {
-		this.groupBJ = groupBJ;
+	public void setGroupBJ(String barangJenisGroup) {
+		this.barangJenisGroup = barangJenisGroup;
 	}
 
-	public Timestamp getDeleteDateBJ() {
-		return DeleteDateBJ;
+	public Timestamp getBarangJenisDeletedDate() {
+		return barangJenisDeletedDate;
 	}
 
-	public void setDeleteDateBJ(Timestamp deleteDateBJ) {
-		DeleteDateBJ = deleteDateBJ;
+	public void setBarangJenisDeletedDate(Timestamp deleteDateBJ) {
+		barangJenisDeletedDate = deleteDateBJ;
 	}
 
 	@Override
 	public String toString() {
-		return "MJenisBarang [IdBarangJenis=" + IdBarangJenis + ", KodeJB=" + KodeJB + ", NamaJB=" + NamaJB
-				+ ", ParentBJ=" + ParentBJ + ", KeteranganBJ=" + KeteranganBJ + ", AktifBJ=" + AktifBJ + ", CreateByBJ="
-				+ CreateByBJ + ", CreatedDateBJ=" + CreatedDateBJ + ", UpdateByBJ=" + UpdateByBJ + ", UpdatedateBJ="
-				+ UpdatedateBJ + ", revisedBJ=" + revisedBJ + ", groupBJ=" + groupBJ + ", DeleteDateBJ=" + DeleteDateBJ
+		return "MJenisBarang [barangJenisId=" + barangJenisId + ", barangJenisKode=" + barangJenisKode + ", barangJenisNama=" + barangJenisNama
+				+ ", barangJenisParent=" + barangJenisParent + ", barangJenisKeterangan=" + barangJenisKeterangan + ", barangJenisAktif=" + barangJenisAktif + ", barangJenisCreatedBy="
+				+ barangJenisCreatedBy + ", barangJenisCreatedDate=" + barangJenisCreatedDate + ", barangJenisUpdatedBy=" + barangJenisUpdatedBy + ", barangJenisUpdatedDate="
+				+ barangJenisUpdatedDate + ", barangJenisRevised=" + barangJenisRevised + ", barangJenisGroup=" + barangJenisGroup + ", barangJenisDeletedDate=" + barangJenisDeletedDate
 				+ "]";
 	}
 

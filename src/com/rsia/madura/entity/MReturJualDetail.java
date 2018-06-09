@@ -17,7 +17,7 @@ public class MReturJualDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="returjualdetail_id")
-	private int ReturJualDetail_id;
+	private int ReturJualDetailId;
 
 	@Column(name="returjualdetail_returjual_id")
 	private int ReturJualDetailReturId;
@@ -91,12 +91,12 @@ public class MReturJualDetail {
 	@ManyToOne
 	private MReturJual returJual;
 
-	public int getReturJualDetail_id() {
-		return ReturJualDetail_id;
+	public int getReturJualDetailId() {
+		return ReturJualDetailId;
 	}
 
-	public void setReturJualDetail_id(int returJualDetail_id) {
-		ReturJualDetail_id = returJualDetail_id;
+	public void setReturJualDetailId(int returJualDetailId) {
+		this.ReturJualDetailId = returJualDetailId;
 	}
 
 	public int getReturJualDetailReturId() {
@@ -104,7 +104,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailReturId(int returJualDetailReturId) {
-		ReturJualDetailReturId = returJualDetailReturId;
+		this.ReturJualDetailReturId = returJualDetailReturId;
 	}
 
 	public int getReturJualDetailBarangId() {
@@ -112,7 +112,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailBarangId(int returJualDetailBarangId) {
-		ReturJualDetailBarangId = returJualDetailBarangId;
+		this.ReturJualDetailBarangId = returJualDetailBarangId;
 	}
 
 	public String getReturJualDetailBarangNama() {
@@ -120,7 +120,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailBarangNama(String returJualDetailBarangNama) {
-		ReturJualDetailBarangNama = returJualDetailBarangNama;
+		this.ReturJualDetailBarangNama = returJualDetailBarangNama;
 	}
 
 	public int getReturJualDetailSatuanId() {
@@ -128,7 +128,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailSatuanId(int returJualDetailSatuanId) {
-		ReturJualDetailSatuanId = returJualDetailSatuanId;
+		this.ReturJualDetailSatuanId = returJualDetailSatuanId;
 	}
 
 	public String getReturJualDetailSatuanNama() {
@@ -136,7 +136,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailSatuanNama(String returJualDetailSatuanNama) {
-		ReturJualDetailSatuanNama = returJualDetailSatuanNama;
+		this.ReturJualDetailSatuanNama = returJualDetailSatuanNama;
 	}
 
 	public Date getReturJualDetailKadaluarsa() {
@@ -144,7 +144,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailKadaluarsa(Date returJualDetailKadaluarsa) {
-		ReturJualDetailKadaluarsa = returJualDetailKadaluarsa;
+		this.ReturJualDetailKadaluarsa = returJualDetailKadaluarsa;
 	}
 
 	public int getReturJualDetailJumlah() {
@@ -152,7 +152,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailJumlah(int returJualDetailJumlah) {
-		ReturJualDetailJumlah = returJualDetailJumlah;
+		this.ReturJualDetailJumlah = returJualDetailJumlah;
 	}
 
 	public int getReturJualDetailHarga() {
@@ -160,7 +160,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailHarga(int returJualDetailHarga) {
-		ReturJualDetailHarga = returJualDetailHarga;
+		this.ReturJualDetailHarga = returJualDetailHarga;
 	}
 
 	public int getReturJualDetailDiskon() {
@@ -168,7 +168,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailDiskon(int returJualDetailDiskon) {
-		ReturJualDetailDiskon = returJualDetailDiskon;
+		this.ReturJualDetailDiskon = returJualDetailDiskon;
 	}
 
 	public int getReturJualDetailSubTotal() {
@@ -176,7 +176,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailSubTotal(int returJualDetailSubTotal) {
-		ReturJualDetailSubTotal = returJualDetailSubTotal;
+		this.ReturJualDetailSubTotal = returJualDetailSubTotal;
 	}
 
 	public int getReturJualDetailTerimaId() {
@@ -184,7 +184,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailTerimaId(int returJualDetailTerimaId) {
-		ReturJualDetailTerimaId = returJualDetailTerimaId;
+		this.ReturJualDetailTerimaId = returJualDetailTerimaId;
 	}
 
 	public String getReturJualDetailTerimaNo() {
@@ -192,7 +192,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailTerimaNo(String returJualDetailTerimaNo) {
-		ReturJualDetailTerimaNo = returJualDetailTerimaNo;
+		this.ReturJualDetailTerimaNo = returJualDetailTerimaNo;
 	}
 
 	public int getReturJualDepoId() {
@@ -200,7 +200,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDepoId(int returJualDepoId) {
-		ReturJualDepoId = returJualDepoId;
+		this.ReturJualDepoId = returJualDepoId;
 	}
 
 	public String getReturJualDepoNama() {
@@ -208,7 +208,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDepoNama(String returJualDepoNama) {
-		ReturJualDepoNama = returJualDepoNama;
+		this.ReturJualDepoNama = returJualDepoNama;
 	}
 
 	public int getReturJualDetailStatus() {
@@ -216,7 +216,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailStatus(int returJualDetailStatus) {
-		ReturJualDetailStatus = returJualDetailStatus;
+		this.ReturJualDetailStatus = returJualDetailStatus;
 	}
 
 	public String getReturJualDetailCreatedBy() {
@@ -224,7 +224,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailCreatedBy(String returJualDetailCreatedBy) {
-		ReturJualDetailCreatedBy = returJualDetailCreatedBy;
+		this.ReturJualDetailCreatedBy = returJualDetailCreatedBy;
 	}
 
 	public Timestamp getReturJualDetailCreatedDate() {
@@ -232,7 +232,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailCreatedDate(Timestamp returJualDetailCreatedDate) {
-		ReturJualDetailCreatedDate = returJualDetailCreatedDate;
+		this.ReturJualDetailCreatedDate = returJualDetailCreatedDate;
 	}
 
 	public String getReturJualDetailUpdatedBy() {
@@ -240,7 +240,7 @@ public class MReturJualDetail {
 	}
 
 	public void setReturJualDetailUpdatedBy(String returJualDetailUpdatedBy) {
-		ReturJualDetailUpdatedBy = returJualDetailUpdatedBy;
+		this.ReturJualDetailUpdatedBy = returJualDetailUpdatedBy;
 	}
 
 	public Timestamp getReturJualDetailUpdatedDate() {
@@ -293,7 +293,7 @@ public class MReturJualDetail {
 
 	@Override
 	public String toString() {
-		return "MReturJualDetail [ReturJualDetail_id=" + ReturJualDetail_id + ", ReturJualDetailReturId="
+		return "MReturJualDetail [ReturJualDetailId=" + ReturJualDetailId + ", ReturJualDetailReturId="
 				+ ReturJualDetailReturId + ", ReturJualDetailBarangId=" + ReturJualDetailBarangId
 				+ ", ReturJualDetailBarangNama=" + ReturJualDetailBarangNama + ", ReturJualDetailSatuanId="
 				+ ReturJualDetailSatuanId + ", ReturJualDetailSatuanNama=" + ReturJualDetailSatuanNama

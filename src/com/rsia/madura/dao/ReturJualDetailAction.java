@@ -96,7 +96,7 @@ public class ReturJualDetailAction implements ReturJualDetailDAO {
 		current.save(ReturJualDetailModel);
 		current.flush();
 		
-		return ReturJualDetailModel.getReturJualDetail_id();
+		return ReturJualDetailModel.getReturJualDetailId();
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class ReturJualDetailAction implements ReturJualDetailDAO {
 		current.saveOrUpdate(ReturJualDetailModel);
 		current.flush();
 		
-		return ReturJualDetailModel.getReturJualDetail_id();
+		return ReturJualDetailModel.getReturJualDetailId();
 	}
 
 	@Override
@@ -116,6 +116,6 @@ public class ReturJualDetailAction implements ReturJualDetailDAO {
 		current.save(ReturJualDetailModel);
 		current.flush();
 		
-		return ReturJualDetailModel.getReturJualDetail_id();
+		return ReturJualDetailModel.getReturJualDetailId();
 	}
 }

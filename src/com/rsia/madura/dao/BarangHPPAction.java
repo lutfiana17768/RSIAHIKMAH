@@ -97,7 +97,7 @@ public class BarangHPPAction implements BarangHPPDAO {
 		current.save(baranghppModel);
 		current.flush();
 		
-		return baranghppModel.getIdBarangHPP();
+		return baranghppModel.getBarangHPPId();
 	}
 
 	@Override
@@ -107,7 +107,7 @@ public class BarangHPPAction implements BarangHPPDAO {
 		current.saveOrUpdate(baranghppModel);
 		current.flush();
 		
-		return baranghppModel.getIdBarangHPP();
+		return baranghppModel.getBarangHPPId();
 		
 	}
 
@@ -118,7 +118,7 @@ public class BarangHPPAction implements BarangHPPDAO {
 		current.saveOrUpdate(baranghppModel);
 		current.flush();
 		
-		return baranghppModel.getIdBarangHPP();		
+		return baranghppModel.getBarangHPPId();		
 	}
 
 }

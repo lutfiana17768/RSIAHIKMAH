@@ -96,7 +96,7 @@ public class StokObatAction implements StokObatDAO {
 		current.save(stokObatModel);
 		current.flush();
 		
-		return stokObatModel.getStokobat_id();
+		return stokObatModel.getStokobatId();
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class StokObatAction implements StokObatDAO {
 		current.saveOrUpdate(stokObatModel);
 		current.flush();
 		
-		return stokObatModel.getStokobat_id();
+		return stokObatModel.getStokobatId();
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class StokObatAction implements StokObatDAO {
 		current.saveOrUpdate(stokObatModel);
 		current.flush();
 		
-		return stokObatModel.getStokobat_id();
+		return stokObatModel.getStokobatId();
 
 	}
 

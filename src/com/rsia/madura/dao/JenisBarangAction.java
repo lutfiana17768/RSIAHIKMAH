@@ -42,7 +42,7 @@ public class JenisBarangAction implements JenisBarangDAO {
 		current.save(jenisBarangModel);
 		current.flush();
 		
-		return jenisBarangModel.getIdBarangJenis();
+		return jenisBarangModel.getBarangJenisId();
 		
 	}
 
@@ -53,7 +53,7 @@ public class JenisBarangAction implements JenisBarangDAO {
 		current.saveOrUpdate(jenisBarangModel);
 		current.flush();
 		
-		return jenisBarangModel.getIdBarangJenis();
+		return jenisBarangModel.getBarangJenisId();
 		
 	}
 
@@ -64,7 +64,7 @@ public class JenisBarangAction implements JenisBarangDAO {
 		current.saveOrUpdate(jenisBarangModel);
 		current.flush();
 		
-		return jenisBarangModel.getIdBarangJenis();
+		return jenisBarangModel.getBarangJenisId();
 		
 	}
 }

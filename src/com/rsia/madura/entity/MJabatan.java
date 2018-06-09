@@ -21,7 +21,7 @@ public class MJabatan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="jabatan_id")
-	private int jabatan_id;
+	private int jabatanId;
 	
 	@Column(name="jabatan_nama")
 	private String jabatanNama;
@@ -57,12 +57,12 @@ public class MJabatan {
 	
 	}
 
-	public int getJabatan_id() {
-		return jabatan_id;
+	public int getJabatanId() {
+		return jabatanId;
 	}
 
-	public void setJabatan_id(int jabatan_id) {
-		this.jabatan_id = jabatan_id;
+	public void setJabatanId(int jabatanId) {
+		this.jabatanId = jabatanId;
 	}
 
 	public String getJabatanNama() {
@@ -147,7 +147,7 @@ public class MJabatan {
 
 	@Override
 	public String toString() {
-		return "MJabatan [jabatan_id=" + jabatan_id + ", jabatanNama=" + jabatanNama + ", jabatanJenis=" + jabatanJenis
+		return "MJabatan [jabatanId=" + jabatanId + ", jabatanNama=" + jabatanNama + ", jabatanJenis=" + jabatanJenis
 				+ ", jabatanKeterangan=" + jabatanKeterangan + ", jabatanAktif=" + jabatanAktif + ", jabatanCreatedBy="
 				+ jabatanCreatedBy + ", jabatanCreatedDate=" + jabatanCreatedDate + ", jabatanUpdatedBy="
 				+ jabatanUpdatedBy + ", jabatanUpdatedDate=" + jabatanUpdatedDate + ", jabatanRevised=" + jabatanRevised

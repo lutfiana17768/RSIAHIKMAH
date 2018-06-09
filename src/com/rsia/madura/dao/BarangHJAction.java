@@ -91,7 +91,7 @@ public class BarangHJAction implements BarangHJDAO {
 		current.save(baranghjModel);
 		current.flush();
 		
-		return baranghjModel.getIdBarangHJ();
+		return baranghjModel.getBarangHJId();
 	}
 	
 	@Override
@@ -111,7 +111,7 @@ public class BarangHJAction implements BarangHJDAO {
 		current.saveOrUpdate(baranghjModel);
 		current.flush();
 		
-		return baranghjModel.getIdBarangHJ();		
+		return baranghjModel.getBarangHJId();		
 	}
 	
 	@Override
@@ -121,6 +121,6 @@ public class BarangHJAction implements BarangHJDAO {
 		current.saveOrUpdate(baranghjModel);
 		current.flush();
 		
-		return baranghjModel.getIdBarangHJ();
+		return baranghjModel.getBarangHJId();
 	}
 }

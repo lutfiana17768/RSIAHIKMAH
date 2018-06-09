@@ -19,7 +19,7 @@ public class MOpname {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="opname_id")
-	private int opname_id;
+	private int opnameId;
 	
 	@Column(name="opname_no")
 	private String opnameNo;
@@ -66,12 +66,12 @@ public class MOpname {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "opname", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MOpnameDetail> detail;
 
-	public int getOpname_id() {
-		return opname_id;
+	public int getOpnameId() {
+		return opnameId;
 	}
 
-	public void setOpname_id(int opname_id) {
-		this.opname_id = opname_id;
+	public void setOpnameId(int opnameId) {
+		this.opnameId = opnameId;
 	}
 
 	public String getOpnameNo() {
@@ -196,7 +196,7 @@ public class MOpname {
 
 	@Override
 	public String toString() {
-		return "MOpname [opname_id=" + opname_id + ", opnameNo=" + opnameNo + ", opnameTanggal=" + opnameTanggal
+		return "MOpname [opnameId=" + opnameId + ", opnameNo=" + opnameNo + ", opnameTanggal=" + opnameTanggal
 				+ ", opnameKeterangan=" + opnameKeterangan + ", opnameAktif=" + opnameAktif + ", opnameCreatedBy="
 				+ opnameCreatedBy + ", opnameCreatedDate=" + opnameCreatedDate + ", opnameUpdatedBy=" + opnameUpdatedBy
 				+ ", opnameUpdatedDate=" + opnameUpdatedDate + ", opnameRevised=" + opnameRevised + ", opnameDepoId="

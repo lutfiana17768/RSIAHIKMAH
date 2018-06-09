@@ -96,7 +96,7 @@ public class BarangTransAction implements BarangTransDAO {
 		current.save(barangTransModel);
 		current.flush();
 		
-		return barangTransModel.getBarangTrans_id();
+		return barangTransModel.getBarangTransId();
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class BarangTransAction implements BarangTransDAO {
 		current.saveOrUpdate(barangTransModel);
 		current.flush();
 		
-		return barangTransModel.getBarangTrans_id();
+		return barangTransModel.getBarangTransId();
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class BarangTransAction implements BarangTransDAO {
 		current.saveOrUpdate(barangTransModel);
 		current.flush();
 		
-		return barangTransModel.getBarangTrans_id();
+		return barangTransModel.getBarangTransId();
 	}
 
 }

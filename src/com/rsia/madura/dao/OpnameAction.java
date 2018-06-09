@@ -96,7 +96,7 @@ public class OpnameAction implements OpnameDAO{
 		current.save(opnameModel);
 		current.flush();
 		
-		return opnameModel.getOpname_id();
+		return opnameModel.getOpnameId();
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class OpnameAction implements OpnameDAO{
 		current.saveOrUpdate(opnameModel);
 		current.flush();
 		
-		return opnameModel.getOpname_id();
+		return opnameModel.getOpnameId();
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class OpnameAction implements OpnameDAO{
 		current.saveOrUpdate(opnameModel);
 		current.flush();
 		
-		return opnameModel.getOpname_id();
+		return opnameModel.getOpnameId();
 	}
 
 }

@@ -98,7 +98,7 @@ public class BarangKategoriAction implements BarangKategoriDAO {
 		current.save(kategoriModel);
 		current.flush();
 		
-		return kategoriModel.getIdBarangKategori();
+		return kategoriModel.getBarangKategoriId();
 	}
 
 	@Override
@@ -109,7 +109,7 @@ public class BarangKategoriAction implements BarangKategoriDAO {
 		current.saveOrUpdate(kategoriModel);
 		current.flush();
 		
-		return kategoriModel.getIdBarangKategori();
+		return kategoriModel.getBarangKategoriId();
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public class BarangKategoriAction implements BarangKategoriDAO {
 		current.saveOrUpdate(kategoriModel);
 		current.flush();
 		
-		return kategoriModel.getIdBarangKategori();
+		return kategoriModel.getBarangKategoriId();
 	}
 
 }

@@ -17,7 +17,7 @@ public class MTerimaDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="terimadet_id")
-	private int terimaDetail_id;
+	private int terimaDetailId;
 	
 	@Column(name="terimadet_terima_id")
 	private int terimaDetailTerimaId;
@@ -82,12 +82,12 @@ public class MTerimaDetail {
 	@ManyToOne
 	private MTerima terima;
 	
-	public int getTerimaDetail_id() {
-		return terimaDetail_id;
+	public int getTerimaDetailId() {
+		return terimaDetailId;
 	}
 
-	public void setTerimaDetail_id(int terimaDetail_id) {
-		this.terimaDetail_id = terimaDetail_id;
+	public void setTerimaDetailId(int terimaDetailId) {
+		this.terimaDetailId = terimaDetailId;
 	}
 
 	public int getTerimaDetailTerimaId() {
@@ -260,7 +260,7 @@ public class MTerimaDetail {
 
 	@Override
 	public String toString() {
-		return "MTerimaDetail [terimaDetail_id=" + terimaDetail_id + ", terimaDetailTerimaId=" + terimaDetailTerimaId
+		return "MTerimaDetail [terimaDetailId=" + terimaDetailId + ", terimaDetailTerimaId=" + terimaDetailTerimaId
 				+ ", terimaDetailBarangId=" + terimaDetailBarangId + ", terimaDetailBarangNama="
 				+ terimaDetailBarangNama + ", terimaDetailKadaluarsa=" + terimaDetailKadaluarsa
 				+ ", terimaDetailSatuan=" + terimaDetailSatuan + ", terimaDetailSatuanNama=" + terimaDetailSatuanNama

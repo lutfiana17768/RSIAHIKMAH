@@ -21,7 +21,7 @@ public class MKecamatan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="kecamatan_id")
-	private int kecamatan_id;
+	private int kecamatanId;
 	
 	@Column(name="kecamatan_kode")
 	private String kecamatanKode;
@@ -54,12 +54,12 @@ public class MKecamatan {
 	@Column(name="m_kota_kode")
 	private String kotaKode;
 
-	public int getKecamatan_id() {
-		return kecamatan_id;
+	public int getKecamatanId() {
+		return kecamatanId;
 	}
 
-	public void setKecamatan_id(int kecamatan_id) {
-		this.kecamatan_id = kecamatan_id;
+	public void setKecamatanId(int kecamatanId) {
+		this.kecamatanId = kecamatanId;
 	}
 
 	public String getKecamatanKode() {
@@ -144,7 +144,7 @@ public class MKecamatan {
 
 	@Override
 	public String toString() {
-		return "MKecamatan [kecamatan_id=" + kecamatan_id + ", kecamatanKode=" + kecamatanKode + ", kecamatanNama="
+		return "MKecamatan [kecamatanId=" + kecamatanId + ", kecamatanKode=" + kecamatanKode + ", kecamatanNama="
 				+ kecamatanNama + ", kecamatanAktif=" + kecamatanAktif + ", kecamatanCreatedBy=" + kecamatanCreatedBy
 				+ ", kecamatanCreatedDate=" + kecamatanCreatedDate + ", kecamatanUpdatedBy=" + kecamatanUpdatedBy
 				+ ", kecamatanUpdatedDate=" + kecamatanUpdatedDate + ", kecamatanRevised=" + kecamatanRevised

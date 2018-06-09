@@ -99,7 +99,7 @@ public class BarangAction implements BarangDAO {
 		current.save(barangModel);
 		current.flush();
 		
-		return barangModel.getIdBarang();
+		return barangModel.getBarangId();
 	}
 
 	@Override
@@ -109,7 +109,7 @@ public class BarangAction implements BarangDAO {
 		current.saveOrUpdate(barangModel);
 		current.flush();
 		
-		return barangModel.getIdBarang();
+		return barangModel.getBarangId();
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public class BarangAction implements BarangDAO {
 		
 		current.flush();
 		
-		return barangModel.getIdBarang();
+		return barangModel.getBarangId();
 		
 	}
 }

@@ -16,7 +16,7 @@ public class MOrderDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="orderdet_id")
-	private int orderDetail_id;
+	private int orderDetailId;
 	
 	@Column(name="orderdet_order_id")
 	private int orderDetailOrderId;
@@ -72,12 +72,12 @@ public class MOrderDetail {
 	@ManyToOne
 	private MOrder order;
 
-	public int getOrderDetail_id() {
-		return orderDetail_id;
+	public int getOrderDetailId() {
+		return orderDetailId;
 	}
 
-	public void setOrderDetail_id(int orderDetail_id) {
-		this.orderDetail_id = orderDetail_id;
+	public void setOrderDetailId(int orderDetailId) {
+		this.orderDetailId = orderDetailId;
 	}
 
 	public int getOrderDetailOrderId() {
@@ -226,7 +226,7 @@ public class MOrderDetail {
 
 	@Override
 	public String toString() {
-		return "t_OrderDetail [orderDetail_id=" + orderDetail_id + ", orderDetailOrderId=" + orderDetailOrderId
+		return "t_OrderDetail [orderDetailId=" + orderDetailId + ", orderDetailOrderId=" + orderDetailOrderId
 				+ ", orderDetailBarangId=" + orderDetailBarangId + ", orderDetailBarangNama=" + orderDetailBarangNama
 				+ ", orderDetailSatuanId=" + orderDetailSatuanId + ", orderDetailSatuanNama=" + orderDetailSatuanNama
 				+ ", orderDetailJumlah=" + orderDetailJumlah + ", orderDetailHarga=" + orderDetailHarga

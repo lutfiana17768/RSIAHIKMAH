@@ -98,7 +98,7 @@ public class BarangDetailAction implements BarangDetailDao {
 		current.save(barangdetailModel);
 		current.flush();
 		
-		return barangdetailModel.getIdBarangDet();
+		return barangdetailModel.getBarangDetId();
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public class BarangDetailAction implements BarangDetailDao {
 		current.saveOrUpdate(barangdetailModel);
 		current.flush();
 		
-		return barangdetailModel.getIdBarangDet();
+		return barangdetailModel.getBarangDetId();
 	}
 
 	@Override
@@ -118,7 +118,7 @@ public class BarangDetailAction implements BarangDetailDao {
 		current.saveOrUpdate(barangdetailModel);
 		current.flush();
 		
-		return barangdetailModel.getIdBarangDet();
+		return barangdetailModel.getBarangDetId();
 		
 	}
 

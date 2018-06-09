@@ -17,7 +17,7 @@ public class MOpnameDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="opnamedet_id")
-	private int opnameDetail_id;
+	private int opnameDetailId;
 	
 	@Column(name="opnamedet_opname_id")
 	private int opnameDetailOpnameId;
@@ -93,12 +93,12 @@ public class MOpnameDetail {
 		this.opname = opname;
 	}
 
-	public int getOpnameDetail_id() {
-		return opnameDetail_id;
+	public int getOpnameDetailId() {
+		return opnameDetailId;
 	}
 
-	public void setOpnameDetail_id(int opnameDetail_id) {
-		this.opnameDetail_id = opnameDetail_id;
+	public void setOpnameDetailId(int opnameDetailId) {
+		this.opnameDetailId = opnameDetailId;
 	}
 
 	public int getOpnameDetailOpnameId() {
@@ -271,7 +271,7 @@ public class MOpnameDetail {
 
 	@Override
 	public String toString() {
-		return "MOpnameDetail [opnameDetail_id=" + opnameDetail_id + ", opnameDetailOpnameId=" + opnameDetailOpnameId
+		return "MOpnameDetail [opnameDetailId=" + opnameDetailId + ", opnameDetailOpnameId=" + opnameDetailOpnameId
 				+ ", opnameDetailBarangId=" + opnameDetailBarangId + ", opnameDetailBarangNama="
 				+ opnameDetailBarangNama + ", opnameDetailSatuanId=" + opnameDetailSatuanId
 				+ ", opnameDetailSatuanNama=" + opnameDetailSatuanNama + ", opnameDetailKadaluarsa="

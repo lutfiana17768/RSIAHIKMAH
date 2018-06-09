@@ -96,7 +96,7 @@ public class OrderDetailAction implements OrderDetailDAO {
 		current.save(orderDetailModel);
 		current.flush();
 		
-		return orderDetailModel.getOrderDetail_id();
+		return orderDetailModel.getOrderDetailId();
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class OrderDetailAction implements OrderDetailDAO {
 		current.saveOrUpdate(orderDetailModel);
 		current.flush();
 		
-		return orderDetailModel.getOrderDetail_id();
+		return orderDetailModel.getOrderDetailId();
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class OrderDetailAction implements OrderDetailDAO {
 		current.save(orderDetailModel);
 		current.flush();
 		
-		return orderDetailModel.getOrderDetail_id();
+		return orderDetailModel.getOrderDetailId();
 	}
 
 	@Override

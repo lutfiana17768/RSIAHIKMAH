@@ -20,7 +20,7 @@ public class TerimaDetailAction implements TerimaDetailDAO {
 	public List<MTerimaDetail> getTerimaDetails() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MTerimaDetail> query = current.createQuery("from t_TerimaDetail", MTerimaDetail.class);
+		Query<MTerimaDetail> query = current.createQuery("from MTerimaDetail", MTerimaDetail.class);
 		List<MTerimaDetail> result = query.getResultList();
 		
 		return result;
@@ -29,7 +29,7 @@ public class TerimaDetailAction implements TerimaDetailDAO {
 	@Override
 	public List<MTerimaDetail> getTerimaDetails(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MTerimaDetail> query = current.createQuery("from t_TerimaDetail", MTerimaDetail.class);
+		Query<MTerimaDetail> query = current.createQuery("from MTerimaDetail", MTerimaDetail.class);
 		List<MTerimaDetail> result = query.getResultList();
 		this.total = result.size();
 		result = this.getData(page, limit);
@@ -39,7 +39,7 @@ public class TerimaDetailAction implements TerimaDetailDAO {
 	
 	private List<MTerimaDetail> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-    	Query<MTerimaDetail> query = current.createQuery("from t_TerimaDetail", MTerimaDetail.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+    	Query<MTerimaDetail> query = current.createQuery("from MTerimaDetail", MTerimaDetail.class).setFirstResult((page-1)*limit).setMaxResults(limit);
         List<MTerimaDetail> Result = query.getResultList();
 
         return Result;
@@ -96,7 +96,7 @@ public class TerimaDetailAction implements TerimaDetailDAO {
 		current.save(terimaDetailModel);
 		current.flush();
 		
-		return terimaDetailModel.getTerimaDetail_id();
+		return terimaDetailModel.getTerimaDetailId();
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class TerimaDetailAction implements TerimaDetailDAO {
 		current.saveOrUpdate(terimaDetailModel);
 		current.flush();
 		
-		return terimaDetailModel.getTerimaDetail_id();
+		return terimaDetailModel.getTerimaDetailId();
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class TerimaDetailAction implements TerimaDetailDAO {
 		current.saveOrUpdate(terimaDetailModel);
 		current.flush();
 		
-		return terimaDetailModel.getTerimaDetail_id();
+		return terimaDetailModel.getTerimaDetailId();
 	}
 
 }

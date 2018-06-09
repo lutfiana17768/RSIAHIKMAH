@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.rsia.madura.entity.MOpnameDetail;
 
 @Repository
-public class OpnameDetailAction implements OpnameDetaiDAO{
+public class OpnameDetailAction implements OpnameDetailDAO{
 	@Autowired
 	private SessionFactory sessionFactory;
 	private int total;
@@ -96,7 +96,7 @@ public class OpnameDetailAction implements OpnameDetaiDAO{
 		current.save(opnameDetailModel);
 		current.flush();
 		
-		return opnameDetailModel.getOpnameDetail_id();
+		return opnameDetailModel.getOpnameDetailId();
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class OpnameDetailAction implements OpnameDetaiDAO{
 		current.saveOrUpdate(opnameDetailModel);
 		current.flush();
 		
-		return opnameDetailModel.getOpnameDetail_id();
+		return opnameDetailModel.getOpnameDetailId();
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class OpnameDetailAction implements OpnameDetaiDAO{
 		current.saveOrUpdate(opnameDetailModel);
 		current.flush();
 		
-		return opnameDetailModel.getOpnameDetail_id();
+		return opnameDetailModel.getOpnameDetailId();
 	}
 
 }

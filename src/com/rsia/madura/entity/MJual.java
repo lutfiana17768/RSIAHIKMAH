@@ -19,7 +19,7 @@ public class MJual {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="jual_id")
-	private int jual_id;
+	private int jualId;
 	
 	@Column(name="jual_no")
 	private String jualNo;
@@ -144,12 +144,12 @@ public class MJual {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "jual", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MJualDetail> detail;
 
-	public int getJual_id() {
-		return jual_id;
+	public int getJualId() {
+		return jualId;
 	}
 
-	public void setJual_id(int jual_id) {
-		this.jual_id = jual_id;
+	public void setJualId(int jualId) {
+		this.jualId = jualId;
 	}
 
 	public String getJualNo() {
@@ -482,7 +482,7 @@ public class MJual {
 
 	@Override
 	public String toString() {
-		return "MJual [jual_id=" + jual_id + ", jualNo=" + jualNo + ", jual_tanggal=" + jual_tanggal
+		return "MJual [jualId=" + jualId + ", jualNo=" + jualNo + ", jual_tanggal=" + jual_tanggal
 				+ ", jualPendaftaranId=" + jualPendaftaranId + ", jualPendaftaranNo=" + jualPendaftaranNo
 				+ ", jualPasienId=" + jualPasienId + ", jualPasienNorm=" + jualPasienNorm + ", jualPasienUnitasal="
 				+ jualPasienUnitasal + ", jualPegawaiId=" + jualPegawaiId + ", jualDokterId=" + jualDokterId

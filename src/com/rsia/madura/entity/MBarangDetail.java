@@ -18,160 +18,160 @@ public class MBarangDetail {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="barangdet_id")
-	private int IdBarangDet;
+	private int barangDetId;
 	
 	@Column(name="barangdet_master_id")
-	private int MasterIdBD;
+	private int barangDetMasterId;
 	
 	@Column(name="barangdet_barang_id")
-	private int BarangIdBD;
+	private int barangDetBarangId;
 	
 	@Column(name="barangdet_barang_nama")
-	private String BarangNamaBD;
+	private String barangDetBarangNama;
 	
 	@Column(name="barangdet_satuan_id")
-	private int SatuanIdBD;
+	private int barangDetSatuanId;
 	
 	@Column(name="barangdet_satuan_nama")
-	private String SatuanNamaBD;
+	private String barangDetSatuanNama;
 	
 	@Column(name=" barangdet_keterangan")
-	private String KeteranganBD;
+	private String barangDetKeterangan;
 	
 	@Column(name="barangdet_jumlah")
-	private int JumlahBD;
+	private int barangDetJumlah;
 	
 	@Column(name="barangdet_created_by")
-	private String CreatedByBD;
+	private String barangDetCreatedBy;
 	
 	@Column(name=" barangdet_created_date")
-	private Timestamp CreatedDateBD;
+	private Timestamp barangDetCreatedDate;
 	
 	@Column(name="barangdet_updated_by")
-	private String UpdateByBD;
+	private String barangDetUpdatedBy;
 	
 	@Column(name=" barangdet_updated_date")
-	private Timestamp UpdateDateBD;
+	private Timestamp barangDetUpdatedDate;
 	
 	@Column(name="barangdet_revised")
-	private int RevisedBD;
+	private int barangDetRevised;
 	
 	@Column(name="barangdet_deleted_date")
-	private Timestamp DeletedDateBD;
+	private Timestamp barangDetDeletedDate;
 	
 	@ManyToOne
 	private MBarang barang;
 
-	public int getIdBarangDet() {
-		return IdBarangDet;
+	public int getBarangDetId() {
+		return barangDetId;
 	}
 
-	public void setIdBarangDet(int idBarangDet) {
-		IdBarangDet = idBarangDet;
+	public void setBarangDetId(int barangDetId) {
+		barangDetId = barangDetId;
 	}
 
-	public int getMasterIdBD() {
-		return MasterIdBD;
+	public int getBarangDetMasterId() {
+		return barangDetMasterId;
 	}
 
-	public void setMasterIdBD(int masterIdBD) {
-		MasterIdBD = masterIdBD;
+	public void setBarangDetMasterId(int barangDetMasterId) {
+		barangDetMasterId = barangDetMasterId;
 	}
 
-	public int getBarangIdBD() {
-		return BarangIdBD;
+	public int getBarangDetBarangId() {
+		return barangDetBarangId;
 	}
 
-	public void setBarangIdBD(int barangIdBD) {
-		BarangIdBD = barangIdBD;
+	public void setBarangDetBarangId(int barangDetBarangId) {
+		barangDetBarangId = barangDetBarangId;
 	}
 
-	public String getBarangNamaBD() {
-		return BarangNamaBD;
+	public String getBarangDetBarangNama() {
+		return barangDetBarangNama;
 	}
 
-	public void setBarangNamaBD(String barangNamaBD) {
-		BarangNamaBD = barangNamaBD;
+	public void setBarangDetBarangNama(String barangDetBarangNama) {
+		barangDetBarangNama = barangDetBarangNama;
 	}
 
-	public int getSatuanIdBD() {
-		return SatuanIdBD;
+	public int getBarangDetSatuanId() {
+		return barangDetSatuanId;
 	}
 
-	public void setSatuanIdBD(int satuanIdBD) {
-		SatuanIdBD = satuanIdBD;
+	public void setBarangDetSatuanId(int barangDetSatuanId) {
+		barangDetSatuanId = barangDetSatuanId;
 	}
 
-	public String getSatuanNamaBD() {
-		return SatuanNamaBD;
+	public String getBarangDetSatuanNama() {
+		return barangDetSatuanNama;
 	}
 
-	public void setSatuanNamaBD(String satuanNamaBD) {
-		SatuanNamaBD = satuanNamaBD;
+	public void setBarangDetSatuanNama(String barangDetSatuanNama) {
+		barangDetSatuanNama = barangDetSatuanNama;
 	}
 
-	public String getKeteranganBD() {
-		return KeteranganBD;
+	public String getBarangDetKeterangan() {
+		return barangDetKeterangan;
 	}
 
-	public void setKeteranganBD(String keteranganBD) {
-		KeteranganBD = keteranganBD;
+	public void setBarangDetKeterangan(String barangDetKeterangan) {
+		barangDetKeterangan = barangDetKeterangan;
 	}
 
-	public int getJumlahBD() {
-		return JumlahBD;
+	public int getBarangDetJumlah() {
+		return barangDetJumlah;
 	}
 
-	public void setJumlahBD(int jumlahBD) {
-		JumlahBD = jumlahBD;
+	public void setBarangDetJumlah(int barangDetJumlah) {
+		barangDetJumlah = barangDetJumlah;
 	}
 
-	public String getCreatedByBD() {
-		return CreatedByBD;
+	public String getBarangDetCreatedBy() {
+		return barangDetCreatedBy;
 	}
 
-	public void setCreatedByBD(String createdByBD) {
-		CreatedByBD = createdByBD;
+	public void setBarangDetCreatedBy(String barangDetCreatedBy) {
+		barangDetCreatedBy = barangDetCreatedBy;
 	}
 
-	public Timestamp getCreatedDateBD() {
-		return CreatedDateBD;
+	public Timestamp getBarangDetCreatedDate() {
+		return barangDetCreatedDate;
 	}
 
-	public void setCreatedDateBD(Timestamp createdDateBD) {
-		CreatedDateBD = createdDateBD;
+	public void setBarangDetCreatedDate(Timestamp barangDetCreatedDate) {
+		barangDetCreatedDate = barangDetCreatedDate;
 	}
 
-	public String getUpdateByBD() {
-		return UpdateByBD;
+	public String getBarangDetUpdatedBy() {
+		return barangDetUpdatedBy;
 	}
 
-	public void setUpdateByBD(String updateByBD) {
-		UpdateByBD = updateByBD;
+	public void setBarangDetUpdatedBy(String barangDetUpdatedBy) {
+		barangDetUpdatedBy = barangDetUpdatedBy;
 	}
 
-	public Timestamp getUpdateDateBD() {
-		return UpdateDateBD;
+	public Timestamp getBarangDetUpdatedDate() {
+		return barangDetUpdatedDate;
 	}
 
-	public void setUpdateDateBD(Timestamp updateDateBD) {
-		UpdateDateBD = updateDateBD;
+	public void setBarangDetUpdatedDate(Timestamp barangDetUpdatedDate) {
+		barangDetUpdatedDate = barangDetUpdatedDate;
 	}
 
-	public int getRevisedBD() {
-		return RevisedBD;
+	public int getBarangDetRevised() {
+		return barangDetRevised;
 	}
 
-	public void setRevisedBD(int revisedBD) {
-		RevisedBD = revisedBD;
+	public void setBarangDetRevised(int barangDetRevised) {
+		barangDetRevised = barangDetRevised;
 	}
 
-	public Timestamp getDeletedDateBD() {
-		return DeletedDateBD;
+	public Timestamp getBarangDetDeletedDate() {
+		return barangDetDeletedDate;
 	}
 
-	public void setDeletedDateBD(Timestamp deletedDateBD) {
-		DeletedDateBD = deletedDateBD;
+	public void setBarangDetDeletedDate(Timestamp barangDetDeletedDate) {
+		barangDetDeletedDate = barangDetDeletedDate;
 	}
 
 	public MBarang getBarang() {
@@ -184,11 +184,11 @@ public class MBarangDetail {
 
 	@Override
 	public String toString() {
-		return "MBarangDetail [IdBarangDet=" + IdBarangDet + ", MasterIdBD=" + MasterIdBD + ", BarangIdBD=" + BarangIdBD
-				+ ", BarangNamaBD=" + BarangNamaBD + ", SatuanIdBD=" + SatuanIdBD + ", SatuanNamaBD=" + SatuanNamaBD
-				+ ", KeteranganBD=" + KeteranganBD + ", JumlahBD=" + JumlahBD + ", CreatedByBD=" + CreatedByBD
-				+ ", CreatedDateBD=" + CreatedDateBD + ", UpdateByBD=" + UpdateByBD + ", UpdateDateBD=" + UpdateDateBD
-				+ ", RevisedBD=" + RevisedBD + ", DeletedDateBD=" + DeletedDateBD + ", barang=" + barang + "]";
+		return "MBarangDetail [barangDetId=" + barangDetId + ", barangDetMasterId=" + barangDetMasterId + ", barangDetBarangId=" + barangDetBarangId
+				+ ", barangDetBarangNama=" + barangDetBarangNama + ", barangDetSatuanId=" + barangDetSatuanId + ", barangDetSatuanNama=" + barangDetSatuanNama
+				+ ", barangDetKeterangan=" + barangDetKeterangan + ", barangDetJumlah=" + barangDetJumlah + ", barangDetCreatedBy=" + barangDetCreatedBy
+				+ ", barangDetCreatedDate=" + barangDetCreatedDate + ", barangDetUpdatedBy=" + barangDetUpdatedBy + ", barangDetUpdatedDate=" + barangDetUpdatedDate
+				+ ", barangDetRevised=" + barangDetRevised + ", barangDetDeletedDate=" + barangDetDeletedDate + ", barang=" + barang + "]";
 	}
 	
 	

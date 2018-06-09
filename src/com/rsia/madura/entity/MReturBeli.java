@@ -20,7 +20,7 @@ public class MReturBeli {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="returbeli_id")
-	private int returBeli_id;
+	private int returBeliId;
 	
 	@Column(name="returbeli_no")
 	private String returBeliNo;
@@ -85,12 +85,12 @@ public class MReturBeli {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "returBeli", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MReturBeliDetail> detail;
 
-	public int getReturBeli_id() {
-		return returBeli_id;
+	public int getReturBeliId() {
+		return returBeliId;
 	}
 
-	public void setReturBeli_id(int returBeli_id) {
-		this.returBeli_id = returBeli_id;
+	public void setReturBeliId(int returBeliId) {
+		this.returBeliId = returBeliId;
 	}
 
 	public String getReturBeliNo() {
@@ -263,7 +263,7 @@ public class MReturBeli {
 
 	@Override
 	public String toString() {
-		return "MReturBeli [returBeli_id=" + returBeli_id + ", returBeliNo=" + returBeliNo + ", returBeliTerimaId="
+		return "MReturBeli [returBeliId=" + returBeliId + ", returBeliNo=" + returBeliNo + ", returBeliTerimaId="
 				+ returBeliTerimaId + ", returBeliTanggal=" + returBeliTanggal + ", returBeliPerusahaanId="
 				+ returBeliPerusahaanId + ", returBeliKeterangan=" + returBeliKeterangan + ", returBeliStatus="
 				+ returBeliStatus + ", returBeliAktif=" + returBeliAktif + ", returBeliCreatedBy=" + returBeliCreatedBy

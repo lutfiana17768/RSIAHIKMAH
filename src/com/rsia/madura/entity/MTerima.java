@@ -19,7 +19,7 @@ public class MTerima {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="terima_id")
-	private int terima_id;
+	private int terimaId;
 	
 	@Column(name="terima_no")
 	private String terimaNo;
@@ -112,12 +112,12 @@ public class MTerima {
 		
 	}
 	
-	public int getTerima_id() {
-		return terima_id;
+	public int getTerimaId() {
+		return terimaId;
 	}
 
-	public void setTerima_id(int terima_id) {
-		this.terima_id = terima_id;
+	public void setTerimaId(int terimaId) {
+		this.terimaId = terimaId;
 	}
 
 	public String getTerimaNo() {
@@ -354,7 +354,7 @@ public class MTerima {
 
 	@Override
 	public String toString() {
-		return "MTerima [terima_id=" + terima_id + ", terimaNo=" + terimaNo + ", terimaTanggal=" + terimaTanggal
+		return "MTerima [terimaId=" + terimaId + ", terimaNo=" + terimaNo + ", terimaTanggal=" + terimaTanggal
 				+ ", terimaOrderId=" + terimaOrderId + ", terimaPerusahaanId=" + terimaPerusahaanId
 				+ ", terimaNoSuratJalan=" + terimaNoSuratJalan + ", terimaPengirim=" + terimaPengirim
 				+ ", terimaKeterangan=" + terimaKeterangan + ", terimaStatus=" + terimaStatus + ", terimaAktif="

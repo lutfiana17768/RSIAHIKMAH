@@ -60,9 +60,9 @@ public class BarangController {
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		barangModel.setAktifBarang("Y");
-		barangModel.setCreateDateBarang(currentTime);
-		barangModel.setCreatBarang("Admin");
+		barangModel.setBarangAktif("Y");
+		barangModel.setBarangCreatedDate(currentTime);
+		barangModel.setBarangCreatedBy("Admin");
 		
 		barangService.store(barangModel);
 		
@@ -83,8 +83,8 @@ public class BarangController {
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		barangModel.setDateUpdateBarang(currentTime);
-		barangModel.setUpdateBarang("Admin");
+		barangModel.setBarangUpdatedDate(currentTime);
+		barangModel.setBarangUpdatedBy("Admin");
 		
 		barangService.update(barangModel);
 		
@@ -97,8 +97,8 @@ public class BarangController {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		MBarang barangModel = barangService.getBarang(barangId);
 		
-		barangModel.setAktifBarang("T");
-		barangModel.setDeleteDateBarang(currentTime);
+		barangModel.setBarangAktif("T");
+		barangModel.setBarangDeletedDate(currentTime);
 		
 		barangService.delete(barangModel);
 		

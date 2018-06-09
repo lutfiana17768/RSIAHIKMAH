@@ -17,146 +17,146 @@ public class MBarangKategori {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="barangkategori_id")
-	private int IdBarangKategori;
+	private int barangKategoriId;
 	
 	@Column(name="barangkategori_kode")
-	private String KodeBarangKategori;
+	private String barangKategoriKode;
 	
 	@Column(name="barangkategori_nama")
-	private String NamaBarangKategori;
+	private String barangKategoriNama;
 	
 	@Column(name="barangkategori_parent")
-	private int ParentBarangKategori;
+	private int barangKategoriParent;
 	
 	@Column(name="barangkategori_keterangan")
-	private String KeteranganBarangKategori;
+	private String barangKategoriKeterangan;
 	
 	@Column(name="barangkategori_aktif")
-	private String AktifBarangKategori;
+	private String barangKategoriAktif;
 
 	@Column(name=" barangkategori_created_by")
-	private String CreatBarangKategori;
+	private String barangKategoriCreatedBy;
 	
 	@Column(name="barangkategori_created_date")
-	private Timestamp CreateDateBarangKategori;
+	private Timestamp barangKategoriCreatedDate;
 	
 	@Column(name="barangkategori_updated_by")
-	private String UpdateBarangKategori;
+	private String barangKategoriUpdatedBy;
 	
 	@Column(name="barangkategori_updated_date")
-	private Timestamp DateUpdateBarangKategori;
+	private Timestamp barangKategoriUpdatedDate;
 	
 	@Column(name="barangkategori_revised")
-	private int RevisedBarangKategori;
+	private int barangKategoriRevised;
 	
 	@Column(name="barang_kategori_deleted_date")
-	private Timestamp DeleteDateBarangKategori;
+	private Timestamp barangKategoriDeletedDate;
 
-	public int getIdBarangKategori() {
-		return IdBarangKategori;
+	public int getBarangKategoriId() {
+		return barangKategoriId;
 	}
 
-	public void setIdBarangKategori(int idBarangKategori) {
-		IdBarangKategori = idBarangKategori;
+	public void setbarangKategoriId(int idBarangKategori) {
+		barangKategoriId = idBarangKategori;
 	}
 
-	public String getKodeBarangKategori() {
-		return KodeBarangKategori;
+	public String getBarangKategoriKode() {
+		return barangKategoriKode;
 	}
 
-	public void setKodeBarangKategori(String kodeBarangKategori) {
-		KodeBarangKategori = kodeBarangKategori;
+	public void setbarangKategoriKode(String kodeBarangKategori) {
+		barangKategoriKode = kodeBarangKategori;
 	}
 
-	public String getNamaBarangKategori() {
-		return NamaBarangKategori;
+	public String getBarangKategoriNama() {
+		return barangKategoriNama;
 	}
 
-	public void setNamaBarangKategori(String namaBarangKategori) {
-		NamaBarangKategori = namaBarangKategori;
+	public void setbarangKategoriNama(String namaBarangKategori) {
+		barangKategoriNama = namaBarangKategori;
 	}
 
-	public int getParentBarangKategori() {
-		return ParentBarangKategori;
+	public int getBarangKategoriParent() {
+		return barangKategoriParent;
 	}
 
-	public void setParentBarangKategori(int parentBarangKategori) {
-		ParentBarangKategori = parentBarangKategori;
+	public void setbarangKategoriParent(int parentBarangKategori) {
+		barangKategoriParent = parentBarangKategori;
 	}
 
-	public String getKeteranganBarangKategori() {
-		return KeteranganBarangKategori;
+	public String getBarangKategoriKeterangan() {
+		return barangKategoriKeterangan;
 	}
 
-	public void setKeteranganBarangKategori(String keteranganBarangKategori) {
-		KeteranganBarangKategori = keteranganBarangKategori;
+	public void setbarangKategoriKeterangan(String keteranganBarangKategori) {
+		barangKategoriKeterangan = keteranganBarangKategori;
 	}
 
-	public String getAktifBarangKategori() {
-		return AktifBarangKategori;
+	public String getBarangKategoriAktif() {
+		return barangKategoriAktif;
 	}
 
-	public void setAktifBarangKategori(String aktifBarangKategori) {
-		AktifBarangKategori = aktifBarangKategori;
+	public void setbarangKategoriAktif(String aktifBarangKategori) {
+		barangKategoriAktif = aktifBarangKategori;
 	}
 
-	public String getCreatBarangKategori() {
-		return CreatBarangKategori;
+	public String getBarangKategoriCreatedBy() {
+		return barangKategoriCreatedBy;
 	}
 
-	public void setCreatBarangKategori(String creatBarangKategori) {
-		CreatBarangKategori = creatBarangKategori;
+	public void setbarangKategoriCreatedBy(String creatBarangKategori) {
+		barangKategoriCreatedBy = creatBarangKategori;
 	}
 
-	public Timestamp getCreateDateBarangKategori() {
-		return CreateDateBarangKategori;
+	public Timestamp getBarangKategoriCreatedDate() {
+		return barangKategoriCreatedDate;
 	}
 
-	public void setCreateDateBarangKategori(Timestamp createDateBarangKategori) {
-		CreateDateBarangKategori = createDateBarangKategori;
+	public void setbarangKategoriCreatedDate(Timestamp createDateBarangKategori) {
+		barangKategoriCreatedDate = createDateBarangKategori;
 	}
 
-	public String getUpdateBarangKategori() {
-		return UpdateBarangKategori;
+	public String getBarangKategoriUpdatedBy() {
+		return barangKategoriUpdatedBy;
 	}
 
-	public void setUpdateBarangKategori(String updateBarangKategori) {
-		UpdateBarangKategori = updateBarangKategori;
+	public void setbarangKategoriUpdatedBy(String updateBarangKategori) {
+		barangKategoriUpdatedBy = updateBarangKategori;
 	}
 
-	public Timestamp getDateUpdateBarangKategori() {
-		return DateUpdateBarangKategori;
+	public Timestamp getBarangKategoriUpdatedDate() {
+		return barangKategoriUpdatedDate;
 	}
 
-	public void setDateUpdateBarangKategori(Timestamp dateUpdateBarangKategori) {
-		DateUpdateBarangKategori = dateUpdateBarangKategori;
+	public void setbarangKategoriUpdatedDate(Timestamp datebarangKategoriUpdatedBy) {
+		barangKategoriUpdatedDate = datebarangKategoriUpdatedBy;
 	}
 
-	public int getRevisedBarangKategori() {
-		return RevisedBarangKategori;
+	public int getBarangKategoriRevised() {
+		return barangKategoriRevised;
 	}
 
-	public void setRevisedBarangKategori(int revisedBarangKategori) {
-		RevisedBarangKategori = revisedBarangKategori;
+	public void setbarangKategoriRevised(int revisedBarangKategori) {
+		barangKategoriRevised = revisedBarangKategori;
 	}
 
-	public Timestamp getDeleteDateBarangKategori() {
-		return DeleteDateBarangKategori;
+	public Timestamp getBarangKategoriDeletedDate() {
+		return barangKategoriDeletedDate;
 	}
 
-	public void setDeleteDateBarangKategori(Timestamp deleteDateBarangKategori) {
-		DeleteDateBarangKategori = deleteDateBarangKategori;
+	public void setbarangKategoriDeletedDate(Timestamp deleteDateBarangKategori) {
+		barangKategoriDeletedDate = deleteDateBarangKategori;
 	}
 
 	@Override
 	public String toString() {
-		return "MBarangKategori [IdBarangKategori=" + IdBarangKategori + ", KodeBarangKategori=" + KodeBarangKategori
-				+ ", NamaBarangKategori=" + NamaBarangKategori + ", ParentBarangKategori=" + ParentBarangKategori
-				+ ", KeteranganBarangKategori=" + KeteranganBarangKategori + ", AktifBarangKategori="
-				+ AktifBarangKategori + ", CreatBarangKategori=" + CreatBarangKategori + ", CreateDateBarangKategori="
-				+ CreateDateBarangKategori + ", UpdateBarangKategori=" + UpdateBarangKategori
-				+ ", DateUpdateBarangKategori=" + DateUpdateBarangKategori + ", RevisedBarangKategori="
-				+ RevisedBarangKategori + ", DeleteDateBarangKategori=" + DeleteDateBarangKategori + "]";
+		return "MBarangKategori [barangKategoriId=" + barangKategoriId + ", barangKategoriKode=" + barangKategoriKode
+				+ ", barangKategoriNama=" + barangKategoriNama + ", barangKategoriParent=" + barangKategoriParent
+				+ ", barangKategoriKeterangan=" + barangKategoriKeterangan + ", barangKategoriAktif="
+				+ barangKategoriAktif + ", barangKategoriCreatedBy=" + barangKategoriCreatedBy + ", barangKategoriCreatedDate="
+				+ barangKategoriCreatedDate + ", barangKategoriUpdatedBy=" + barangKategoriUpdatedBy
+				+ ", barangKategoriUpdatedDate=" + barangKategoriUpdatedDate + ", barangKategoriRevised="
+				+ barangKategoriRevised + ", barangKategoriDeletedDate=" + barangKategoriDeletedDate + "]";
 	}
 	
 }

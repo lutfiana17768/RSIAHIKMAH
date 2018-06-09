@@ -18,212 +18,212 @@ public class MBarangHJ {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="baranghj_id")
-	private int IdBarangHJ;
+	private int barangHJId;
 	
 	@Column(name="baranghj_jenisharga_id")
-	private int IdJenisHargaHJ;
+	private int barangHJJenisHargaId;
 
 	@Column(name="baranghj_barang_id")
-	private int IdBarangBarangHJ;
+	private int barangHJBarangId;
 	
 	@Column(name="baranghj_satuan_id")
-	private int SatuanBarangHJ;
+	private int barangHJSatuanId;
 	
 	@Column(name="baranghj_satuankonversi_id")
-	private int IdSatuanKonversiHJ;
+	private int barangHJSatuanKonversiId;
 
 	@Column(name="baranghj_tanggal")
-	private Date TanggalBarangHJ;
+	private Date barangHJTanggal;
 	
 	@Column(name="baranghj_validfrom")
-	private Date ValidFromHJ;
+	private Date barangHJValidFrom;
 	  
 	@Column(name="baranghj_validto")
-	private Date ValidToHJ;
+	private Date barangHJValidTo;
 	
 	@Column(name="baranghj_hj")
-	private int BarangHJHJ;
+	private int barangHJHJ;
 	
 	@Column(name=" baranghj_default")
-	private String DefaultBarangHJ;
+	private String barangHJDefault;
 	
 	@Column(name="baranghj_created_by")
-	private String CreatedByHJ;
+	private String barangHJCreatedBy;
 	
 	@Column(name="baranghj_created_date")
-	private Timestamp CreateDateBarangHJ;
+	private Timestamp barangHJCreatedDate;
 	
 	@Column(name=" baranghj_updated_by")
-	private String UpdateBarangHJ;
+	private String barangHJUpdatedBy;
 	
 	@Column(name="baranghj_updated_date ")
-	private Timestamp DateUpdateBarangHJ;
+	private Timestamp barangHJUpdatedDate;
 	
 	@Column(name="baranghj_revised")
-	private int RevisedBarangHJ;
+	private int barangHJRevised;
 	
 	@Column(name="baranghj_terima_id")
-	private int IdTerimaBarangHJ;
+	private int barangHJTerimaId;
 	 
 	@Column(name="baranghj_opname_id")
-	private int IdOpnameBarangHJ;
+	private int barangHJOpnameId;
 	 
 	@Column(name="baranghj_deleted_date")
-	private Timestamp DeleteDateBarangHJ;
+	private Timestamp barangHJDeletedDate;
 
-	public int getIdBarangHJ() {
-		return IdBarangHJ;
+	public int getBarangHJId() {
+		return barangHJId;
 	}
 
-	public void setIdBarangHJ(int idBarangHJ) {
-		IdBarangHJ = idBarangHJ;
+	public void setBarangHJId(int barangHJId) {
+		barangHJId = barangHJId;
 	}
 
-	public int getIdJenisHargaHJ() {
-		return IdJenisHargaHJ;
+	public int getBarangHJJenisHargaId() {
+		return barangHJJenisHargaId;
 	}
 
-	public void setIdJenisHargaHJ(int idJenisHargaHJ) {
-		IdJenisHargaHJ = idJenisHargaHJ;
+	public void setBarangHJJenisHargaId(int barangHJJenisHargaId) {
+		barangHJJenisHargaId = barangHJJenisHargaId;
 	}
 
-	public int getIdBarangBarangHJ() {
-		return IdBarangBarangHJ;
+	public int getBarangHJBarangId() {
+		return barangHJBarangId;
 	}
 
-	public void setIdBarangBarangHJ(int idBarangBarangHJ) {
-		IdBarangBarangHJ = idBarangBarangHJ;
+	public void setBarangHJBarangId(int barangHJBarangId) {
+		barangHJBarangId = barangHJBarangId;
 	}
 
-	public int getSatuanBarangHJ() {
-		return SatuanBarangHJ;
+	public int getBarangHJSatuanId() {
+		return barangHJSatuanId;
 	}
 
-	public void setSatuanBarangHJ(int satuanBarangHJ) {
-		SatuanBarangHJ = satuanBarangHJ;
+	public void setBarangHJSatuanId(int barangHJSatuanId) {
+		barangHJSatuanId = barangHJSatuanId;
 	}
 
-	public int getIdSatuanKonversiHJ() {
-		return IdSatuanKonversiHJ;
+	public int getBarangHJSatuanKonversiId() {
+		return barangHJSatuanKonversiId;
 	}
 
-	public void setIdSatuanKonversiHJ(int idSatuanKonversiHJ) {
-		IdSatuanKonversiHJ = idSatuanKonversiHJ;
+	public void setBarangHJSatuanKonversiId(int barangHJSatuanKonversiId) {
+		barangHJSatuanKonversiId = barangHJSatuanKonversiId;
 	}
 
-	public Date getTanggalBarangHJ() {
-		return TanggalBarangHJ;
+	public Date getBarangHJTanggal() {
+		return barangHJTanggal;
 	}
 
-	public void setTanggalBarangHJ(Date tanggalBarangHJ) {
-		TanggalBarangHJ = tanggalBarangHJ;
+	public void setBarangHJTanggal(Date barangHJTanggal) {
+		barangHJTanggal = barangHJTanggal;
 	}
 
-	public Date getValidFromHJ() {
-		return ValidFromHJ;
+	public Date getBarangHJValidFrom() {
+		return barangHJValidFrom;
 	}
 
-	public void setValidFromHJ(Date validFromHJ) {
-		ValidFromHJ = validFromHJ;
+	public void setBarangHJValidFrom(Date barangHJValidFrom) {
+		barangHJValidFrom = barangHJValidFrom;
 	}
 
-	public Date getValidToHJ() {
-		return ValidToHJ;
+	public Date getBarangHJValidTo() {
+		return barangHJValidTo;
 	}
 
-	public void setValidToHJ(Date validToHJ) {
-		ValidToHJ = validToHJ;
+	public void setBarangHJValidTo(Date barangHJValidTo) {
+		barangHJValidTo = barangHJValidTo;
 	}
 
 	public int getBarangHJHJ() {
-		return BarangHJHJ;
+		return barangHJHJ;
 	}
 
 	public void setBarangHJHJ(int barangHJHJ) {
-		BarangHJHJ = barangHJHJ;
+		barangHJHJ = barangHJHJ;
 	}
 
-	public String getDefaultBarangHJ() {
-		return DefaultBarangHJ;
+	public String getBarangHJDefault() {
+		return barangHJDefault;
 	}
 
-	public void setDefaultBarangHJ(String defaultBarangHJ) {
-		DefaultBarangHJ = defaultBarangHJ;
+	public void setBarangHJDefault(String barangHJDefault) {
+		barangHJDefault = barangHJDefault;
 	}
 
-	public String getCreatedByHJ() {
-		return CreatedByHJ;
+	public String getBarangHJCreatedBy() {
+		return barangHJCreatedBy;
 	}
 
-	public void setCreatedByHJ(String createdByHJ) {
-		CreatedByHJ = createdByHJ;
+	public void setBarangHJCreatedBy(String barangHJCreatedBy) {
+		barangHJCreatedBy = barangHJCreatedBy;
 	}
 
-	public Timestamp getCreateDateBarangHJ() {
-		return CreateDateBarangHJ;
+	public Timestamp getBarangHJCreatedDate() {
+		return barangHJCreatedDate;
 	}
 
-	public void setCreateDateBarangHJ(Timestamp createDateBarangHJ) {
-		CreateDateBarangHJ = createDateBarangHJ;
+	public void setBarangHJCreatedDate(Timestamp barangHJCreatedDate) {
+		barangHJCreatedDate = barangHJCreatedDate;
 	}
 
-	public String getUpdateBarangHJ() {
-		return UpdateBarangHJ;
+	public String getBarangHJUpdatedBy() {
+		return barangHJUpdatedBy;
 	}
 
-	public void setUpdateBarangHJ(String updateBarangHJ) {
-		UpdateBarangHJ = updateBarangHJ;
+	public void setBarangHJUpdatedBy(String barangHJUpdatedBy) {
+		barangHJUpdatedBy = barangHJUpdatedBy;
 	}
 
-	public Timestamp getDateUpdateBarangHJ() {
-		return DateUpdateBarangHJ;
+	public Timestamp getBarangHJUpdatedDate() {
+		return barangHJUpdatedDate;
 	}
 
-	public void setDateUpdateBarangHJ(Timestamp dateUpdateBarangHJ) {
-		DateUpdateBarangHJ = dateUpdateBarangHJ;
+	public void setBarangHJUpdatedDate(Timestamp barangHJUpdatedDate) {
+		barangHJUpdatedDate = barangHJUpdatedDate;
 	}
 
-	public int getRevisedBarangHJ() {
-		return RevisedBarangHJ;
+	public int getBarangHJRevised() {
+		return barangHJRevised;
 	}
 
-	public void setRevisedBarangHJ(int revisedBarangHJ) {
-		RevisedBarangHJ = revisedBarangHJ;
+	public void setBarangHJRevised(int barangHJRevised) {
+		barangHJRevised = barangHJRevised;
 	}
 
-	public int getIdTerimaBarangHJ() {
-		return IdTerimaBarangHJ;
+	public int getBarangHJTerimaId() {
+		return barangHJTerimaId;
 	}
 
-	public void setIdTerimaBarangHJ(int idTerimaBarangHJ) {
-		IdTerimaBarangHJ = idTerimaBarangHJ;
+	public void setBarangHJTerimaId(int barangHJTerimaId) {
+		barangHJTerimaId = barangHJTerimaId;
 	}
 
-	public int getIdOpnameBarangHJ() {
-		return IdOpnameBarangHJ;
+	public int getBarangHJOpnameId() {
+		return barangHJOpnameId;
 	}
 
-	public void setIdOpnameBarangHJ(int idOpnameBarangHJ) {
-		IdOpnameBarangHJ = idOpnameBarangHJ;
+	public void setBarangHJOpnameId(int barangHJOpnameId) {
+		barangHJOpnameId = barangHJOpnameId;
 	}
 
-	public Timestamp getDeleteDateBarangHJ() {
-		return DeleteDateBarangHJ;
+	public Timestamp getBarangHJDeletedDate() {
+		return barangHJDeletedDate;
 	}
 
-	public void setDeleteDateBarangHJ(Timestamp deleteDateBarangHJ) {
-		DeleteDateBarangHJ = deleteDateBarangHJ;
+	public void setBarangHJDeletedDate(Timestamp barangHJDeletedDate) {
+		barangHJDeletedDate = barangHJDeletedDate;
 	}
 
 	@Override
 	public String toString() {
-		return "MBarangHJ [IdBarangHJ=" + IdBarangHJ + ", IdJenisHargaHJ=" + IdJenisHargaHJ + ", IdBarangBarangHJ="
-				+ IdBarangBarangHJ + ", SatuanBarangHJ=" + SatuanBarangHJ + ", IdSatuanKonversiHJ=" + IdSatuanKonversiHJ
-				+ ", TanggalBarangHJ=" + TanggalBarangHJ + ", ValidFromHJ=" + ValidFromHJ + ", ValidToHJ=" + ValidToHJ
-				+ ", BarangHJHJ=" + BarangHJHJ + ", DefaultBarangHJ=" + DefaultBarangHJ + ", CreatedByHJ=" + CreatedByHJ
-				+ ", CreateDateBarangHJ=" + CreateDateBarangHJ + ", UpdateBarangHJ=" + UpdateBarangHJ
-				+ ", DateUpdateBarangHJ=" + DateUpdateBarangHJ + ", RevisedBarangHJ=" + RevisedBarangHJ
-				+ ", IdTerimaBarangHJ=" + IdTerimaBarangHJ + ", IdOpnameBarangHJ=" + IdOpnameBarangHJ
-				+ ", DeleteDateBarangHJ=" + DeleteDateBarangHJ + "]";
+		return "MBarangHJ [barangHJId=" + barangHJId + ", barangHJJenisHargaId=" + barangHJJenisHargaId + ", barangHJBarangId="
+				+ barangHJBarangId + ", barangHJSatuanId=" + barangHJSatuanId + ", barangHJSatuanKonversiId=" + barangHJSatuanKonversiId
+				+ ", barangHJTanggal=" + barangHJTanggal + ", barangHJValidFrom=" + barangHJValidFrom + ", barangHJValidTo=" + barangHJValidTo
+				+ ", barangHJHJ=" + barangHJHJ + ", barangHJDefault=" + barangHJDefault + ", barangHJCreatedBy=" + barangHJCreatedBy
+				+ ", barangHJCreatedDate=" + barangHJCreatedDate + ", barangHJUpdatedBy=" + barangHJUpdatedBy
+				+ ", barangHJUpdatedDate=" + barangHJUpdatedDate + ", barangHJRevised=" + barangHJRevised
+				+ ", barangHJTerimaId=" + barangHJTerimaId + ", barangHJOpnameId=" + barangHJOpnameId
+				+ ", barangHJDeletedDate=" + barangHJDeletedDate + "]";
 	}
 }

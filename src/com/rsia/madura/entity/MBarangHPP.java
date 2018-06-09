@@ -18,214 +18,214 @@ public class MBarangHPP {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="baranghpp_id")
-	private int IdBarangHPP;
+	private int barangHPPId;
 	
 	@Column(name="baranghpp_barang_id")
-	private int IdBarangBarangHPP;
+	private int barangHPPBarangId;
 
 	@Column(name="baranghpp_satuan_id")
-	private int IdSatuanBarangHPP;
+	private int barangHPPSatuanId;
 	
 	@Column(name="baranghpp_satuankonversi_id")
-	private int IdSatuanKonversiHPP;
+	private int barangHPPSatuanKonversiId;
 
 	@Column(name="baranghpp_tanggal")
-	private Date TanggalBarangHPP;
+	private Date barangHPPTanggal;
 	
 	@Column(name="baranghpp_validfrom")
-	private Date ValidFromHPP;
+	private Date barangHPPValidFrom;
 	  
 	@Column(name="baranghpp_validto")
-	private Date ValidToHPP;
+	private Date barangHPPValidTo;
 	
 	@Column(name="baranghpp_harga")
-	private float BarangHargaHPP;
+	private float barangHPPHarga;
 	
 	@Column(name="baranghpp_diskon")
-	private float DiskonBarangHPP;
+	private float barangHPPDiskon;
 	
 	@Column(name="baranghpp_hpp")
-	private float BarangHPPhpp;
+	private float barangHPPHPP;
 	
 	@Column(name="baranghpp_terima_id")
-	private int BarangTerimaHPP;
+	private int barangHPPTerimaId;
 	
 	@Column(name="baranghpp_opname_id")
-	private int BarangOpnameHPP;
+	private int barangHPPOpnameId;
 	
 	@Column(name="baranghpp_created_by")
-	private String BarangCreatedHPP;
+	private String barangHPPCreatedBy;
 	
 	@Column(name="baranghpp_created_date")
-	private Timestamp CreateDateBarangHPP;
+	private Timestamp barangHPPCreatedDate;
 	
 	@Column(name="baranghpp_updated_by")
-	private String UpdateBarangHPP;
+	private String barangHPPUpdatedBy;
 	
 	@Column(name="baranghpp_updated_date")
-	private Timestamp DateUpdateBarangHPP;
+	private Timestamp barangHPPUpdatedDate;
 	
 	@Column(name=" baranghpp_revised")
-	private int RevisedBarangHPP;
+	private int barangHPPRevised;
 	 
 	@Column(name="baranghpp_deleted_date")
-	private Timestamp DeleteDateBarangHPP;
+	private Timestamp barangHPPDeletedDate;
 
-	public int getIdBarangHPP() {
-		return IdBarangHPP;
+	public int getBarangHPPId() {
+		return barangHPPId;
 	}
 
-	public void setIdBarangHPP(int idBarangHPP) {
-		IdBarangHPP = idBarangHPP;
+	public void setBarangHPPId(int barangHPPId) {
+		barangHPPId = barangHPPId;
 	}
 
-	public int getIdBarangBarangHPP() {
-		return IdBarangBarangHPP;
+	public int getBarangHPPBarangId() {
+		return barangHPPBarangId;
 	}
 
-	public void setIdBarangBarangHPP(int idBarangBarangHPP) {
-		IdBarangBarangHPP = idBarangBarangHPP;
+	public void setBarangHPPBarangId(int barangHPPBarangId) {
+		barangHPPBarangId = barangHPPBarangId;
 	}
 
-	public int getIdSatuanBarangHPP() {
-		return IdSatuanBarangHPP;
+	public int getBarangHPPSatuanId() {
+		return barangHPPSatuanId;
 	}
 
-	public void setIdSatuanBarangHPP(int idSatuanBarangHPP) {
-		IdSatuanBarangHPP = idSatuanBarangHPP;
+	public void setBarangHPPSatuanId(int barangHPPSatuanId) {
+		barangHPPSatuanId = barangHPPSatuanId;
 	}
 
-	public int getIdSatuanKonversiHPP() {
-		return IdSatuanKonversiHPP;
+	public int getBarangHPPSatuanKonversiId() {
+		return barangHPPSatuanKonversiId;
 	}
 
-	public void setIdSatuanKonversiHPP(int idSatuanKonversiHPP) {
-		IdSatuanKonversiHPP = idSatuanKonversiHPP;
+	public void setBarangHPPSatuanKonversiId(int barangHPPSatuanKonversiId) {
+		barangHPPSatuanKonversiId = barangHPPSatuanKonversiId;
 	}
 
-	public Date getTanggalBarangHPP() {
-		return TanggalBarangHPP;
+	public Date getBarangHPPTanggal() {
+		return barangHPPTanggal;
 	}
 
-	public void setTanggalBarangHPP(Date tanggalBarangHPP) {
-		TanggalBarangHPP = tanggalBarangHPP;
+	public void setBarangHPPTanggal(Date barangHPPTanggal) {
+		barangHPPTanggal = barangHPPTanggal;
 	}
 
-	public Date getValidFromHPP() {
-		return ValidFromHPP;
+	public Date getBarangHPPValidFrom() {
+		return barangHPPValidFrom;
 	}
 
-	public void setValidFromHPP(Date validFromHPP) {
-		ValidFromHPP = validFromHPP;
+	public void setBarangHPPValidFrom(Date barangHPPValidFrom) {
+		barangHPPValidFrom = barangHPPValidFrom;
 	}
 
-	public Date getValidToHPP() {
-		return ValidToHPP;
+	public Date getBarangHPPValidTo() {
+		return barangHPPValidTo;
 	}
 
-	public void setValidToHPP(Date validToHPP) {
-		ValidToHPP = validToHPP;
+	public void setBarangHPPValidTo(Date barangHPPValidTo) {
+		barangHPPValidTo = barangHPPValidTo;
 	}
 
-	public float getBarangHargaHPP() {
-		return BarangHargaHPP;
+	public float getBarangHPPHarga() {
+		return barangHPPHarga;
 	}
 
-	public void setBarangHargaHPP(float barangHargaHPP) {
-		BarangHargaHPP = barangHargaHPP;
+	public void setBarangHPPHarga(float barangHPPHarga) {
+		barangHPPHarga = barangHPPHarga;
 	}
 
-	public float getDiskonBarangHPP() {
-		return DiskonBarangHPP;
+	public float getBarangHPPDiskon() {
+		return barangHPPDiskon;
 	}
 
-	public void setDiskonBarangHPP(float diskonBarangHPP) {
-		DiskonBarangHPP = diskonBarangHPP;
+	public void setBarangHPPDiskon(float barangHPPDiskon) {
+		barangHPPDiskon = barangHPPDiskon;
 	}
 
-	public float getBarangHPPhpp() {
-		return BarangHPPhpp;
+	public float getBarangHPPHPP() {
+		return barangHPPHPP;
 	}
 
-	public void setBarangHPPhpp(float barangHPPhpp) {
-		BarangHPPhpp = barangHPPhpp;
+	public void setBarangHPPHPP(float barangHPPHPP) {
+		barangHPPHPP = barangHPPHPP;
 	}
 
-	public int getBarangTerimaHPP() {
-		return BarangTerimaHPP;
+	public int getBarangHPPTerimaId() {
+		return barangHPPTerimaId;
 	}
 
-	public void setBarangTerimaHPP(int barangTerimaHPP) {
-		BarangTerimaHPP = barangTerimaHPP;
+	public void setBarangHPPTerimaId(int barangHPPTerimaId) {
+		barangHPPTerimaId = barangHPPTerimaId;
 	}
 
-	public int getBarangOpnameHPP() {
-		return BarangOpnameHPP;
+	public int getBarangHPPOpnameId() {
+		return barangHPPOpnameId;
 	}
 
-	public void setBarangOpnameHPP(int barangOpnameHPP) {
-		BarangOpnameHPP = barangOpnameHPP;
+	public void setBarangHPPOpnameId(int barangHPPOpnameId) {
+		barangHPPOpnameId = barangHPPOpnameId;
 	}
 
-	public String getBarangCreatedHPP() {
-		return BarangCreatedHPP;
+	public String getBarangHPPCreatedBy() {
+		return barangHPPCreatedBy;
 	}
 
-	public void setBarangCreatedHPP(String barangCreatedHPP) {
-		BarangCreatedHPP = barangCreatedHPP;
+	public void setBarangHPPCreatedBy(String barangHPPCreatedBy) {
+		barangHPPCreatedBy = barangHPPCreatedBy;
 	}
 
-	public Timestamp getCreateDateBarangHPP() {
-		return CreateDateBarangHPP;
+	public Timestamp getBarangHPPCreatedDate() {
+		return barangHPPCreatedDate;
 	}
 
-	public void setCreateDateBarangHPP(Timestamp createDateBarangHPP) {
-		CreateDateBarangHPP = createDateBarangHPP;
+	public void setBarangHPPCreatedDate(Timestamp barangHPPCreatedDate) {
+		barangHPPCreatedDate = barangHPPCreatedDate;
 	}
 
-	public String getUpdateBarangHPP() {
-		return UpdateBarangHPP;
+	public String getBarangHPPUpdatedBy() {
+		return barangHPPUpdatedBy;
 	}
 
-	public void setUpdateBarangHPP(String updateBarangHPP) {
-		UpdateBarangHPP = updateBarangHPP;
+	public void setBarangHPPUpdatedBy(String barangHPPUpdatedBy) {
+		barangHPPUpdatedBy = barangHPPUpdatedBy;
 	}
 
-	public Timestamp getDateUpdateBarangHPP() {
-		return DateUpdateBarangHPP;
+	public Timestamp getBarangHPPUpdatedDate() {
+		return barangHPPUpdatedDate;
 	}
 
-	public void setDateUpdateBarangHPP(Timestamp dateUpdateBarangHPP) {
-		DateUpdateBarangHPP = dateUpdateBarangHPP;
+	public void setBarangHPPUpdatedDate(Timestamp barangHPPUpdatedDate) {
+		barangHPPUpdatedDate = barangHPPUpdatedDate;
 	}
 
-	public int getRevisedBarangHPP() {
-		return RevisedBarangHPP;
+	public int getBarangHPPRevised() {
+		return barangHPPRevised;
 	}
 
-	public void setRevisedBarangHPP(int revisedBarangHPP) {
-		RevisedBarangHPP = revisedBarangHPP;
+	public void setBarangHPPRevised(int barangHPPRevised) {
+		barangHPPRevised = barangHPPRevised;
 	}
 
-	public Timestamp getDeleteDateBarangHPP() {
-		return DeleteDateBarangHPP;
+	public Timestamp getBarangHPPDeletedDate() {
+		return barangHPPDeletedDate;
 	}
 
-	public void setDeleteDateBarangHPP(Timestamp deleteDateBarangHPP) {
-		DeleteDateBarangHPP = deleteDateBarangHPP;
+	public void setBarangHPPDeletedDate(Timestamp barangHPPDeletedDate) {
+		barangHPPDeletedDate = barangHPPDeletedDate;
 	}
 
 	@Override
 	public String toString() {
-		return "MBarangHPP [IdBarangHPP=" + IdBarangHPP + ", IdBarangBarangHPP=" + IdBarangBarangHPP
-				+ ", IdSatuanBarangHPP=" + IdSatuanBarangHPP + ", IdSatuanKonversiHPP=" + IdSatuanKonversiHPP
-				+ ", TanggalBarangHPP=" + TanggalBarangHPP + ", ValidFromHPP=" + ValidFromHPP + ", ValidToHPP="
-				+ ValidToHPP + ", BarangHargaHPP=" + BarangHargaHPP + ", DiskonBarangHPP=" + DiskonBarangHPP
-				+ ", BarangHPPhpp=" + BarangHPPhpp + ", BarangTerimaHPP=" + BarangTerimaHPP + ", BarangOpnameHPP="
-				+ BarangOpnameHPP + ", BarangCreatedHPP=" + BarangCreatedHPP + ", CreateDateBarangHPP="
-				+ CreateDateBarangHPP + ", UpdateBarangHPP=" + UpdateBarangHPP + ", DateUpdateBarangHPP="
-				+ DateUpdateBarangHPP + ", RevisedBarangHPP=" + RevisedBarangHPP + ", DeleteDateBarangHPP="
-				+ DeleteDateBarangHPP + "]";
+		return "MBarangHPP [barangHPPId=" + barangHPPId + ", barangHPPBarangId=" + barangHPPBarangId
+				+ ", barangHPPSatuanId=" + barangHPPSatuanId + ", barangHPPSatuanKonversiId=" + barangHPPSatuanKonversiId
+				+ ", barangHPPTanggal=" + barangHPPTanggal + ", barangHPPValidFrom=" + barangHPPValidFrom + ", barangHPPValidTo="
+				+ barangHPPValidTo + ", barangHPPHarga=" + barangHPPHarga + ", barangHPPDiskon=" + barangHPPDiskon
+				+ ", barangHPPHPP=" + barangHPPHPP + ", barangHPPTerimaId=" + barangHPPTerimaId + ", barangHPPOpnameId="
+				+ barangHPPOpnameId + ", barangHPPCreatedBy=" + barangHPPCreatedBy + ", barangHPPCreatedDate="
+				+ barangHPPCreatedDate + ", barangHPPUpdatedBy=" + barangHPPUpdatedBy + ", barangHPPUpdatedDate="
+				+ barangHPPUpdatedDate + ", barangHPPRevised=" + barangHPPRevised + ", barangHPPDeletedDate="
+				+ barangHPPDeletedDate + "]";
 	}
 	
 }

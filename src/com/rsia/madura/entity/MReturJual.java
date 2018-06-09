@@ -19,7 +19,7 @@ public class MReturJual {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="returjual_id")
-	private int returJual_id;
+	private int returJualId;
 	
 	@Column(name="returjual_no")
 	private int returJualNo;
@@ -102,12 +102,12 @@ public class MReturJual {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "returJual", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MReturJualDetail> detail;
 
-	public int getReturJual_id() {
-		return returJual_id;
+	public int getReturJualId() {
+		return returJualId;
 	}
 
-	public void setReturJual_id(int returJual_id) {
-		this.returJual_id = returJual_id;
+	public void setReturJualId(int returJualId) {
+		this.returJualId = returJualId;
 	}
 
 	public int getReturJualNo() {
@@ -328,7 +328,7 @@ public class MReturJual {
 
 	@Override
 	public String toString() {
-		return "MReturJual [returJual_id=" + returJual_id + ", returJualNo=" + returJualNo + ", returJualTanggal="
+		return "MReturJual [returJualId=" + returJualId + ", returJualNo=" + returJualNo + ", returJualTanggal="
 				+ returJualTanggal + ", returJualJual=" + returJualJual + ", returJualPasienId=" + returJualPasienId
 				+ ", returJualPasienNorm=" + returJualPasienNorm + ", returJualPasienNama=" + returJualPasienNama
 				+ ", returJualPasienAlamat=" + returJualPasienAlamat + ", returJualJenisPasienId="

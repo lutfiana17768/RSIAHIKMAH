@@ -16,8 +16,8 @@ import javax.persistence.Table;
 public class MJualDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="jualdet_id")
-	private int jualdet_id;
+	@Column(name="jualDetailId")
+	private int jualDetailId;
 	
 	@Column(name="jualdet_jual_id")
 	private int jualDetailJualId;
@@ -91,12 +91,12 @@ public class MJualDetail {
 	@ManyToOne
 	private MJual jual;
 
-	public int getJualdet_id() {
-		return jualdet_id;
+	public int getJualDetailId() {
+		return jualDetailId;
 	}
 
-	public void setJualdet_id(int jualdet_id) {
-		this.jualdet_id = jualdet_id;
+	public void setJualDetailId(int jualDetailId) {
+		this.jualDetailId = jualDetailId;
 	}
 
 	public int getJualDetailJualId() {
@@ -293,7 +293,7 @@ public class MJualDetail {
 
 	@Override
 	public String toString() {
-		return "MJualDetail [jualdet_id=" + jualdet_id + ", jualDetailJualId=" + jualDetailJualId
+		return "MJualDetail [jualDetailId=" + jualDetailId + ", jualDetailJualId=" + jualDetailJualId
 				+ ", jualDetailDepoId=" + jualDetailDepoId + ", jualDetailBarangId=" + jualDetailBarangId
 				+ ", jualDetailBarangNama=" + jualDetailBarangNama + ", jualDetailSatuanId=" + jualDetailSatuanId
 				+ ", jualDetailSatuanNama=" + jualDetailSatuanNama + ", jualDetailKadaluarsa=" + jualDetailKadaluarsa

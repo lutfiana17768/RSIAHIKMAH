@@ -18,8 +18,8 @@ import javax.persistence.Table;
 public class MOrder {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="order_id")
-	private int order_id;
+	@Column(name="orderId")
+	private int orderId;
 	
 	@Column(name="order_no")
 	private String orderNomer;
@@ -100,12 +100,12 @@ public class MOrder {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MOrderDetail> detail;
 	
-	public int getOrder_id() {
-		return order_id;
+	public int getOrderId() {
+		return orderId;
 	}
 
-	public void setOrder_id(int order_id) {
-		this.order_id = order_id;
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
 	}
 
 	public String getOrderNomer() {
@@ -318,7 +318,7 @@ public class MOrder {
 
 	@Override
 	public String toString() {
-		return "t_Order [order_id=" + order_id + ", orderNomer=" + orderNomer + ", orderTanggal=" + orderTanggal
+		return "t_Order [orderId=" + orderId + ", orderNomer=" + orderNomer + ", orderTanggal=" + orderTanggal
 				+ ", orderJatuhTempo=" + orderJatuhTempo + ", orderPerusahaanId=" + orderPerusahaanId + ", orderDiskon="
 				+ orderDiskon + ", orderCashback=" + orderCashback + ", orderTotal=" + orderTotal
 				+ ", orderJumlahBayar=" + orderJumlahBayar + ", orderBayarId=" + orderBayarId + ", orderKeterangan="

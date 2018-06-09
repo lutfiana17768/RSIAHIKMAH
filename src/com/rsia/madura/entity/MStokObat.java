@@ -16,7 +16,7 @@ public class MStokObat {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="stokobat_id")
-	private int stokobat_id;
+	private int stokobatId;
 	
 	@Column(name="stokobat_depo_id")
 	private int stokObatDepoId;
@@ -96,12 +96,12 @@ public class MStokObat {
 	@Column(name="stokobat_deleted_date")
 	private Timestamp stokObatDeletedDate;
 
-	public int getStokobat_id() {
-		return stokobat_id;
+	public int getStokobatId() {
+		return stokobatId;
 	}
 
-	public void setStokobat_id(int stokobat_id) {
-		this.stokobat_id = stokobat_id;
+	public void setStokobatId(int stokobatId) {
+		this.stokobatId = stokobatId;
 	}
 
 	public int getStokObatDepoId() {
@@ -314,7 +314,7 @@ public class MStokObat {
 
 	@Override
 	public String toString() {
-		return "MStokObat [stokobat_id=" + stokobat_id + ", stokObatDepoId=" + stokObatDepoId + ", stokObatDepoNama="
+		return "MStokObat [stokobatId=" + stokobatId + ", stokObatDepoId=" + stokObatDepoId + ", stokObatDepoNama="
 				+ stokObatDepoNama + ", stokObatBarangId=" + stokObatBarangId + ", stokObatBarangNama="
 				+ stokObatBarangNama + ", stokObatKonversiId=" + stokObatKonversiId + ", stokObatSatuanId="
 				+ stokObatSatuanId + ", stokObatStuanNama=" + stokObatStuanNama + ", stokObatKadaluarsa="

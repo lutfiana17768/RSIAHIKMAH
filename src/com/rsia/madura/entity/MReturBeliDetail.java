@@ -17,84 +17,84 @@ public class MReturBeliDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="returbelidetail_id")
-	private int ReturBeli_id;
+	private int ReturBeliDetailId;
 	
 	@Column(name="returbelidetail_returbeli_id")
-	private int ReturBeliReturId;
+	private int ReturBeliDetailReturId;
 	
 	@Column(name="returbelidetail_barang_id")
-	private int ReturBeliBarangId;
+	private int ReturBeliDetailBarangId;
 	
 	@Column(name="returbelidetail_barang_nama")
 	private String ReturbeliBarangNama;
 	
 	@Column(name="returbelidetail_satuan_id")
-	private int ReturBeliSatuanId;
+	private int ReturBeliDetailSatuanId;
 	
 	@Column(name="returbelidetail_satuan_nama")
 	private String ReturbeliSatuanNama;
 	  
 	@Column(name="returbelidetail_kadaluarsa")
-	private Date ReturBeliKadaluarsa;
+	private Date ReturBeliDetailKadaluarsa;
 	
 	@Column(name="returbelidetail_jumlah")
-	private int ReturBeliJumlah;
+	private int ReturBeliDetailJumlah;
 	
 	@Column(name="returbelidetail_harga")
-	private int ReturBeliHarga;
+	private int ReturBeliDetailHarga;
 	
 	@Column(name="returbelidetail_diskon")
-	private int ReturBeliDiskon;
+	private int ReturBeliDetailDiskon;
 	
 	@Column(name="returbelidetail_subtotal")
-	private int ReturBeliSubTotal;
+	private int ReturBeliDetailSubTotal;
 	
 	@Column(name="returbelidetail_created_by")
-	private String ReturBeliCreatedBy;
+	private String ReturBeliDetailCreatedBy;
 	
 	@Column(name="returbelidetail_created_date")
-	private Timestamp ReturBeliCreatedDate;
+	private Timestamp ReturBeliDetailCreatedDate;
 	
 	@Column(name="returbelidetail_updated_by")
-	private String ReturBeliUpdatedBy;
+	private String ReturBeliDetailUpdatedBy;
 	
 	@Column(name="returbelidetail_updated_date")
-	private Timestamp ReturBeliUpdatedDate;
+	private Timestamp ReturBeliDetailUpdatedDate;
 	
 	@Column(name="returbelidetail_revised")
-	private int ReturBeliRevised;
+	private int ReturBeliDetailRevised;
 	
 	@Column(name="reg_company_id")
 	private int RegCompanyId;
 	  
 	@Column(name="returbelidetail_deleted_date")
-	private Timestamp ReturBeliDeletedDate;
+	private Timestamp ReturBeliDetailDeletedDate;
 	
 	@ManyToOne
-	private MReturBeli returBeli;
+	private MReturBeliDetail returBeli;
 
-	public int getReturBeli_id() {
-		return ReturBeli_id;
+	public int getReturBeliDetailId() {
+		return ReturBeliDetailId;
 	}
 
-	public void setReturBeli_id(int returBeli_id) {
-		ReturBeli_id = returBeli_id;
+	public void setReturBeliDetailId(int returBeliId) {
+		ReturBeliDetailId = returBeliId;
 	}
 
-	public int getReturBeliReturId() {
-		return ReturBeliReturId;
+	public int getReturBeliDetailReturId() {
+		return ReturBeliDetailReturId;
 	}
 
-	public void setReturBeliReturId(int returBeliReturId) {
-		ReturBeliReturId = returBeliReturId;
+	public void setReturBeliDetailReturId(int returBeliReturId) {
+		ReturBeliDetailReturId = returBeliReturId;
 	}
 
-	public int getReturBeliBarangId() {
-		return ReturBeliBarangId;
+	public int getReturBeliDetailBarangId() {
+		return ReturBeliDetailBarangId;
 	}
 
-	public void setReturBeliBarangId(int returBeliBarangId) {
-		ReturBeliBarangId = returBeliBarangId;
+	public void setReturBeliDetailBarangId(int returBeliBarangId) {
+		ReturBeliDetailBarangId = returBeliBarangId;
 	}
 
 	public String getReturbeliBarangNama() {
@@ -105,12 +105,12 @@ public class MReturBeliDetail {
 		ReturbeliBarangNama = returbeliBarangNama;
 	}
 
-	public int getReturBeliSatuanId() {
-		return ReturBeliSatuanId;
+	public int getReturBeliDetailSatuanId() {
+		return ReturBeliDetailSatuanId;
 	}
 
-	public void setReturBeliSatuanId(int returBeliSatuanId) {
-		ReturBeliSatuanId = returBeliSatuanId;
+	public void setReturBeliDetailSatuanId(int returBeliSatuanId) {
+		ReturBeliDetailSatuanId = returBeliSatuanId;
 	}
 
 	public String getReturbeliSatuanNama() {
@@ -121,84 +121,84 @@ public class MReturBeliDetail {
 		ReturbeliSatuanNama = returbeliSatuanNama;
 	}
 
-	public Date getReturBeliKadaluarsa() {
-		return ReturBeliKadaluarsa;
+	public Date getReturBeliDetailKadaluarsa() {
+		return ReturBeliDetailKadaluarsa;
 	}
 
-	public void setReturBeliKadaluarsa(Date returBeliKadaluarsa) {
-		ReturBeliKadaluarsa = returBeliKadaluarsa;
+	public void setReturBeliDetailKadaluarsa(Date returBeliKadaluarsa) {
+		ReturBeliDetailKadaluarsa = returBeliKadaluarsa;
 	}
 
-	public int getReturBeliJumlah() {
-		return ReturBeliJumlah;
+	public int getReturBeliDetailJumlah() {
+		return ReturBeliDetailJumlah;
 	}
 
-	public void setReturBeliJumlah(int returBeliJumlah) {
-		ReturBeliJumlah = returBeliJumlah;
+	public void setReturBeliDetailJumlah(int returBeliJumlah) {
+		ReturBeliDetailJumlah = returBeliJumlah;
 	}
 
-	public int getReturBeliHarga() {
-		return ReturBeliHarga;
+	public int getReturBeliDetailHarga() {
+		return ReturBeliDetailHarga;
 	}
 
-	public void setReturBeliHarga(int returBeliHarga) {
-		ReturBeliHarga = returBeliHarga;
+	public void setReturBeliDetailHarga(int returBeliHarga) {
+		ReturBeliDetailHarga = returBeliHarga;
 	}
 
-	public int getReturBeliDiskon() {
-		return ReturBeliDiskon;
+	public int getReturBeliDetailDiskon() {
+		return ReturBeliDetailDiskon;
 	}
 
-	public void setReturBeliDiskon(int returBeliDiskon) {
-		ReturBeliDiskon = returBeliDiskon;
+	public void setReturBeliDetailDiskon(int returBeliDiskon) {
+		ReturBeliDetailDiskon = returBeliDiskon;
 	}
 
-	public int getReturBeliSubTotal() {
-		return ReturBeliSubTotal;
+	public int getReturBeliDetailSubTotal() {
+		return ReturBeliDetailSubTotal;
 	}
 
-	public void setReturBeliSubTotal(int returBeliSubTotal) {
-		ReturBeliSubTotal = returBeliSubTotal;
+	public void setReturBeliDetailSubTotal(int returBeliSubTotal) {
+		ReturBeliDetailSubTotal = returBeliSubTotal;
 	}
 
-	public String getReturBeliCreatedBy() {
-		return ReturBeliCreatedBy;
+	public String getReturBeliDetailCreatedBy() {
+		return ReturBeliDetailCreatedBy;
 	}
 
-	public void setReturBeliCreatedBy(String returBeliCreatedBy) {
-		ReturBeliCreatedBy = returBeliCreatedBy;
+	public void setReturBeliDetailCreatedBy(String returBeliCreatedBy) {
+		ReturBeliDetailCreatedBy = returBeliCreatedBy;
 	}
 
-	public Timestamp getReturBeliCreatedDate() {
-		return ReturBeliCreatedDate;
+	public Timestamp getReturBeliDetailCreatedDate() {
+		return ReturBeliDetailCreatedDate;
 	}
 
-	public void setReturBeliCreatedDate(Timestamp returBeliCreatedDate) {
-		ReturBeliCreatedDate = returBeliCreatedDate;
+	public void setReturBeliDetailCreatedDate(Timestamp returBeliCreatedDate) {
+		ReturBeliDetailCreatedDate = returBeliCreatedDate;
 	}
 
-	public String getReturBeliUpdatedBy() {
-		return ReturBeliUpdatedBy;
+	public String getReturBeliDetailUpdatedBy() {
+		return ReturBeliDetailUpdatedBy;
 	}
 
-	public void setReturBeliUpdatedBy(String returBeliUpdatedBy) {
-		ReturBeliUpdatedBy = returBeliUpdatedBy;
+	public void setReturBeliDetailUpdatedBy(String returBeliUpdatedBy) {
+		ReturBeliDetailUpdatedBy = returBeliUpdatedBy;
 	}
 
-	public Timestamp getReturBeliUpdatedDate() {
-		return ReturBeliUpdatedDate;
+	public Timestamp getReturBeliDetailUpdatedDate() {
+		return ReturBeliDetailUpdatedDate;
 	}
 
-	public void setReturBeliUpdatedDate(Timestamp returBeliUpdatedDate) {
-		ReturBeliUpdatedDate = returBeliUpdatedDate;
+	public void setReturBeliDetailUpdatedDate(Timestamp returBeliUpdatedDate) {
+		ReturBeliDetailUpdatedDate = returBeliUpdatedDate;
 	}
 
-	public int getReturBeliRevised() {
-		return ReturBeliRevised;
+	public int getReturBeliDetailRevised() {
+		return ReturBeliDetailRevised;
 	}
 
-	public void setReturBeliRevised(int returBeliRevised) {
-		ReturBeliRevised = returBeliRevised;
+	public void setReturBeliDetailRevised(int returBeliRevised) {
+		ReturBeliDetailRevised = returBeliRevised;
 	}
 
 	public int getRegCompanyId() {
@@ -209,33 +209,33 @@ public class MReturBeliDetail {
 		RegCompanyId = regCompanyId;
 	}
 
-	public Timestamp getReturBeliDeletedDate() {
-		return ReturBeliDeletedDate;
+	public Timestamp getReturBeliDetailDeletedDate() {
+		return ReturBeliDetailDeletedDate;
 	}
 
-	public void setReturBeliDeletedDate(Timestamp returBeliDeletedDate) {
-		ReturBeliDeletedDate = returBeliDeletedDate;
+	public void setReturBeliDetailDeletedDate(Timestamp returBeliDeletedDate) {
+		ReturBeliDetailDeletedDate = returBeliDeletedDate;
 	}
 
-	public MReturBeli getReturBeli() {
+	public MReturBeliDetail getReturBeliDetail() {
 		return returBeli;
 	}
 
-	public void setReturBeli(MReturBeli returBeli) {
+	public void setReturBeliDetail(MReturBeliDetail returBeli) {
 		this.returBeli = returBeli;
 	}
 
 	@Override
 	public String toString() {
-		return "MReturBeliDetail [ReturBeli_id=" + ReturBeli_id + ", ReturBeliReturId=" + ReturBeliReturId
-				+ ", ReturBeliBarangId=" + ReturBeliBarangId + ", ReturbeliBarangNama=" + ReturbeliBarangNama
-				+ ", ReturBeliSatuanId=" + ReturBeliSatuanId + ", ReturbeliSatuanNama=" + ReturbeliSatuanNama
-				+ ", ReturBeliKadaluarsa=" + ReturBeliKadaluarsa + ", ReturBeliJumlah=" + ReturBeliJumlah
-				+ ", ReturBeliHarga=" + ReturBeliHarga + ", ReturBeliDiskon=" + ReturBeliDiskon + ", ReturBeliSubTotal="
-				+ ReturBeliSubTotal + ", ReturBeliCreatedBy=" + ReturBeliCreatedBy + ", ReturBeliCreatedDate="
-				+ ReturBeliCreatedDate + ", ReturBeliUpdatedBy=" + ReturBeliUpdatedBy + ", ReturBeliUpdatedDate="
-				+ ReturBeliUpdatedDate + ", ReturBeliRevised=" + ReturBeliRevised + ", RegCompanyId=" + RegCompanyId
-				+ ", ReturBeliDeletedDate=" + ReturBeliDeletedDate + ", returBeli=" + returBeli + "]";
+		return "MReturBeliDetailDetail [ReturBeliDetailId=" + ReturBeliDetailId + ", ReturBeliDetailReturId=" + ReturBeliDetailReturId
+				+ ", ReturBeliDetailBarangId=" + ReturBeliDetailBarangId + ", ReturbeliBarangNama=" + ReturbeliBarangNama
+				+ ", ReturBeliDetailSatuanId=" + ReturBeliDetailSatuanId + ", ReturbeliSatuanNama=" + ReturbeliSatuanNama
+				+ ", ReturBeliDetailKadaluarsa=" + ReturBeliDetailKadaluarsa + ", ReturBeliDetailJumlah=" + ReturBeliDetailJumlah
+				+ ", ReturBeliDetailHarga=" + ReturBeliDetailHarga + ", ReturBeliDetailDiskon=" + ReturBeliDetailDiskon + ", ReturBeliDetailSubTotal="
+				+ ReturBeliDetailSubTotal + ", ReturBeliDetailCreatedBy=" + ReturBeliDetailCreatedBy + ", ReturBeliDetailCreatedDate="
+				+ ReturBeliDetailCreatedDate + ", ReturBeliDetailUpdatedBy=" + ReturBeliDetailUpdatedBy + ", ReturBeliDetailUpdatedDate="
+				+ ReturBeliDetailUpdatedDate + ", ReturBeliDetailRevised=" + ReturBeliDetailRevised + ", RegCompanyId=" + RegCompanyId
+				+ ", ReturBeliDetailDeletedDate=" + ReturBeliDetailDeletedDate + ", returBeli=" + returBeli + "]";
 	}
 	
 	

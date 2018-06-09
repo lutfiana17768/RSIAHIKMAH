@@ -21,7 +21,7 @@ public class MKelurahan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="kelurahan_id")
-	private int kelurahan_id;
+	private int kelurahanId;
 	
 	@Column(name="kelurahan_kode")
 	private String kelurahanKode;
@@ -54,12 +54,12 @@ public class MKelurahan {
 	@Column(name="m_kecamatan_kode")
 	private String kecamatanKode;
 
-	public int getKelurahan_id() {
-		return kelurahan_id;
+	public int getKelurahanId() {
+		return kelurahanId;
 	}
 
-	public void setKelurahan_id(int kelurahan_id) {
-		this.kelurahan_id = kelurahan_id;
+	public void setKelurahanId(int kelurahanId) {
+		this.kelurahanId = kelurahanId;
 	}
 
 	public String getKelurahanKode() {
@@ -144,7 +144,7 @@ public class MKelurahan {
 
 	@Override
 	public String toString() {
-		return "MKelurahan [kelurahan_id=" + kelurahan_id + ", kelurahanKode=" + kelurahanKode + ", kelurahanNama="
+		return "MKelurahan [kelurahanId=" + kelurahanId + ", kelurahanKode=" + kelurahanKode + ", kelurahanNama="
 				+ kelurahanNama + ", kelurahanAktif=" + kelurahanAktif + ", kelurahanCreatedBy=" + kelurahanCreatedBy
 				+ ", kelurahanCreatedDate=" + kelurahanCreatedDate + ", kelurahanUpdatedBy=" + kelurahanUpdatedBy
 				+ ", kelurahanUpdatedDate=" + kelurahanUpdatedDate + ", kelurahanRevised=" + kelurahanRevised

@@ -97,7 +97,7 @@ public class ReturBeliDetailAction implements ReturBeliDetailDAO {
 		current.save(ReturBeliDetailModel);
 		current.flush();
 		
-		return ReturBeliDetailModel.getReturBeli_id();
+		return ReturBeliDetailModel.getReturBeliDetailId();
 	}
 
 	@Override
@@ -107,7 +107,7 @@ public class ReturBeliDetailAction implements ReturBeliDetailDAO {
 		current.saveOrUpdate(ReturBeliDetailModel);
 		current.flush();
 		
-		return ReturBeliDetailModel.getReturBeli_id();
+		return ReturBeliDetailModel.getReturBeliDetailId();
 	}
 
 	@Override
@@ -117,7 +117,7 @@ public class ReturBeliDetailAction implements ReturBeliDetailDAO {
 		current.save(ReturBeliDetailModel);
 		current.flush();
 		
-		return ReturBeliDetailModel.getReturBeli_id();
+		return ReturBeliDetailModel.getReturBeliDetailId();
 	}
 
 	@Override

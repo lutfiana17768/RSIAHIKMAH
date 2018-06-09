@@ -21,215 +21,215 @@ public class MBarang {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="barang_id")
-	private int IdBarang;
+	private int barangId;
 	
 	@Column(name="barang_jenis_id")
-	private int IdJenisBarang;
+	private int barangJenisId;
 
 	@Column(name="barang_kode")
-	private String KodeBarang;
+	private String barangKode;
 	
 	@Column(name="barang_nama")
-	private String NamaBarang;
+	private String barangNama;
 	
 	@Column(name="barang_satuan_id")
-	private int IdSatuanBarang;
+	private int barangSatuanId;
 
 	@Column(name="barang_volume")
-	private int VolumeBarang;
+	private int barangVolume;
 	
 	@Column(name="barang_keterangan")
-	private String KeteranganBarang;
+	private String barangKeterangan;
 	  
 	@Column(name="barang_kategori_id")
-	private int IdKategoriBarang;
+	private int barangKategoriId;
 	
 	@Column(name="barang_profit")
-	private int ProfitBarang;
+	private int barangProfit;
 	
 	@Column(name="barang_jenis")
-	private String JenisBarang;
+	private String barangJenis;
 	
 	@Column(name="barang_aktif")
-	private String AktifBarang;
+	private String barangAktif;
 	
 	@Column(name="barang_created_by")
-	private String CreatBarang;
+	private String barangCreatedBy;
 	
 	@Column(name="barang_created_date")
-	private Timestamp CreateDateBarang;
+	private Timestamp barangCreatedDate;
 	
 	@Column(name="barang_updated_by")
-	private String UpdateBarang;
+	private String barangUpdatedBy;
 	
 	@Column(name="barang_updated_date")
-	private Timestamp DateUpdateBarang;
+	private Timestamp barangUpdatedDate;
 	
 	@Column(name="barang_revised")
-	private int RevisedBarang;
+	private int barangRevised;
 	
 	@Column(name="barang_stokmin")
-	private int StokMinBarang;
+	private int barangStokMin;
 	 
 	@Column(name="barang_het")
-	private int HetBarang;
+	private int barangHet;
 	 
 	@Column(name="barang_deleted_date")
-	private Timestamp DeleteDateBarang;
+	private Timestamp barangDeletedDate;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "barang", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MBarangDetail> detail;
 
-	public int getIdBarang() {
-		return IdBarang;
+	public int getBarangId() {
+		return barangId;
 	}
 
-	public void setIdBarang(int idBarang) {
-		IdBarang = idBarang;
+	public void setBarangId(int barangId) {
+		barangId = barangId;
 	}
 
-	public int getIdJenisBarang() {
-		return IdJenisBarang;
+	public int getBarangJenisId() {
+		return barangJenisId;
 	}
 
-	public void setIdJenisBarang(int idJenisBarang) {
-		IdJenisBarang = idJenisBarang;
+	public void setBarangJenisId(int barangJenisId) {
+		barangJenisId = barangJenisId;
 	}
 
-	public String getKodeBarang() {
-		return KodeBarang;
+	public String getBarangKode() {
+		return barangKode;
 	}
 
-	public void setKodeBarang(String kodeBarang) {
-		KodeBarang = kodeBarang;
+	public void setBarangKode(String barangKode) {
+		barangKode = barangKode;
 	}
 
-	public String getNamaBarang() {
-		return NamaBarang;
+	public String getBarangNama() {
+		return barangNama;
 	}
 
-	public void setNamaBarang(String namaBarang) {
-		NamaBarang = namaBarang;
+	public void setBarangNama(String barangNama) {
+		barangNama = barangNama;
 	}
 
-	public int getIdSatuanBarang() {
-		return IdSatuanBarang;
+	public int getBarangSatuanId() {
+		return barangSatuanId;
 	}
 
-	public void setIdSatuanBarang(int idSatuanBarang) {
-		IdSatuanBarang = idSatuanBarang;
+	public void setBarangSatuanId(int barangSatuanId) {
+		barangSatuanId = barangSatuanId;
 	}
 
-	public int getVolumeBarang() {
-		return VolumeBarang;
+	public int getBarangVolume() {
+		return barangVolume;
 	}
 
-	public void setVolumeBarang(int volumeBarang) {
-		VolumeBarang = volumeBarang;
+	public void setBarangVolume(int barangVolume) {
+		barangVolume = barangVolume;
 	}
 
-	public String getKeteranganBarang() {
-		return KeteranganBarang;
+	public String getBarangKeterangan() {
+		return barangKeterangan;
 	}
 
-	public void setKeteranganBarang(String keteranganBarang) {
-		KeteranganBarang = keteranganBarang;
+	public void setBarangKeterangan(String barangKeterangan) {
+		barangKeterangan = barangKeterangan;
 	}
 
-	public int getIdKategoriBarang() {
-		return IdKategoriBarang;
+	public int getBarangKategoriId() {
+		return barangKategoriId;
 	}
 
-	public void setIdKategoriBarang(int idKategoriBarang) {
-		IdKategoriBarang = idKategoriBarang;
+	public void setBarangKategoriId(int barangKategoriId) {
+		barangKategoriId = barangKategoriId;
 	}
 
-	public int getProfitBarang() {
-		return ProfitBarang;
+	public int getBarangProfit() {
+		return barangProfit;
 	}
 
-	public void setProfitBarang(int profitBarang) {
-		ProfitBarang = profitBarang;
+	public void setBarangProfit(int barangProfit) {
+		barangProfit = barangProfit;
 	}
 
-	public String getJenisBarang() {
-		return JenisBarang;
+	public String getBarangJenis() {
+		return barangJenis;
 	}
 
-	public void setJenisBarang(String jenisBarang) {
-		JenisBarang = jenisBarang;
+	public void setBarangJenis(String barangJenis) {
+		barangJenis = barangJenis;
 	}
 
-	public String getAktifBarang() {
-		return AktifBarang;
+	public String getBarangAktif() {
+		return barangAktif;
 	}
 
-	public void setAktifBarang(String aktifBarang) {
-		AktifBarang = aktifBarang;
+	public void setBarangAktif(String barangAktif) {
+		barangAktif = barangAktif;
 	}
 
-	public String getCreatBarang() {
-		return CreatBarang;
+	public String getBarangCreatedBy() {
+		return barangCreatedBy;
 	}
 
-	public void setCreatBarang(String creatBarang) {
-		CreatBarang = creatBarang;
+	public void setBarangCreatedBy(String barangCreatedBy) {
+		barangCreatedBy = barangCreatedBy;
 	}
 
-	public Timestamp getCreateDateBarang() {
-		return CreateDateBarang;
+	public Timestamp getBarangCreatedDate() {
+		return barangCreatedDate;
 	}
 
-	public void setCreateDateBarang(Timestamp createDateBarang) {
-		CreateDateBarang = createDateBarang;
+	public void setBarangCreatedDate(Timestamp barangCreatedDate) {
+		barangCreatedDate = barangCreatedDate;
 	}
 
-	public String getUpdateBarang() {
-		return UpdateBarang;
+	public String getBarangUpdatedBy() {
+		return barangUpdatedBy;
 	}
 
-	public void setUpdateBarang(String updateBarang) {
-		UpdateBarang = updateBarang;
+	public void setBarangUpdatedBy(String barangUpdatedBy) {
+		barangUpdatedBy = barangUpdatedBy;
 	}
 
-	public Timestamp getDateUpdateBarang() {
-		return DateUpdateBarang;
+	public Timestamp getBarangUpdatedDate() {
+		return barangUpdatedDate;
 	}
 
-	public void setDateUpdateBarang(Timestamp dateUpdateBarang) {
-		DateUpdateBarang = dateUpdateBarang;
+	public void setBarangUpdatedDate(Timestamp barangUpdatedDate) {
+		barangUpdatedDate = barangUpdatedDate;
 	}
 
-	public int getRevisedBarang() {
-		return RevisedBarang;
+	public int getBarangRevised() {
+		return barangRevised;
 	}
 
-	public void setRevisedBarang(int revisedBarang) {
-		RevisedBarang = revisedBarang;
+	public void setBarangRevised(int barangRevised) {
+		barangRevised = barangRevised;
 	}
 
-	public int getStokMinBarang() {
-		return StokMinBarang;
+	public int getBarangStokMin() {
+		return barangStokMin;
 	}
 
-	public void setStokMinBarang(int stokMinBarang) {
-		StokMinBarang = stokMinBarang;
+	public void setBarangStokMin(int barangStokMin) {
+		barangStokMin = barangStokMin;
 	}
 
-	public int getHetBarang() {
-		return HetBarang;
+	public int getBarangHet() {
+		return barangHet;
 	}
 
-	public void setHetBarang(int hetBarang) {
-		HetBarang = hetBarang;
+	public void setBarangHet(int barangHet) {
+		barangHet = barangHet;
 	}
 
-	public Timestamp getDeleteDateBarang() {
-		return DeleteDateBarang;
+	public Timestamp getBarangDeletedDate() {
+		return barangDeletedDate;
 	}
 
-	public void setDeleteDateBarang(Timestamp deleteDateBarang) {
-		DeleteDateBarang = deleteDateBarang;
+	public void setBarangDeletedDate(Timestamp barangDeletedDate) {
+		barangDeletedDate = barangDeletedDate;
 	}
 
 	public List<MBarangDetail> getDetail() {
@@ -242,17 +242,13 @@ public class MBarang {
 
 	@Override
 	public String toString() {
-		return "MBarang [IdBarang=" + IdBarang + ", IdJenisBarang=" + IdJenisBarang + ", KodeBarang=" + KodeBarang
-				+ ", NamaBarang=" + NamaBarang + ", IdSatuanBarang=" + IdSatuanBarang + ", VolumeBarang=" + VolumeBarang
-				+ ", KeteranganBarang=" + KeteranganBarang + ", IdKategoriBarang=" + IdKategoriBarang
-				+ ", ProfitBarang=" + ProfitBarang + ", JenisBarang=" + JenisBarang + ", AktifBarang=" + AktifBarang
-				+ ", CreatBarang=" + CreatBarang + ", CreateDateBarang=" + CreateDateBarang + ", UpdateBarang="
-				+ UpdateBarang + ", DateUpdateBarang=" + DateUpdateBarang + ", RevisedBarang=" + RevisedBarang
-				+ ", StokMinBarang=" + StokMinBarang + ", HetBarang=" + HetBarang + ", DeleteDateBarang="
-				+ DeleteDateBarang + ", detail=" + detail + "]";
+		return "MBarang [barangId=" + barangId + ", barangJenisId=" + barangJenisId + ", barangKode=" + barangKode
+				+ ", barangNama=" + barangNama + ", barangSatuanId=" + barangSatuanId + ", barangVolume=" + barangVolume
+				+ ", barangKeterangan=" + barangKeterangan + ", barangKategoriId=" + barangKategoriId
+				+ ", barangProfit=" + barangProfit + ", barangJenis=" + barangJenis + ", barangAktif=" + barangAktif
+				+ ", barangCreatedBy=" + barangCreatedBy + ", barangCreatedDate=" + barangCreatedDate + ", barangUpdatedBy="
+				+ barangUpdatedBy + ", barangUpdatedDate=" + barangUpdatedDate + ", barangRevised=" + barangRevised
+				+ ", barangStokMin=" + barangStokMin + ", barangHet=" + barangHet + ", barangDeletedDate="
+				+ barangDeletedDate + ", detail=" + detail + "]";
 	}
-	
-	
-
-	
 }

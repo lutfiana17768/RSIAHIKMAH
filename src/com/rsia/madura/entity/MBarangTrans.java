@@ -15,8 +15,8 @@ import javax.persistence.Table;
 public class MBarangTrans {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="barangtrans_id")
-	private int barangTrans_id;
+	@Column(name="barangTransId")
+	private int barangTransId;
 	
 	@Column(name="barangtrans_depo_id")
 	private int barangTransDepoId;
@@ -105,12 +105,12 @@ public class MBarangTrans {
 	@Column(name="barangtrans_deleted_date")
 	private Timestamp barangTransDeletedDate;
 
-	public int getBarangTrans_id() {
-		return barangTrans_id;
+	public int getBarangTransId() {
+		return barangTransId;
 	}
 
-	public void setBarangTrans_id(int barangTrans_id) {
-		this.barangTrans_id = barangTrans_id;
+	public void setBarangTransId(int barangTransId) {
+		this.barangTransId = barangTransId;
 	}
 
 	public int getBarangTransDepoId() {
@@ -347,7 +347,7 @@ public class MBarangTrans {
 
 	@Override
 	public String toString() {
-		return "t_BarangTrans [barangTrans_id=" + barangTrans_id + ", barangTransDepoId=" + barangTransDepoId
+		return "t_BarangTrans [barangTransId=" + barangTransId + ", barangTransDepoId=" + barangTransDepoId
 				+ ", barangTransDepoNama=" + barangTransDepoNama + ", barangTransBarangId=" + barangTransBarangId
 				+ ", barangTransBarangNama=" + barangTransBarangNama + ", barangTransSatuanId=" + barangTransSatuanId
 				+ ", barangTransSatuanNama=" + barangTransSatuanNama + ", barangTransSatuanTerkecilId="

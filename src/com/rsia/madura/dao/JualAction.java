@@ -96,7 +96,7 @@ public class JualAction implements JualDAO {
 		current.save(jualModel);
 		current.flush();
 		
-		return jualModel.getJual_id();
+		return jualModel.getJualId();
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class JualAction implements JualDAO {
 		current.saveOrUpdate(jualModel);
 		current.flush();
 		
-		return jualModel.getJual_id();
+		return jualModel.getJualId();
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class JualAction implements JualDAO {
 		current.saveOrUpdate(jualModel);
 		current.flush();
 		
-		return jualModel.getJual_id();
+		return jualModel.getJualId();
 	}
 
 }
