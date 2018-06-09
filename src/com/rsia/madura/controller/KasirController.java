@@ -56,6 +56,7 @@ public class KasirController {
 		MPendaftaran daftar = pendaftaranService.getPendaftaran(daftarID);
 		MTransaksiPasien transaksiDaftarID = transaksiService.findBy("pendaftaran_pendaftaran_id", daftarID.toString());
 		Integer sudahBayar = 0;
+		Long rentangHari = 0L;
 
 		if (transaksiDaftarID != null) {
 			for (MTransaksiBayar bayar : transaksiDaftarID.getBayar()) {
@@ -63,7 +64,9 @@ public class KasirController {
 			};
 		}
 
-		Long rentangHari = this.betweenDates(daftar.getPendaftaranMrs(), daftar.getPendaftaranKrs());
+		if (daftar.getPendaftaranMrs()!=null && daftar.getPendaftaranKrs()!=null) {
+			rentangHari = this.betweenDates(daftar.getPendaftaranMrs(), daftar.getPendaftaranKrs());
+		}
 		
 		model.addAttribute("daftar", daftar);
 		model.addAttribute("transaksiModel", transaksiModel);
@@ -78,7 +81,7 @@ public class KasirController {
 	
 	@RequestMapping(value="/store", method=RequestMethod.POST)
 	public String transaksiStore(@ModelAttribute("transaksiModel") MTransaksiPasien transaksiModel,
-		@RequestParam(value="cetak", required=false) String cetak ) {
+		@RequestParam(value="cetak", required=false, defaultValue="") String cetak ) {
 		
 		int transaksiID;
 
@@ -121,7 +124,7 @@ public class KasirController {
 		return "kasir/kuitansi";
 	}
 
-	public static long betweenDates(Date firstDate, Date secondDate) {
+	public static Long betweenDates(Date firstDate, Date secondDate) {
 			return ChronoUnit.DAYS.between(firstDate.toInstant(), secondDate.toInstant());
 	}
 	

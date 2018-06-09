@@ -334,8 +334,9 @@ $(document).ready(function(){
             }
 
             diagnosapasienID = $('#diagnosapasienID').val();
-            icd = $('#icd').val() ||0;
-            icdText = $('#icd option:selected').text();
+            // icd = $('#icd').val() ||0;
+            // icdText = $('#icd option:selected').text();
+            diagnosapasienNamaDiagnosa = $('#diagnosapasienNamaDiagnosa').val();
             diagnosapasienJenis = $('#diagnosapasienJenis').val();
             diagnosapasienJenisText = $('#diagnosapasienJenis option:selected').text();
             diagnosapasienKasus = $('#diagnosapasienKasus').val();
@@ -343,13 +344,13 @@ $(document).ready(function(){
             diagnosapasienKeterangan = $('#diagnosapasienKeterangan').val() || '';
             diagnosapasienTanggal = $('#diagnosapasienTanggal').val() ||0;
 
-            tr.append('<td>'+icdText+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasienTanggal" data-kolom-id="diagnosapasienTanggal">'+diagnosapasienTanggal+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasienNamaDiagnosa" data-kolom-id="diagnosapasienNamaDiagnosa">'+diagnosapasienNamaDiagnosa+'</td>');
             tr.append('<td>'+diagnosapasienJenisText+'</td>');
             tr.append('<td>'+diagnosapasienKasusText+'</td>');
             tr.append('<td data-used="1" data-save="1" data-name="diagnosapasienKeterangan" data-kolom-id="diagnosapasienKeterangan">'+diagnosapasienKeterangan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosapasienTanggal" data-kolom-id="diagnosapasienTanggal">'+diagnosapasienTanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDiagnosapasien('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDiagnosapasien('+counter+')">Edit</button></td>');
-            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="icd.icdID" data-kolom-id="icd">' + icd + '</td>');
+            // tr.append('<td style="display:none" data-used="1" data-save="1" data-name="icd.icdID" data-kolom-id="icd">' + icd + '</td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasienJenis" data-kolom-id="diagnosapasienJenis">' + diagnosapasienJenis + '</td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="diagnosapasienKasus" data-kolom-id="diagnosapasienKasus">' + diagnosapasienKasus + '</td>');
 

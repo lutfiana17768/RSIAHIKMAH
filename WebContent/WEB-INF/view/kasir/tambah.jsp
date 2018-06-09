@@ -96,14 +96,14 @@
 										</thead>
 										<tbody>
 											<c:set var = "totalKamar" value = "${0}"/>
-											<c:if test="${daftar.kelas != null}">
+											<c:if test="${daftar.kamar != null}">
 												<c:set var = "totalKamar" value = "${daftar.kamar.tarif * rentangHari}"/>
 												<tr>
 													<td>${daftar.kamar.kamarNo}</td>
 													<td>${rentangHari}</td>
-													<td>${daftar.kamar.tarif}</td>
+													<td><fmt:formatNumber value = "${daftar.kamar.tarif}" maxFractionDigits = "3"/></td>
 													<td>0</td>
-													<td>${totalKamar}</td>
+													<td><fmt:formatNumber value = "${totalKamar}" maxFractionDigits = "3"/></td>
 												</tr>
 											</c:if>
 											<c:set var = "totalTindakan" value = "${0}"/>
@@ -189,6 +189,7 @@
 								<label>Kembalian</label>
 								<input type="text" id="kembalian" class="form-control form-control-sm" disabled>
 							</div>
+							<input type="hidden" name="harusBayar" value="${totalTagihan-sudahBayar}">
 						</div>
 					</div>
 				</div>

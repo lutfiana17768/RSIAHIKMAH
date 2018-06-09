@@ -32,6 +32,8 @@ import com.rsia.madura.entity.MPaket;
 import com.rsia.madura.entity.MRujukan;
 import com.rsia.madura.entity.MTindakan;
 import com.rsia.madura.entity.MKamar;
+import com.rsia.madura.entity.MKelas;
+import com.rsia.madura.entity.MRuang;
 
 import com.rsia.madura.service.PasienService;
 import com.rsia.madura.service.PendaftaranService;
@@ -41,6 +43,8 @@ import com.rsia.madura.service.PaketService;
 import com.rsia.madura.service.RujukanService;
 import com.rsia.madura.service.TindakanService;
 import com.rsia.madura.service.KamarService;
+import com.rsia.madura.service.KelasService;
+import com.rsia.madura.service.RuangService;
 // import com.rsia.madura.service.PendidikanService;
 
 @Controller
@@ -70,6 +74,12 @@ public class PendaftaranController {
 	@Autowired
 	private KamarService kamarService;
 
+	@Autowired
+	private KelasService kelasService;
+
+	@Autowired
+	private RuangService ruangService;
+
 	private String uri = "redirect: /pendaftaran";
 
 	@RequestMapping(method=RequestMethod.GET)
@@ -92,6 +102,8 @@ public class PendaftaranController {
 		List<MPaket> pakets = paketService.findAll();
 		List<MPegawai> pegawais = pegawaiService.getPegawai();
 		List<MKamar> kamars = kamarService.findAll();
+		List<MKelas> kelases = kelasService.findAll();
+		List<MRuang> ruangs = ruangService.findAll();
 
 		model.addAttribute("pendaftarans", pendaftarans);
 		model.addAttribute("pasiens", pasien);
@@ -101,6 +113,8 @@ public class PendaftaranController {
 		model.addAttribute("pakets", pakets);
 		model.addAttribute("pegawais", pegawais);
 		model.addAttribute("kamars", kamars);
+		model.addAttribute("kelases", kelases);
+		model.addAttribute("ruangs", ruangs);
 		model.addAttribute("footerjs", "../pendaftaran/inc/footerjs.jsp");
 		model.addAttribute("PendaftaranModel", PendaftaranModel);
 
@@ -165,7 +179,7 @@ public class PendaftaranController {
 	}
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }

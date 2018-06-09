@@ -21,7 +21,7 @@
                                 <select name="tindakanID" id="tindakanID" class="form-control boxed">
                                     <option value="">--- Pilih Tindakan ---</option>
                                     <c:forEach var="tindakan" items="${tindakans}">
-                                        <option value="${tindakan.tindakanID }" data-harga="<fmt:formatNumber value = "${tindakan.tindakanHarga}" minFractionDigits="0" maxFractionDigits="0"/>">
+                                        <option value="${tindakan.tindakanID }" data-harga="<fmt:formatNumber value = "${tindakan.tindakanHarga}" groupingUsed="false"/>">
                                             ${tindakan.tindakanNama }
                                         </option>
                                     </c:forEach>

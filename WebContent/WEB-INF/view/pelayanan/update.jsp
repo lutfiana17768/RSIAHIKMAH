@@ -65,12 +65,15 @@
                         <form:hidden path="pendaftaranCreatedBy" />
                         <form:hidden path="pendaftaranAktif" />
                         <form:hidden path="pendaftaranMrs" />
+                        <form:hidden path="pendaftaranJenis" />
+                        <form:hidden path="pendaftaranNo" />
                         <div class="form-group row">    
                             <label class="col-sm-3 col-form-label">Dokter</label>
                             <div class="col-sm-9">
                                 <div class="select2-wrapper">
                                     <form:select path="pegawai.pegawaiID"
                                         class="form-control form-control-sm select2-single">
+                                        <option value="">--- Pilih Dokter ---</option>
                                         <c:forEach var="pegawai" items="${pegawais}">
                                             <form:option value="${pegawai.pegawaiID}"
                                                 label="${pegawai.pegawaiNama}"/>
@@ -85,6 +88,7 @@
                                 <div class="select2-wrapper">
                                     <form:select path="kondisiMasuk.kondisiID"
                                         class="form-control form-control-sm select2-single">
+                                        <option value="">--- Pilih Kondisi Masuk ---</option>
                                         <c:forEach var="kondisipasien" items="${kondisis}">
                                             <form:option value="${kondisipasien.kondisiID}"
                                                 label="${kondisipasien.kondisiNama}"/>
@@ -93,21 +97,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Kamar</label>
-                            <div class="col-sm-9">
-                                <div class="select2-wrapper">
-                                    <form:select path="kamar.kamarID"
-                                        class="form-control form-control-sm select2-single">
-                                        <c:forEach var="kamar" items="${kamars}">
-                                            <form:option value="${kamar.kamarID}"
-                                                label="${kamar.kamarNo}"/>
-                                        </c:forEach>
-                                    </form:select>
+                        <c:if test="${pelayananModel.pendaftaranJenis == 'RI'}">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Kamar</label>
+                                <div class="col-sm-9">
+                                    <div class="select2-wrapper">
+                                        <form:select path="kamar.kamarID"
+                                            class="form-control form-control-sm select2-single">
+                                            <option value="">--- Pilih Kamar ---</option>
+                                            <c:forEach var="kamar" items="${kamars}">
+                                                <form:option value="${kamar.kamarID}"
+                                                    label="${kamar.kamarNo}"/>
+                                            </c:forEach>
+                                        </form:select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
+                        </c:if>
+                        <% /**<div class="form-group row">
                             <label class="col-sm-3 col-form-label">Status</label>
                             <div class="col-sm-9">
                                 <div class="select2-wrapper">
@@ -120,15 +127,15 @@
                                     </form:select>
                                 </div>
                             </div>
-                        </div>
+                        </div> **/ %>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Selesai ?</label>
                             <div class="col-sm-9">
                                 <div class="select2-wrapper">
-                                    <select id="select-selesai" class="form-control form-control-sm select2-single">
-                                        <option value="T" label="Tidak"/>
-                                        <option value="Y" label="Ya"/>
-                                    </select>
+                                    <form:select path="pendaftaranSelesai" id="select-selesai" class="form-control form-control-sm select2-single">
+                                        <form:option value="T" label="Tidak"/>
+                                        <form:option value="Y" label="Ya"/>
+                                    </form:select>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +143,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Tanggal Keluar</label>
                                 <div class="col-sm-9">
-                                    <form:input path="pendaftaranKrs" class="form-control form-control-sm datetimepicker" />
+                                    <form:input path="pendaftaranKrs" class="form-control form-control-sm datetimepicker" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="form-group row">    

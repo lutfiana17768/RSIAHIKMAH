@@ -15,17 +15,12 @@
                     <div class="modal-body">
                         <form id="form-pelayanan-diagnosapasien" class="from-horizontal">
                             <div class="form-group">
+                                <label>Tanggal</label>
+                                <input type="text" name="diagnosapasienTanggal" id="diagnosapasienTanggal" class="form-control boxed datetimepicker">
+                            </div>
+                            <div class="form-group">
                                 <label>Nama Diagnosa</label>
-                                <div class="select2-wrapper">
-                                    <select name="icd" id="icd" class="form-control boxed select2-single">
-                                        <option value="">--- Pilih Diagnosa ---</option>
-                                        <c:forEach var="icd" items="${icds}">
-                                            <option value="${icd.icdID }">
-                                                ${icd.icdNama }
-                                            </option>   
-                                        </c:forEach>
-                                    </select>
-                                </div>
+                                <input type="text" name="diagnosapasienNamaDiagnosa" id="diagnosapasienNamaDiagnosa" class="form-control boxed">
                             </div>
                             <div class="form-group">
                                 <label>Jenis Diagnosa</label>
@@ -44,10 +39,6 @@
                             <div class="form-group">
                                 <label>Keterangan</label>
                                 <input type="text" name="diagnosapasienKeterangan" id="diagnosapasienKeterangan" class="form-control boxed">
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="text" name="diagnosapasienTanggal" id="diagnosapasienTanggal" class="form-control boxed datepicker">
                             </div>
                             <input type="hidden" name="diagnosapasienID" id="diagnosapasienID">
                             <input type="hidden" name="diagnosapasien_mode" id="diagnosapasien_mode">

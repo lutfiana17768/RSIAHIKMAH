@@ -41,16 +41,27 @@
 
                                     <div id="form-rawat-inap" style="display: none">
                                         <div class="form-group">
+                                            <label>Ruang</label>
+                                            <div class="select2-wrapper">
+                                                <form:select path="ruang.RuangID" class="form-control select2-single">
+                                                    <c:forEach var="ruang" items="${ruangs}">
+                                                        <form:option value="${ruang.ruangID}"
+                                                            label="${ruang.ruangNama}"/>
+                                                    </c:forEach>
+                                                </form:select>
+                                            </div>
+                                        </div>
+                                        <% /**<div class="form-group">
                                             <label>Kamar</label>
                                             <div class="select2-wrapper">
-                                                <form:select path="pendaftaranNo" class="form-control select2-single">
+                                                <form:select path="kamar.kamarID" class="form-control select2-single">
                                                     <c:forEach var="kamar" items="${kamars}">
                                                         <form:option value="${kamar.kamarID}"
                                                             label="${kamar.kamarNo}"/>
                                                     </c:forEach>
                                                 </form:select>
                                             </div>
-                                        </div>
+                                        </div> **/ %>
                                     </div>
                                     <div id="form-rawat-jalan" style="display: none">
                                         <div class="form-group">
@@ -62,36 +73,22 @@
                                             </form:select>
                                         </div>
                                     </div>
-                                    
-                                    <% /**<div class="form-group">
-                                        <label class="control-label">Kondisi Pasien</label>
-                                        <div class="select2-wrapper">
-                                            <form:select path="kondisi.kondisiID"
-                                                class="form-control input-lg select2-single">
-                                                <c:forEach var="kondisipasien" items="${kondisipasiens}">
-                                                    <form:option value="${kondisipasien.kondisiID}"
-                                                        label="${kondisipasien.kondisiNama}"/>
-                                                </c:forEach>
-                                            </form:select>
-                                        </div>
-                                    </div> **/ %>
-                                    
-                                    
+                                                                        
                                     <div class="form-group">
-                                        <label class="control-label">Kondisi Kedatangan Pasien</label>
-                                        <form:select path="kondisiMasuk" class="form-control boxed" id="kondisi_pasien">
-                                            <option value="">--- Pilih Kondisi ---</option>
-                                            <option value="D">Datang Sendiri</option>
-                                            <option value="R">Rujukan</option>
+                                        <label class="control-label">Cara Masuk</label>
+                                        <form:select path="pendaftaranCaraMasuk" class="form-control boxed" id="cara_masuk">
+                                            <form:option value="D" label="Datang Sendiri" />
+                                            <form:option value="R" label="Rujukan" />
                                         </form:select>
                                     </div>
                                     
-                                    <div id="form-rujukan">
+                                    <div id="form-rujukan" style="display: none">
                                         <div class="form-group">
                                             <label>Rujukan</label>
                                             <div class="select2-wrapper">
-                                                <form:select path="rujukan.rujukanID"
+                                                <form:select path="rujukanMasuk.rujukanID"
                                                     class="form-control input-lg select2-single boxed">
+                                                    <option value="">--- Pilih Rujukan ---</option>
                                                     <c:forEach var="rujukan" items="${rujukans}">
                                                         <form:option value="${rujukan.rujukanID}"
                                                             label="${rujukan.rujukanNama}"/>
@@ -99,20 +96,20 @@
                                                 </form:select>
                                             </div>
                                         </div>
-                                        <% /**<div class="form-group">
-                                            <label>Tindakan</label>
-                                            <form:input path="pendaftaranJenis" class="form-control" />
-                                        </div> **/ %>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label>Tgl Waktu MRS</label>
-                                        <form:input path="pendaftaranMrs" class="form-control boxed datetimepicker" />
+                                        <label>Nomor Pendaftaran</label>
+                                        <form:input path="pendaftaranNo" class="form-control" />
                                     </div>
-                                    <% /** <div class="form-group">
+                                    <div class="form-group">
+                                        <label>Tgl Waktu MRS</label>
+                                        <form:input path="pendaftaranMrs" class="form-control boxed datetimepicker" autocomplete="off"/>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="control-label">Kelas Pendaftaran</label>
-                                        <form:select path="pendaftaranJenis" class="form-control boxed">
+                                        <form:select path="kelas.kelasID" class="form-control boxed">
                                             <option value="">--- Pilih Kelas ---</option>
                                             <c:forEach var="kelas" items="${kelases}">
                                                 <option value="${kelas.kelasID }">
@@ -120,7 +117,7 @@
                                                 </option>
                                             </c:forEach>
                                         </form:select>
-                                    </div> **/ %>
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label">Dokter</label>
                                         <form:select path="pegawai.pegawaiID" class="form-control boxed">
