@@ -43,7 +43,7 @@ public class UserAction implements UserDAO {
 		current.save(userModel);
 		current.flush();
 		
-		return userModel.getUser_id();
+		return userModel.getUserID();
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class UserAction implements UserDAO {
 		current.saveOrUpdate(userModel);
 		current.flush();
 		
-		return userModel.getUser_id();
+		return userModel.getUserID();
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class UserAction implements UserDAO {
 		current.saveOrUpdate(userModel);
 		current.flush();
 		
-		return userModel.getUser_id();
+		return userModel.getUserID();
 
 	}
 

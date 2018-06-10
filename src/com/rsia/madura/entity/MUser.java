@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name="s_user")
@@ -16,7 +17,7 @@ public class MUser {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_id")
-	private int user_id;
+	private int userID;
 	
 	@Column(name="user_name")
 	private String userName;
@@ -30,11 +31,11 @@ public class MUser {
 	@Column(name="user_revised")
 	private int userRevised;
 	
-	@Column(name="m_pegawai_id")
-	private int pegawaiId;
+	// @Column(name="m_pegawai_id")
+	// private int pegawaiId;
 	
 	@Column(name="user_aktif")
-	private char userAktif;
+	private String userAktif;
 	
 	@Column(name="user_created_date")
 	private Timestamp userCreatedDate;
@@ -75,12 +76,15 @@ public class MUser {
 	@Column(name="user_deleted_date")
 	private Timestamp userDeletedDate;
 
-	public int getUser_id() {
-		return user_id;
+	@ManyToOne
+	private MPegawai pegawai;
+
+	public int getUserID() {
+		return userID;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 
 	public String getUserName() {
@@ -115,19 +119,19 @@ public class MUser {
 		this.userRevised = userRevised;
 	}
 
-	public int getPegawaiId() {
-		return pegawaiId;
-	}
+	// public int getPegawaiId() {
+	// 	return pegawaiId;
+	// }
 
-	public void setPegawaiId(int pegawaiId) {
-		this.pegawaiId = pegawaiId;
-	}
+	// public void setPegawaiId(int pegawaiId) {
+	// 	this.pegawaiId = pegawaiId;
+	// }
 
-	public char getUserAktif() {
+	public String getUserAktif() {
 		return userAktif;
 	}
 
-	public void setUserAktif(char userAktif) {
+	public void setUserAktif(String userAktif) {
 		this.userAktif = userAktif;
 	}
 
@@ -235,10 +239,18 @@ public class MUser {
 		this.userDeletedDate = userDeletedDate;
 	}
 
+	public MPegawai getPegawai() {
+		return pegawai;
+	}
+
+	public void setPegawai(MPegawai pegawai) {
+		this.pegawai = pegawai;
+	}
+
 	@Override
 	public String toString() {
-		return "s_User [user_id=" + user_id + ", userName=" + userName + ", userPassword=" + userPassword
-				+ ", userGroupId=" + userGroupId + ", userRevised=" + userRevised + ", pegawaiId=" + pegawaiId
+		return "s_User [userID=" + userID + ", userName=" + userName + ", userPassword=" + userPassword
+				+ ", userGroupId=" + userGroupId + ", userRevised=" + userRevised + ", pegawai=" + pegawai
 				+ ", userAktif=" + userAktif + ", userCreatedDate=" + userCreatedDate + ", userCreatedBy="
 				+ userCreatedBy + ", userUpdatedDate=" + userUpdatedDate + ", userUpdatedBy=" + userUpdatedBy
 				+ ", userCounterId=" + userCounterId + ", userLogin=" + userLogin + ", userLogout=" + userLogout

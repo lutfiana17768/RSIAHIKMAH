@@ -14,29 +14,25 @@
         </tr>
     </thead>
     <tbody>
-        <c:forEach var="temp" items="${kamar}">
-            <c:choose>
-                <c:when test="${temp.kamarAktif  == 'Y' }">
-                    <c:url var="updateLink" value="../form-update">
-                        <c:param name="Id" value="${temp.kamarID}" />
-                    </c:url>
-                    <c:url var="deleteLink" value="../delete">
-                        <c:param name="Id" value="${temp.kamarID}" />
-                    </c:url>
-
-                    <tr>
-                        <td>${temp.kamarNo }</td>
-                        <td>${temp.mKelasID }</td>
-                        <td>${temp.tarif }</td>
-                        <td>${temp.jumlahBed }</td>
-                        <td>${temp.jenisPelayanan }</td>
-                        <td><a href="${updateLink }" class="btn btn-info">Update</a>
-                            <a href="${deleteLink }" class="btn btn-warning">Delete</a>
-                        </td>
-                    </tr>
-                </c:when>
-            </c:choose>
-
+        <c:forEach var="kamar" items="${kamars}">
+            <tr>
+                <td>${kamar.kamarNo }</td>
+                <td>${kamar.kelas.kelasNama }</td>
+                <td>${kamar.tarif }</td>
+                <td>${kamar.jumlahBed }</td>
+                <td>${kamar.jenisPelayanan }</td>
+                <td><a href="/kamar/update/${kamar.kamarID}" class="btn btn-info">Update</a>
+                    <a href="/kamar/delete/${kamar.kamarID}" class="btn btn-warning">Delete</a>
+                </td>
+            </tr>
         </c:forEach>
     </tbody>
 </table>
+
+<div class="fixed-table-pagination" style="display: block; margin-top:25px">
+     <form action="" method="get">
+            <div class="pull-right pagination" style="margin-right: 20px;">
+                 ${link }
+            </div>
+      </form>
+</div>

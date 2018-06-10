@@ -8,6 +8,7 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,6 +19,8 @@ import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.Transient;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="t_diagnosa_pasien")
@@ -30,25 +33,12 @@ public class MDiagnosaPasien {
     @Transient
     private Integer remove;
 	
-	// ganti relasi
-	@Column(name = "m_icd_id")
-	private Integer mIcdID;
-	
-	// ganti relasi
-	@Column(name = "m_pasien_id")
-	private Integer mPasienID;
-	
-	// ganti relasi || di pelayanan ndak ada inputan pilih kamar
-	@Column(name = "m_kamar_id")
-	private Integer mKamarID;
-	
-	// jenis apa ?
+	// diagnosa input manual tidak ambil dari icd
+	@Column(name = "diagnosapasien_nama")
+	private String diagnosapasienNamaDiagnosa;
+
 	@Column(name = "diagnosapasien_jenis")
 	private String diagnosapasienJenis;
-
-	// ganti relasi dokter ambil dari pegawai ??
-	@Column(name = "diagnosapasien_dokter")
-	private Integer diagnosapasienDokter;
 
 	@Column(name = "diagnosapasien_keterangan")
 	private String diagnosapasienKeterangan;
@@ -71,18 +61,9 @@ public class MDiagnosaPasien {
 	@Column(name = "diagnosapasien_revised")
 	private Integer diagnosapasienRevised;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "diagnosapasien_tanggal")
-	private Timestamp diagnosapasienTanggal;
-
-	@Column(name = "diagnosapasien_m_pasien_norm")
-	private String diagnosapasienMPasienNorm;
-
-	@Column(name = "diagnosapasien_kamarpasien_id")
-	private Integer diagnosapasienKamarpasienID;
-
-	// ganti relasi || di tab diagnosa tidak ada isian mUnit
-	@Column(name = "m_unit_id")
-	private Integer mUnitID;
+	private Date diagnosapasienTanggal;
 
 	@Column(name = "diagnosapasien_kasus")
 	private String diagnosapasienKasus;
@@ -98,6 +79,9 @@ public class MDiagnosaPasien {
 
 	@ManyToOne
 	private MIcd icd;
+
+	@ManyToOne
+	private MPegawai pegawai;
 	
 	public Integer getDiagnosapasienID() {
 		return diagnosapasienID;
@@ -115,29 +99,12 @@ public class MDiagnosaPasien {
 		this.remove = remove;
 	}
 
-
-	public Integer getMIcdID() {
-		return mIcdID;
+	public String getDiagnosapasienNamaDiagnosa() {
+		return diagnosapasienNamaDiagnosa;
 	}
 
-	public void setMIcdID(Integer mIcdID) {
-		this.mIcdID = mIcdID;
-	}
-
-	public Integer getMPasienID() {
-		return mPasienID;
-	}
-
-	public void setMPasienID(Integer mPasienID) {
-		this.mPasienID = mPasienID;
-	}
-
-	public Integer getMKamarID() {
-		return mKamarID;
-	}
-
-	public void setMKamarID(Integer mKamarID) {
-		this.mKamarID = mKamarID;
+	public void setDiagnosapasienNamaDiagnosa(String diagnosapasienNamaDiagnosa) {
+		this.diagnosapasienNamaDiagnosa = diagnosapasienNamaDiagnosa;
 	}
 
 	public String getDiagnosapasienJenis() {
@@ -146,14 +113,6 @@ public class MDiagnosaPasien {
 
 	public void setDiagnosapasienJenis(String diagnosapasienJenis) {
 		this.diagnosapasienJenis = diagnosapasienJenis;
-	}
-
-	public Integer getDiagnosapasienDokter() {
-		return diagnosapasienDokter;
-	}
-
-	public void setDiagnosapasienDokter(Integer diagnosapasienDokter) {
-		this.diagnosapasienDokter = diagnosapasienDokter;
 	}
 
 	public String getDiagnosapasienKeterangan() {
@@ -212,36 +171,12 @@ public class MDiagnosaPasien {
 		this.diagnosapasienRevised = diagnosapasienRevised;
 	}
 
-	public Timestamp getDiagnosapasienTanggal() {
+	public Date getDiagnosapasienTanggal() {
 		return diagnosapasienTanggal;
 	}
 
-	public void setDiagnosapasienTanggal(Timestamp diagnosapasienTanggal) {
+	public void setDiagnosapasienTanggal(Date diagnosapasienTanggal) {
 		this.diagnosapasienTanggal = diagnosapasienTanggal;
-	}
-
-	public String getDiagnosapasienMPasienNorm() {
-		return diagnosapasienMPasienNorm;
-	}
-
-	public void setDiagnosapasienMPasienNorm(String diagnosapasienMPasienNorm) {
-		this.diagnosapasienMPasienNorm = diagnosapasienMPasienNorm;
-	}
-
-	public Integer getDiagnosapasienKamarpasienID() {
-		return diagnosapasienKamarpasienID;
-	}
-
-	public void setDiagnosapasienKamarpasienID(Integer diagnosapasienKamarpasienID) {
-		this.diagnosapasienKamarpasienID = diagnosapasienKamarpasienID;
-	}
-
-	public Integer getMUnitID() {
-		return mUnitID;
-	}
-
-	public void setMUnitID(Integer mUnitID) {
-		this.mUnitID = mUnitID;
 	}
 
 	public String getDiagnosapasienKasus() {
@@ -284,4 +219,11 @@ public class MDiagnosaPasien {
 		this.icd = icd;
 	}
 
+	public MPegawai getPegawai() {
+		return pegawai;
+	}
+
+	public void setPegawai(MPegawai pegawai) {
+		this.pegawai = pegawai;
+	}
 }

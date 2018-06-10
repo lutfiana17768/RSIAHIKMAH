@@ -22,7 +22,7 @@ public class MProvinsi {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="propinsi_id")
-	private int propinsiId;
+	private int propinsi_id;
 	
 	@Column(name="propinsi_kode")
 	private String propinsiKode;
@@ -51,12 +51,12 @@ public class MProvinsi {
 	@Column(name="propinsi_deleted_date")
 	private Timestamp propinsideletedDate;
 
-	public int getPropinsiId() {
-		return propinsiId;
+	public int getPropinsi_id() {
+		return propinsi_id;
 	}
 
-	public void setPropinsiId(int propinsiId) {
-		this.propinsiId = propinsiId;
+	public void setPropinsi_id(int propinsi_id) {
+		this.propinsi_id = propinsi_id;
 	}
 
 	public String getPropinsiKode() {
@@ -133,7 +133,7 @@ public class MProvinsi {
 
 	@Override
 	public String toString() {
-		return "MProvinsi [propinsiId=" + propinsiId + ", propinsiKode=" + propinsiKode + ", propinsiNama="
+		return "MProvinsi [propinsi_id=" + propinsi_id + ", propinsiKode=" + propinsiKode + ", propinsiNama="
 				+ propinsiNama + ", propinsiAktif=" + propinsiAktif + ", propinsiCreatedBy=" + propinsiCreatedBy
 				+ ", propinsiCreatedDate=" + propinsiCreatedDate + ", propinsiUpdatedBy=" + propinsiUpdatedBy
 				+ ", propinsiUpdatedDate=" + propinsiUpdatedDate + ", propinsiRevised=" + propinsiRevised

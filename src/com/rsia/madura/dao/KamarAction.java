@@ -21,29 +21,25 @@ public class KamarAction implements KamarDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<MKamar> query = current.createQuery("from MKamar", MKamar.class);
+		Query<MKamar> query = current.createQuery("from MKamar k WHERE k.kamarAktif = :kamarAktif", MKamar.class);
+		query.setParameter("kamarAktif", "Y");
+		List<MKamar> kamar = query.getResultList();
 
-		List<MKamar> agama = query.getResultList();
-
-		return agama;
+		return kamar;
 	}
 
 	@Override
 	public List<MKamar> getKamars(int page, int limit) {
-		// TODO Auto-generated method stub
-		Session current = sessionFactory.getCurrentSession();
-		Query<MKamar> query = current.createQuery("from MKamar", MKamar.class);
-		List<MKamar> agama = query.getResultList();
-		this.total = agama.size();
-		agama = this.getData(page, limit);
-
-		return agama;
+		List<MKamar> kamar = this.getData(page, limit);
+		this.total = this.getKamars().size();
+		return kamar;
 	}
 
 	public List<MKamar> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MKamar> query = current.createQuery("from MKamar", MKamar.class).setFirstResult((page - 1) * limit)
+		Query<MKamar> query = current.createQuery("from MKamar k WHERE k.kamarAktif = :kamarAktif", MKamar.class).setFirstResult((page - 1) * limit)
 				.setMaxResults(limit);
+		query.setParameter("kamarAktif", "Y");
 		List<MKamar> Result = query.getResultList();
 
 		return Result;
@@ -90,11 +86,11 @@ public class KamarAction implements KamarDAO {
 	}
 
 	@Override
-	public MKamar getKamar(int agamaId) {
+	public MKamar getKamar(int kamarId) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		MKamar result = current.get(MKamar.class, agamaId);
+		MKamar result = current.get(MKamar.class, kamarId);
 
 		return result;
 	}

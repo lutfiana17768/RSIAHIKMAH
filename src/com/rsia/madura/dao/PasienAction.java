@@ -26,8 +26,8 @@ public class PasienAction implements PasienDAO {
 	public List<MPasien> getPasien() {
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<MPasien> query = current.createQuery("from MPasien", MPasien.class);
-
+		Query<MPasien> query = current.createQuery("from MPasien p WHERE p.pasienAktif = :pasienAktif", MPasien.class);
+		query.setParameter("pasienAktif", "Y");
 		List<MPasien> Pasien = query.getResultList();
 
 		return Pasien;
@@ -38,8 +38,8 @@ public class PasienAction implements PasienDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<MPasien> query = current.createQuery("from MPasien", MPasien.class);
-
+		Query<MPasien> query = current.createQuery("from MPasien p WHERE p.pasienAktif = :pasienAktif", MPasien.class);
+		query.setParameter("pasienAktif", "Y");
 		List<MPasien> pasien = query.getResultList();
 
 		return pasien;
@@ -47,20 +47,17 @@ public class PasienAction implements PasienDAO {
 
 	@Override
 	public List<MPasien> getPasiens(int page, int limit) {
-		// TODO Auto-generated method stub
-		Session current = sessionFactory.getCurrentSession();
-		Query<MPasien> query = current.createQuery("from MPasien", MPasien.class);
-		List<MPasien> pasien = query.getResultList();
-		this.total = pasien.size();
-		pasien = this.getData(page, limit);
+		List<MPasien> pasien = this.getData(page, limit);
+		this.total = this.getPasiens().size();
 
 		return pasien;
 	}
 
 	public List<MPasien> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPasien> query = current.createQuery("from MPasien", MPasien.class).setFirstResult((page - 1) * limit)
+		Query<MPasien> query = current.createQuery("from MPasien p WHERE p.pasienAktif = :pasienAktif", MPasien.class).setFirstResult((page - 1) * limit)
 				.setMaxResults(limit);
+		query.setParameter("pasienAktif", "Y");
 		List<MPasien> Result = query.getResultList();
 
 		return Result;

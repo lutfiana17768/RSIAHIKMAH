@@ -58,9 +58,12 @@ public class PasienController {
 	private String uri = "redirect: /pasien";
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model) {
-		List<MPasien> pasiens = PasienService.findAll();
+	public String IndexView(Model model, @RequestParam(value="page", required=false, defaultValue="1") int page, 
+				@RequestParam(value="limit", required=false, defaultValue="10") int limit) {
+		List<MPasien> pasiens = PasienService.findAll(page, limit);
+		String links = PasienService.createLinks(page, limit);
 
+		model.addAttribute("link", links);
 		model.addAttribute("pasiens", pasiens);
 
 		return "pasien/index";

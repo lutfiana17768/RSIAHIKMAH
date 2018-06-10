@@ -80,6 +80,12 @@ public class MPasien {
 
 	@Column(name = "pasien_updated_date")
 	private Timestamp pasienUpdatedDate;
+	
+	@Column(name = "pasien_deleted_by")
+	private String pasienDeletedBy;
+
+	@Column(name = "pasien_deleted_date")
+	private Timestamp pasienDeletedDate;
 
 	@Column(name = "kota_id_tempatlahir")
 	private Integer kotaIDTempatlahir;
@@ -116,9 +122,6 @@ public class MPasien {
 
 	@Column(name = "pasien_alergi")
 	private String pasienAlergi;
-
-	@Column(name = "pasien_deleted_date")
-	private Timestamp pasienDeletedDate;
 
 	@Column(name = "wali_nama")
 	private String waliNama;
@@ -298,6 +301,22 @@ public class MPasien {
 		this.pasienUpdatedDate = pasienUpdatedDate;
 	}
 
+	public String getPasienDeletedBy() {
+		return pasienDeletedBy;
+	}
+
+	public void setPasienDeletedBy(String pasienDeletedBy) {
+		this.pasienDeletedBy = pasienDeletedBy;
+	}
+	
+	public Timestamp getPasienDeletedDate() {
+		return pasienDeletedDate;
+	}
+
+	public void setPasienDeletedDate(Timestamp pasienDeletedDate) {
+		this.pasienDeletedDate = pasienDeletedDate;
+	}
+
 	public Integer getKotaIDTempatlahir() {
 		return kotaIDTempatlahir;
 	}
@@ -440,14 +459,6 @@ public class MPasien {
 
 	public void setWaliTgllahir(Timestamp waliTgllahir) {
 		this.waliTgllahir = waliTgllahir;
-	}
-
-	public Timestamp getPasienDeletedDate() {
-		return pasienDeletedDate;
-	}
-
-	public void setPasienDeletedDate(Timestamp pasienDeletedDate) {
-		this.pasienDeletedDate = pasienDeletedDate;
 	}
 
 	@Override

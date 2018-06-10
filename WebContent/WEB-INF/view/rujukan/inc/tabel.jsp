@@ -18,8 +18,8 @@
 					<td>${rujukan.rujukanNama }</td>
 					<td>${rujukan.rujukanAlamat }</td>
 					<td>
-						<a href="ruangan/update/${temp.ruangID }" class="btn btn-info rounded-0">Update</a>
-						<a href="ruangan/delete/${temp.ruangID }" class="btn btn-warning rounded-0">Delete</a>
+						<a href="/rujukan/update/${temp.ruangID }" class="btn btn-info rounded-0">Update</a>
+						<a href="/rujukan/delete/${temp.ruangID }" class="btn btn-warning rounded-0">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>

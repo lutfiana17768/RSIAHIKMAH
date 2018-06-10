@@ -71,6 +71,10 @@ public class TransaksiPasienServiceAction implements TransaksiPasienService {
 		if (data.getBayar() != null) {
 			data.getBayar().forEach((bayar) -> {
 				if (bayar.getTransaksiBayarNominal() != null) {
+					if (bayar.getTransaksiBayarNominal() > data.getHarusBayar()) {
+						bayar.setTransaksiBayarNominal(data.getHarusBayar());	
+					}
+
 					bayar.setTransaksi(data);
 					bayar.setTransaksiBayarCreatedBy("Admin");
 					bayar.setTransaksiBayarCreatedDate(currentTime);
@@ -101,6 +105,10 @@ public class TransaksiPasienServiceAction implements TransaksiPasienService {
 		if (data.getBayar() != null) {
 			data.getBayar().forEach((bayar) -> {
 				if (bayar.getTransaksiBayarNominal() != null) {
+					if (bayar.getTransaksiBayarNominal() > data.getHarusBayar()) {
+						bayar.setTransaksiBayarNominal(data.getHarusBayar());	
+					}
+					
 					bayar.setTransaksi(data);
 					bayar.setTransaksiBayarUpdatedBy("Admin");
 					bayar.setTransaksiBayarUpdatedDate(currentTime);

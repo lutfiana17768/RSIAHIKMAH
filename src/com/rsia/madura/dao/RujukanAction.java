@@ -27,8 +27,8 @@ public class RujukanAction implements RujukanDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
-		Query<MRujukan> query = current.createQuery("from MRujukan", MRujukan.class);
-
+		Query<MRujukan> query = current.createQuery("from MRujukan r WHERE r.rujukanAktif = :rujukanAktif", MRujukan.class);
+		query.setParameter("rujukanAktif", "Y");
 		List<MRujukan> rujukan = query.getResultList();
 
 		return rujukan;
@@ -36,20 +36,17 @@ public class RujukanAction implements RujukanDAO {
 
 	@Override
 	public List<MRujukan> getRujukans(int page, int limit) {
-		// TODO Auto-generated method stub
-		Session current = sessionFactory.getCurrentSession();
-		Query<MRujukan> query = current.createQuery("from MRujukan", MRujukan.class);
-		List<MRujukan> rujukan = query.getResultList();
-		this.total = rujukan.size();
-		rujukan = this.getData(page, limit);
+		List<MRujukan> rujukan = this.getData(page, limit);
+		this.total = this.getRujukans().size();
 
 		return rujukan;
 	}
 
 	public List<MRujukan> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MRujukan> query = current.createQuery("from MRujukan", MRujukan.class)
+		Query<MRujukan> query = current.createQuery("from MRujukan r WHERE r.rujukanAktif = :rujukanAktif", MRujukan.class)
 				.setFirstResult((page - 1) * limit).setMaxResults(limit);
+		query.setParameter("rujukanAktif", "Y");
 		List<MRujukan> Result = query.getResultList();
 
 		return Result;

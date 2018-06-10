@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "m_kamar")
@@ -26,13 +27,11 @@ public class MKamar {
 	@Column(name = "kamar_no")
 	private String kamarNo;
 
-	// ganti relasi
-	@Column(name = "m_ruang_id")
-	private Integer mRuangID;
+	@ManyToOne
+	private MRuang ruang;
 
-	// ganti relasi
-	@Column(name = "m_kelas_id")
-	private Integer mKelasID;
+	@ManyToOne
+	private MKelas kelas;
 
 	@Column(name = "kamar_keterangan")
 	private String kamarKeterangan;
@@ -86,20 +85,20 @@ public class MKamar {
 		this.kamarNo = kamarNo;
 	}
 
-	public Integer getMRuangID() {
-		return mRuangID;
+	public MRuang getRuang() {
+		return ruang;
 	}
 
-	public void setMRuangID(Integer mRuangID) {
-		this.mRuangID = mRuangID;
+	public void setRuang(MRuang ruang) {
+		this.ruang = ruang;
 	}
 
-	public Integer getMKelasID() {
-		return mKelasID;
+	public MKelas getKelas() {
+		return kelas;
 	}
 
-	public void setMKelasID(Integer mKelasID) {
-		this.mKelasID = mKelasID;
+	public void setKelas(MKelas kelas) {
+		this.kelas = kelas;
 	}
 
 	public String getKamarKeterangan() {

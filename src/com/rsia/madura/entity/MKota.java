@@ -21,7 +21,7 @@ public class MKota {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="kota_id")
-	private int kotaId;
+	private int kota_id;
 	
 	@Column(name="kota_kode")
 	private String kotaKode;
@@ -58,12 +58,12 @@ public class MKota {
 		
 	}
 
-	public int getKotaId() {
-		return kotaId;
+	public int getkota_id() {
+		return kota_id;
 	}
 
-	public void setKotaId(int kota_id) {
-		this.kotaId = kotaId;
+	public void setkota_id(int kota_id) {
+		this.kota_id = kota_id;
 	}
 
 	public String getkotaKode() {
@@ -148,7 +148,7 @@ public class MKota {
 
 	@Override
 	public String toString() {
-		return "MKota [kotaId=" + kotaId + ", kotaKode=" + kotaKode + ", kotaNama=" + kotaNama + ", kotaAktif="
+		return "MKota [kota_id=" + kota_id + ", kotaKode=" + kotaKode + ", kotaNama=" + kotaNama + ", kotaAktif="
 				+ kotaAktif + ", kotaCreatedBy=" + kotaCreatedBy + ", kotaCreatedDate=" + kotaCreatedDate
 				+ ", kotaUpdatedBy=" + kotaUpdatedBy + ", kotaUpdatedDate=" + kotaUpdatedDate + ", kotaRevised="
 				+ kotaRevised + ", kotadeletedDate=" + kotadeletedDate + ", propinsiKode=" + propinsiKode + "]";

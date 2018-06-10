@@ -37,9 +37,15 @@ public class KamarController {
 	private String uri ="redirect: /kamar";
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model) {
-		List<MKamar> ruangs = kamarService.findAll();
-		model.addAttribute("ruangs", ruangs);
+	public String IndexView(Model model, 
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit) {
+		
+		List<MKamar> kamars = kamarService.findAll(page, limit);
+		String links = kamarService.createLinks(page, limit);
+
+		model.addAttribute("link", links);
+		model.addAttribute("kamars", kamars);
 		model.addAttribute("footerjs", "");
 		return "kamar/index";
 	}
@@ -51,8 +57,8 @@ public class KamarController {
 		List<MKelas> kelas = kelasService.findAll();
 
 		Map<String, String> pelayanan = new HashMap<String, String>();
-		pelayanan.put("I", "Rawat Inap");
-		pelayanan.put("J", "Rawat Jalan");
+		pelayanan.put("RI", "Rawat Inap");
+		pelayanan.put("RJ", "Rawat Jalan");
 
 		model.addAttribute("ruang", ruang);
 		model.addAttribute("kelas", kelas);
@@ -99,8 +105,8 @@ public class KamarController {
 		List<MKelas> kelas = kelasService.findAll();
 
 		Map<String, String> pelayanan = new HashMap<String, String>();
-		pelayanan.put("I", "Rawat Inap");
-		pelayanan.put("J", "Rawat Jalan");
+		pelayanan.put("RI", "Rawat Inap");
+		pelayanan.put("RJ", "Rawat Jalan");
 
 		model.addAttribute("ruang", ruang);
 		model.addAttribute("kelas", kelas);

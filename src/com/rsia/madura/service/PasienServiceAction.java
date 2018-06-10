@@ -9,6 +9,7 @@ package com.rsia.madura.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,14 +61,21 @@ public class PasienServiceAction implements PasienService {
 	@Override
 	@Transactional
 	public void update(MPasien data) {
-		// TODO Auto-generated method stub
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		data.setPasienUpdatedBy("Admin");
+		data.setPasienUpdatedDate(currentTime);
 		pasienDAO.PasienUpdate(data);		
 	}
 
 	@Override
 	@Transactional
 	public void delete(MPasien data) {
-		// TODO Auto-generated method stub
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		data.setPasienAktif("T");
+		data.setPasienDeletedBy("Admin");
+		data.setPasienDeletedDate(currentTime);
 		pasienDAO.PasienDelete(data);
 
 	}

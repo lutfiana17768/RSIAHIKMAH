@@ -13,6 +13,17 @@
                     </div>
                     <form:form modelAttribute="userModel" method="POST" action="/user/store">
                         <div class="form-group">
+                            <label>Pegawai</label>
+                            <div class="select2-wrapper">
+                                <form:select path="pegawai.pegawaiID" class="form-control">
+                                    <option value="">--- Pilih Pegawai ---</option>
+                                    <c:forEach var="pegawai" items="${pegawais}">
+                                        <form:option value="${pegawai.pegawaiID}" label="${pegawai.pegawaiNama}"/>
+                                    </c:forEach>
+                                </form:select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label>Username</label>
                             <form:input path="userName" placeholder="username" class="form-control"/>
                          </div>
@@ -20,7 +31,7 @@
                         <div class="form-group">
                             <label>Password</label>
                             <form:input path="userPassword" type="password" placeholder="password" class="form-control"/>
-                         </div>                      
+                         </div>                  
                          <div class="form-group">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>

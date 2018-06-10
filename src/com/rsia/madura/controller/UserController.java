@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 import com.rsia.madura.entity.MUser;
+import com.rsia.madura.entity.MPegawai;
 
 import com.rsia.madura.service.UserService;
+import com.rsia.madura.service.PegawaiService;
 
 
 @Controller
@@ -25,6 +27,9 @@ import com.rsia.madura.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService UserService;
+
+	@Autowired
+	private PegawaiService pegawaiService;
 
 	private String uri ="redirect: /user";
 
@@ -36,8 +41,16 @@ public class UserController {
 	@RequestMapping("/tambah")
 	public String UserFormView(Model model) {
 		MUser userModel = new MUser();
+		List<MPegawai> pegawais = pegawaiService.getPegawai();
+		
+		model.addAttribute("pegawais", pegawais);
 		model.addAttribute("userModel", userModel);
 		return "user/tambah";
 	}
 
+	@RequestMapping(value="/store", method=RequestMethod.POST)
+	public String Store(@ModelAttribute("userModel") MUser userModel) {
+		UserService.store(userModel);
+		return this.uri;
+	}
 }

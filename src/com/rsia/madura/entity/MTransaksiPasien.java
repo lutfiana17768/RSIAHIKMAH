@@ -77,7 +77,10 @@ public class MTransaksiPasien {
 	private List<MTransaksiItem> item;
 
     @Transient
-    private Integer uangBayar;
+	private Integer uangBayar;
+	
+	@Transient
+	private Integer harusBayar;
 
 	public Integer getTransaksiID() {
 		return transaksiID;
@@ -222,6 +225,14 @@ public class MTransaksiPasien {
 	public void setUangBayar(Integer uangBayar) {
 		this.uangBayar = uangBayar;
 	}
+
+	public Integer getHarusBayar() {
+		return harusBayar;
+	}
+
+	public void setHarusBayar(Integer harusBayar) {
+		this.harusBayar = harusBayar;
+	}
 	
 	@Override
 	public String toString() {
@@ -236,4 +247,3 @@ public class MTransaksiPasien {
 	}
 	
 }
-

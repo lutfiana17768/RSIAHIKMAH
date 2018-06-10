@@ -7,7 +7,7 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
@@ -29,14 +31,9 @@ public class MSoap {
     @Transient
     private Integer remove;
 	
-	@Column(name = "m_pasien_id")
-	private Integer mPasienID;
-	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "soap_tanggal")
 	private Date soapTanggal;
-	
-	@Column(name = "soap_dokter")
-	private Integer soapDokter;
 	
 	@Column(name = "soap_subject")
 	private String soapSubject;
@@ -64,18 +61,6 @@ public class MSoap {
 	
 	@Column(name = "soap_revised")
 	private Integer soapRevised;
-	
-	@Column(name = "t_pendaftaran_id")
-	private Integer tPendaftaranID;
-	
-	@Column(name = "m_bed_id")
-	private Integer mBedID;
-	
-	@Column(name = "soap_m_pasien_norm")
-	private String soapMPasienNorm;
-	
-	@Column(name = "soap_kamarpasien_id")
-	private Integer soapKamarpasienID;
 	
 	@Column(name = "soap_aktif")
 	private String soapAktif;
@@ -105,28 +90,12 @@ public class MSoap {
 		this.remove = remove;
 	}
 
-	public Integer getMPasienID() {
-		return mPasienID;
-	}
-
-	public void setMPasienID(Integer mPasienID){
-		this.mPasienID = mPasienID;
-	}
-
 	public Date getSoapTanggal() {
 		return soapTanggal;
 	}
 
 	public void setSoapTanggal(Date soapTanggal){
 		this.soapTanggal = soapTanggal;
-	}
-
-	public Integer getSoapDokter() {
-		return soapDokter;
-	}
-
-	public void setSoapDokter(Integer soapDokter){
-		this.soapDokter = soapDokter;
 	}
 
 	public String getSoapSubject() {
@@ -199,38 +168,6 @@ public class MSoap {
 
 	public void setSoapRevised(Integer soapRevised){
 		this.soapRevised = soapRevised;
-	}
-
-	public Integer getTPendaftaranID() {
-		return tPendaftaranID;
-	}
-
-	public void setTPendaftaranID(Integer tPendaftaranID){
-		this.tPendaftaranID = tPendaftaranID;
-	}
-
-	public Integer getMBedID() {
-		return mBedID;
-	}
-
-	public void setMBedID(Integer mBedID){
-		this.mBedID = mBedID;
-	}
-
-	public String getSoapMPasienNorm() {
-		return soapMPasienNorm;
-	}
-
-	public void setSoapMPasienNorm(String soapMPasienNorm){
-		this.soapMPasienNorm = soapMPasienNorm;
-	}
-
-	public Integer getSoapKamarpasienID() {
-		return soapKamarpasienID;
-	}
-
-	public void setSoapKamarpasienID(Integer soapKamarpasienID){
-		this.soapKamarpasienID = soapKamarpasienID;
 	}
 
 	public String getSoapAktif() {

@@ -19,19 +19,37 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.rsia.madura.entity.MRujukan;
+import com.rsia.madura.entity.MProvinsi;
+import com.rsia.madura.entity.MKota;
+import com.rsia.madura.entity.MKecamatan;
+
 import com.rsia.madura.service.RujukanService;
+import com.rsia.madura.service.ProvinsiService;
+import com.rsia.madura.service.KotaService;
+import com.rsia.madura.service.KecamatanService;
 
 @Controller
 @RequestMapping("/rujukan")
 public class RujukanController {
 	@Autowired
 	private RujukanService rujukanService;
+	@Autowired
+	private ProvinsiService ProvinsiService;
+	@Autowired
+	private KotaService KotaService;
+	@Autowired
+	private KecamatanService KecamatanService;
 
 	private String uri = "redirect: /rujukan/";
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model){
-		List<MRujukan> rujukans = rujukanService.getRujukans();
+	public String IndexView(Model model, 
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit){
+		List<MRujukan> rujukans = rujukanService.getRujukans(page,limit);
+		String links = rujukanService.createLinks(page, limit);
+		
+		model.addAttribute("link", links);
 		model.addAttribute("rujukans", rujukans);
 
 		return "rujukan/index";
@@ -40,7 +58,13 @@ public class RujukanController {
 	@RequestMapping("/tambah")
 	public String addForm(Model model) {
 		MRujukan rujukanModel = new MRujukan();
+		List<MProvinsi> provinsi = ProvinsiService.getProvinsis();
+		List<MKota> kota = KotaService.getKotas();
+		List<MKecamatan> kecamatan = KecamatanService.getKecamatans();
 
+		model.addAttribute("provinsi", provinsi);
+		model.addAttribute("Kota", kota);
+		model.addAttribute("Kecamatan", kecamatan);
 		model.addAttribute("rujukanModel", rujukanModel);
 
 		return "rujukan/tambah";
@@ -63,7 +87,13 @@ public class RujukanController {
 	public String UpdateFormView(Model model, @PathVariable int id) {
 
 		MRujukan result = rujukanService.getRujukan(id);
+		List<MProvinsi> provinsi = ProvinsiService.getProvinsis();
+		List<MKota> kota = KotaService.getKotas();
+		List<MKecamatan> kecamatan = KecamatanService.getKecamatans();
 
+		model.addAttribute("provinsi", provinsi);
+		model.addAttribute("Kota", kota);
+		model.addAttribute("Kecamatan", kecamatan);
 		model.addAttribute("rujukanModel", result);
 
 		return "rujukan/update";
