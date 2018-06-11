@@ -519,4 +519,18 @@ public class MPendaftaran {
 	public void setRuang(MRuang ruang) {
 		this.ruang = ruang;
 	}
+
+	@Override
+	public String toString() {
+		return "MPendaftaran [pendaftaranID" + pendaftaranID +", pendaftaranNo" + pendaftaranNo +", pendaftaranNourut" 
+				+ pendaftaranNourut +", pendaftaranMrs" + pendaftaranMrs +", pendaftaranKrs" 
+				+ pendaftaranKrs +", pendaftaranAktif" + pendaftaranAktif +", pendaftaranCreatedBy" 
+				+ pendaftaranCreatedBy +", pendaftaranCreatedDate" + pendaftaranCreatedDate +", pendaftaranUpdatedBy" 
+				+ pendaftaranUpdatedBy +", pendaftaranUpdatedDate" + pendaftaranUpdatedDate +", pendaftaranRevised" 
+				+ pendaftaranRevised +", pendaftaranKeterangan" + pendaftaranKeterangan +", pendaftaranTarif" 
+				+ pendaftaranTarif +", pendaftaranStatusKunjungan" + pendaftaranStatusKunjungan +", pendaftaranJenis" 
+				+ pendaftaranJenis +", pendaftaranStatusKonsul" + pendaftaranStatusKonsul +", pendaftaranPoli" 
+				+ kelas +", ruang" + ruang +"]";
+	}
 }
+

@@ -43,7 +43,7 @@ public class TindakanAction implements TindakanDAO {
 
 	public List<MTindakan> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MTindakan> query = current.createQuery("FROM MTindakan k WHERE k.tindakanAktif = :tindakanAktif", MTindakan.class).setMaxResults(limit);
+		Query<MTindakan> query = current.createQuery("FROM MTindakan k WHERE k.tindakanAktif = :tindakanAktif", MTindakan.class).setFirstResult((page - 1) * limit).setMaxResults(limit);
 		query.setParameter("tindakanAktif", "Y");
 		List<MTindakan> result = query.getResultList();
 		return result;

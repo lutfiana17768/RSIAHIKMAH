@@ -29,18 +29,17 @@ public class PenunjangGroupController {
 	@Autowired
 	private PenunjangGroupService penunjangGroupService;
 
-	private String uri ="redirect: /penunjang-group/tambah";
+	private String uri ="redirect: /penunjang-group";
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model) {
-		return this.uri;
-	}
+	public String IndexView(Model model, 
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit) {
 
-	@RequestMapping(value="/tambah", method=RequestMethod.GET)
-	public String FormView(Model model) {
-		List<MPenunjangGroup> penunjangGroups = penunjangGroupService.findAll();
+		List<MPenunjangGroup> penunjangGroups = penunjangGroupService.findAll(page, limit);
 		MPenunjangGroup penunjangGroupModel = new MPenunjangGroup();
-		
+		String links = penunjangGroupService.createLinks(page, limit);
+
 		Map<String, String> laporan = new HashMap<String, String>();
 		laporan.put("nilai", "Nilai");
 		laporan.put("file", "File");
@@ -49,7 +48,8 @@ public class PenunjangGroupController {
 		model.addAttribute("penunjangGroups", penunjangGroups);
 		model.addAttribute("laporan", laporan);
 		model.addAttribute("penunjangGroupModel", penunjangGroupModel);
-		return "penunjangGroup/tambah";
+		model.addAttribute("links", links);
+		return "penunjangGroup/index";
 	}
 
 	@RequestMapping(value="/store", method=RequestMethod.POST)
@@ -59,9 +59,13 @@ public class PenunjangGroupController {
 	}
 
 	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
-	public String UpdateFormView(Model model, @PathVariable int id){
-		List<MPenunjangGroup> penunjangGroups = penunjangGroupService.findAll();
+	public String UpdateFormView(Model model, @PathVariable int id,
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit){
+
+		List<MPenunjangGroup> penunjangGroups = penunjangGroupService.findAll(page, limit);
 		MPenunjangGroup penunjangGroupModel = penunjangGroupService.getById(id);
+		String links = penunjangGroupService.createLinks(page, limit);
 
 		Map<String, String> laporan = new HashMap<String, String>();
 		laporan.put("nilai", "Nilai");
@@ -70,6 +74,7 @@ public class PenunjangGroupController {
 
 		model.addAttribute("penunjangGroups", penunjangGroups);
 		model.addAttribute("laporan", laporan);
+		model.addAttribute("links", links);
 		model.addAttribute("penunjangGroupModel", penunjangGroupModel);
 
 		return "penunjangGroup/update";

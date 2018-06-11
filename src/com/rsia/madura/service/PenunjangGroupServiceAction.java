@@ -53,18 +53,21 @@ public class PenunjangGroupServiceAction implements PenunjangGroupService {
 	@Override
 	@Transactional
 	public void store(MPenunjangGroup data) {
+		data.setPmedisgroupAktif("Y");
 		penunjangGroupDAO.PenunjangGroupStore(data);
 	}
 
 	@Override
 	@Transactional
 	public void update(MPenunjangGroup data) {
+		data.setPmedisgroupAktif("Y");
 		penunjangGroupDAO.PenunjangGroupUpdate(data);
 	}
 
 	@Override
 	@Transactional
 	public void delete(MPenunjangGroup data) {
+		data.setPmedisgroupAktif("T");
 		penunjangGroupDAO.PenunjangGroupDelete(data);
 	}
 }

@@ -19,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
@@ -62,8 +63,13 @@ public class PaketController {
 	private String uri ="redirect: /paket";
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model) {
-		List<MPaket> paketan = paketService.findAll();
+	public String IndexView(Model model,
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit) {
+		List<MPaket> paketan = paketService.findAll(page, limit);
+		String links = paketService.createLinks(page, limit);
+
+		model.addAttribute("links", links);
 		model.addAttribute("paketan", paketan);
 		model.addAttribute("footerjs", "");
 		return "paket/index";

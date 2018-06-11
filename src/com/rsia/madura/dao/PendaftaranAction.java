@@ -22,7 +22,7 @@ public class PendaftaranAction implements PendaftaranDAO {
 	public List<MPendaftaran> getPendaftarans() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPendaftaran> query = current.createQuery("FROM MPendaftaran p WHERE p.pendaftaranAktif = :pendaftaranAktif", MPendaftaran.class);
+		Query<MPendaftaran> query = current.createQuery("FROM MPendaftaran p WHERE p.pendaftaranAktif = :pendaftaranAktif ORDER BY pendaftaranID DESC", MPendaftaran.class);
 		query.setParameter("pendaftaranAktif", "Y");
 		List<MPendaftaran> result = query.getResultList();
 		return result;
@@ -39,7 +39,7 @@ public class PendaftaranAction implements PendaftaranDAO {
 
 	public List<MPendaftaran> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPendaftaran> query = current.createQuery("FROM MPendaftaran k WHERE k.pendaftaranAktif = :pendaftaranAktif", MPendaftaran.class).setMaxResults(limit);
+		Query<MPendaftaran> query = current.createQuery("FROM MPendaftaran k WHERE k.pendaftaranAktif = :pendaftaranAktif ORDER BY pendaftaranID DESC", MPendaftaran.class).setMaxResults(limit);
 		query.setParameter("pendaftaranAktif", "Y");
 		List<MPendaftaran> result = query.getResultList();
 

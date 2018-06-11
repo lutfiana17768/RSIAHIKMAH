@@ -44,7 +44,7 @@ public class KelasAction implements KelasDAO {
 
 	public List<MKelas> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MKelas> query = current.createQuery("FROM MKelas k WHERE k.kelasAktif = :kelasAktif", MKelas.class).setMaxResults(limit);
+		Query<MKelas> query = current.createQuery("FROM MKelas k WHERE k.kelasAktif = :kelasAktif", MKelas.class).setFirstResult((page - 1) * limit).setMaxResults(limit);
 		query.setParameter("kelasAktif", "Y");
 		List<MKelas> result = query.getResultList();
 

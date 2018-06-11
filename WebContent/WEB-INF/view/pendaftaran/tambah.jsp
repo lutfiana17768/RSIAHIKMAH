@@ -43,7 +43,7 @@
                                         <div class="form-group">
                                             <label>Ruang</label>
                                             <div class="select2-wrapper">
-                                                <form:select path="ruang.RuangID" class="form-control select2-single">
+                                                <form:select path="ruang.ruangID" class="form-control select2-single">
                                                     <c:forEach var="ruang" items="${ruangs}">
                                                         <form:option value="${ruang.ruangID}"
                                                             label="${ruang.ruangNama}"/>

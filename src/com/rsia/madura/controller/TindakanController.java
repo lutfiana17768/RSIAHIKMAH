@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.validation.BindingResult;
 
@@ -34,11 +35,15 @@ public class TindakanController {
 	private String uri ="redirect: /tindakan";
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model) {
+	public String IndexView(Model model, 
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit) {
 		List<MKelas> kelases = kelasService.findAll();
-		List<MTindakan> tindakans = tindakanService.findAll();
+		List<MTindakan> tindakans = tindakanService.findAll(page, limit);
+		String links = tindakanService.createLinks(page, limit);
 		MTindakan tindakanModel = new MTindakan();
 
+		model.addAttribute("links", links);
 		model.addAttribute("tindakans", tindakans);
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("tindakanModel", tindakanModel);
@@ -52,11 +57,16 @@ public class TindakanController {
 	}
 
 	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
-	public String UpdateFormView(Model model, @PathVariable int id){
-		List<MKelas> kelases = kelasService.findAll();
-		List<MTindakan> tindakans = tindakanService.findAll();
-		MTindakan tindakanModel = tindakanService.getById(id);
+	public String UpdateFormView(Model model, @PathVariable int id, 
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit){
 
+		List<MKelas> kelases = kelasService.findAll();
+		List<MTindakan> tindakans = tindakanService.findAll(page, limit);
+		MTindakan tindakanModel = tindakanService.getById(id);
+		String links = tindakanService.createLinks(page, limit);
+
+		model.addAttribute("links", links);
 		model.addAttribute("tindakans", tindakans);
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("tindakanModel", tindakanModel);

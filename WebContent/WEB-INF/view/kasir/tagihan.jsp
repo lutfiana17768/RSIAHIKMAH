@@ -184,10 +184,11 @@
                     <tbody>
                         <c:set var = "totalKamar" value = "${0}"/>
                         <c:if test="${daftar.kamar != null}">
-                            <c:set var = "totalKamar" value = "${daftar.kamar.tarif * rentangHari}"/>
+                            <c:set var = "qtySewa" value = "${rentangHari+1}"/>
+                            <c:set var = "totalKamar" value = "${daftar.kamar.tarif * qtySewa}"/>
                             <tr>
                                 <td>${daftar.kamar.kamarNo}</td>
-                                <td>${rentangHari}</td>
+                                <td>${qtySewa}</td>
                                 <td><fmt:formatNumber value = "${daftar.kamar.tarif}" maxFractionDigits = "3"/></td>
                                 <td>0</td>
                                 <td><fmt:formatNumber value = "${totalKamar}" maxFractionDigits = "3"/></td>

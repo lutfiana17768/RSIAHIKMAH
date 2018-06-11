@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.validation.BindingResult;
 
@@ -34,8 +35,14 @@ public class RuangController {
 	private String uri ="redirect: /ruangan";
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model) {
-		List<MRuang> ruangs = ruangService.findAll();
+	public String IndexView(Model model,  
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit) {
+
+		List<MRuang> ruangs = ruangService.findAll(page, limit);
+		String links = ruangService.createLinks(page, limit);
+
+		model.addAttribute("link", links);
 		model.addAttribute("ruangs", ruangs);
 		model.addAttribute("footerjs", "");
 		return "ruangan/index";

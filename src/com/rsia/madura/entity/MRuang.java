@@ -220,4 +220,16 @@ public class MRuang {
 	public void setRuangDeletedBy(String ruangDeletedBy) {
 		this.ruangDeletedBy = ruangDeletedBy;
 	}
+
+	@Override
+	public String toString() {
+		return "MRuang[ ruangID" + ruangID + ", ruangKode" + ruangKode + ", ruangNama" + ruangNama + ", ruangKeterangan" 
+				+ ruangKeterangan + ", ruangKepala" + ruangKepala + ", kelas" + kelas + ", mPelayananID" 
+				+ mPelayananID + ", tarifSarana" + tarifSarana + ", tarifCetakKartu" + tarifCetakKartu + ", tarifKonsultasi" 
+				+ tarifKonsultasi + ", ruangAktif" + ruangAktif + ", ruangRevised" 
+				+ ruangRevised + ", ruangCreatedBy" + ruangCreatedBy + ", ruangCreatedDate" 
+				+ ruangCreatedDate + ", ruangUpdatedBy" + ruangUpdatedBy + ", ruangUpdatedDate" 
+				+ ruangUpdatedDate + ", ruangDeletedDate" + ruangDeletedDate + ", ruangDeletedBy" + ruangDeletedBy +"]";
+	}
 }
+

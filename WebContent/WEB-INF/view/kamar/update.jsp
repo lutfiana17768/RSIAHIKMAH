@@ -83,7 +83,7 @@
                         <div class="container form-group" style="float: right;">
                             <button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
                             <button type="button" class="btn btn-danger d_pasien-button">
-                                <a href="/kamar/list" style="color: white; text-decoration: none;">Batal</a>
+                                <a href="/kamar" style="color: white; text-decoration: none;">Batal</a>
                             </button>
                         </div>
                         

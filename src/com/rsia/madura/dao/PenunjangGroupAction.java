@@ -28,7 +28,8 @@ public class PenunjangGroupAction implements PenunjangGroupDAO {
 	public List<MPenunjangGroup> getPenunjangGroups() {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPenunjangGroup> query = current.createQuery("FROM MPenunjangGroup", MPenunjangGroup.class);
+		Query<MPenunjangGroup> query = current.createQuery("FROM MPenunjangGroup p WHERE p.pmedisgroupAktif = :pmedisgroupAktif", MPenunjangGroup.class);
+		query.setParameter("pmedisgroupAktif", "Y");
 		List<MPenunjangGroup> result = query.getResultList();
 		return result;
 	}
@@ -44,7 +45,8 @@ public class PenunjangGroupAction implements PenunjangGroupDAO {
 
 	public List<MPenunjangGroup> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPenunjangGroup> query = current.createQuery("FROM MPenunjangGroup", MPenunjangGroup.class).setMaxResults(limit);
+		Query<MPenunjangGroup> query = current.createQuery("FROM MPenunjangGroup p WHERE p.pmedisgroupAktif = :pmedisgroupAktif", MPenunjangGroup.class).setMaxResults(limit);
+		query.setParameter("pmedisgroupAktif", "Y");
 		List<MPenunjangGroup> result = query.getResultList();
 
 		return result;

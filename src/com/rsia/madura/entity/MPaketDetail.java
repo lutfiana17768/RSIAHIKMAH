@@ -203,6 +203,7 @@ public class MPaketDetail {
 
 	@Override
 	public String toString() {
-		return "mPaketDetail [paketDetailID=" + paketDetailID + ", paketDetailHarga=" + paketDetailHarga +", paketDetailTotal=" + paketDetailTotal + "]";
+		return "mPaketDetail [paketDetailID=" + paketDetailID + ", paketDetailHarga=" + paketDetailHarga +", paketDetailTotal=" 
+				+ paketDetailTotal + ",paketDetailType=" + paketDetailType + " ]";
 	}
 }

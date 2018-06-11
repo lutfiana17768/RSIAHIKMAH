@@ -43,7 +43,7 @@ public class RuangAction implements RuangDAO {
 
 	public List<MRuang> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MRuang> query = current.createQuery("FROM MRuang k WHERE k.ruangAktif = :ruangAktif", MRuang.class).setMaxResults(limit);
+		Query<MRuang> query = current.createQuery("FROM MRuang k WHERE k.ruangAktif = :ruangAktif", MRuang.class).setFirstResult((page - 1) * limit).setMaxResults(limit);
 		query.setParameter("ruangAktif", "Y");
 		List<MRuang> result = query.getResultList();
 		return result;

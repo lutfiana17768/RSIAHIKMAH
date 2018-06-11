@@ -17,7 +17,7 @@
 						<table class="table table-striped table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>Unit</th>
+									<th>Kamar/Poli</th>
 									<th>Dokter</th>
 									<th>No.Pendaftaran</th>
 									<th>Nama</th>
@@ -30,7 +30,16 @@
 							<tbody>
 								<c:forEach var="transaksi" items="${transaksies}">
 									<tr>
-										<td>$$$</td>
+										<td>
+											<c:choose>
+												<c:when test="${empty transaksi.pendaftaran.ruang.ruangID}">
+													${transaksi.pendaftaran.pendaftaranPoli}
+												</c:when>
+												<c:otherwise>
+													${transaksi.pendaftaran.kamar.ruang.ruangNama} - ${transaksi.pendaftaran.kamar.kamarNo}
+												</c:otherwise>
+											</c:choose>
+										</td>
 										<td>${transaksi.pendaftaran.pegawai.pegawaiNama}</td>
 										<td>${transaksi.pendaftaran.pendaftaranNo}</td>
 										<td>${transaksi.pendaftaran.pasien.pasienNama}</td>
@@ -38,7 +47,7 @@
 										<td>${transaksi.pendaftaran.pasien.pasienAlamat}</td>
 										<td>${transaksi.transaksiStatus}</td>
 										<td>
-											<a href="/kasir/pembayaran?pendaftaran=${transaksi.pendaftaran.pendaftaranNo}" class="btn btn-info rounded-0">Update</a>
+											<a href="/kasir/pembayaran?pendaftaran=${transaksi.pendaftaran.pendaftaranID}" class="btn btn-info rounded-0">Update</a>
 										</td>
 									</tr>
 								</c:forEach>

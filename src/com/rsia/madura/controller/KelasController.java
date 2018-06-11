@@ -27,22 +27,22 @@ public class KelasController {
 	@Autowired
 	private KelasService kelasService;
 
-	private String uri ="redirect: /kelas/tambah";
+	private String uri ="redirect: /kelas";
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model) {
-		return this.uri;
-	}
-
-	@RequestMapping(value="/tambah", method=RequestMethod.GET)
-	public String FormView(Model model) {
-		List<MKelas> kelases = kelasService.findAll();
+	public String IndexView(Model model,
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit) {
+		List<MKelas> kelases = kelasService.findAll(page, limit);
+		String links = kelasService.createLinks(page, limit);
 		MKelas kelasModel = new MKelas();
 
+		model.addAttribute("link", links);
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("kelasModel", kelasModel);
-		return "kelas/tambah";
+		return "kelas/index";
 	}
+
 
 	@RequestMapping(value="/store", method=RequestMethod.POST)
 	public String Store(@ModelAttribute("kelasModel") MKelas kelasModel) {
@@ -51,10 +51,14 @@ public class KelasController {
 	}
 
 	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
-	public String UpdateFormView(Model model, @PathVariable int id){
-		List<MKelas> kelases = kelasService.findAll();
+	public String UpdateFormView(Model model, @PathVariable int id,
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit){
+		List<MKelas> kelases = kelasService.findAll(page, limit);
 		MKelas kelasModel = kelasService.getById(id);
+		String links = kelasService.createLinks(page, limit);
 
+		model.addAttribute("link", links);
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("kelasModel", kelasModel);
 

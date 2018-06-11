@@ -15,19 +15,7 @@ public interface PaketDetailDAO {
 	public List<MPaketDetail> getPaketDetails(int page, int limit);
 	public String createLinks(int page, int limit);
 	public MPaketDetail getPaketDetail(int PaketId);
-
-	// public List<MPaketDetail> getPaketDetailRuangs();
-	// public List<MPaketDetail> getPaketDetailRuangs(int page, int limit);
-
-	// public List<MPaketDetail> getPaketDetailTindakans();
-	// public List<MPaketDetail> getPaketDetailTindakans(int page, int limit);
-
-	// // public List<MPaketDetail> getPaketDetailPenunjang();
-	// // public List<MPaketDetail> getPaketDetailPenunjang(int page, int limit);
-
-	// public List<MPaketDetail> getPaketDetailObats();
-	// public List<MPaketDetail> getPaketDetailObats(int page, int limit);
-
+	
 	public void PaketDetailStore(MPaketDetail PaketDetailModel);
 	public void PaketDetailUpdate(MPaketDetail PaketDetailModel);
 	public void PaketDetailDelete(MPaketDetail PaketDetailModel);

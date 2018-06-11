@@ -69,6 +69,14 @@
                         <form:hidden path="pendaftaranMrs" />
                         <form:hidden path="pendaftaranJenis" />
                         <form:hidden path="pendaftaranNo" />
+                        <form:hidden path="pendaftaranPoli" />
+                        <form:hidden path="paketID" />
+                        <c:if test="${pelayananModel.ruang.ruangID != null}">
+                            <form:hidden path="ruang.ruangID" />
+                        </c:if>
+                        <c:if test="${pelayananModel.kelas.kelasID != null}">
+                            <form:hidden path="kelas.kelasID" />
+                        </c:if>
                         <div class="form-group row">    
                             <label class="col-sm-3 col-form-label">Dokter</label>
                             <div class="col-sm-9">

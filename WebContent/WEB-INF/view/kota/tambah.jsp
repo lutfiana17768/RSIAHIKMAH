@@ -24,7 +24,7 @@
 							<label for="exampleInputPassword1">Nama Provinsi</label>
 							<div class="select2-wrapper">
 								<form:select  path="propinsiKode" class="form-control boxed input-lg select2-single">
-									<form:option value="" label="--- Pilih Kota ---"></form:option>
+									<form:option value="" label="--- Pilih Provinsi ---"></form:option>
 									
 									<c:forEach var="tempProvinsi" items="${provinsi}">
                                      	<form:option value="${tempProvinsi.propinsiKode }" label="${tempProvinsi.propinsiNama }" />

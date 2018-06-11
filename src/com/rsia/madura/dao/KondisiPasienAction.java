@@ -29,8 +29,8 @@ public class KondisiPasienAction implements KondisiPasienDAO {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MKondisi> query = current.createQuery("from MKondisi", MKondisi.class);
-		
+		Query<MKondisi> query = current.createQuery("from MKondisi k WHERE k.kondisiAktif = :kondisiAktif", MKondisi.class);
+		query.setParameter("kondisiAktif", "Y");
 		List<MKondisi> kondisi = query.getResultList();
 		
 		return kondisi;
@@ -38,22 +38,19 @@ public class KondisiPasienAction implements KondisiPasienDAO {
 
 	@Override
 	public List<MKondisi> getKondisis(int page, int limit) {
-		// TODO Auto-generated method stub
-		Session current = sessionFactory.getCurrentSession();
-		Query<MKondisi> query = current.createQuery("from MKondisi", MKondisi.class);
-		List<MKondisi> kondisi = query.getResultList();
-		this.total = kondisi.size();
-		kondisi = this.getData(page, limit);
+		List<MKondisi> kondisi = this.getData(page, limit);
+		this.total = this.getKondisis().size();
 		
 		return kondisi;
 	}
 
 	public List<MKondisi> getData( int page, int limit) {
     	Session current = sessionFactory.getCurrentSession();
-    	Query<MKondisi> query = current.createQuery("from MKondisi", MKondisi.class).setFirstResult((page-1)*limit).setMaxResults(limit);
-        List<MKondisi> Result = query.getResultList();
+    	Query<MKondisi> query = current.createQuery("from MKondisi k WHERE k.kondisiAktif = :kondisiAktif", MKondisi.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+    	query.setParameter("kondisiAktif", "Y");
+        List<MKondisi> kondisi = query.getResultList();
 
-        return Result;
+        return kondisi;
     }
 
 	@Override

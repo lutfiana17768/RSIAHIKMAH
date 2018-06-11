@@ -44,6 +44,6 @@
 	}
 
 	function cleanNumber(str) {
-		return str.replace('.','')
+		return str.replace(/\./g,'')
 	}
 </script>

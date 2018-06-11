@@ -83,8 +83,14 @@ public class PendaftaranController {
 	private String uri = "redirect: /pendaftaran";
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String IndexView(Model model) {
-		List<MPendaftaran> pendaftarans = pendaftaranService.getPendaftarans();
+	public String IndexView(Model model, 
+			@RequestParam(value="page", required=false, defaultValue="1") int page, 
+			@RequestParam(value="limit", required=false, defaultValue="10") int limit) {
+		
+		List<MPendaftaran> pendaftarans = pendaftaranService.getPendaftarans(page, limit);
+		String link = pendaftaranService.createLinks(page, limit);
+
+		model.addAttribute("link", link);
 		model.addAttribute("pendaftarans", pendaftarans);
 		return "pendaftaran/index";
 	}

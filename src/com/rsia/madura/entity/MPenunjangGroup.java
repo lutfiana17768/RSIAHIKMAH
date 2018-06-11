@@ -33,6 +33,9 @@ public class MPenunjangGroup {
 	
 	@Column(name="pmedisgroup_urut")
 	private Integer pmedisgroupUrut;
+
+	@Column(name="pmedisgroup_aktif")
+	private String pmedisgroupAktif;
 	
 	@Column(name="reg_company_id ")
 	private Integer regCompanyID ;
@@ -70,6 +73,14 @@ public class MPenunjangGroup {
 
 	public void setPmedisgroupUrut(Integer pmedisgroupUrut) {
 		this.pmedisgroupUrut = pmedisgroupUrut;
+	}
+
+	public String getPmedisgroupAktif() {
+		return this.pmedisgroupAktif;
+	}
+
+	public void setPmedisgroupAktif(String pmedisgroupAktif) {
+		this.pmedisgroupAktif = pmedisgroupAktif;
 	}
 
 	public Integer getRegCompanyID() {

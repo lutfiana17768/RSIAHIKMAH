@@ -38,6 +38,7 @@ import com.rsia.madura.entity.MParamPeriksa;
 import com.rsia.madura.entity.MIcd;
 import com.rsia.madura.entity.MIcd9;
 import com.rsia.madura.entity.MPenunjang;
+import com.rsia.madura.entity.MPaket;
 
 import com.rsia.madura.service.PelayananService;
 import com.rsia.madura.service.PasienService;
@@ -53,6 +54,7 @@ import com.rsia.madura.service.ParamPeriksaService;
 import com.rsia.madura.service.IcdService;
 import com.rsia.madura.service.Icd9Service;
 import com.rsia.madura.service.PenunjangService;
+import com.rsia.madura.service.PaketService;
 
 // pelayanan == pendaftaran
 
@@ -119,6 +121,11 @@ public class PelayananController {
 		List<MIcd> icds = icdService.findAll();
 		List<MIcd9> icd9s = icd9Service.findAll();
 		List<MPenunjang> penunjangs = penunjangService.findAll();
+		
+		if (pelayananModel.getPaketID() != null) {
+			MPaket paket = paketService.getById(pelayananModel.getPaketID());
+			model.addAttribute("paket", paket);
+		}
 		
 		model.addAttribute("pelayananModel", pelayananModel);
 		model.addAttribute("pasiens", pasiens);
