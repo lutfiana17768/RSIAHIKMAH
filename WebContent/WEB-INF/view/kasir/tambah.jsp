@@ -184,7 +184,7 @@
 			                </div>
 							<div class="form-group">
 								<label>Uang Bayar</label>
-								<input type="text" name="bayar[0].transaksiBayarNominal" id="uang-bayar" class="form-control form-control-sm boxed">
+								<input type="text" name="bayar[0].transaksiBayarNominal" id="uang-bayar" class="form-control form-control-sm boxed" autocomplete="off">
 							</div>
 							<div class="form-group">
 								<label>Kembalian</label>

@@ -26,14 +26,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.rsia.madura.entity.MPaket;
 import com.rsia.madura.entity.MKelas;
-import com.rsia.madura.entity.MRuang;
+import com.rsia.madura.entity.MKamar;
 import com.rsia.madura.entity.MTindakan;
 import com.rsia.madura.entity.MObat;
 import com.rsia.madura.entity.MPenunjang;
 
 import com.rsia.madura.service.PaketService;
 import com.rsia.madura.service.KelasService;
-import com.rsia.madura.service.RuangService;
+import com.rsia.madura.service.KamarService;
 import com.rsia.madura.service.ObatService;
 import com.rsia.madura.service.TindakanService;
 import com.rsia.madura.service.PenunjangService;
@@ -48,7 +48,7 @@ public class PaketController {
 	private KelasService kelasService;
 
 	@Autowired
-	private RuangService ruangService;
+	private KamarService kamarService;
 
 	@Autowired
 	private TindakanService tindakanService;
@@ -72,7 +72,7 @@ public class PaketController {
 	@RequestMapping(value="/tambah", method=RequestMethod.GET)
 	public String FormView(Model model) {
 		List<MKelas> kelases = kelasService.findAll();
-		List<MRuang> ruangs = ruangService.findAll();
+		List<MKamar> kamars = kamarService.findAll();
 		List<MObat> obats = obatService.findAll();
 		List<MTindakan> tindakans = tindakanService.findAll();
 		List<MPenunjang> penunjangs = penunjangService.findAll();
@@ -84,7 +84,7 @@ public class PaketController {
 		satuan.put("2", "CM");		
 		
 		model.addAttribute("kelases", kelases);
-		model.addAttribute("ruangs", ruangs);
+		model.addAttribute("kamars", kamars);
 		model.addAttribute("tindakans", tindakans);
 		model.addAttribute("obats", obats);
 		model.addAttribute("penunjangs", penunjangs);
@@ -111,7 +111,7 @@ public class PaketController {
 	public String UpdateFormView(Model model, @PathVariable int id){
 		List<MKelas> kelases = kelasService.findAll();
 		List<MTindakan> tindakans = tindakanService.findAll();
-		List<MRuang> ruangs = ruangService.findAll();
+		List<MKamar> kamars = kamarService.findAll();
 		List<MObat> obats = obatService.findAll();
 		List<MPenunjang> penunjangs = penunjangService.findAll();
 		MPaket paketModel = paketService.getById(id);
@@ -121,7 +121,7 @@ public class PaketController {
 		satuan.put("2", "CM");	
 		
 		model.addAttribute("kelases", kelases);
-		model.addAttribute("ruangs", ruangs);
+		model.addAttribute("kamars", kamars);
 		model.addAttribute("tindakans", tindakans);
 		model.addAttribute("obats", obats);
 		model.addAttribute("satuan", satuan);

@@ -40,21 +40,18 @@ public class PaketServiceAction implements PaketService {
 	@Override
 	@Transactional
 	public String createLinks(int page, int limit) {
-		// TODO Auto-generated method stub
 		return paketDAO.createLinks(page, limit);
 	}
 
 	@Override
 	@Transactional
 	public MPaket getById(int id) {
-		// TODO Auto-generated method stub
 		return paketDAO.getPaket(id);
 	}
 
 	@Override
 	@Transactional
 	public void store(MPaket data) {
-		// TODO Auto-generated method stub
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
 		data.setPaketAktif("Y");
@@ -62,11 +59,11 @@ public class PaketServiceAction implements PaketService {
 		data.setPaketCreatedDate(currentTime);
 
 		if (data.getPaketDetail() != null) {
-			data.getPaketDetail().forEach((harga) -> {
-				harga.setPaket(data);
-				harga.setPaketDetailCreatedBy("Admin");
-				harga.setPaketDetailCreatedDate(currentTime);
-				harga.setPaketDetailUpdatedDate(currentTime);
+			data.getPaketDetail().forEach((detail) -> {
+				detail.setPaket(data);
+				detail.setPaketDetailCreatedBy("Admin");
+				detail.setPaketDetailCreatedDate(currentTime);
+				detail.setPaketDetailUpdatedDate(currentTime);
 			});
 		}
 
@@ -84,10 +81,10 @@ public class PaketServiceAction implements PaketService {
 		data.setPaketUpdatedDate(currentTime);
 
 		if (data.getPaketDetail() != null) {
-			data.getPaketDetail().forEach((harga) -> {
-				harga.setPaket(data);
-				harga.setPaketDetailUpdatedBy("Admin");
-				harga.setPaketDetailUpdatedDate(currentTime);
+			data.getPaketDetail().forEach((detail) -> {
+				detail.setPaket(data);
+				detail.setPaketDetailUpdatedBy("Admin");
+				detail.setPaketDetailUpdatedDate(currentTime);
 			});
 		}
 

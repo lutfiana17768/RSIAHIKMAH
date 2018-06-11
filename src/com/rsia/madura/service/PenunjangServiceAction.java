@@ -72,16 +72,6 @@ public class PenunjangServiceAction implements PenunjangService {
 				penunjangkelas.setPenunjang(data);
 			});
 		}
-		// if (data.getPenunjangkategori() != null) {
-		// 	data.getPenunjangkategori().forEach((penunjangkategori) -> {
-		// 		penunjangkategori.setPenunjang(data);
-		// 	});
-		// }
-		System.out.println("==========");
-		System.out.println("test=test");
-		System.out.println(data.toString());
-		System.out.println("test=test");
-		System.out.println("==========");
 		penunjangDAO.PenunjangStore(data);
 	}
 

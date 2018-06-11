@@ -60,7 +60,7 @@
 									<div class="card-block">
 										<ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
 											<li class="nav-item">
-												<a class="nav-link" id="tab_first" href="#ruangan" role="tab" data-toggle="tab">Ruangan</a>
+												<a class="nav-link" id="tab_first" href="#kamaran" role="tab" data-toggle="tab">Kamar</a>
 											</li>
 											<li class="nav-item">
 												<a class="nav-link" href="#tindakan" role="tab" data-toggle="tab">Tindakan</a>
@@ -73,11 +73,11 @@
 											</li>
 										</ul>
 										<div class="tab-content tabs-bordered" style="padding: 10px 0px;">
-											<div role="tabpanel" class="tab-pane fade active" id="ruangan">
+											<div role="tabpanel" class="tab-pane fade active" id="kamaran">
 												<div class="container-fluid" style="padding:0">
 													<div class="card-header card-header-sm">
 														<div class="header-block">
-															<button type="button" id="add_ruang" class="btn rounded-0 btn-success btn-sm" data-toggle="modal" data-target="#form-paket-ruang">Tambah</button>
+															<button type="button" id="add_kamar" class="btn rounded-0 btn-success btn-sm" data-toggle="modal" data-target="#form-paket-kamar">Tambah</button>
 														</div>
 													</div>
 													<div class="card-block">
@@ -85,12 +85,12 @@
 															<table class="table table-striped table-bordered table-hover">
 																<thead>
 																	<tr>
-																		<th>Nama Ruangan</th>
+																		<th>Nama Kamar</th>
 																		<th>Harga</th>
 																		<th>Aksi</th>
 																	</tr>
 																</thead>
-																<tbody id="paket-ruang-list" class="table-form">
+																<tbody id="paket-kamar-list" class="table-form">
 																</tbody>
 															</table>
 														</div>
@@ -187,40 +187,40 @@
 			</div>
 		</div>
 		</div>
-		<div class="modal fade" id="form-paket-ruang">
+		<div class="modal fade" id="form-paket-kamar">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title">Tambah Ruang</h4>
+						<h4 class="modal-title">Tambah Kamar</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">X</span>
 							<span class="sr-only">Close</span>
 						</button>
 					</div>
 					<div class="modal-body">
-						<form id="form-ruang" class="from-horizontal">
+						<form id="form-kamar" class="from-horizontal">
 							<div class="form-group">
-								<label>Nama Ruang</label>
-								<select name="mRuangID" id="mRuangID" class="form-control boxed">
-									<option value="">--- Pilih Ruang ---</option>
-									<c:forEach var="ruang" items="${ruangs}">
-										<option value="${ruang.ruangID }">
-											${ruang.ruangNama }
+								<label>Nama Kamar</label>
+								<select name="kamarID" id="kamarID" class="form-control boxed">
+									<option value="">--- Pilih Kamar ---</option>
+									<c:forEach var="kamar" items="${kamars}">
+										<option value="${kamar.kamarID }" data-harga="${kamar.tarif}">
+											${kamar.kamarNo}
 										</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="text" name="paketRuangHarga" id="paketRuangHarga" class="form-control boxed">
+								<input type="text" name="paketKamarHarga" id="paketKamarHarga" class="form-control boxed">
 							</div>
-							<input type="hidden" name="ruang_mode" id="ruang_mode">
-							<input type="hidden" name="ruang_edit" id="ruang_edit">
+							<input type="hidden" name="kamar_mode" id="kamar_mode">
+							<input type="hidden" name="kamar_edit" id="kamar_edit">
 						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
-						<button type="button" id="simpan-ruang" class="btn btn-primary rounded-0">Simpan</button>
+						<button type="button" id="simpan-kamar" class="btn btn-primary rounded-0">Simpan</button>
 					</div>
 				</div>
 				<!-- /.modal-content -->
@@ -243,9 +243,9 @@
 								<label>Nama Tindakan</label>
 								<select name="mTindakanID" id="mTindakanID" class="form-control boxed">
 									<option value="">--- Pilih Tindakan ---</option>
-									<c:forEach var="tindakans" items="${tindakans}">
-										<option value="${tindakans.tindakanID }">
-											${tindakans.tindakanNama }
+									<c:forEach var="tindakan" items="${tindakans}">
+										<option value="${tindakan.tindakanID }" data-harga="${tindakan.tindakanHarga}">
+											${tindakan.tindakanNama }
 										</option>
 									</c:forEach>
 								</select>
@@ -288,7 +288,7 @@
 								<select name="penunjangmedisID" id="penunjangmedisID" class="form-control boxed">
 									<option value="">--- Pilih Penunjang ---</option>
 									<c:forEach var="penunjang" items="${penunjangs}">
-										<option value="${penunjang.penunjangmedisID }">
+										<option value="${penunjang.penunjangmedisID }" data-harga="${penunjang.penunjangkelas[0].penunjangkelasHarga}">
 											${penunjang.penunjangmedisNama }
 										</option>
 									</c:forEach>

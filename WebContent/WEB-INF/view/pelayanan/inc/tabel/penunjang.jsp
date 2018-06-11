@@ -44,7 +44,7 @@
 										<td data-used="1" 
                                             data-save="1" 
                                             data-name="penunjangtransHarga" 
-                                            data-kolom-id="penunjangtransHarga">${pt.penunjang.paramperiksa[0].paramperiksaHarga}</td>
+                                            data-kolom-id="penunjangtransHarga">${pt.penunjang.penunjangkelas[0].penunjangkelasHarga}</td>
 										<td data-used="1" 
                                             data-save="1" 
                                             data-name="penunjangtransSubtotal" 
