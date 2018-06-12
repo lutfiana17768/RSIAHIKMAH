@@ -153,7 +153,7 @@
                         <tr>
                             <td>Untuk pembayaran</td>
                             <td>:</td>
-                            <td>${transaksiModel.pendaftaran.pendaftaranJenis}</td>
+                            <td>Biaya Perawatan</td>
                         </tr>
                         <tr>
                             <td>Dokter</td>

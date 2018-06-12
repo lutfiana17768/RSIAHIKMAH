@@ -93,6 +93,9 @@ public class MPendaftaran {
 	@Column(name="pendaftaran_selesai")
 	private String pendaftaranSelesai;
 
+	@Column(name="pendaftaran_deleted_by")
+	private String pendaftaranDeletedBy;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="pendaftaran_deleted_date")
 	private Date pendaftaranDeletedDate;
@@ -342,6 +345,14 @@ public class MPendaftaran {
 
 	public void setPendaftaranSelesai(String pendaftaranSelesai) {
 		this.pendaftaranSelesai = pendaftaranSelesai;
+	}
+
+	public String getPendaftaranDeletedBy() {
+		return pendaftaranDeletedBy;
+	}
+
+	public void setPendaftaranDeletedBy(String pendaftaranDeletedBy) {
+		this.pendaftaranDeletedBy = pendaftaranDeletedBy;
 	}
 
 	public Date getPendaftaranDeletedDate() {

@@ -26,7 +26,7 @@ public class MPenunjangTrans {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="penunjangtrans_id")
-	private int penunjangtransID;
+	private Integer penunjangtransID;
 
     @Transient
     private Integer remove;
@@ -46,11 +46,11 @@ public class MPenunjangTrans {
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 
-	public int getPenunjangtransID() {
+	public Integer getPenunjangtransID() {
 		return penunjangtransID;
 	}
 
-	public void setPenunjangtransID(int penunjangtransID) {
+	public void setPenunjangtransID(Integer penunjangtransID) {
 		this.penunjangtransID = penunjangtransID;
 	}
 

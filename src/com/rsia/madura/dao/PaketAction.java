@@ -44,7 +44,7 @@ public class PaketAction implements PaketDAO {
 
 	public List<MPaket> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPaket> query = current.createQuery("FROM MPaket k WHERE k.paketAktif = :paketAktif", MPaket.class).setMaxResults(limit);
+		Query<MPaket> query = current.createQuery("FROM MPaket k WHERE k.paketAktif = :paketAktif", MPaket.class).setFirstResult((page - 1) * limit).setMaxResults(limit);
 		query.setParameter("paketAktif", "Y");
 		List<MPaket> result = query.getResultList();
 

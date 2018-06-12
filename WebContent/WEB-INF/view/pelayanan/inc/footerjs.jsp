@@ -390,16 +390,16 @@ $(document).ready(function(){
 
             diagnosa9ID = $('#diagnosa9ID').val();
             icd9 = $('#icd9').val() ||0;
+            diagnosa9Tanggal = $('#diagnosa9Tanggal').val() ||0;
             diagnosa9Icd9Text = $('#icd9 option:selected').text() || '';
             diagnosa9Icd9Kode = $('#icd9 option:selected').attr('date-kode') || '';
             diagnosa9Nama = $('#diagnosa9Nama').val() ||0;
             diagnosa9Keterangan = $('#diagnosa9Keterangan').val() ||0;
-            diagnosa9Tanggal = $('#diagnosa9Tanggal').val() ||0;
 
+            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9Tanggal" data-kolom-id="diagnosa9Tanggal">'+diagnosa9Tanggal+'</td>');
             tr.append('<td>' + diagnosa9Icd9Kode + '</td>');
             tr.append('<td>' + diagnosa9Icd9Text + '</td>');
             tr.append('<td data-used="1" data-save="1" data-name="diagnosa9Keterangan" data-kolom-id="diagnosa9Keterangan">'+diagnosa9Keterangan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="diagnosa9Tanggal" data-kolom-id="diagnosa9Tanggal">'+diagnosa9Tanggal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDiagnosa9('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDiagnosa9('+counter+')">Edit</button></td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="icd9.icd9ID" data-kolom-id="icd9">' + icd9 + '</td>');
 

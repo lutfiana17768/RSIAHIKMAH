@@ -39,7 +39,7 @@ public class PendaftaranAction implements PendaftaranDAO {
 
 	public List<MPendaftaran> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPendaftaran> query = current.createQuery("FROM MPendaftaran k WHERE k.pendaftaranAktif = :pendaftaranAktif ORDER BY pendaftaranID DESC", MPendaftaran.class).setMaxResults(limit);
+		Query<MPendaftaran> query = current.createQuery("FROM MPendaftaran k WHERE k.pendaftaranAktif = :pendaftaranAktif ORDER BY pendaftaranID DESC", MPendaftaran.class).setFirstResult((page - 1) * limit).setMaxResults(limit);
 		query.setParameter("pendaftaranAktif", "Y");
 		List<MPendaftaran> result = query.getResultList();
 

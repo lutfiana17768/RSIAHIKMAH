@@ -13,13 +13,13 @@
 										</h3>
 									</div>
 									<div class="header-block pull-right">
-										<button type="submit" class="btn btn-primary rounded-0" style="margin-right: 3px" id="simpan-paket" onclick="$('form').submit()">Simpan</button>
+										<button type="submit" class="btn btn-primary rounded-0" style="margin-right: 3px" id="simpan-paket" onclick="$('#kelasModel').submit()">Simpan</button>
 										<a href="/kelas" class="pull-right btn btn-danger rounded-0">Batal</a>
 									</div>
 								</div>
 								<div class="card-block">
 									<section class="form-kelas-baru">
-										<form:form modelAttribute="kelasModel" method="POST" action="/kelas/store">
+										<form:form modelAttribute="kelasModel" id="kelasModel" method="POST" action="/kelas/store">
 											<div class="form-group">
 												<label>Kode</label>
 												<form:input path="kelasKode" placeholder="Masukan Kode" class="form-control boxed"/>

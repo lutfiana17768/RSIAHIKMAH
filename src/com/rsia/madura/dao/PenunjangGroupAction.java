@@ -45,7 +45,7 @@ public class PenunjangGroupAction implements PenunjangGroupDAO {
 
 	public List<MPenunjangGroup> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPenunjangGroup> query = current.createQuery("FROM MPenunjangGroup p WHERE p.pmedisgroupAktif = :pmedisgroupAktif", MPenunjangGroup.class).setMaxResults(limit);
+		Query<MPenunjangGroup> query = current.createQuery("FROM MPenunjangGroup p WHERE p.pmedisgroupAktif = :pmedisgroupAktif", MPenunjangGroup.class).setFirstResult((page-1)*limit).setMaxResults(limit);
 		query.setParameter("pmedisgroupAktif", "Y");
 		List<MPenunjangGroup> result = query.getResultList();
 

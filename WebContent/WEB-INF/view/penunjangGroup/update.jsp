@@ -24,14 +24,15 @@
 									<form:select path="pmedisgroupMaster" class="form-control boxed input-lg">
 										<form:option value="" label="--- Pilih Laporan ---"></form:option>
 										<c:forEach var="laporan" items="${laporan}" varStatus="loop">
-											<option value="${laporan.key}">${laporan.value}</option>
+											<form:option value="${laporan.key}" label="${laporan.value}" />
 										</c:forEach>
 									</form:select>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary"> Submit </button>
+							<button type="submit" class="btn btn-primary mb-0"> Submit </button>
+							<a href="/penunjang-group" class="btn btn-danger mb-0"> Batal </a>
 						</div>
 					</form:form>
 				</div>

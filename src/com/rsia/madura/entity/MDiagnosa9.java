@@ -7,7 +7,7 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="t_diagnosa9")
@@ -24,7 +26,7 @@ public class MDiagnosa9 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "diagnosa9_id")
-	private int diagnosa9ID;
+	private Integer diagnosa9ID;
 
     @Transient
     private Integer remove;
@@ -33,6 +35,7 @@ public class MDiagnosa9 {
 	@Column(name = "diagnosa9_dokter")
 	private Integer diagnosa9Dokter;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "diagnosa9_tanggal")
 	private Date diagnosa9Tanggal;
 
@@ -72,11 +75,11 @@ public class MDiagnosa9 {
 	@ManyToOne
 	private MIcd9 icd9;
 
-	public int getDiagnosa9ID() {
+	public Integer getDiagnosa9ID() {
 		return diagnosa9ID;
 	}
 
-	public void setDiagnosa9ID(int diagnosa9ID) {
+	public void setDiagnosa9ID(Integer diagnosa9ID) {
 		this.diagnosa9ID = diagnosa9ID;
 	}
 

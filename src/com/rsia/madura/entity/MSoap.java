@@ -26,7 +26,7 @@ public class MSoap {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "soap_id")
-	private int soapID;
+	private Integer soapID;
 
     @Transient
     private Integer remove;
@@ -74,11 +74,11 @@ public class MSoap {
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 
-	public int getSoapID() {
+	public Integer getSoapID() {
 		return soapID;
 	}
 
-	public void setSoapID(int soapID){
+	public void setSoapID(Integer soapID){
 		this.soapID = soapID;
 	}
 

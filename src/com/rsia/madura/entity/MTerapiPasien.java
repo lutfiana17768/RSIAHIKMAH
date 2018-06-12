@@ -18,7 +18,7 @@ public class MTerapiPasien {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="terapi_id")
-	private int terapiID;
+	private Integer terapiID;
 
     @Transient
     private Integer remove;
@@ -59,11 +59,11 @@ public class MTerapiPasien {
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 
-	public int getTerapiID() {
+	public Integer getTerapiID() {
 		return terapiID;
 	}
 
-	public void setTerapiID(int terapiID) {
+	public void setTerapiID(Integer terapiID) {
 		this.terapiID = terapiID;
 	}
 

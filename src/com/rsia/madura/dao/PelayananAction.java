@@ -26,11 +26,9 @@ public class PelayananAction implements PelayananDAO {
 
 	@Override
 	public List<MPendaftaran> getPelayanans() {
-		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
-
-		Query<MPendaftaran> query = current.createQuery("from MPendaftaran", MPendaftaran.class);
-
+		Query<MPendaftaran> query = current.createQuery("from MPendaftaran p WHERE p.pendaftaranAktif = :pendaftaranAktif ORDER BY pendaftaranID DESC", MPendaftaran.class);
+		query.setParameter("pendaftaranAktif", "Y");
 		List<MPendaftaran> Pelayanan = query.getResultList();
 
 		return Pelayanan;
@@ -38,20 +36,18 @@ public class PelayananAction implements PelayananDAO {
 
 	@Override
 	public List<MPendaftaran> getPelayanans(int page, int limit) {
-		// TODO Auto-generated method stub
-		Session current = sessionFactory.getCurrentSession();
-		Query<MPendaftaran> query = current.createQuery("from MPendaftaran", MPendaftaran.class);
-		List<MPendaftaran> Pelayanan = query.getResultList();
-		this.total = Pelayanan.size();
-		Pelayanan = this.getData(page, limit);
+		List<MPendaftaran> result = this.getData(page, limit);
+		this.total = this.getPelayanans().size();
 
-		return Pelayanan;
+		return result;
+
 	}
 
 	public List<MPendaftaran> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPendaftaran> query = current.createQuery("from MPendaftaran", MPendaftaran.class)
+		Query<MPendaftaran> query = current.createQuery("from MPendaftaran p WHERE p.pendaftaranAktif = :pendaftaranAktif ORDER BY pendaftaranID DESC", MPendaftaran.class)
 				.setFirstResult((page - 1) * limit).setMaxResults(limit);
+		query.setParameter("pendaftaranAktif", "Y");
 		List<MPendaftaran> Result = query.getResultList();
 
 		return Result;

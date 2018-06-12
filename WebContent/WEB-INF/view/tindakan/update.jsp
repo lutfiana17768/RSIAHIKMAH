@@ -11,13 +11,13 @@
 									<div class="title-block">
 										<h3 class="title">Update tindakan
 											<div class="float-right">
-												<button type="submit" class="btn btn-primary rounded-0" onclick="$('form').submit()" style="margin-right: 3px">Simpan</button>
+												<button type="submit" class="btn btn-primary rounded-0" onclick="$('#tindakanModel').submit()" style="margin-right: 3px">Simpan</button>
 												<a href="/tindakan" class="pull-right btn btn-danger rounded-0">Batal</a>
 											</div>
 										</h3>
 									</div>
 									<section class="form-kelas-baru">
-										<form:form modelAttribute="tindakanModel" method="POST" action="/tindakan/update">
+										<form:form modelAttribute="tindakanModel" id="tindakanModel" method="POST" action="/tindakan/update">
 											<form:hidden path="tindakanID" />
 											<form:hidden path="tindakanAktif" />
 											<form:hidden path="tindakanCreatedBy" />

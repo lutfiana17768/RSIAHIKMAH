@@ -31,6 +31,7 @@
 						</div>
 						<div class="form-group mb-0">
 							<button type="submit" class="btn btn-primary mb-0"> Submit </button>
+							<a href="/penunjang-group" class="btn btn-danger mb-0"> Batal </a>
 						</div>
 					</form:form>  
 				</div>
@@ -49,15 +50,15 @@
                         	<jsp:include page="inc/tabel.jsp" />
                         </section>
                     </div>
+				    <div class="fixed-table-pagination" style="display: block; margin-top:25px">
+				         <form action="" method="get">
+				                <div class="pull-right pagination" style="margin-right: 20px;">
+				                     ${link }
+				                </div>
+				          </form>
+				    </div>
                 </div>
             </div>
-        </div>
-        <div class="fixed-table-pagination" style="display: block; margin-top:25px">
-             <form action="" method="get">
-                    <div class="pull-right pagination" style="margin-right: 20px;">
-                         
-                    </div>
-              </form>
         </div>
         <div class="clearfix"></div>
     </section>

@@ -24,7 +24,7 @@ public class MTindakanPasien {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="tindakanpasienpasien_id")
-	private int tindakanpasienID;
+	private Integer tindakanpasienID;
 
     @Transient
     private Integer remove;
@@ -51,7 +51,7 @@ public class MTindakanPasien {
 	private Timestamp tindakanpasienDeletedDate;
 
 	@Column(name="tindakanpasien_revised")
-	private int tindakanpasienRevised;
+	private Integer tindakanpasienRevised;
 
 	@ManyToOne
 	private MTindakan tindakan;
@@ -62,11 +62,11 @@ public class MTindakanPasien {
 	@ManyToOne
 	private MPendaftaran pendaftaran;
 	
-	public int getTindakanpasienID() {
+	public Integer getTindakanpasienID() {
 		return tindakanpasienID;
 	}
 
-	public void setTindakanpasienID(int tindakanpasienID) {
+	public void setTindakanpasienID(Integer tindakanpasienID) {
 		this.tindakanpasienID = tindakanpasienID;
 	}
 
@@ -119,11 +119,11 @@ public class MTindakanPasien {
 		this.tindakanpasienUpdatedDate = tindakanpasienUpdatedDate;
 	}
 
-	public int getTindakanpasienRevised() {
+	public Integer getTindakanpasienRevised() {
 		return tindakanpasienRevised;
 	}
 
-	public void setTindakanpasienRevised(int tindakanpasienRevised) {
+	public void setTindakanpasienRevised(Integer tindakanpasienRevised) {
 		this.tindakanpasienRevised = tindakanpasienRevised;
 	}
 

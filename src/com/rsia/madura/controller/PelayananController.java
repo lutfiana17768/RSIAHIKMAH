@@ -163,10 +163,17 @@ public class PelayananController {
 	}	
 
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-	public String DeleteUpdate(Model model){
+	public String DeleteUpdate(Model model, @PathVariable int id){
+		Date currentTime = new Date(System.currentTimeMillis());
+		MPendaftaran pelayananModel = pelayananService.getPelayanan(id);
 		
+		pelayananModel.setPendaftaranAktif("T");
+		pelayananModel.setPendaftaranDeletedBy("Admin");
+		pelayananModel.setPendaftaranDeletedDate(currentTime);
 		
-		return "pelayanan/update";
+		pelayananService.delete(pelayananModel);
+
+		return "redirect: /pelayanan/";
 	}
 	
 	@InitBinder

@@ -48,7 +48,7 @@ public class PenunjangGroupController {
 		model.addAttribute("penunjangGroups", penunjangGroups);
 		model.addAttribute("laporan", laporan);
 		model.addAttribute("penunjangGroupModel", penunjangGroupModel);
-		model.addAttribute("links", links);
+		model.addAttribute("link", links);
 		return "penunjangGroup/index";
 	}
 
@@ -74,7 +74,7 @@ public class PenunjangGroupController {
 
 		model.addAttribute("penunjangGroups", penunjangGroups);
 		model.addAttribute("laporan", laporan);
-		model.addAttribute("links", links);
+		model.addAttribute("link", links);
 		model.addAttribute("penunjangGroupModel", penunjangGroupModel);
 
 		return "penunjangGroup/update";

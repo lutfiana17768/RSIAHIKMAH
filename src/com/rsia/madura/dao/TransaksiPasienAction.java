@@ -141,7 +141,7 @@ public class TransaksiPasienAction implements TransaksiPasienDAO {
 	public void TransaksiPasienDelete(MTransaksiPasien TransaksiPasienModel) {
 		Session current = sessionFactory.getCurrentSession();
 
-		current.saveOrUpdate(TransaksiPasienModel);
+		current.remove(TransaksiPasienModel);
 
 	}
 }
