@@ -31,7 +31,13 @@
                         <div class="form-group">
                             <label>Password</label>
                             <form:input path="userPassword" type="password" placeholder="password" class="form-control"/>
-                         </div>                  
+                         </div>
+                        <div class="form-group">
+                            <form:select path="userRole" class="form-control boxed" multiple="true">
+                                <option value="">--- Pilih Role ---</option>
+                                <form:options items="${roles}" itemValue="role_id" itemLabel="rolePriv" />
+                            </form:select>
+                        </div>
                          <div class="form-group">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
