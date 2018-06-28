@@ -42,7 +42,7 @@ public class RoleAction implements RoleDAO {
 		current.save(roleModel);
 		current.flush();
 		
-		return roleModel.getRole_id();
+		return roleModel.getRoleID();
 
 	}
 
@@ -53,7 +53,7 @@ public class RoleAction implements RoleDAO {
 		current.saveOrUpdate(roleModel);
 		current.flush();
 		
-		return roleModel.getRole_id();
+		return roleModel.getRoleID();
 
 	}
 
@@ -64,7 +64,7 @@ public class RoleAction implements RoleDAO {
 		current.saveOrUpdate(roleModel);
 		current.flush();
 		
-		return roleModel.getRole_id();
+		return roleModel.getRoleID();
 
 	}
 

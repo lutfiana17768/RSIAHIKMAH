@@ -80,14 +80,16 @@
 
 		<security:intercept-url pattern="/resources/**" access="permitAll" />
 		<security:intercept-url pattern="/login/**" access="permitAll" />
-		<security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
+		<!-- uncomment line below to activate login -->
+		<!-- <security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" /> -->
 
 		<security:form-login login-page="/login" 
 		    default-target-url="/"
+			authentication-success-handler-ref="loginSuccessHandler"
 			authentication-failure-url="/login?error" 
 			username-parameter="user_name"
 			password-parameter="user_password"
-			login-processing-url="/login"   />
+			login-processing-url="/login" />
 
 		<security:logout logout-success-url="/login?logout" delete-cookies="JSESSIONID" />
 		<security:csrf />
@@ -110,5 +112,6 @@
 		<property name="userDAO" ref="userDAO" />
 	</bean>
 
+    <bean id="loginSuccessHandler" class="com.rsia.madura.security.LoginSuccessHandler" />
 
 </beans>

@@ -157,6 +157,9 @@
 									</li>
 								</ul>
 							</li>
+							<li>
+								<a href="/login?logout"> <i class="fa fa-sign-out"></i> Logout </a>
+							</li>
 						</ul>
 					</nav>
 					<footer class="sidebar-footer">

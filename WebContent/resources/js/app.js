@@ -1420,7 +1420,10 @@ $('.datepicker').datepicker({
 });
 
 // select 2 single
-// $('.select2-single').select2();
+$('.select2-single').select2();
+
+$('.select2-multiple').select2({
+});
 
 $(function () {
     $('.datetimepicker').datetimepicker({
@@ -1441,3 +1444,30 @@ $(function(){
 	    })
 	}
 })
+
+$('.select2-multiple').on('select2:select', function (e) {
+    var role = e.params.data.id
+    var addInput = $('<input type="hidden">')
+    addInput.attr('value', role)
+    addInput.attr('class', 'form-roles')
+    $('#userModel').append(addInput);
+    renameSelect2()
+});
+
+$('.select2-multiple').on('select2:unselect', function (e) {
+    var role = e.params.data.id
+    console.log('event hapus',$('input[value='+role+']'))
+    $('input[value='+role+']').remove();
+    renameSelect2()
+});
+
+function renameSelect2() {
+    var attrName = $('.select2-multiple').attr('data-name');
+    if (attrName) {
+        $('.form-roles').each(function (e,i) {
+            $(this).attr('name', attrName+'[' + e + '].role.roleID');
+        });
+    } else {
+        console.log('error message: attirbute data-name is required');
+    }
+}

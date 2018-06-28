@@ -15,7 +15,7 @@ public class MRole {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="role_id")
-	private int role_id;
+	private int roleID;
 	
 	@Column(name="s_usergroup_id")
 	private int usergroupId;
@@ -50,12 +50,12 @@ public class MRole {
 	@Column(name="role_deleted_date")
 	private Timestamp roleDeletedDate;
 
-	public int getRole_id() {
-		return role_id;
+	public int getRoleID() {
+		return roleID;
 	}
 
-	public void setRole_id(int role_id) {
-		this.role_id = role_id;
+	public void setRoleID(int roleID) {
+		this.roleID = roleID;
 	}
 
 	public int getUsergroupId() {
@@ -148,7 +148,7 @@ public class MRole {
 
 	@Override
 	public String toString() {
-		return "s_Role [role_id=" + role_id + ", usergroupId=" + usergroupId + ", menuId=" + menuId + ", roleAutoload="
+		return "s_Role [roleID=" + roleID + ", usergroupId=" + usergroupId + ", menuId=" + menuId + ", roleAutoload="
 				+ roleAutoload + ", rolePriv=" + rolePriv + ", roleAktif=" + roleAktif + ", roleCreatedDate="
 				+ roleCreatedDate + ", roleCreatedBy=" + roleCreatedBy + ", roleUpdatedDate=" + roleUpdatedDate
 				+ ", roleUpdatedBy=" + roleUpdatedBy + ", roleRevised=" + roleRevised + ", roleDeletedDate="
