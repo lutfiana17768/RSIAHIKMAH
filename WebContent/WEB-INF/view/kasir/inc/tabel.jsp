@@ -8,7 +8,6 @@
 			<div class="card-header">
 				<div class="header-block">
 					<h3 class="title"> List Kasir</h3>
-					<a href="/kasir/tambah" class="btn btn-sm btn-primary rounded-0">Tambah</a>
 				</div>
 			</div>
 			<div class="card-block">

@@ -123,7 +123,7 @@ public class UserAction implements UserDAO {
 	public int userUpdate(MUser userModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(userModel);
+		current.merge(userModel);
 		current.flush();
 		
 		return userModel.getUserID();

@@ -17,14 +17,14 @@ import com.rsia.madura.entity.MUser;
 public class UserServiceAction implements UserService {
 	@Autowired
 	private UserDAO userDAO;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+
 	@Override
 	@Transactional
 	public List<MUser> getUsers() {
-		
+
 		return userDAO.getUsers();
 	}
 
@@ -37,7 +37,7 @@ public class UserServiceAction implements UserService {
 	@Override
 	@Transactional
 	public MUser getUser(int userId) {
-		
+
 		return userDAO.getUser(userId);
 	}
 
@@ -57,7 +57,8 @@ public class UserServiceAction implements UserService {
 	@Transactional
 	public int store(MUser data) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		// Principal principal = SecurityContextHolder.getContext().getAuthentication(); // get current user
+		// Principal principal = SecurityContextHolder.getContext().getAuthentication();
+		// // get current user
 
 		if (data.getUserRole() != null) {
 			data.getUserRole().forEach((role) -> {
@@ -69,7 +70,7 @@ public class UserServiceAction implements UserService {
 		data.setUserCreatedBy("Admin");
 		// data.setUserCreatedBy(principal.getName());
 		data.setUserCreatedDate(currentTime);
-		
+
 		return userDAO.userStore(data);
 
 	}
@@ -78,10 +79,18 @@ public class UserServiceAction implements UserService {
 	@Transactional
 	public int update(MUser data) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		
-		data.setUserUpdatedBy("Admin");	
+
+		if (data.getUserRole() != null) {
+			data.getUserRole().forEach((role) -> {
+				role.setUser(data);
+			});
+		}
+		if (data.getChangePassword() != null) {
+			data.setUserPassword(bCryptPasswordEncoder.encode(data.getChangePassword()));
+		}
+		data.setUserUpdatedBy("Admin");
 		data.setUserUpdatedDate(currentTime);
-		
+
 		return userDAO.userUpdate(data);
 
 	}
@@ -89,7 +98,7 @@ public class UserServiceAction implements UserService {
 	@Override
 	@Transactional
 	public int delete(MUser data) {
-		
+
 		return userDAO.userDelete(data);
 
 	}

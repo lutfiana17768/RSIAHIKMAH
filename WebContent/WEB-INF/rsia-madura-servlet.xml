@@ -37,7 +37,7 @@
         <property name="driverClass" value="org.postgresql.Driver" />
         <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/rsia_hikmah" />
         <property name="user" value="postgres" />
-        <property name="password" value="rsiahikmahsawi" /> 
+        <property name="password" value="root" /> 
 
         <!-- these are connection pool properties for C3P0 -->
         <property name="minPoolSize" value="5" />
@@ -80,8 +80,53 @@
 
 		<security:intercept-url pattern="/resources/**" access="permitAll" />
 		<security:intercept-url pattern="/login/**" access="permitAll" />
-		<!-- uncomment line below to activate login -->
-		<security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
+		<!-- kasir -->
+		<security:intercept-url pattern="/kasir**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/pendaftaran**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/pelayanan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/history**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+
+		<!-- additional kasir -->
+		<security:intercept-url pattern="/kamar**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/kelas**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/kondisi**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/paket**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/pasien**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/penunjang**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/penunjang-group**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/ruangan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/tindakan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/rujukan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		
+		<!-- apotek -->
+		<security:intercept-url pattern="/barang**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/satuan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/perusahaan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/order**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/terima**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/retur-beli**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/jual**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/retur-jual**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/opnamet**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/stok-obat**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/laporan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/kartu-stok**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+
+		<!-- penggajian -->
+		<security:intercept-url pattern="/pegawai**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_PENGGAJIAN')" />
+		<security:intercept-url pattern="/gaji**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_PENGGAJIAN')" />
+		<security:intercept-url pattern="/jabatan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_PENGGAJIAN')" />
+
+		<!-- admin -->
+		<security:intercept-url pattern="/agama**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/user**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/provinsi**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/kota**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/kecamatan**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/kelurahan**" access="hasRole('ROLE_ADMIN')" />
+
+		<!-- base -->
+		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK', 'ROLE_PENGGAJIAN', 'ROLE_KASIR')" />
 
 		<security:form-login login-page="/login" 
 		    default-target-url="/"

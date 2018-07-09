@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,7 +49,7 @@ public class UserController {
 		model.addAttribute("users", users);
 		model.addAttribute("roles", roles);
 		model.addAttribute("link", link);
-		// model.addAttribute("footerjs", "../user/inc/footerjs.jsp");
+		model.addAttribute("footerjs", "../user/inc/footerjs.jsp");
 
 		return "user/index";
 	}
@@ -58,4 +59,32 @@ public class UserController {
 		userService.store(userModel);
 		return this.uri;
 	}
+
+	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+	public String FormUpdate(Model model, @PathVariable int id) {
+
+		MUser userModel = userService.getUser(id);
+		List<MPegawai> pegawais = pegawaiService.getPegawai();
+		List<MRole> roles = roleService.getRoles();
+
+		model.addAttribute("pegawais", pegawais);
+		model.addAttribute("userModel", userModel);
+		model.addAttribute("roles", roles);
+		model.addAttribute("footerjs", "../user/inc/footerjs.jsp");
+
+		return "user/update";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String Update(@ModelAttribute("userModel") MUser userModel) {
+		userService.update(userModel);
+		return this.uri;
+	}
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String delete(Model model, @PathVariable int id) {
+		MUser userModel = userService.getUser(id);
+		userService.delete(userModel);
+		return this.uri;
+	}	
 }

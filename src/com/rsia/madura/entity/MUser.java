@@ -10,81 +10,85 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.FetchType;
 import javax.persistence.CascadeType;
 
 @Entity
-@Table(name="s_user")
+@Table(name = "s_user")
 public class MUser {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="user_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
 	private int userID;
-	
-	@Column(name="user_name")
+
+	@Column(name = "user_name", unique = true)
 	private String userName;
-	
-	@Column(name="user_password")
+
+	@Column(name = "user_password")
 	private String userPassword;
-	
-	@Column(name="s_usergroup_id")
+
+	@Column(name = "s_usergroup_id")
 	private int userGroupId;
-	
-	@Column(name="user_revised")
+
+	@Column(name = "user_revised")
 	private int userRevised;
-	
+
 	// @Column(name="m_pegawai_id")
 	// private int pegawaiId;
-	
-	@Column(name="user_aktif")
+
+	@Column(name = "user_aktif")
 	private String userAktif;
-	
-	@Column(name="user_created_date")
+
+	@Column(name = "user_created_date")
 	private Timestamp userCreatedDate;
-	
-	@Column(name="user_created_by")
+
+	@Column(name = "user_created_by")
 	private String userCreatedBy;
-	
-	@Column(name="user_updated_date")
+
+	@Column(name = "user_updated_date")
 	private Timestamp userUpdatedDate;
-	
-	@Column(name="user_updated_by")
+
+	@Column(name = "user_updated_by")
 	private String userUpdatedBy;
-	
-	@Column(name="user_counterid")
+
+	@Column(name = "user_counterid")
 	private int userCounterId;
-	
-	@Column(name="user_login")
+
+	@Column(name = "user_login")
 	private Timestamp userLogin;
-	
-	@Column(name="user_logout")
+
+	@Column(name = "user_logout")
 	private Timestamp userLogout;
-	
-	@Column(name="user_starttime")
+
+	@Column(name = "user_starttime")
 	private Time userStartTime;
-	
-	@Column(name="user_endtime")
+
+	@Column(name = "user_endtime")
 	private Time userEndTime;
-	
-	@Column(name="user_cabang")
+
+	@Column(name = "user_cabang")
 	private int userCabang;
-	
-	@Column(name="reg_apps_id")
+
+	@Column(name = "reg_apps_id")
 	private int regAppsId;
-	
-	@Column(name="user_unit")
+
+	@Column(name = "user_unit")
 	private String userUnit;
-	
-	@Column(name="user_deleted_date")
+
+	@Column(name = "user_deleted_date")
 	private Timestamp userDeletedDate;
 
 	@ManyToOne
 	private MPegawai pegawai;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<MUserRole> userRole;
+
+	@Transient
+	private String changePassword;
 
 	public int getUserID() {
 		return userID;
@@ -127,11 +131,11 @@ public class MUser {
 	}
 
 	// public int getPegawaiId() {
-	// 	return pegawaiId;
+	// return pegawaiId;
 	// }
 
 	// public void setPegawaiId(int pegawaiId) {
-	// 	this.pegawaiId = pegawaiId;
+	// this.pegawaiId = pegawaiId;
 	// }
 
 	public String getUserAktif() {
@@ -260,6 +264,14 @@ public class MUser {
 
 	public void setUserRole(List<MUserRole> userRole) {
 		this.userRole = userRole;
+	}
+
+	public String getChangePassword() {
+		return this.changePassword;
+	}
+
+	public void setChangePassword(String changePassword) {
+		this.changePassword = changePassword;
 	}
 
 	@Override
