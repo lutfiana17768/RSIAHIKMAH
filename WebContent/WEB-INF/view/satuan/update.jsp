@@ -12,6 +12,11 @@
 						<h3 class="title"> Data Satuan </h3>
 					</div>
 					<form:form modelAttribute="satuanModel" method="POST" action="/satuan/update">
+					<form:input type="hidden" path="satuanID" />
+					<form:input type="hidden" path="satuanCreatedDate" />
+					<form:input type="hidden" path="satuanCreatedBy" />
+					<form:input type="hidden" path="satuanRevised" />
+					<form:input type="hidden" path="satuanAktif" />
 					
 						<div class="form-group">
 							<label for="exampleInputEmail1">Kode Satuan</label>

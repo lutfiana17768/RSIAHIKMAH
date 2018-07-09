@@ -91,9 +91,12 @@ public class BarangController {
 		List<MJenisBarang> jenisBarangResult = jenisBarangService.getJenisBarangs();
 		List<MSatuan> satuanResult = satuanService.getSatuans();
 		
+		Timestamp tglBuat = barangModel.getBarangCreatedDate();
+
 		model.addAttribute("barangModel", barangModel);
 		model.addAttribute("jenisBarang", jenisBarangResult);
 		model.addAttribute("satuan", satuanResult);
+		model.addAttribute("tgl", tglBuat);
 		model.addAttribute("footerjs", "../barang/inc/footerjs.jsp");
 		
 		return "/barang/update";
@@ -106,6 +109,7 @@ public class BarangController {
 		
 		barangModel.setBarangUpdatedDate(currentTime);
 		barangModel.setBarangUpdatedBy("Admin");
+		barangModel.setBarangRevised(barangModel.getBarangRevised()+1);
 		
 		barangService.update(barangModel);
 		

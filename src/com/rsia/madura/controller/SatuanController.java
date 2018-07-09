@@ -57,7 +57,6 @@ public class SatuanController {
 	public String satuanUpdateFormView(Model model, @PathVariable int id){
 		MSatuan result = satuanService.getSatuan(id);
 		
-		
 		model.addAttribute("satuanModel", result);
 		
 		return "satuan/update";
@@ -70,6 +69,7 @@ public class SatuanController {
 		
 		satuanModel.setSatuanUpdatedBy("Rizki");
 		satuanModel.setSatuanUpdatedDate(currentTime);
+		satuanModel.setSatuanRevised(satuanModel.getSatuanRevised()+1);
 		
 		satuanService.update(satuanModel);
 		
