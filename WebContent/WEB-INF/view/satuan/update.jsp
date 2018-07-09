@@ -9,27 +9,22 @@
 			<div class="col-md-6">
 				<div class="card card-block sameheight-item">
 					<div class="title-block">
-						<h3 class="title"> Data Provinsi </h3>
+						<h3 class="title"> Data Satuan </h3>
 					</div>
-					<form:form modelAttribute="provinsiModel" method="POST" action="/provinsi/update">
-						<form:hidden path="propinsi_id" />
-						<form:hidden path="propinsiCreatedBy" />
-						<form:hidden path="propinsiCreatedDate" />
-						<form:hidden path="propinsiAktif" />
-						
+					<form:form modelAttribute="satuanModel" method="POST" action="/satuan/update">
+					
 						<div class="form-group">
-							<label for="exampleInputEmail1">Kode Provinsi</label>
-							<form:input path="propinsiKode" class="form-control boxed"/>
+							<label for="exampleInputEmail1">Kode Satuan</label>
+								<form:input path="satuanKode" placeholder="Masukan Kode Satuan" class="form-control boxed"/>
 							</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">Nama Provinsi</label>
-							<form:input path="propinsiNama" class="form-control boxed"/>
+							<label for="exampleInputPassword1">Nama Satuan</label>
+								<form:input path="satuanNama" placeholder="Masukan Nama Satuan" class="form-control boxed"/>
 							 </div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary rounded-0">Update</button>
+							<button type="submit" class="btn btn-primary rounded-0">Simpan</button>
 						</div>
 					</form:form>
-					
 				</div>
 			</div>
 		</div>

@@ -11,15 +11,15 @@
 					<div class="title-block">
 						<h3 class="title"> Data Satuan </h3>
 					</div>
-					<form:form modelAttribute="satuanModel" method="POST" action="/satuan/store">
+					<form:form modelAttribute="satuanModel" method="POST" action="/satuan/update">
 					
 						<div class="form-group">
 							<label for="exampleInputEmail1">Kode Satuan</label>
-								<form:input path="satuanKode" placeholder="Masukan Kode Provinsi" class="form-control boxed"/>
+								<form:input path="satuanKode" placeholder="Masukan Kode Satuan" class="form-control boxed"/>
 							</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama Satuan</label>
-								<form:input path="satuanNama" placeholder="Masukan Nama Provinsi" class="form-control boxed"/>
+								<form:input path="satuanNama" placeholder="Masukan Nama Satuan" class="form-control boxed"/>
 							 </div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary rounded-0">Simpan</button>

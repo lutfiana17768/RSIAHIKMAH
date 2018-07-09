@@ -26,7 +26,7 @@
               <td> ${tempBarang.barangProfit } </td>
               <td> ${tempBarang.barangHet } </td>
               <%--<td> ${tempBarang.HargaJual } </td>--%>
-              <td> <a href="/barang/update/${tempBarang.barangId}" class="btn btn-info">Update</a>
+              <td> <a href="/barang/form-update/${tempBarang.barangId}" class="btn btn-info">Update</a>
                <a href="/barang/delete/${tempBarang.barangId}" class="btn btn-warning">Delete</a></td>
             </tr>
         </c:forEach>

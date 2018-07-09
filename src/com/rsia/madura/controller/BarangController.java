@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MGetBarang;
@@ -84,11 +85,16 @@ public class BarangController {
 		return this.uri;
 	}
 
-	@RequestMapping(value="/form-update")
-	public String BarangFormUpdateView(Model model, @RequestParam("IdBarang") int barangId){
-		MBarang barangModel = barangService.getBarang(barangId);
+	@RequestMapping(value="/form-update/{id}")
+	public String BarangFormUpdateView(Model model, @PathVariable int id){
+		MBarang barangModel = barangService.getBarang(id);
+		List<MJenisBarang> jenisBarangResult = jenisBarangService.getJenisBarangs();
+		List<MSatuan> satuanResult = satuanService.getSatuans();
 		
 		model.addAttribute("barangModel", barangModel);
+		model.addAttribute("jenisBarang", jenisBarangResult);
+		model.addAttribute("satuan", satuanResult);
+		model.addAttribute("footerjs", "../barang/inc/footerjs.jsp");
 		
 		return "/barang/update";
 	}
@@ -106,18 +112,18 @@ public class BarangController {
 		return this.uri;
 	}
 	
-	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public String barangDelete(@RequestParam("IdBarang") int barangId) {
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	public String barangDelete(Model model, @PathVariable int id) {
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-		MBarang barangModel = barangService.getBarang(barangId);
+		MBarang barangModel = barangService.getBarang(id);
 		
 		barangModel.setBarangAktif("T");
 		barangModel.setBarangDeletedDate(currentTime);
 		
 		barangService.delete(barangModel);
 		
-		return "/barang/list/?page=1&limit=10";
+		return this.uri;
 	}
 
 	@InitBinder

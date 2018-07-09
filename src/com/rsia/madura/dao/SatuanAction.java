@@ -26,7 +26,7 @@ public class SatuanAction implements SatuanDAO {
 	public List<MSatuan> getSatuans() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MSatuan> query = current.createQuery("from MSatuan", MSatuan.class);
+		Query<MSatuan> query = current.createQuery("from MSatuan Where satuanAktif = 'Y'", MSatuan.class);
 		List<MSatuan> result = query.getResultList();
 		
 		return result;
