@@ -85,7 +85,7 @@ public class MBarang {
 	}
 
 	public void setBarangId(int barangId) {
-		barangId = barangId;
+		this.barangId = barangId;
 	}
 
 	public int getBarangJenisId() {
@@ -93,7 +93,7 @@ public class MBarang {
 	}
 
 	public void setBarangJenisId(int barangJenisId) {
-		barangJenisId = barangJenisId;
+		this.barangJenisId = barangJenisId;
 	}
 
 	public String getBarangKode() {
@@ -101,7 +101,7 @@ public class MBarang {
 	}
 
 	public void setBarangKode(String barangKode) {
-		barangKode = barangKode;
+		this.barangKode = barangKode;
 	}
 
 	public String getBarangNama() {
@@ -109,7 +109,7 @@ public class MBarang {
 	}
 
 	public void setBarangNama(String barangNama) {
-		barangNama = barangNama;
+		this.barangNama = barangNama;
 	}
 
 	public int getBarangSatuanId() {
@@ -117,7 +117,7 @@ public class MBarang {
 	}
 
 	public void setBarangSatuanId(int barangSatuanId) {
-		barangSatuanId = barangSatuanId;
+		this.barangSatuanId = barangSatuanId;
 	}
 
 	public int getBarangVolume() {
@@ -125,7 +125,7 @@ public class MBarang {
 	}
 
 	public void setBarangVolume(int barangVolume) {
-		barangVolume = barangVolume;
+		this.barangVolume = barangVolume;
 	}
 
 	public String getBarangKeterangan() {
@@ -133,7 +133,7 @@ public class MBarang {
 	}
 
 	public void setBarangKeterangan(String barangKeterangan) {
-		barangKeterangan = barangKeterangan;
+		this.barangKeterangan = barangKeterangan;
 	}
 
 	public int getBarangKategoriId() {
@@ -141,7 +141,7 @@ public class MBarang {
 	}
 
 	public void setBarangKategoriId(int barangKategoriId) {
-		barangKategoriId = barangKategoriId;
+		this.barangKategoriId = barangKategoriId;
 	}
 
 	public int getBarangProfit() {
@@ -149,7 +149,7 @@ public class MBarang {
 	}
 
 	public void setBarangProfit(int barangProfit) {
-		barangProfit = barangProfit;
+		this.barangProfit = barangProfit;
 	}
 
 	public String getBarangJenis() {
@@ -157,7 +157,7 @@ public class MBarang {
 	}
 
 	public void setBarangJenis(String barangJenis) {
-		barangJenis = barangJenis;
+		this.barangJenis = barangJenis;
 	}
 
 	public String getBarangAktif() {
@@ -165,7 +165,7 @@ public class MBarang {
 	}
 
 	public void setBarangAktif(String barangAktif) {
-		barangAktif = barangAktif;
+		this.barangAktif = barangAktif;
 	}
 
 	public String getBarangCreatedBy() {
@@ -173,7 +173,7 @@ public class MBarang {
 	}
 
 	public void setBarangCreatedBy(String barangCreatedBy) {
-		barangCreatedBy = barangCreatedBy;
+		this.barangCreatedBy = barangCreatedBy;
 	}
 
 	public Timestamp getBarangCreatedDate() {
@@ -181,7 +181,7 @@ public class MBarang {
 	}
 
 	public void setBarangCreatedDate(Timestamp barangCreatedDate) {
-		barangCreatedDate = barangCreatedDate;
+		this.barangCreatedDate = barangCreatedDate;
 	}
 
 	public String getBarangUpdatedBy() {
@@ -189,7 +189,7 @@ public class MBarang {
 	}
 
 	public void setBarangUpdatedBy(String barangUpdatedBy) {
-		barangUpdatedBy = barangUpdatedBy;
+		this.barangUpdatedBy = barangUpdatedBy;
 	}
 
 	public Timestamp getBarangUpdatedDate() {
@@ -197,7 +197,7 @@ public class MBarang {
 	}
 
 	public void setBarangUpdatedDate(Timestamp barangUpdatedDate) {
-		barangUpdatedDate = barangUpdatedDate;
+		this.barangUpdatedDate = barangUpdatedDate;
 	}
 
 	public int getBarangRevised() {
@@ -205,7 +205,7 @@ public class MBarang {
 	}
 
 	public void setBarangRevised(int barangRevised) {
-		barangRevised = barangRevised;
+		this.barangRevised = barangRevised;
 	}
 
 	public int getBarangStokMin() {
@@ -213,7 +213,7 @@ public class MBarang {
 	}
 
 	public void setBarangStokMin(int barangStokMin) {
-		barangStokMin = barangStokMin;
+		this.barangStokMin = barangStokMin;
 	}
 
 	public int getBarangHet() {
@@ -221,7 +221,7 @@ public class MBarang {
 	}
 
 	public void setBarangHet(int barangHet) {
-		barangHet = barangHet;
+		this.barangHet = barangHet;
 	}
 
 	public Timestamp getBarangDeletedDate() {
@@ -229,7 +229,7 @@ public class MBarang {
 	}
 
 	public void setBarangDeletedDate(Timestamp barangDeletedDate) {
-		barangDeletedDate = barangDeletedDate;
+		this.barangDeletedDate = barangDeletedDate;
 	}
 
 	public List<MBarangDetail> getDetail() {

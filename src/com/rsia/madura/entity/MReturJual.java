@@ -2,6 +2,7 @@ package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -25,7 +26,7 @@ public class MReturJual {
 	private int returJualNo;
 	
 	@Column(name="returjual_tanggal")
-	private Timestamp returJualTanggal;
+	private Date returJualTanggal;
 	
 	@Column(name="returjual_jual")
 	private int returJualJual;
@@ -118,11 +119,11 @@ public class MReturJual {
 		this.returJualNo = returJualNo;
 	}
 
-	public Timestamp getReturJualTanggal() {
+	public Date getReturJualTanggal() {
 		return returJualTanggal;
 	}
 
-	public void setReturJualTanggal(Timestamp returJualTanggal) {
+	public void setReturJualTanggal(Date returJualTanggal) {
 		this.returJualTanggal = returJualTanggal;
 	}
 

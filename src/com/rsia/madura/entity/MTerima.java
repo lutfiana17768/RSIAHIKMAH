@@ -1,6 +1,7 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,7 +26,7 @@ public class MTerima {
 	private String terimaNo;
 	 
 	@Column(name="terima_tanggal")
-	private Timestamp terimaTanggal;
+	private Date terimaTanggal;
 	
 	@Column(name="terima_order_id")
 	private int terimaOrderId;
@@ -76,7 +77,7 @@ public class MTerima {
 	private int terimaBiayaLain;
 	
 	@Column(name="terima_barangjenis_id")
-	private int terimaBarangJenisId;
+	private Integer terimaBarangJenisId;
 	  
 	@Column(name="terima_cashback")
 	private int terimaCashback;
@@ -128,11 +129,11 @@ public class MTerima {
 		this.terimaNo = terimaNo;
 	}
 
-	public Timestamp getTerimaTanggal() {
+	public Date getTerimaTanggal() {
 		return terimaTanggal;
 	}
 
-	public void setTerimaTanggal(Timestamp terimaTanggal) {
+	public void setTerimaTanggal(Date terimaTanggal) {
 		this.terimaTanggal = terimaTanggal;
 	}
 
@@ -264,11 +265,11 @@ public class MTerima {
 		this.terimaBiayaLain = terimaBiayaLain;
 	}
 
-	public int getTerimaBarangJenisId() {
+	public Integer getTerimaBarangJenisId() {
 		return terimaBarangJenisId;
 	}
 
-	public void setTerimaBarangJenisId(int terimaBarangJenisId) {
+	public void setTerimaBarangJenisId(Integer terimaBarangJenisId) {
 		this.terimaBarangJenisId = terimaBarangJenisId;
 	}
 

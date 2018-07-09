@@ -22,13 +22,13 @@
             <th colspan="2">Action</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="order-list" class="table-form">
          <c:forEach var="temporder" items="${order}">
             <tr>
               <td> ${temporder.orderNomer } </td>
               <td> ${temporder.orderTanggal } </td>
               <td> ${temporder.orderJatuhTempo } </td>
-              <td> ${temporder.orderPerusahaan } </td>
+              <td> ${temporder.orderPerusahaanId } </td>
               <td> ${temporder.orderDiskon } </td>
               <td> ${temporder.orderCashback } </td>
               <td> ${temporder.orderTotal } </td>
@@ -39,8 +39,8 @@
               <td> ${temporder.orderStatus } </td>
               <td> ${temporder.orderGroup } </td>
               <td> ${temporder.orderKeterangan } </td>
-              <td> <a href="/order/update/${temporder.order_id}" class="btn btn-info">Update</a>
-               <a href="/order/delete/${temporder.order_id}" class="btn btn-warning">Delete</a></td>
+              <td> <a href="/order/update/${temporder.orderId}" class="btn btn-info">Update</a>
+               <a href="/order/delete/${temporder.orderId}" class="btn btn-warning">Delete</a></td>
             </tr>
         </c:forEach>
     </tbody>

@@ -1,6 +1,7 @@
 package com.rsia.madura.service;
 
 import java.util.List;
+import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,15 @@ public class ReturBeliServiceAction implements ReturBeliService {
 	@Override
 	@Transactional
 	public int store(MReturBeli returBeliModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if(returBeliModel.getDetail() != null) {
+			returBeliModel.getDetail().forEach((detail) ->{
+				detail.setReturBeli(returBeliModel);
+				detail.setReturBeliDetailCreatedBy("Admin");
+				detail.setReturBeliDetailCreatedDate(currentTime);
+			});
+		}
 
 		return returBeliDAO.returBeliStore(returBeliModel);
 	}

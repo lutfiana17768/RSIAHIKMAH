@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.GajiDAO;
 import com.rsia.madura.entity.MGaji;
+import com.rsia.madura.entity.MGetGaji;
 
 @Service
 public class GajiServiceAction implements GajiService {
@@ -23,7 +24,7 @@ public class GajiServiceAction implements GajiService {
 	}
 	@Override
 	@Transactional
-	public List<MGaji> getGajis(int page, int limit){
+	public List<MGetGaji> getGajis(int page, int limit){
 		return gajiDAO.getGajis(page, limit);
 	}
 	

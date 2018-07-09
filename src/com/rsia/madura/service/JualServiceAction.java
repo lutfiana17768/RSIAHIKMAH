@@ -1,6 +1,7 @@
 package com.rsia.madura.service;
 
 import java.util.List;
+import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,16 @@ public class JualServiceAction implements JualService {
 	@Override
 	@Transactional
 	public int store(MJual jualModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if(jualModel.getDetail() != null) {
+			jualModel.getDetail().forEach((detail) ->{
+				detail.setJual(jualModel);
+				detail.setJualDetailCreatedBy("Admin");
+				detail.setJualDetailPaket('N');
+				detail.setJualDetailCreatedDate(currentTime);
+			});
+		}
 		
 		return jualDAO.jualStore(jualModel);
 	}

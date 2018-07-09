@@ -19,15 +19,15 @@
 	<tbody>
 		<c:forEach var="tempBarang" items="${result}">
             <tr>
-              <td> ${tempBarang.KodeBarang } </td>
-              <td> ${tempBarang.NamaBarang } </td>
-              <td> ${tempBarang.JenisBarang } </td>
-              <td> ${tempBarang.IdSatuanBarang } </td>
-              <td> ${tempBarang.ProfitBarang } </td>
-              <td> ${tempBarang.HetBarang } </td>
-              <td> ${tempBarang.HargaJual } </td>
-              <td> <a href="/barang/update/${tempBarang.IdBarang}" class="btn btn-info">Update</a>
-               <a href="/barang/delete/${tempBarang.IdBarang}" class="btn btn-warning">Delete</a></td>
+              <td> ${tempBarang.barangKode } </td>
+              <td> ${tempBarang.barangNama } </td>
+              <td> ${tempBarang.barangJenis.barangJenisNama } </td>
+              <td> ${tempBarang.satuan.satuanKode } </td>
+              <td> ${tempBarang.barangProfit } </td>
+              <td> ${tempBarang.barangHet } </td>
+              <%--<td> ${tempBarang.HargaJual } </td>--%>
+              <td> <a href="/barang/update/${tempBarang.barangId}" class="btn btn-info">Update</a>
+               <a href="/barang/delete/${tempBarang.barangId}" class="btn btn-warning">Delete</a></td>
             </tr>
         </c:forEach>
 	</tbody>

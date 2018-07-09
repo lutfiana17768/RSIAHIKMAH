@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MGetBarang;
 
 @Repository
 public class BarangAction implements BarangDAO {
@@ -29,20 +30,20 @@ public class BarangAction implements BarangDAO {
 	}
 
 	@Override
-	public List<MBarang> getBarangs(int page, int limit) {
+	public List<MGetBarang> getBarangs(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MBarang> query = current.createQuery("from MBarang", MBarang.class);
-		List<MBarang> barang = query.getResultList();
+		Query<MGetBarang> query = current.createQuery("from MGetBarang", MGetBarang.class);
+		List<MGetBarang> barang = query.getResultList();
 		this.total = barang.size();
 		barang = this.getData(page, limit);
 		
 		return barang;
 	}
 
-	private List<MBarang> getData(int page, int limit) {
+	private List<MGetBarang> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-    	Query<MBarang> query = current.createQuery("from MBarang", MBarang.class).setFirstResult((page-1)*limit).setMaxResults(limit);
-        List<MBarang> Result = query.getResultList();
+    	Query<MGetBarang> query = current.createQuery("from MGetBarang", MGetBarang.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+        List<MGetBarang> Result = query.getResultList();
 
         return Result;
 	}

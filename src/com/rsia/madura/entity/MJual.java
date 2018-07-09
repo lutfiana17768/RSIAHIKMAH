@@ -1,6 +1,7 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,7 +26,7 @@ public class MJual {
 	private String jualNo;
 	
 	@Column(name="jual_tanggal")
-	private Timestamp jual_tanggal;
+	private Date jual_tanggal;
 	
 	@Column(name="jual_pendaftaran_id")
 	private int jualPendaftaranId;
@@ -160,11 +161,11 @@ public class MJual {
 		this.jualNo = jualNo;
 	}
 
-	public Timestamp getJual_tanggal() {
+	public Date getJual_tanggal() {
 		return jual_tanggal;
 	}
 
-	public void setJual_tanggal(Timestamp jual_tanggal) {
+	public void setJual_tanggal(Date jual_tanggal) {
 		this.jual_tanggal = jual_tanggal;
 	}
 

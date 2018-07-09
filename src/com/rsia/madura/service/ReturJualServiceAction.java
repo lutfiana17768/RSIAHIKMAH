@@ -1,6 +1,7 @@
 package com.rsia.madura.service;
 
 import java.util.List;
+import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,15 @@ public class ReturJualServiceAction implements ReturJualService {
 	@Override
 	@Transactional
 	public int store(MReturJual returJualModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if(returJualModel.getDetail() != null) {
+			returJualModel.getDetail().forEach((detail) ->{
+				detail.setReturJual(returJualModel);
+				detail.setReturJualDetailCreatedBy("Admin");
+				detail.setReturJualDetailCreatedDate(currentTime);
+			});
+		}
 		
 		return returJualDAO.returJualStore(returJualModel);
 	}

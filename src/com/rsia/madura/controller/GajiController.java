@@ -14,7 +14,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 import com.rsia.madura.entity.MGaji;
+import com.rsia.madura.entity.MGetGaji;
+import com.rsia.madura.entity.MPegawai;
+
 import com.rsia.madura.service.GajiService;
+import com.rsia.madura.service.PegawaiService;
 
 @Controller
 @RequestMapping("/gaji")
@@ -22,30 +26,36 @@ public class GajiController{
 	@Autowired
 	private GajiService GajiService;
 
+	@Autowired
+	private PegawaiService pegawaiService;
+
 	private String uri = "redirect: /gaji";
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model, 
 			@RequestParam(value="page", required=false, defaultValue = "1") int page, 
 			@RequestParam(value="limit", required=false, defaultValue = "10") int limit){
-		List<MGaji> result = GajiService.getGajis(page, limit);
+		List<MGetGaji> result = GajiService.getGajis(page, limit);
 		String link = GajiService.createLinks(page, limit);
 		MGaji gajiModel = new MGaji();
 
 		model.addAttribute("gaji", result);
 		model.addAttribute("link", link);
 		model.addAttribute("gajiModel", gajiModel);
-	return "gaji/index";	
+		
+		return "gaji/index";	
 	}
 	@RequestMapping(value="/tambah", method=RequestMethod.GET)
 	public String GajiFormView(Model model){
-		List<MGaji> result = GajiService.getGajis();
-		// String link = gajiService.createLinks(page, limit);
+		//List<MGaji> result = GajiService.getGajis();
 		MGaji gajiModel = new MGaji();
+		List<MPegawai> pegawaiResult = pegawaiService.getPegawai();
+
 		
-		model.addAttribute("gaji", result);
+		//model.addAttribute("gaji", result);
 		// model.addAttribute("link", link);
 		model.addAttribute("gajiModel", gajiModel);
+		model.addAttribute("pegawai", pegawaiResult);
 		
 		return "gaji/tambah";
 	}
@@ -55,7 +65,7 @@ public class GajiController{
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
 		gajiModel.setGajiAktif('Y');
-		gajiModel.setGajiCreatedBy("Rizki");
+		gajiModel.setGajiCreatedBy("Admin");
 		gajiModel.setGajiCreatedDate(currentTime);
 		
 		GajiService.store(gajiModel);
@@ -76,7 +86,7 @@ public class GajiController{
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
-		gajiModel.setGajiUpdatedBy("Rizki");
+		gajiModel.setGajiUpdatedBy("Admin");
 		gajiModel.setGajiUpdatedDate(currentTime);
 		
 		GajiService.update(gajiModel);
@@ -91,7 +101,7 @@ public class GajiController{
 		
 		MGaji gajiModel = GajiService.getGaji(id);
 		
-		// gajiModel.setGajiAktif("T");
+		gajiModel.setGajiAktif('T');
 		gajiModel.setGajiDeletedDate(currentTime);
 		
 		GajiService.delete(gajiModel);

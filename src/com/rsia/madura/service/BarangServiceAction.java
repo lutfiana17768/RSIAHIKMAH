@@ -1,5 +1,7 @@
 package com.rsia.madura.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MGetBarang;
+import com.rsia.madura.entity.MBarangDetail;
+
 import com.rsia.madura.dao.BarangDAO;
 
 @Service
@@ -22,7 +27,7 @@ public class BarangServiceAction implements BarangService {
 
 	@Override
 	@Transactional
-	public List<MBarang> getBarangs(int page, int limit) {
+	public List<MGetBarang> getBarangs(int page, int limit) {
 		
 		return barangDAO.getBarangs(page, limit);
 	}
@@ -43,7 +48,7 @@ public class BarangServiceAction implements BarangService {
 	@Override
 	@Transactional
 	public int store(MBarang barangModel) {
-		// TODO Auto-generated method stub
+        //return delDetail;
 		return barangDAO.barangStore(barangModel);
 	}
 

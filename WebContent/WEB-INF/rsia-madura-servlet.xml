@@ -37,7 +37,7 @@
         <property name="driverClass" value="org.postgresql.Driver" />
         <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/rsia_hikmah" />
         <property name="user" value="postgres" />
-        <property name="password" value="root" /> 
+        <property name="password" value="rsiahikmahsawi" /> 
 
         <!-- these are connection pool properties for C3P0 -->
         <property name="minPoolSize" value="5" />
@@ -81,7 +81,7 @@
 		<security:intercept-url pattern="/resources/**" access="permitAll" />
 		<security:intercept-url pattern="/login/**" access="permitAll" />
 		<!-- uncomment line below to activate login -->
-		<!-- <security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" /> -->
+		<security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
 
 		<security:form-login login-page="/login" 
 		    default-target-url="/"

@@ -1,6 +1,7 @@
 package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,10 +26,10 @@ public class MOrder {
 	private String orderNomer;
 	
 	@Column(name="order_tanggal")
-	private Timestamp orderTanggal;
+	private Date orderTanggal;
 	
 	@Column(name="order_jatuhtempo")
-	private String orderJatuhTempo;
+	private Date orderJatuhTempo;
 	
 	@Column(name="order_perusahaan_id")
 	private int orderPerusahaanId;
@@ -75,7 +76,6 @@ public class MOrder {
 	@Column(name="order_group")
 	private String orderGroup;
 	
-	
 	@Column(name="order_aktif")
 	private char orderAktif;
 	
@@ -116,19 +116,19 @@ public class MOrder {
 		this.orderNomer = orderNomer;
 	}
 
-	public Timestamp getOrderTanggal() {
+	public Date getOrderTanggal() {
 		return orderTanggal;
 	}
 
-	public void setOrderTanggal(Timestamp orderTanggal) {
+	public void setOrderTanggal(Date orderTanggal) {
 		this.orderTanggal = orderTanggal;
 	}
 
-	public String getOrderJatuhTempo() {
+	public Date getOrderJatuhTempo() {
 		return orderJatuhTempo;
 	}
 
-	public void setOrderJatuhTempo(String orderJatuhTempo) {
+	public void setOrderJatuhTempo(Date orderJatuhTempo) {
 		this.orderJatuhTempo = orderJatuhTempo;
 	}
 
@@ -309,7 +309,7 @@ public class MOrder {
 	}
 
 	public List<MOrderDetail> getDetail() {
-		return detail;
+		return this.detail;
 	}
 
 	public void setDetail(List<MOrderDetail> detail) {

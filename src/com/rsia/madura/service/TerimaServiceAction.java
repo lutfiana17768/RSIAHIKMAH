@@ -1,6 +1,7 @@
 package com.rsia.madura.service;
 
 import java.util.List;
+import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,12 +39,23 @@ public class TerimaServiceAction implements TerimaService {
 	@Transactional
 	public MTerima getTerima(int terimaId) {
 
+
+
 		return terimaDAO.getTerima(terimaId);
 	}
 
 	@Override
 	@Transactional
 	public int store(MTerima terimaModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if(terimaModel.getDetail() != null) {
+			terimaModel.getDetail().forEach((detail) ->{
+				detail.setTerima(terimaModel);
+				detail.setTerimaDetailCreatedBy("Admin");
+				detail.setTerimaDetailCreatedDate(currentTime);
+			});
+		}
 
 		return terimaDAO.terimaStore(terimaModel);
 	}

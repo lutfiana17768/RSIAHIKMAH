@@ -3,11 +3,12 @@ package com.rsia.madura.dao;
 import java.util.List;
 
 import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MGetBarang;
 
 public interface BarangDAO {
 
 	public List<MBarang> getBarangs();
-	public List<MBarang> getBarangs(int page, int limit);
+	public List<MGetBarang> getBarangs(int page, int limit);
 	public String createLinks(int page, int limit);
 	public MBarang getBarang(int barangId);
 	

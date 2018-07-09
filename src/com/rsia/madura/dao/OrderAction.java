@@ -103,7 +103,7 @@ public class OrderAction implements OrderDAO {
 	public int orderUpdate(MOrder orderModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(orderModel);
+		current.merge(orderModel);
 		current.flush();
 		
 		return orderModel.getOrderId();

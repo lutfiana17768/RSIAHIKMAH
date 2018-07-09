@@ -61,6 +61,15 @@ public class OrderServiceAction implements OrderService {
 	@Override
 	@Transactional
 	public int update(MOrder orderModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if (orderModel.getDetail() != null) {
+			orderModel.getDetail().forEach((detail) -> {
+				detail.setOrder(orderModel);
+				detail.setOrderDetailUpdatedBy("Admin");
+				detail.setOrderDetailUpdatedDate(currentTime);
+			});
+		}
 
 		return orderDAO.orderUpdate(orderModel);
 	}

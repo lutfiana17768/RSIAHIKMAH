@@ -64,7 +64,7 @@
 		                                <a href=""> Menu Master <i class="fa arrow"></i> </a>
 										<ul class="sidebar-nav collapse" aria-expanded="false">
 											<li><a href="/barang/form-add"> Master Barang</a></li>
-											<li><a href="/satuan"> Master Satuan</a></li>
+											<li><a href="/satuan/tambah"> Master Satuan</a></li>
 											<li><a href="/perusahaan/list/?page=1&limit=10"> Master Perusahaan</a></li>
 										</ul>
 									</li>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 // sesuaikan nama entitinya
 import com.rsia.madura.entity.MGaji;
+import com.rsia.madura.entity.MGetGaji;
 
 @Repository
 // sesuaikan nama file dan daonya
@@ -28,15 +29,16 @@ public class GajiAction implements GajiDAO {
 		return result;
 	}		
 	@Override
-	public List<MGaji> getGajis(int page, int limit){
+	public List<MGetGaji> getGajis(int page, int limit){
 		Session current = sessionFactory.getCurrentSession();
-		Query<MGaji> query = current.createQuery("from MGaji", MGaji.class);
-		List<MGaji> gaji = query.getResultList();
+		Query<MGetGaji> query = current.createQuery("from MGetGaji where gajiAktif = 'Y'", MGetGaji.class);
+		List<MGetGaji> gaji = query.getResultList();
 		this.total = gaji.size();
 		gaji = this.getData(page, limit);
 		
 		return gaji;
 	}
+	
 	@Override
 	public MGaji getGaji(int gajiId) {
 		Session current = sessionFactory.getCurrentSession();
@@ -75,10 +77,10 @@ public class GajiAction implements GajiDAO {
 		
 		current.saveOrUpdate(gajiModel);
 	}
-	public List<MGaji> getData( int page, int limit) {
+	public List<MGetGaji> getData( int page, int limit) {
     	Session current = sessionFactory.getCurrentSession();
-    	Query<MGaji> query = current.createQuery("from MGaji", MGaji.class).setFirstResult((page-1)*limit).setMaxResults(limit);
-        List<MGaji> Result = query.getResultList();
+    	Query<MGetGaji> query = current.createQuery("from MGetGaji where gajiAktif = 'Y'", MGetGaji.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+        List<MGetGaji> Result = query.getResultList();
 
         return Result;
     }

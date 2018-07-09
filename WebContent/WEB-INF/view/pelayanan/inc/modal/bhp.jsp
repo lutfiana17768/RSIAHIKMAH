@@ -20,12 +20,11 @@
                                 <div class="select2-wrapper">
                                     <select name="pakaiBarang" id="pakaiBarang" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Barang ---</option>
-                                        <% /**<c:forEach var="barang" items="${barangs}">
-                                            <option value="${barang.IdBarang }">
-                                                ${barang.NamaBarang }
+                                        <c:forEach var="barang" items="${barangs}">
+                                            <option value="${barang.barangId }">
+                                                ${barang.barangNama }
                                             </option>
                                         </c:forEach>
-                                        **/ %>
                                     </select>
                                 </div>
                             </div>

@@ -4,8 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../app/header.jsp" />
     <div class="container">
-        <div class="ca
-        rd">
+        <div class="card">
             <div class="card">
                 <div class="card-header">
                     <div class="header-block">

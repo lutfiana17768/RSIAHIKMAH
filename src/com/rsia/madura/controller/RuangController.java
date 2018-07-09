@@ -57,6 +57,8 @@ public class RuangController {
 		model.addAttribute("ruangs", ruangs);
 		model.addAttribute("kelases", kelases);
 		model.addAttribute("ruangModel", ruangModel);
+
+		System.out.println(ruangModel);
 		return "ruangan/tambah";
 	}
 

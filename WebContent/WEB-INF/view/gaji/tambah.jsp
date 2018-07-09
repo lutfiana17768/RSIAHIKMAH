@@ -19,6 +19,16 @@
                                 <label>No</label>
                                 <form:input path="gajiNo" placeholder="Masukan Nomer" class="form-control boxed"/>
                             </div>
+
+                            <div class="form-group">
+                                    <label class="control-label">Pegawai</label>
+                                    <form:select class="form-control boxed form-control-sm" path="gajiPegawaiId" >
+                                        <c:forEach var="temp" items="${pegawai}">
+                                          <option value="${temp.pegawaiID }"> ${temp.pegawaiNama } </option>
+                                        </c:forEach>
+                                    </form:select>
+                                </div>
+
                              
                             <div class="form-group">
                                 <label>Tanggal Penggajian</label>
@@ -26,11 +36,11 @@
                             </div>
                             
                             <div class="form-group">
-                                <label>Gaji Bulanan</label>
+                                <label>Gaji Bulan</label>
                                 <form:input path="gajiBulan" placeholder="Masukan Bulan gaji" class="form-control boxed"/>
                             </div>
                             <div class="form-group">
-                                <label>Gaji Tahunan</label>
+                                <label>Gaji Tahun</label>
                                 <form:input path="gajiTahun" placeholder="Masukan Gaji Tahunan" class="form-control boxed"/>
                             </div>
                         </div>

@@ -124,13 +124,13 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;">
+                                <img src="/resources/images/RSIA.png" style="width:80%; max-width:80px;">
                             </td>
                             
                             <td>
-                                Rumah Sakit Al-Hikmah<br>
-                                Jl. Baru no 112 B<br>
-                                Telp. (031) 0222, Fax (031) 01212
+                                Rumah Sakit Ibu Anak Hikmah Sawi<br>
+                                Jl. KH. Moh. Toha No.1A Bangkalan<br>
+                                Telp.-
                             </td>
                         </tr>
                     </table>

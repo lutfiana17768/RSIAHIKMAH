@@ -107,9 +107,13 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;">
+                                <img src="/resources/images/RSIA.png" style="width:30%; max-width:60px;">
                             </td>
-                            
+                            <td>
+                                Rumah Sakit Ibu Anak Hikmah Sawi<br>
+                                Jl. KH. Moh. Toha No.1A Bangkalan<br>
+                                Telp.-
+                            </td>
                             <td>
                                 <fmt:formatDate value="${now}" pattern="dd MMMM yyyy"/><br/>
                             </td>

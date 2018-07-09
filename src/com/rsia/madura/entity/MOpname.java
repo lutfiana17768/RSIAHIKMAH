@@ -2,6 +2,7 @@ package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -25,7 +26,7 @@ public class MOpname {
 	private String opnameNo;
 	
 	@Column(name="opname_tanggal")
-	private Timestamp opnameTanggal;
+	private Date opnameTanggal;
 	
 	@Column(name="opname_keterangan")
 	private String opnameKeterangan;
@@ -82,11 +83,11 @@ public class MOpname {
 		this.opnameNo = opnameNo;
 	}
 
-	public Timestamp getOpnameTanggal() {
+	public Date getOpnameTanggal() {
 		return opnameTanggal;
 	}
 
-	public void setOpnameTanggal(Timestamp opnameTanggal) {
+	public void setOpnameTanggal(Date opnameTanggal) {
 		this.opnameTanggal = opnameTanggal;
 	}
 

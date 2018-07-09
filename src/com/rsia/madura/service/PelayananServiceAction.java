@@ -179,43 +179,6 @@ public class PelayananServiceAction implements PelayananService{
                 diagnosaPasienDAO.DiagnosaPasienDelete(diagnosa);
             }
         });
-        
-        delDiagnosa9.forEach((diagnosa9) -> {
-            if (diagnosa9.getDiagnosa9ID() != null) {
-                diagnosa9DAO.Diagnosa9Delete(diagnosa9);
-            }
-        });
-
-        delTindakanPasien.forEach((tindakan) -> {
-            if (tindakan.getTindakanpasienID() != null) {
-                tindakanPasienDAO.TindakanPasienDelete(tindakan);
-            }
-        });
-
-        delTerapiPasien.forEach((terapi) -> {
-            if (terapi.getTerapiID() != null) {
-                terapiPasienDAO.TerapiPasienDelete(terapi);
-            }
-        });
-
-        delResep.forEach((resep) -> {
-            if (resep.getResepID() != null) {
-                resepDAO.resepDelete(resep);
-            }
-        });
-
-        delPenunjangTrans.forEach((penunjang) -> {
-            if (penunjang.getPenunjangtransID() != null) {
-                penunjangTransDAO.PenunjangTransDelete(penunjang);
-            }
-        });
-
-        delSoap.forEach((soap) -> {
-            if (soap.getSoapID() != null) {
-                soapDAO.SoapDelete(soap);
-            }
-        });
-
 
 	}
 

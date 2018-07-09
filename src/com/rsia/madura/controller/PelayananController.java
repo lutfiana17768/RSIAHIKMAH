@@ -152,6 +152,8 @@ public class PelayananController {
 
 		MPendaftaran dtPelayanan = pelayananService.getPelayanan(pendaftaranModel.getPendaftaranID());		
 
+		pendaftaranModel.setPaketID(0);
+
 		if (dtPelayanan != null) {
 			pendaftaranModel.setPasien(dtPelayanan.getPasien());
 			pendaftaranModel.setPendaftaranUpdatedBy("Admin");

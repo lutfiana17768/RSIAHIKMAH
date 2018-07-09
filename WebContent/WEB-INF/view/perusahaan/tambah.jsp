@@ -50,8 +50,9 @@
                        </div>
                        <div class="form-group">
                            <label>Nomer Contact Person</label>
-                           <form:input path="perusahaanContacPersonNo" placeholder="Masukan No CP Perusahaan" class="form-control"/>
+                           <form:input path="perusahaanContactPersonNo" placeholder="Masukan No CP Perusahaan" class="form-control"/>
                        </div>
+                       <%--
                        <div class="form-group">
                            <label>Kode Hutang</label>
                            <form:input path="perusahaanKodeHutang" placeholder="Masukan Kode Hutang" class="form-control"/>
@@ -60,21 +61,22 @@
                            <label>Kode Piutang</label>
                            <form:input path="perusahaanKodePiutang" placeholder="Masukan Kode Piutang" class="form-control"/>
                        </div>
+                       --%>
                        <div class="form-group">
                            <label>Nomer Kontrak</label>
                            <form:input path="perusahaanNomerKontrak" placeholder="Masukan Nomer Kontrak" class="form-control"/>
                        </div>
                        <div class="form-group">
                            <label>Tanggal Kontrak</label>
-                           <form:input path="perusahaanTglKontrak" placeholder="Masukan Tanggal Kontrak" class="form-control"/>
+                           <form:input type="date" path="perusahaanTglKontrak" placeholder="Masukan Tanggal Kontrak" class="form-control"/>
                        </div>
                        <div class="form-group">
                            <label>Tanggal Mulai</label>
-                           <form:input path="perusahaanTglMulai" placeholder="Masukan Tanggal Mulai Kontrak" class="form-control"/>
+                           <form:input type="date" path="perusahaanTglMulai" placeholder="Masukan Tanggal Mulai Kontrak" class="form-control"/>
                        </div>
                        <div class="form-group">
                            <label>Tanggal Akhir</label>
-                           <form:input path="perusahaanTglAkhir" placeholder="Masukan Tanggal Akhir Kontrak" class="form-control"/>
+                           <form:input type="date" path="perusahaanTglAkhir" placeholder="Masukan Tanggal Akhir Kontrak" class="form-control"/>
                        </div>
                        <div class="form-group">
                            <label>NPWP</label>

@@ -71,7 +71,7 @@ public class MReturBeliDetail {
 	private Timestamp ReturBeliDetailDeletedDate;
 	
 	@ManyToOne
-	private MReturBeliDetail returBeli;
+	private MReturBeli returBeli;
 
 	public int getReturBeliDetailId() {
 		return ReturBeliDetailId;
@@ -217,11 +217,11 @@ public class MReturBeliDetail {
 		ReturBeliDetailDeletedDate = returBeliDeletedDate;
 	}
 
-	public MReturBeliDetail getReturBeliDetail() {
+	public MReturBeli getReturBeli() {
 		return returBeli;
 	}
 
-	public void setReturBeliDetail(MReturBeliDetail returBeli) {
+	public void setReturBeli(MReturBeli returBeli) {
 		this.returBeli = returBeli;
 	}
 
