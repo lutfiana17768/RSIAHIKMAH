@@ -2,6 +2,7 @@ package com.rsia.madura.entity;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="t_terapi_pasien")
@@ -34,6 +37,13 @@ public class MTerapiPasien {
 
 	@Column(name="terapi_keterangan")
 	private String terapiKeterangan;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "terapi_tanggal")
+	private Date terapiTanggal;
+
+	@Column(name = "terapi_petugas")
+	private String terapiPetugas;
 
 	@Column(name="terapi_aktif")
 	private String terapiAktif;
@@ -107,12 +117,28 @@ public class MTerapiPasien {
 		this.terapiKeterangan = terapiKeterangan;
 	}
 
+	public Date getTerapiTanggal() {
+		return this.terapiTanggal;
+	}
+
+	public void setTerapiTanggal(Date terapiTanggal) {
+		this.terapiTanggal = terapiTanggal;
+	}
+
 	public String getTerapiAktif() {
 		return terapiAktif;
 	}
 
 	public void setTerapiAktif(String terapiAktif) {
 		this.terapiAktif = terapiAktif;
+	}
+	
+	public String getTerapiPetugas() {
+		return this.terapiPetugas;
+	}
+
+	public void setTerapiPetugas(String terapiPetugas) {
+		this.terapiPetugas = terapiPetugas;
 	}
 
 	public String getTerapiCreatedBy() {

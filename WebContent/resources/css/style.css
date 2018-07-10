@@ -1,34 +1,3 @@
-<<<<<<< HEAD
-.d_pasien-content {
-	padding: 0;
-	display: flex;
-}
-.d_pasien-form {
-	width: 100%;
-}
-@media (max-width: 767px) {
-	.pasien-form {
-		width: 100%;
-		margin-bottom: 0;
-	}
-}
-.d_pasien-button {
-	float: right;
-}
-.nav-title {
-	margin-left: 20px;
-}
-.input-label {
-	vertical-align:middle;
-	font-weight: normal;
-	font-size: 12px
-}
-.title {
-	font-weight: 700;
-}
-.btn {
-	border-radius: 0px;
-=======
 .d_pasien-content {
 	padding: 0;
 	display: flex;
@@ -61,5 +30,12 @@
 }
 .und_ln {
   border-bottom: 1px solid green;
->>>>>>> 55d6c2dc35b6f6676414e809ba5ad18603d3f01e
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }

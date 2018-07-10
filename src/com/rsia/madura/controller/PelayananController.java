@@ -11,7 +11,9 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Date;
+import java.security.Principal;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -39,6 +41,7 @@ import com.rsia.madura.entity.MIcd;
 import com.rsia.madura.entity.MIcd9;
 import com.rsia.madura.entity.MPenunjang;
 import com.rsia.madura.entity.MPaket;
+import com.rsia.madura.entity.MUser;
 
 import com.rsia.madura.service.PelayananService;
 import com.rsia.madura.service.PasienService;
@@ -55,6 +58,7 @@ import com.rsia.madura.service.IcdService;
 import com.rsia.madura.service.Icd9Service;
 import com.rsia.madura.service.PenunjangService;
 import com.rsia.madura.service.PaketService;
+import com.rsia.madura.service.UserService;;
 
 // pelayanan == pendaftaran
 
@@ -89,6 +93,8 @@ public class PelayananController {
 	private Icd9Service icd9Service;
 	@Autowired
 	private PenunjangService penunjangService;
+	@Autowired
+	private UserService userService;
 	
 	private String uri ="redirect: /pelayanan";
 
@@ -121,7 +127,15 @@ public class PelayananController {
 		List<MIcd> icds = icdService.findAll();
 		List<MIcd9> icd9s = icd9Service.findAll();
 		List<MPenunjang> penunjangs = penunjangService.findAll();
+		Principal principal = SecurityContextHolder.getContext().getAuthentication();
+		MUser user = userService.findByUserName(principal.getName());
 		
+		System.out.println("====");
+		System.out.println("====");
+		System.out.println(user.getPegawai());
+		System.out.println("====");
+		System.out.println("====");
+
 		if (pelayananModel.getPaketID() != null) {
 			MPaket paket = paketService.getById(pelayananModel.getPaketID());
 			model.addAttribute("paket", paket);
@@ -141,6 +155,7 @@ public class PelayananController {
 		model.addAttribute("icds", icds);
 		model.addAttribute("icd9s", icd9s);
 		model.addAttribute("penunjangs", penunjangs);
+		model.addAttribute("user", user);
 		model.addAttribute("footerjs", "../pelayanan/inc/footerjs.jsp");
 		
 		return "pelayanan/update";

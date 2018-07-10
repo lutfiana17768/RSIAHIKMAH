@@ -76,7 +76,7 @@ public class KasirController {
 		model.addAttribute("rentangHari", rentangHari);
 		model.addAttribute("footerjs", "../kasir/inc/footerjs.jsp");
 		
-		return "kasir/tambah";
+		return "kasir/pembayaran";
 	}
 	
 	@RequestMapping(value="/store", method=RequestMethod.POST)

@@ -238,7 +238,7 @@
 
                 </div>
                 <div class="tab-pane fade" id="tab-bhp">
-                    <button type="button" id="add_pakai" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-pakai">Tambah</button>
+                    <button type="button" id="add_terapi" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-terapi">Tambah</button>
                     <div class="table-responsive">
 
                     <jsp:include page="inc/tabel/bhp.jsp" />

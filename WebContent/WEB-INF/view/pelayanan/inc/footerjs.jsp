@@ -32,7 +32,7 @@ $(document).ready(function(){
 	var tindakan_length = $('#pelayanan-tindakan-list').find('tr').length;
     var diagnosapasien_length = $('#pelayanan-diagnosapasien-list').find('tr').length;
 	var diagnosa9_length = $('#pelayanan-diagnosa9-list').find('tr').length;
-    var pakai_length = $('#pelayanan-pakai-list').find('tr').length;
+    var terapi_length = $('#pelayanan-terapi-list').find('tr').length;
     var resep_length = $('#pelayanan-resep-list').find('tr').length;
     var penunjangtrans_length = $('#pelayanan-penunjangtrans-list').find('tr').length;
     var soap_length = $('#pelayanan-soap-list').find('tr').length;
@@ -106,13 +106,13 @@ $(document).ready(function(){
                 });
             });
 
-            $('#pelayanan-pakai-list tr').map(function(line){
+            $('#pelayanan-terapi-list tr').map(function(line){
                 $(this).find('td').each(function (i) {
                     if ($(this).attr('data-save') == '1') {
                         var name = $(this).attr('data-name');
                         var value = $(this).text();
                         var new_input = $('<input type="hidden">');
-                        new_input.attr('name','pakai[' + line + '].' + name);
+                        new_input.attr('name','terapi[' + line + '].' + name);
                         new_input.attr('value',value);
                         $('#pelayanan-form').append(new_input);
                     }
@@ -186,10 +186,10 @@ $(document).ready(function(){
             $('#modal-pelayanan-tindakan').modal('show');
         });
         
-        $('#add_pakai').click(function(){
-            $('#form-pelayanan-pakai').find('input,select').val('');
-            $('#pakai_mode').val('new');
-            $('#modal-pelayanan-pakai').modal('show');
+        $('#add_terapi').click(function(){
+            $('#form-pelayanan-terapi').find('input,select').val('');
+            $('#terapi_mode').val('new');
+            $('#modal-pelayanan-terapi').modal('show');
         });
         $('#add_resep').click(function(){
             $('#form-pelayanan-resep').find('input,select').val('');
@@ -464,52 +464,58 @@ $(document).ready(function(){
 
         }); 
 
-        $('#simpan-pakai').click(function(){
-            var pakai_tinggi,mode,counter,id_row;
-            var mode = $('#pakai_mode').val();
+        $('#simpan-terapi').click(function(){
+            var terapi_tinggi,mode,counter,id_row;
+            var mode = $('#terapi_mode').val();
 
             if(mode == 'new')
             {
                 var tr = $('<tr>');
-                counter = pakai_length+1;
-                tr.attr('id','pakai_'+counter);
+                counter = terapi_length+1;
+                tr.attr('id','terapi_'+counter);
             }
             else
             {
-                id_row = $('#pakai_edit').val();
+                id_row = $('#terapi_edit').val();
                 counter = id_row;
-                var tr = $('#pakai_'+id_row);
+                var tr = $('#terapi_'+id_row);
                 tr.empty();
             }
 
-            pakaiID = $('#pakaiID').val();
-            pakaiBarang = $('#pakaiBarang').val() ||0;
-            pakaiSatuan = $('#pakaiSatuan').val() ||0;
-            pakaiJumlah = $('#pakaiJumlah').val() ||0;
-            pakaiHarga = $('#pakaiHarga').val() ||0;
-            pakaiSubtotal = $('#pakaiSubtotal').val() ||0;
-            pakaiKeterangan = $('#pakaiKeterangan').val() ||0;
+            terapiID = $('#terapiID').val();
+            terapiTanggal = $('#terapiTanggal').val() || 0;
+            terapiBarang = $('#terapiBarang').val() ||0;
+            terapiBarangText = $('#terapiBarang option:selected').text();
+            terapiDosis = $('#terapiDosis').val() ||0;
+            terapiJumlah = $('#terapiJumlah').val() ||0;
+            terapiHarga = $('#terapiHarga').val() ||0;
+            terapiSubtotal = terapiJumlah * terapiHarga ||0;
+            terapiKeterangan = $('#terapiKeterangan').val() || 0;
+            terapiPetugas = $('#terapiPetugas').attr('data-value') ||0;
             
-            tr.append('<td data-used="1" data-save="1" data-name="pakaiBarang" data-kolom-id="pakaiBarang">'+pakaiBarang+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="pakaiSatuan" data-kolom-id="pakaiSatuan">'+pakaiSatuan+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="pakaiJumlah" data-kolom-id="pakaiJumlah">'+pakaiJumlah+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="pakaiHarga" data-kolom-id="pakaiHarga">'+pakaiHarga+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="pakaiSubtotal" data-kolom-id="pakaiSubtotal">'+pakaiSubtotal+'</td>');
-            tr.append('<td data-used="1" data-save="1" data-name="pakaiKeterangan" data-kolom-id="pakaiKeterangan">'+pakaiKeterangan+'</td>');
-            tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePakai('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPakai('+counter+')">Edit</button></td>');
+            tr.append('<td data-used="1" data-save="1" data-name="terapiTanggal" data-kolom-id="terapiTanggal">' + terapiTanggal + '</td>');
+            tr.append('<td>'+ terapiBarangText +'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="terapiDosis" data-kolom-id="terapiDosis">'+terapiDosis+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="terapiJumlah" data-kolom-id="terapiJumlah">'+terapiJumlah+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="terapiHarga" data-kolom-id="terapiHarga">'+terapiHarga+'</td>');
+            tr.append('<td>'+terapiSubtotal+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="terapiKeterangan" data-kolom-id="terapiKeterangan">' + terapiKeterangan + '</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="terapiPetugas" data-kolom-id="terapiPetugas">'+terapiPetugas+'</td>');
+            tr.append('<td><button type="button" class="btn btn-danger btn-sm" onclick="deleteTerapi('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editTerapi('+counter+')">Edit</button></td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="barang.barangId" data-kolom-id="terapiBarang">' + terapiBarang + '</td>');
 
-            if (pakaiID) {
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pakaiID" data-kolom-id="pakaiID">' + pakaiID + '</td>');
+            if (terapiID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="terapiID" data-kolom-id="terapiID">' + terapiID + '</td>');
             }
 
             if(mode == 'new')
             {
-                pakai_length = counter;
-                $('#pelayanan-pakai-list').append(tr);                    
+                terapi_length = counter;
+                $('#pelayanan-terapi-list').append(tr);                    
             }
 
-            $('#modal-pelayanan-pakai').modal('hide');
-            $('#form-pelayanan-pakai').find('input,select').val('');
+            $('#modal-pelayanan-terapi').modal('hide');
+            $('#form-pelayanan-terapi').find('input,select').val('');
 
         }); 
 
@@ -798,12 +804,12 @@ $(document).ready(function(){
         tr.hide();
     }
 
-    function editPakai(id)
+    function editTerapi(id)
     {
         var tr;
-        $('#pakai_mode').val('edit');
-        $('#pakai_edit').val(id);
-        tr = $('#pakai_'+id);
+        $('#terapi_mode').val('edit');
+        $('#terapi_edit').val(id);
+        tr = $('#terapi_'+id);
         $.each(tr.find('td'),function(i,e){
             if($(e).attr("data-used") == '1')
             {
@@ -811,13 +817,13 @@ $(document).ready(function(){
                 $('#'+elemID).val($(e).text());
             }
         });
-        $('#modal-pelayanan-pakai').modal('show');
+        $('#modal-pelayanan-terapi').modal('show');
     }
 
-    function deletePakai(id)
+    function deleteTerapi(id)
     {
         var tr;
-        tr = $('#pakai_'+id);
+        tr = $('#terapi_'+id);
         tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
         tr.hide();
     }  
