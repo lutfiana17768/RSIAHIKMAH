@@ -10,10 +10,15 @@ package com.rsia.madura.controller;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.security.Principal;
 
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -42,6 +47,7 @@ import com.rsia.madura.entity.MIcd9;
 import com.rsia.madura.entity.MPenunjang;
 import com.rsia.madura.entity.MPaket;
 import com.rsia.madura.entity.MUser;
+import com.rsia.madura.entity.MPenunjangTrans;
 
 import com.rsia.madura.service.PelayananService;
 import com.rsia.madura.service.PasienService;
@@ -58,9 +64,19 @@ import com.rsia.madura.service.IcdService;
 import com.rsia.madura.service.Icd9Service;
 import com.rsia.madura.service.PenunjangService;
 import com.rsia.madura.service.PaketService;
-import com.rsia.madura.service.UserService;;
+import com.rsia.madura.service.UserService;
+import com.rsia.madura.service.PenunjangTransService;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.StringJoiner;
 // pelayanan == pendaftaran
+
+import javax.naming.Context;
+import javax.servlet.ServletContext;
 
 @Controller
 @RequestMapping("/pelayanan")
@@ -94,9 +110,14 @@ public class PelayananController {
 	@Autowired
 	private PenunjangService penunjangService;
 	@Autowired
+	private PenunjangTransService penunjangTransService;
+	@Autowired
 	private UserService userService;
+	@Autowired
+	private ServletContext context;
 	
 	private String uri ="redirect: /pelayanan";
+    private static String UPLOADED_FOLDER = "/resources/uploads/images/radiologi/";
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String IndexView(Model model,
@@ -127,15 +148,10 @@ public class PelayananController {
 		List<MIcd> icds = icdService.findAll();
 		List<MIcd9> icd9s = icd9Service.findAll();
 		List<MPenunjang> penunjangs = penunjangService.findAll();
+		List<MPenunjangTrans> penunjangTranss = penunjangTransService.findAll();
 		Principal principal = SecurityContextHolder.getContext().getAuthentication();
 		MUser user = userService.findByUserName(principal.getName());
 		
-		System.out.println("====");
-		System.out.println("====");
-		System.out.println(user.getPegawai());
-		System.out.println("====");
-		System.out.println("====");
-
 		if (pelayananModel.getPaketID() != null) {
 			MPaket paket = paketService.getById(pelayananModel.getPaketID());
 			model.addAttribute("paket", paket);
@@ -155,6 +171,7 @@ public class PelayananController {
 		model.addAttribute("icds", icds);
 		model.addAttribute("icd9s", icd9s);
 		model.addAttribute("penunjangs", penunjangs);
+		model.addAttribute("penunjangTranss", penunjangTranss);
 		model.addAttribute("user", user);
 		model.addAttribute("footerjs", "../pelayanan/inc/footerjs.jsp");
 		
@@ -162,12 +179,56 @@ public class PelayananController {
 	}
 
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String Update(@ModelAttribute("pendaftaranModel") MPendaftaran pendaftaranModel) {
+	public String Update(@ModelAttribute("pendaftaranModel") MPendaftaran pendaftaranModel, @RequestParam(required=false) MultipartFile[] files) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		MPendaftaran dtPelayanan = pelayananService.getPelayanan(pendaftaranModel.getPendaftaranID());		
 
 		pendaftaranModel.setPaketID(0);
+
+		String UPLOAD_PATH = context.getRealPath(UPLOADED_FOLDER);
+		
+		List<Map<String, String>> fdatas = new ArrayList<>();
+		int i = 0;
+		for(MultipartFile file: files) {
+
+			if (file.isEmpty()) {
+				continue; // next pls
+			}
+			String rand = RandomStringUtils.randomAlphabetic(40);
+			String extension = FilenameUtils.getExtension(file.getOriginalFilename()); 
+			String newFileName = rand + "." + extension;
+			Map<String, String> fdata = new HashMap<String, String>();
+			fdata.put("original", file.getOriginalFilename());
+			fdata.put("new", newFileName);
+
+			fdatas.add(i, fdata);
+
+			try {
+				byte[] bytes = file.getBytes();
+				Path path = Paths.get(UPLOAD_PATH + newFileName);
+				Files.write(path, bytes);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			i++;
+		}
+
+		for (Map<String, String> data : fdatas) {
+			if (pendaftaranModel.getPmedisfile() != null) {
+				pendaftaranModel.getPmedisfile().forEach((pmedisfile) -> {
+					if(pmedisfile.getPmedisfileOriginal() != null) {
+						if(pmedisfile.getPmedisfileOriginal().equals(data.get("original"))) {
+							if (pmedisfile.getPmedisfileBerkas() != null) {
+								pmedisfile.setPmedisfileBerkas(pmedisfile.getPmedisfileBerkas());
+							} else {
+								pmedisfile.setPmedisfileBerkas(data.get("new"));
+							}
+						}
+					}
+				});
+			}
+		}
 
 		if (dtPelayanan != null) {
 			pendaftaranModel.setPasien(dtPelayanan.getPasien());

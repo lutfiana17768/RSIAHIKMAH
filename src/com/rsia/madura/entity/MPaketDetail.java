@@ -17,8 +17,8 @@ public class MPaketDetail {
 	@Column(name = "paket_detail_id")
 	private Integer paketDetailID;
 
-	@Column(name = "paket_detail_detail")
-	private int paketDetailHarga;
+	@Column(name = "paket_detail_harga")
+	private Integer paketDetailHarga;
 
 	@Column(name = "paket_detail_nama")
 	private String paketDetailNama;
@@ -27,10 +27,10 @@ public class MPaketDetail {
 	private String paketDetailType;
 
 	@Column(name = "paket_detail_jumlah")
-	private int paketDetailJumlah;
+	private Integer paketDetailJumlah;
 
 	@Column(name = "paket_detail_total")
-	private int paketDetailTotal;
+	private Integer paketDetailTotal;
 
 	@Column(name="paket_detail_created_by")
 	private String paketDetailCreatedBy;
@@ -65,6 +65,10 @@ public class MPaketDetail {
 	@ManyToOne
 	private MObat obats;
 
+	@ManyToOne
+	private MBarang barangs;
+
+
 	public Integer getPaketDetailID() {
 		return paketDetailID;
 	}
@@ -73,11 +77,11 @@ public class MPaketDetail {
 		this.paketDetailID = paketDetailID;
 	}
 
-	public int getPaketDetailHarga() {
+	public Integer getPaketDetailHarga() {
 		return paketDetailHarga;
 	}
 
-	public void setPaketDetailHarga(int paketDetailHarga) {
+	public void setPaketDetailHarga(Integer paketDetailHarga) {
 		this.paketDetailHarga = paketDetailHarga;
 	}
 
@@ -97,19 +101,19 @@ public class MPaketDetail {
 		this.paketDetailType = paketDetailType;
 	}
 
-	public int getPaketDetailJumlah() {
+	public Integer getPaketDetailJumlah() {
 		return paketDetailJumlah;
 	}
 
-	public void setPaketDetailJumlah(int paketDetailJumlah) {
+	public void setPaketDetailJumlah(Integer paketDetailJumlah) {
 		this.paketDetailJumlah = paketDetailJumlah;
 	}
 
-	public int getPaketDetailTotal() {
+	public Integer getPaketDetailTotal() {
 		return paketDetailTotal;
 	}
 
-	public void setPaketDetailTotal(int paketDetailTotal) {
+	public void setPaketDetailTotal(Integer paketDetailTotal) {
 		this.paketDetailTotal = paketDetailTotal;
 	}
 
@@ -191,6 +195,14 @@ public class MPaketDetail {
 
 	public void setObats(MObat obats) {
 		this.obats = obats;
+	}
+
+	public MBarang getBarangs() {
+		return this.barangs;
+	}
+
+	public void setBarangs(MBarang barangs) {
+		this.barangs = barangs;
 	}
 
 	public MPenunjang getPenunjangs() {

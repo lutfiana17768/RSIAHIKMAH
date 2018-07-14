@@ -21,12 +21,19 @@
                                     <select name="penunjangMedis" id="penunjangMedis" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Penunjang ---</option>
                                         <c:forEach var="pnj" items="${penunjangs}">
-                                            <option value="${pnj.penunjangmedisID }" 
+                                            <c:forEach var="pp" items="${pnj.paramperiksa}" varStatus="loop">
+                                                <option value="${pnj.penunjangmedisID }" 
+                                                        data-standar="${pp.paramperiksaStandar}" 
+                                                        data-satuan="${pp.paramperiksaSatuan}" 
+                                                        data-harga="${pnj.penunjangkelas[0].penunjangkelasHarga}" 
+                                                        data-paramperiksa="${pp.paramperiksaID}">${pnj.penunjangmedisNama } - ${pp.paramperiksaNama}</option>
+                                            </c:forEach>
+                                            <% /** <option value="${pnj.penunjangmedisID }" 
                                                     data-standar="${pnj.paramperiksa[0].paramperiksaStandar}" 
                                                     data-satuan="${pnj.paramperiksa[0].paramperiksaSatuan}" 
                                                     data-harga="${pnj.penunjangkelas[0].penunjangkelasHarga}">
-                                                ${pnj.penunjangmedisNama }
-                                            </option>   
+                                                ${pnj.penunjangmedisNama } - ${pnj.paramperiksa[0].paramperiksaNama}
+                                            </option>   **/ %>
                                         </c:forEach>
                                     </select>
                                 </div>

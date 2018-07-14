@@ -2,7 +2,6 @@ package com.rsia.madura.entity;
 
 import java.util.Date;
 import java.util.List;
-import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -139,6 +138,11 @@ public class MPendaftaran {
 	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MPenunjangTrans> penunjangtrans;
+
+	// Tab file -> radiologi
+	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval = true)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<MPenunjangFile> pmedisfile;
 
 	// tab soap
 	@OneToMany(mappedBy = "pendaftaran", cascade = CascadeType.ALL, orphanRemoval=true)
@@ -436,9 +440,19 @@ public class MPendaftaran {
 	public List<MPenunjangTrans> getPenunjangtrans() {
 		return penunjangtrans;
 	}
-
+	
 	public void setPenunjangtrans(List<MPenunjangTrans> penunjangtrans) {
 		this.penunjangtrans = penunjangtrans;
+	}
+
+	// Tab file -> penunjang
+	@JsonIgnore
+	public List<MPenunjangFile> getPmedisfile() {
+		return pmedisfile;
+	}
+
+	public void setPmedisfile(List<MPenunjangFile> pmedisfile) {
+		this.pmedisfile = pmedisfile;
 	}
 
 	// tab soap

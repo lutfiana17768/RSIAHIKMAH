@@ -73,7 +73,7 @@
 												<a class="nav-link" href="#penunjang" role="tab" data-toggle="tab">Penunjang</a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="#obatalkes" role="tab" data-toggle="tab">Obat/Alkes</a>
+												<a class="nav-link" href="#obatalkes" role="tab" data-toggle="tab">Terapi</a>
 											</li>
 										</ul>
 									</div>
@@ -225,8 +225,7 @@
 															<table class="table table-striped table-bordered table-hover">
 																<thead>
 																	<tr>
-																		<th>Nama Obat</th>
-																		<th>Satuan</th>
+																		<th>Nama Barang</th>
 																		<th>Jumlah</th>
 																		<th>Harga</th>
 																		<th>Sub harga</th>
@@ -235,6 +234,24 @@
 																	</tr>
 																</thead>
 																<tbody id="paket-barang-list" class="table-form">
+																	<c:forEach var="harga" items="${paketModel.paketDetail}" varStatus="loop">
+																		<c:choose>
+																			<c:when test="${harga.paketDetailType=='barang'}">
+																				<tr id="barang_${loop.index+1}" data-harga-type="bara">
+																					<td>${harga.barangs.barangNama}</td>
+																					<td data-used="1" data-save="1" data-name="paketDetailJumlah" data-kolom-id="paketBarangJumlah">${harga.paketDetailJumlah}</td>
+																					<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paketBarangHarga">${harga.paketDetailHarga}</td>
+																					<td>${harga.paketDetailJumlah*harga.paketDetailHarga}</td>
+																					<td>
+																						<button type="button" class="btn btn-danger btn-sm" onclick="deleteBarang(${loop.index+1})">Delete</button>
+																						<button type="button" class="btn btn-primary btn-sm" onclick="editBarang(${loop.index+1})">Edit</button>
+																					</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="paketDetailID" data-kolom-id="paket-harga-id">${harga.paketDetailID}</td>
+																					<td style="display:none" data-used="1" data-save="1" data-name="barangs.barangId" data-kolom-id="mBarangID">${harga.barangs.barangId}</td>
+																				</tr>
+																			</c:when>
+																		</c:choose>
+																	</c:forEach>
 																</tbody>
 															</table>
 														</div>
@@ -385,7 +402,7 @@
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title">Tambah Obat/Alkes</h4>
+						<h4 class="modal-title">Tambah Terapi</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">X</span>
 							<span class="sr-only">Close</span>
@@ -394,20 +411,13 @@
 					<div class="modal-body">
 						<form id="form-barang" class="from-horizontal">
 							<div class="form-group">
-								<label>Nama Obat/Alkes</label>
+								<label>Barang</label>
 								<select name="mBarangID" id="mBarangID" class="form-control boxed">
-									<c:forEach var="obat" items="${obats}">
-										<option value="${obat.obatID }">
-											${obat.obat_nama }
+									<option value="">--- Pilih Barang ---</option>
+									<c:forEach var="barang" items="${barangs}">
+										<option value="${barang.barangId }" data-harga="${barang.barangHet}">
+											${barang.barangNama }
 										</option>
-									</c:forEach>
-								</select>
-							</div>
-							<div class="form-group">
-								<label>Satuan</label>
-								<select name="paketSatuanID" id="paketSatuanID" class="form-control boxed">
-									<c:forEach var="satuan" items="${satuan}" varStatus="loop">
-										<option value="${satuan.key}">${satuan.value}</option>
 									</c:forEach>
 								</select>
 							</div>

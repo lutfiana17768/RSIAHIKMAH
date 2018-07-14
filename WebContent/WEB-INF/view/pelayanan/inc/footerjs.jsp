@@ -35,6 +35,7 @@ $(document).ready(function(){
     var terapi_length = $('#pelayanan-terapi-list').find('tr').length;
     var resep_length = $('#pelayanan-resep-list').find('tr').length;
     var penunjangtrans_length = $('#pelayanan-penunjangtrans-list').find('tr').length;
+    var penunjangFile_length = $('#pelayanan-penunjangFile-list').find('tr').length;
     var soap_length = $('#pelayanan-soap-list').find('tr').length;
 
     $(function(){
@@ -142,6 +143,22 @@ $(document).ready(function(){
                     }
                 });
             });
+            $('#pelayanan-penunjangFile-list tr').map(function(line){
+                $(this).find('td').each(function (i) {
+                    if ($(this).attr('data-save') == '1') {
+                        var name = $(this).attr('data-name');
+                        var value = $(this).text();
+                        var new_input = $('<input type="hidden">');
+                        new_input.attr('name', 'pmedisfile[' + line + '].' + name);
+                        new_input.attr('value', value);
+                        $('#pelayanan-form').append(new_input);
+                    }
+                    if ($(this).attr('data-file') == '1') {
+                        var new_input = $(this)
+                        $('#pelayanan-form').append(new_input);
+                    }
+                });
+            });
             $('#pelayanan-soap-list tr').map(function(line){
                 $(this).find('td').each(function (i) {
                     if ($(this).attr('data-save') == '1') {
@@ -200,6 +217,11 @@ $(document).ready(function(){
             $('#form-pelayanan-penunjangtrans').find('input,select').val('');
             $('#penunjangtrans_mode').val('new');
             $('#modal-pelayanan-penunjangtrans').modal('show');
+        });
+        $('#add_radiologi').click(function(){
+            $('#form-pelayanan-penunjangFile').find('input,select').val('');
+            $('#penunjangFile_mode').val('new');
+            $('#modal-pelayanan-penunjangFile').modal('show');
         });
         $('#add_soap').click(function(){
             $('#form-pelayanan-soap').find('input,select').val('');
@@ -490,7 +512,7 @@ $(document).ready(function(){
             terapiJumlah = $('#terapiJumlah').val() ||0;
             terapiHarga = $('#terapiHarga').val() ||0;
             terapiSubtotal = terapiJumlah * terapiHarga ||0;
-            terapiKeterangan = $('#terapiKeterangan').val() || 0;
+            terapiKeterangan = $('#terapiKeterangan').val() || '';
             terapiPetugas = $('#terapiPetugas').attr('data-value') ||0;
             
             tr.append('<td data-used="1" data-save="1" data-name="terapiTanggal" data-kolom-id="terapiTanggal">' + terapiTanggal + '</td>');
@@ -580,6 +602,11 @@ $(document).ready(function(){
             $('#tindakanpasienHarga').val(harga);
          });
 
+         $('#terapiBarang').change(function() {
+            var harga = $('option:selected', this).attr('data-harga') || 0
+            $('#terapiHarga').val(harga);
+         });
+
         $('#simpan-penunjangtrans').click(function(){
             var penunjangtrans_tinggi,mode,counter,id_row;
             var mode = $('#penunjangtrans_mode').val();
@@ -601,6 +628,7 @@ $(document).ready(function(){
             penunjangtransID = $('#penunjangtransID').val() ||0;
             penunjangMedis = $('#penunjangMedis').val();
             penunjangtransNama = $('#penunjangMedis option:selected').text();
+            paramperiksaID = $('#penunjangMedis option:selected').attr('data-paramperiksa');
             penunjangtransHasil = $('#penunjangtransHasil').val() ||0;
             penunjangtransStandar = $('#penunjangtransStandar').val() ||0;
             penunjangtransSatuan = $('#penunjangtransSatuan').val() ||0;
@@ -617,6 +645,7 @@ $(document).ready(function(){
             tr.append('<td>'+penunjangtransSubtotal+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjangtrans('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPenunjangtrans('+counter+')">Edit</button></td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjang.penunjangmedisID" data-kolom-id="penunjangMedis">' + penunjangMedis + '</td>');
+            tr.append('<td style="display:none" data-used="1" data-save="1" data-name="paramperiksa.paramperiksaID" data-kolom-id="paramperiksaID">' + paramperiksaID + '</td>');
             if (penunjangtransID) {
                 tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangtransID" data-kolom-id="penunjangtransID">' + penunjangtransID + '</td>');
             }
@@ -629,6 +658,54 @@ $(document).ready(function(){
 
             $('#modal-pelayanan-penunjangtrans').modal('hide');
             $('#form-pelayanan-penunjangtrans').find('input,select').val('');
+
+        }); 
+
+        $('#simpan-penunjangFile').click(function () {
+            var penunjangFileID,mode,counter,id_row;
+            var mode = $('#penunjangFile_mode').val();
+
+            if (mode == 'new') {
+                var tr = $('<tr>');
+                counter = penunjangFile_length + 1;
+                tr.attr('id', 'penunjangFile_' + counter);
+            }
+            else {
+                id_row = $('#penunjangFile_edit').val();
+                counter = id_row;
+                var tr = $('#penunjangFile_' + id_row);
+                tr.empty();
+            }
+
+            penunjangFileID = $('#penunjangFileID').val();
+            penunjangFileNama = $('#penunjangFileNama').val() || 0;
+            penunjangFileHasil = $('#penunjangFileHasil').val() || 0;
+            penunjangFileJumlah = $('#penunjangFileJumlah').val() || 0;
+            penunjangFileHarga = $('#penunjangFileHarga').val() || 0;
+            penunjangFileSubTotal = penunjangFileJumlah*penunjangFileHarga || 0;
+            penunjangFileUpload = $('#penunjangFileUpload');
+            penunjangFileUploadText = $('#penunjangFileUpload').prop('files')[0].name;
+
+            tr.append('<td data-used="1" data-save="1" data-name="pmedisfileOriginal">' + penunjangFileUploadText + '</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="pmedisfilePemeriksaan" data-kolom-id="penunjangFileNama">' + penunjangFileNama + '</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="pmedisfileHasil" data-kolom-id="penunjangFileHasil">' + penunjangFileHasil + '</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="pmedisfileJumlah" data-kolom-id="penunjangFileJumlah">' + penunjangFileJumlah + '</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="pmedisfileHarga" data-kolom-id="penunjangFileHarga">' + penunjangFileHarga + '</td>');
+            tr.append('<td>' + penunjangFileSubTotal + '</td>');
+            tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePenunjangFile(' + counter + ')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPenunjangFile(' + counter + ')">Edit</button></td>');
+			tr.append($('<td style="display: none;" data-file="1">').append(penunjangFileUpload.clone().prop('id', '')));
+
+            if (penunjangFileID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="pmedisfileID" data-kolom-id="penunjangFileID">' + penunjangFileID + '</td>');
+            }
+            if (mode == 'new') {
+                penunjangFile_length = counter;
+                $('#pelayanan-penunjangFile-list').append(tr);
+				
+            }
+
+            $('#modal-pelayanan-penunjangFile').modal('hide');
+            $('#form-pelayanan-penunjangFile').find('input,select').val('');
 
         }); 
 
@@ -875,6 +952,27 @@ $(document).ready(function(){
         tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
         tr.hide();
     }  
+
+    function editPenunjangFile(id) {
+        var tr;
+        $('#penunjangFile_mode').val('edit');
+        $('#penunjangFile_edit').val(id);
+        tr = $('#penunjangFile_' + id);
+        $.each(tr.find('td'), function (i, e) {
+            if ($(e).attr("data-used") == '1') {
+                var elemID = $(e).attr('data-kolom-id');
+                $('#' + elemID).val($(e).text());
+            }
+        });
+        $('#modal-pelayanan-penunjangFile').modal('show');
+    }
+
+    function deletePenunjangFile(id) {
+        var tr;
+        tr = $('#penunjangFile_' + id);
+        tr.append('<td style="display:none" data-used="1" data-save="1" data-name="remove" data-kolom-id="remove">1</td>');
+        tr.hide();
+        }  
 
     function editSoap(id)
     {

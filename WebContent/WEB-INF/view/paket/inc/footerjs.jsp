@@ -221,21 +221,17 @@
 
                 mBarangID = $('#mBarangID').val();
                 barang_text = $('#mBarangID option:selected').text();
-                paketSatuanID = $('#paketSatuanID').val() || 0;
-                paketSatuanText = $('#paketSatuanID option:selected').text();
                 paketBarangJumlah = $('#paketBarangJumlah').val() ||'';
                 paketBarangHarga = $('#paketBarangHarga').val() ||0;
-                paketBarangSubharga = $('#paketBarangSubharga').val() || 0;
+                paketBarangSubharga = paketBarangHarga * paketBarangJumlah || 0;
                 
 
                 tr.append('<td>'+barang_text+'</td>');
-                tr.append('<td>'+paketSatuanText+'</td>');
                 tr.append('<td data-used="1" data-save="1" data-name="paketDetailJumlah" data-kolom-id="paketBarangJumlah">'+paketBarangJumlah+'</td>');
                 tr.append('<td data-used="1" data-save="1" data-name="paketDetailHarga" data-kolom-id="paketBarangHarga">'+paketBarangHarga+'</td>');
                 tr.append('<td class="td-harga" data-used="1" data-kolom-id="paketBarangSubharga">'+paketBarangSubharga+'</td>');
                 tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteBarang('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editBarang('+counter+')">Edit</button></td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="obats.obatID" data-kolom-id="mBarangID">'+mBarangID+'</td>');
-                tr.append('<td style="display:none" data-used="1" data-save="1" data-kolom-id="paketSatuanID">'+paketSatuanID+'</td>');
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="barangs.barangId" data-kolom-id="mBarangID">'+mBarangID+'</td>');
                 if(mode == 'new')
                 {
                     barang_length = counter;

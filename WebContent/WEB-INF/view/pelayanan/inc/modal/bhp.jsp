@@ -25,7 +25,7 @@
                                     <select name="terapiBarang" id="terapiBarang" class="form-control boxed select2-single">
                                         <option value="">--- Pilih Barang ---</option>
                                         <c:forEach var="barang" items="${barangs}">
-                                            <option value="${barang.barangId }">
+                                            <option value="${barang.barangId }" data-harga="${barang.barangHet}">
                                                 ${barang.barangNama }
                                             </option>
                                         </c:forEach>

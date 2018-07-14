@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.entity.MPendaftaran;
+import com.rsia.madura.entity.MPenunjangFile;
 import com.rsia.madura.entity.MRiwayatPeriksa;
 import com.rsia.madura.entity.MPeriksaPasien;
 import com.rsia.madura.entity.MDiagnosaPasien;
@@ -27,6 +28,7 @@ import com.rsia.madura.entity.MPenunjangTrans;
 import com.rsia.madura.entity.MSoap;
 
 import com.rsia.madura.dao.PelayananDAO;
+import com.rsia.madura.dao.PenunjangFileDAO;
 import com.rsia.madura.dao.RiwayatPeriksaDAO;
 import com.rsia.madura.dao.PeriksaPasienDAO;
 import com.rsia.madura.dao.DiagnosaPasienDAO;
@@ -65,6 +67,9 @@ public class PelayananServiceAction implements PelayananService{
     
     @Autowired
     private PenunjangTransDAO penunjangTransDAO;
+    
+    @Autowired
+    private PenunjangFileDAO penunjangFileDAO;
 
     @Autowired
     private SoapDAO soapDAO;
@@ -142,7 +147,13 @@ public class PelayananServiceAction implements PelayananService{
 			data.getPenunjangtrans().forEach((penunjangtrans) -> {
 				penunjangtrans.setPendaftaran(data);
 			});
-		}
+        }
+        
+        if (data.getPmedisfile() != null) {
+            data.getPmedisfile().forEach((pmedisfile) -> {
+                pmedisfile.setPendaftaran(data);
+            });
+        }
 
 		if (data.getSoap() != null) {
 			data.getSoap().forEach((soap) -> {
@@ -158,6 +169,7 @@ public class PelayananServiceAction implements PelayananService{
         List<MTerapiPasien> delTerapiPasien = manageTerapiPasien(data);
         List<MResep> delResep = manageResep(data);
         List<MPenunjangTrans> delPenunjangTrans = managePenunjangTrans(data);
+        List<MPenunjangFile> delPmediFiles = managePmedisfile(data);
         List<MSoap> delSoap = manageSoap(data);
 
 		pelayananDAO.update(data);
@@ -177,6 +189,42 @@ public class PelayananServiceAction implements PelayananService{
         delDiagnosaPasien.forEach((diagnosa) -> {
             if (diagnosa.getDiagnosapasienID() != null) {
                 diagnosaPasienDAO.DiagnosaPasienDelete(diagnosa);
+            }
+        });
+
+        delTindakanPasien.forEach((tindakan) -> {
+            if (tindakan.getTindakanpasienID() != null) {
+                tindakanPasienDAO.TindakanPasienDelete(tindakan);
+            }
+        });
+
+        delDiagnosa9.forEach((diagnosa9) -> {
+            if (diagnosa9.getDiagnosa9ID() != null) {
+                diagnosa9DAO.Diagnosa9Delete(diagnosa9);
+            }
+        });
+
+        delTerapiPasien.forEach((terapi) -> {
+            if (terapi.getTerapiID() != null) {
+                terapiPasienDAO.TerapiPasienDelete(terapi);
+            }
+        });
+
+        delPenunjangTrans.forEach((penunjangtrans) -> {
+            if (penunjangtrans.getPenunjangtransID() != null) {
+                penunjangTransDAO.PenunjangTransDelete(penunjangtrans);
+            }
+        });
+
+        delPmediFiles.forEach((pmedisfile) -> {
+            if (pmedisfile.getPmedisfileID() != null) {
+                penunjangFileDAO.PenunjangFileDelete(pmedisfile);
+            }
+        });
+
+        delSoap.forEach((soap) -> {
+            if (soap.getSoapID() != null) {
+                soapDAO.SoapDelete(soap);
             }
         });
 
@@ -331,6 +379,24 @@ public class PelayananServiceAction implements PelayananService{
             }
         }
         return delPenunjangTrans;
+    }
+
+    private List<MPenunjangFile> managePmedisfile(MPendaftaran pendaftaran) {
+        List<MPenunjangFile> delPmedisfile = new ArrayList<MPenunjangFile>();
+        if (pendaftaran.getPmedisfile() != null) {
+            for (Iterator<MPenunjangFile> i = pendaftaran.getPmedisfile().iterator(); i.hasNext();) {
+                MPenunjangFile pmedisfile = i.next();
+                if (pmedisfile.getRemove() != null) {
+                    // delete:
+                    delPmedisfile.add(pmedisfile);
+                    i.remove();
+                } else {
+                    // create || update
+                    pmedisfile.setPendaftaran(pendaftaran);
+                }
+            }
+        }
+        return delPmedisfile;
     }
 
     private List<MSoap> manageSoap(MPendaftaran pendaftaran) {

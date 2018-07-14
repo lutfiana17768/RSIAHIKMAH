@@ -41,7 +41,10 @@ public class MPenunjangTrans {
 	private Integer penunjangtransHarga;
 	
 	@ManyToOne
-	private MPenunjang penunjang;	
+	private MPenunjang penunjang;
+	
+	@ManyToOne
+	private MParamPeriksa paramperiksa;
 
 	@ManyToOne
 	private MPendaftaran pendaftaran;
@@ -86,12 +89,22 @@ public class MPenunjangTrans {
 		this.penunjangtransHarga = penunjangtransHarga;
 	}
 
-	public MPenunjang getPenunjang() {
-		return penunjang;
+	public MPenunjang getPenunjang()
+	{
+		return this.penunjang;
 	}
 
-	public void setPenunjang(MPenunjang penunjang) {
+	public void setPenunjang(MPenunjang penunjang)
+	{
 		this.penunjang = penunjang;
+	}
+	
+	public MParamPeriksa getParamperiksa() {
+		return this.paramperiksa;
+	}
+
+	public void setParamperiksa(MParamPeriksa paramperiksa) {
+		this.paramperiksa = paramperiksa;
 	}
 
 	public MPendaftaran getPendaftaran() {

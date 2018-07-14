@@ -31,6 +31,7 @@ import com.rsia.madura.entity.MKamar;
 import com.rsia.madura.entity.MTindakan;
 import com.rsia.madura.entity.MObat;
 import com.rsia.madura.entity.MPenunjang;
+import com.rsia.madura.entity.MBarang;
 
 import com.rsia.madura.service.PaketService;
 import com.rsia.madura.service.KelasService;
@@ -38,6 +39,7 @@ import com.rsia.madura.service.KamarService;
 import com.rsia.madura.service.ObatService;
 import com.rsia.madura.service.TindakanService;
 import com.rsia.madura.service.PenunjangService;
+import com.rsia.madura.service.BarangService;
 
 @Controller
 @RequestMapping("/paket")
@@ -59,6 +61,9 @@ public class PaketController {
 
 	@Autowired
 	private PenunjangService penunjangService;
+
+	@Autowired
+	private BarangService barangService;
 
 	private String uri ="redirect: /paket";
 
@@ -82,6 +87,7 @@ public class PaketController {
 		List<MObat> obats = obatService.findAll();
 		List<MTindakan> tindakans = tindakanService.findAll();
 		List<MPenunjang> penunjangs = penunjangService.findAll();
+		List<MBarang> barangs = barangService.getBarangs();
 
 		MPaket paketModel = new MPaket();
 
@@ -95,6 +101,7 @@ public class PaketController {
 		model.addAttribute("obats", obats);
 		model.addAttribute("penunjangs", penunjangs);
 		model.addAttribute("satuan", satuan);
+		model.addAttribute("barangs", barangs);
 		
 		model.addAttribute("paketModel", paketModel);
 		model.addAttribute("footerjs", "../paket/inc/footerjs.jsp");
@@ -120,6 +127,7 @@ public class PaketController {
 		List<MKamar> kamars = kamarService.findAll();
 		List<MObat> obats = obatService.findAll();
 		List<MPenunjang> penunjangs = penunjangService.findAll();
+		List<MBarang> barangs = barangService.getBarangs();
 		MPaket paketModel = paketService.getById(id);
 
 		Map<String, String> satuan = new HashMap<String, String>();
@@ -132,6 +140,7 @@ public class PaketController {
 		model.addAttribute("obats", obats);
 		model.addAttribute("satuan", satuan);
 		model.addAttribute("penunjangs", penunjangs);
+		model.addAttribute("barangs", barangs);
 		model.addAttribute("paketModel", paketModel);
 		model.addAttribute("footerjs", "../paket/inc/footerjs.jsp");
 
