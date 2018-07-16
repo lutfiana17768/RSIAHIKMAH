@@ -187,13 +187,13 @@
                     </thead>
                     <tbody>
                         <c:set var = "totalKamar" value = "${0}"/>
-                        <c:if test="${daftar.kamar != null}">
+                        <c:if test="${transaksiModel.pendaftaran.kamar != null}">
                             <c:set var = "qtySewa" value = "${rentangHari+1}"/>
-                            <c:set var = "totalKamar" value = "${daftar.kamar.tarif * qtySewa}"/>
+                            <c:set var = "totalKamar" value = "${transaksiModel.pendaftaran.kamar.tarif * qtySewa}"/>
                             <tr>
-                                <td>${daftar.kamar.kamarNo}</td>
+                                <td>${transaksiModel.pendaftaran.kamar.kamarNo}</td>
                                 <td>${qtySewa}</td>
-                                <td><fmt:formatNumber value = "${daftar.kamar.tarif}" maxFractionDigits = "3"/></td>
+                                <td><fmt:formatNumber value = "${transaksiModel.pendaftaran.kamar.tarif}" maxFractionDigits = "3"/></td>
                                 <td>0</td>
                                 <td><fmt:formatNumber value = "${totalKamar}" maxFractionDigits = "3"/></td>
                             </tr>
@@ -236,11 +236,23 @@
                                 <td class="kasir-sub-total"><fmt:formatNumber value = "${subTerapi}" maxFractionDigits = "3"/></td>
                             </tr>
                         </c:forEach>
+                        <c:set var = "totalRadiologi" value = "${0}"/>
+                        <c:forEach var="rd" items="${transaksiModel.pendaftaran.pmedisfile}" varStatus="loop">
+                            <c:set var = "subRadiologi" value = "${rd.pmedisfileJumlah * rd.pmedisfileHarga}"/>
+                            <c:set var = "totalRadiologi" value = "${totalRadiologi + subRadiologi}"/>
+                            <tr>
+                                <td><% /**${rd.barang.NamaBarang} **/ %></td>
+                                <td>${rd.pmedisfileJumlah}</td>
+                                <td><fmt:formatNumber value = "${rd.pmedisfileHarga}" maxFractionDigits = "3"/></td>
+                                <td>0</td>
+                                <td class="kasir-sub-total"><fmt:formatNumber value = "${subRadiologi}" maxFractionDigits = "3"/></td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                     <tfoot>
                         <tr style="background-color: #ddd; font-weight: bold;">
                             <td colspan="4" align="right">Total Tagihan</td>
-                            <td><fmt:formatNumber value = "${totalTindakan+totalPenunjang+totalTerapi}" maxFractionDigits = "3"/></td>
+                            <td><fmt:formatNumber value = "${totalTindakan+totalPenunjang+totalTerapi+totalKamar+totalRadiologi}" maxFractionDigits = "3"/></td>
                         </tr>
                     </tfoot>
                 </table>

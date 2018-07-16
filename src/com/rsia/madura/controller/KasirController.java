@@ -106,8 +106,14 @@ public class KasirController {
 	public String CetakTagihan(Model model, @PathVariable int id) {
 
 		MTransaksiPasien transaksiModel = transaksiService.getTransaksiPasien(id);
+		Long rentangHari = 0L;
 		
+		if (transaksiModel.getPendaftaran().getPendaftaranMrs()!=null && transaksiModel.getPendaftaran().getPendaftaranKrs()!=null) {
+			rentangHari = this.betweenDates(transaksiModel.getPendaftaran().getPendaftaranMrs(), transaksiModel.getPendaftaran().getPendaftaranKrs());
+		}
+		System.out.println("debugging");
 		model.addAttribute("transaksiModel", transaksiModel);
+		model.addAttribute("rentangHari", rentangHari);
 		model.addAttribute("footerjs", "../kasir/inc/footerjs.jsp");
 		
 		return "kasir/tagihan";

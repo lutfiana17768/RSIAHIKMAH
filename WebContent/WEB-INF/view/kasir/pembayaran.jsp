@@ -159,6 +159,22 @@
 												<input type="hidden" name="item[${loop.index}].transaksiItemharga">
 												<c:set var = "itemIndex" value = "${itemIndex}+1"/>
 											</c:forEach>
+											<c:set var = "totalRadiologi" value = "${0}"/>
+											<c:forEach var="rd" items="${daftar.pmedisfile}" varStatus="loop">
+												<c:set var = "subRadiologi" value = "${rd.pmedisfileJumlah * rd.pmedisfileHarga}"/>
+												<c:set var = "totalRadiologi" value = "${totalRadiologi + subRadiologi}"/>
+												<tr>
+													<td>${rd.pmedisfilePemeriksaan}</td>
+													<td>${rd.pmedisfileJumlah}</td>
+											        <td><fmt:formatNumber value = "${rd.pmedisfileHarga}" maxFractionDigits = "3"/></td>
+													<td>0</td>
+													<td class="kasir-sub-total"><fmt:formatNumber value = "${subRadiologi}" maxFractionDigits = "3"/></td>
+												</tr>
+												<input type="hidden" name="item[${loop.index}].transaksiItemNama">
+												<input type="hidden" name="item[${loop.index}].transaksiItemJumlah">
+												<input type="hidden" name="item[${loop.index}].transaksiItemharga">
+												<c:set var = "itemIndex" value = "${itemIndex}+1"/>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -168,7 +184,7 @@
 					<div class="col-sm-6">
 						<div class="card-block">
 							<div class="form-group">
-								<c:set var = "totalTagihan" value = "${totalTindakan+totalPenunjang+totalTerapi+totalKamar}"/>
+								<c:set var = "totalTagihan" value = "${totalTindakan+totalPenunjang+totalTerapi+totalKamar+totalRadiologi}"/>
 			                    <label>Total Tagihan</label>
 			                    <input type="text" name="transaksiTagihan" class="form-control form-control-sm boxed" 
 			                    value='<fmt:formatNumber value = "${totalTagihan}" maxFractionDigits = "3"/>' disabled />

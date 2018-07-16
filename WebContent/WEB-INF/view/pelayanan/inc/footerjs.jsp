@@ -677,6 +677,11 @@ $(document).ready(function(){
                 tr.empty();
             }
 
+            if(!$('#penunjangFileUpload').val()) {
+               alert('Mohon untuk upload file terlebih dahulu');
+               return;
+            }
+            
             penunjangFileID = $('#penunjangFileID').val();
             penunjangFileNama = $('#penunjangFileNama').val() || 0;
             penunjangFileHasil = $('#penunjangFileHasil').val() || 0;
