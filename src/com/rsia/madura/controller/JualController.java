@@ -78,6 +78,38 @@ public class JualController {
 		return "redirect:/jual";
 	}
 
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int Id) {
+		MJual jualModel = jualService.getJual(Id);
+		List<MBarang> resultBarang = barangService.getBarangs();
+		List<MSatuan> resultSatuan = satuanService.getSatuans();
+		Timestamp tglCreate = jualModel.getJuealCreatedDate();
+		
+		model.addAttribute("satuan", resultSatuan);
+		model.addAttribute("barang", resultBarang);
+		model.addAttribute("jualModel", jualModel);
+		model.addAttribute("footerjs", "../jual/inc/footerjs.jsp");
+		model.addAttribute("tglCreate", tglCreate);
+		
+		return "/jual/update";
+	}
+
+		@RequestMapping(value="/update")
+	public String JualUpdate(@ModelAttribute("jualModel") MJual jualModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		jualModel.setJualDiskon(0);
+		jualModel.setJualAktif('Y');
+		jualModel.setJualUpdatedBy("Admin");
+		jualModel.setJualStatus('Y');
+		jualModel.setJuealUpdatedDate(currentTime);
+		
+		
+		jualService.update(jualModel);
+		
+		return "redirect:/jual";
+	}
+
 	@InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

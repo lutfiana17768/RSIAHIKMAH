@@ -21,7 +21,7 @@ $('#simpan-jual').click(function(){
     $('#jual-form').submit();
 
 });
-var jual_length = 0;
+var jual_length = $('#jual-list').find('tr').length;
 
 $('#add_detail').click(function(){
     $('#form-detail').find('input,select').val('');
@@ -55,14 +55,15 @@ $('#simpan-detail').click(function(){
     sub_total = $('#jualDetailSubTotal').val() || 0;
     
     // data-kolom-id sesuaikan dengan id input di modal
-    tr.append('<td>'+nama_barang+'</td>');
+    //tr.append('<td>'+nama_barang+'</td>');
     // tr.append('<td data-used="1" data-save="1" data-name="orderDetailSatuanId" data-kolom-id="satuan">'+satuan+'</td>');
     //conto
+    tr.append('<td data-used="1" data-save="1" data-name="jualDetailBarangId" data-kolom-id="jualDetailBarangId">'+nama_barang+'</td>');
     tr.append('<td data-used="1" data-save="1" data-name="jualDetailSatuanId" data-kolom-id="jualDetailSatuanId">'+satuan+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="jualDetailJumlah" data-kolom-id="jumlah">'+jumlah+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="jualDetailHarga" data-kolom-id="harga">'+harga+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="jualDetailSubTotal" data-kolom-id="sub_total">'+sub_total+'</td>');
-    tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editJual('+counter+')">Edit</button></td>');
+    tr.append('<td data-used="1" data-save="1" data-name="jualDetailJumlah" data-kolom-id="jualDetailJumlah">'+jumlah+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="jualDetailHarga" data-kolom-id="jualDetailHarga">'+harga+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="jualDetailSubTotal" data-kolom-id="jualDetailSubTotal">'+sub_total+'</td>');
+    tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDetail('+counter+')">Edit</button></td>');
     if(mode == 'new')
     {
         jual_length = counter;
@@ -74,7 +75,7 @@ $('#simpan-detail').click(function(){
     $('#form-detail').find('input,select').val('');
 }); 
 
-function editJual(id)
+function editDetail(id)
 {
     var tr;
     $('#detail_mode').val('edit');

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MReturBeli;
+import com.rsia.madura.entity.MReturBeliDetail;
 import com.rsia.madura.entity.MSatuan;
 import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.ReturBeliService;
@@ -72,6 +73,44 @@ public class ReturBeliController {
 	
 		
 		returBeliService.store(returBeliModel);
+		
+		return "redirect:/returBeli";
+	}
+
+	@RequestMapping(value="/edit")
+	public String ReturBeliFormAddView(Model model, @RequestParam(value = "Id", required = false) int id){
+		MReturBeli returBeliModel = returBeliService.getReturBeli(id);
+
+		System.out.println(returBeliModel);
+
+		List<MBarang> resultBarang = barangService.getBarangs();
+		List<MSatuan> resultSatuan = satuanService.getSatuans();
+		
+		Timestamp tglCreate = returBeliModel.getReturBeliCreatedDate();
+		List<MReturBeliDetail> detail = returBeliModel.getDetail();
+		
+		model.addAttribute("returBeliModel", returBeliModel);
+		model.addAttribute("satuan", resultSatuan);
+		model.addAttribute("barang", resultBarang);
+		model.addAttribute("detail", detail);
+		model.addAttribute("footerjs", "../retur-beli/inc/footerjs.jsp");
+
+		model.addAttribute("tglCreate", tglCreate);
+		
+		return "/retur-beli/update";
+	}
+
+	@RequestMapping(value="/update")
+	public String ReturBeliUpdate(@ModelAttribute("returBeliModel") MReturBeli returBeliModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		returBeliModel.setReturBeliAktif('Y');
+		returBeliModel.setReturBeliUpdatedBy("Admin");
+		returBeliModel.setReturBeliUpdatedDate(currentTime);
+		returBeliModel.setReturBeliRevised(returBeliModel.getReturBeliRevised()+1);
+	
+		
+		returBeliService.update(returBeliModel);
 		
 		return "redirect:/returBeli";
 	}

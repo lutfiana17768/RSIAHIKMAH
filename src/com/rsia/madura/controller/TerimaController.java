@@ -115,12 +115,26 @@ public class TerimaController {
 
 	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
 	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
-
 		MTerima result = terimaService.getTerima(id);
+
+		List<MOrder> resultOrder = orderService.getOrders();
+		List<MBarang> resultBarang = barangService.getBarangs();
+		List<MSatuan> resultSatuan = satuanService.getSatuans();
+		List<MJenisBarang> resultBarangJenis = barangJenisService.getJenisBarangs();
+
+		Timestamp tglCreate = result.getTerimaCreatedDate();
+
+
+		model.addAttribute("order", resultOrder);
+		model.addAttribute("barangJenis", resultBarangJenis);
+		model.addAttribute("satuan", resultSatuan);
+		model.addAttribute("barang", resultBarang);
+		model.addAttribute("footerjs", "../terima/inc/footerjs.jsp");
+		model.addAttribute("tglCreate", tglCreate);
 
 		model.addAttribute("terimaModel", result);
 
-		return "TerimaUpdateForm";
+		return "terima/update";
 	}
 
 
@@ -129,8 +143,12 @@ public class TerimaController {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		terimaModel.setTerimaAktif('Y');
+		terimaModel.setTerimaPPN('Y');
 		terimaModel.setTerimaUpdatedBy("Admin");
 		terimaModel.setTerimaUpdatedDate(currentTime);
+		terimaModel.setTerimaRevised(terimaModel.getTerimaRevised()+1);
+
+		//System.out.println(terimaModel);
 
 		terimaService.update(terimaModel);
 

@@ -21,7 +21,7 @@ $('#simpan-returbeli').click(function(){
     $('#returbeli-form').submit();
 
 });
-var returbeli_length = 0;
+var returbeli_length = $('#returbeli-list').find('tr').length;
 
 $('#add_detail').click(function(){
     $('#form-detail').find('input,select').val('');
@@ -48,23 +48,23 @@ $('#simpan-detail').click(function(){
         tr.empty();
     }
     
-    nama_barang = $('#ReturBeliDetailBarangId').val();
-    kadaluarsa = $('#ReturBeliDetailKadaluarsa').val()
-    satuan = $('#ReturBeliDetailSatuanId').val();
-    jumlah = $('#ReturBeliDetailJumlah').val() || 0;
-    harga = $('#ReturBeliDetailHarga').val() ||0;
-    sub_total = $('#ReturBeliDetailSubTotal').val() || 0;
+    nama_barang = $('#returBeliDetailBarangId').val();
+    kadaluarsa = $('#returBeliDetailKadaluarsa').val()
+    satuan = $('#returBeliDetailSatuanId').val();
+    jumlah = $('#returBeliDetailJumlah').val() || 0;
+    harga = $('#returBeliDetailHarga').val() ||0;
+    sub_total = $('#returBeliDetailSubTotal').val() || 0;
     
     // data-kolom-id sesuaikan dengan id input di modal
     //tr.append('<td>'+nama_barang+'</td>');
     // tr.append('<td data-used="1" data-save="1" data-name="orderDetailSatuanId" data-kolom-id="satuan">'+satuan+'</td>');
     //conto
-    tr.append('<td data-used="1" data-save="1" data-name="ReturBeliDetailBarangId" data-kolom-id="ReturBeliDetailBarangId">'+nama_barang+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="ReturBeliDetailSatuanId" data-kolom-id="ReturBeliDetailSatuanId">'+satuan+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="ReturBeliDetailKadaluarsa" data-kolom-id="ReturBeliDetailKadaluarsa">'+kadaluarsa+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="ReturBeliDetailJumlah" data-kolom-id="ReturBeliDetailJumlah">'+jumlah+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="ReturBeliDetailHarga" data-kolom-id="ReturBerliDetailHarga">'+harga+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="ReturBeliDetailSubTotal" data-kolom-id="ReturBeliDetailSubTotal">'+sub_total+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailBarangId" data-kolom-id="returBeliDetailBarangId">'+nama_barang+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailSatuanId" data-kolom-id="returBeliDetailSatuanId">'+satuan+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailKadaluarsa" data-kolom-id="returBeliDetailKadaluarsa">'+kadaluarsa+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailJumlah" data-kolom-id="returBeliDetailJumlah">'+jumlah+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailHarga" data-kolom-id="ReturBerliDetailHarga">'+harga+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailSubTotal" data-kolom-id="returBeliDetailSubTotal">'+sub_total+'</td>');
     tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDetail('+counter+')">Edit</button></td>');
     if(mode == 'new')
     {

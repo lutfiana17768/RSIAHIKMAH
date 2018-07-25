@@ -73,10 +73,47 @@ public class ReturJualController {
 		returJualModel.setReturJualStatus('Y');
 		returJualModel.setReturJualCreatedDate(currentTime);
 
-		
-	
-		
 		returJualService.store(returJualModel);
+		
+		return "redirect:/returJual";
+	}
+
+	@RequestMapping(value="/edit")
+	public String ReturJualFormUpdateView(Model model, @RequestParam(value = "Id", required = false) int id){
+		MReturJual returJualModel = returJualService.getReturJual(id);
+		List<MBarang> resultBarang = barangService.getBarangs();
+		List<MSatuan> resultSatuan = satuanService.getSatuans();
+
+		Timestamp tglCreate = returJualModel.getReturJualCreatedDate();
+		
+		
+		model.addAttribute("returJualModel", returJualModel);
+		model.addAttribute("satuan", resultSatuan);
+		model.addAttribute("barang", resultBarang);
+		model.addAttribute("footerjs", "../returJual/inc/footerjs.jsp");
+		model.addAttribute("tglCreate", tglCreate);
+
+		System.out.println(returJualModel);
+
+		model.addAttribute("returJualModel", returJualModel);
+
+		
+		return "/returJual/update";
+	}
+	
+	@RequestMapping(value="/update")
+	public String ReturJualUpdate(@ModelAttribute("returJualModel") MReturJual returJualModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		returJualModel.setReturJualAktif('Y');
+		returJualModel.setReturJualUpdatedBy("Admin");
+		returJualModel.setReturJualBayarStatus('Y');
+		returJualModel.setReturJualStatus('Y');
+		returJualModel.setReturJualUpdatedDate(currentTime);
+
+		returJualModel.setReturJualRevised(returJualModel.getReturJualRevised()+1);
+
+		returJualService.update(returJualModel);
 		
 		return "redirect:/returJual";
 	}

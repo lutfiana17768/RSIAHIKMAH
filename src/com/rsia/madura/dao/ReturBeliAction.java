@@ -109,7 +109,7 @@ public class ReturBeliAction implements ReturBeliDAO {
 	public int returBeliUpdate(MReturBeli returBeliModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(returBeliModel);
+		current.merge(returBeliModel);
 		current.flush();
 		
 		return returBeliModel.getReturBeliId();
@@ -119,7 +119,7 @@ public class ReturBeliAction implements ReturBeliDAO {
 	public int returBeliDelete(MReturBeli returBeliModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(returBeliModel);
+		current.merge(returBeliModel);
 		current.flush();
 		
 		return returBeliModel.getReturBeliId();

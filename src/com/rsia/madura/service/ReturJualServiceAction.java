@@ -61,6 +61,15 @@ public class ReturJualServiceAction implements ReturJualService {
 	@Override
 	@Transactional
 	public int update(MReturJual returJualModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if(returJualModel.getDetail() != null) {
+			returJualModel.getDetail().forEach((detail) ->{
+				detail.setReturJual(returJualModel);
+				detail.setReturJualDetailUpdatedBy("Admin");
+				detail.setReturJualDetailUpdatedDate(currentTime);
+			});
+		}
 		
 		return returJualDAO.returJualUpdate(returJualModel);
 	}

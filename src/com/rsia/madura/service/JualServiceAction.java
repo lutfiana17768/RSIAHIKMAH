@@ -62,6 +62,16 @@ public class JualServiceAction implements JualService {
 	@Override
 	@Transactional
 	public int update(MJual jualModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if(jualModel.getDetail() != null) {
+			jualModel.getDetail().forEach((detail) ->{
+				detail.setJual(jualModel);
+				detail.setJualDetailCreatedBy("Admin");
+				detail.setJualDetailPaket('N');
+				detail.setJualDetailCreatedDate(currentTime);
+			});
+		}
 		
 		return jualDAO.jualUpdate(jualModel);
 	}

@@ -82,7 +82,7 @@ public class TerimaAction implements TerimaDAO {
 
 	@Override
 	public MTerima getTerima(int terimaId) {
-		Session current = sessionFactory.	getCurrentSession();
+		Session current = sessionFactory.getCurrentSession();
 		
 		MTerima result = current.get(MTerima.class, terimaId);
 		
@@ -103,7 +103,7 @@ public class TerimaAction implements TerimaDAO {
 	public int terimaUpdate(MTerima terimaModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(terimaModel);
+		current.merge(terimaModel);
 		current.flush();
 		
 		return terimaModel.getTerimaId();

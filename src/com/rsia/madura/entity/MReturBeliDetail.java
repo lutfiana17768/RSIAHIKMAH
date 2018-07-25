@@ -12,193 +12,193 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="t_retur_beliDetail")
+@Table(name="t_retur_belidetail")
 public class MReturBeliDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="returbelidetail_id")
-	private int ReturBeliDetailId;
+	@Column(name="returBelidetail_id")
+	private int returBeliDetailId;
 	
 	@Column(name="returbelidetail_returbeli_id")
-	private int ReturBeliDetailReturId;
+	private int returBeliDetailReturId;
 	
 	@Column(name="returbelidetail_barang_id")
-	private int ReturBeliDetailBarangId;
+	private int returBeliDetailBarangId;
 	
 	@Column(name="returbelidetail_barang_nama")
-	private String ReturbeliBarangNama;
+	private String returBeliBarangNama;
 	
 	@Column(name="returbelidetail_satuan_id")
-	private int ReturBeliDetailSatuanId;
+	private int returBeliDetailSatuanId;
 	
 	@Column(name="returbelidetail_satuan_nama")
-	private String ReturbeliSatuanNama;
+	private String returBeliSatuanNama;
 	  
 	@Column(name="returbelidetail_kadaluarsa")
-	private Date ReturBeliDetailKadaluarsa;
+	private Date returBeliDetailKadaluarsa;
 	
 	@Column(name="returbelidetail_jumlah")
-	private int ReturBeliDetailJumlah;
+	private int returBeliDetailJumlah;
 	
 	@Column(name="returbelidetail_harga")
-	private int ReturBeliDetailHarga;
+	private int returBeliDetailHarga;
 	
 	@Column(name="returbelidetail_diskon")
-	private int ReturBeliDetailDiskon;
+	private int returBeliDetailDiskon;
 	
 	@Column(name="returbelidetail_subtotal")
-	private int ReturBeliDetailSubTotal;
+	private int returBeliDetailSubTotal;
 	
 	@Column(name="returbelidetail_created_by")
-	private String ReturBeliDetailCreatedBy;
+	private String returBeliDetailCreatedBy;
 	
 	@Column(name="returbelidetail_created_date")
-	private Timestamp ReturBeliDetailCreatedDate;
+	private Timestamp returBeliDetailCreatedDate;
 	
 	@Column(name="returbelidetail_updated_by")
-	private String ReturBeliDetailUpdatedBy;
+	private String returBeliDetailUpdatedBy;
 	
 	@Column(name="returbelidetail_updated_date")
-	private Timestamp ReturBeliDetailUpdatedDate;
+	private Timestamp returBeliDetailUpdatedDate;
 	
 	@Column(name="returbelidetail_revised")
-	private int ReturBeliDetailRevised;
+	private int returBeliDetailRevised;
 	
 	@Column(name="reg_company_id")
 	private int RegCompanyId;
 	  
 	@Column(name="returbelidetail_deleted_date")
-	private Timestamp ReturBeliDetailDeletedDate;
+	private Timestamp returBeliDetailDeletedDate;
 	
 	@ManyToOne
 	private MReturBeli returBeli;
 
 	public int getReturBeliDetailId() {
-		return ReturBeliDetailId;
+		return returBeliDetailId;
 	}
 
 	public void setReturBeliDetailId(int returBeliId) {
-		ReturBeliDetailId = returBeliId;
+		this.returBeliDetailId = returBeliId;
 	}
 
 	public int getReturBeliDetailReturId() {
-		return ReturBeliDetailReturId;
+		return returBeliDetailReturId;
 	}
 
 	public void setReturBeliDetailReturId(int returBeliReturId) {
-		ReturBeliDetailReturId = returBeliReturId;
+		this.returBeliDetailReturId = returBeliReturId;
 	}
 
 	public int getReturBeliDetailBarangId() {
-		return ReturBeliDetailBarangId;
+		return returBeliDetailBarangId;
 	}
 
 	public void setReturBeliDetailBarangId(int returBeliBarangId) {
-		ReturBeliDetailBarangId = returBeliBarangId;
+		this.returBeliDetailBarangId = returBeliBarangId;
 	}
 
 	public String getReturbeliBarangNama() {
-		return ReturbeliBarangNama;
+		return returBeliBarangNama;
 	}
 
 	public void setReturbeliBarangNama(String returbeliBarangNama) {
-		ReturbeliBarangNama = returbeliBarangNama;
+		this.returBeliBarangNama = returbeliBarangNama;
 	}
 
 	public int getReturBeliDetailSatuanId() {
-		return ReturBeliDetailSatuanId;
+		return returBeliDetailSatuanId;
 	}
 
 	public void setReturBeliDetailSatuanId(int returBeliSatuanId) {
-		ReturBeliDetailSatuanId = returBeliSatuanId;
+		this.returBeliDetailSatuanId = returBeliSatuanId;
 	}
 
 	public String getReturbeliSatuanNama() {
-		return ReturbeliSatuanNama;
+		return returBeliSatuanNama;
 	}
 
 	public void setReturbeliSatuanNama(String returbeliSatuanNama) {
-		ReturbeliSatuanNama = returbeliSatuanNama;
+		this.returBeliSatuanNama = returbeliSatuanNama;
 	}
 
 	public Date getReturBeliDetailKadaluarsa() {
-		return ReturBeliDetailKadaluarsa;
+		return returBeliDetailKadaluarsa;
 	}
 
 	public void setReturBeliDetailKadaluarsa(Date returBeliKadaluarsa) {
-		ReturBeliDetailKadaluarsa = returBeliKadaluarsa;
+		this.returBeliDetailKadaluarsa = returBeliKadaluarsa;
 	}
 
 	public int getReturBeliDetailJumlah() {
-		return ReturBeliDetailJumlah;
+		return returBeliDetailJumlah;
 	}
 
 	public void setReturBeliDetailJumlah(int returBeliJumlah) {
-		ReturBeliDetailJumlah = returBeliJumlah;
+		this.returBeliDetailJumlah = returBeliJumlah;
 	}
 
 	public int getReturBeliDetailHarga() {
-		return ReturBeliDetailHarga;
+		return returBeliDetailHarga;
 	}
 
 	public void setReturBeliDetailHarga(int returBeliHarga) {
-		ReturBeliDetailHarga = returBeliHarga;
+		this.returBeliDetailHarga = returBeliHarga;
 	}
 
 	public int getReturBeliDetailDiskon() {
-		return ReturBeliDetailDiskon;
+		return returBeliDetailDiskon;
 	}
 
 	public void setReturBeliDetailDiskon(int returBeliDiskon) {
-		ReturBeliDetailDiskon = returBeliDiskon;
+		this.returBeliDetailDiskon = returBeliDiskon;
 	}
 
 	public int getReturBeliDetailSubTotal() {
-		return ReturBeliDetailSubTotal;
+		return returBeliDetailSubTotal;
 	}
 
 	public void setReturBeliDetailSubTotal(int returBeliSubTotal) {
-		ReturBeliDetailSubTotal = returBeliSubTotal;
+		this.returBeliDetailSubTotal = returBeliSubTotal;
 	}
 
 	public String getReturBeliDetailCreatedBy() {
-		return ReturBeliDetailCreatedBy;
+		return returBeliDetailCreatedBy;
 	}
 
 	public void setReturBeliDetailCreatedBy(String returBeliCreatedBy) {
-		ReturBeliDetailCreatedBy = returBeliCreatedBy;
+		this.returBeliDetailCreatedBy = returBeliCreatedBy;
 	}
 
 	public Timestamp getReturBeliDetailCreatedDate() {
-		return ReturBeliDetailCreatedDate;
+		return returBeliDetailCreatedDate;
 	}
 
 	public void setReturBeliDetailCreatedDate(Timestamp returBeliCreatedDate) {
-		ReturBeliDetailCreatedDate = returBeliCreatedDate;
+		this.returBeliDetailCreatedDate = returBeliCreatedDate;
 	}
 
 	public String getReturBeliDetailUpdatedBy() {
-		return ReturBeliDetailUpdatedBy;
+		return returBeliDetailUpdatedBy;
 	}
 
 	public void setReturBeliDetailUpdatedBy(String returBeliUpdatedBy) {
-		ReturBeliDetailUpdatedBy = returBeliUpdatedBy;
+		this.returBeliDetailUpdatedBy = returBeliUpdatedBy;
 	}
 
 	public Timestamp getReturBeliDetailUpdatedDate() {
-		return ReturBeliDetailUpdatedDate;
+		return returBeliDetailUpdatedDate;
 	}
 
 	public void setReturBeliDetailUpdatedDate(Timestamp returBeliUpdatedDate) {
-		ReturBeliDetailUpdatedDate = returBeliUpdatedDate;
+		this.returBeliDetailUpdatedDate = returBeliUpdatedDate;
 	}
 
 	public int getReturBeliDetailRevised() {
-		return ReturBeliDetailRevised;
+		return returBeliDetailRevised;
 	}
 
 	public void setReturBeliDetailRevised(int returBeliRevised) {
-		ReturBeliDetailRevised = returBeliRevised;
+		this.returBeliDetailRevised = returBeliRevised;
 	}
 
 	public int getRegCompanyId() {
@@ -206,15 +206,15 @@ public class MReturBeliDetail {
 	}
 
 	public void setRegCompanyId(int regCompanyId) {
-		RegCompanyId = regCompanyId;
+		this.RegCompanyId = regCompanyId;
 	}
 
 	public Timestamp getReturBeliDetailDeletedDate() {
-		return ReturBeliDetailDeletedDate;
+		return returBeliDetailDeletedDate;
 	}
 
 	public void setReturBeliDetailDeletedDate(Timestamp returBeliDeletedDate) {
-		ReturBeliDetailDeletedDate = returBeliDeletedDate;
+		this.returBeliDetailDeletedDate = returBeliDeletedDate;
 	}
 
 	public MReturBeli getReturBeli() {
@@ -227,15 +227,15 @@ public class MReturBeliDetail {
 
 	@Override
 	public String toString() {
-		return "MReturBeliDetailDetail [ReturBeliDetailId=" + ReturBeliDetailId + ", ReturBeliDetailReturId=" + ReturBeliDetailReturId
-				+ ", ReturBeliDetailBarangId=" + ReturBeliDetailBarangId + ", ReturbeliBarangNama=" + ReturbeliBarangNama
-				+ ", ReturBeliDetailSatuanId=" + ReturBeliDetailSatuanId + ", ReturbeliSatuanNama=" + ReturbeliSatuanNama
-				+ ", ReturBeliDetailKadaluarsa=" + ReturBeliDetailKadaluarsa + ", ReturBeliDetailJumlah=" + ReturBeliDetailJumlah
-				+ ", ReturBeliDetailHarga=" + ReturBeliDetailHarga + ", ReturBeliDetailDiskon=" + ReturBeliDetailDiskon + ", ReturBeliDetailSubTotal="
-				+ ReturBeliDetailSubTotal + ", ReturBeliDetailCreatedBy=" + ReturBeliDetailCreatedBy + ", ReturBeliDetailCreatedDate="
-				+ ReturBeliDetailCreatedDate + ", ReturBeliDetailUpdatedBy=" + ReturBeliDetailUpdatedBy + ", ReturBeliDetailUpdatedDate="
-				+ ReturBeliDetailUpdatedDate + ", ReturBeliDetailRevised=" + ReturBeliDetailRevised + ", RegCompanyId=" + RegCompanyId
-				+ ", ReturBeliDetailDeletedDate=" + ReturBeliDetailDeletedDate + ", returBeli=" + returBeli + "]";
+		return "MReturBeliDetail [returBeliDetailId=" + returBeliDetailId + ", returBeliDetailReturId=" + returBeliDetailReturId
+				+ ", returBeliDetailBarangId=" + returBeliDetailBarangId + ", returBeliBarangNama=" + returBeliBarangNama
+				+ ", returBeliDetailSatuanId=" + returBeliDetailSatuanId + ", returBeliSatuanNama=" + returBeliSatuanNama
+				+ ", returBeliDetailKadaluarsa=" + returBeliDetailKadaluarsa + ", returBeliDetailJumlah=" + returBeliDetailJumlah
+				+ ", returBeliDetailHarga=" + returBeliDetailHarga + ", returBeliDetailDiskon=" + returBeliDetailDiskon + ", returBeliDetailSubTotal="
+				+ returBeliDetailSubTotal + ", returBeliDetailCreatedBy=" + returBeliDetailCreatedBy + ", returBeliDetailCreatedDate="
+				+ returBeliDetailCreatedDate + ", returBeliDetailUpdatedBy=" + returBeliDetailUpdatedBy + ", returBeliDetailUpdatedDate="
+				+ returBeliDetailUpdatedDate + ", returBeliDetailRevised=" + returBeliDetailRevised + ", RegCompanyId=" + RegCompanyId
+				+ ", returBeliDetailDeletedDate=" + returBeliDetailDeletedDate  + "]";
 	}
 	
 	

@@ -127,14 +127,14 @@
                      <form>
                          <div class="form-group">
                              <label>Nama Barang</label>
-                             <input type="text" name="ReturBeliDetailBarangId" id="ReturBeliDetailBarangId">
+                             <input type="text" name="returBeliDetailBarangId" id="returBeliDetailBarangId">
                              
                          </div>
                          <div class="form-group">
                              <label>Satuan</label>
-                             <input type="text" name="ReturBeliDetailSatuanId" id="ReturBeliDetailSatuanId">
+                             <input type="text" name="returBeliDetailSatuanId" id="returBeliDetailSatuanId">
                              <%--
-                             <select name="ReturBeliDetailSatuanId" id="ReturBeliDetailSatuanId">
+                             <select name="returBeliDetailSatuanId" id="returBeliDetailSatuanId">
                                  <c:forEach var="tempSatuan" items="${satuan}">
                                          <option value="${tempSatuan.satuan_id }">
                                          ${tempSatuan.satuanNama }
@@ -145,20 +145,20 @@
                          </div>
                          <div class="form-group">
                              <label>Kadaluarsa</label>
-                             <input type="date" name="ReturBeliDetailKadaluarsa" id="ReturBeliDetailKadaluarsa">
+                             <input type="date" name="returBeliDetailKadaluarsa" id="returBeliDetailKadaluarsa">
                          </div>
                          
                          <div class="form-group">
                              <label>Jumlah</label>
-                             <input type="text" name="ReturBeliDetailJumlah" id="ReturBeliDetailJumlah">
+                             <input type="text" name="returBeliDetailJumlah" id="returBeliDetailJumlah">
                          </div>
                          <div class="form-group">
                              <label>Harga</label>
-                             <input type="text" name="ReturBeliDetailHarga" id="ReturBeliDetailHarga">
+                             <input type="text" name="returBeliDetailHarga" id="returBeliDetailHarga">
                          </div>
                          <div class="form-group">
                              <label>Sub Total</label>
-                             <input type="text" name="ReturBeliDetailSubTotal" id="ReturBeliDetailSubTotal">
+                             <input type="text" name="returBeliDetailSubTotal" id="returBeliDetailSubTotal">
                          </div>
                          <input type="hidden" name="detail_mode" id="detail_mode">                                                                               
                          <input type="hidden" name="detail_edit" id="detail_edit">

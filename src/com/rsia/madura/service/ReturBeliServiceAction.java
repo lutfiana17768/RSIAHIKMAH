@@ -61,6 +61,15 @@ public class ReturBeliServiceAction implements ReturBeliService {
 	@Override
 	@Transactional
 	public int update(MReturBeli returBeliModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if(returBeliModel.getDetail() != null) {
+			returBeliModel.getDetail().forEach((detail) ->{
+				detail.setReturBeli(returBeliModel);
+				detail.setReturBeliDetailUpdatedBy("Admin");
+				detail.setReturBeliDetailUpdatedDate(currentTime);
+			});
+		}
 
 		return returBeliDAO.returBeliUpdate(returBeliModel);
 	}

@@ -103,7 +103,7 @@ public class OpnameAction implements OpnameDAO{
 	public int opnameUpdate(MOpname opnameModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(opnameModel);
+		current.merge(opnameModel);
 		current.flush();
 		
 		return opnameModel.getOpnameId();
@@ -113,7 +113,7 @@ public class OpnameAction implements OpnameDAO{
 	public int opnameDelete(MOpname opnameModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(opnameModel);
+		current.merge(opnameModel);
 		current.flush();
 		
 		return opnameModel.getOpnameId();

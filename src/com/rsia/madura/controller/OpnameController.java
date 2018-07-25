@@ -77,6 +77,41 @@ public class OpnameController {
 		return "redirect:/opname";
 	}
 
+	@RequestMapping(value="/edit")
+	public String OpnameFormAddView(Model model, @RequestParam(value = "Id", required = false) int id){
+		MOpname opnameModel = opnameService.getOpname(id);
+		List<MBarang> resultBarang = barangService.getBarangs();
+		List<MSatuan> resultSatuan = satuanService.getSatuans();
+
+		Timestamp tglCreate = opnameModel.getOpnameCreatedDate();
+		
+		model.addAttribute("opnameModel", opnameModel);
+		model.addAttribute("satuan", resultSatuan);
+		model.addAttribute("barang", resultBarang);
+		model.addAttribute("tglCreate", tglCreate);
+
+		model.addAttribute("footerjs", "../opname/inc/footerjs.jsp");
+		
+		return "opname/update";
+	}
+	
+	@RequestMapping(value="/update")
+	public String OpnameUpdate(@ModelAttribute("opnameModel") MOpname opnameModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		opnameModel.setOpnameStatus("Aktif");
+		opnameModel.setOpnameTanggal(currentTime);
+		opnameModel.setOpnameAktif('Y');
+		opnameModel.setOpnameUpdatedBy("Admin");
+		opnameModel.setOpnameUpdatedDate(currentTime);
+		opnameModel.setOpnameRevised(opnameModel.getOpnameRevised()+1);
+		
+
+		opnameService.update(opnameModel);
+		
+		return "redirect:/opname";
+	}
+
 	@InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

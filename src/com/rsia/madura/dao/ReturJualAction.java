@@ -103,7 +103,7 @@ public class ReturJualAction implements ReturJualDAO {
 	public int returJualUpdate(MReturJual returJualModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(returJualModel);
+		current.merge(returJualModel);
 		current.flush();
 		
 		return returJualModel.getReturJualId();
@@ -113,7 +113,7 @@ public class ReturJualAction implements ReturJualDAO {
 	public int returJualDelete(MReturJual returJualModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(returJualModel);
+		current.merge(returJualModel);
 		current.flush();
 		
 		return returJualModel.getReturJualId();

@@ -23,3 +23,7 @@ alter table m_pasien add column wali_kelamin character varying(250)
 alter table m_pasien add column wali_telepon character varying(250)
 alter table m_pasien add column wali_alamat character varying(250)
 alter table m_pasien add column wali_hubungan character varying(250)
+
+start Rizki (2018 07 25) 
+	alter table t_retur_jual alter column returjual_keterangan type character varying(150);
+end rizki

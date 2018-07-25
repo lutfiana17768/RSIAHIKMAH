@@ -174,6 +174,10 @@
                              </select>
                              
                          </div>
+                          <div class="form-group">
+                             <label>Kadalursa</label>
+                             <input type="text" name="terimaDetailKadaluarsa" id="terimaDetailKadaluarsa">
+                         </div>
                          <div class="form-group">
                              <label>Jumlah</label>
                              <input type="text" name="terimaDetailJumlah" id="terimaDetailJumlah">

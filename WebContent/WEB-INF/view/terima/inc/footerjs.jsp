@@ -21,8 +21,8 @@ $('#simpan-terima').click(function(){
     $('#terima-form').submit();
 
 });
-var terima_length = 0;
 
+var terima_length = $('#terima-list').find('tr').length;
 $('#add_terima').click(function(){
     $('#form-detail').find('input,select').val('');
     $('#terima_mode').val('new');
@@ -31,7 +31,7 @@ $('#add_terima').click(function(){
 });
 
 $('#simpan-detail').click(function(){
-    var nama_barang, satuan, jumlah, harga, sub_total, mode, counter, id_row;
+    var nama_barang, kadaluarsa, satuan, jumlah, harga, sub_total, mode, counter, id_row;
     var mode = $('#terima_mode').val();
 
     if(mode == 'new')
@@ -51,16 +51,18 @@ $('#simpan-detail').click(function(){
     nama_barang = $('#terimaDetailBarangId').val();
     satuan = $('#terimaDetailSatuan').val();
     jumlah = $('#terimaDetailJumlah').val() || 0;
+    kadaluarsa = $('#terimaDetailKadaluarsa').val() || 0;
     harga = $('#terimaDetailHarga').val() ||0;
     sub_total = $('#terimaDetailSubTotal').val() || 0;
     // data-kolom-id sesuaikan dengan id input di modal
     
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailBarangId" data-kolom-id="barang">'+nama_barang+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailSatuan" data-kolom-id="satuan">'+satuan+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailJumlah" data-kolom-id="jumlah">'+jumlah+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailHarga" data-kolom-id="harga">'+harga+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailSubTotal" data-kolom-id="sub_total">'+sub_total+'</td>');
-    tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editOrder('+counter+')">Edit</button></td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailBarangId" data-kolom-id="terimaDetailBarangId">'+nama_barang+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailSatuan" data-kolom-id="terimaDetailSatuanId">'+satuan+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailKadaluarsa" data-kolom-id="terimaDetailKadaluarsa">'+kadaluarsa+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailJumlah" data-kolom-id="terimaDetailJumlah">'+jumlah+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailHarga" data-kolom-id="terimaDetailHarga">'+harga+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailSubTotal" data-kolom-id="terimaDetailSubTotal">'+sub_total+'</td>');
+    tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDetail('+counter+')">Edit</button></td>');
     if(mode == 'new')
     {
         tindakan_length = counter;
@@ -71,7 +73,7 @@ $('#simpan-detail').click(function(){
     $('#form-detail').find('input,select').val('');
 });	
 
-function editBarang(id)
+function editDetail(id)
 {
     var tr;
     $('#terima_mode').val('edit');

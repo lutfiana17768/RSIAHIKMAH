@@ -68,7 +68,7 @@ public class MReturJual {
 	private int returJualBayarJumlah;
 	
 	@Column(name="returjual_keterangan")
-	private int returJualKeterangan;
+	private String returJualKeterangan;
 	
 	@Column(name="returjual_status")
 	private char returJualStatus;
@@ -231,11 +231,11 @@ public class MReturJual {
 		this.returJualBayarJumlah = returJualBayarJumlah;
 	}
 
-	public int getReturJualKeterangan() {
+	public String getReturJualKeterangan() {
 		return returJualKeterangan;
 	}
 
-	public void setReturJualKeterangan(int returJualKeterangan) {
+	public void setReturJualKeterangan(String returJualKeterangan) {
 		this.returJualKeterangan = returJualKeterangan;
 	}
 

@@ -21,7 +21,7 @@ $('#simpan-returJual').click(function(){
     $('#returJual-form').submit();
 
 });
-var returJual_length = 0;
+var returJual_length = $('#returJual-list').find('tr').length;
 
 $('#add_detail').click(function(){
     $('#form-detail').find('input,select').val('');
@@ -48,24 +48,24 @@ $('#simpan-detail').click(function(){
         tr.empty();
     }
     
-    nama_barang = $('#ReturJualDetailBarangId').val();
-    kadaluarsa = $('#ReturJualDetailKadaluarsa').val()
-    satuan = $('#ReturJualDetailSatuanId').val();
+    nama_barang = $('#returJualDetailBarangId').val();
+    kadaluarsa = $('#returJualDetailKadaluarsa').val()
+    satuan = $('#returJualDetailSatuanId').val();
     jumlah = $('#ReturBeliDetailJumlah').val() || 0;
-    harga = $('#ReturJualDetailHarga').val() ||0;
-    sub_total = $('#ReturJualDetailSubTotal').val() || 0;
+    harga = $('#returJualDetailHarga').val() ||0;
+    sub_total = $('#returJualDetailSubTotal').val() || 0;
     
     // data-kolom-id sesuaikan dengan id input di modal
     //tr.append('<td>'+nama_barang+'</td>');
     // tr.append('<td data-used="1" data-save="1" data-name="orderDetailSatuanId" data-kolom-id="satuan">'+satuan+'</td>');
     //conto
-    tr.append('<td data-used="1" data-save="1" data-name="ReturJualDetailBarangId" data-kolom-id="ReturJualDetailBarangId">'+nama_barang+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="ReturJualDetailSatuanId" data-kolom-id="ReturJualDetailSatuanId">'+satuan+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="ReturJualDetailKadaluarsa" data-kolom-id="ReturJualDetailKadaluarsa">'+kadaluarsa+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="ReturJualDetailJumlah" data-kolom-id="ReturJualDetailJumlah">'+jumlah+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="ReturJualDetailHarga" data-kolom-id="ReturJualDetailHarga">'+harga+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="ReturJualDetailSubTotal" data-kolom-id="ReturJualDetailSubTotal">'+sub_total+'</td>');
-    tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editreturJual('+counter+')">Edit</button></td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returJualDetailBarangId" data-kolom-id="returJualDetailBarangId">'+nama_barang+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returJualDetailSatuanId" data-kolom-id="returJualDetailSatuanId">'+satuan+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returJualDetailKadaluarsa" data-kolom-id="returJualDetailKadaluarsa">'+kadaluarsa+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returJualDetailJumlah" data-kolom-id="returJualDetailJumlah">'+jumlah+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returJualDetailHarga" data-kolom-id="returJualDetailHarga">'+harga+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returJualDetailSubTotal" data-kolom-id="ReturJualDetailSubTotal">'+sub_total+'</td>');
+    tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDetail('+counter+')">Edit</button></td>');
     if(mode == 'new')
     {
         returJual_length = counter;
@@ -77,7 +77,7 @@ $('#simpan-detail').click(function(){
     $('#form-detail').find('input,select').val('');
 }); 
 
-function editreturJual(id)
+function editDetail(id)
 {
     var tr;
     $('#detail_mode').val('edit');

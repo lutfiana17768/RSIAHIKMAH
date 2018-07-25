@@ -21,7 +21,7 @@ $('#simpan-opname').click(function(){
     $('#opname-form').submit();
 
 });
-var opname_length = 0;
+var opname_length = $('#opname-list').find('tr').length;
 
 $('#add_detail').click(function(){
     $('#form-detail').find('input,select').val('');

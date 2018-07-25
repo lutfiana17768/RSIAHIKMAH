@@ -74,7 +74,7 @@ public class MTerimaDetail {
 	private Timestamp terimaDetailUpdatedDate;
 	
 	@Column(name="terimadet_revised")
-	private String terimaDetailRevised;
+	private Integer terimaDetailRevised;
 	
 	@Column(name="terimadet_deleted_date")
 	private Timestamp terimaDetailDeletedDate;
@@ -234,11 +234,11 @@ public class MTerimaDetail {
 		this.terimaDetailUpdatedDate = terimaDetailUpdatedDate;
 	}
 
-	public String getTerimaDetailRevised() {
+	public Integer getTerimaDetailRevised() {
 		return terimaDetailRevised;
 	}
 
-	public void setTerimaDetailRevised(String terimaDetailRevised) {
+	public void setTerimaDetailRevised(Integer terimaDetailRevised) {
 		this.terimaDetailRevised = terimaDetailRevised;
 	}
 

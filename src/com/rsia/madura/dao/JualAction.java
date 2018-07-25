@@ -103,7 +103,7 @@ public class JualAction implements JualDAO {
 	public int jualUpdate(MJual jualModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(jualModel);
+		current.merge(jualModel);
 		current.flush();
 		
 		return jualModel.getJualId();

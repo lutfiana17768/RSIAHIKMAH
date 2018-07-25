@@ -3,89 +3,202 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../app/header.jsp" />
-<table class="table table-striped table-bordered table-hover">
-<section class="section">
-        <div class="row sameheight-container">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="card card-block sameheight-item">
-                    <div class="title-block">
-                        <h3 class="title">Update Data Returjual </h3>
+       <article class="content forms-page">
+            <section class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <small>Keterangan : <span style="color:red">*</span> Wajib Diisi</small>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-sm btn-success d_pasien-button" id="simpan-returJual" style="float: right;">Simpan</button>
+                        </div>
                     </div>
-                    <form:form modelAttribute="retusModel" method="POST" action="/returjual/update">
-                    <form:hidden path="retus_id" />
-                        <form:hidden path="retusCreatedBy" />
-                        <form:hidden path="retusCreatedDate" />
-                        <form:hidden path="retusAktif" />    
-                        <div class="form-group">
-                            <label>Nomer</label>
-                            <form:input path="returJualNo" placeholder="Nomer" class="form-control"/>
+                    <form:form modelAttribute="returJualModel" method="POST" action="/retur-jual/update" id="returJual-form">
+                    <form:hidden path="returJualId" />
+                    <form:hidden path="returJualCreatedDate" value="${tglCreate}"/>
+                    <form:hidden path="returJualCreatedBy" />
+                    <<form:hidden path="returJualRevised" />
+                    
+                    <div class="row card-block">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Nomer</label>
+                                <form:input path="returJualNo" placeholder="Nomer" class="form-control"/>
+                             </div>
+                             
+                            <div class="form-group">
+                                <label>Tanggal Returjual</label>
+                                <form:input path="returJualTanggal" type="date" placeholder="tanggal returjual" class="form-control"/>
+                             </div>
+                             
+                             <div class="form-group">
+                                <label>Retur Jual</label>
+                                <form:input path="returJualJual" placeholder="retur jual" class="form-control"/>
+                             </div>
+                             <div class="form-group">
+                                <label>Pasien Norm</label>
+                                <form:input path="returJualPasienNorm" placeholder="pasien norm" class="form-control"/>
+                             </div>
+                             <div classs="form-group">
+                                <label>Nama Pasien</label>
+                                <form:input path="returJualPasienNama" placeholder="nama pasien" class="form-control"/>
+                             </div><div class="form-group">
+                                <label>Alamat</label>
+                                <form:input path="returJualPasienAlamat" placeholder="alamat" class="form-control"/>
+                             </div>
+                             <div class="form-group">
+                                <label>Jenis Pasien</label>
+                                <form:input path="returJualJenisPasienNama" placeholder="jenis pasien" class="form-control"/>
+                             </div>
+                         </div>
+
+                        <div class="col-6"> 
+                            <div class="form-group">
+                                <label>Diskon</label>
+                                <form:input path="returJualDiskon" placeholder="diskon" class="form-control"/>
+                             </div>
+                            <div class="form-group">
+                                <label>Cashback</label>
+                                <form:input path="returJualCashback" placeholder="cashback" class="form-control"/>
+                             </div>
+                            <div class="form-group">
+                                <label>Total</label>
+                                <form:input path="returJualTotal" placeholder="total" class="form-control"/>
+                             </div>
+                            <%--
+                            <div class="form-group">
+                                <label>Status Bayar</label>
+                                <form:input path="returJualBayarStatus" placeholder="status bayar" class="form-control"/>
+                             </div>
+                             --%>
+                            <div class="form-group">
+                                <label>Jumlah Bayar</label>
+                                <form:input path="returJualBayarJumlah" placeholder="Jumlah Bayar" class="form-control"/>
+                             </div>
+                            <%--
+                            <div class="form-group">
+                                <label>Status</label>
+                                <form:input path="returjual_status" placeholder="status" class="form-control"/>
+                             </div>
+                             --%>
+                            <div class="form-group">
+                                <label>Pembayar</label>
+                                <form:input path="returJualBayarNama" placeholder="nama pembayar" class="form-control"/>
+                             </div>
+                            <div class="form-group">
+                                <label>Keterangan</label>
+                                <form:input path="returJualKeterangan" placeholder="keterangan" class="form-control"/>
+                             </div>
+                        </div> 
+                         <div class="col col-12" style="padding:0">
+                            <div class="container">
+                                <div class="card card-success">
+                                    <div class="card-header" style="min-height:0">
+                                        <div class="header-block" style="padding: 5px 20px">
+                                            <p class="title"> Detail Barang </p>
+                                        </div>
+                                    </div>
+                                    <div class="card-block" style="background-color: #f4f4f4">
+                                        <button type="button" class="btn btn-sm btn-success" style="float: right;"
+                                        id="add_detail" data-toggle="modal" data-target="#form-detail">
+                                            <span class="fa fa-plus"></span>&nbsp;Tambah
+                                        </button>
+                                       <div class="table-responsive" style="overflow-y: auto;">
+                                           <table class="table table-striped table-bordered table-hover table-form">
+                                               <thead>
+                                                   <tr>
+                                                       <th>Nama Barang</th>
+                                                       <th>Satuan</th>
+                                                       <th>Kadaluarsa</th>
+                                                       <th>Jumlah</th>
+                                                       <th>Harga</th>
+                                                       <th>Sub Total</th>
+                                                       <th>Aksi</th>
+                                                       
+                                                   </tr>
+                                               </thead>
+                                               <tbody id="returJual-list">
+                                                <c:forEach var="detail" items="${returJualModel.detail}" varStatus="loop">
+                                                    <tr id="terima_${loop.index+1}">
+                                                        <td data-used="1" data-save="1" data-name="returJualDetailBarangId" data-kolom-id="returJualDetailBarangId">${detail.returJualDetailBarangId}</td>
+                                                        <td data-used="1" data-save="1" data-name="returJualDetailSatuanId" data-kolom-id="returJualDetailSatuanId">${detail.returJualDetailSatuanId}</td>
+                                                        <td data-used="1" data-save="1" data-name="returJualDetailKadaluarsa" data-kolom-id="returJualDetailKadaluarsa">${detail.returJualDetailKadaluarsa}</td>
+                                                        <td data-used="1" data-save="1" data-name="returJualDetailJumlah" data-kolom-id="returJualDetailJumlah">${detail.returJualDetailJumlah}</td>
+                                                        <td data-used="1" data-save="1" data-name="returJualDetailHarga" data-kolom-id="returJualDetailHarga">${detail.returJualDetailHarga}</td>
+                                                        <td data-used="1" data-save="1" data-name="returJualDetailSubTotal" data-kolom-id="returJualDetailSubTotal">${detail.returJualDetailSubTotal}</td>
+                                                        <td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail(${loop.index+1})">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDetail(${loop.index+1})">Edit</button></td>
+
+                                                        <td style="display:none" data-used="1" data-save="1" data-name="returJualDetailId" data-kolom-id="returJualDetailId">${detail.returJualDetailId}</td>
+                                                    </tr>
+                                                </c:forEach>
+                                               </tbody>
+                                           </table>
+                                       <</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </form:form>                        
+                    </div>
+                </section>
+            </article>
+    <div class="modal fade" id="form-detail" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                     <h4 class="modal-title">Tambah Barang Retur Beli</h4>
+                     <button type="button" class="close" data-dismiss="modal"
+                         aria-label="Close">
+                         <span aria-hidden="true">�</span> <span class="sr-only">Close</span>
+                     </button>
+                 </div>
+                 <div class="modal-body modal-tab-container">
+                     <form>
+                         <div class="form-group">
+                             <label>Nama Barang</label>
+                             <input type="text" name="returJualDetailBarangId" id="returJualDetailBarangId">
+                             
+                         </div>
+                         <div class="form-group">
+                             <label>Satuan</label>
+                             <%--<input type="text" name="returJualDetailSatuanId" id="returJualDetailSatuanId">--%>
+                             <select name="returJualDetailSatuanId" id="returJualDetailSatuanId">
+                                 <c:forEach var="tempSatuan" items="${satuan}">
+                                         <option value="${tempSatuan.satuanID }">
+                                         ${tempSatuan.satuanNama }
+                                         </option>
+                                     </c:forEach>
+                             </select>
+                         </div>
+                         <div class="form-group">
+                             <label>Kadaluarsa</label>
+                             <input type="date" name="returJualDetailKadaluarsa" id="returJualDetailKadaluarsa">
                          </div>
                          
-                        <div class="form-group">
-                            <label>Tanggal Returjual</label>
-                            <form:input path="returJualTanggal" type="date" placeholder="tanggal returjual" class="form-control"/>
-                         </div>
-                         
                          <div class="form-group">
-                            <label>Retur Jual</label>
-                            <form:input path="returJualJual" placeholder="retur jual" class="form-control"/>
+                             <label>Jumlah</label>
+                             <input type="text" name="returJualDetailJumlah" id="returJualDetailJumlah">
                          </div>
                          <div class="form-group">
-                            <label>Pasien Norm</label>
-                            <form:input path="returJualPasienNorm" placeholder="pasien norm" class="form-control"/>
-                         </div>
-                         <div classs="form-group">
-                            <label>Nama Pasien</label>
-                            <form:input path="returJualPasienNama" placeholder="nama pasien" class="form-control"/>
-                         </div><div class="form-group">
-                            <label>Alamat</label>
-                            <form:input path="returJualPasienAlamat" placeholder="alamat" class="form-control"/>
+                             <label>Harga</label>
+                             <input type="text" name="returJualDetailHarga" id="returJualDetailHarga">
                          </div>
                          <div class="form-group">
-                            <label>Jenis Pasien</label>
-                            <form:input path="returJualJenisPasienNama" placeholder="jenis pasien" class="form-control"/>
+                             <label>Sub Total</label>
+                             <input type="text" name="returJualDetailSubTotal" id="returJualDetailSubTotal">
                          </div>
-                        <div class="form-group">
-                            <label>Diskon</label>
-                            <form:input path="returJualDiskon" placeholder="diskon" class="form-control"/>
-                         </div>
-                        <div class="form-group">
-                            <label>Cashback</label>
-                            <form:input path="returJualCashback" placeholder="cashback" class="form-control"/>
-                         </div>
-                        <div class="form-group">
-                            <label>Total</label>
-                            <form:input path="returJualTotal" placeholder="total" class="form-control"/>
-                         </div>
-                        <div class="form-group">
-                            <label>Status Bayar</label>
-                            <form:input path="returJualBayarStatus" placeholder="status bayar" class="form-control"/>
-                         </div>
-                        <div class="form-group">
-                            <label>Jumlah Bayar</label>
-                            <form:input path="returJualBayarJumlah" placeholder="Jumlah Bayar" class="form-control"/>
-                         </div>
-                        <div class="form-group">
-                            <label>Status</label>
-                            <form:input path="returjual_status" placeholder="status" class="form-control"/>
-                         </div>
-                        <div class="form-group">
-                            <label>Pembayar</label>
-                            <form:input path="returJualBayarNama" placeholder="nama pembayar" class="form-control"/>
-                         </div>
-                        <div class="form-group">
-                            <label>Keterangan</label>
-                            <form:input path="returJualKeterangan" placeholder="keterangan" class="form-control"/>
-                         </div>
-                        
-                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                        </div>
-                    </form:form>
-                </div>
+                         <input type="hidden" name="detail_mode" id="detail_mode">                                                                               
+                         <input type="hidden" name="detail_edit" id="detail_edit">
+                     </form>
+                 </div>
+                 <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary"
+                          data-dismiss="modal">Close</button>
+                      <button type="button" id="simpan-detail" class="btn btn-primary">Simpan</button>
+                  </div>
             </div>
+
         </div>
-    </section>
+    </div>
 <jsp:include page="../app/footer.jsp" />

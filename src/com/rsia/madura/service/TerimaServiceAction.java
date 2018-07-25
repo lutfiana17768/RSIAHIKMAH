@@ -63,6 +63,15 @@ public class TerimaServiceAction implements TerimaService {
 	@Override
 	@Transactional
 	public int update(MTerima terimaModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+
+		if(terimaModel.getDetail() != null) {
+			terimaModel.getDetail().forEach((detail) ->{
+				detail.setTerima(terimaModel);
+				detail.setTerimaDetailUpdatedBy("Admin");
+				detail.setTerimaDetailUpdatedDate(currentTime);
+			});
+		}
 
 		return terimaDAO.terimaUpdate(terimaModel);
 	}

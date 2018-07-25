@@ -67,6 +67,7 @@ public class OrderController {
 	@RequestMapping(value="/form-add")
 	public String OrderFormAddView(Model model){
 		MOrder orderModel = new MOrder();
+
 		List<MPerusahaan> resultPerusahaan = perusahaanService.getPerusahaans();
 		List<MJenisBarang> resultJenisBarang = jBService.getJenisBarangs();
 		List<MBarang> resultBarang = barangService.getBarangs();
@@ -114,7 +115,6 @@ public class OrderController {
 
 	@RequestMapping(value = "/form-update", method = RequestMethod.GET)
 	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int id) {
-
 		MOrder result = orderService.getOrder(id);
 		List<MPerusahaan> resultPerusahaan = perusahaanService.getPerusahaans();
 		List<MJenisBarang> resultJenisBarang = jBService.getJenisBarangs();

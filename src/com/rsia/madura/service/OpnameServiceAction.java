@@ -61,6 +61,15 @@ public class OpnameServiceAction implements OpnameService {
 	@Override
 	@Transactional
 	public int update(MOpname opnameModel) {
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		if(opnameModel.getDetail() != null) {
+			opnameModel.getDetail().forEach((detail) ->{
+				detail.setOpname(opnameModel);
+				detail.setOpnameDetailUpdatedBy("Admin");
+				detail.setOpnameDetailUpdatedDate(currentTime);
+			});
+		}
 
 		return opnameDAO.opnameUpdate(opnameModel);
 	}

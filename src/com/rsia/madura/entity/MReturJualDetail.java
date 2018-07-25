@@ -17,270 +17,270 @@ public class MReturJualDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="returjualdetail_id")
-	private int ReturJualDetailId;
+	private int returJualDetailId;
 
 	@Column(name="returjualdetail_returjual_id")
-	private int ReturJualDetailReturId;
+	private int returJualDetailReturId;
 	
 	@Column(name="returjualdetail_barang_id")
-	private int ReturJualDetailBarangId;
+	private int returJualDetailBarangId;
 	 
 	@Column(name="returjualdetail_barang_nama")
-	private String ReturJualDetailBarangNama;
+	private String returJualDetailBarangNama;
 	 
 	@Column(name="returjualdetail_satuan_id")
-	private int ReturJualDetailSatuanId;
+	private int returJualDetailSatuanId;
 	  
 	@Column(name="returjualdetail_satuan_nama")
-	private String ReturJualDetailSatuanNama;
+	private String returJualDetailSatuanNama;
 	
 	@Column(name="returjualdetail_kadaluarsa")
-	private Date ReturJualDetailKadaluarsa;
+	private Date returJualDetailKadaluarsa;
 	  
 	@Column(name="returjualdetail_jumlah")
-	private int ReturJualDetailJumlah;
+	private int returJualDetailJumlah;
 	
 	@Column(name="returjualdetail_harga")
-	private int ReturJualDetailHarga;
+	private int returJualDetailHarga;
 	
 	@Column(name="returjualdetail_diskon")
-	private int ReturJualDetailDiskon;
+	private int returJualDetailDiskon;
 	
 	@Column(name="returjualdetail_subtotal")
-	private int ReturJualDetailSubTotal;
+	private int returJualDetailSubTotal;
 	  
 	@Column(name="returjualdetail_terima_id")
-	private int ReturJualDetailTerimaId;
+	private int returJualDetailTerimaId;
 	
 	@Column(name="returjualdetail_terima_no")
-	private String ReturJualDetailTerimaNo;
+	private String returJualDetailTerimaNo;
 	
 	@Column(name="returjualdetail_depo_id")
-	private int ReturJualDepoId;
+	private int returJualDepoId;
 	
 	@Column(name="returjualdetail_depo_nama")
-	private String ReturJualDepoNama;
+	private String returJualDepoNama;
 	 
 	@Column(name="returjualdetail_status")
-	private int ReturJualDetailStatus;
+	private int returJualDetailStatus;
 	
 	@Column(name="returjualdetail_created_by")
-	private String ReturJualDetailCreatedBy;
+	private String returJualDetailCreatedBy;
 
 	@Column(name="returjualdetail_created_date")
-	private Timestamp ReturJualDetailCreatedDate;
+	private Timestamp returJualDetailCreatedDate;
 	
 	@Column(name="returjualdetail_updated_by")
-	private String ReturJualDetailUpdatedBy;
+	private String returJualDetailUpdatedBy;
 
 	@Column(name="returjualdetail_updated_date")
-	private Timestamp ReturJualDetailUpdatedDate;
+	private Timestamp returJualDetailUpdatedDate;
 	
 	@Column(name="returjualdetail_revised")
-	private int ReturJualDetailRevised;
+	private int returJualDetailRevised;
 	
 	@Column(name="reg_company_id")
-	private int RegCompanyId;
+	private int regCompanyId;
 	
 	@Column(name="reg_apps_id")
-	private int RegAppsId;
+	private int regAppsId;
 	
 	@Column(name="returjualdetail_deleted_date")
-	private Timestamp ReturJualDetaiDeletedDate;
+	private Timestamp returJualDetaiDeletedDate;
 	
 	@ManyToOne
 	private MReturJual returJual;
 
 	public int getReturJualDetailId() {
-		return ReturJualDetailId;
+		return returJualDetailId;
 	}
 
 	public void setReturJualDetailId(int returJualDetailId) {
-		this.ReturJualDetailId = returJualDetailId;
+		this.returJualDetailId = returJualDetailId;
 	}
 
 	public int getReturJualDetailReturId() {
-		return ReturJualDetailReturId;
+		return returJualDetailReturId;
 	}
 
 	public void setReturJualDetailReturId(int returJualDetailReturId) {
-		this.ReturJualDetailReturId = returJualDetailReturId;
+		this.returJualDetailReturId = returJualDetailReturId;
 	}
 
 	public int getReturJualDetailBarangId() {
-		return ReturJualDetailBarangId;
+		return returJualDetailBarangId;
 	}
 
 	public void setReturJualDetailBarangId(int returJualDetailBarangId) {
-		this.ReturJualDetailBarangId = returJualDetailBarangId;
+		this.returJualDetailBarangId = returJualDetailBarangId;
 	}
 
 	public String getReturJualDetailBarangNama() {
-		return ReturJualDetailBarangNama;
+		return returJualDetailBarangNama;
 	}
 
 	public void setReturJualDetailBarangNama(String returJualDetailBarangNama) {
-		this.ReturJualDetailBarangNama = returJualDetailBarangNama;
+		this.returJualDetailBarangNama = returJualDetailBarangNama;
 	}
 
 	public int getReturJualDetailSatuanId() {
-		return ReturJualDetailSatuanId;
+		return returJualDetailSatuanId;
 	}
 
 	public void setReturJualDetailSatuanId(int returJualDetailSatuanId) {
-		this.ReturJualDetailSatuanId = returJualDetailSatuanId;
+		this.returJualDetailSatuanId = returJualDetailSatuanId;
 	}
 
 	public String getReturJualDetailSatuanNama() {
-		return ReturJualDetailSatuanNama;
+		return returJualDetailSatuanNama;
 	}
 
 	public void setReturJualDetailSatuanNama(String returJualDetailSatuanNama) {
-		this.ReturJualDetailSatuanNama = returJualDetailSatuanNama;
+		this.returJualDetailSatuanNama = returJualDetailSatuanNama;
 	}
 
 	public Date getReturJualDetailKadaluarsa() {
-		return ReturJualDetailKadaluarsa;
+		return returJualDetailKadaluarsa;
 	}
 
 	public void setReturJualDetailKadaluarsa(Date returJualDetailKadaluarsa) {
-		this.ReturJualDetailKadaluarsa = returJualDetailKadaluarsa;
+		this.returJualDetailKadaluarsa = returJualDetailKadaluarsa;
 	}
 
 	public int getReturJualDetailJumlah() {
-		return ReturJualDetailJumlah;
+		return returJualDetailJumlah;
 	}
 
 	public void setReturJualDetailJumlah(int returJualDetailJumlah) {
-		this.ReturJualDetailJumlah = returJualDetailJumlah;
+		this.returJualDetailJumlah = returJualDetailJumlah;
 	}
 
 	public int getReturJualDetailHarga() {
-		return ReturJualDetailHarga;
+		return returJualDetailHarga;
 	}
 
 	public void setReturJualDetailHarga(int returJualDetailHarga) {
-		this.ReturJualDetailHarga = returJualDetailHarga;
+		this.returJualDetailHarga = returJualDetailHarga;
 	}
 
 	public int getReturJualDetailDiskon() {
-		return ReturJualDetailDiskon;
+		return returJualDetailDiskon;
 	}
 
 	public void setReturJualDetailDiskon(int returJualDetailDiskon) {
-		this.ReturJualDetailDiskon = returJualDetailDiskon;
+		this.returJualDetailDiskon = returJualDetailDiskon;
 	}
 
 	public int getReturJualDetailSubTotal() {
-		return ReturJualDetailSubTotal;
+		return returJualDetailSubTotal;
 	}
 
 	public void setReturJualDetailSubTotal(int returJualDetailSubTotal) {
-		this.ReturJualDetailSubTotal = returJualDetailSubTotal;
+		this.returJualDetailSubTotal = returJualDetailSubTotal;
 	}
 
 	public int getReturJualDetailTerimaId() {
-		return ReturJualDetailTerimaId;
+		return returJualDetailTerimaId;
 	}
 
 	public void setReturJualDetailTerimaId(int returJualDetailTerimaId) {
-		this.ReturJualDetailTerimaId = returJualDetailTerimaId;
+		this.returJualDetailTerimaId = returJualDetailTerimaId;
 	}
 
 	public String getReturJualDetailTerimaNo() {
-		return ReturJualDetailTerimaNo;
+		return returJualDetailTerimaNo;
 	}
 
 	public void setReturJualDetailTerimaNo(String returJualDetailTerimaNo) {
-		this.ReturJualDetailTerimaNo = returJualDetailTerimaNo;
+		this.returJualDetailTerimaNo = returJualDetailTerimaNo;
 	}
 
 	public int getReturJualDepoId() {
-		return ReturJualDepoId;
+		return returJualDepoId;
 	}
 
 	public void setReturJualDepoId(int returJualDepoId) {
-		this.ReturJualDepoId = returJualDepoId;
+		this.returJualDepoId = returJualDepoId;
 	}
 
 	public String getReturJualDepoNama() {
-		return ReturJualDepoNama;
+		return returJualDepoNama;
 	}
 
 	public void setReturJualDepoNama(String returJualDepoNama) {
-		this.ReturJualDepoNama = returJualDepoNama;
+		this.returJualDepoNama = returJualDepoNama;
 	}
 
 	public int getReturJualDetailStatus() {
-		return ReturJualDetailStatus;
+		return returJualDetailStatus;
 	}
 
 	public void setReturJualDetailStatus(int returJualDetailStatus) {
-		this.ReturJualDetailStatus = returJualDetailStatus;
+		this.returJualDetailStatus = returJualDetailStatus;
 	}
 
 	public String getReturJualDetailCreatedBy() {
-		return ReturJualDetailCreatedBy;
+		return returJualDetailCreatedBy;
 	}
 
 	public void setReturJualDetailCreatedBy(String returJualDetailCreatedBy) {
-		this.ReturJualDetailCreatedBy = returJualDetailCreatedBy;
+		this.returJualDetailCreatedBy = returJualDetailCreatedBy;
 	}
 
 	public Timestamp getReturJualDetailCreatedDate() {
-		return ReturJualDetailCreatedDate;
+		return returJualDetailCreatedDate;
 	}
 
 	public void setReturJualDetailCreatedDate(Timestamp returJualDetailCreatedDate) {
-		this.ReturJualDetailCreatedDate = returJualDetailCreatedDate;
+		this.returJualDetailCreatedDate = returJualDetailCreatedDate;
 	}
 
 	public String getReturJualDetailUpdatedBy() {
-		return ReturJualDetailUpdatedBy;
+		return returJualDetailUpdatedBy;
 	}
 
 	public void setReturJualDetailUpdatedBy(String returJualDetailUpdatedBy) {
-		this.ReturJualDetailUpdatedBy = returJualDetailUpdatedBy;
+		this.returJualDetailUpdatedBy = returJualDetailUpdatedBy;
 	}
 
 	public Timestamp getReturJualDetailUpdatedDate() {
-		return ReturJualDetailUpdatedDate;
+		return returJualDetailUpdatedDate;
 	}
 
 	public void setReturJualDetailUpdatedDate(Timestamp returJualDetailUpdatedDate) {
-		ReturJualDetailUpdatedDate = returJualDetailUpdatedDate;
+		returJualDetailUpdatedDate = returJualDetailUpdatedDate;
 	}
 
 	public int getReturJualDetailRevised() {
-		return ReturJualDetailRevised;
+		return returJualDetailRevised;
 	}
 
 	public void setReturJualDetailRevised(int returJualDetailRevised) {
-		ReturJualDetailRevised = returJualDetailRevised;
+		returJualDetailRevised = returJualDetailRevised;
 	}
 
 	public int getRegCompanyId() {
-		return RegCompanyId;
+		return regCompanyId;
 	}
 
 	public void setRegCompanyId(int regCompanyId) {
-		RegCompanyId = regCompanyId;
+		regCompanyId = regCompanyId;
 	}
 
 	public int getRegAppsId() {
-		return RegAppsId;
+		return regAppsId;
 	}
 
 	public void setRegAppsId(int regAppsId) {
-		RegAppsId = regAppsId;
+		regAppsId = regAppsId;
 	}
 
 	public Timestamp getReturJualDetaiDeletedDate() {
-		return ReturJualDetaiDeletedDate;
+		return returJualDetaiDeletedDate;
 	}
 
 	public void setReturJualDetaiDeletedDate(Timestamp returJualDetaiDeletedDate) {
-		ReturJualDetaiDeletedDate = returJualDetaiDeletedDate;
+		this.returJualDetaiDeletedDate = returJualDetaiDeletedDate;
 	}
 
 	public MReturJual getReturJual() {
@@ -293,21 +293,21 @@ public class MReturJualDetail {
 
 	@Override
 	public String toString() {
-		return "MReturJualDetail [ReturJualDetailId=" + ReturJualDetailId + ", ReturJualDetailReturId="
-				+ ReturJualDetailReturId + ", ReturJualDetailBarangId=" + ReturJualDetailBarangId
-				+ ", ReturJualDetailBarangNama=" + ReturJualDetailBarangNama + ", ReturJualDetailSatuanId="
-				+ ReturJualDetailSatuanId + ", ReturJualDetailSatuanNama=" + ReturJualDetailSatuanNama
-				+ ", ReturJualDetailKadaluarsa=" + ReturJualDetailKadaluarsa + ", ReturJualDetailJumlah="
-				+ ReturJualDetailJumlah + ", ReturJualDetailHarga=" + ReturJualDetailHarga + ", ReturJualDetailDiskon="
-				+ ReturJualDetailDiskon + ", ReturJualDetailSubTotal=" + ReturJualDetailSubTotal
-				+ ", ReturJualDetailTerimaId=" + ReturJualDetailTerimaId + ", ReturJualDetailTerimaNo="
-				+ ReturJualDetailTerimaNo + ", ReturJualDepoId=" + ReturJualDepoId + ", ReturJualDepoNama="
-				+ ReturJualDepoNama + ", ReturJualDetailStatus=" + ReturJualDetailStatus + ", ReturJualDetailCreatedBy="
-				+ ReturJualDetailCreatedBy + ", ReturJualDetailCreatedDate=" + ReturJualDetailCreatedDate
-				+ ", ReturJualDetailUpdatedBy=" + ReturJualDetailUpdatedBy + ", ReturJualDetailUpdatedDate="
-				+ ReturJualDetailUpdatedDate + ", ReturJualDetailRevised=" + ReturJualDetailRevised + ", RegCompanyId="
-				+ RegCompanyId + ", RegAppsId=" + RegAppsId + ", ReturJualDetaiDeletedDate=" + ReturJualDetaiDeletedDate
-				+ ", returJual=" + returJual + "]";
+		return "MReturJualDetail [returJualDetailId=" + returJualDetailId + ", returJualDetailReturId="
+				+ returJualDetailReturId + ", returJualDetailBarangId=" + returJualDetailBarangId
+				+ ", returJualDetailBarangNama=" + returJualDetailBarangNama + ", returJualDetailSatuanId="
+				+ returJualDetailSatuanId + ", returJualDetailSatuanNama=" + returJualDetailSatuanNama
+				+ ", returJualDetailKadaluarsa=" + returJualDetailKadaluarsa + ", returJualDetailJumlah="
+				+ returJualDetailJumlah + ", returJualDetailHarga=" + returJualDetailHarga + ", returJualDetailDiskon="
+				+ returJualDetailDiskon + ", returJualDetailSubTotal=" + returJualDetailSubTotal
+				+ ", returJualDetailTerimaId=" + returJualDetailTerimaId + ", returJualDetailTerimaNo="
+				+ returJualDetailTerimaNo + ", returJualDepoId=" + returJualDepoId + ", returJualDepoNama="
+				+ returJualDepoNama + ", returJualDetailStatus=" + returJualDetailStatus + ", returJualDetailCreatedBy="
+				+ returJualDetailCreatedBy + ", returJualDetailCreatedDate=" + returJualDetailCreatedDate
+				+ ", returJualDetailUpdatedBy=" + returJualDetailUpdatedBy + ", returJualDetailUpdatedDate="
+				+ returJualDetailUpdatedDate + ", returJualDetailRevised=" + returJualDetailRevised + ", regCompanyId="
+				+ regCompanyId + ", regAppsId=" + regAppsId + ", returJualDetaiDeletedDate=" + returJualDetaiDeletedDate
+				+  "]";
 	}
 
 	
