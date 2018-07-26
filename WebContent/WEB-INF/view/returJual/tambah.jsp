@@ -11,7 +11,7 @@
                             <small>Keterangan : <span style="color:red">*</span> Wajib Diisi</small>
                         </div>
                         <div class="col-6">
-                            <button type="button" class="btn btn-sm btn-success d_pasien-button" id="simpan-jual" style="float: right;">Simpan</button>
+                            <button type="button" class="btn btn-sm btn-success d_pasien-button" id="simpan-returJual" style="float: right;">Simpan</button>
                         </div>
                     </div>
                     <form:form modelAttribute="returJualModel" method="POST" action="/retur-jual/store" id="returJual-form">

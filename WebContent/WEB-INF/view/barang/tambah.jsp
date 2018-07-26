@@ -17,7 +17,7 @@
                             </div>
                         </div>
 					<div class="container">
-						<small>Keterangan : <span style="color:red">*</span> Wajib Diisi</small>
+						
 						<form:form modelAttribute="barangModel" method="POST" action="/barang/store" id="barang-form">
 						<div class="row card-block">
 							<div class="col-6">

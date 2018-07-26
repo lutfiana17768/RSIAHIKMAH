@@ -17,10 +17,9 @@
                             </div>
                         </div>
 					<div class="container">
-						<small>Keterangan : <span style="color:red">*</span> Wajib Diisi</small>
 						<form:form modelAttribute="barangModel" method="POST" action="/barang/update" id="barang-form">
 						<form:input type="hidden" path="barangId" />
-						<form:input type="hidden" path="barangCreatedDate" Value="${tgl}"/>
+						<form:input type="hidden" path="barangCreatedDate" value="${tgl}"/>
 						<form:input type="hidden" path="barangCreatedBy" />
 						<form:input type="hidden" path="barangRevised" />
 						<form:input type="hidden" path="barangAktif" Value="Y"/>

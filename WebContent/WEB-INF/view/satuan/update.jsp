@@ -26,6 +26,8 @@
 							<label for="exampleInputPassword1">Nama Satuan</label>
 								<form:input path="satuanNama" placeholder="Masukan Nama Satuan" class="form-control boxed"/>
 							 </div>
+
+						
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary rounded-0">Simpan</button>
 						</div>

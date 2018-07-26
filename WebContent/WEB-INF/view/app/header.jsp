@@ -76,10 +76,10 @@
 																	</a>
 																	<ul class="sidebar-nav collapse" aria-expanded="false">
 																		<li>
-																			<a href="/barang/form-add"> Master Barang</a>
+																			<a href="/barang"> Master Barang</a>
 																		</li>
 																		<li>
-																			<a href="/satuan"> Master Satuan</a>
+																			<a href="/satuan/tambah"> Master Satuan</a>
 																		</li>
 																		<li>
 																			<a href="/perusahaan/list/?page=1&limit=10"> Master Perusahaan</a>
@@ -107,7 +107,7 @@
 																			<a href="/retur-jual"> retur penjualan </a>
 																		</li>
 																		<li>
-																			<a href="/opnamet"> stock opname </a>
+																			<a href="/opname"> stock opname </a>
 																		</li>
 																		<li>
 																			<a href="/stok-obat"> stok barang </a>

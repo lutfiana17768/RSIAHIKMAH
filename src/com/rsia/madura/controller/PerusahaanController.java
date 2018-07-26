@@ -58,8 +58,11 @@ public class PerusahaanController {
 	@RequestMapping(value="/form-update")
 	public String PerusahaanFormUpdate(Model model, @RequestParam("perusahaanId") int perusahaanId) {
 		MPerusahaan result = perusahaanService.getPerusahaan(perusahaanId);
+
+		Timestamp tglCreate = result.getPerusahaanCreatedDate();
 		
 		model.addAttribute("perusahaanModel", result);
+		model.addAttribute("tglCreate", tglCreate);
 		
 		return "perusahaan/update";
 	}
@@ -69,6 +72,7 @@ public class PerusahaanController {
 		
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
+		perusahaanModel.setPerusahaanAktif('Y');
 		perusahaanModel.setPerusahaatUpdatedBy("Admin");
 		perusahaanModel.setPerusahaanUpdatedDate(currentTime);
 		perusahaanModel.setPerusahaanRevised(perusahaanModel.getPerusahaanRevised()+1);

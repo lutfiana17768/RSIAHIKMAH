@@ -39,14 +39,14 @@ public class MPerusahaan {
 	@Column(name="perusahaan_notelp")
 	private String perusahaanNoTelp;
 	
-	@Column(name="perusahaan_fax")
-	private String perusahaanFax;
+	//@Column(name="perusahaan_fax")
+	//private String perusahaanFax;
 	
-	@Column(name="perusahaan_email")
-	private String perusahaanEmail;
+	//@Column(name="perusahaan_email")
+	//private String perusahaanEmail;
 	
-	@Column(name="perusahaan_website")
-	private String perusahaanWebsite;
+	///@Column(name="perusahaan_website")
+	// String perusahaanWebsite;
 	
 	@Column(name="perusahaan_cp")
 	private String perusahaanContactPerson;
@@ -54,23 +54,23 @@ public class MPerusahaan {
 	@Column(name="perusahaan_nocp")
 	private String perusahaanContactPersonNo;
 	
-	@Column(name="perusahaan_koderek_utang")
-	private int perusahaanKodeHutang;
+	//@Column(name="perusahaan_koderek_utang")
+	//private int perusahaanKodeHutang;
 	
-	@Column(name="perusahaan_koderek_piutang")
-	private int perusahaanKodePiutang;
+	//@Column(name="perusahaan_koderek_piutang")
+	//private int perusahaanKodePiutang;
 	
-	@Column(name="perusahaan_no_kontrak")
-	private String perusahaanNomerKontrak;
+	//@Column(name="perusahaan_no_kontrak")
+	//private String perusahaanNomerKontrak;
 	
-	@Column(name="perusahaan_tgl_kontrak")
-	private Date perusahaanTglKontrak;
+	//@Column(name="perusahaan_tgl_kontrak")
+	//private Date perusahaanTglKontrak;
 	
-	@Column(name="perusahaan_tgl_mulai")
-	private Date perusahaanTglMulai;
+	//@Column(name="perusahaan_tgl_mulai")
+	//private Date perusahaanTglMulai;
 	
-	@Column(name="perusahaan_tgl_akhir")
-	private Date perusahaanTglAkhir;
+	//@Column(name="perusahaan_tgl_akhir")
+	//private Date perusahaanTglAkhir;
 	
 	@Column(name="perusahaan_npwp")
 	private String perusahaanNPWP;
@@ -78,8 +78,8 @@ public class MPerusahaan {
 	@Column(name="perusahaan_keterangan")
 	private String perusahaanKeterangan;
 	
-	@Column(name="perusahaan_siup")
-	private String perusahaanSIUP;
+	//@Column(name="perusahaan_siup")
+	//private String perusahaanSIUP;
 	
 	@Column(name="perusahaan_bidang")
 	private String perusahaanBidang;
@@ -169,29 +169,29 @@ public class MPerusahaan {
 		this.perusahaanNoTelp = perusahaanNoTelp;
 	}
 
-	public String getPerusahaanFax() {
-		return perusahaanFax;
-	}
+	// String getPerusahaanFax() {
+	//return perusahaanFax;
+	//}
 
-	public void setPerusahaanFax(String perusahaanFax) {
-		this.perusahaanFax = perusahaanFax;
-	}
+	//public void setPerusahaanFax(String perusahaanFax) {
+	//	this.perusahaanFax = perusahaanFax;
+	//}
 
-	public String getPerusahaanEmail() {
-		return perusahaanEmail;
-	}
+	//public String getPerusahaanEmail() {
+	//	return perusahaanEmail;
+	//}
 
-	public void setPerusahaanEmail(String perusahaanEmail) {
-		this.perusahaanEmail = perusahaanEmail;
-	}
+	// void setPerusahaanEmail(String perusahaanEmail) {
+	//	this.perusahaanEmail = perusahaanEmail;
+	//}
 
-	public String getPerusahaanWebsite() {
-		return perusahaanWebsite;
-	}
+	//public String getPerusahaanWebsite() {
+	//	return perusahaanWebsite;
+	//}
 
-	public void setPerusahaanWebsite(String perusahaanWebsite) {
-		this.perusahaanWebsite = perusahaanWebsite;
-	}
+	//public void setPerusahaanWebsite(String perusahaanWebsite) {
+	//	this.perusahaanWebsite = perusahaanWebsite;
+	//}
 
 	public String getPerusahaanContactPerson() {
 		return perusahaanContactPerson;
@@ -209,53 +209,53 @@ public class MPerusahaan {
 		this.perusahaanContactPersonNo = perusahaanContactPersonNo;
 	}
 
-	public int getPerusahaanKodeHutang() {
-		return perusahaanKodeHutang;
-	}
+	//public int getPerusahaanKodeHutang() {
+	//return perusahaanKodeHutang;
+	//}
 
-	public void setPerusahaanKodeHutang(int perusahaanKodeHutang) {
-		this.perusahaanKodeHutang = perusahaanKodeHutang;
-	}
+	//public void setPerusahaanKodeHutang(int perusahaanKodeHutang) {
+	//	this.perusahaanKodeHutang = perusahaanKodeHutang;
+	//}
 
-	public int getPerusahaanKodePiutang() {
-		return perusahaanKodePiutang;
-	}
+	//public int getPerusahaanKodePiutang() {
+	//	return perusahaanKodePiutang;
+	//}
 
-	public void setPerusahaanKodePiutang(int perusahaanKodePiutang) {
-		this.perusahaanKodePiutang = perusahaanKodePiutang;
-	}
+	//public void setPerusahaanKodePiutang(int perusahaanKodePiutang) {
+	//	this.perusahaanKodePiutang = perusahaanKodePiutang;
+	//}
 
-	public String getPerusahaanNomerKontrak() {
-		return perusahaanNomerKontrak;
-	}
+	// public String getPerusahaanNomerKontrak() {
+	// 	return perusahaanNomerKontrak;
+	// }
 
-	public void setPerusahaanNomerKontrak(String perusahaanNomerKontrak) {
-		this.perusahaanNomerKontrak = perusahaanNomerKontrak;
-	}
+	// public void setPerusahaanNomerKontrak(String perusahaanNomerKontrak) {
+	// 	this.perusahaanNomerKontrak = perusahaanNomerKontrak;
+	// }
 
-	public Date getPerusahaanTglKontrak() {
-		return perusahaanTglKontrak;
-	}
+	// public Date getPerusahaanTglKontrak() {
+	// 	return perusahaanTglKontrak;
+	// }
 
-	public void setPerusahaanTglKontrak(Date perusahaanTglKontrak) {
-		this.perusahaanTglKontrak = perusahaanTglKontrak;
-	}
+	// public void setPerusahaanTglKontrak(Date perusahaanTglKontrak) {
+	// 	this.perusahaanTglKontrak = perusahaanTglKontrak;
+	// }
 
-	public Date getPerusahaanTglMulai() {
-		return perusahaanTglMulai;
-	}
+	// public Date getPerusahaanTglMulai() {
+	// 	return perusahaanTglMulai;
+	// }
 
-	public void setPerusahaanTglMulai(Date perusahaanTglMulai) {
-		this.perusahaanTglMulai = perusahaanTglMulai;
-	}
+	// public void setPerusahaanTglMulai(Date perusahaanTglMulai) {
+	// 	this.perusahaanTglMulai = perusahaanTglMulai;
+	// }
 
-	public Date getPerusahaanTglAkhir() {
-		return perusahaanTglAkhir;
-	}
+	// public Date getPerusahaanTglAkhir() {
+	// 	return perusahaanTglAkhir;
+	// }
 
-	public void setPerusahaanTglAkhir(Date perusahaanTglAkhir) {
-		this.perusahaanTglAkhir = perusahaanTglAkhir;
-	}
+	// public void setPerusahaanTglAkhir(Date perusahaanTglAkhir) {
+	// 	this.perusahaanTglAkhir = perusahaanTglAkhir;
+	// }
 
 	public String getPerusahaanNPWP() {
 		return perusahaanNPWP;
@@ -273,13 +273,13 @@ public class MPerusahaan {
 		this.perusahaanKeterangan = perusahaanKeterangan;
 	}
 
-	public String getPerusahaanSIUP() {
-		return perusahaanSIUP;
-	}
+	// public String getPerusahaanSIUP() {
+	// 	return perusahaanSIUP;
+	// }
 
-	public void setPerusahaanSIUP(String perusahaanSIUP) {
-		this.perusahaanSIUP = perusahaanSIUP;
-	}
+	// public void setPerusahaanSIUP(String perusahaanSIUP) {
+	// 	this.perusahaanSIUP = perusahaanSIUP;
+	// }
 
 	public String getPerusahaanBidang() {
 		return perusahaanBidang;
@@ -350,19 +350,35 @@ public class MPerusahaan {
 		return "MPerusahaan [perusahaan_id=" + perusahaan_id + ", perusahaanKategoriId=" + perusahaanKategoriId
 				+ ", perusahaanKode=" + perusahaanKode + ", perusahaanNama=" + perusahaanNama + ", perusahaanAlamat="
 				+ perusahaanAlamat + ", kotaId=" + kotaId + ", provinsiId=" + provinsiId + ", perusahaanNoTelp="
-				+ perusahaanNoTelp + ", perusahaanFax=" + perusahaanFax + ", perusahaanEmail=" + perusahaanEmail
-				+ ", perusahaanWebsite=" + perusahaanWebsite + ", perusahaanContactPerson=" + perusahaanContactPerson
-				+ ", perusahaanContactPersonNo=" + perusahaanContactPersonNo + ", perusahaanKodeHutang="
-				+ perusahaanKodeHutang + ", perusahaanKodePiutang=" + perusahaanKodePiutang
-				+ ", perusahaanNomerKontrak=" + perusahaanNomerKontrak + ", perusahaanTglKontrak="
-				+ perusahaanTglKontrak + ", perusahaanTglMulai=" + perusahaanTglMulai + ", perusahaanTglAkhir="
-				+ perusahaanTglAkhir + ", perusahaanNPWP=" + perusahaanNPWP + ", perusahaanKeterangan="
-				+ perusahaanKeterangan + ", perusahaanSIUP=" + perusahaanSIUP + ", perusahaanBidang=" + perusahaanBidang
+				+ perusahaanNoTelp + ", perusahaanContactPerson=" + perusahaanContactPerson
+				+ ", perusahaanContactPersonNo=" + perusahaanContactPersonNo + ", perusahaanNPWP=" + perusahaanNPWP 
+				+ ", perusahaanKeterangan="+ perusahaanKeterangan + ", perusahaanBidang=" + perusahaanBidang
 				+ ", perusahaanAktif=" + perusahaanAktif + ", perusahaatCreatedBy=" + perusahaatCreatedBy
 				+ ", perusahaanCreatedDate=" + perusahaanCreatedDate + ", perusahaatUpdatedBy=" + perusahaatUpdatedBy
 				+ ", perusahaanUpdatedDate=" + perusahaanUpdatedDate + ", perusahaanRevised=" + perusahaanRevised
 				+ ", perusahaanDeletedDate=" + perusahaanDeletedDate + "]";
 	}
+
+	// @Override
+	// public String toString() {
+	// 	return "MPerusahaan [perusahaan_id=" + perusahaan_id + ", perusahaanKategoriId=" + perusahaanKategoriId
+	// 			+ ", perusahaanKode=" + perusahaanKode + ", perusahaanNama=" + perusahaanNama + ", perusahaanAlamat="
+	// 			+ perusahaanAlamat + ", kotaId=" + kotaId + ", provinsiId=" + provinsiId + ", perusahaanNoTelp="
+	// 			+ perusahaanNoTelp + ", perusahaanFax=" + perusahaanFax + ", perusahaanEmail=" + perusahaanEmail
+	// 			+ ", perusahaanWebsite=" + perusahaanWebsite + ", perusahaanContactPerson=" + perusahaanContactPerson
+	// 			+ ", perusahaanContactPersonNo=" + perusahaanContactPersonNo + ", perusahaanKodeHutang="
+	// 			+ perusahaanKodeHutang + ", perusahaanKodePiutang=" + perusahaanKodePiutang
+	// 			+ ", perusahaanNomerKontrak=" + perusahaanNomerKontrak + ", perusahaanTglKontrak="
+	// 			+ perusahaanTglKontrak + ", perusahaanTglMulai=" + perusahaanTglMulai + ", perusahaanTglAkhir="
+	// 			+ perusahaanTglAkhir + ", perusahaanNPWP=" + perusahaanNPWP + ", perusahaanKeterangan="
+	// 			+ perusahaanKeterangan + ", perusahaanSIUP=" + perusahaanSIUP + ", perusahaanBidang=" + perusahaanBidang
+	// 			+ ", perusahaanAktif=" + perusahaanAktif + ", perusahaatCreatedBy=" + perusahaatCreatedBy
+	// 			+ ", perusahaanCreatedDate=" + perusahaanCreatedDate + ", perusahaatUpdatedBy=" + perusahaatUpdatedBy
+	// 			+ ", perusahaanUpdatedDate=" + perusahaanUpdatedDate + ", perusahaanRevised=" + perusahaanRevised
+	// 			+ ", perusahaanDeletedDate=" + perusahaanDeletedDate + "]";
+	// }
+
+
 	
 	
 }

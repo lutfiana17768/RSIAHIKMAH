@@ -19,7 +19,7 @@ public class PerusahaanAction implements PerusahaanDAO {
 	public List<MPerusahaan> getPerusahaans() {
 Session current = sessionFactory.getCurrentSession();
 		
-		Query<MPerusahaan> query = current.createQuery("from MPerusahaan", MPerusahaan.class);
+		Query<MPerusahaan> query = current.createQuery("from MPerusahaan where perusahaanAktif = 'Y'", MPerusahaan.class);
 		List<MPerusahaan> result = query.getResultList();
 		
 		return result;
@@ -28,7 +28,7 @@ Session current = sessionFactory.getCurrentSession();
 	@Override
 	public List<MPerusahaan> getPerusahaans(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MPerusahaan> query = current.createQuery("from MPerusahaan", MPerusahaan.class);
+		Query<MPerusahaan> query = current.createQuery("from MPerusahaan where perusahaanAktif = 'Y'", MPerusahaan.class);
 		List<MPerusahaan> barang = query.getResultList();
 		this.total = barang.size();
 		barang = this.getData(page, limit);
@@ -38,7 +38,7 @@ Session current = sessionFactory.getCurrentSession();
 	
 	private List<MPerusahaan> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-    	Query<MPerusahaan> query = current.createQuery("from MPerusahaan", MPerusahaan.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+    	Query<MPerusahaan> query = current.createQuery("from MPerusahaan where perusahaanAktif = 'Y'", MPerusahaan.class).setFirstResult((page-1)*limit).setMaxResults(limit);
         List<MPerusahaan> Result = query.getResultList();
 
         return Result;

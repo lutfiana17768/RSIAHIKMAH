@@ -27,3 +27,9 @@ alter table m_pasien add column wali_hubungan character varying(250)
 start Rizki (2018 07 25) 
 	alter table t_retur_jual alter column returjual_keterangan type character varying(150);
 end rizki
+
+start Rizki (2017 07 26)
+	alter table m_perusahaan drop column perusahaan_fax, drop column perusahaan_email, drop column perusahaan_website,drop column perusahaan_koderek_utang,
+	drop column perusahaan_koderek_piutang, drop column perusahaan_no_kontrak, drop column perusahaan_tgl_kontrak, drop column perusahaan_tgl_mulai, 
+	drop column perusahaan_tgl_akhir, drop column perusahaan_siup;
+end Rizki

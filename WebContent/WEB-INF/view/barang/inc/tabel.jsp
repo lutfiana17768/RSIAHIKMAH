@@ -7,21 +7,22 @@
 <table class="table table-sm table-striped table-bordered table-hover">
 	<thead>
 		<tr>
+			<th>Jenis Barang</th>
 			<th>Kode</th>
 			<th>Nama Barang</th>
-			<th>Jenis Barang</th>
 			<th>Satuan Default</th>
 			<th>Profit</th>
 			<th>Harga HET(Rp)</th>
-			<th>Harga Jual(Rp)</th>
+			<%--<th>Harga Jual(Rp)</th>--%>
+			<th> Action </th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="tempBarang" items="${result}">
             <tr>
+              <td> ${tempBarang.barangJenis.barangJenisNama } </td>
               <td> ${tempBarang.barangKode } </td>
               <td> ${tempBarang.barangNama } </td>
-              <td> ${tempBarang.barangJenis.barangJenisNama } </td>
               <td> ${tempBarang.satuan.satuanKode } </td>
               <td> ${tempBarang.barangProfit } </td>
               <td> ${tempBarang.barangHet } </td>
