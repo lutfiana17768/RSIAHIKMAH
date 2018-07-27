@@ -11,7 +11,7 @@
 					<div class="title-block">
 						<h3 class="title"> Data Satuan </h3>
 					</div>
-					<form:form modelAttribute="satuanModel" method="POST" action="/satuan/update">
+					<form:form modelAttribute="satuanModel" method="POST" action="/satuan/store">
 					
 						<div class="form-group">
 							<label for="exampleInputEmail1">Kode Satuan</label>
