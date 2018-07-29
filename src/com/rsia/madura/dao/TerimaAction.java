@@ -20,7 +20,7 @@ public class TerimaAction implements TerimaDAO {
 	public List<MTerima> getTerimas() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MTerima> query = current.createQuery("from MTerima", MTerima.class);
+		Query<MTerima> query = current.createQuery("from MTerima Where terimaAktif = 'Y'", MTerima.class);
 		List<MTerima> result = query.getResultList();
 		
 		return result;
@@ -29,7 +29,7 @@ public class TerimaAction implements TerimaDAO {
 	@Override
 	public List<MTerima> getTerimas(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MTerima> query = current.createQuery("from MTerima", MTerima.class);
+		Query<MTerima> query = current.createQuery("from MTerima Where terimaAktif = 'Y'", MTerima.class);
 		List<MTerima> result = query.getResultList();
 		this.total = result.size();
 		result = this.getData(page, limit);
@@ -39,7 +39,7 @@ public class TerimaAction implements TerimaDAO {
 	
 	private List<MTerima> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-    	Query<MTerima> query = current.createQuery("from MTerima", MTerima.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+    	Query<MTerima> query = current.createQuery("from MTerima Where terimaAktif = 'Y'", MTerima.class).setFirstResult((page-1)*limit).setMaxResults(limit);
         List<MTerima> Result = query.getResultList();
 
         return Result;
@@ -113,7 +113,7 @@ public class TerimaAction implements TerimaDAO {
 	public int terimaDelete(MTerima terimaModel) {
 		Session current = sessionFactory.getCurrentSession();
 		
-		current.saveOrUpdate(terimaModel);
+		current.merge(terimaModel);
 		current.flush();
 		
 		return terimaModel.getTerimaId();

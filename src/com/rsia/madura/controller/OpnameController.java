@@ -39,10 +39,14 @@ public class OpnameController {
 	private String uri = "redirect:/opname";
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String OpnameListView(Model model){
-		List<MOpname> result = opnameService.getOpnames();
+	public String OpnameListView(Model model,
+								 @RequestParam(value="page", required=false, defaultValue="1") int page, 
+								 @RequestParam(value="limit", required=false, defaultValue="10") int limit){
+		List<MOpname> result = opnameService.getOpnames(page, limit);
+		String link = opnameService.createLinks(page, limit);
 		
-		model.addAttribute("reesult", result);
+		model.addAttribute("result", result);
+		model.addAttribute("link", link);
 		
 		return "/opname/index";
 	}
@@ -110,6 +114,21 @@ public class OpnameController {
 		opnameService.update(opnameModel);
 		
 		return "redirect:/opname";
+	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String DeleteUpdate(Model model, @RequestParam(value = "Id", required = false) int id) {
+
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+
+		MOpname opnameModel = opnameService.getOpname(id);
+
+		opnameModel.setOpnameAktif('T');
+		opnameModel.setOpnameDeletedDate(currentTime);
+
+		opnameService.delete(opnameModel);
+
+		return this.uri;
 	}
 
 	@InitBinder

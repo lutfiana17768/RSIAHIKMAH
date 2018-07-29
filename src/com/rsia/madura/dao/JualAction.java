@@ -20,7 +20,7 @@ public class JualAction implements JualDAO {
 	public List<MJual> getJuals() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MJual> query = current.createQuery("from MJual", MJual.class);
+		Query<MJual> query = current.createQuery("from MJual Where jualAktif = 'Y'", MJual.class);
 		List<MJual> result = query.getResultList();
 		
 		return result;
@@ -29,7 +29,7 @@ public class JualAction implements JualDAO {
 	@Override
 	public List<MJual> getJuals(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MJual> query = current.createQuery("from MJual", MJual.class);
+		Query<MJual> query = current.createQuery("from MJual Where jualAktif = 'Y'", MJual.class);
 		List<MJual> result = query.getResultList();
 		this.total = result.size();
 		result = this.getData(page, limit);
@@ -39,7 +39,7 @@ public class JualAction implements JualDAO {
 
 	private List<MJual> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-    	Query<MJual> query = current.createQuery("from MJual", MJual.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+    	Query<MJual> query = current.createQuery("from MJual Where jualAktif = 'Y'", MJual.class).setFirstResult((page-1)*limit).setMaxResults(limit);
         List<MJual> Result = query.getResultList();
 
         return Result;

@@ -92,16 +92,16 @@
 																	</a>
 																	<ul class="sidebar-nav collapse" aria-expanded="false">
 																		<li>
-																			<a href="/order/form-add"> order barang </a>
+																			<a href="/order"> order barang </a>
 																		</li>
 																		<li>
 																			<a href="/terima"> penerimaan barang </a>
 																		</li>
 																		<li>
-																			<a href="/retur-beli/form-add"> retur penerimaan </a>
+																			<a href="/retur-beli"> retur penerimaan </a>
 																		</li>
 																		<li>
-																			<a href="/jual/tambah"> penjualan </a>
+																			<a href="/jual"> penjualan </a>
 																		</li>
 																		<li>
 																			<a href="/retur-jual"> retur penjualan </a>

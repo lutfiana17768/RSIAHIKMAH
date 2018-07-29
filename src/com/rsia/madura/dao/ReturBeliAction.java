@@ -26,7 +26,7 @@ public class ReturBeliAction implements ReturBeliDAO {
 	public List<MReturBeli> getReturBelis() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MReturBeli> query = current.createQuery("from MReturBeli", MReturBeli.class);
+		Query<MReturBeli> query = current.createQuery("from MReturBeli Where returBeliAktif = 'Y'", MReturBeli.class);
 		List<MReturBeli> result = query.getResultList();
 		
 		return result;
@@ -35,7 +35,7 @@ public class ReturBeliAction implements ReturBeliDAO {
 	@Override
 	public List<MReturBeli> getReturBelis(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MReturBeli> query = current.createQuery("from MReturBeli", MReturBeli.class);
+		Query<MReturBeli> query = current.createQuery("from MReturBeli Where returBeliAktif = 'Y'", MReturBeli.class);
 		List<MReturBeli> result = query.getResultList();
 		this.total = result.size();
 		result = this.getData(page, limit);
@@ -45,7 +45,7 @@ public class ReturBeliAction implements ReturBeliDAO {
 	
 	private List<MReturBeli> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-    	Query<MReturBeli> query = current.createQuery("from MReturBeli", MReturBeli.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+    	Query<MReturBeli> query = current.createQuery("from MReturBeli Where returBeliAktif = 'Y'", MReturBeli.class).setFirstResult((page-1)*limit).setMaxResults(limit);
         List<MReturBeli> Result = query.getResultList();
 
         return Result;

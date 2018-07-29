@@ -20,7 +20,7 @@ public class OrderAction implements OrderDAO {
 	public List<MOrder> getOrders() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MOrder> query = current.createQuery("from MOrder", MOrder.class);
+		Query<MOrder> query = current.createQuery("from MOrder Where orderAktif = 'Y'", MOrder.class);
 		List<MOrder> result = query.getResultList();
 		
 		return result;
@@ -29,7 +29,7 @@ public class OrderAction implements OrderDAO {
 	@Override
 	public List<MOrder> getOrders(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MOrder> query = current.createQuery("from MOrder", MOrder.class);
+		Query<MOrder> query = current.createQuery("from MOrder Where orderAktif = 'Y'", MOrder.class);
 		List<MOrder> result = query.getResultList();
 		this.total = result.size();
 		result = this.getData(page, limit);
@@ -39,7 +39,7 @@ public class OrderAction implements OrderDAO {
 	
 	private List<MOrder> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-    	Query<MOrder> query = current.createQuery("from MOrder", MOrder.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+    	Query<MOrder> query = current.createQuery("from MOrder Where orderAktif = 'Y'", MOrder.class).setFirstResult((page-1)*limit).setMaxResults(limit);
         List<MOrder> Result = query.getResultList();
 
         return Result;

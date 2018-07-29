@@ -57,9 +57,11 @@ public class OrderController {
 								@RequestParam(value="page", required=false, defaultValue="1") int page, 
 								@RequestParam(value="limit", required=false, defaultValue="10") int limit){
 		
-		List<MOrder> result = orderService.getOrders();
+		List<MOrder> result = orderService.getOrders(page, limit);
+		String link = orderService.createLinks(page, limit);
 		
 		model.addAttribute("order", result);
+		model.addAttribute("link", link);
 		
 		return "/order/index";
 	}

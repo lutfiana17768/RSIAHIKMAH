@@ -20,7 +20,7 @@ public class OpnameAction implements OpnameDAO{
 	public List<MOpname> getOpnames() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MOpname> query = current.createQuery("from MOpname", MOpname.class);
+		Query<MOpname> query = current.createQuery("from MOpname where opnameAktif = 'Y'", MOpname.class);
 		List<MOpname> result = query.getResultList();
 		
 		return result;
@@ -29,7 +29,7 @@ public class OpnameAction implements OpnameDAO{
 	@Override
 	public List<MOpname> getOpnames(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MOpname> query = current.createQuery("from MOpname", MOpname.class);
+		Query<MOpname> query = current.createQuery("from MOpname where opnameAktif = 'Y'", MOpname.class);
 		List<MOpname> result = query.getResultList();
 		this.total = result.size();
 		result = this.getData(page, limit);
@@ -39,7 +39,7 @@ public class OpnameAction implements OpnameDAO{
 	
 	private List<MOpname> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-    	Query<MOpname> query = current.createQuery("from MOpname", MOpname.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+    	Query<MOpname> query = current.createQuery("from MOpname where opnameAktif = 'Y'", MOpname.class).setFirstResult((page-1)*limit).setMaxResults(limit);
         List<MOpname> Result = query.getResultList();
 
         return Result;

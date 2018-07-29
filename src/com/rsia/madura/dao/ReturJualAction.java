@@ -20,7 +20,7 @@ public class ReturJualAction implements ReturJualDAO {
 	public List<MReturJual> getReturJuals() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MReturJual> query = current.createQuery("from MReturJual", MReturJual.class);
+		Query<MReturJual> query = current.createQuery("from MReturJual Where returJualAktif = 'Y'", MReturJual.class);
 		List<MReturJual> result = query.getResultList();
 		
 		return result;
@@ -29,7 +29,7 @@ public class ReturJualAction implements ReturJualDAO {
 	@Override
 	public List<MReturJual> getReturJuals(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-		Query<MReturJual> query = current.createQuery("from MReturJual", MReturJual.class);
+		Query<MReturJual> query = current.createQuery("from MReturJual Where returJualAktif = 'Y'", MReturJual.class);
 		List<MReturJual> result = query.getResultList();
 		this.total = result.size();
 		result = this.getData(page, limit);
@@ -39,7 +39,7 @@ public class ReturJualAction implements ReturJualDAO {
 	
 	private List<MReturJual> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
-    	Query<MReturJual> query = current.createQuery("from MReturJual", MReturJual.class).setFirstResult((page-1)*limit).setMaxResults(limit);
+    	Query<MReturJual> query = current.createQuery("from MReturJual Where returJualAktif = 'Y'", MReturJual.class).setFirstResult((page-1)*limit).setMaxResults(limit);
         List<MReturJual> Result = query.getResultList();
 
         return Result;

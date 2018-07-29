@@ -40,10 +40,15 @@ public class ReturBeliController {
 	private String uri = "redirect:/retur-beli";
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String returBeliList(Model model) {
+	public String returBeliList(Model model,
+								@RequestParam(value="page", required=false, defaultValue="1") int page, 
+								@RequestParam(value="limit", required=false, defaultValue="10") int limit){
+
 		List<MReturBeli> result = returBeliService.getReturBelis();
+		String link = returBeliService.createLinks(page, limit);
 		
 		model.addAttribute("result", result);
+		model.addAttribute("link", link);
 		
 		return "/retur-beli/index";
 	}
@@ -113,6 +118,21 @@ public class ReturBeliController {
 		returBeliService.update(returBeliModel);
 		
 		return "redirect:/returBeli";
+	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String DeleteUpdate(Model model, @RequestParam(value = "Id", required = false) int id) {
+
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+
+		MReturBeli returBeliModel = returBeliService.getReturBeli(id);
+
+		returBeliModel.setReturBeliAktif('T');
+		returBeliModel.setReturBeliDeletedDate(currentTime);
+
+		returBeliService.delete(returBeliModel);
+
+		return this.uri;
 	}
 
 	@InitBinder

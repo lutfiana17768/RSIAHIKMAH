@@ -99,6 +99,9 @@ public class MReturJual {
 	
 	@Column(name="returjual_revised")
 	private int returJualRevised;
+
+	@Column(name="returjual_deleted_date")
+	private Timestamp returJualDeletedDate;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "returJual", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MReturJualDetail> detail;
@@ -319,6 +322,14 @@ public class MReturJual {
 		this.returJualRevised = returJualRevised;
 	}
 
+	public Timestamp getReturJualDeletedDate() {
+		return returJualDeletedDate;
+	}
+
+	public void setReturJualDeletedDate(Timestamp returJualDeletedDate) {
+		this.returJualDeletedDate = returJualDeletedDate;
+	}
+
 	public List<MReturJualDetail> getDetail() {
 		return detail;
 	}
@@ -342,7 +353,8 @@ public class MReturJual {
 				+ ", returJualDepoId=" + returJualDepoId + ", returJualBayarNama=" + returJualBayarNama
 				+ ", returJualCreatedBy=" + returJualCreatedBy + ", returJualCreatedDate=" + returJualCreatedDate
 				+ ", returJualUpdatedBy=" + returJualUpdatedBy + ", returJualUpdatedDate=" + returJualUpdatedDate
-				+ ", returJualRevised=" + returJualRevised + ", detail=" + detail + "]";
+				+ ", returJualRevised=" + returJualRevised + ", returJualDeletedDate=" + returJualDeletedDate 
+				+ ", detail=" + detail + "]";
 	}
 	
 	

@@ -39,10 +39,14 @@ public class ReturJualController {
 	private String uri = "redirect:/returJual";
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String returJualList(Model model) {
-		List<MReturJual> result = returJualService.getReturJuals();
+	public String returJualList(Model model,
+								@RequestParam(value="page", required=false, defaultValue="1") int page, 
+								@RequestParam(value="limit", required=false, defaultValue="10") int limit){
+		List<MReturJual> result = returJualService.getReturJuals(page, limit);
+		String link = returJualService.createLinks(page, limit);
 		
 		model.addAttribute("result", result);
+		model.addAttribute("link", link);
 		
 		return "/returJual/index";
 	}
@@ -116,6 +120,21 @@ public class ReturJualController {
 		returJualService.update(returJualModel);
 		
 		return "redirect:/returJual";
+	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String DeleteUpdate(Model model, @RequestParam(value = "Id", required = false) int id) {
+
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+
+		MReturJual returJualModel = returJualService.getReturJual(id);
+
+		returJualModel.setReturJualAktif('T');
+		returJualModel.setReturJualDeletedDate(currentTime);
+
+		returJualService.delete(returJualModel);
+
+		return this.uri;
 	}
 
 	 @InitBinder

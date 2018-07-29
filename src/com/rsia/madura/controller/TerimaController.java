@@ -55,8 +55,11 @@ public class TerimaController {
 	public String IndexView(Model model, 
 				@RequestParam(value="page", required=false, defaultValue = "1") int page, 
 				@RequestParam(value="limit", required=false, defaultValue = "10") int limit) {
-		List<MTerima> result = terimaService.getTerimas();
+		List<MTerima> result = terimaService.getTerimas(page, limit);
 		String link = terimaService.createLinks(page, limit);
+
+		model.addAttribute("result", result);
+		model.addAttribute("link", link);
 
 		return "terima/index";
 	}
@@ -89,7 +92,7 @@ public class TerimaController {
 		terimaModel.setTerimaAktif('Y');
 
 		terimaModel.setTerimaCreatedBy("Admin");
-		terimaModel.setTerimaPPN('Y');
+//		terimaModel.setTerimaPPN('Y');
 //		terimaModel.setTerimaBarangJenisId(0);
 		terimaModel.setTerimaCreatedDate(currentTime);
 
@@ -108,7 +111,7 @@ public class TerimaController {
 		terimaModel.setTerimaAktif('T');
 		terimaModel.setTerimaDeletedDate(currentTime);
 
-		terimaService.delete(terimaModel);
+		terimaService.update(terimaModel);
 
 		return this.uri;
 	}
@@ -143,7 +146,7 @@ public class TerimaController {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
 		terimaModel.setTerimaAktif('Y');
-		terimaModel.setTerimaPPN('Y');
+//		terimaModel.setTerimaPPN('Y');
 		terimaModel.setTerimaUpdatedBy("Admin");
 		terimaModel.setTerimaUpdatedDate(currentTime);
 		terimaModel.setTerimaRevised(terimaModel.getTerimaRevised()+1);

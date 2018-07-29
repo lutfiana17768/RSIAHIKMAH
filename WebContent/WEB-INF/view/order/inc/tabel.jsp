@@ -2,7 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<div class="table-responsive">
+<div class="table-responsive" style="overflow-y: auto;">
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
@@ -40,8 +40,8 @@
                 <td> ${temporder.orderStatus } </td>
                 <td> ${temporder.orderGroup } </td>
                 <td> ${temporder.orderKeterangan } </td>
-                <td> <a href="/order/update/${temporder.orderId}" class="btn btn-info">Update</a>
-                <a href="/order/delete/${temporder.orderId}" class="btn btn-warning">Delete</a></td>
+                <td> <a href="/order/form-update?Id=${temporder.orderId}" class="btn btn-info">Update</a>
+                <a href="/order/delete?Id=${temporder.orderId}" class="btn btn-warning">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>

@@ -20,7 +20,7 @@ public class MTerima {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="terima_id")
-	private int terimaId;
+	private Integer terimaId;
 	
 	@Column(name="terima_no")
 	private String terimaNo;
@@ -29,10 +29,10 @@ public class MTerima {
 	private Date terimaTanggal;
 	
 	@Column(name="terima_order_id")
-	private int terimaOrderId;
+	private Integer terimaOrderId;
 	
 	@Column(name="terima_perusahaan_id")
-	private int terimaPerusahaanId;
+	private Integer terimaPerusahaanId;
 	
 	@Column(name="terima_nosuratjalan")
 	private String terimaNoSuratJalan;
@@ -50,10 +50,10 @@ public class MTerima {
 	private char terimaAktif;
 	
 	@Column(name="terima_total")
-	private int terimaTotal;
+	private Integer terimaTotal;
 	
 	@Column(name="terima_totalppn")
-	private int terimaTotalPPN;
+	private Integer terimaTotalPPN;
 	
 	@Column(name="terima_order_no")
 	private String terimaOrderNo;
@@ -62,31 +62,31 @@ public class MTerima {
 	private String terimaBarangJenis;
 	
 	@Column(name="terima_depo_id")
-	private int terimaDepoId;
+	private Integer terimaDepoId;
 	
 	@Column(name="terima_depo_nama")
 	private String terimaDepoNama;
 	  
-	@Column(name="terima_ppn")
-	private char terimaPPN;
+	// @Column(name="terima_ppn")
+	// private char terimaPPN;
 	
 	@Column(name="terima_group")
 	private String terimaGroup;
 	
 	@Column(name="terima_biayalain")
-	private int terimaBiayaLain;
+	private Integer terimaBiayaLain;
 	
 	@Column(name="terima_barangjenis_id")
 	private Integer terimaBarangJenisId;
 	  
 	@Column(name="terima_cashback")
-	private int terimaCashback;
+	private Integer terimaCashback;
 	 
 	@Column(name="terima_pph")
-	private int terimaPPH;
+	private Integer terimaPPH;
 	  
 	@Column(name="terima_totalpph")
-	private int terimaTotalPPH;
+	private Integer terimaTotalPPH;
 	
 	@Column(name="terima_created_by")
 	private String terimaCreatedBy;
@@ -101,7 +101,7 @@ public class MTerima {
 	private Timestamp terimaUpdatedDate;
 	
 	@Column(name="terima_revised")
-	private int terimaRevised;
+	private Integer terimaRevised;
 	
 	@Column(name="terima_deleted_date")
 	private Timestamp terimaDeletedDate;
@@ -113,11 +113,11 @@ public class MTerima {
 		
 	}
 	
-	public int getTerimaId() {
+	public Integer getTerimaId() {
 		return terimaId;
 	}
 
-	public void setTerimaId(int terimaId) {
+	public void setTerimaId(Integer terimaId) {
 		this.terimaId = terimaId;
 	}
 
@@ -137,19 +137,19 @@ public class MTerima {
 		this.terimaTanggal = terimaTanggal;
 	}
 
-	public int getTerimaOrderId() {
+	public Integer getTerimaOrderId() {
 		return terimaOrderId;
 	}
 
-	public void setTerimaOrderId(int terimaOrderId) {
+	public void setTerimaOrderId(Integer terimaOrderId) {
 		this.terimaOrderId = terimaOrderId;
 	}
 
-	public int getTerimaPerusahaanId() {
+	public Integer getTerimaPerusahaanId() {
 		return terimaPerusahaanId;
 	}
 
-	public void setTerimaPerusahaanId(int terimaPerusahaanId) {
+	public void setTerimaPerusahaanId(Integer terimaPerusahaanId) {
 		this.terimaPerusahaanId = terimaPerusahaanId;
 	}
 
@@ -193,19 +193,19 @@ public class MTerima {
 		this.terimaAktif = terimaAktif;
 	}
 
-	public int getTerimaTotal() {
+	public Integer getTerimaTotal() {
 		return terimaTotal;
 	}
 
-	public void setTerimaTotal(int terimaTotal) {
+	public void setTerimaTotal(Integer terimaTotal) {
 		this.terimaTotal = terimaTotal;
 	}
 
-	public int getTerimaTotalPPN() {
+	public Integer getTerimaTotalPPN() {
 		return terimaTotalPPN;
 	}
 
-	public void setTerimaTotalPPN(int terimaTotalPPN) {
+	public void setTerimaTotalPPN(Integer terimaTotalPPN) {
 		this.terimaTotalPPN = terimaTotalPPN;
 	}
 
@@ -225,11 +225,11 @@ public class MTerima {
 		this.terimaBarangJenis = terimaBarangJenis;
 	}
 
-	public int getTerimaDepoId() {
+	public Integer getTerimaDepoId() {
 		return terimaDepoId;
 	}
 
-	public void setTerimaDepoId(int terimaDepoId) {
+	public void setTerimaDepoId(Integer terimaDepoId) {
 		this.terimaDepoId = terimaDepoId;
 	}
 
@@ -241,13 +241,13 @@ public class MTerima {
 		this.terimaDepoNama = terimaDepoNama;
 	}
 
-	public char getTerimaPPN() {
-		return terimaPPN;
-	}
+	// public char getTerimaPPN() {
+	// 	return terimaPPN;
+	// }
 
-	public void setTerimaPPN(char terimaPPN) {
-		this.terimaPPN = terimaPPN;
-	}
+	// public void setTerimaPPN(char terimaPPN) {
+	// 	this.terimaPPN = terimaPPN;
+	// }
 
 	public String getTerimaGroup() {
 		return terimaGroup;
@@ -257,11 +257,11 @@ public class MTerima {
 		this.terimaGroup = terimaGroup;
 	}
 
-	public int getTerimaBiayaLain() {
+	public Integer getTerimaBiayaLain() {
 		return terimaBiayaLain;
 	}
 
-	public void setTerimaBiayaLain(int terimaBiayaLain) {
+	public void setTerimaBiayaLain(Integer terimaBiayaLain) {
 		this.terimaBiayaLain = terimaBiayaLain;
 	}
 
@@ -273,27 +273,27 @@ public class MTerima {
 		this.terimaBarangJenisId = terimaBarangJenisId;
 	}
 
-	public int getTerimaCashback() {
+	public Integer getTerimaCashback() {
 		return terimaCashback;
 	}
 
-	public void setTerimaCashback(int terimaCashback) {
+	public void setTerimaCashback(Integer terimaCashback) {
 		this.terimaCashback = terimaCashback;
 	}
 
-	public int getTerimaPPH() {
+	public Integer getTerimaPPH() {
 		return terimaPPH;
 	}
 
-	public void setTerimaPPH(int terimaPPH) {
+	public void setTerimaPPH(Integer terimaPPH) {
 		this.terimaPPH = terimaPPH;
 	}
 
-	public int getTerimaTotalPPH() {
+	public Integer getTerimaTotalPPH() {
 		return terimaTotalPPH;
 	}
 
-	public void setTerimaTotalPPH(int terimaTotalPPH) {
+	public void setTerimaTotalPPH(Integer terimaTotalPPH) {
 		this.terimaTotalPPH = terimaTotalPPH;
 	}
 
@@ -329,11 +329,11 @@ public class MTerima {
 		this.terimaUpdatedDate = terimaUpdatedDate;
 	}
 
-	public int getTerimaRevised() {
+	public Integer getTerimaRevised() {
 		return terimaRevised;
 	}
 
-	public void setTerimaRevised(int terimaRevised) {
+	public void setTerimaRevised(Integer terimaRevised) {
 		this.terimaRevised = terimaRevised;
 	}
 
@@ -361,7 +361,7 @@ public class MTerima {
 				+ ", terimaKeterangan=" + terimaKeterangan + ", terimaStatus=" + terimaStatus + ", terimaAktif="
 				+ terimaAktif + ", terimaTotal=" + terimaTotal + ", terimaTotalPPN=" + terimaTotalPPN
 				+ ", terimaOrderNo=" + terimaOrderNo + ", terimaBarangJenis=" + terimaBarangJenis + ", terimaDepoId="
-				+ terimaDepoId + ", terimaDepoNama=" + terimaDepoNama + ", terimaPPN=" + terimaPPN + ", terimaGroup="
+				+ terimaDepoId + ", terimaDepoNama=" + terimaDepoNama + ", terimaGroup="
 				+ terimaGroup + ", terimaBiayaLain=" + terimaBiayaLain + ", terimaBarangJenisId=" + terimaBarangJenisId
 				+ ", terimaCashback=" + terimaCashback + ", terimaPPH=" + terimaPPH + ", terimaTotalPPH="
 				+ terimaTotalPPH + ", terimaCreatedBy=" + terimaCreatedBy + ", terimaCreatedDate=" + terimaCreatedDate

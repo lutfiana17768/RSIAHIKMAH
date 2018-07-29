@@ -39,10 +39,14 @@ public class JualController {
 	private String uri = "redirect:/jual";
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String JualListView(Model model){
-		List<MJual> result = jualService.getJuals();
+	public String JualListView(Model model, 
+								@RequestParam(value="page", required=false, defaultValue="1") int page, 
+								@RequestParam(value="limit", required=false, defaultValue="10") int limit){
+		List<MJual> result = jualService.getJuals(page, limit);
+		String link = jualService.createLinks(page, limit);
 		
-		model.addAttribute("jual", result);
+		model.addAttribute("result", result);
+		model.addAttribute("link", link);
 		
 		return "/jual/index";
 	}
@@ -108,6 +112,21 @@ public class JualController {
 		jualService.update(jualModel);
 		
 		return "redirect:/jual";
+	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String DeleteUpdate(Model model, @RequestParam(value = "Id", required = false) int id) {
+
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+
+		MJual jualModel = jualService.getJual(id);
+
+		jualModel.setJualAktif('T');
+		jualModel.setJuealDeletedDate(currentTime);
+
+		jualService.delete(jualModel);
+
+		return this.uri;
 	}
 
 	@InitBinder
