@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -99,6 +100,15 @@ public class MOrder {
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<MOrderDetail> detail;
+
+	@ManyToOne
+	private MPerusahaan perusahaan;
+
+	@ManyToOne
+	private MPegawai pegawai;
+
+	@ManyToOne
+	private MJabatan jabatan;
 	
 	public int getOrderId() {
 		return orderId;
@@ -316,6 +326,30 @@ public class MOrder {
 		this.detail = detail;
 	}
 
+	public MPerusahaan getPerusahaan(){
+		return perusahaan;
+	}
+
+	public void setPerusahaan(MPerusahaan perusahaan){
+		this.perusahaan = perusahaan;
+	}
+
+	public MPegawai getPegawai(){
+		return pegawai;
+	}
+
+	public void setPegawai(MPegawai pegawai){
+		this.pegawai = pegawai;
+	}
+
+	public MJabatan getJabatan(){
+		return jabatan;
+	}
+
+	public void setJabatan(MJabatan jabatan){
+		this.jabatan = jabatan;
+	}
+
 	@Override
 	public String toString() {
 		return "t_Order [orderId=" + orderId + ", orderNomer=" + orderNomer + ", orderTanggal=" + orderTanggal
@@ -328,7 +362,8 @@ public class MOrder {
 				+ ", orderGroup=" + orderGroup + ", orderAktif=" + orderAktif + ", orderCreatedBy=" + orderCreatedBy
 				+ ", orderCreatedDate=" + orderCreatedDate + ", orderUpdatedBy=" + orderUpdatedBy
 				+ ", orderUpdatedDate=" + orderUpdatedDate + ", orderDeletedDate=" + orderDeletedDate
-				+ ", orderRevised=" + orderRevised + ", detail=" + detail + "]";
+				+ ", orderRevised=" + orderRevised + ", perusahaan = " + perusahaan + ", pegawai = " + pegawai 
+				+  "]";
 	}
 
 	

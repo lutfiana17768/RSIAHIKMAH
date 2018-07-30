@@ -36,8 +36,14 @@
                                             <form:input path="orderJatuhTempo" type="date" placeholder="Jatuh tempo" class="form-control" />
                                         </div>
                                         <div class="form-group">
-                                            <label>Perusahaan</label>
-                                            <form:input path="orderPerusahaanId" placeholder="Perusahaan" class="form-control" />
+                                            <label>Supplier / PBF</label>
+                                            <select name="orderPerusahaanId" id="orderPerusahaanId" class="form-control">
+                                            <c:forEach var="tempPerusahaan" items="${perusahaan}">
+                                                 <option value="${tempPerusahaan.perusahaan_id }">
+                                                 ${tempPerusahaan.perusahaanNama }
+                                                 </option>
+                                             </c:forEach>
+                                     </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Diskon</label>
@@ -119,8 +125,8 @@
                                                             </thead>
                                                             <tbody id="order-list" class="table-form"><c:forEach var="odet" items="${orderModel.detail}" varStatus="loop">
                                                                 <tr id="order_${loop.index+1}">
-                                                                    <td data-used="1" data-save="1" data-name="orderDetailBarangId" data-kolom-id="orderDetailBarangId">${odet.orderDetailBarangId}</td>
-                                                                    <td data-used="1" data-save="1" data-name="orderDetailSatuanId" data-kolom-id="orderDetailSatuanId">${odet.orderDetailSatuanId}</td>
+                                                                    <td data-used="1" data-save="1" data-name="orderDetailBarangId" data-kolom-id="orderDetailBarangId">${odet.barang.barangNama}</td>
+                                                                    <td data-used="1" data-save="1" data-name="orderDetailSatuanId" data-kolom-id="orderDetailSatuanId">${odet.satuan.satuanNama}</td>
                                                                     <td data-used="1" data-save="1" data-name="orderDetailJumlah" data-kolom-id="orderDetailJumlah">${odet.orderDetailJumlah}</td>
                                                                     <td data-used="1" data-save="1" data-name="orderDetailHarga" data-kolom-id="orderDetailHarga">${odet.orderDetailHarga}</td>
                                                                     <td data-used="1" data-save="1" data-name="orderDetailSubTotal" data-kolom-id="orderDetailSubTotal">${odet.orderDetailSubTotal}</td>

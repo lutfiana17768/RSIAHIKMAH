@@ -9,11 +9,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.OrderDAO;
 import com.rsia.madura.entity.MOrder;
+import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MSatuan;
 
 @Service
 public class OrderServiceAction implements OrderService {
 	@Autowired
 	private OrderDAO orderDAO;
+
+	@Autowired
+	private BarangService barangService;
+
+	@Autowired
+	private SatuanService satuanService;
+
+	MBarang barang;
+	MSatuan satuan;
 	
 	@Override
 	@Transactional
@@ -48,7 +59,13 @@ public class OrderServiceAction implements OrderService {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
 		if(orderModel.getDetail() != null) {
-			orderModel.getDetail().forEach((detail) ->{
+			orderModel.getDetail().forEach(
+				(detail) ->{
+				barang = barangService.getBarang(detail.getOrderDetailBarangId());
+				satuan = satuanService.getSatuan(detail.getOrderDetailSatuanId());
+
+				detail.setBarang(barang);
+				detail.setSatuan(satuan);
 				detail.setOrder(orderModel);
 				detail.setOrderDetailCreatedBy("Admin");
 				detail.setOrderDetailCreatedDate(currentTime);
@@ -65,6 +82,11 @@ public class OrderServiceAction implements OrderService {
 		
 		if (orderModel.getDetail() != null) {
 			orderModel.getDetail().forEach((detail) -> {
+				barang = barangService.getBarang(detail.getOrderDetailBarangId());
+				satuan = satuanService.getSatuan(detail.getOrderDetailSatuanId());
+
+				detail.setBarang(barang);
+				detail.setSatuan(satuan);
 				detail.setOrder(orderModel);
 				detail.setOrderDetailUpdatedBy("Admin");
 				detail.setOrderDetailUpdatedDate(currentTime);

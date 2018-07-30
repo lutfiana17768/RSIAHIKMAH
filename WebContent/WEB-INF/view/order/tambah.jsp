@@ -36,7 +36,7 @@
                                  <div class="form-group">
                                     <label>Supplier</label>
                                     <%--<form:input path="orderPerusahaanId" placeholder="Perusahaan" class="form-control"/>--%>
-                                    <select name="orderDetailPerusahaanId" id="orderDetailPerusahaanId" class="form-control">
+                                    <select name="orderPerusahaanId" id="orderPerusahaanId" class="form-control">
                                          <c:forEach var="tempPerusahaan" items="${perusahaan}">
                                                  <option value="${tempPerusahaan.perusahaan_id }">
                                                  ${tempPerusahaan.perusahaanNama }
@@ -68,30 +68,35 @@
                                     <label>TTD Nama</label>
                                     <form:input path="orderTtdNama" placeholder="TTd Nama" class="form-control"/>
                                  </div>
-                                 <div class="form-group">
+<%--                                 <div class="form-group">
                                     <label>Status</label>
                                     <form:input path="orderStatus" placeholder="Status" class="form-control"/>
                                  </div>
+--%>                                 
                                  <div class="form-group">
                                     <label>Jabatan</label>
                                     <form:input path="orderTtdJabatanNama" placeholder="Jabatan" class="form-control"/>
                                  </div>
-                                 <div class="form-group">
+<%--                                 <div class="form-group">
                                     <label>Jenis Barang</label>
                                     <form:input path="orderBarangJenis" placeholder="Jenis Barang" class="form-control"/>
                                  </div>
+                                
                                  <div class="form-group">
                                     <label>Group</label>
                                     <form:input path="orderGroup" placeholder="Group" class="form-control"/>
                                  </div>
+--%>                                 
                                  <div class="form-group">
                                     <label>Keterangan</label>
                                     <form:input path="orderKeterangan" placeholder="Keterangan" class="form-control"/>
                                  </div>
+<%--                                
                                  <div class="form-group">
                                     <label>NIP</label>
                                     <form:input path="orderTtdNip" placeholder="NIP" class="form-control"/>
                                  </div>
+--%>                                 
                                  <div class="form-group">
                                     <label>Order Revised</label>
                                     <form:input path="orderRevised" placeholder="Order Revised" class="form-control"/>

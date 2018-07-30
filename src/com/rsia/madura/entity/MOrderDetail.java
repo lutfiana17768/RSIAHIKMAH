@@ -72,6 +72,12 @@ public class MOrderDetail {
 	@ManyToOne
 	private MOrder order;
 
+	@ManyToOne
+	private MBarang barang;
+
+	@ManyToOne
+	private MSatuan satuan;
+
 	public int getOrderDetailId() {
 		return orderDetailId;
 	}
@@ -224,6 +230,22 @@ public class MOrderDetail {
 		this.order = order;
 	}
 
+	public MBarang getBarang(){
+		return barang;
+	}
+
+	public void setBarang(MBarang barang){
+		this.barang = barang;
+	}
+
+	public MSatuan getSatuan(){
+		return satuan;
+	}
+
+	public void setSatuan(MSatuan satuan){
+		this.satuan = satuan;
+	}
+
 	@Override
 	public String toString() {
 		return "t_OrderDetail [orderDetailId=" + orderDetailId + ", orderDetailOrderId=" + orderDetailOrderId
@@ -235,7 +257,8 @@ public class MOrderDetail {
 				+ ", orderDetailCreatedBy=" + orderDetailCreatedBy + ", orderDetailCreatedDate="
 				+ orderDetailCreatedDate + ", orderDetailUpdatedBy=" + orderDetailUpdatedBy
 				+ ", orderDetailUpdatedDate=" + orderDetailUpdatedDate + ", orderDetailDeletedDate="
-				+ orderDetailDeletedDate + ", orderDetailRevised=" + orderDetailRevised + ", order=" + order + "]";
+				+ orderDetailDeletedDate + ", orderDetailRevised=" + orderDetailRevised + ", order=" + order 
+				+ "barang" + barang + "satuan" + satuan +"]";
 	}
 	
 	

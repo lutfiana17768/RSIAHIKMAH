@@ -12,10 +12,9 @@
 						<h3 class="title"> Data Provinsi </h3>
 					</div>
 					<form:form modelAttribute="jabatanModel" method="POST" action="/jabatan/update">
-						<form:hidden path="jabatan_id" />
+						<form:hidden path="jabatanId" />
 						<form:hidden path="jabatanCreatedBy" />
-						<form:hidden path="jabatanCreatedDate" />
-						<form:hidden path="jabatanAktif" />
+						<form:hidden path="jabatanCreatedDate" value="${tglCreate}"/>
 						
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama Jenis Pegawai</label>

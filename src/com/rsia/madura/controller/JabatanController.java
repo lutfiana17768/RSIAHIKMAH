@@ -35,11 +35,16 @@ public class JabatanController {
 	}
 
 	@RequestMapping(value="/tambah")
-	public String JabatanFormAddView(Model model) {
+	public String JabatanFormAddView(Model model,
+									@RequestParam(value="page", required=false, defaultValue="1") int page, 
+									@RequestParam(value="limit", required=false, defaultValue="10") int limit) {
 		List<MJabatan> resultJabatan = jabatanService.getJabatans();
+		//String link = jabatanService.createLinks(page, limit);
+		
 		MJabatan jabatanModel = new MJabatan();
 		
 		model.addAttribute("jabatan", resultJabatan);
+		//model.addAttribute("link", link);
 		model.addAttribute("jabatanModel", jabatanModel);
 		
 		return "jabatan/tambah";
@@ -61,9 +66,12 @@ public class JabatanController {
 	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
 	public String JabatanFormUpdateView(Model model, @PathVariable int id) {
 		MJabatan result = jabatanService.getJabatan(id);
+
+		Timestamp tglCreate = result.getJabatanCreatedDate();
 		
 		model.addAttribute("jabatanModel", result);
-		
+		model.addAttribute("tglCreate", tglCreate);
+
 		return "jabatan/update";
 	}
 	
@@ -72,6 +80,7 @@ public class JabatanController {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
 		jabatanModel.setJabatanUpdatedBy("Admin");
+		jabatanModel.setJabatanAktif('Y');
 		jabatanModel.setJabatanUpdatedDate(currentTime);
 		
 		jabatanService.update(jabatanModel);

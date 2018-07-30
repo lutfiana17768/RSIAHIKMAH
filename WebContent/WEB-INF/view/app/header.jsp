@@ -189,10 +189,12 @@
 															<ul class="sidebar-nav">
 																<li>
 																	<a href="/pegawai">Master Pegawai</a>
-																	<li>
-																		<a href="/gaji">Penggajian</a>
+																<li>
+																	<a href="/jabatan/tambah">Master Jabatan</a>
+																<li>
+																	<a href="/gaji">Penggajian</a>
 															</ul>
-															</li>
+														</li>
 													</security:authorize>
 													<security:authorize access="hasRole('ROLE_ADMIN')">
 														<li>

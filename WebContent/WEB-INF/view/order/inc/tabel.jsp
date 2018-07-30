@@ -14,11 +14,8 @@
                 <th valign="middle">Cashback</th>
                 <th valign="middle">Total Order</th>
                 <th valign="middle">Jumlah Bayar</th>
-                <th valign="middle">Jenis Barang</th>
                 <th valign="middle">TTD Nama</th>
                 <th valign="middle">Jabatan</th>
-                <th valign="middle">Status Order</th>
-                <th valign="middle">Order Group</th>
                 <th valign="middle">Keterangan</th>
                 <th colspan="2">Action</th>
             </tr>
@@ -29,16 +26,13 @@
                 <td> ${temporder.orderNomer } </td>
                 <td> ${temporder.orderTanggal } </td>
                 <td> ${temporder.orderJatuhTempo } </td>
-                <td> ${temporder.orderPerusahaanId } </td>
+                <td> ${temporder.perusahaan.perusahaanNama } </td>
                 <td> ${temporder.orderDiskon } </td>
                 <td> ${temporder.orderCashback } </td>
                 <td> ${temporder.orderTotal } </td>
                 <td> ${temporder.orderJumlahBayar } </td>
-                <td> ${temporder.orderBarangJenis } </td>
                 <td> ${temporder.orderTtdNama } </td>
                 <td> ${temporder.orderTtdJabatanNama } </td>
-                <td> ${temporder.orderStatus } </td>
-                <td> ${temporder.orderGroup } </td>
                 <td> ${temporder.orderKeterangan } </td>
                 <td> <a href="/order/form-update?Id=${temporder.orderId}" class="btn btn-info">Update</a>
                 <a href="/order/delete?Id=${temporder.orderId}" class="btn btn-warning">Delete</a></td>

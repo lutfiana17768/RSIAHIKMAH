@@ -59,6 +59,8 @@ public class OrderController {
 		
 		List<MOrder> result = orderService.getOrders(page, limit);
 		String link = orderService.createLinks(page, limit);
+
+		System.out.println(result);
 		
 		model.addAttribute("order", result);
 		model.addAttribute("link", link);
@@ -91,7 +93,12 @@ public class OrderController {
 	public String OrderStore(@ModelAttribute("orderModel") MOrder orderModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
+		MPerusahaan perusahaan = perusahaanService.getPerusahaan(orderModel.getOrderPerusahaanId());
+		MPegawai pegawai = pegawaiService.getPegawai(orderModel.getOrderTtdId());
+
 		orderModel.setOrderAktif('Y');
+		orderModel.setPerusahaan(perusahaan);
+		orderModel.setPegawai(pegawai);
 		orderModel.setOrderCreatedBy("Admin");
 		orderModel.setOrderCreatedDate(currentTime);
 
