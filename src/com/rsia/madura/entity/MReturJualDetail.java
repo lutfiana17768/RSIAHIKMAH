@@ -91,6 +91,12 @@ public class MReturJualDetail {
 	@ManyToOne
 	private MReturJual returJual;
 
+	@ManyToOne
+	private MBarang barang;
+
+	@ManyToOne
+	private MSatuan satuan;
+
 	public int getReturJualDetailId() {
 		return returJualDetailId;
 	}
@@ -291,6 +297,23 @@ public class MReturJualDetail {
 		this.returJual = returJual;
 	}
 
+	public MBarang getBarang(){
+		return barang;
+	}
+
+	public void setBarang(MBarang barang){
+		this.barang = barang;
+	}
+
+
+	public MSatuan getSatuan(){
+		return satuan;
+	}
+
+	public void setSatuan(MSatuan satuan){
+		this.satuan = satuan;
+	}
+
 	@Override
 	public String toString() {
 		return "MReturJualDetail [returJualDetailId=" + returJualDetailId + ", returJualDetailReturId="
@@ -307,7 +330,7 @@ public class MReturJualDetail {
 				+ ", returJualDetailUpdatedBy=" + returJualDetailUpdatedBy + ", returJualDetailUpdatedDate="
 				+ returJualDetailUpdatedDate + ", returJualDetailRevised=" + returJualDetailRevised + ", regCompanyId="
 				+ regCompanyId + ", regAppsId=" + regAppsId + ", returJualDetaiDeletedDate=" + returJualDetaiDeletedDate
-				+  "]";
+				+ ", barang = "+ barang + ", satuan = "+ satuan +"]";
 	}
 
 	

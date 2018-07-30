@@ -12,7 +12,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.*;
 
 @Entity
 @Table(name="t_retur_jual")
@@ -103,8 +106,15 @@ public class MReturJual {
 	@Column(name="returjual_deleted_date")
 	private Timestamp returJualDeletedDate;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "returJual", cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "returJual", cascade = CascadeType.ALL, orphanRemoval=true)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MReturJualDetail> detail;
+
+	@ManyToOne
+	private MJual jual;
+
+	@ManyToOne
+	private MPasien pasien;
 
 	public int getReturJualId() {
 		return returJualId;
@@ -338,6 +348,22 @@ public class MReturJual {
 		this.detail = detail;
 	}
 
+	public MPasien getPasien(){
+		return pasien;
+	}
+
+	public void setPasien(MPasien pasien){
+		this.pasien = pasien;
+	}
+
+	public MJual getJual(){
+		return jual;
+	}
+
+	public void setJual(MJual jual){
+		this.jual = jual;
+	}
+
 	@Override
 	public String toString() {
 		return "MReturJual [returJualId=" + returJualId + ", returJualNo=" + returJualNo + ", returJualTanggal="
@@ -354,7 +380,7 @@ public class MReturJual {
 				+ ", returJualCreatedBy=" + returJualCreatedBy + ", returJualCreatedDate=" + returJualCreatedDate
 				+ ", returJualUpdatedBy=" + returJualUpdatedBy + ", returJualUpdatedDate=" + returJualUpdatedDate
 				+ ", returJualRevised=" + returJualRevised + ", returJualDeletedDate=" + returJualDeletedDate 
-				+ ", detail=" + detail + "]";
+				+ ", detail=" + detail + ", pasien = "+ pasien + ", jual = " + jual +"]";
 	}
 	
 	

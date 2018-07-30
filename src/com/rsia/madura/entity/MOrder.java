@@ -14,6 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.*;
+
+import org.hibernate.annotations.*;
 
 @Entity
 @Table(name="t_order")
@@ -98,7 +101,8 @@ public class MOrder {
 	@Column(name="order_revised")
 	private int orderRevised;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval=true)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MOrderDetail> detail;
 
 	@ManyToOne

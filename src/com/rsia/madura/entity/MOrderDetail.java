@@ -258,7 +258,7 @@ public class MOrderDetail {
 				+ orderDetailCreatedDate + ", orderDetailUpdatedBy=" + orderDetailUpdatedBy
 				+ ", orderDetailUpdatedDate=" + orderDetailUpdatedDate + ", orderDetailDeletedDate="
 				+ orderDetailDeletedDate + ", orderDetailRevised=" + orderDetailRevised + ", order=" + order 
-				+ "barang" + barang + "satuan" + satuan +"]";
+				+ "barang = " + barang + "satuan = " + satuan +"]";
 	}
 	
 	

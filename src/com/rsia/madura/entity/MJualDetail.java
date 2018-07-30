@@ -91,6 +91,13 @@ public class MJualDetail {
 	@ManyToOne
 	private MJual jual;
 
+	@ManyToOne
+	private MBarang barang;
+
+	@ManyToOne
+	private MSatuan satuan;
+
+
 	public int getJualDetailId() {
 		return jualDetailId;
 	}
@@ -291,6 +298,23 @@ public class MJualDetail {
 		this.jual = jual;
 	}
 
+	public MBarang getBarang(){
+		return barang;
+	}
+
+	public void setBarang(MBarang barang){
+		this.barang = barang;
+	}
+
+
+	public MSatuan getSatuan(){
+		return satuan;
+	}
+
+	public void setSatuan(MSatuan satuan){
+		this.satuan = satuan;
+	}
+
 	@Override
 	public String toString() {
 		return "MJualDetail [jualDetailId=" + jualDetailId + ", jualDetailJualId=" + jualDetailJualId
@@ -304,8 +328,8 @@ public class MJualDetail {
 				+ ", jualDetailUpdatedDate=" + jualDetailUpdatedDate + ", jualDetailRevised=" + jualDetailRevised
 				+ ", jualDetailDeletedDate=" + jualDetailDeletedDate + ", jualDetailDepoNama=" + jualDetailDepoNama
 				+ ", jualDetailTerimaNo=" + jualDetailTerimaNo + ", jualDetailTerimaId=" + jualDetailTerimaId
-				+ ", jualDetailStatus=" + jualDetailStatus + ", jualDetailPaket=" + jualDetailPaket + ", jual=" + jual
-				+ "]";
+				+ ", jualDetailStatus=" + jualDetailStatus + ", jualDetailPaket=" + jualDetailPaket
+				+ "barang = " + barang + "satuan = " + satuan + "]";
 	}
 	
 	

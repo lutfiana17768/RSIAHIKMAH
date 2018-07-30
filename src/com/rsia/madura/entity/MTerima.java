@@ -12,7 +12,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.*;
 
 @Entity
 @Table(name="t_terima")
@@ -106,8 +109,15 @@ public class MTerima {
 	@Column(name="terima_deleted_date")
 	private Timestamp terimaDeletedDate;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "terima", cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "terima", cascade = CascadeType.ALL, orphanRemoval=true)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MTerimaDetail> detail;
+
+	@ManyToOne
+	private MOrder order;
+
+	@ManyToOne
+	private MPerusahaan perusahaan;
 	
 	public MTerima(){
 		
@@ -353,6 +363,22 @@ public class MTerima {
 		this.detail = detail;
 	}
 
+	public MOrder getOrder(){
+		return order;
+	}
+
+	public void setOrder(MOrder order){
+		this.order = order;
+	}
+
+	public MPerusahaan getPerusahaan(){
+		return perusahaan;
+	}
+
+	public void setPerusahaan(MPerusahaan perusahaan){
+		this.perusahaan = perusahaan;
+	}
+
 	@Override
 	public String toString() {
 		return "MTerima [terimaId=" + terimaId + ", terimaNo=" + terimaNo + ", terimaTanggal=" + terimaTanggal
@@ -367,7 +393,7 @@ public class MTerima {
 				+ terimaTotalPPH + ", terimaCreatedBy=" + terimaCreatedBy + ", terimaCreatedDate=" + terimaCreatedDate
 				+ ", terimaUpdatedBy=" + terimaUpdatedBy + ", terimaUpdatedDate=" + terimaUpdatedDate
 				+ ", terimaRevised=" + terimaRevised + ", terimaDeletedDate=" + terimaDeletedDate + ", detail=" + detail
-				+ "]";
+				+ ", order = " + order + ", perusahaan = " + perusahaan + "]";
 	}
 
 	

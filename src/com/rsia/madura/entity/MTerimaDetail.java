@@ -81,6 +81,12 @@ public class MTerimaDetail {
 	
 	@ManyToOne
 	private MTerima terima;
+
+	@ManyToOne
+	private MBarang barang;
+
+	@ManyToOne
+	private MSatuan satuan;
 	
 	public int getTerimaDetailId() {
 		return terimaDetailId;
@@ -258,6 +264,22 @@ public class MTerimaDetail {
 		this.terima = terima;
 	}
 
+	public MBarang getBarang(){
+		return barang;
+	}
+
+	public void setBarang(MBarang barang){
+		this.barang = barang;
+	}
+
+	public MSatuan getSatuan(){
+		return satuan;
+	}
+
+	public void setSatuan(MSatuan satuan){
+		this.satuan = satuan;
+	}
+
 	@Override
 	public String toString() {
 		return "MTerimaDetail [terimaDetailId=" + terimaDetailId + ", terimaDetailTerimaId=" + terimaDetailTerimaId
@@ -271,8 +293,8 @@ public class MTerimaDetail {
 				+ ", terimaDetailCreatedBy=" + terimaDetailCreatedBy + ", terimaDetailCreatedDate="
 				+ terimaDetailCreatedDate + ", terimaDetailUpdatedBy=" + terimaDetailUpdatedBy
 				+ ", terimaDetailUpdatedDate=" + terimaDetailUpdatedDate + ", terimaDetailRevised="
-				+ terimaDetailRevised + ", terimaDetailDeletedDate=" + terimaDetailDeletedDate + ", terima=" + terima
-				+ "]";
+				+ terimaDetailRevised + ", terimaDetailDeletedDate=" + terimaDetailDeletedDate
+				+ "barang" + barang + "satuan = " + satuan + "]";
 	}
 	
 	

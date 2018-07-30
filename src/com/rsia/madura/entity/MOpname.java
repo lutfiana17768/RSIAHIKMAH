@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.*;
 
 @Entity
 @Table(name="t_opname")
@@ -64,7 +65,8 @@ public class MOpname {
 	@Column(name="opname_deleted_date")
 	private Timestamp opnameDeletedDate;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "opname", cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "opname", cascade = CascadeType.ALL, orphanRemoval=true)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MOpnameDetail> detail;
 
 	public int getOpnameId() {

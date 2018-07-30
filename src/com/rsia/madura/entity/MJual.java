@@ -12,7 +12,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.*;
 
 @Entity
 @Table(name="t_jual")
@@ -142,8 +145,19 @@ public class MJual {
 	@Column(name="jual_revised")
 	private int jualRevised;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "jual", cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "jual", cascade = CascadeType.ALL, orphanRemoval=true)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MJualDetail> detail;
+
+	@ManyToOne
+	private MPasien pasien;
+
+	@ManyToOne
+	private MPendaftaran pendaftaran;
+
+	@ManyToOne
+	private MPegawai pegawai;
+
 
 	public int getJualId() {
 		return jualId;
@@ -481,6 +495,30 @@ public class MJual {
 		this.detail = detail;
 	}
 
+	public MPasien getPasien(){
+		return pasien;
+	}
+
+	public void setPasien(MPasien pasien){
+		this.pasien = pasien;
+	}
+
+	public MPendaftaran getPendaftaran(){
+		return pendaftaran;
+	}
+
+	public void setPendaftaran(MPendaftaran pendaftaran){
+		this.pendaftaran = pendaftaran;
+	}
+
+	public MPegawai getPegawai(){
+		return pegawai;
+	}
+
+	public void setPegawai(MPegawai pegawai){
+		this.pegawai = pegawai;
+	}
+
 	@Override
 	public String toString() {
 		return "MJual [jualId=" + jualId + ", jualNo=" + jualNo + ", jual_tanggal=" + jual_tanggal
@@ -500,7 +538,7 @@ public class MJual {
 				+ ", jualStatus=" + jualStatus + ", jualCreatedBy=" + jualCreatedBy + ", juealCreatedDate="
 				+ juealCreatedDate + ", jualUpdatedBy=" + jualUpdatedBy + ", juealUpdatedDate=" + juealUpdatedDate
 				+ ", juealDeletedDate=" + juealDeletedDate + ", jualRevised=" + jualRevised + ", detail=" + detail
-				+ "]";
+				+ ", pasien = "+ pasien +", pendaftaran = "+ pendaftaran + ", pegawai = "+ pegawai + "]";
 	}
 	
 	

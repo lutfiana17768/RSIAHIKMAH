@@ -73,6 +73,12 @@ public class MReturBeliDetail {
 	@ManyToOne
 	private MReturBeli returBeli;
 
+	@ManyToOne
+	private MBarang barang;
+
+	@ManyToOne
+	private MSatuan satuan;
+
 	public int getReturBeliDetailId() {
 		return returBeliDetailId;
 	}
@@ -225,6 +231,22 @@ public class MReturBeliDetail {
 		this.returBeli = returBeli;
 	}
 
+	public MBarang getBarang(){
+		return barang;
+	}
+
+	public void setBarang(MBarang barang){
+		this.barang = barang;
+	}
+
+	public MSatuan getSatuan(){
+		return satuan;
+	}
+
+	public void setSatuan(MSatuan satuan){
+		this.satuan = satuan;
+	}
+
 	@Override
 	public String toString() {
 		return "MReturBeliDetail [returBeliDetailId=" + returBeliDetailId + ", returBeliDetailReturId=" + returBeliDetailReturId
@@ -235,7 +257,7 @@ public class MReturBeliDetail {
 				+ returBeliDetailSubTotal + ", returBeliDetailCreatedBy=" + returBeliDetailCreatedBy + ", returBeliDetailCreatedDate="
 				+ returBeliDetailCreatedDate + ", returBeliDetailUpdatedBy=" + returBeliDetailUpdatedBy + ", returBeliDetailUpdatedDate="
 				+ returBeliDetailUpdatedDate + ", returBeliDetailRevised=" + returBeliDetailRevised + ", RegCompanyId=" + RegCompanyId
-				+ ", returBeliDetailDeletedDate=" + returBeliDetailDeletedDate  + "]";
+				+ ", returBeliDetailDeletedDate=" + returBeliDetailDeletedDate  + "barang = " + barang + "satuan = " + satuan + "]";
 	}
 	
 	

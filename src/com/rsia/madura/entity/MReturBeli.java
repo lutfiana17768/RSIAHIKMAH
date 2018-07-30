@@ -12,7 +12,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.*;
 
 @Entity
 @Table(name="t_returbeli")
@@ -82,8 +85,15 @@ public class MReturBeli {
 	@Column(name="returbeli_deleted_date")
 	private Timestamp returBeliDeletedDate;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "returBeli", cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "returBeli", cascade = CascadeType.ALL, orphanRemoval=true)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<MReturBeliDetail> detail;
+
+	@ManyToOne
+	private MTerima terima;
+
+	@ManyToOne
+	private MPerusahaan perusahaan;
 
 	public int getReturBeliId() {
 		return returBeliId;
@@ -261,6 +271,22 @@ public class MReturBeli {
 		this.detail = detail;
 	}
 
+	public MTerima getTerima(){
+		return terima;
+	}
+
+	public void setTerima(MTerima terima){
+		this.terima = terima;
+	}
+
+	public MPerusahaan getPerusahaan(){
+		return perusahaan;
+	}
+
+	public void setPerusahaan(MPerusahaan perusahaan){
+		this.perusahaan = perusahaan;
+	}
+
 	@Override
 	public String toString() {
 		return "MReturBeli [returBeliId=" + returBeliId + ", returBeliNo=" + returBeliNo + ", returBeliTerimaId="
@@ -273,7 +299,7 @@ public class MReturBeli {
 				+ returBeliPerusahaanAlamat + ", returBeliPerusahaanNoTelp=" + returBeliPerusahaanNoTelp
 				+ ", returBeliTotal=" + returBeliTotal + ", returBeliGroup=" + returBeliGroup + ", returBeliTotalPPN="
 				+ returBeliTotalPPN + ", returBeliPPN=" + returBeliPPN + ", returBeliDeletedDate="
-				+ returBeliDeletedDate + ", detail=" + detail + "]";
+				+ returBeliDeletedDate + ", detail=" + detail + ", terima = " + terima + ", perusahaan = " + perusahaan +"]";
 	}
 
 	

@@ -76,9 +76,6 @@ public class MBarang {
 	 
 	@Column(name="barang_deleted_date")
 	private Timestamp barangDeletedDate;
-	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "barang", cascade = CascadeType.ALL, orphanRemoval=true)
-	private List<MBarangDetail> detail;
 
 	public int getBarangId() {
 		return barangId;
@@ -232,14 +229,6 @@ public class MBarang {
 		this.barangDeletedDate = barangDeletedDate;
 	}
 
-	public List<MBarangDetail> getDetail() {
-		return detail;
-	}
-
-	public void setDetail(List<MBarangDetail> detail) {
-		this.detail = detail;
-	}
-
 	@Override
 	public String toString() {
 		return "MBarang [barangId=" + barangId + ", barangJenisId=" + barangJenisId + ", barangKode=" + barangKode
@@ -249,6 +238,6 @@ public class MBarang {
 				+ ", barangCreatedBy=" + barangCreatedBy + ", barangCreatedDate=" + barangCreatedDate + ", barangUpdatedBy="
 				+ barangUpdatedBy + ", barangUpdatedDate=" + barangUpdatedDate + ", barangRevised=" + barangRevised
 				+ ", barangStokMin=" + barangStokMin + ", barangHet=" + barangHet + ", barangDeletedDate="
-				+ barangDeletedDate + ", detail=" + detail + "]";
+				+ barangDeletedDate +  "]";
 	}
 }
