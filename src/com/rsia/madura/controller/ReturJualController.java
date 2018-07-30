@@ -22,9 +22,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MReturJual;
 import com.rsia.madura.entity.MSatuan;
+import com.rsia.madura.entity.MJual;
+import com.rsia.madura.entity.MPasien;
+
 import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.ReturJualService;
 import com.rsia.madura.service.SatuanService;
+import com.rsia.madura.service.JualService;
+import com.rsia.madura.service.PasienService;
 
 @Controller
 @RequestMapping("/retur-jual")
@@ -35,6 +40,10 @@ public class ReturJualController {
 	private BarangService barangService;
 	@Autowired
 	private SatuanService satuanService;
+	@Autowired
+	private PasienService pasienService;
+	@Autowired
+	private JualService jualService;
 
 	private String uri = "redirect:/returJual";
 	
@@ -56,8 +65,11 @@ public class ReturJualController {
 		MReturJual returJualModel = new MReturJual();
 		List<MBarang> resultBarang = barangService.getBarangs();
 		List<MSatuan> resultSatuan = satuanService.getSatuans();
+		List<MJual> resultJual = jualService.getJuals();
+		List<MPasien> resultPasien = pasienService.findAll();
 		
-		
+		model.addAttribute("jual", resultJual);
+		model.addAttribute("pasien", resultPasien);
 		model.addAttribute("returJualModel", returJualModel);
 		model.addAttribute("satuan", resultSatuan);
 		model.addAttribute("barang", resultBarang);
@@ -71,6 +83,8 @@ public class ReturJualController {
 	public String ReturJualStore(@ModelAttribute("returJualModel") MReturJual returJualModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
+		returJualModel.setJual(jualService.getJual(returJualModel.getReturJualJual()));
+		returJualModel.setPasien(pasienService.getById(returJualModel.getReturJualPasienId()));
 		returJualModel.setReturJualAktif('Y');
 		returJualModel.setReturJualCreatedBy("Admin");
 		returJualModel.setReturJualBayarStatus('Y');
@@ -89,8 +103,12 @@ public class ReturJualController {
 		List<MSatuan> resultSatuan = satuanService.getSatuans();
 
 		Timestamp tglCreate = returJualModel.getReturJualCreatedDate();
+
+		List<MJual> resultJual = jualService.getJuals();
+		List<MPasien> resultPasien = pasienService.findAll();
 		
-		
+		model.addAttribute("jual", resultJual);
+		model.addAttribute("pasien", resultPasien);
 		model.addAttribute("returJualModel", returJualModel);
 		model.addAttribute("satuan", resultSatuan);
 		model.addAttribute("barang", resultBarang);
@@ -109,6 +127,8 @@ public class ReturJualController {
 	public String ReturJualUpdate(@ModelAttribute("returJualModel") MReturJual returJualModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
+		returJualModel.setJual(jualService.getJual(returJualModel.getReturJualJual()));
+		returJualModel.setPasien(pasienService.getById(returJualModel.getReturJualPasienId()));
 		returJualModel.setReturJualAktif('Y');
 		returJualModel.setReturJualUpdatedBy("Admin");
 		returJualModel.setReturJualBayarStatus('Y');

@@ -9,11 +9,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.JualDAO;
 import com.rsia.madura.entity.MJual;
+import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MSatuan;
 
 @Service
 public class JualServiceAction implements JualService {
 	@Autowired
 	private JualDAO jualDAO;
+
+	@Autowired
+	private BarangService barangService;
+
+	@Autowired
+	private SatuanService satuanService;
+
+	MBarang barang;
+	MSatuan satuan;
 	
 	@Override
 	@Transactional
@@ -49,6 +60,12 @@ public class JualServiceAction implements JualService {
 		
 		if(jualModel.getDetail() != null) {
 			jualModel.getDetail().forEach((detail) ->{
+				barang = barangService.getBarang(detail.getJualDetailBarangId());
+				satuan = satuanService.getSatuan(detail.getJualDetailSatuanId());
+
+				detail.setBarang(barang);
+				detail.setSatuan(satuan);
+
 				detail.setJual(jualModel);
 				detail.setJualDetailCreatedBy("Admin");
 				detail.setJualDetailPaket('N');
@@ -66,6 +83,12 @@ public class JualServiceAction implements JualService {
 		
 		if(jualModel.getDetail() != null) {
 			jualModel.getDetail().forEach((detail) ->{
+				barang = barangService.getBarang(detail.getJualDetailBarangId());
+				satuan = satuanService.getSatuan(detail.getJualDetailSatuanId());
+
+				detail.setBarang(barang);
+				detail.setSatuan(satuan);
+
 				detail.setJual(jualModel);
 				detail.setJualDetailCreatedBy("Admin");
 				detail.setJualDetailPaket('N');

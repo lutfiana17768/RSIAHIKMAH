@@ -23,9 +23,14 @@ import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MReturBeli;
 import com.rsia.madura.entity.MReturBeliDetail;
 import com.rsia.madura.entity.MSatuan;
+import com.rsia.madura.entity.MPerusahaan;
+import com.rsia.madura.entity.MTerima;
+
 import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.ReturBeliService;
 import com.rsia.madura.service.SatuanService;
+import com.rsia.madura.service.PerusahaanService;
+import com.rsia.madura.service.TerimaService;
 
 @Controller
 @RequestMapping("/retur-beli")
@@ -36,6 +41,10 @@ public class ReturBeliController {
 	private BarangService barangService;
 	@Autowired
 	private SatuanService satuanService;
+	@Autowired
+	private PerusahaanService perusahaanService;
+	@Autowired
+	private TerimaService terimaService;
 
 	private String uri = "redirect:/retur-beli";
 	
@@ -58,8 +67,11 @@ public class ReturBeliController {
 		MReturBeli returBeliModel = new MReturBeli();
 		List<MBarang> resultBarang = barangService.getBarangs();
 		List<MSatuan> resultSatuan = satuanService.getSatuans();
+		List<MPerusahaan> resultPerusahaan = perusahaanService.getPerusahaans();
+		List<MTerima> resultTerima = terimaService.getTerimas();
 		
-		
+		model.addAttribute("terima", resultTerima);
+		model.addAttribute("perusahaan", resultPerusahaan);
 		model.addAttribute("returBeliModel", returBeliModel);
 		model.addAttribute("satuan", resultSatuan);
 		model.addAttribute("barang", resultBarang);
@@ -72,6 +84,8 @@ public class ReturBeliController {
 	public String ReturBeliStore(@ModelAttribute("returBeliModel") MReturBeli returBeliModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
+		returBeliModel.setPerusahaan(perusahaanService.getPerusahaan(returBeliModel.getReturBeliPerusahaanId()));
+		returBeliModel.setTerima(terimaService.getTerima(returBeliModel.getReturBeliTerimaId()));
 		returBeliModel.setReturBeliAktif('Y');
 		returBeliModel.setReturBeliCreatedBy("Admin");
 		returBeliModel.setReturBeliCreatedDate(currentTime);
@@ -85,9 +99,8 @@ public class ReturBeliController {
 	@RequestMapping(value="/edit")
 	public String ReturBeliFormAddView(Model model, @RequestParam(value = "Id", required = false) int id){
 		MReturBeli returBeliModel = returBeliService.getReturBeli(id);
-
-		System.out.println(returBeliModel);
-
+		List<MPerusahaan> resultPerusahaan = perusahaanService.getPerusahaans();
+		List<MTerima> resultTerima = terimaService.getTerimas();
 		List<MBarang> resultBarang = barangService.getBarangs();
 		List<MSatuan> resultSatuan = satuanService.getSatuans();
 		
@@ -95,6 +108,8 @@ public class ReturBeliController {
 		List<MReturBeliDetail> detail = returBeliModel.getDetail();
 		
 		model.addAttribute("returBeliModel", returBeliModel);
+		model.addAttribute("terima", resultTerima);
+		model.addAttribute("perusahaan", resultPerusahaan);
 		model.addAttribute("satuan", resultSatuan);
 		model.addAttribute("barang", resultBarang);
 		model.addAttribute("detail", detail);
@@ -109,6 +124,8 @@ public class ReturBeliController {
 	public String ReturBeliUpdate(@ModelAttribute("returBeliModel") MReturBeli returBeliModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
+		returBeliModel.setPerusahaan(perusahaanService.getPerusahaan(returBeliModel.getReturBeliPerusahaanId()));
+		returBeliModel.setTerima(terimaService.getTerima(returBeliModel.getReturBeliTerimaId()));
 		returBeliModel.setReturBeliAktif('Y');
 		returBeliModel.setReturBeliUpdatedBy("Admin");
 		returBeliModel.setReturBeliUpdatedDate(currentTime);

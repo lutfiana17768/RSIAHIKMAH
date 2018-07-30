@@ -146,7 +146,12 @@ public class OrderController {
 	public String Update(@ModelAttribute("orderModel") MOrder orderModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
+		MPerusahaan perusahaan = perusahaanService.getPerusahaan(orderModel.getOrderPerusahaanId());
+		MPegawai pegawai = pegawaiService.getPegawai(orderModel.getOrderTtdId());
+
 		orderModel.setOrderAktif('Y');
+		orderModel.setPerusahaan(perusahaan);
+		orderModel.setPegawai(pegawai);
 		orderModel.setOrderUpdatedBy("Admin");
 		orderModel.setOrderUpdatedDate(currentTime);
 

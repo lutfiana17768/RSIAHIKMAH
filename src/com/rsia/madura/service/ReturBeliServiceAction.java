@@ -9,11 +9,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.ReturBeliDAO;
 import com.rsia.madura.entity.MReturBeli;
+import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MSatuan;
 
 @Service
 public class ReturBeliServiceAction implements ReturBeliService {
 	@Autowired
 	private ReturBeliDAO returBeliDAO;
+
+	@Autowired
+	private BarangService barangService;
+
+	@Autowired
+	private SatuanService satuanService;
+
+	MBarang barang;
+	MSatuan satuan;
 	
 	@Override
 	@Transactional
@@ -49,6 +60,11 @@ public class ReturBeliServiceAction implements ReturBeliService {
 		
 		if(returBeliModel.getDetail() != null) {
 			returBeliModel.getDetail().forEach((detail) ->{
+				barang = barangService.getBarang(detail.getReturBeliDetailBarangId());
+				satuan = satuanService.getSatuan(detail.getReturBeliDetailSatuanId());
+
+				detail.setBarang(barang);
+				detail.setSatuan(satuan);
 				detail.setReturBeli(returBeliModel);
 				detail.setReturBeliDetailCreatedBy("Admin");
 				detail.setReturBeliDetailCreatedDate(currentTime);
@@ -65,6 +81,11 @@ public class ReturBeliServiceAction implements ReturBeliService {
 		
 		if(returBeliModel.getDetail() != null) {
 			returBeliModel.getDetail().forEach((detail) ->{
+				barang = barangService.getBarang(detail.getReturBeliDetailBarangId());
+				satuan = satuanService.getSatuan(detail.getReturBeliDetailSatuanId());
+
+				detail.setBarang(barang);
+				detail.setSatuan(satuan);
 				detail.setReturBeli(returBeliModel);
 				detail.setReturBeliDetailUpdatedBy("Admin");
 				detail.setReturBeliDetailUpdatedDate(currentTime);

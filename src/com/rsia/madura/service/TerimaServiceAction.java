@@ -9,11 +9,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.TerimaDAO;
 import com.rsia.madura.entity.MTerima;
+import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MSatuan;
 
 @Service
 public class TerimaServiceAction implements TerimaService {
 	@Autowired
 	private TerimaDAO terimaDAO;
+
+	@Autowired
+	private BarangService barangService;
+
+	@Autowired
+	private SatuanService satuanService;
+
+	MBarang barang;
+	MSatuan satuan;
 	
 	@Override
 	@Transactional
@@ -51,6 +62,11 @@ public class TerimaServiceAction implements TerimaService {
 		
 		if(terimaModel.getDetail() != null) {
 			terimaModel.getDetail().forEach((detail) ->{
+				barang = barangService.getBarang(detail.getTerimaDetailBarangId());
+				satuan = satuanService.getSatuan(detail.getTerimaDetailSatuan());
+
+				detail.setBarang(barang);
+				detail.setSatuan(satuan);
 				detail.setTerima(terimaModel);
 				detail.setTerimaDetailCreatedBy("Admin");
 				detail.setTerimaDetailCreatedDate(currentTime);
@@ -67,6 +83,11 @@ public class TerimaServiceAction implements TerimaService {
 
 		if(terimaModel.getDetail() != null) {
 			terimaModel.getDetail().forEach((detail) ->{
+				barang = barangService.getBarang(detail.getTerimaDetailBarangId());
+				satuan = satuanService.getSatuan(detail.getTerimaDetailSatuan());
+
+				detail.setBarang(barang);
+				detail.setSatuan(satuan);
 				detail.setTerima(terimaModel);
 				detail.setTerimaDetailUpdatedBy("Admin");
 				detail.setTerimaDetailUpdatedDate(currentTime);

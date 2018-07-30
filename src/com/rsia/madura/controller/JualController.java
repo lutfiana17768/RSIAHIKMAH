@@ -22,9 +22,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MJual;
 import com.rsia.madura.entity.MSatuan;
+import com.rsia.madura.entity.MPendaftaran;
+import com.rsia.madura.entity.MPasien;
+import com.rsia.madura.entity.MPegawai;
 import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.JualService;
 import com.rsia.madura.service.SatuanService;
+import com.rsia.madura.service.PendaftaranService;
+import com.rsia.madura.service.PasienService;
+import com.rsia.madura.service.PegawaiService;
 
 @Controller
 @RequestMapping("/jual")
@@ -35,6 +41,12 @@ public class JualController {
 	private BarangService barangService;
 	@Autowired
 	private SatuanService satuanService;
+	@Autowired
+	private PendaftaranService pendaftaranService;
+	@Autowired
+	private PasienService pasienService;
+	@Autowired
+	private PegawaiService pegawaiService;
 
 	private String uri = "redirect:/jual";
 	
@@ -56,9 +68,15 @@ public class JualController {
 		MJual jualModel = new MJual();
 		List<MBarang> resultBarang = barangService.getBarangs();
 		List<MSatuan> resultSatuan = satuanService.getSatuans();
-		
+		List<MPendaftaran> resultPendaftaran = pendaftaranService.getPendaftarans();
+		List<MPasien> resultPasien = pasienService.findAll();
+		List<MPegawai> resultPegawai = pegawaiService.getPegawai();
+ 		
 		model.addAttribute("satuan", resultSatuan);
 		model.addAttribute("barang", resultBarang);
+		model.addAttribute("pasien", resultPasien);
+		model.addAttribute("pendaftaran", resultPendaftaran);
+		model.addAttribute("pegawai", resultPegawai);
 		model.addAttribute("jualModel", jualModel);
 		model.addAttribute("footerjs", "../jual/inc/footerjs.jsp");
 		
@@ -69,6 +87,10 @@ public class JualController {
 	public String JualStore(@ModelAttribute("jualModel") MJual jualModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		
+		jualModel.setPendaftaran(pendaftaranService.getPendaftaran(jualModel.getJualPendaftaranId()));
+		jualModel.setPasien(pasienService.getById(jualModel.getJualPasienId()));
+		jualModel.setPegawai(pegawaiService.getPegawai(jualModel.getJualDokterId()));
+
 		jualModel.setJualDiskon(0);
 		jualModel.setJualAktif('Y');
 		jualModel.setJualCreatedBy("Admin");
@@ -85,12 +107,19 @@ public class JualController {
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String UpdateFormView(Model model, @RequestParam(value = "Id", required = false) int Id) {
 		MJual jualModel = jualService.getJual(Id);
+		Timestamp tglCreate = jualModel.getJuealCreatedDate();
+
 		List<MBarang> resultBarang = barangService.getBarangs();
 		List<MSatuan> resultSatuan = satuanService.getSatuans();
-		Timestamp tglCreate = jualModel.getJuealCreatedDate();
-		
+		List<MPendaftaran> resultPendaftaran = pendaftaranService.getPendaftarans();
+		List<MPasien> resultPasien = pasienService.findAll();
+		List<MPegawai> resultPegawai = pegawaiService.getPegawai();
+ 		
 		model.addAttribute("satuan", resultSatuan);
 		model.addAttribute("barang", resultBarang);
+		model.addAttribute("pasien", resultPasien);
+		model.addAttribute("pendaftaran", resultPendaftaran);
+		model.addAttribute("pegawai", resultPegawai);
 		model.addAttribute("jualModel", jualModel);
 		model.addAttribute("footerjs", "../jual/inc/footerjs.jsp");
 		model.addAttribute("tglCreate", tglCreate);
@@ -101,6 +130,10 @@ public class JualController {
 		@RequestMapping(value="/update")
 	public String JualUpdate(@ModelAttribute("jualModel") MJual jualModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		jualModel.setPendaftaran(pendaftaranService.getPendaftaran(jualModel.getJualPendaftaranId()));
+		jualModel.setPasien(pasienService.getById(jualModel.getJualPasienId()));
+		jualModel.setPegawai(pegawaiService.getPegawai(jualModel.getJualDokterId()));
 		
 		jualModel.setJualDiskon(0);
 		jualModel.setJualAktif('Y');

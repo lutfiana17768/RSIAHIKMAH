@@ -24,12 +24,15 @@ import com.rsia.madura.entity.MJenisBarang;
 import com.rsia.madura.entity.MOrder;
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MSatuan;
+import com.rsia.madura.entity.MPerusahaan;
 
 import com.rsia.madura.service.OrderService;
 import com.rsia.madura.service.JenisBarangService;
 import com.rsia.madura.service.TerimaService;
 import com.rsia.madura.service.SatuanService;
 import com.rsia.madura.service.BarangService;
+import com.rsia.madura.service.PerusahaanService;
+
 @Controller
 @RequestMapping("/terima")
 public class TerimaController {
@@ -48,6 +51,9 @@ public class TerimaController {
 
 	@Autowired
 	private SatuanService satuanService;
+
+	@Autowired
+	private PerusahaanService perusahaanService;
 
 	private String uri = "redirect: /terima";
 
@@ -71,12 +77,14 @@ public class TerimaController {
 		List<MBarang> resultBarang = barangService.getBarangs();
 		List<MSatuan> resultSatuan = satuanService.getSatuans();
 		List<MJenisBarang> resultBarangJenis = barangJenisService.getJenisBarangs();
+		List<MPerusahaan> resultPerusahaan = perusahaanService.getPerusahaans();
 		
 		model.addAttribute("terimaModel", terimaModel);
 		model.addAttribute("order", resultOrder);
 		model.addAttribute("barangJenis", resultBarangJenis);
 		model.addAttribute("satuan", resultSatuan);
 		model.addAttribute("barang", resultBarang);
+		model.addAttribute("perusahaan", resultPerusahaan);
 
 		model.addAttribute("footerjs", "../terima/inc/footerjs.jsp");
 		
@@ -87,7 +95,8 @@ public class TerimaController {
 	public String Store(@ModelAttribute("terimaModel") MTerima terimaModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-		System.out.println(terimaModel);		
+		terimaModel.setPerusahaan(perusahaanService.getPerusahaan(terimaModel.getTerimaPerusahaanId()));
+		terimaModel.setOrder(orderService.getOrder(terimaModel.getTerimaOrderId()));
 
 		terimaModel.setTerimaAktif('Y');
 
@@ -124,6 +133,7 @@ public class TerimaController {
 		List<MBarang> resultBarang = barangService.getBarangs();
 		List<MSatuan> resultSatuan = satuanService.getSatuans();
 		List<MJenisBarang> resultBarangJenis = barangJenisService.getJenisBarangs();
+		List<MPerusahaan> resultPerusahaan = perusahaanService.getPerusahaans();
 
 		Timestamp tglCreate = result.getTerimaCreatedDate();
 
@@ -134,6 +144,7 @@ public class TerimaController {
 		model.addAttribute("barang", resultBarang);
 		model.addAttribute("footerjs", "../terima/inc/footerjs.jsp");
 		model.addAttribute("tglCreate", tglCreate);
+		model.addAttribute("perusahaan", resultPerusahaan);
 
 		model.addAttribute("terimaModel", result);
 
@@ -144,6 +155,9 @@ public class TerimaController {
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String Update(@ModelAttribute("terimaModel") MTerima terimaModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+
+		terimaModel.setPerusahaan(perusahaanService.getPerusahaan(terimaModel.getTerimaPerusahaanId()));
+		terimaModel.setOrder(orderService.getOrder(terimaModel.getTerimaOrderId()));
 
 		terimaModel.setTerimaAktif('Y');
 //		terimaModel.setTerimaPPN('Y');
@@ -157,16 +171,12 @@ public class TerimaController {
 
 		return this.uri;
 	}
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
-
-
-
-
-
 	
 }

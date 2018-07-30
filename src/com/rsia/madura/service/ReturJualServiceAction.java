@@ -9,11 +9,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rsia.madura.dao.ReturJualDAO;
 import com.rsia.madura.entity.MReturJual;
+import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MSatuan;
 
 @Service
 public class ReturJualServiceAction implements ReturJualService {
 	@Autowired
 	private ReturJualDAO returJualDAO;
+
+	@Autowired
+	private BarangService barangService;
+
+	@Autowired
+	private SatuanService satuanService;
+
+	MBarang barang;
+	MSatuan satuan;
 	
 	@Override
 	@Transactional
@@ -49,6 +60,11 @@ public class ReturJualServiceAction implements ReturJualService {
 		
 		if(returJualModel.getDetail() != null) {
 			returJualModel.getDetail().forEach((detail) ->{
+				barang = barangService.getBarang(detail.getReturJualDetailBarangId());
+				satuan = satuanService.getSatuan(detail.getReturJualDetailSatuanId());
+
+				detail.setBarang(barang);
+				detail.setSatuan(satuan);
 				detail.setReturJual(returJualModel);
 				detail.setReturJualDetailCreatedBy("Admin");
 				detail.setReturJualDetailCreatedDate(currentTime);
@@ -65,6 +81,11 @@ public class ReturJualServiceAction implements ReturJualService {
 		
 		if(returJualModel.getDetail() != null) {
 			returJualModel.getDetail().forEach((detail) ->{
+				barang = barangService.getBarang(detail.getReturJualDetailBarangId());
+				satuan = satuanService.getSatuan(detail.getReturJualDetailSatuanId());
+
+				detail.setBarang(barang);
+				detail.setSatuan(satuan);
 				detail.setReturJual(returJualModel);
 				detail.setReturJualDetailUpdatedBy("Admin");
 				detail.setReturJualDetailUpdatedDate(currentTime);
