@@ -66,18 +66,32 @@
                                 <div class="col-6">
                                  <div class="form-group">
                                     <label>TTD Nama</label>
-                                    <form:input path="orderTtdNama" placeholder="TTd Nama" class="form-control"/>
+<%--                                    <form:input path="orderTtdNama" placeholder="TTd Nama" class="form-control"/> --%>
+                                    <select name="orderTtdId" id="orderTtdId" class="form-control">
+                                         <c:forEach var="tempPegawai" items="${pegawai}">
+                                                 <option value="${tempPegawai.pegawaiID }">
+                                                 ${tempPegawai.pegawaiNama }
+                                                 </option>
+                                             </c:forEach>
+                                     </select>
                                  </div>
-<%--                                 <div class="form-group">
+<%--                              <div class="form-group">
                                     <label>Status</label>
                                     <form:input path="orderStatus" placeholder="Status" class="form-control"/>
                                  </div>
 --%>                                 
                                  <div class="form-group">
                                     <label>Jabatan</label>
-                                    <form:input path="orderTtdJabatanNama" placeholder="Jabatan" class="form-control"/>
+<%--                                    <form:input path="orderTtdJabatanNama" placeholder="Jabatan" class="form-control"/> --%>
+                                    <select name="orderTtdJabatanNama" id="orderTtdJabatanNama]" class="form-control">
+                                         <c:forEach var="tempJabatan" items="${jabatan}">
+                                                 <option value="${tempJabatan.jabatanNama }">
+                                                 ${tempJabatan.jabatanNama }
+                                                 </option>
+                                             </c:forEach>
+                                     </select>
                                  </div>
-<%--                                 <div class="form-group">
+<%--                             <div class="form-group">
                                     <label>Jenis Barang</label>
                                     <form:input path="orderBarangJenis" placeholder="Jenis Barang" class="form-control"/>
                                  </div>

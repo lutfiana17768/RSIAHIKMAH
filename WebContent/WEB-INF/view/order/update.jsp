@@ -18,85 +18,100 @@
                             </div>
                             <form:form modelAttribute="orderModel" method="POST" action="/order/update" id="order-form">
                                 <form:hidden path="orderId" />
+                                <form:hidden path="orderCreatedDate" value="${tglCreate}" />
+                                <form:hidden path="orderCreatedBy" />
+                                <form:hidden path="orderRevised" />
                                 <div class="row card-block">
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label>No</label>
-                                            <form:input path="orderNomer" placeholder="Masukan Nomer Order" class="form-control" />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Tanggal Order</label>
-                                            <form:input path="orderTanggal" type="date" placeholder="Masukan Tgl Order" class="form-control" />
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label>Jatuh Tempo </label>
-                                            <form:input path="orderJatuhTempo" type="date" placeholder="Jatuh tempo" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Supplier / PBF</label>
-                                            <select name="orderPerusahaanId" id="orderPerusahaanId" class="form-control">
-                                            <c:forEach var="tempPerusahaan" items="${perusahaan}">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>No</label>
+                                    <form:input path="orderNomer" placeholder="Masukan Nomer Order" class="form-control"/>
+                                 </div>
+                                
+                                <div class="form-group">
+                                    <label>Tanggal Order</label>
+                                    <form:input path="orderTanggal" type="date" placeholder="Masukan Tgl Order" class="form-control"/>
+                                 </div>
+                                 
+                                 
+                                 <div class="form-group">
+                                    <label>Jatuh Tempo </label>
+                                    <form:input path="orderJatuhTempo" type="date" placeholder="Jatuh tempo" class="form-control"/>
+                                 </div>
+                                 <div class="form-group">
+                                    <label>Supplier</label>
+                                    <%--<form:input path="orderPerusahaanId" placeholder="Perusahaan" class="form-control"/>--%>
+                                    <select name="orderPerusahaanId" id="orderPerusahaanId" class="form-control">
+                                         <c:forEach var="tempPerusahaan" items="${perusahaan}">
                                                  <option value="${tempPerusahaan.perusahaan_id }">
                                                  ${tempPerusahaan.perusahaanNama }
                                                  </option>
                                              </c:forEach>
                                      </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Diskon</label>
-                                            <form:input path="orderDiskon" placeholder="Diskon" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>CashBack</label>
-                                            <form:input path="orderCashback" placeholder="Cashback" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Total Bayar</label>
-                                            <form:input path="orderTotal" placeholder="Total bayar" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Jumlah Bayar</label>
-                                            <form:input path="orderJumlahBayar" placeholder="Jumlah bayar" class="form-control" />
-                                        </div>
-                                    </div>
 
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label>TTD Nama</label>
-                                            <form:input path="orderTtdNama" placeholder="TTd Nama" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Status</label>
-                                            <form:input path="orderStatus" placeholder="Status" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Jabatan</label>
-                                            <form:input path="orderTtdJabatanNama" placeholder="Jabatan" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Jenis Barang</label>
-                                            <form:input path="orderBarangJenis" placeholder="Jenis Barang" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Group</label>
-                                            <form:input path="orderGroup" placeholder="Group" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Keterangan</label>
-                                            <form:input path="orderKeterangan" placeholder="Keterangan" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>NIP</label>
-                                            <form:input path="orderTtdNip" placeholder="NIP" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Order Revised</label>
-                                            <form:input path="orderRevised" placeholder="Order Revised" class="form-control" />
-                                        </div>
-                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label>Diskon</label>
+                                    <form:input path="orderDiskon" placeholder="Diskon" class="form-control"/>
+                                 </div>
+                                 <div class="form-group">
+                                    <label>CashBack</label>
+                                    <form:input path="orderCashback" placeholder="Cashback" class="form-control"/>
+                                 </div>
+                                 <div class="form-group">
+                                    <label>Total Bayar</label>
+                                    <form:input path="orderTotal" placeholder="Total bayar" class="form-control"/>
+                                 </div>
+                                <div class="form-group">
+                                    <label>Jumlah Bayar</label>
+                                    <form:input path="orderJumlahBayar" placeholder="Jumlah bayar" class="form-control"/>
+                                 </div>
+                            </div>
+
+                                <div class="col-6">
+                                 <div class="form-group">
+                                    <label>TTD Nama</label>
+<%--                                    <form:input path="orderTtdNama" placeholder="TTd Nama" class="form-control"/> --%>
+                                    <select name="orderTtdId" id="orderTtdId" class="form-control">
+                                         <c:forEach var="tempPegawai" items="${pegawai}">
+                                                 <option value="${tempPegawai.pegawaiID }">
+                                                 ${tempPegawai.pegawaiNama }
+                                                 </option>
+                                             </c:forEach>
+                                     </select>
+                                 </div>
+<%--                                 <div class="form-group">
+                                    <label>Status</label>
+                                    <form:input path="orderStatus" placeholder="Status" class="form-control"/>
+                                 </div>
+--%>                                 
+                                 <div class="form-group">
+                                    <label>Jabatan</label>
+<%--                                    <form:input path="orderTtdJabatanNama" placeholder="Jabatan" class="form-control"/> --%>
+                                    <select name="orderTtdJabatanNama" id="orderTtdJabatanNama]" class="form-control">
+                                         <c:forEach var="tempJabatan" items="${jabatan}">
+                                                 <option value="${tempJabatan.jabatanNama }">
+                                                 ${tempJabatan.jabatanNama }
+                                                 </option>
+                                             </c:forEach>
+                                     </select>
+                                 </div>
+<%--                                 <div class="form-group">
+                                    <label>Jenis Barang</label>
+                                    <form:input path="orderBarangJenis" placeholder="Jenis Barang" class="form-control"/>
+                                 </div>
+                                
+                                 <div class="form-group">
+                                    <label>Group</label>
+                                    <form:input path="orderGroup" placeholder="Group" class="form-control"/>
+                                 </div>
+--%>                                 
+                                 <div class="form-group">
+                                    <label>Keterangan</label>
+                                    <form:input path="orderKeterangan" placeholder="Keterangan" class="form-control"/>
+                                 </div>
+
+                            </div>
 
                                     <div class="col col-12" style="padding:0">
                                         <div class="container">
