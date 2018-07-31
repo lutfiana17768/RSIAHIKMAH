@@ -37,14 +37,25 @@
                          
                          <div class="form-group">
                             <label>Terima</label>
-                            <form:input path="returBeliTerimaId" placeholder="Masukan Nomer" class="form-control"/>
+                            <select name="returBeliTerimaId" id="returBeliTerimaId" class="form-control">
+                                 <c:forEach var="temp" items="${terima}">
+                                         <option value="${temp.terimaId }">
+                                         ${temp.terimaNo }
+                                         </option>
+                                     </c:forEach>
+                             </select>
                          </div>
-                         
                         <div class="form-group">
                             <label>Supplier</label>
-                            <form:input path="returBeliPerusahaanId" type="text" placeholder="Masukan Nama Supplier" class="form-control"/>
+                            <select name="orderPerusahaanId" id="orderPerusahaanId" class="form-control">
+                                 <c:forEach var="tempPerusahaan" items="${perusahaan}">
+                                         <option value="${tempPerusahaan.perusahaan_id }">
+                                         ${tempPerusahaan.perusahaanNama }
+                                         </option>
+                                     </c:forEach>
+                             </select>
                          </div>
-                         
+<%--                         
                          <div class="form-group">
                             <label>Alamat Perusahaan</label>
                             <form:input path="returBeliPerusahaanAlamat" type="text" placeholder="Masukan Alamat Perusahaan" class="form-control"/>
@@ -55,7 +66,7 @@
                             <form:input path="returBeliPerusahaanNoTelp" type="text" placeholder="Masukan Telp Perusahaan" class="form-control"/>
                          </div>
                      </div>
-                     
+--%>                 
                      <div class="col-6">
                          <div class="form-group">
                             <label>Total</label>

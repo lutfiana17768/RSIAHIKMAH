@@ -33,9 +33,17 @@
                              </div>
                              
                              <div class="form-group">
-                                <label>Retur Jual</label>
+                                <label>No Jual</label>
                                 <form:input path="returJualJual" placeholder="retur jual" class="form-control"/>
+                                <select name="returJualJual" id="returJualJual" class="form-control">
+                                     <c:forEach var="tempJual" items="${jual}">
+                                             <option value="${tempJual.jualId }">
+                                             ${tempJual.jualNo }
+                                             </option>
+                                         </c:forEach>
+                                 </select>
                              </div>
+<%--                            
                              <div class="form-group">
                                 <label>Pasien Norm</label>
                                 <form:input path="returJualPasienNorm" placeholder="pasien norm" class="form-control"/>
@@ -52,7 +60,17 @@
                                 <form:input path="returJualJenisPasienNama" placeholder="jenis pasien" class="form-control"/>
                              </div>
                          </div>
-
+--%>                         
+                        <div class="form-group">
+                                <label>Pasien</label>
+                                <select name="returJualPasienId" id="returJualPasienId" class="form-control">
+                                     <c:forEach var="tempPasien" items="${pasien}">
+                                             <option value="${tempPasien.pasienID }">
+                                             ${tempPasien.pasienNama }
+                                             </option>
+                                         </c:forEach>
+                                 </select>
+                             </div>
                         <div class="col-6"> 
                             <div class="form-group">
                                 <label>Diskon</label>

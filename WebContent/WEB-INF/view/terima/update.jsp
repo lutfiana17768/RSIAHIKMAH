@@ -25,7 +25,13 @@
 							<div class="col-6">
 								<div class="form-group">
 									<label for="exampleInputEmail1">No. Order</label>
-									<form:input path="terimaOrderNo" class="form-control boxed form-control-sm" />
+									<select name="terimaOrderId" id="terimaOrderId" class="form-control">
+                                         <c:forEach var="tempOrder" items="${order}">
+                                                 <option value="${tempOrder.orderId }">
+                                                 ${tempOrder.orderNomer }
+                                                 </option>
+                                             </c:forEach>
+                                     </select>
 								</div>
 								<div class="form-group">
 									<label for="exampleInputEmail1">No. Terima</label>
@@ -34,7 +40,7 @@
 								
 								<div class="form-group">
 		                            <label>Tanggal Terima</label>
-		                            <form:input path="terimaTanggal" type="date" placeholder="Masukan Tgl Terima" class="form-control" />
+		                            <form:input path="terimaTanggal" type="date" placeholder="Masukan Tgl Order" class="form-control" />
 		                         </div>
 
 
@@ -45,16 +51,13 @@
 
 								<div class="form-group">
 									<label class="control-label">Supplier</label>
-									<form:input path="terimaPerusahaanId" placeholder="Masukan Nama Perusahaan" class="form-control" />
-									<%--
 									<form:select class="form-control boxed form-control-sm" path="terimaPerusahaanId">
 									<c:forEach var="tempPerusahaan" items="${perusahaan}">
-                                         <option value="${tempPerusahaan.perusahaanID }">
+                                         <option value="${tempPerusahaan.perusahaan_id }">
                                          ${tempPerusahaan.perusahaanNama }
                                          </option>
                                      </c:forEach>
 									</form:select>
-									--%>
 								</div>
 
 								<div class="form-group">

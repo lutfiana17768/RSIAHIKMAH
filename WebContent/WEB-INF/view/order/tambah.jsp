@@ -34,7 +34,7 @@
                                     <form:input path="orderJatuhTempo" type="date" placeholder="Jatuh tempo" class="form-control"/>
                                  </div>
                                  <div class="form-group">
-                                    <label>Supplier</label>
+                                    <label>PBF / Supplier</label>
                                     <%--<form:input path="orderPerusahaanId" placeholder="Perusahaan" class="form-control"/>--%>
                                     <select name="orderPerusahaanId" id="orderPerusahaanId" class="form-control">
                                          <c:forEach var="tempPerusahaan" items="${perusahaan}">

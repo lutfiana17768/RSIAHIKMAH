@@ -29,30 +29,48 @@
                              
                              <div class="form-group">
                                 <label>Pendafataran Nomer</label>
-                                <form:input path="jualPendaftaranNo" placeholder="Masukan Nomer Pendaftaran" class="form-control"/>
+                                <select name="jualPendaftaranId" id="jualPendaftaranId" class="form-control">
+                                     <c:forEach var="tempPendaftaran" items="${pendaftaran}">
+                                             <option value="${tempPendaftaran.pendaftaranID }">
+                                             ${tempPendaftaran.pendaftaranNo }
+                                             </option>
+                                         </c:forEach>
+                                 </select>
                              </div>
                              
                             <div class="form-group">
                                 <label>Pasien</label>
-                                <form:input path="jualPasienId" type="text" placeholder="Masukan Pasien Id" class="form-control"/>
+                                <select name="jualPasienId" id="jualPasienId" class="form-control">
+                                     <c:forEach var="tempPasien" items="${pasien}">
+                                             <option value="${tempPasien.pasienID }">
+                                             ${tempPasien.pasienNama }
+                                             </option>
+                                         </c:forEach>
+                                 </select>
                              </div>
-                             
+<%--                            
                              <div class="form-group">
                                 <label>Alamat Pasien</label>
                                 <form:input path="jualPasienAlamat" type="text" placeholder="Masukan Pasien Id" class="form-control"/>
                              </div>
-                             
+--%>                             
                              <div class="form-group">
                                 <label>Pegawai</label>
-                                <form:input path="jualPegawaiId" type="text" placeholder="Masukan Tgl Penjualan" class="form-control"/>
+                                <select name="jualPegawaiId" id="jualPegawaId" class="form-control">
+                                     <c:forEach var="tempPegawai" items="${pegawai}">
+                                             <option value="${tempPegawai.pegawaiID }">
+                                             ${tempPegawai.pegawaiNama }
+                                             </option>
+                                         </c:forEach>
+                                 </select>
                              </div>
-                             
+<%--                             
                              <div class="form-group">
                                 <label>Dokter</label>
                                 <form:input path="jualDokterId" placeholder="Masukan Nomer Pendaftaran" class="form-control"/>
                              </div>
                         </div>
-
+--%>
                         <div class="col-6">
                          
                             <div class="form-group">
@@ -75,6 +93,7 @@
                                 <form:input path="jualBayarJumlah" type="text" placeholder="Masukan Pasien Id" class="form-control"/>
                              </div>
                          </div>
+                     </div>
                          <%--
                          <div class="form-group">
                             <label>Status</label>

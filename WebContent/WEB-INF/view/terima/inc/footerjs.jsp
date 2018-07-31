@@ -55,7 +55,7 @@ $('#simpan-detail').click(function(){
     harga = $('#terimaDetailHarga').val() ||0;
     sub_total = $('#terimaDetailSubTotal').val() || 0;
 
-     var barangText, satuanText;
+    var barangText, satuanText;
 
     barangText = $('#terimaDetailBarangId option:selected').text();
     satuanText = $('#terimaDetailSatuanId option:selected').text();
