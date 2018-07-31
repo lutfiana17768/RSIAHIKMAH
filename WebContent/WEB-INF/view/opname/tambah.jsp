@@ -102,14 +102,16 @@
                  </div>
                  <div class="modal-body modal-tab-container">
                      <form>
-                         <div class="form-group">
-                             <label>Nomer Terima</label>
-                             <input type="text" name="opnameDetailTerimaNo" id="opnameDetailTerimaNo">
-                         </div>
                          
                          <div class="form-group">
                              <label>Barang</label>
-                             <input type="text" name="opnameDetailBarangId" id="opnameDetailBarangId">
+                             <select name="opnameDetailBarangId" id="opnameDetailBarangId">
+                                 <c:forEach var="tempBarang" items="${barang}">
+                                         <option value="${tempBarang.barangId }">
+                                         ${tempBarang.barangNama }
+                                         </option>
+                                     </c:forEach>
+                             </select>
                          </div>
                          
                          <div class="form-group">
@@ -119,16 +121,13 @@
                          
                          <div class="form-group">
                              <label>Satuan</label>
-                             <input type="text" name="opnameDetailSatuanId" id="opnameDetailSatuanId">
-                             <%--
                              <select name="opnameDetailSatuanId" id="opnameDetailSatuanId">
                                  <c:forEach var="tempSatuan" items="${satuan}">
-                                         <option value="${tempSatuan.satuan_id }">
+                                         <option value="${tempSatuan.satuanID }">
                                          ${tempSatuan.satuanNama }
                                          </option>
-                                   </c:forEach>
+                                     </c:forEach>
                              </select>
-                             --%>
                          </div>
                          
                          <div class="form-group">

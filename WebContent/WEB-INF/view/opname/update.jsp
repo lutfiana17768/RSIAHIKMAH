@@ -87,8 +87,8 @@
                                	<c:forEach var="detail" items="${opnameModel.detail}" varStatus="loop">
                                 	<tr id="opname_${loop.index}">
                                 		 <td data-used="1" data-save="1" data-name="opnameDetailTerimaNo" data-kolom-id="opnameDetailTerimaNo">${detail.opnameDetailTerimaNo}</td>
-									    <td data-used="1" data-save="1" data-name="opnameDetailBarangId" data-kolom-id="opnameDetailBarangId">${detail.opnameDetailBarangId}</td>
-									    <td data-used="1" data-save="1" data-name="opnameDetailSatuanId" data-kolom-id="opnameDetailSatuanId">${detail.opnameDetailSatuanId}</td>
+									    <td data-used="1" data-save="1" data-name="opnameDetailBarangId" data-kolom-id="opnameDetailBarangId">${detail.barang.barangNama}</td>
+									    <td data-used="1" data-save="1" data-name="opnameDetailSatuanId" data-kolom-id="opnameDetailSatuanId">${detail.satuan.satuanNama}</td>
 									    <td data-used="1" data-save="1" data-name="opnameDetailKadaluarsa" data-kolom-id="opnameDetailKadaluarsa">${detail.opnameDetailKadaluarsa}</td>
 									    <td data-used="1" data-save="1" data-name="opnameDetailStokAwal" data-kolom-id="opnameDetailStokAwal">${detail.opnameDetailStokAwal}</td>
 									    <td data-used="1" data-save="1" data-name="opnameDetailKoreksi" data-kolom-id="opnameDetailStokKoreksi">${detail.opnameDetailStokKoreksi}</td>
@@ -124,14 +124,16 @@
                  </div>
                  <div class="modal-body modal-tab-container">
                      <form>
-                         <div class="form-group">
-                             <label>Nomer Terima</label>
-                             <input type="text" name="opnameDetailTerimaNo" id="opnameDetailTerimaNo">
-                         </div>
                          
                          <div class="form-group">
                              <label>Barang</label>
-                             <input type="text" name="opnameDetailBarangId" id="opnameDetailBarangId">
+                             <select name="opnameDetailBarangId" id="opnameDetailBarangId">
+                                 <c:forEach var="tempBarang" items="${barang}">
+                                         <option value="${tempBarang.barangId }">
+                                         ${tempBarang.barangNama }
+                                         </option>
+                                     </c:forEach>
+                             </select>
                          </div>
                          
                          <div class="form-group">
@@ -141,16 +143,13 @@
                          
                          <div class="form-group">
                              <label>Satuan</label>
-                             <input type="text" name="opnameDetailSatuanId" id="opnameDetailSatuanId">
-                             <%--
                              <select name="opnameDetailSatuanId" id="opnameDetailSatuanId">
                                  <c:forEach var="tempSatuan" items="${satuan}">
-                                         <option value="${tempSatuan.satuan_id }">
+                                         <option value="${tempSatuan.satuanID }">
                                          ${tempSatuan.satuanNama }
                                          </option>
-                                   </c:forEach>
+                                     </c:forEach>
                              </select>
-                             --%>
                          </div>
                          
                          <div class="form-group">

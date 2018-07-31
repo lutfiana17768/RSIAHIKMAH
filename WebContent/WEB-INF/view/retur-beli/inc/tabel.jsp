@@ -21,8 +21,8 @@
             <tr>
               <td> ${temp.returBeliNo } </td>
               <td> ${temp.returBeliTanggal } </td>
-              <td> ${temp.returBeliTerimaId} </td>
-              <td> ${temp.returBeliPerusahaanId} </td>
+              <td> ${temp.terima.terimaNo} </td>
+              <td> ${temp.perusahaan.perusahaanNama} </td>
               <td> ${temp.returBeliTotalPPN } </td>
               <td> ${temp.returBeliTotal } </td>
               <td> ${temp.returBeliKeterangan } </td>

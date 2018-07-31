@@ -107,8 +107,8 @@
                                                <tbody id="returbeli-list" class="table-form">
                                                		<c:forEach var="detail" items="${detail}" varStatus="loop">
                                                     <tr id="returbeli_${loop.index+1}">
-                                               			<td data-used="1" data-save="1" data-name="returBeliDetailBarangId" data-kolom-id="returBeliDetailBarangId">${detail.returBeliDetailBarangId}</td>
-    													<td data-used="1" data-save="1" data-name="returBeliDetailSatuanId" data-kolom-id="returBeliDetailSatuanId">${detail.returBeliDetailSatuanId}</td>
+                                               			<td data-used="1" data-save="1" data-name="returBeliDetailBarangId" data-kolom-id="returBeliDetailBarangId">${detail.barang.barangNama}</td>
+    													<td data-used="1" data-save="1" data-name="returBeliDetailSatuanId" data-kolom-id="returBeliDetailSatuanId">${detail.satuan.satuanNama}</td>
     													<td data-used="1" data-save="1" data-name="returBeliDetailKadaluarsa" data-kolom-id="returBeliDetailKadaluarsa">${detail.returBeliDetailKadaluarsa}</td>
     													<td data-used="1" data-save="1" data-name="returBeliDetailJumlah" data-kolom-id="returBeliDetailJumlah">${detail.returBeliDetailJumlah}</td>
     													<td data-used="1" data-save="1" data-name="returBeliDetailHarga" data-kolom-id="ReturBerliDetailHarga">${detail.returBeliDetailHarga}</td>
@@ -145,7 +145,13 @@
                      <form>
                          <div class="form-group">
                              <label>Nama Barang</label>
-                             <input type="text" name="returBeliDetailBarangId" id="returBeliDetailBarangId">
+                             <select name="returBeliDetailBarangId" id="returBeliDetailBarangId">
+                                 <c:forEach var="tempBarang" items="${barang}">
+                                         <option value="${tempBarang.barangId }">
+                                         ${tempBarang.barangNama }
+                                         </option>
+                                     </c:forEach>
+                             </select>
                              
                          </div>
                          <div class="form-group">

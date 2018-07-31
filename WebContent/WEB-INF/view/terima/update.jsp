@@ -135,8 +135,8 @@
 												<tbody id="terima-list" class="table-form">
 													<c:forEach var="detail" items="${terimaModel.detail}" varStatus="loop">
                                                     <tr id="terima_${loop.index+1}">
-                                                        <td data-used="1" data-save="1" data-name="terimaDetailBarangId" data-kolom-id="terimaDetailBarangId">${detail.terimaDetailBarangId}</td>
-                                                        <td data-used="1" data-save="1" data-name="terimaDetailSatuan" data-kolom-id="terimaDetailSatuan">${detail.terimaDetailSatuan}</td>
+                                                        <td data-used="1" data-save="1" data-name="terimaDetailBarangId" data-kolom-id="terimaDetailBarangId">${detail.barang.barangNama}</td>
+                                                        <td data-used="1" data-save="1" data-name="terimaDetailSatuan" data-kolom-id="terimaDetailSatuan">${detail.satuan.satuanNama}</td>
                                                         <td data-used="1" data-save="1" data-name="terimaDetailKadaluarsa" data-kolom-id="terimaDetailKadaluarsa">${detail.terimaDetailKadaluarsa}</td>
                                                         <td data-used="1" data-save="1" data-name="terimaDetailJumlah" data-kolom-id="terimaDetailJumlah">${detail.terimaDetailJumlah}</td>
                                                         <td data-used="1" data-save="1" data-name="terimaDetailHarga" data-kolom-id="terimaDetailHarga">${detail.terimaDetailHarga}</td>

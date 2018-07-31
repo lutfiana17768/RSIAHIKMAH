@@ -121,8 +121,8 @@
                                                <tbody id="returJual-list">
                                                 <c:forEach var="detail" items="${returJualModel.detail}" varStatus="loop">
                                                     <tr id="terima_${loop.index+1}">
-                                                        <td data-used="1" data-save="1" data-name="returJualDetailBarangId" data-kolom-id="returJualDetailBarangId">${detail.returJualDetailBarangId}</td>
-                                                        <td data-used="1" data-save="1" data-name="returJualDetailSatuanId" data-kolom-id="returJualDetailSatuanId">${detail.returJualDetailSatuanId}</td>
+                                                        <td data-used="1" data-save="1" data-name="returJualDetailBarangId" data-kolom-id="returJualDetailBarangId">${detail.barang.barangNama}</td>
+                                                        <td data-used="1" data-save="1" data-name="returJualDetailSatuanId" data-kolom-id="returJualDetailSatuanId">${detail.satuan.satuanNama}</td>
                                                         <td data-used="1" data-save="1" data-name="returJualDetailKadaluarsa" data-kolom-id="returJualDetailKadaluarsa">${detail.returJualDetailKadaluarsa}</td>
                                                         <td data-used="1" data-save="1" data-name="returJualDetailJumlah" data-kolom-id="returJualDetailJumlah">${detail.returJualDetailJumlah}</td>
                                                         <td data-used="1" data-save="1" data-name="returJualDetailHarga" data-kolom-id="returJualDetailHarga">${detail.returJualDetailHarga}</td>
@@ -157,12 +157,17 @@
                      <form>
                          <div class="form-group">
                              <label>Nama Barang</label>
-                             <input type="text" name="returJualDetailBarangId" id="returJualDetailBarangId">
+                             <select name="returJualDetailBarangId" id="returJualDetailBarangId">
+                                 <c:forEach var="tempBarang" items="${barang}">
+                                         <option value="${tempBarang.barangId }">
+                                         ${tempBarang.barangNama }
+                                         </option>
+                                     </c:forEach>
+                             </select>
                              
                          </div>
                          <div class="form-group">
                              <label>Satuan</label>
-                             <%--<input type="text" name="returJualDetailSatuanId" id="returJualDetailSatuanId">--%>
                              <select name="returJualDetailSatuanId" id="returJualDetailSatuanId">
                                  <c:forEach var="tempSatuan" items="${satuan}">
                                          <option value="${tempSatuan.satuanID }">

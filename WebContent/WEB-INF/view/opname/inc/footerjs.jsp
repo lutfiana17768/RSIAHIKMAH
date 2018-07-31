@@ -65,14 +65,19 @@ $('#simpan-detail').click(function(){
     stok_akhir = $('#opnameDetailStok_akhir').val();
     harga = $('#opnameDetailHarga').val();
     keterangan = $('#opnameDetailKeterangan').val();
+
+     var barangText, satuanText;
+
+    barangText = $('#opnameDetailBarangId option:selected').text();
+    satuanText = $('#opnameDetailSatuanId option:selected').text();
     
     // data-kolom-id sesuaikan dengan id input di modal
     //tr.append('<td>'+nama_barang+'</td>');
     // tr.append('<td data-used="1" data-save="1" data-name="orderDetailSatuanId" data-kolom-id="satuan">'+satuan+'</td>');
     //conto
     tr.append('<td data-used="1" data-save="1" data-name="opnameDetailTerimaNo" data-kolom-id="opnameDetailTerimaNo">'+no_terima+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="opnameDetailBarangId" data-kolom-id="opnameDetailBarangId">'+nama_barang+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="opnameDetailSatuanId" data-kolom-id="opnameDetailSatuanId">'+satuan+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="opnameDetailBarangId" data-kolom-id="opnameDetailBarangId">'+barangText+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="opnameDetailSatuanId" data-kolom-id="opnameDetailSatuanId">'+satuanText+'</td>');
     tr.append('<td data-used="1" data-save="1" data-name="opnameDetailKadaluarsa" data-kolom-id="opnameDetailKadaluarsa">'+kadaluarsa+'</td>');
     tr.append('<td data-used="1" data-save="1" data-name="opnameDetailStokAwal" data-kolom-id="opnameDetailStokAwal">'+stok_awal+'</td>');
     tr.append('<td data-used="1" data-save="1" data-name="opnameDetailKoreksi" data-kolom-id="opnameDetailStokKoreksi">'+koreksi+'</td>');

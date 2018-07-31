@@ -23,8 +23,8 @@
             <tr>
               <td> ${temp.jualNo } </td>
               <td> ${temp.jual_tanggal } </td>
-              <td> ${temp.jualPendaftaranId} </td>
-              <td> ${temp.jualPasienId} </td>
+              <td> ${temp.pendaftaran.pendaftaranNo} </td>
+              <td> ${temp.pasien.pasienNama} </td>
               <td> ${temp.jualTotal } </td>
               <td> ${temp.jualDiskon } </td>
               <td> ${temp.jualTotalBulat } </td>

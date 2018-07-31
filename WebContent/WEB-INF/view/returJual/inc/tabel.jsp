@@ -7,7 +7,7 @@
         <tr>
             <th>No</th>
             <th>Tanggal</th>
-            <th>Returjual</th>
+            <th>No Jual</th>
             <th>Pasien Norm</th>
             <th>Nama Pasien</th>
             <th>Alamat Pasien</th>
@@ -29,11 +29,11 @@
             <tr>
               <td> ${tempreturjual.returJualNo } </td>
               <td> ${tempreturjual.returJualTanggal } </td>
-              <td> ${tempreturjual.returJualJual } </td>
+              <td> ${tempreturjual.jual.jualNo } </td>
               <td> ${tempreturjual.returJualPasienNorm } </td>
-              <td> ${tempreturjual.returJualPasienNama } </td>
-              <td> ${tempreturjual.returJualPasienAlamat } </td>
-              <td> ${tempreturjual.returJualJenisPasienNama } </td>
+              <td> ${tempreturjual.pasien.pasienNama } </td>
+              <td> ${tempreturjual.pasien.pasienAlamat } </td>
+              <td> ${tempreturjual.pasien.pasienJenis } </td>
               <td> ${tempreturjual.returJualDiskon } </td>
               <td> ${tempreturjual.returJualCashback } </td>
               <td> ${tempreturjual.returJualTotal } </td>

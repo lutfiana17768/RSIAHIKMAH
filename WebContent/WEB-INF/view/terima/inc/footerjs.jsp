@@ -54,10 +54,15 @@ $('#simpan-detail').click(function(){
     kadaluarsa = $('#terimaDetailKadaluarsa').val() || 0;
     harga = $('#terimaDetailHarga').val() ||0;
     sub_total = $('#terimaDetailSubTotal').val() || 0;
+
+     var barangText, satuanText;
+
+    barangText = $('#terimaDetailBarangId option:selected').text();
+    satuanText = $('#terimaDetailSatuanId option:selected').text();
     // data-kolom-id sesuaikan dengan id input di modal
     
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailBarangId" data-kolom-id="terimaDetailBarangId">'+nama_barang+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailSatuan" data-kolom-id="terimaDetailSatuanId">'+satuan+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailBarangId" data-kolom-id="terimaDetailBarangId">'+barangText+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailSatuan" data-kolom-id="terimaDetailSatuanId">'+satuanText+'</td>');
     tr.append('<td data-used="1" data-save="1" data-name="terimaDetailKadaluarsa" data-kolom-id="terimaDetailKadaluarsa">'+kadaluarsa+'</td>');
     tr.append('<td data-used="1" data-save="1" data-name="terimaDetailJumlah" data-kolom-id="terimaDetailJumlah">'+jumlah+'</td>');
     tr.append('<td data-used="1" data-save="1" data-name="terimaDetailHarga" data-kolom-id="terimaDetailHarga">'+harga+'</td>');

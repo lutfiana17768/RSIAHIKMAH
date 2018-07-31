@@ -127,21 +127,24 @@
                      <form>
                          <div class="form-group">
                              <label>Nama Barang</label>
-                             <input type="text" name="returBeliDetailBarangId" id="returBeliDetailBarangId">
+                             <select name="returBeliDetailBarangId" id="returBeliDetailBarangId">
+                                 <c:forEach var="tempBarang" items="${barang}">
+                                         <option value="${tempBarang.barangId }">
+                                         ${tempBarang.barangNama }
+                                         </option>
+                                     </c:forEach>
+                             </select>
                              
                          </div>
                          <div class="form-group">
                              <label>Satuan</label>
-                             <input type="text" name="returBeliDetailSatuanId" id="returBeliDetailSatuanId">
-                             <%--
                              <select name="returBeliDetailSatuanId" id="returBeliDetailSatuanId">
                                  <c:forEach var="tempSatuan" items="${satuan}">
-                                         <option value="${tempSatuan.satuan_id }">
+                                         <option value="${tempSatuan.satuanID }">
                                          ${tempSatuan.satuanNama }
                                          </option>
                                      </c:forEach>
                              </select>
-                             --%>
                          </div>
                          <div class="form-group">
                              <label>Kadaluarsa</label>

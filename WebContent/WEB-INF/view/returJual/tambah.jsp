@@ -129,7 +129,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                     <h4 class="modal-title">Tambah Barang Retur Beli</h4>
+                     <h4 class="modal-title">Tambah Barang Retur Jual</h4>
                      <button type="button" class="close" data-dismiss="modal"
                          aria-label="Close">
                          <span aria-hidden="true">�</span> <span class="sr-only">Close</span>
@@ -139,21 +139,24 @@
                      <form>
                          <div class="form-group">
                              <label>Nama Barang</label>
-                             <input type="text" name="returJualDetailBarangId" id="returJualDetailBarangId">
+                             <select name="returJualDetailBarangId" id="returJualDetailBarangId">
+                                 <c:forEach var="tempBarang" items="${barang}">
+                                         <option value="${tempBarang.barangId }">
+                                         ${tempBarang.barangNama }
+                                         </option>
+                                     </c:forEach>
+                             </select>
                              
                          </div>
                          <div class="form-group">
                              <label>Satuan</label>
-                             <input type="text" name="returJualDetailSatuanId" id="returJualDetailSatuanId">
-                             <%--
                              <select name="returJualDetailSatuanId" id="returJualDetailSatuanId">
                                  <c:forEach var="tempSatuan" items="${satuan}">
-                                         <option value="${tempSatuan.satuan_id }">
+                                         <option value="${tempSatuan.satuanID }">
                                          ${tempSatuan.satuanNama }
                                          </option>
                                      </c:forEach>
                              </select>
-                             --%>
                          </div>
                          <div class="form-group">
                              <label>Kadaluarsa</label>

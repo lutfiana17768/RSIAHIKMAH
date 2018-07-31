@@ -95,7 +95,7 @@
                                             <span class="fa fa-plus"></span>&nbsp;Tambah
                                         </button>
                                        <div class="table-responsive" style="overflow-y: auto;">
-                                           <table class="table table-striped table-bjualed table-hover table-form">
+                                           <table class="table table-striped table-bordered table-hover table-form">
                                                <thead>
                                                    <tr>
                                                        <th>Nama Barang</th>
@@ -133,21 +133,24 @@
                      <form>
                          <div class="form-group">
                              <label>Nama Barang</label>
-                             <input type="text" name="jualDetailBarangId" id="jualDetailBarangId">
+                             <select name="jualDetailBarangId" id="jualDetailBarangId">
+                                 <c:forEach var="tempBarang" items="${barang}">
+                                         <option value="${tempBarang.barangId }">
+                                         ${tempBarang.barangNama }
+                                         </option>
+                                     </c:forEach>
+                             </select>
                              
                          </div>
                          <div class="form-group">
                              <label>Satuan</label>
-                             <input type="text" name="jualDetailSatuanId" id="jualDetailSatuanId">
-                             <%--
                              <select name="jualDetailSatuanId" id="jualDetailSatuanId">
                                  <c:forEach var="tempSatuan" items="${satuan}">
-                                         <option value="${tempSatuan.satuan_id }">
+                                         <option value="${tempSatuan.satuanID }">
                                          ${tempSatuan.satuanNama }
                                          </option>
                                      </c:forEach>
                              </select>
-                             ]--%>
                          </div>
                          <div class="form-group">
                              <label>Jumlah</label>

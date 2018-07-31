@@ -178,19 +178,24 @@
                                 <form>
                                     <div class="form-group">
                                         <label>Nama Barang</label>
-                                        <input type="text" name="orderDetailBarangId" id="orderDetailBarangId">
+                                        <select name="orderDetailBarangId" id="orderDetailBarangId">
+                                             <c:forEach var="tempBarang" items="${barang}">
+                                                     <option value="${tempBarang.barangId }">
+                                                     ${tempBarang.barangNama }
+                                                     </option>
+                                                 </c:forEach>
+                                         </select>
 
                                     </div>
                                     <div class="form-group">
                                         <label>Satuan</label>
-                                        <input type="text" name="orderDetailSatuanId" id="orderDetailSatuanId">
-                                        <%--<select name="orderDetailSatuanId" id="orderDetailSatuanId">
-                                 <c:forEach var="tempSatuan" items="${satuan}">
-                                         <option value="${tempSatuan.satuan_id }">
-                                         ${tempSatuan.satuanNama }
-                                         </option>
-                                     </c:forEach>
-                             </select>--%>
+                                        <select name="orderDetailSatuanId" id="orderDetailSatuanId">
+                                             <c:forEach var="tempSatuan" items="${satuan}">
+                                                     <option value="${tempSatuan.satuanID }">
+                                                     ${tempSatuan.satuanNama }
+                                                     </option>
+                                                 </c:forEach>
+                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Jumlah</label>

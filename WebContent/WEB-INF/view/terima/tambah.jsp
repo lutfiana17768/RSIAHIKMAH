@@ -163,8 +163,6 @@
                          </div>
                          <div class="form-group">
                              <label>Satuan</label>
-                             <%--<input type="text" name="terimaDetailSatuan" id="terimaDetailSatuan">--%>
-                             
                              <select name="terimaDetailSatuan" id="terimaDetailSatuan">
                                  <c:forEach var="tempSatuan" items="${satuan}">
                                          <option value="${tempSatuan.satuanID }">

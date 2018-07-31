@@ -54,13 +54,18 @@ $('#simpan-detail').click(function(){
     jumlah = $('#returBeliDetailJumlah').val() || 0;
     harga = $('#returBeliDetailHarga').val() ||0;
     sub_total = $('#returBeliDetailSubTotal').val() || 0;
+
+     var barangText, satuanText;
+
+    barangText = $('#returBeliDetailBarangId option:selected').text();
+    satuanText = $('#returBeliDetailSatuanId option:selected').text();
     
     // data-kolom-id sesuaikan dengan id input di modal
     //tr.append('<td>'+nama_barang+'</td>');
     // tr.append('<td data-used="1" data-save="1" data-name="orderDetailSatuanId" data-kolom-id="satuan">'+satuan+'</td>');
     //conto
-    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailBarangId" data-kolom-id="returBeliDetailBarangId">'+nama_barang+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailSatuanId" data-kolom-id="returBeliDetailSatuanId">'+satuan+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailBarangId" data-kolom-id="returBeliDetailBarangId">'+barangText+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailSatuanId" data-kolom-id="returBeliDetailSatuanId">'+satuanText+'</td>');
     tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailKadaluarsa" data-kolom-id="returBeliDetailKadaluarsa">'+kadaluarsa+'</td>');
     tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailJumlah" data-kolom-id="returBeliDetailJumlah">'+jumlah+'</td>');
     tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailHarga" data-kolom-id="ReturBerliDetailHarga">'+harga+'</td>');
