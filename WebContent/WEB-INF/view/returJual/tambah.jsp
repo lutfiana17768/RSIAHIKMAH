@@ -38,6 +38,7 @@
                                          </c:forEach>
                                  </select>
                              </div>
+
 <%--                            
                              <div class="form-group">
                                 <label>Pasien Norm</label>
@@ -56,7 +57,7 @@
                              </div>
                          </div>
 --%>                         
-                        <div class="form-group">
+                            <div class="form-group">
                                 <label>Pasien</label>
                                 <select name="returJualPasienId" id="returJualPasienId" class="form-control">
                                      <c:forEach var="tempPasien" items="${pasien}">
@@ -66,6 +67,7 @@
                                          </c:forEach>
                                  </select>
                              </div>
+                        </div>
                         <div class="col-6"> 
                             <div class="form-group">
                                 <label>Diskon</label>
@@ -104,6 +106,7 @@
                                 <form:input path="returJualKeterangan" placeholder="keterangan" class="form-control"/>
                              </div>
                         </div> 
+                    </div>
                          <div class="col col-12" style="padding:0">
                             <div class="container">
                                 <div class="card card-success">

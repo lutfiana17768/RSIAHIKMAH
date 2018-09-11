@@ -75,7 +75,8 @@
                                 <form:input path="jualDokterId" placeholder="Masukan Nomer Pendaftaran" class="form-control"/>
                              </div>
                         </div>
---%>
+                        </div>
+--%>                    </div>
                         <div class="col-6">
                          
                             <div class="form-group">
@@ -98,7 +99,7 @@
                                 <form:input path="jualBayarJumlah" type="text" placeholder="Masukan Pasien Id" class="form-control"/>
                              </div>
                          </div>
-                     </div>
+                     
                  </div>
                          <%--
                          <div class="form-group">

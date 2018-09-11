@@ -112,6 +112,7 @@
                                  </div>
 
                             </div>
+                           </div>
 
                                     <div class="col col-12" style="padding:0">
                                         <div class="container">

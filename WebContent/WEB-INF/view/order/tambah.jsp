@@ -116,6 +116,7 @@
                                     <form:input path="orderRevised" placeholder="Order Revised" class="form-control"/>
                                  </div>
                              </div>
+                         </div>
 
                             <div class="col col-12" style="padding:0">
                             <div class="container">

@@ -55,6 +55,7 @@
                                      </c:forEach>
                              </select>
                          </div>
+                        </div>
 <%--                         
                          <div class="form-group">
                             <label>Alamat Perusahaan</label>
@@ -88,7 +89,7 @@
                             <form:input path="returBeliTotalPPN" type="text" placeholder="Masukan Total PPN" class="form-control"/>
                          </div>
                      </div>
-                     
+                     </div>
                      <div class="col col-12" style="padding:0">
                             <div class="container">
                                 <div class="card card-success">

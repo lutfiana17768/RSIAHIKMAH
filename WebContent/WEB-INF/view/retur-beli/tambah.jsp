@@ -59,7 +59,7 @@
                             <form:input path="returBeliPerusahaanNoTelp" type="text" placeholder="Masukan Telp Perusahaan" class="form-control"/>
                          </div>
                      </div>
---%>                 
+--%>                 </div>
                      <div class="col-6">
                          <div class="form-group">
                             <label>Total</label>
@@ -81,6 +81,7 @@
                             <form:input path="returBeliTotalPPN" type="text" placeholder="Masukan Total PPN" class="form-control"/>
                          </div>
                      </div>
+                 </div>
                      
                      <div class="col col-12" style="padding:0">
                             <div class="container">

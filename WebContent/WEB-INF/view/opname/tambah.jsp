@@ -35,7 +35,7 @@
 
                 </div>
 
-                <div class="col-6">
+              <div class="col-6">
                  
                  <div class="form-group">
                     <label>Depo</label>
@@ -47,7 +47,7 @@
                     <form:input path="opnameGroup" type="text" placeholder="Masukan Nama Group" class="form-control" />
                  </div>
                  
-                 </div>
+              </div>
             </div>
             <div class="col col-12" style="padding:0">
               <div class="container">
