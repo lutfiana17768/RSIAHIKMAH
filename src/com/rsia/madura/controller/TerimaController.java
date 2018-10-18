@@ -25,6 +25,9 @@ import com.rsia.madura.entity.MOrder;
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MSatuan;
 import com.rsia.madura.entity.MPerusahaan;
+import com.rsia.madura.entity.MBarangHJ;
+import com.rsia.madura.entity.MBarangHPP;
+import com.rsia.madura.entity.MStokObat;
 
 import com.rsia.madura.service.OrderService;
 import com.rsia.madura.service.JenisBarangService;
@@ -32,6 +35,9 @@ import com.rsia.madura.service.TerimaService;
 import com.rsia.madura.service.SatuanService;
 import com.rsia.madura.service.BarangService;
 import com.rsia.madura.service.PerusahaanService;
+import com.rsia.madura.service.BarangHJService;
+import com.rsia.madura.service.BarangHPPService;
+import com.rsia.madura.service.StokObatService;
 
 @Controller
 @RequestMapping("/terima")
@@ -54,6 +60,15 @@ public class TerimaController {
 
 	@Autowired
 	private PerusahaanService perusahaanService;
+
+	@Autowired
+	private BarangHJService barangHJService;
+
+	@Autowired
+	private BarangHPPService barangHPPService;
+
+	@Autowired
+	private StokObatService stokObatService;
 
 	private String uri = "redirect: /terima";
 
@@ -94,6 +109,8 @@ public class TerimaController {
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
 	public String Store(@ModelAttribute("terimaModel") MTerima terimaModel) {
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		
+		
 
 		terimaModel.setPerusahaan(perusahaanService.getPerusahaan(terimaModel.getTerimaPerusahaanId()));
 		terimaModel.setOrder(orderService.getOrder(terimaModel.getTerimaOrderId()));
@@ -102,9 +119,8 @@ public class TerimaController {
 
 		terimaModel.setTerimaCreatedBy("Admin");
 //		terimaModel.setTerimaPPN('Y');
-//		terimaModel.setTerimaBarangJenisId(0);
+		terimaModel.setTerimaBarangJenisId(0);
 		terimaModel.setTerimaCreatedDate(currentTime);
-
 		terimaService.store(terimaModel);
 
 		return this.uri;

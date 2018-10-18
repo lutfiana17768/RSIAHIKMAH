@@ -11,6 +11,9 @@ import com.rsia.madura.dao.TerimaDAO;
 import com.rsia.madura.entity.MTerima;
 import com.rsia.madura.entity.MBarang;
 import com.rsia.madura.entity.MSatuan;
+import com.rsia.madura.entity.MBarangHJ;
+import com.rsia.madura.entity.MBarangHPP;
+import com.rsia.madura.entity.MStokObat;
 
 @Service
 public class TerimaServiceAction implements TerimaService {
@@ -23,8 +26,13 @@ public class TerimaServiceAction implements TerimaService {
 	@Autowired
 	private SatuanService satuanService;
 
+	@Autowired
+	private BarangHPPService barangHPPService;
+
 	MBarang barang;
 	MSatuan satuan;
+	MBarangHPP barangHPP = new MBarangHPP();
+	MBarangHJ barangHJ;
 	
 	@Override
 	@Transactional
@@ -64,12 +72,15 @@ public class TerimaServiceAction implements TerimaService {
 			terimaModel.getDetail().forEach((detail) ->{
 				barang = barangService.getBarang(detail.getTerimaDetailBarangId());
 				satuan = satuanService.getSatuan(detail.getTerimaDetailSatuan());
+				
 
 				detail.setBarang(barang);
 				detail.setSatuan(satuan);
 				detail.setTerima(terimaModel);
 				detail.setTerimaDetailCreatedBy("Admin");
 				detail.setTerimaDetailCreatedDate(currentTime);
+
+				
 			});
 		}
 

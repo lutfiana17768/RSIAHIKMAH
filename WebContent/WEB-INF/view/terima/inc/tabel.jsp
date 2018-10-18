@@ -21,7 +21,7 @@
             <tr>
               <td> ${temp.terimaNo } </td>
               <td> ${temp.terimaTanggal } </td>
-              <td> ${temp.order.orderNo} </td>
+              <td> ${temp.order.orderNomer} </td>
               <td> ${temp.perusahaan.perusahaanNama} </td>
               <td> ${temp.terimaTotalPPN } </td>
               <td> ${temp.terimaTotal } </td>

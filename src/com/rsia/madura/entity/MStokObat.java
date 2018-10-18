@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name="t_stokobat")
@@ -18,20 +19,20 @@ public class MStokObat {
 	@Column(name="stokobat_id")
 	private int stokobatId;
 	
-	@Column(name="stokobat_depo_id")
-	private int stokObatDepoId;
+	// @Column(name="stokobat_depo_id")
+	// private int stokObatDepoId;
 	
 	@Column(name="stokobat_depo_nama")
 	private String stokObatDepoNama;
 	
-	@Column(name="stokobat_barang_id")
-	private int stokObatBarangId;
+	// @Column(name="stokobat_barang_id")
+	// private int stokObatBarangId;
 	
 	@Column(name="stokobat_barang_nama")
 	private String stokObatBarangNama;
 	
-	@Column(name="stokobat_satuankonversi_id")
-	private int stokObatKonversiId;
+	// @Column(name="stokobat_satuankonversi_id")
+	// private int stokObatKonversiId;
 	
 	@Column(name="stokobat_satuan_id")
 	private int stokObatSatuanId;
@@ -45,29 +46,29 @@ public class MStokObat {
 	@Column(name="stokobat_jumlah")
 	private int stokObatJumlah;
 	
-	@Column(name="stokobat_terima_id")
-	private int stokObatTerimaId;
+	// @Column(name="stokobat_terima_id")
+	// private int stokObatTerimaId;
 	
 	@Column(name="stokobat_terima_tanggal")
 	private Timestamp stokObatTerimaTanggal;
 	
-	@Column(name="stokobat_terimadet_id")
-	private int stokObatTerimaDetId;
+	// @Column(name="stokobat_terimadet_id")
+	// private int stokObatTerimaDetId;
 	
-	@Column(name="stokobat_opname_id")
-	private int stokObatOpnameId;
+	// @Column(name="stokobat_opname_id")
+	// private int stokObatOpnameId;
 	
 	@Column(name="stokobat_opname_tanggal")
 	private Timestamp stokObatOpnameTanggal;
 	
-	@Column(name="stokobat_opnamedet_id")
-	private int stokObatOpnameDetId;
+	// @Column(name="stokobat_opnamedet_id")
+	// private int stokObatOpnameDetId;
 	
-	@Column(name="stokobat_hpp")
-	private int stokObatHpp;
+	// @Column(name="stokobat_hpp")
+	// private int stokObatHpp;
 	
-	@Column(name="stokobat_aktif")
-	private char stokObatAktif;
+	// @Column(name="stokobat_aktif")
+	// private char stokObatAktif;
 	
 	@Column(name="stokobat_keterangan")
 	private String stokObatKeterangan;
@@ -84,8 +85,8 @@ public class MStokObat {
 	@Column(name="stokobat_updated_date")
 	private Timestamp stokObatUpdatedDate;
 	
-	@Column(name="stokobat_revised")
-	private int stokObatRevised;
+	// @Column(name="stokobat_revised")
+	// private int stokObatRevised;
 	
 	@Column(name="stokobat_terima_no")
 	private String stokObatTerimaNo;
@@ -96,6 +97,9 @@ public class MStokObat {
 	@Column(name="stokobat_deleted_date")
 	private Timestamp stokObatDeletedDate;
 
+	@ManyToOne
+	private MBarang barang;
+
 	public int getStokobatId() {
 		return stokobatId;
 	}
@@ -104,45 +108,45 @@ public class MStokObat {
 		this.stokobatId = stokobatId;
 	}
 
-	public int getStokObatDepoId() {
-		return stokObatDepoId;
-	}
+	// public int getStokObatDepoId() {
+	// 	return stokObatDepoId;
+	// }
 
-	public void setStokObatDepoId(int stokObatDepoId) {
-		this.stokObatDepoId = stokObatDepoId;
-	}
+	// public void setStokObatDepoId(int stokObatDepoId) {
+	// 	this.stokObatDepoId = stokObatDepoId;
+	// }
 
-	public String getStokObatDepoNama() {
-		return stokObatDepoNama;
-	}
+	// public String getStokObatDepoNama() {
+	// 	return stokObatDepoNama;
+	// }
 
-	public void setStokObatDepoNama(String stokObatDepoNama) {
-		this.stokObatDepoNama = stokObatDepoNama;
-	}
+	// public void setStokObatDepoNama(String stokObatDepoNama) {
+	// 	this.stokObatDepoNama = stokObatDepoNama;
+	// }
 
-	public int getStokObatBarangId() {
-		return stokObatBarangId;
-	}
+	// public int getStokObatBarangId() {
+	// 	return stokObatBarangId;
+	// }
 
-	public void setStokObatBarangId(int stokObatBarangId) {
-		this.stokObatBarangId = stokObatBarangId;
-	}
+	// public void setStokObatBarangId(int stokObatBarangId) {
+	// 	this.stokObatBarangId = stokObatBarangId;
+	// }
 
-	public String getStokObatBarangNama() {
-		return stokObatBarangNama;
-	}
+	// public String getStokObatBarangNama() {
+	// 	return stokObatBarangNama;
+	// }
 
-	public void setStokObatBarangNama(String stokObatBarangNama) {
-		this.stokObatBarangNama = stokObatBarangNama;
-	}
+	// public void setStokObatBarangNama(String stokObatBarangNama) {
+	// 	this.stokObatBarangNama = stokObatBarangNama;
+	// }
 
-	public int getStokObatKonversiId() {
-		return stokObatKonversiId;
-	}
+	// public int getStokObatKonversiId() {
+	// 	return stokObatKonversiId;
+	// }
 
-	public void setStokObatKonversiId(int stokObatKonversiId) {
-		this.stokObatKonversiId = stokObatKonversiId;
-	}
+	// public void setStokObatKonversiId(int stokObatKonversiId) {
+	// 	this.stokObatKonversiId = stokObatKonversiId;
+	// }
 
 	public int getStokObatSatuanId() {
 		return stokObatSatuanId;
@@ -152,13 +156,13 @@ public class MStokObat {
 		this.stokObatSatuanId = stokObatSatuanId;
 	}
 
-	public String getStokObatStuanNama() {
-		return stokObatStuanNama;
-	}
+	// public String getStokObatStuanNama() {
+	// 	return stokObatStuanNama;
+	// }
 
-	public void setStokObatStuanNama(String stokObatStuanNama) {
-		this.stokObatStuanNama = stokObatStuanNama;
-	}
+	// public void setStokObatStuanNama(String stokObatStuanNama) {
+	// 	this.stokObatStuanNama = stokObatStuanNama;
+	// }
 
 	public Date getStokObatKadaluarsa() {
 		return stokObatKadaluarsa;
@@ -176,13 +180,13 @@ public class MStokObat {
 		this.stokObatJumlah = stokObatJumlah;
 	}
 
-	public int getStokObatTerimaId() {
-		return stokObatTerimaId;
-	}
+	// public int getStokObatTerimaId() {
+	// 	return stokObatTerimaId;
+	// }
 
-	public void setStokObatTerimaId(int stokObatTerimaId) {
-		this.stokObatTerimaId = stokObatTerimaId;
-	}
+	// public void setStokObatTerimaId(int stokObatTerimaId) {
+	// 	this.stokObatTerimaId = stokObatTerimaId;
+	// }
 
 	public Timestamp getStokObatTerimaTanggal() {
 		return stokObatTerimaTanggal;
@@ -192,21 +196,21 @@ public class MStokObat {
 		this.stokObatTerimaTanggal = stokObatTerimaTanggal;
 	}
 
-	public int getStokObatTerimaDetId() {
-		return stokObatTerimaDetId;
-	}
+	// public int getStokObatTerimaDetId() {
+	// 	return stokObatTerimaDetId;
+	// }
 
-	public void setStokObatTerimaDetId(int stokObatTerimaDetId) {
-		this.stokObatTerimaDetId = stokObatTerimaDetId;
-	}
+	// public void setStokObatTerimaDetId(int stokObatTerimaDetId) {
+	// 	this.stokObatTerimaDetId = stokObatTerimaDetId;
+	// }
 
-	public int getStokObatOpnameId() {
-		return stokObatOpnameId;
-	}
+	// public int getStokObatOpnameId() {
+	// 	return stokObatOpnameId;
+	// }
 
-	public void setStokObatOpnameId(int stokObatOpnameId) {
-		this.stokObatOpnameId = stokObatOpnameId;
-	}
+	// public void setStokObatOpnameId(int stokObatOpnameId) {
+	// 	this.stokObatOpnameId = stokObatOpnameId;
+	// }
 
 	public Timestamp getStokObatOpnameTanggal() {
 		return stokObatOpnameTanggal;
@@ -216,29 +220,29 @@ public class MStokObat {
 		this.stokObatOpnameTanggal = stokObatOpnameTanggal;
 	}
 
-	public int getStokObatOpnameDetId() {
-		return stokObatOpnameDetId;
-	}
+	// public int getStokObatOpnameDetId() {
+	// 	return stokObatOpnameDetId;
+	// }
 
-	public void setStokObatOpnameDetId(int stokObatOpnameDetId) {
-		this.stokObatOpnameDetId = stokObatOpnameDetId;
-	}
+	// public void setStokObatOpnameDetId(int stokObatOpnameDetId) {
+	// 	this.stokObatOpnameDetId = stokObatOpnameDetId;
+	// }
 
-	public int getStokObatHpp() {
-		return stokObatHpp;
-	}
+	// public int getStokObatHpp() {
+	// 	return stokObatHpp;
+	// }
 
-	public void setStokObatHpp(int stokObatHpp) {
-		this.stokObatHpp = stokObatHpp;
-	}
+	// public void setStokObatHpp(int stokObatHpp) {
+	// 	this.stokObatHpp = stokObatHpp;
+	// }
 
-	public char getStokObatAktif() {
-		return stokObatAktif;
-	}
+	// public char getStokObatAktif() {
+	// 	return stokObatAktif;
+	// }
 
-	public void setStokObatAktif(char stokObatAktif) {
-		this.stokObatAktif = stokObatAktif;
-	}
+	// public void setStokObatAktif(char stokObatAktif) {
+	// 	this.stokObatAktif = stokObatAktif;
+	// }
 
 	public String getStokObatKeterangan() {
 		return stokObatKeterangan;
@@ -280,13 +284,13 @@ public class MStokObat {
 		this.stokObatUpdatedDate = stokObatUpdatedDate;
 	}
 
-	public int getStokObatRevised() {
-		return stokObatRevised;
-	}
+	// public int getStokObatRevised() {
+	// 	return stokObatRevised;
+	// }
 
-	public void setStokObatRevised(int stokObatRevised) {
-		this.stokObatRevised = stokObatRevised;
-	}
+	// public void setStokObatRevised(int stokObatRevised) {
+	// 	this.stokObatRevised = stokObatRevised;
+	// }
 
 	public String getStokObatTerimaNo() {
 		return stokObatTerimaNo;
@@ -312,21 +316,24 @@ public class MStokObat {
 		this.stokObatDeletedDate = stokObatDeletedDate;
 	}
 
+	public MBarang getBarang(){
+		return barang;
+	}
+
+	public void setBarang(MBarang barang){
+		this.barang = barang;
+	}
+
 	@Override
 	public String toString() {
-		return "MStokObat [stokobatId=" + stokobatId + ", stokObatDepoId=" + stokObatDepoId + ", stokObatDepoNama="
-				+ stokObatDepoNama + ", stokObatBarangId=" + stokObatBarangId + ", stokObatBarangNama="
-				+ stokObatBarangNama + ", stokObatKonversiId=" + stokObatKonversiId + ", stokObatSatuanId="
-				+ stokObatSatuanId + ", stokObatStuanNama=" + stokObatStuanNama + ", stokObatKadaluarsa="
-				+ stokObatKadaluarsa + ", stokObatJumlah=" + stokObatJumlah + ", stokObatTerimaId=" + stokObatTerimaId
-				+ ", stokObatTerimaTanggal=" + stokObatTerimaTanggal + ", stokObatTerimaDetId=" + stokObatTerimaDetId
-				+ ", stokObatOpnameId=" + stokObatOpnameId + ", stokObatOpnameTanggal=" + stokObatOpnameTanggal
-				+ ", stokObatOpnameDetId=" + stokObatOpnameDetId + ", stokObatHpp=" + stokObatHpp + ", stokObatAktif="
-				+ stokObatAktif + ", stokObatKeterangan=" + stokObatKeterangan + ", stokObatCreatedBy="
+		return "MStokObat [stokobatId=" + stokobatId 
+				+ ", stokObatSatuanId=" + stokObatSatuanId + ", stokObatKadaluarsa="
+				+ stokObatKadaluarsa + ", stokObatJumlah=" + stokObatJumlah 
+				+ ", stokObatKeterangan=" + stokObatKeterangan + ", stokObatCreatedBy="
 				+ stokObatCreatedBy + ", stokObatCreatedDate=" + stokObatCreatedDate + ", stokObatUpdatedBy="
-				+ stokObatUpdatedBy + ", stokObatUpdatedDate=" + stokObatUpdatedDate + ", stokObatRevised="
-				+ stokObatRevised + ", stokObatTerimaNo=" + stokObatTerimaNo + ", stokObatOpnameNo=" + stokObatOpnameNo
-				+ ", stokObatDeletedDate=" + stokObatDeletedDate + "]";
+				+ stokObatUpdatedBy + ", stokObatUpdatedDate=" + stokObatUpdatedDate 
+				+ ", stokObatTerimaNo=" + stokObatTerimaNo + ", stokObatOpnameNo=" + stokObatOpnameNo
+				+ ", stokObatDeletedDate=" + stokObatDeletedDate + "barang" + barang + "]";
 	}
 	
 	

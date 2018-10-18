@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,17 +21,17 @@ public class MBarangHJ {
 	@Column(name="baranghj_id")
 	private int barangHJId;
 	
-	@Column(name="baranghj_jenisharga_id")
-	private int barangHJJenisHargaId;
+	// @Column(name="baranghj_jenisharga_id")
+	// private int barangHJJenisHargaId;
 
-	@Column(name="baranghj_barang_id")
-	private int barangHJBarangId;
+	// @Column(name="baranghj_barang_id")
+	// private int barangHJBarangId;
 	
 	@Column(name="baranghj_satuan_id")
 	private int barangHJSatuanId;
 	
-	@Column(name="baranghj_satuankonversi_id")
-	private int barangHJSatuanKonversiId;
+	// @Column(name="baranghj_satuankonversi_id")
+	// private int barangHJSatuanKonversiId;
 
 	@Column(name="baranghj_tanggal")
 	private Date barangHJTanggal;
@@ -62,14 +63,17 @@ public class MBarangHJ {
 	@Column(name="baranghj_revised")
 	private int barangHJRevised;
 	
-	@Column(name="baranghj_terima_id")
-	private int barangHJTerimaId;
+	// @Column(name="baranghj_terima_id")
+	// private int barangHJTerimaId;
 	 
-	@Column(name="baranghj_opname_id")
-	private int barangHJOpnameId;
+	// @Column(name="baranghj_opname_id")
+	// private int barangHJOpnameId;
 	 
 	@Column(name="baranghj_deleted_date")
 	private Timestamp barangHJDeletedDate;
+
+	@ManyToOne
+	private MBarang barang;
 
 	public int getBarangHJId() {
 		return barangHJId;
@@ -79,21 +83,21 @@ public class MBarangHJ {
 		barangHJId = barangHJId;
 	}
 
-	public int getBarangHJJenisHargaId() {
-		return barangHJJenisHargaId;
-	}
+	// public int getBarangHJJenisHargaId() {
+	// 	return barangHJJenisHargaId;
+	// }
 
-	public void setBarangHJJenisHargaId(int barangHJJenisHargaId) {
-		barangHJJenisHargaId = barangHJJenisHargaId;
-	}
+	// public void setBarangHJJenisHargaId(int barangHJJenisHargaId) {
+	// 	barangHJJenisHargaId = barangHJJenisHargaId;
+	// }
 
-	public int getBarangHJBarangId() {
-		return barangHJBarangId;
-	}
+	// public int getBarangHJBarangId() {
+	// 	return barangHJBarangId;
+	// }
 
-	public void setBarangHJBarangId(int barangHJBarangId) {
-		barangHJBarangId = barangHJBarangId;
-	}
+	// public void setBarangHJBarangId(int barangHJBarangId) {
+	// 	barangHJBarangId = barangHJBarangId;
+	// }
 
 	public int getBarangHJSatuanId() {
 		return barangHJSatuanId;
@@ -103,13 +107,13 @@ public class MBarangHJ {
 		barangHJSatuanId = barangHJSatuanId;
 	}
 
-	public int getBarangHJSatuanKonversiId() {
-		return barangHJSatuanKonversiId;
-	}
+	// public int getBarangHJSatuanKonversiId() {
+	// 	return barangHJSatuanKonversiId;
+	// }
 
-	public void setBarangHJSatuanKonversiId(int barangHJSatuanKonversiId) {
-		barangHJSatuanKonversiId = barangHJSatuanKonversiId;
-	}
+	// public void setBarangHJSatuanKonversiId(int barangHJSatuanKonversiId) {
+	// 	barangHJSatuanKonversiId = barangHJSatuanKonversiId;
+	// }
 
 	public Date getBarangHJTanggal() {
 		return barangHJTanggal;
@@ -191,21 +195,21 @@ public class MBarangHJ {
 		barangHJRevised = barangHJRevised;
 	}
 
-	public int getBarangHJTerimaId() {
-		return barangHJTerimaId;
-	}
+	// public int getBarangHJTerimaId() {
+	// 	return barangHJTerimaId;
+	// }
 
-	public void setBarangHJTerimaId(int barangHJTerimaId) {
-		barangHJTerimaId = barangHJTerimaId;
-	}
+	// public void setBarangHJTerimaId(int barangHJTerimaId) {
+	// 	barangHJTerimaId = barangHJTerimaId;
+	// }
 
-	public int getBarangHJOpnameId() {
-		return barangHJOpnameId;
-	}
+	// public int getBarangHJOpnameId() {
+	// 	return barangHJOpnameId;
+	// }
 
-	public void setBarangHJOpnameId(int barangHJOpnameId) {
-		barangHJOpnameId = barangHJOpnameId;
-	}
+	// public void setBarangHJOpnameId(int barangHJOpnameId) {
+	// 	barangHJOpnameId = barangHJOpnameId;
+	// }
 
 	public Timestamp getBarangHJDeletedDate() {
 		return barangHJDeletedDate;
@@ -215,15 +219,21 @@ public class MBarangHJ {
 		barangHJDeletedDate = barangHJDeletedDate;
 	}
 
+	public MBarang getBarang(){
+		return barang;
+	}
+
+	public void setBarang(MBarang barang){
+		this.barang = barang;
+	}
+
 	@Override
 	public String toString() {
-		return "MBarangHJ [barangHJId=" + barangHJId + ", barangHJJenisHargaId=" + barangHJJenisHargaId + ", barangHJBarangId="
-				+ barangHJBarangId + ", barangHJSatuanId=" + barangHJSatuanId + ", barangHJSatuanKonversiId=" + barangHJSatuanKonversiId
+		return "MBarangHJ [barangHJId=" + barangHJId + ", barangHJSatuanId=" + barangHJSatuanId 
 				+ ", barangHJTanggal=" + barangHJTanggal + ", barangHJValidFrom=" + barangHJValidFrom + ", barangHJValidTo=" + barangHJValidTo
 				+ ", barangHJHJ=" + barangHJHJ + ", barangHJDefault=" + barangHJDefault + ", barangHJCreatedBy=" + barangHJCreatedBy
 				+ ", barangHJCreatedDate=" + barangHJCreatedDate + ", barangHJUpdatedBy=" + barangHJUpdatedBy
 				+ ", barangHJUpdatedDate=" + barangHJUpdatedDate + ", barangHJRevised=" + barangHJRevised
-				+ ", barangHJTerimaId=" + barangHJTerimaId + ", barangHJOpnameId=" + barangHJOpnameId
-				+ ", barangHJDeletedDate=" + barangHJDeletedDate + "]";
+				+ ", barangHJDeletedDate=" + barangHJDeletedDate + "barang" + barang + "]";
 	}
 }

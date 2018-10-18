@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -39,13 +40,13 @@ public class MBarangHPP {
 	private Date barangHPPValidTo;
 	
 	@Column(name="baranghpp_harga")
-	private float barangHPPHarga;
+	private double barangHPPHarga;
 	
 	@Column(name="baranghpp_diskon")
-	private float barangHPPDiskon;
+	private double barangHPPDiskon;
 	
 	@Column(name="baranghpp_hpp")
-	private float barangHPPHPP;
+	private double barangHPPHPP;
 	
 	@Column(name="baranghpp_terima_id")
 	private int barangHPPTerimaId;
@@ -70,6 +71,9 @@ public class MBarangHPP {
 	 
 	@Column(name="baranghpp_deleted_date")
 	private Timestamp barangHPPDeletedDate;
+
+	@ManyToOne
+	private MBarang barang;
 
 	public int getBarangHPPId() {
 		return barangHPPId;
@@ -127,27 +131,27 @@ public class MBarangHPP {
 		barangHPPValidTo = barangHPPValidTo;
 	}
 
-	public float getBarangHPPHarga() {
+	public double getBarangHPPHarga() {
 		return barangHPPHarga;
 	}
 
-	public void setBarangHPPHarga(float barangHPPHarga) {
+	public void setBarangHPPHarga(double barangHPPHarga) {
 		barangHPPHarga = barangHPPHarga;
 	}
 
-	public float getBarangHPPDiskon() {
+	public double getBarangHPPDiskon() {
 		return barangHPPDiskon;
 	}
 
-	public void setBarangHPPDiskon(float barangHPPDiskon) {
+	public void setBarangHPPDiskon(double barangHPPDiskon) {
 		barangHPPDiskon = barangHPPDiskon;
 	}
 
-	public float getBarangHPPHPP() {
+	public double getBarangHPPHPP() {
 		return barangHPPHPP;
 	}
 
-	public void setBarangHPPHPP(float barangHPPHPP) {
+	public void setBarangHPPHPP(double barangHPPHPP) {
 		barangHPPHPP = barangHPPHPP;
 	}
 
@@ -215,6 +219,14 @@ public class MBarangHPP {
 		barangHPPDeletedDate = barangHPPDeletedDate;
 	}
 
+	public MBarang getBarang(){
+		return barang;
+	}
+
+	public void setBarang(MBarang barang){
+		this.barang = barang;
+	}
+
 	@Override
 	public String toString() {
 		return "MBarangHPP [barangHPPId=" + barangHPPId + ", barangHPPBarangId=" + barangHPPBarangId
@@ -225,7 +237,7 @@ public class MBarangHPP {
 				+ barangHPPOpnameId + ", barangHPPCreatedBy=" + barangHPPCreatedBy + ", barangHPPCreatedDate="
 				+ barangHPPCreatedDate + ", barangHPPUpdatedBy=" + barangHPPUpdatedBy + ", barangHPPUpdatedDate="
 				+ barangHPPUpdatedDate + ", barangHPPRevised=" + barangHPPRevised + ", barangHPPDeletedDate="
-				+ barangHPPDeletedDate + "]";
+				+ barangHPPDeletedDate + ", barang = " + barang + "]";
 	}
 	
 }

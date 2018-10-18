@@ -8,7 +8,7 @@ $('#simpan-terima').click(function(){
             if($(this).attr('data-save') == '1')
             {
                 var name = $(this).attr('data-name');
-                var value = $(this).text();
+                var value = $(this).attr('value');
                 var new_input = $('<input type="hidden">');
                 new_input.attr('name','detail[' + line + '].' + name);
                 new_input.attr('value',value);
@@ -58,15 +58,15 @@ $('#simpan-detail').click(function(){
     var barangText, satuanText;
 
     barangText = $('#terimaDetailBarangId option:selected').text();
-    satuanText = $('#terimaDetailSatuanId option:selected').text();
+    satuanText = $('#terimaDetailSatuan option:selected').text();
     // data-kolom-id sesuaikan dengan id input di modal
     
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailBarangId" data-kolom-id="terimaDetailBarangId">'+barangText+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailSatuan" data-kolom-id="terimaDetailSatuanId">'+satuanText+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailKadaluarsa" data-kolom-id="terimaDetailKadaluarsa">'+kadaluarsa+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailJumlah" data-kolom-id="terimaDetailJumlah">'+jumlah+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailHarga" data-kolom-id="terimaDetailHarga">'+harga+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailSubTotal" data-kolom-id="terimaDetailSubTotal">'+sub_total+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailBarangId" data-kolom-id="terimaDetailBarangId" value="'+ nama_barang +'">'+barangText+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailSatuan" data-kolom-id="terimaDetailSatuan" value="'+ satuan +'">'+satuanText+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailKadaluarsa" data-kolom-id="terimaDetailKadaluarsa" value="'+ kadaluarsa +'">'+kadaluarsa+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailJumlah" data-kolom-id="terimaDetailJumlah" value="'+ jumlah +'">'+jumlah+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailHarga" data-kolom-id="terimaDetailHarga" value="'+ harga +'">'+harga+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-name="terimaDetailSubTotal" data-kolom-id="terimaDetailSubTotal" value="'+ sub_total +'">'+sub_total+'</td>');
     tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDetail('+counter+')">Edit</button></td>');
     if(mode == 'new')
     {
