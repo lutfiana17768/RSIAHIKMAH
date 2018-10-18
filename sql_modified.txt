@@ -33,3 +33,90 @@ start Rizki (2017 07 26)
 	drop column perusahaan_koderek_piutang, drop column perusahaan_no_kontrak, drop column perusahaan_tgl_kontrak, drop column perusahaan_tgl_mulai, 
 	drop column perusahaan_tgl_akhir, drop column perusahaan_siup;
 end Rizki
+
+
+start rizki (2018 10 04)
+create or replace function storehpp()
+	returns trigger language plpgsql as
+$BODY$
+begin
+	insert into ms_baranghpp(baranghpp_barang_id, baranghpp_terima_id, baranghpp_diskon, baranghpp_harga, baranghpp_hpp) 
+	values(NEW.barang_barang_id, NEW.terimadet_id, NEW.terimadet_diskon, NEW.terimadet_harga, 
+	NEW.terimadet_harga - ((NEW.terimadet_diskon / 100) * NEW.terimadet_harga));
+
+	return NEW;
+end;
+$BODY$;
+
+create or replace function storehj()
+	returns trigger language plpgsql as
+$BODY$
+begin
+	insert into m_baranghj(baranghj_barang_id, baranghj_terima_id, baranghj_hj) 
+	values(NEW.barang_barang_id, NEW.terimadet_id, 
+	NEW.terimadet_harga + (((select barang_profit from m_barang where barang_id = NEW.barang_barang_id)/100) * NEW.terimadet_harga));
+
+	return NEW;
+end;
+$BODY$;
+
+create or replace function storestok()
+	returns trigger language plpgsql as
+$BODY$
+begin
+	insert into t_stokobat(stokobat_barang_id, stokobat_jumlah, stokobat_kadaluarsa, stokobat_terimadet_id) 
+	values(NEW.barang_barang_id, NEW.terimadet_jumlah, NEW.terimadet_kadaluarsa, NEW.terimadet_id);
+
+	return NEW;
+end;
+$BODY$;
+
+create or replace function storestokv2()
+	returns trigger language plpgsql as
+$BODY$
+begin
+	insert into t_stokobat(stokobat_barang_id, stokobat_jumlah, stokobat_kadaluarsa, stokobat_terimadet_id) 
+	values(NEW.barang_barang_id, NEW.terimadet_jumlah * -1, NEW.terimadet_kadaluarsa, NEW.terimadet_id);
+
+	return NEW;
+end;
+$BODY$;
+
+create trigger TriggerHPP 
+	after insert on t_terimadet
+	for each row
+	execute procedure storehpp();
+
+create trigger TriggerHJ 
+	after insert on t_terimadet
+	for each row
+	execute procedure storehj();
+
+create trigger TriggerStok 
+	after insert on t_terimadet
+	for each row
+	execute procedure storestok();
+
+create trigger TriggerReturbeli 
+	after insert on t_retur_belidetail
+	for each row
+	execute procedure storestokv2();
+
+create trigger TriggerJual 
+	after insert on t_jualdet
+	for each row
+	execute procedure storestokv2();
+
+create trigger TriggerReturJual 
+	after insert on t_retur_jualdetail
+	for each row
+	execute procedure storestokv2();
+
+
+insert barang to hj
+	insert into m_baranghj(barang_barang_id, baranghj_hj)
+	select barang_id AS barang_barang_id, barang_het AS baranghj_hj from m_barang;
+insert barang to stok
+	insert into t_stokobat(barang_barang_id, stokobat_kadaluarsa, stokobat_jumlah, stokobat_satuan_id)
+	select barang_id AS barang_barang_id, '2019-12-31' AS stokobat_kadaluarsa, 10 AS stokobat_jumlah, barang_satuan_id AS stokobat_satuan_id from m_barang;
+end rizki
