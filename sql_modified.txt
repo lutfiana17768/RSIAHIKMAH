@@ -60,63 +60,120 @@ begin
 end;
 $BODY$;
 
-create or replace function storestok()
-	returns trigger language plpgsql as
-$BODY$
-begin
-	insert into t_stokobat(stokobat_barang_id, stokobat_jumlah, stokobat_kadaluarsa, stokobat_terimadet_id) 
-	values(NEW.barang_barang_id, NEW.terimadet_jumlah, NEW.terimadet_kadaluarsa, NEW.terimadet_id);
-
-	return NEW;
-end;
-$BODY$;
-
-create or replace function storestokv2()
-	returns trigger language plpgsql as
-$BODY$
-begin
-	insert into t_stokobat(stokobat_barang_id, stokobat_jumlah, stokobat_kadaluarsa, stokobat_terimadet_id) 
-	values(NEW.barang_barang_id, NEW.terimadet_jumlah * -1, NEW.terimadet_kadaluarsa, NEW.terimadet_id);
-
-	return NEW;
-end;
-$BODY$;
-
-create trigger TriggerHPP 
-	after insert on t_terimadet
-	for each row
-	execute procedure storehpp();
-
-create trigger TriggerHJ 
-	after insert on t_terimadet
-	for each row
-	execute procedure storehj();
-
-create trigger TriggerStok 
-	after insert on t_terimadet
-	for each row
-	execute procedure storestok();
-
-create trigger TriggerReturbeli 
-	after insert on t_retur_belidetail
-	for each row
-	execute procedure storestokv2();
-
-create trigger TriggerJual 
-	after insert on t_jualdet
-	for each row
-	execute procedure storestokv2();
-
-create trigger TriggerReturJual 
-	after insert on t_retur_jualdetail
-	for each row
-	execute procedure storestokv2();
-
-
 insert barang to hj
 	insert into m_baranghj(barang_barang_id, baranghj_hj)
 	select barang_id AS barang_barang_id, barang_het AS baranghj_hj from m_barang;
 insert barang to stok
 	insert into t_stokobat(barang_barang_id, stokobat_kadaluarsa, stokobat_jumlah, stokobat_satuan_id)
 	select barang_id AS barang_barang_id, '2019-12-31' AS stokobat_kadaluarsa, 10 AS stokobat_jumlah, barang_satuan_id AS stokobat_satuan_id from m_barang;
-end rizki
+
+- Terima
+Function :
+CREATE OR REPLACE FUNCTION storestok()
+  RETURNS trigger AS
+$BODY$
+begin
+	update t_stokobat set stokobat_jumlah = stokobat_jumlah + NEW.terimadet_jumlah where 
+	stokobat_barang_id =  NEW.barang_barang_id and stokobat_kadaluarsa = NEW.terimadet_kadaluarsa;
+
+	insert into log_stok
+	values (NEW.barang_barang_id, NEW.terimadet_jumlah, NEW.terimadet_kadaluarsa, 'Terima', NEW.terimadet_created_date);
+	
+	return NEW;
+end;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION storestok()
+  OWNER TO postgres;
+
+Trigger :
+CREATE TRIGGER triggerstok
+  AFTER INSERT
+  ON t_terimadet
+  FOR EACH ROW
+  EXECUTE PROCEDURE storestok();
+
+- Jual
+Function :
+CREATE OR REPLACE FUNCTION storestokv2()
+  RETURNS trigger AS
+$BODY$
+begin
+	update t_stokobat set stokobat_jumlah = stokobat_jumlah + (NEW.jualdet_jumlah * -1) where
+	stokobat_barang_id = NEW.barang_barang_id AND stokobat_kadaluarsa = NEW.jualdet_kadaluarsa_date;
+
+	insert into log_stok
+	values (NEW.barang_barang_id, NEW.jualdet_jumlah * -1, NEW.jualdet_kadaluarsa, 'Jual', NEW.jualdet_created_date);
+
+	return NEW;
+end;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION storestokv2()
+  OWNER TO postgres;
+
+Trigger :
+CREATE TRIGGER triggerjual
+  AFTER INSERT
+  ON t_jualdet
+  FOR EACH ROW
+  EXECUTE PROCEDURE storestokv2();
+
+- Retur Jual
+Function :
+CREATE OR REPLACE FUNCTION storestokv3()
+  RETURNS trigger AS
+$BODY$
+begin
+	update t_stokobat set stokobat_jumlah = stokobat_jumlah + NEW.returjualdetail_jumlah where 
+	stokobat_barang_id =  NEW.barang_barang_id and stokobat_kadaluarsa = NEW.returjualdetail_kadaluarsa;
+
+	insert into log_stok
+	values (NEW.barang_barang_id, NEW.returjualdet_jumlah, NEW.returjualdet_kadaluarsa, 'Retur Jual', NEW.returjualdet_created_date);
+
+	return NEW;
+end;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION storestokv3()
+  OWNER TO postgres;
+
+Trigger :
+CREATE TRIGGER triggerreturjual
+  AFTER INSERT
+  ON t_retur_jualdetail
+  FOR EACH ROW
+  EXECUTE PROCEDURE storestokv3();
+
+
+- Retur Beli
+Function :
+CREATE OR REPLACE FUNCTION storestokv4()
+  RETURNS trigger AS
+$BODY$
+begin
+	update t_stokobat set stokobat_jumlah = stokobat_jumlah + (NEW.returbelidetail_jumlah * -1) where
+	stokobat_barang_id = NEW.barang_barang_id AND stokobat_kadaluarsa = NEW.returbelidetail_kadaluarsa;
+
+	insert into log_stok
+	values (NEW.barang_barang_id, NEW.returbelidetail_jumlah * -1, NEW.returbelidetail_kadaluarsa, 'Retur Beli', NEW.returbelidetail_created_date);
+	
+	return NEW;
+end;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION storestokv4()
+  OWNER TO postgres;
+
+Trigger :
+CREATE TRIGGER triggerreturbeli
+  AFTER INSERT
+  ON t_retur_belidetail
+  FOR EACH ROW
+  EXECUTE PROCEDURE storestokv4();
+
+end rizkik
