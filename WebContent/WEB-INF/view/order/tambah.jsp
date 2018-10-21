@@ -193,11 +193,11 @@
                          </div>
                          <div class="form-group">
                              <label>Jumlah</label>
-                             <input type="text" name="orderDetailJumlah" id="orderDetailJumlah" onkeypress="setTotal()">
+                             <input type="text" name="orderDetailJumlah" id="orderDetailJumlah" onkeyup="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Harga</label>
-                             <input type="text" name="orderDetailHarga" id="orderDetailHarga">
+                             <input type="text" name="orderDetailHarga" id="orderDetailHarga" onkeyup="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Sub Total</label>

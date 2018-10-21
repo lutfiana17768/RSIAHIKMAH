@@ -389,11 +389,11 @@ public class MPasien {
 		this.agamaID = agamaID;
 	}
 
-	public Integer getPendidikanID() {
+	public Integer getPendidikanId() {
 		return pendidikanId;
 	}
 
-	public void setPendidikanID(Integer pendidikanId) {
+	public void setPendidikanId(Integer pendidikanId) {
 		this.pendidikanId = pendidikanId;
 	}
 

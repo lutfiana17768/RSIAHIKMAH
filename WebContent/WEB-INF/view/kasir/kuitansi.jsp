@@ -18,17 +18,18 @@
     
     <style>
     .invoice-box {
-        max-width: 800px;
+        max-width: 900px;
         margin: auto;
         padding: 3em;
         border: 1px solid #eee;
         box-shadow: 0 0 10px rgba(0, 0, 0, .15);
         font-size: 16px;
-        line-height: 24px;
-        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        color: #555;
-        margin-top: 50px;
+        line-height: 24px; 
+        font-weight: 600;
+        font-family: sans-serif;
+        color: black;
         font-style: italic;
+        font-weight: bold;
     }
     
     .invoice-box table {
@@ -57,7 +58,7 @@
     }
     
     .invoice-box table tr.information table td {
-        padding-bottom: 40px;
+        /*padding-bottom: 40px;*/
     }
     
     .invoice-box table tr.heading td {
@@ -138,7 +139,7 @@
             </tr>
             
             <tr>
-                <table style="border-top: 1px solid red;padding-top: 15px;padding-bottom: 15px;border-bottom: 1px solid red;margin-bottom: 15px;background-color: antiquewhite;">
+                <table style="border-top: 1px solid red;padding-top: 15px;padding-bottom: 15px;border-bottom: 1px solid red;margin-bottom: 15px;color: black" >
                     <tbody>
                         <tr>
                             <td style="font-weight: bold">No. Kuitansi</td>

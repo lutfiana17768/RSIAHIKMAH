@@ -186,7 +186,7 @@
                          
                          <div class="form-group">
                              <label>Jumlah</label>
-                             <input type="text" name="returJualDetailJumlah" id="returJualDetailJumlah" onkeypress="setTotal()">
+                             <input type="text" name="returJualDetailJumlah" id="returJualDetailJumlah" onkeyup="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Harga</label>

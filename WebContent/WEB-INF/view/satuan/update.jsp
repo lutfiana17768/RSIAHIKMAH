@@ -23,6 +23,7 @@
 								<form:input path="satuanKode" placeholder="Masukan Kode Satuan" class="form-control boxed"/>
 							</div>
 						<div class="form-group">
+							
 							<label for="exampleInputPassword1">Nama Satuan</label>
 								<form:input path="satuanNama" placeholder="Masukan Nama Satuan" class="form-control boxed"/>
 							 </div>

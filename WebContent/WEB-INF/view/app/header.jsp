@@ -79,6 +79,9 @@
 																			<a href="/barang"> Master Barang</a>
 																		</li>
 																		<li>
+																			<a href="/hj"> Master Harga Jual</a>
+																		</li>
+																		<li>
 																			<a href="/satuan/tambah"> Master Satuan</a>
 																		</li>
 																		<li>
