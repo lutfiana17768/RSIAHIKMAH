@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript">
+var TotalTransaksi = 0;
 $('#simpan-order').click(function(){
     // tambahkan class table-form di tbody
     $('.table-form tr').map(function(line){
@@ -7,7 +8,12 @@ $('#simpan-order').click(function(){
             if($(this).attr('data-save') == '1')
             {
                 var name = $(this).attr('data-name');
-                var value = $(this).text();
+                var id = $(this).attr('data-id')
+                if(id != '0'){
+                    var value = parseInt(id);
+                } else{
+                    var value = $(this).text();    
+                }
                 var new_input = $('<input type="hidden">');
                 // input name nya sesuaikan dengan property one to many entity 
                 new_input.attr('name','detail[' + line + '].' + name);
@@ -30,6 +36,7 @@ $('#add_order').click(function(){
 });
 
 $('#simpan-detail').click(function(){
+    setTotalTransaksi();
     var nama_barang, satuan, jumlah, harga, sub_total, mode, counter, id_row;
     var mode = $('#order_mode').val();
 
@@ -62,11 +69,11 @@ $('#simpan-detail').click(function(){
     //tr.append('<td>'+nama_barang+'</td>');
     // tr.append('<td data-used="1" data-save="1" data-name="orderDetailSatuanId" data-kolom-id="satuan">'+satuan+'</td>');
     //conto
-    tr.append('<td data-used="1" data-save="1" data-name="orderDetailBarangId" data-kolom-id="orderDetailBarangId">'+barangText+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="orderDetailSatuanId" data-kolom-id="orderDetailSatuanId">'+satuanText+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="orderDetailJumlah" data-kolom-id="orderDetailJumlah">'+jumlah+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="orderDetailHarga" data-kolom-id="orderDetailHarga">'+harga+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="orderDetailSubTotal" data-kolom-id="orderDetailSubTotal">'+sub_total+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="'+ nama_barang +'" data-name="orderDetailBarangId" data-kolom-id="orderDetailBarangId">'+barangText+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="'+ satuan +'" data-name="orderDetailSatuanId" data-kolom-id="orderDetailSatuanId">'+satuanText+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="0" data-name="orderDetailJumlah" data-kolom-id="orderDetailJumlah">'+jumlah+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="0" data-name="orderDetailHarga" data-kolom-id="orderDetailHarga">'+harga+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="0" data-name="orderDetailSubTotal" data-kolom-id="orderDetailSubTotal">'+sub_total+'</td>');
     tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editOrder('+counter+')">Edit</button></td>');
     if(mode == 'new')
     {
@@ -100,5 +107,20 @@ function deleteDetail(id)
     var tr;
     tr = $('#order_'+id);
     tr.remove();
+}
+
+function setTotal(){
+    var harga = $('#orderDetailHarga').val();
+    var jumlah = $('#orderDetailJumlah').val();
+
+    $('#orderDetailSubTotal').val(harga * jumlah);
+}
+
+function setTotalTransaksi(){
+    var total = $('#orderDetailSubTotal').val();
+    TotalTransaksi = parseInt(TotalTransaksi) +  parseInt(total);
+
+    $('#orderTotal').val('');
+    $('#orderTotal').val(TotalTransaksi);
 }
 </script>

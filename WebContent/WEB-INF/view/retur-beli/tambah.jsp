@@ -63,7 +63,7 @@
                      <div class="col-6">
                          <div class="form-group">
                             <label>Total</label>
-                            <form:input path="returBeliTotal" placeholder="Masukan Nomer" class="form-control"/>
+                            <form:input path="returBeliTotal" placeholder="Masukan Nomer" class="form-control" readonly="" />
                          </div>
                          
                         <div class="form-group">
@@ -146,7 +146,6 @@
                                          </option>
                                      </c:forEach>
                              </select>
-                             
                          </div>
                          <div class="form-group">
                              <label>Satuan</label>
@@ -165,7 +164,7 @@
                          
                          <div class="form-group">
                              <label>Jumlah</label>
-                             <input type="text" name="returBeliDetailJumlah" id="returBeliDetailJumlah">
+                             <input type="text" name="returBeliDetailJumlah" id="returBeliDetailJumlah" onkeypress="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Harga</label>
@@ -173,7 +172,7 @@
                          </div>
                          <div class="form-group">
                              <label>Sub Total</label>
-                             <input type="text" name="returBeliDetailSubTotal" id="returBeliDetailSubTotal">
+                             <input type="text" name="returBeliDetailSubTotal" id="returBeliDetailSubTotal" readonly="">
                          </div>
                          <input type="hidden" name="detail_mode" id="detail_mode">                                                                               
                          <input type="hidden" name="detail_edit" id="detail_edit">

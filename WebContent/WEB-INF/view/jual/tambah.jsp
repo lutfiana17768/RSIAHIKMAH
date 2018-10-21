@@ -118,6 +118,7 @@
                                                <thead>
                                                    <tr>
                                                        <th>Nama Barang</th>
+                                                       <th>Kadalursa</th>
                                                        <th>Satuan</th>
                                                        <th>Jumlah</th>
                                                        <th>Harga</th>
@@ -152,10 +153,10 @@
                      <form>
                          <div class="form-group">
                              <label>Nama Barang</label>
-                             <select name="jualDetailBarangId" id="jualDetailBarangId">
+                             <select name="jualDetailBarangId" id="jualDetailBarangId" onchange="setHarga()">
                                  <c:forEach var="tempBarang" items="${barang}">
-                                         <option value="${tempBarang.barangId }">
-                                         ${tempBarang.barangNama }
+                                         <option value="${tempBarang.barang.barangId }" data-harga="${tempBarang.barangHJHJ }">
+                                         ${tempBarang.barang.barangNama }
                                          </option>
                                      </c:forEach>
                              </select>
@@ -171,17 +172,23 @@
                                      </c:forEach>
                              </select>
                          </div>
+                         
+                         <div class="form-group">
+                             <label>Kadaluarsa</label>
+                             <input type="text" name="jualDetailKadaluarsa" id="jualDetailKadaluarsa">
+                         </div>
+
                          <div class="form-group">
                              <label>Jumlah</label>
-                             <input type="text" name="jualDetailJumlah" id="jualDetailJumlah">
+                             <input type="text" name="jualDetailJumlah" id="jualDetailJumlah" onkeypress="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Harga</label>
-                             <input type="text" name="jualDetailHarga" id="jualDetailHarga">
+                             <input type="text" name="jualDetailHarga" id="jualDetailHarga" readonly="">
                          </div>
                          <div class="form-group">
                              <label>Sub Total</label>
-                             <input type="text" name="jualDetailSubTotal" id="jualDetailSubTotal">
+                             <input type="text" name="jualDetailSubTotal" id="jualDetailSubTotal" readonly="">
                          </div>
                          <input type="hidden" name="detail_mode" id="detail_mode">                                                                               
                          <input type="hidden" name="detail_edit" id="detail_edit">

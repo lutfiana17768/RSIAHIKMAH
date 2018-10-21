@@ -54,8 +54,8 @@
                                     <form:input path="orderCashback" placeholder="Cashback" class="form-control"/>
                                  </div>
                                  <div class="form-group">
-                                    <label>Total Bayar</label>
-                                    <form:input path="orderTotal" placeholder="Total bayar" class="form-control"/>
+                                    <label>Total</label>
+                                    <form:input path="orderTotal" placeholder="Total bayar" class="form-control" readonly="" />
                                  </div>
                                 <div class="form-group">
                                     <label>Jumlah Bayar</label>
@@ -193,7 +193,7 @@
                          </div>
                          <div class="form-group">
                              <label>Jumlah</label>
-                             <input type="text" name="orderDetailJumlah" id="orderDetailJumlah">
+                             <input type="text" name="orderDetailJumlah" id="orderDetailJumlah" onkeypress="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Harga</label>
@@ -201,7 +201,7 @@
                          </div>
                          <div class="form-group">
                              <label>Sub Total</label>
-                             <input type="text" name="orderDetailSubTotal" id="orderDetailSubTotal">
+                             <input type="text" name="orderDetailSubTotal" id="orderDetailSubTotal" readonly="">
                          </div>
                          <input type="hidden" name="order_mode" id="order_mode">                                                                               
                          <input type="hidden" name="order_edit" id="order_edit">

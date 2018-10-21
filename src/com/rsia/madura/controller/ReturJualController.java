@@ -19,13 +19,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MBarangHJ;
 import com.rsia.madura.entity.MReturJual;
 import com.rsia.madura.entity.MSatuan;
 import com.rsia.madura.entity.MJual;
 import com.rsia.madura.entity.MPasien;
 
-import com.rsia.madura.service.BarangService;
+import com.rsia.madura.service.BarangHJService;
 import com.rsia.madura.service.ReturJualService;
 import com.rsia.madura.service.SatuanService;
 import com.rsia.madura.service.JualService;
@@ -37,7 +37,7 @@ public class ReturJualController {
 	@Autowired
 	private ReturJualService returJualService;
 	@Autowired
-	private BarangService barangService;
+	private BarangHJService barangHJService;
 	@Autowired
 	private SatuanService satuanService;
 	@Autowired
@@ -63,7 +63,7 @@ public class ReturJualController {
 	@RequestMapping(value="/tambah")
 	public String ReturJualFormAddView(Model model){
 		MReturJual returJualModel = new MReturJual();
-		List<MBarang> resultBarang = barangService.getBarangs();
+		List<MBarangHJ> resultBarang = barangHJService.getBarangHJs();
 		List<MSatuan> resultSatuan = satuanService.getSatuans();
 		List<MJual> resultJual = jualService.getJuals();
 		List<MPasien> resultPasien = pasienService.findAll();
@@ -99,7 +99,7 @@ public class ReturJualController {
 	@RequestMapping(value="/edit")
 	public String ReturJualFormUpdateView(Model model, @RequestParam(value = "Id", required = false) int id){
 		MReturJual returJualModel = returJualService.getReturJual(id);
-		List<MBarang> resultBarang = barangService.getBarangs();
+		List<MBarangHJ> resultBarang = barangHJService.getBarangHJs();
 		List<MSatuan> resultSatuan = satuanService.getSatuans();
 
 		Timestamp tglCreate = returJualModel.getReturJualCreatedDate();

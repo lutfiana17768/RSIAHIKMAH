@@ -115,7 +115,7 @@ public class MPasien {
 	private Integer agamaID;
 
 	@Column(name = "pendidikan_id")
-	private Integer pendidikanID;
+	private Integer pendidikanId;
 
 	@Column(name = "pekerjaan_id")
 	private Integer pekerjaanID;
@@ -390,11 +390,11 @@ public class MPasien {
 	}
 
 	public Integer getPendidikanID() {
-		return pendidikanID;
+		return pendidikanId;
 	}
 
-	public void setPendidikanID(Integer pendidikanID) {
-		this.pendidikanID = pendidikanID;
+	public void setPendidikanID(Integer pendidikanId) {
+		this.pendidikanId = pendidikanId;
 	}
 
 	public Integer getPekerjaanID() {
@@ -474,7 +474,7 @@ public class MPasien {
 				+ ", pasienTanggallahir=" + pasienTanggallahir + ", kelurahanID=" + kelurahanID
 				+ ", statusID=" + statusID + ", pasienKeterangan=" + pasienKeterangan + ", pasienDomisili="
 				+ pasienDomisili + ", pasienPekerjaan=" + pasienPekerjaan + ", pasienStatusnikah="
-				+ pasienStatusnikah + ", agamaID=" + agamaID + ", pendidikanID=" + pendidikanID
+				+ pasienStatusnikah + ", agamaID=" + agamaID + ", pendidikanId=" + pendidikanId
 				+ ", pekerjaanID=" + pekerjaanID + ", pasienAlergi=" + pasienAlergi + ", pasienDeletedDate="
 				+ pasienDeletedDate + "]";
 	}

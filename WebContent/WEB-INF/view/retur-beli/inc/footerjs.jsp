@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript">
+    var TotalTransaksi = 0;
 $('#simpan-returbeli').click(function(){
     // tambahkan class table-form di tbody
     $('.table-form tr').map(function(line){
@@ -7,7 +8,12 @@ $('#simpan-returbeli').click(function(){
             if($(this).attr('data-save') == '1')
             {
                 var name = $(this).attr('data-name');
-                var value = $(this).text();
+                var id = $(this).attr('data-id')
+                if(id != '0'){
+                    var value = parseInt(id);
+                } else{
+                    var value = $(this).text();    
+                }
                 var new_input = $('<input type="hidden">');
                 // input name nya sesuaikan dengan property one to many entity 
                 new_input.attr('name','detail[' + line + '].' + name);
@@ -31,6 +37,7 @@ $('#add_detail').click(function(){
 });
 
 $('#simpan-detail').click(function(){
+    setTotalTransaksi();
     var nama_barang, satuan, jumlah, harga, kadaluarsa, sub_total, mode, counter, id_row;
     var mode = $('#detail_mode').val();
 
@@ -64,12 +71,12 @@ $('#simpan-detail').click(function(){
     //tr.append('<td>'+nama_barang+'</td>');
     // tr.append('<td data-used="1" data-save="1" data-name="orderDetailSatuanId" data-kolom-id="satuan">'+satuan+'</td>');
     //conto
-    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailBarangId" data-kolom-id="returBeliDetailBarangId">'+barangText+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailSatuanId" data-kolom-id="returBeliDetailSatuanId">'+satuanText+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailKadaluarsa" data-kolom-id="returBeliDetailKadaluarsa">'+kadaluarsa+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailJumlah" data-kolom-id="returBeliDetailJumlah">'+jumlah+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailHarga" data-kolom-id="ReturBerliDetailHarga">'+harga+'</td>');
-    tr.append('<td data-used="1" data-save="1" data-name="returBeliDetailSubTotal" data-kolom-id="returBeliDetailSubTotal">'+sub_total+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="'+ nama_barang +'" data-name="returBeliDetailBarangId" data-kolom-id="returBeliDetailBarangId">'+barangText+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="'+ satuan +'" data-name="returBeliDetailSatuanId" data-kolom-id="returBeliDetailSatuanId">'+satuanText+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="0" data-name="returBeliDetailKadaluarsa" data-kolom-id="returBeliDetailKadaluarsa">'+kadaluarsa+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="0" data-name="returBeliDetailJumlah" data-kolom-id="returBeliDetailJumlah">'+jumlah+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="0" data-name="returBeliDetailHarga" data-kolom-id="ReturBerliDetailHarga">'+harga+'</td>');
+    tr.append('<td data-used="1" data-save="1" data-id="0" data-name="returBeliDetailSubTotal" data-kolom-id="returBeliDetailSubTotal">'+sub_total+'</td>');
     tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteDetail('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editDetail('+counter+')">Edit</button></td>');
     if(mode == 'new')
     {
@@ -103,5 +110,19 @@ function deleteDetail(id)
     var tr;
     tr = $('#returbeli_'+id);
     tr.remove();
+}
+function setTotal(){
+    var harga = $('#returBeliDetailHarga').val();
+    var jumlah = $('#returBeliDetailJumlah').val();
+
+    $('#returBeliDetailSubTotal').val(harga * jumlah);
+}
+
+function setTotalTransaksi(){
+    var total = $('#returBeliDetailSubTotal').val();
+    TotalTransaksi = parseInt(TotalTransaksi) +  parseInt(total);
+
+    $('#returBeliTotal').val('');
+    $('#returBeliTotal').val(TotalTransaksi);
 }
 </script>

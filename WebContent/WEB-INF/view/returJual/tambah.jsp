@@ -79,7 +79,7 @@
                              </div>
                             <div class="form-group">
                                 <label>Total</label>
-                                <form:input path="returJualTotal" placeholder="total" class="form-control"/>
+                                <form:input path="returJualTotal" placeholder="total" class="form-control" readonly="" />
                              </div>
                             <%--
                             <div class="form-group">
@@ -160,10 +160,10 @@
                      <form>
                          <div class="form-group">
                              <label>Nama Barang</label>
-                             <select name="returJualDetailBarangId" id="returJualDetailBarangId">
+                             <select name="returJualDetailBarangId" id="returJualDetailBarangId" onchange="setHarga()">
                                  <c:forEach var="tempBarang" items="${barang}">
-                                         <option value="${tempBarang.barangId }">
-                                         ${tempBarang.barangNama }
+                                         <option value="${tempBarang.barang.barangId }" data-harga="${tempBarang.barangHJHJ}">
+                                         ${tempBarang.barang.barangNama }
                                          </option>
                                      </c:forEach>
                              </select>
@@ -186,15 +186,15 @@
                          
                          <div class="form-group">
                              <label>Jumlah</label>
-                             <input type="text" name="returJualDetailJumlah" id="returJualDetailJumlah">
+                             <input type="text" name="returJualDetailJumlah" id="returJualDetailJumlah" onkeypress="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Harga</label>
-                             <input type="text" name="returJualDetailHarga" id="returJualDetailHarga">
+                             <input type="text" name="returJualDetailHarga" id="returJualDetailHarga" readonly="">
                          </div>
                          <div class="form-group">
                              <label>Sub Total</label>
-                             <input type="text" name="returJualDetailSubTotal" id="returJualDetailSubTotal">
+                             <input type="text" name="returJualDetailSubTotal" id="returJualDetailSubTotal" readonly="">
                          </div>
                          <input type="hidden" name="detail_mode" id="detail_mode">                                                                               
                          <input type="hidden" name="detail_edit" id="detail_edit">

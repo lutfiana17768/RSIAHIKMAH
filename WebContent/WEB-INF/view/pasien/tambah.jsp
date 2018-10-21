@@ -154,11 +154,11 @@
 	                                </div>
 	                                
 	                                <div class="form-group">
-										<label class="control-label" id="pendidikanID">Pekerjaan</label>
+										<label class="control-label" id="pendidikanId">Pekerjaan</label>
 										<div class="select2-wrapper">
 											<form:select path="pekerjaanID" class="form-control input-lg select2-single">
 												<c:forEach var="pend" items="${Pendidikan}">
-		                                         	<form:option value="${pend.pendidikanID }" label="${pend.pendidikanNama }" />
+		                                         	<form:option value="${pend.pendidikanId }" label="${pend.pendidikanNama }" />
 		                                         </c:forEach>
 											</form:select>
 										</div>
@@ -172,11 +172,11 @@
 	                                </div>
 
 									<div class="form-group">
-										<label class="control-label" id="pendidikanID">Pendidikan</label>
+										<label class="control-label" id="pendidikanId">Pendidikan</label>
 										<div class="select2-wrapper">
-											<form:select path="pendidikanID" class="form-control input-lg select2-single">
+											<form:select path="pendidikanId" class="form-control input-lg select2-single">
 												<c:forEach var="pend" items="${Pendidikan}">
-		                                         	<form:option value="${pend.pendidikanID }" label="${pend.pendidikanNama }" />
+		                                         	<form:option value="${pend.pendidikanId }" label="${pend.pendidikanNama }" />
 		                                         </c:forEach>
 											</form:select>
 										</div>
