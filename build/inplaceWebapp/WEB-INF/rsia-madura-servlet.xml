@@ -4,6 +4,7 @@
 	xmlns:context="http://www.springframework.org/schema/context"
     xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -11,6 +12,8 @@
 		http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/mvc
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
@@ -29,12 +32,12 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-    <!-- Step 1: Define Database DataSource / connection pool -->
+	    <!-- Step 1: Define Database DataSource / connection pool -->
 	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="org.postgresql.Driver" />
         <property name="jdbcUrl" value="jdbc:postgresql://localhost:5433/rsia_hikmah" />
         <property name="user" value="postgres" />
-        <property name="password" value="root" /> 
+        <property name="password" value="postgre" /> 
 
         <!-- these are connection pool properties for C3P0 -->
         <property name="minPoolSize" value="5" />
@@ -58,9 +61,103 @@
     <!-- Step 3: Setup Hibernate transaction manager -->
 	<bean id="myTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"/>
+		
     </bean>
     
     <!-- Step 4: Enable configuration of transactional behavior based on annotations -->
 	<tx:annotation-driven transaction-manager="myTransactionManager" />
 	<mvc:view-controller path="/" view-name="index" />
+	
+	<!-- bycrypt password encoder -->
+    <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <constructor-arg name="strength" value="11"/>
+    </bean>
+
+	<security:http auto-config="true" use-expressions="true">
+
+		<security:headers>
+			<security:cache-control />
+		</security:headers>
+
+		<security:intercept-url pattern="/resources/**" access="permitAll" />
+		<security:intercept-url pattern="/login/**" access="permitAll" />
+		<!-- kasir -->
+		<security:intercept-url pattern="/kasir**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/pendaftaran**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/pelayanan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/history**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+
+		<!-- additional kasir -->
+		<security:intercept-url pattern="/kamar**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/kelas**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/kondisi**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/paket**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/pasien**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/penunjang**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/penunjang-group**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/ruangan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/tindakan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		<security:intercept-url pattern="/rujukan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_KASIR')" />
+		
+		<!-- apotek -->
+		<security:intercept-url pattern="/barang**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/satuan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/perusahaan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/order**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/terima**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/retur-beli**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/jual**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/retur-jual**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/opnamet**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/stok-obat**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/laporan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+		<security:intercept-url pattern="/kartu-stok**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK')" />
+
+		<!-- penggajian -->
+		<security:intercept-url pattern="/pegawai**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_PENGGAJIAN')" />
+		<security:intercept-url pattern="/gaji**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_PENGGAJIAN')" />
+		<security:intercept-url pattern="/jabatan**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_PENGGAJIAN')" />
+
+		<!-- admin -->
+		<security:intercept-url pattern="/agama**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/user**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/provinsi**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/kota**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/kecamatan**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/kelurahan**" access="hasRole('ROLE_ADMIN')" />
+
+		<!-- base -->
+		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_APOTEK', 'ROLE_PENGGAJIAN', 'ROLE_KASIR')" />
+
+		<security:form-login login-page="/login" 
+		    default-target-url="/"
+			authentication-success-handler-ref="loginSuccessHandler"
+			authentication-failure-url="/login?error" 
+			username-parameter="user_name"
+			password-parameter="user_password"
+			login-processing-url="/login" />
+
+		<security:logout logout-success-url="/login?logout" delete-cookies="JSESSIONID" />
+		<security:csrf />
+
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="userServiceLogin">
+		    <security:password-encoder ref="encoder"/>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	<security:global-method-security secured-annotations="enabled" />
+
+
+	<bean id="userDAO" class="com.rsia.madura.dao.UserAction">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="userServiceLogin" class="com.rsia.madura.service.UserServiceLogin">
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+
+    <bean id="loginSuccessHandler" class="com.rsia.madura.security.LoginSuccessHandler" />
+
 </beans>

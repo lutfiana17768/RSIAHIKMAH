@@ -9,6 +9,7 @@ public interface BarangDAO {
 
 	public List<MBarang> getBarangs();
 	public List<MGetBarang> getBarangs(int page, int limit);
+	public List<MGetBarang> getBarang();
 	public String createLinks(int page, int limit);
 	public MBarang getBarang(int barangId);
 	

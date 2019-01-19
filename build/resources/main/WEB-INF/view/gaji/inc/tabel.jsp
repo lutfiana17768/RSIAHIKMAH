@@ -6,6 +6,7 @@
     <thead>
         <tr>
             <th style="font-size: 14px;">No Gaji</th>
+            <th style="font-size: 14px;">Pegawai</th>
             <th style="font-size: 14px;">Tanggal Bayar Gaji</th>
             <th style="font-size: 14px;">Gaji Bulanan</th>
             <th style="font-size: 14px;">Gaji Tahunan</th>
@@ -20,6 +21,7 @@
          <c:forEach var="tempgaji" items="${gaji}">
             <tr>
               <td style="font-size: 12px;"> ${tempgaji.gajiNo } </td>
+              <td style="font-size: 12px;"> ${tempgaji.gajiPegawaiId.pegawaiNama } </td>
               <td style="font-size: 12px;"> ${tempgaji.gajiTglBayar } </td>
               <td style="font-size: 12px;"> ${tempgaji.gajiBulan } </td>
               <td style="font-size: 12px;"> ${tempgaji.gajiTahun } </td>
@@ -27,8 +29,8 @@
               <td style="font-size: 12px;"> ${tempgaji.gajiPendapatan } </td>
               <td style="font-size: 12px;"> ${tempgaji.gajiBonus } </td>
               <td style="font-size: 12px;"> ${tempgaji.gajiKeterangan } </td>
-              <td style="font-size: 12px;"> <a href="/gaji/update/${tempgaji.gaji_id}" class="btn btn-info">Update</a>
-               <a href="/gaji/delete/${tempgaji.gaji_id}" class="btn btn-warning">Delete</a></td>
+              <td style="font-size: 12px;"> <a href="/gaji/update/${tempgaji.gajiId}" class="btn btn-info">Update</a>
+               <a href="/gaji/delete/${tempgaji.gajiId}" class="btn btn-warning">Delete</a></td>
             </tr>
         </c:forEach>
     </tbody>

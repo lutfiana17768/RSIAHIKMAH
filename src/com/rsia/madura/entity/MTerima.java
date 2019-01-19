@@ -118,6 +118,9 @@ public class MTerima {
 
 	@ManyToOne
 	private MPerusahaan perusahaan;
+
+	@Column(name="pbf")
+	private Integer terimaPBF;
 	
 	public MTerima(){
 		
@@ -379,6 +382,14 @@ public class MTerima {
 		this.perusahaan = perusahaan;
 	}
 
+	public Integer getTerimaPBF(){
+		return terimaPBF;
+	}
+
+	public void setTerimaPBF(Integer terimaPBF){
+		this.terimaPBF = terimaPBF;
+	}
+
 	@Override
 	public String toString() {
 		return "MTerima [terimaId=" + terimaId + ", terimaNo=" + terimaNo + ", terimaTanggal=" + terimaTanggal
@@ -393,7 +404,7 @@ public class MTerima {
 				+ terimaTotalPPH + ", terimaCreatedBy=" + terimaCreatedBy + ", terimaCreatedDate=" + terimaCreatedDate
 				+ ", terimaUpdatedBy=" + terimaUpdatedBy + ", terimaUpdatedDate=" + terimaUpdatedDate
 				+ ", terimaRevised=" + terimaRevised + ", terimaDeletedDate=" + terimaDeletedDate + ", detail=" + detail
-				+ ", order = " + order + ", perusahaan = " + perusahaan + "]";
+				+ ", order = " + order + ", perusahaan = " + perusahaan + ", terimaPBF=" + terimaPBF + "]";
 	}
 
 	

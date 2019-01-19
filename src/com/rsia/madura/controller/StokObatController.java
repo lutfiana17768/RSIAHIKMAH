@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.rsia.madura.entity.MStokObat;
+import com.rsia.madura.entity.MKartuStok;
 
 import com.rsia.madura.service.StokObatService;
+import com.rsia.madura.service.KartuStokService;
 
 @Controller
 @RequestMapping("/stok-obat")
@@ -27,8 +29,24 @@ public class StokObatController {
 	@Autowired
 	private StokObatService stokObatService;
 
+	@Autowired
+	private KartuStokService kartuStokService;	
+
 	private String uri = "redirect:/stok-obat";
 	
+	@RequestMapping(method=RequestMethod.GET, value="/kartustok")
+	public String KartuStokFormView(Model model, 
+			@RequestParam(value="tanggal", required=false, defaultValue="1") int page, 
+			@RequestParam(value="id", required=false, defaultValue="10") int limit){
+		
+		List<MKartuStok> result = kartuStokService.getKartuStok();
+		
+		model.addAttribute("result", result);
+		
+		System.out.println(result);
+		return "/stok/kartustok";
+	}
+
 	@RequestMapping(method=RequestMethod.GET)
 	public String BarangFormView(Model model, 
 			@RequestParam(value="page", required=false, defaultValue="1") int page, 

@@ -7,8 +7,7 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="header-block">
-										<h3 class="title"> List Penunjang Medis Group </h3>
-										<a href="/kelas/tambah" class="btn btn-primary btn-sm">Tambah</a>
+										<h3 class="title"> List Data Kelas </h3>
 									</div>
 								</div>
 								<div class="card-block">
@@ -37,6 +36,13 @@
 													</c:forEach>
 												</tbody>
 											</table>
+										</div>
+										<div class="fixed-table-pagination" style="display: block; margin-top:25px">
+										     <form action="" method="get">
+										            <div class="pull-right pagination" style="margin-right: 20px;">
+										                 ${link }
+										            </div>
+										      </form>
 										</div>
 									</section>
 								</div>

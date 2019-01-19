@@ -14,8 +14,11 @@
 
 						<head>
 							<title>RSI AL-HIKMAH</title>
+							<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/bootstrap.min.css'/>"/>
+							<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/datatable.css'/>" />
 							<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/app.css'/>" />
-							<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/vendor.css'/>" />
+							<!-- <link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/vendor.css'/>" /> -->
+							<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/custom.css'/>"
 							<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/gh-pages.css'/>" />
 							<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/css/style.css'/>" />
 							<link rel="stylesheet" type="text/css" href="<c:url value='${baseURL}resources/bootstrap-datepicker/css/bootstrap-datepicker.min.css'/>"
@@ -26,6 +29,7 @@
 							<script type="text/javascript">
 								var BASE_URL = "${baseURL}";
 							</script>
+							
 						</head>
 
 						<body>

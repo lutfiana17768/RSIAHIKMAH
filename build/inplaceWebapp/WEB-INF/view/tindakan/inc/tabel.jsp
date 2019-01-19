@@ -41,6 +41,13 @@
 												</tbody>
 											</table>
 										</div>
+								        <div class="fixed-table-pagination" style="display: block; margin-top:25px">
+								             <form action="" method="get">
+								                    <div class="pull-right pagination" style="margin-right: 20px;">
+								                         ${links }
+								                    </div>
+								              </form>
+								        </div>
 									</section>
 								</div>
 							</div>

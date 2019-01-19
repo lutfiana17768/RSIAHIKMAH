@@ -33,6 +33,13 @@ public class BarangServiceAction implements BarangService {
 	}
 
 	@Override
+	@Transactional
+	public List<MGetBarang> getBarang() {
+		
+		return barangDAO.getBarang();
+	}
+
+	@Override
 	public String createLinks(int page, int limit) {
 		
 		return barangDAO.createLinks(page, limit);

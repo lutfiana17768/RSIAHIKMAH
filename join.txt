@@ -1,0 +1,57 @@
+import javax.persistence.ManyToOne;
+
+@ManyToOne
+private MPerusahaan perusahaan;
+
+@ManyToOne
+private MBarang barang;
+
+@ManyToOne
+private MSatuan satuan;
+
+public MPerusahaan getPerusahaan(){
+	return perusahaan;
+}
+
+public void setPerusahaan(MPerusahaan perusahaan){
+	this.perusahaan = perusahaan;
+}
+
+public MBarang getBarang(){
+	return barang;
+}
+
+public void setBarang(MBarang barang){
+	this.barang = barang;
+}
+
+
+public MSatuan getSatuan(){
+	return satuan;
+}
+
+public void setSatuan(MSatuan satuan){
+	this.satuan = satuan;
+}
+
+ 
+"perusahaan = " + perusahaan + "barang = " + barang + "satuan = " + satuan +
+
+
+import com.rsia.madura.entity.MBarang;
+import com.rsia.madura.entity.MSatuan;
+
+@Autowired
+private BarangService barangService;
+
+@Autowired
+private SatuanService satuanService;
+
+MBarang barang;
+MSatuan satuan;
+
+barang = barangService.getBarang(detail.getOrderDetailBarangId());
+satuan = satuanService.getSatuan(detail.getOrderDetailSatuanId());
+
+detail.setBarang(barang);
+detail.setSatuan(satuan);

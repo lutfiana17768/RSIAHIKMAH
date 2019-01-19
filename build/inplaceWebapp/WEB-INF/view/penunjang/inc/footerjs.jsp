@@ -82,7 +82,7 @@
         });
 
         $('#simpan-tarif').click(function(){
-            var penunjangTarifKelas,penunjangkelas_id,kelas_text,penunjangTarifHarga,mode,counter,id_row;
+            var penunjangTarifKelas,penunjangKelasID,kelas_text,penunjangTarifHarga,mode,counter,id_row;
             var mode = $('#tarif_mode').val();
 
             if(mode == 'new')
@@ -99,7 +99,7 @@
                 tr.empty();
             }
 
-            penunjangkelas_id = $('#penunjangkelas_id').val() || false;
+            penunjangKelasID = $('#penunjangKelasID').val() || false;
             kelas_text = $('#penunjangTarifKelas option:selected').text();
             penunjangTarifKelas = $('#penunjangTarifKelas').val() ||0;
             penunjangTarifHarga = $('#penunjangTarifHarga').val() ||0;
@@ -108,9 +108,8 @@
             tr.append('<td data-used="1" data-save="1" data-name="penunjangkelasHarga" data-kolom-id="penunjangTarifHarga">'+penunjangTarifHarga+'</td>');
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deleteTarif('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editTarif('+counter+')">Edit</button></td>');
             tr.append('<td style="display:none" data-used="1" data-save="1" data-name="kelases.kelasID" data-kolom-id="penunjangTarifKelas">'+penunjangTarifKelas+'</td>');
-            console.log(penunjangkelas_id)
-            if (penunjangkelas_id) {
-               tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangkelas_id" data-kolom-id="penunjangkelas_id">'+penunjangkelas_id+'</td>');
+            if (penunjangKelasID) {
+               tr.append('<td style="display:none" data-used="1" data-save="1" data-name="penunjangKelasID" data-kolom-id="penunjangKelasID">'+penunjangKelasID+'</td>');
             }
 
             if(mode == 'new')
@@ -142,24 +141,28 @@
                 tr.empty();
             }
 
+            paramperiksaID = $('#paramperiksaID').val() ||0;
             detail_text = $('#pemeriksaan_detail option:selected').text();
             paramperiksaNama = $('#paramperiksaNama').val() ||0;
             paramperiksaStandar = $('#paramperiksaStandar').val() ||0;
-            paramperiksaSatuan = $('#paramperiksaSatuan').val() ||0;
+            paramperiksaSatuan = $('#paramperiksaSatuan').val();
             paramperiksaHarga = $('#paramperiksaHarga').val() ||0;
             penunjangType = $('#penunjang-tarif-list').attr('data-type');
             tr.append('<td data-used="1" data-save="1" data-name="paramperiksaNama" data-kolom-id="paramperiksaNama">'+paramperiksaNama+'</td>');
-            if (penunjangType === 'nilai' || penunjangType == 'kesimpulan') 
-            {
-                tr.append('<td data-used="1" data-save="1" data-name="paramperiksaStandar" data-kolom-id="paramperiksaStandar">'+paramperiksaStandar+'</td>');
-                if (penunjangType == 'nilai')
-                {
-                    tr.append('<td data-used="1" data-save="1" data-name="paramperiksaSatuan" data-kolom-id="paramperiksaSatuan">'+paramperiksaSatuan+'</td>');
-                }
-            }
-            tr.append('<td data-used="1" data-save="1" data-name="paramperiksaHarga" data-kolom-id="paramperiksaHarga">'+paramperiksaHarga+'</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="paramperiksaStandar" data-kolom-id="paramperiksaStandar">' + paramperiksaStandar + '</td>');
+            tr.append('<td data-used="1" data-save="1" data-name="paramperiksaSatuan" data-kolom-id="paramperiksaSatuan">' + paramperiksaSatuan + '</td>');
+            // if (penunjangType === 'nilai' || penunjangType == 'kesimpulan') 
+            // {
+            //     tr.append('<td data-used="1" data-save="1" data-name="paramperiksaStandar" data-kolom-id="paramperiksaStandar">'+paramperiksaStandar+'</td>');
+            //     if (penunjangType == 'nilai')
+            //     {
+            //         tr.append('<td data-used="1" data-save="1" data-name="paramperiksaSatuan" data-kolom-id="paramperiksaSatuan">'+paramperiksaSatuan+'</td>');
+            //     }
+            // }
             tr.append('<td> <button type="button" class="btn btn-danger btn-sm" onclick="deletePemeriksaan('+counter+')">Delete</button>&nbsp<button type="button" class="btn btn-primary btn-sm" onclick="editPemeriksaan('+counter+')">Edit</button></td>');
-            console.log(tr)
+            if (paramperiksaID) {
+                tr.append('<td style="display:none" data-used="1" data-save="1" data-name="paramperiksaID" data-kolom-id="paramperiksaID">' + paramperiksaID + '</td>');
+            }
             if(mode == 'new')
             {
                 pemeriksaan_length = counter;

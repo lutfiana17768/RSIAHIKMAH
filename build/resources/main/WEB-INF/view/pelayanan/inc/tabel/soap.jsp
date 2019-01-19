@@ -2,6 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover">
@@ -18,7 +19,7 @@
                             <tbody id="pelayanan-soap-list" class="table-form">
                             	<c:forEach var="soap" items="${pelayananModel.soap}" varStatus="loop">
 									<tr id="soap_${loop.index+1}">
-										<td data-used="1" data-save="1" data-name="soapTanggal" data-kolom-id="soapTanggal">${soap.soapTanggal}</td>
+										<td data-used="1" data-save="1" data-name="soapTanggal" data-kolom-id="soapTanggal"><fmt:formatDate value="${soap.soapTanggal}" pattern="yyyy-MM-dd HH:mm" /></td>
 										<td data-used="1" data-save="1" data-name="soapSubject" data-kolom-id="soapSubject">${soap.soapSubject}</td>
 										<td data-used="1" data-save="1" data-name="soapObject" data-kolom-id="soapObject">${soap.soapObject}</td>
 										<td data-used="1" data-save="1" data-name="soapAssesment" data-kolom-id="soapAssesment">${soap.soapAssesment}</td>

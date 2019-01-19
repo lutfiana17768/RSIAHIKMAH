@@ -15,17 +15,18 @@
                         </div>
                         <section class="example">
                             <jsp:include page="inc/tabel.jsp" />
-                            <div class="fixed-table-pagination" style="display: block; margin-top:25px">
+                            <!-- <div class="fixed-table-pagination" style="display: block; margin-top:25px">
                                  <form action="" method="get">
                                         <div class="pull-right pagination" style="margin-right: 20px;">
                                              ${link }
                                         </div>
                                   </form>
-                            </div>
+                            </div> -->
                         </section>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 <jsp:include page="../app/footer.jsp" />

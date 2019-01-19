@@ -3,8 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
-<table class="table table-sm table-striped table-bordered table-hover">
+<table class="table table-striped table-bordered" id="BarangTbl" style="width: 100%;">
 	<thead>
 		<tr>
 			<th>Jenis Barang</th>
@@ -17,7 +16,7 @@
 			<th> Action </th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="brgTblBody" >
 		<c:forEach var="tempBarang" items="${result}">
             <tr>
               <td> ${tempBarang.barangJenis.barangJenisNama } </td>

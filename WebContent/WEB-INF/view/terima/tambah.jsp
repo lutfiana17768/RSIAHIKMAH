@@ -55,6 +55,17 @@
 								</div>
 
 								<div class="form-group">
+									<label class="control-label">PBF</label>
+									<form:select class="form-control boxed form-control-sm" path="terimaPBF">
+									<c:forEach var="tempPerusahaan" items="${perusahaan}">
+                                         <option value="${tempPerusahaan.perusahaan_id }">
+                                         ${tempPerusahaan.perusahaanNama }
+                                         </option>
+                                     </c:forEach>
+									</form:select>
+								</div>
+
+								<div class="form-group">
 		                            <label>Surat Jalan</label>
 		                            <form:input path="terimaNoSuratJalan" placeholder="Masukan Nomer Surat Jalan" class="form-control" />
 		                         </div>

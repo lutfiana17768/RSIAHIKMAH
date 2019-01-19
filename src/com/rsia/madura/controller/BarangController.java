@@ -45,11 +45,12 @@ public class BarangController {
 			@RequestParam(value="page", required=false, defaultValue="1") int page, 
 			@RequestParam(value="limit", required=false, defaultValue="10") int limit){
 		
-		List<MGetBarang> result = barangService.getBarangs(page, limit);
+		List<MGetBarang> result = barangService.getBarang();
 		String link = barangService.createLinks(page, limit);
 		
 		model.addAttribute("result", result);
 		model.addAttribute("link", link);
+		model.addAttribute("footerjs", "../barang/inc/footerjs.jsp");
 		
 		System.out.println(result);
 		return "/barang/index";

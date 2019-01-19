@@ -11,44 +11,74 @@
 								<small>Keterangan : <span style="color:red">*</span> Wajib Diisi</small>
 							</div>
 							<div class="col-6">
-								<button type="button" class="btn btn-sm btn-success d_pasien-button" style="float: right;">Simpan</button>
+								<button type="button" class="btn btn-sm btn-success d_pasien-button" id="simpan-terima" style="float: right;">Simpan</button>
 							</div>
 						</div>
-						<form:form modelAttribute="terimaModel" method="POST" action="store" id="terima-form">
+						<form:form modelAttribute="terimaModel" method="POST" action="/terima/store" id="terima-form">
 						<div class="row card-block">
 							<div class="col-6">
 								<div class="form-group">
 									<label for="exampleInputEmail1">No. Order</label>
-									<form:input path="terimaOrderNo" class="form-control boxed form-control-sm" />
+									<select name="terimaOrderId" id="terimaOrderId" class="form-control">
+                                         <c:forEach var="tempOrder" items="${order}">
+                                                 <option value="${tempOrder.orderId }">
+                                                 ${tempOrder.orderNomer }
+                                                 </option>
+                                             </c:forEach>
+                                     </select>
 								</div>
 								<div class="form-group">
 									<label for="exampleInputEmail1">No. Terima</label>
 									<form:input path="terimaNo" class="form-control boxed form-control-sm" />
 								</div>
+								
+								<div class="form-group">
+		                            <label>Tanggal Terima</label>
+		                            <form:input path="terimaTanggal" type="date" placeholder="Masukan Tgl Order" class="form-control" />
+		                         </div>
+
+
+		                         <div class="form-group">
+		                            <label>Depo</label>
+		                            <form:input path="terimaDepoId" placeholder="Depo" class="form-control" />
+		                         </div>
+
 								<div class="form-group">
 									<label class="control-label">Supplier</label>
 									<form:select class="form-control boxed form-control-sm" path="terimaPerusahaanId">
 									<c:forEach var="tempPerusahaan" items="${perusahaan}">
-                                         <option value="${tempPerusahaan.perusahaanID }">
+                                         <option value="${tempPerusahaan.perusahaan_id }">
                                          ${tempPerusahaan.perusahaanNama }
                                          </option>
                                      </c:forEach>
 									</form:select>
 								</div>
-								
-							</div>
-							<div class="col-6">
+
 								<div class="form-group">
-									<label class="control-label">Include Pajak</label>
-									<div>
-										<label>
-											<form:radiobutton class="radio" path="terimaPPN" value="Y" />Ya
-										</label>
-										<label>
-											<form:radiobutton class="radio" path="terimaPPN" value="T" />Tidak
-										</label>
-									</div>
+									<label class="control-label">PBF</label>
+									<form:select class="form-control boxed form-control-sm" path="terimaPBF">
+									<c:forEach var="tempPerusahaan" items="${perusahaan}">
+                                         <option value="${tempPerusahaan.perusahaan_id }">
+                                         ${tempPerusahaan.perusahaanNama }
+                                         </option>
+                                     </c:forEach>
+									</form:select>
 								</div>
+
+								<div class="form-group">
+		                            <label>Surat Jalan</label>
+		                            <form:input path="terimaNoSuratJalan" placeholder="Masukan Nomer Surat Jalan" class="form-control" />
+		                         </div>
+
+		                         <div class="form-group">
+		                            <label>Pengirim</label>
+		                            <form:input path="terimaPengirim" placeholder="Masukan Nama Pengirim" class="form-control" />
+		                         </div>
+		                         
+							</div>
+
+							<div class="col-6">
+								
 								<div class="form-group">
 									<label class="control-label">Pajak</label>
 									<form:select class="form-control boxed form-control-sm" path="terimaTotalPPN">
@@ -64,14 +94,25 @@
 								<!--  <div class="form-group">
 									<label for="exampleInputEmail1">Jumlah Item<span style="color:red">*</span></label>
 									<form:input class="form-control boxed form-control-sm" path=""/>
-								</div>-->
+								</div> -->
+								<div class="form-group">
+		                            <label>Total PPH</label>
+		                            <form:input path="terimaTotalPPH" placeholder="Total PPH" class="form-control" />
+		                         </div>
+		                         
 								<label for="exampleInputEmail1">Harga Total<span style="color:red">*</span></label>
 								<div class="input-group input-group-sm">
 									<span class="input-group-addon">Rp</span>
 									<form:input class="form-control" path="terimaTotal"/>
 									<span class="input-group-addon">,00</span>
 								</div>
-								
+
+								<label for="exampleInputEmail1">Cashback<span style="color:red">*</span></label>
+								<div class="input-group input-group-sm">
+									<span class="input-group-addon">Rp</span>
+									<form:input class="form-control" path="terimaCashback"/>
+									<span class="input-group-addon">,00</span>
+								</div>
 							</div>
 						</div>
 						<div class="col col-12" style="padding:0">
@@ -99,7 +140,7 @@
 														<th>Total</th>
 													</tr>
 												</thead>
-												<tbody id="terima-list">
+												<tbody id="terima-list" class="table-form">
 												</tbody>
 											</table>
 										</div>
@@ -126,7 +167,13 @@
                      <form>
                          <div class="form-group">
                              <label>Nama Barang</label>
-                             <input type="text" name="terimaDetailBarangNama" id="terimaDetailBarangNama">
+                              <select name="terimaDetailBarangId" id="terimaDetailBarangId">
+                                 <c:forEach var="tempBarang" items="${barang}">
+                                         <option value="${tempBarang.barangId }">
+                                         ${tempBarang.barangNama }
+                                         </option>
+                                     </c:forEach>
+                             </select>
                          </div>
                          <div class="form-group">
                              <label>Satuan</label>
@@ -137,6 +184,11 @@
                                          </option>
                                      </c:forEach>
                              </select>
+                             
+                         </div>
+                          <div class="form-group">
+                             <label>Kadalursa</label>
+                             <input type="text" name="terimaDetailKadaluarsa" id="terimaDetailKadaluarsa">
                          </div>
                          <div class="form-group">
                              <label>Jumlah</label>
@@ -164,5 +216,4 @@
 		</div>
 	</div>
 	
-	<jsp:include page="ScriptTerima.jsp" />		
 	<jsp:include page="../app/footer.jsp" />

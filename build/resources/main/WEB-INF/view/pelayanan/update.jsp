@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <form:form id="pelayanan-form" modelAttribute="pelayananModel" method="POST" action="/pelayanan/update">
+                    <form:form id="pelayanan-form" modelAttribute="pelayananModel" method="POST" action="/pelayanan/update?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
                         <form:hidden path="pendaftaranID" />
                         <form:hidden path="pasien.pasienID" />
                         <form:hidden path="pendaftaranCreatedDate" />
@@ -69,6 +69,14 @@
                         <form:hidden path="pendaftaranMrs" />
                         <form:hidden path="pendaftaranJenis" />
                         <form:hidden path="pendaftaranNo" />
+                        <form:hidden path="pendaftaranPoli" />
+                        <form:hidden path="paketID" />
+                        <c:if test="${pelayananModel.ruang.ruangID != null}">
+                            <form:hidden path="ruang.ruangID" />
+                        </c:if>
+                        <c:if test="${pelayananModel.kelas.kelasID != null}">
+                            <form:hidden path="kelas.kelasID" />
+                        </c:if>
                         <div class="form-group row">    
                             <label class="col-sm-3 col-form-label">Dokter</label>
                             <div class="col-sm-9">
@@ -194,6 +202,9 @@
                     <a href="#tab-penunjang" class="nav-link" data-target="#tab-penunjang" aria-controls="tab-penunjang" data-toggle="tab" role="tab">penunjang</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#tab-radiologi" class="nav-link" data-target="#tab-radiologi" aria-controls="tab-radiologi" data-toggle="tab" role="tab">radiologi</a>
+                </li>
+                <li class="nav-item">
                     <a href="#tab-soap" class="nav-link" data-target="#tab-soap" aria-controls="tab-soap" data-toggle="tab" role="tab">soap</a>
                 </li>
             </ul>
@@ -230,7 +241,7 @@
 
                 </div>
                 <div class="tab-pane fade" id="tab-bhp">
-                    <button type="button" id="add_pakai" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-pakai">Tambah</button>
+                    <button type="button" id="add_terapi" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-terapi">Tambah</button>
                     <div class="table-responsive">
 
                     <jsp:include page="inc/tabel/bhp.jsp" />
@@ -249,6 +260,12 @@
                     <jsp:include page="inc/tabel/penunjang.jsp" />
 
                 </div>
+                <div class="tab-pane fade" id="tab-radiologi">
+                    <button type="button" id="add_radiologi" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-penunjangFile">Tambah</button>
+
+                    <jsp:include page="inc/tabel/radiologi.jsp" />
+
+                </div>
                 <div class="tab-pane fade" id="tab-soap">
                     <button type="button" id="add_soap" class="btn rounded-0 btn-success btn-sm btn-modal-form" data-toggle="modal" data-target="#modal-pelayanan-soap">Tambah</button>
 
@@ -265,6 +282,7 @@
             <jsp:include page="inc/modal/bhp.jsp" />
             <jsp:include page="inc/modal/resep.jsp" />
             <jsp:include page="inc/modal/penunjang.jsp" />
+            <jsp:include page="inc/modal/radiologi.jsp" />
             <jsp:include page="inc/modal/soap.jsp" />
         </div>
 

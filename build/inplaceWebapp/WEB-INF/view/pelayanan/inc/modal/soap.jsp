@@ -17,7 +17,7 @@
                         <form id="form-pelayanan-soap" class="from-horizontal">
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="date" name="soapTanggal" id="soapTanggal" class="form-control boxed">
+                                <input type="text" name="soapTanggal" id="soapTanggal" class="form-control boxed datetimepicker">
                             </div>
                             <div class="form-group">
                                 <label>Subject</label>

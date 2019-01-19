@@ -19,19 +19,19 @@ public class MBarangHJ {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="baranghj_id")
-	private int barangHJId;
+	private Integer barangHJId;
 	
 	// @Column(name="baranghj_jenisharga_id")
-	// private int barangHJJenisHargaId;
+	// private Integer barangHJJenisHargaId;
 
 	// @Column(name="baranghj_barang_id")
-	// private int barangHJBarangId;
+	// private Integer barangHJBarangId;
 	
 	@Column(name="baranghj_satuan_id")
-	private int barangHJSatuanId;
+	private Integer barangHJSatuanId;
 	
 	// @Column(name="baranghj_satuankonversi_id")
-	// private int barangHJSatuanKonversiId;
+	// private Integer barangHJSatuanKonversiId;
 
 	@Column(name="baranghj_tanggal")
 	private Date barangHJTanggal;
@@ -43,7 +43,7 @@ public class MBarangHJ {
 	private Date barangHJValidTo;
 	
 	@Column(name="baranghj_hj")
-	private int barangHJHJ;
+	private Integer barangHJHJ;
 	
 	@Column(name=" baranghj_default")
 	private String barangHJDefault;
@@ -61,13 +61,13 @@ public class MBarangHJ {
 	private Timestamp barangHJUpdatedDate;
 	
 	@Column(name="baranghj_revised")
-	private int barangHJRevised;
+	private Integer barangHJRevised;
 	
 	// @Column(name="baranghj_terima_id")
-	// private int barangHJTerimaId;
+	// private Integer barangHJTerimaId;
 	 
 	// @Column(name="baranghj_opname_id")
-	// private int barangHJOpnameId;
+	// private Integer barangHJOpnameId;
 	 
 	@Column(name="baranghj_deleted_date")
 	private Timestamp barangHJDeletedDate;
@@ -75,43 +75,43 @@ public class MBarangHJ {
 	@ManyToOne
 	private MBarang barang;
 
-	public int getBarangHJId() {
+	public Integer getBarangHJId() {
 		return barangHJId;
 	}
 
-	public void setBarangHJId(int barangHJId) {
+	public void setBarangHJId(Integer barangHJId) {
 		barangHJId = barangHJId;
 	}
 
-	// public int getBarangHJJenisHargaId() {
+	// public Integer getBarangHJJenisHargaId() {
 	// 	return barangHJJenisHargaId;
 	// }
 
-	// public void setBarangHJJenisHargaId(int barangHJJenisHargaId) {
+	// public void setBarangHJJenisHargaId(Integer barangHJJenisHargaId) {
 	// 	barangHJJenisHargaId = barangHJJenisHargaId;
 	// }
 
-	// public int getBarangHJBarangId() {
+	// public Integer getBarangHJBarangId() {
 	// 	return barangHJBarangId;
 	// }
 
-	// public void setBarangHJBarangId(int barangHJBarangId) {
+	// public void setBarangHJBarangId(Integer barangHJBarangId) {
 	// 	barangHJBarangId = barangHJBarangId;
 	// }
 
-	public int getBarangHJSatuanId() {
+	public Integer getBarangHJSatuanId() {
 		return barangHJSatuanId;
 	}
 
-	public void setBarangHJSatuanId(int barangHJSatuanId) {
+	public void setBarangHJSatuanId(Integer barangHJSatuanId) {
 		barangHJSatuanId = barangHJSatuanId;
 	}
 
-	// public int getBarangHJSatuanKonversiId() {
+	// public Integer getBarangHJSatuanKonversiId() {
 	// 	return barangHJSatuanKonversiId;
 	// }
 
-	// public void setBarangHJSatuanKonversiId(int barangHJSatuanKonversiId) {
+	// public void setBarangHJSatuanKonversiId(Integer barangHJSatuanKonversiId) {
 	// 	barangHJSatuanKonversiId = barangHJSatuanKonversiId;
 	// }
 
@@ -139,11 +139,11 @@ public class MBarangHJ {
 		barangHJValidTo = barangHJValidTo;
 	}
 
-	public int getBarangHJHJ() {
+	public Integer getBarangHJHJ() {
 		return barangHJHJ;
 	}
 
-	public void setBarangHJHJ(int barangHJHJ) {
+	public void setBarangHJHJ(Integer barangHJHJ) {
 		barangHJHJ = barangHJHJ;
 	}
 
@@ -187,27 +187,27 @@ public class MBarangHJ {
 		barangHJUpdatedDate = barangHJUpdatedDate;
 	}
 
-	public int getBarangHJRevised() {
+	public Integer getBarangHJRevised() {
 		return barangHJRevised;
 	}
 
-	public void setBarangHJRevised(int barangHJRevised) {
+	public void setBarangHJRevised(Integer barangHJRevised) {
 		barangHJRevised = barangHJRevised;
 	}
 
-	// public int getBarangHJTerimaId() {
+	// public Integer getBarangHJTerimaId() {
 	// 	return barangHJTerimaId;
 	// }
 
-	// public void setBarangHJTerimaId(int barangHJTerimaId) {
+	// public void setBarangHJTerimaId(Integer barangHJTerimaId) {
 	// 	barangHJTerimaId = barangHJTerimaId;
 	// }
 
-	// public int getBarangHJOpnameId() {
+	// public Integer getBarangHJOpnameId() {
 	// 	return barangHJOpnameId;
 	// }
 
-	// public void setBarangHJOpnameId(int barangHJOpnameId) {
+	// public void setBarangHJOpnameId(Integer barangHJOpnameId) {
 	// 	barangHJOpnameId = barangHJOpnameId;
 	// }
 

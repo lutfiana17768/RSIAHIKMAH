@@ -8,6 +8,7 @@ import com.rsia.madura.entity.MGetBarang;
 public interface BarangService {
 	public List<MBarang> getBarangs();
 	public List<MGetBarang> getBarangs(int page, int limit);
+	public List<MGetBarang> getBarang();
 	public String createLinks(int page, int limit);
 	public MBarang getBarang(int barangId);
 	

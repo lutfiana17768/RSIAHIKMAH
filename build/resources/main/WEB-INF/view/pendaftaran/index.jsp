@@ -4,8 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../app/header.jsp" />
     <div class="container">
-        <div class="ca
-        rd">
+        <div class="card">
             <div class="card">
                 <div class="card-header">
                     <div class="header-block">
@@ -18,7 +17,8 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Nomor RM</th>
+                                    <th>No. Pendaftaran</th>
+                                    <th>No. RM</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <!-- <th>Aksi</th> -->
@@ -27,6 +27,7 @@
                             <tbody>
                                 <c:forEach var="pendaftaran" items="${pendaftarans}">
                                     <tr>
+                                        <td>${pendaftaran.pendaftaranNo}</td>
                                         <td>${pendaftaran.pasien.pasienNorm}</td>
                                         <td>${pendaftaran.pasien.pasienNama}</td>
                                         <td>${pendaftaran.pasien.pasienAlamat}</td>
@@ -38,6 +39,13 @@
                                 </c:forEach>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="fixed-table-pagination" style="display: block; margin-top:25px">
+                     <form action="" method="get">
+                            <div class="pull-right pagination" style="margin-right: 20px;">
+                                 ${link }
+                            </div>
+                      </form>
                     </div>
                 </div>
             </div>

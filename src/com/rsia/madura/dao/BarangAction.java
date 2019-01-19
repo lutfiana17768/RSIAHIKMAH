@@ -40,6 +40,15 @@ public class BarangAction implements BarangDAO {
 		return barang;
 	}
 
+	@Override
+	public List<MGetBarang> getBarang() {
+		Session current = sessionFactory.getCurrentSession();
+		Query<MGetBarang> query = current.createQuery("from MGetBarang where barangAktif = 'Y'", MGetBarang.class);
+		List<MGetBarang> barang = query.getResultList();
+		
+		return barang;
+	}
+
 	private List<MGetBarang> getData(int page, int limit) {
 		Session current = sessionFactory.getCurrentSession();
     	Query<MGetBarang> query = current.createQuery("from MGetBarang where barangAktif = 'Y'", MGetBarang.class).setFirstResult((page-1)*limit).setMaxResults(limit);

@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <label class="control-label">Ruang</label>
                                 <div class="select2-wrapper">
-                                    <form:select path="mRuangID"
+                                    <form:select path="ruang.ruangID"
                                         class="form-control input-lg select2-single">
                                         <c:forEach var="ruang" items="${ruang}">
                                             <form:option value="${ruang.ruangID }"
@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label class="control-label">Kelas Ruangan</label>
                                 <div class="select2-wrapper">
-                                    <form:select path="mKelasID"
+                                    <form:select path="kelas.kelasID"
                                         class="form-control input-lg select2-single">
                                         <c:forEach var="kelas" items="${kelas}">
                                             <form:option value="${kelas.kelasID }"
@@ -80,7 +80,7 @@
                         <div class="container form-group" style="float: right;">
                             <button type="submit" class="btn btn-primary d_pasien-button">Simpan</button>
                             <button type="button" class="btn btn-danger d_pasien-button">
-                                <a href="/kamar/list" style="color: white; text-decoration: none;">Batal</a>
+                                <a href="/kamar" style="color: white; text-decoration: none;">Batal</a>
                             </button>
                         </div>
                         

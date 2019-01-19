@@ -9,11 +9,12 @@
                 <div class="card">
                     <div class="card-block">
                         <div class="card-title-block">
-                        <a href="/kondisi/tambah"/><button class="btn btn-primary">Tambah Data</button></a>
-                            <h3 class="title"> List Retul Jual </h3>
+                        <a href="/retur-jual/tambah"><button class="btn btn-primary">Tambah Data</button>
+                        </a>
+                            <h3 class="title"> List Retur Jual</h3>
                         </div>
                         <section class="example">
-                            <!-- <jsp:include page="inc/tabel.jsp" /> -->
+                            <jsp:include page="inc/tabel.jsp" />
                             <div class="fixed-table-pagination" style="display: block; margin-top:25px">
                                  <form action="" method="get">
                                         <div class="pull-right pagination" style="margin-right: 20px;">

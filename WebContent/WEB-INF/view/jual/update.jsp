@@ -172,8 +172,8 @@
                              <label>Nama Barang</label>
                              <select name="jualDetailBarangId" id="jualDetailBarangId">
                                  <c:forEach var="tempBarang" items="${barang}">
-                                         <option value="${tempBarang.barangId }">
-                                         ${tempBarang.barangNama }
+                                         <option value="${tempBarang.barang.barangId }" data-harga="${tempBarang.barangHJHJ }">
+                                         ${tempBarang.barang.barangNama }
                                          </option>
                                      </c:forEach>
                              </select>
