@@ -103,7 +103,7 @@
 								<label for="exampleInputEmail1">Harga Total<span style="color:red">*</span></label>
 								<div class="input-group input-group-sm">
 									<span class="input-group-addon">Rp</span>
-									<form:input class="form-control" path="terimaTotal"/>
+									<form:input class="form-control" path="terimaTotal" readonly = ""/>
 									<span class="input-group-addon">,00</span>
 								</div>
 
@@ -192,15 +192,15 @@
                          </div>
                          <div class="form-group">
                              <label>Jumlah</label>
-                             <input type="text" name="terimaDetailJumlah" id="terimaDetailJumlah">
+                             <input type="text" name="terimaDetailJumlah" id="terimaDetailJumlah" onkeyup="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Harga</label>
-                             <input type="text" name="terimaDetailHarga" id="terimaDetailHarga">
+                             <input type="text" name="terimaDetailHarga" id="terimaDetailHarga" onkeyup="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Sub Total</label>
-                             <input type="text" name="terimaDetailSubTotal" id="terimaDetailSubTotal">
+                             <input type="text" name="terimaDetailSubTotal" id="terimaDetailSubTotal" readonly="" >
                          </div>
                          <input type="hidden" name="terima_mode" id="terima_mode">                                                                               
                          <input type="hidden" name="terima_edit" id="terima_edit">

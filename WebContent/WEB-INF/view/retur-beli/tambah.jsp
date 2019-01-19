@@ -164,11 +164,11 @@
                          
                          <div class="form-group">
                              <label>Jumlah</label>
-                             <input type="text" name="returBeliDetailJumlah" id="returBeliDetailJumlah" onkeypress="setTotal()">
+                             <input type="text" name="returBeliDetailJumlah" id="returBeliDetailJumlah" onkeyup="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Harga</label>
-                             <input type="text" name="returBeliDetailHarga" id="returBeliDetailHarga">
+                             <input type="text" name="returBeliDetailHarga" id="returBeliDetailHarga" onkeyup="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Sub Total</label>

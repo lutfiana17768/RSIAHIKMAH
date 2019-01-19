@@ -180,7 +180,7 @@
 
                          <div class="form-group">
                              <label>Jumlah</label>
-                             <input type="text" name="jualDetailJumlah" id="jualDetailJumlah" onkeypress="setTotal()">
+                             <input type="text" name="jualDetailJumlah" id="jualDetailJumlah" onkeyup="setTotal()">
                          </div>
                          <div class="form-group">
                              <label>Harga</label>

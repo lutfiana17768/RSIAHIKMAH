@@ -111,7 +111,7 @@ function setTotal(){
     var harga = $('#terimaDetailHarga').val();
     var jumlah = $('#terimaDetailJumlah').val();
 
-    $('terimalDetailSubTotal').val(harga * jumlah);
+    $('#terimaDetailSubTotal').val(harga * jumlah);
 }
 
 function setTotalTransaksi(){

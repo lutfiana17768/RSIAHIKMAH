@@ -20,7 +20,7 @@ public class StokObatAction implements StokObatDAO {
 	public List<MStokObat> getStokObats() {
 		Session current = sessionFactory.getCurrentSession();
 		
-		Query<MStokObat> query = current.createQuery("from MStokObat where stokObatJumlah > 0", MStokObat.class);
+		Query<MStokObat> query = current.createQuery("from MStokObat where stokObatJumlah > 0 ORDER BY barang.barangNama", MStokObat.class);
 		List<MStokObat> result = query.getResultList();
 		
 		return result;
