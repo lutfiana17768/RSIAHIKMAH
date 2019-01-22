@@ -6,6 +6,6 @@ import com.rsia.madura.entity.MKartuStok;
 
 public interface KartuStokService {
 
-	public List<MKartuStok> getKartuStok();
+	public List<MKartuStok> getKartuStok(String month, String year, int barang_id);
 
 }

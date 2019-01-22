@@ -36,10 +36,11 @@ public class StokObatController {
 	
 	@RequestMapping(method=RequestMethod.GET, value="/kartustok")
 	public String KartuStokFormView(Model model, 
-			@RequestParam(value="tanggal", required=false, defaultValue="1") int page, 
-			@RequestParam(value="id", required=false, defaultValue="10") int limit){
+			@RequestParam(value="month", required=false, defaultValue="1") String month,
+			@RequestParam(value="year", required=false, defaultValue="2019") String year,
+			@RequestParam(value="id", required=false, defaultValue="10") int id){
 		
-		List<MKartuStok> result = kartuStokService.getKartuStok();
+		List<MKartuStok> result = kartuStokService.getKartuStok(month, year, id);
 		
 		model.addAttribute("result", result);
 		

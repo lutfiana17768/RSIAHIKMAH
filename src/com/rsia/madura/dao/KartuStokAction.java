@@ -18,7 +18,7 @@ public class KartuStokAction implements KartuStokDAO {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public List<MKartuStok> getKartuStok() {
+	public List<MKartuStok> getKartuStok(String month, String year, int barang_id) {
 		// TODO Auto-generated method stub
 		Session current = sessionFactory.getCurrentSession();
 
@@ -30,7 +30,8 @@ public class KartuStokAction implements KartuStokDAO {
 
 		String sql = "select sum(kartustok_id) as kartustok_id, kartustok_tanggal, " +
 					  "sum(kartustok_masuk) as kartustok_masuk, sum(kartustok_keluar) as kartustok_keluar,  barang_barang_id from kartustok " +
-					  "where kartustok_tanggal >= '2019-01-01' and kartustok_tanggal <= '2019-01-31' " +
+					  "where kartustok_tanggal >= '"+ year +"-"+ month +"-01' and kartustok_tanggal <= last_day(to_date('"+ year +"-"+ month +"-01','YYYY-MM-DD')) " +
+					  "and barang_barang_id = " + barang_id + " " +
 					  "group by kartustok_tanggal, barang_barang_id";
 
 		SQLQuery query = current.createSQLQuery(sql);

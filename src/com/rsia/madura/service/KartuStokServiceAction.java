@@ -16,9 +16,9 @@ public class KartuStokServiceAction implements KartuStokService{
 
 	@Override
 	@Transactional
-	public List<MKartuStok> getKartuStok() {
+	public List<MKartuStok> getKartuStok(String month, String year, int barang_id) {
 		// TODO Auto-generated method stub
-		return this.kartuStokDAO.getKartuStok();
+		return this.kartuStokDAO.getKartuStok(month, year, barang_id);
 	}
 
 }
