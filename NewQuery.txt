@@ -1,0 +1,131 @@
+#create table kartustok
+
+-- Table: kartustok
+
+-- DROP TABLE kartustok;
+
+CREATE TABLE kartustok
+(
+  kartustok_id serial NOT NULL,
+  kartustok_keluar integer,
+  kartustok_masuk integer,
+  kartustok_tanggal date,
+  barang_barang_id integer,
+  CONSTRAINT kartustok_pkey PRIMARY KEY (kartustok_id),
+  CONSTRAINT fkh6r81odwvtvufoq242ogcl2xx FOREIGN KEY (barang_barang_id)
+      REFERENCES m_barang (barang_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE kartustok
+  OWNER TO postgres;
+
+
+#stok v1
+-- Function: storestok()
+
+-- DROP FUNCTION storestok();
+
+CREATE OR REPLACE FUNCTION storestok()
+  RETURNS trigger AS
+$BODY$
+begin
+  update t_stokobat set stokobat_jumlah = stokobat_jumlah + NEW.terimadet_jumlah where 
+  barang_barang_id =  NEW.barang_barang_id;
+
+  insert into log_stok(logstok_barang_id, logstok_jumlah, logstok_kadaluarsa, logstok_transaksi,logstok_tanggal)
+  values (NEW.barang_barang_id, NEW.terimadet_jumlah, NEW.terimadet_kadaluarsa, 'Terima', NEW.terimadet_created_date);
+
+  insert into kartustok(kartustok_keluar, kartustok_masuk, kartustok_tanggal, barang_barang_id)
+  values(0, NEW.terimadet_jumlah, NOW(), NEW.barang_barang_id);
+  
+  return NEW;
+end;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION storestok()
+  OWNER TO postgres;
+
+
+  #stokv2
+  -- Function: storestokv2()
+
+-- DROP FUNCTION storestokv2();
+
+CREATE OR REPLACE FUNCTION storestokv2()
+  RETURNS trigger AS
+$BODY$
+begin
+  update t_stokobat set stokobat_jumlah = stokobat_jumlah + (NEW.jualdet_jumlah * -1) where
+  barang_barang_id = NEW.barang_barang_id;
+
+  insert into log_stok(logstok_barang_id, logstok_jumlah, logstok_kadaluarsa, logstok_transaksi,logstok_tanggal)
+  values (NEW.barang_barang_id, NEW.jualdet_jumlah, NEW.jualdet_kadaluarsa_date, 'Jual', NEW.jualdet_created_date);
+
+  insert into kartustok(kartustok_keluar, kartustok_masuk, kartustok_tanggal, barang_barang_id)
+  values(NEW.jualdet_jumlah, 0 , NOW(), NEW.barang_barang_id);
+  
+  return NEW;
+end;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION storestokv2()
+  OWNER TO postgres;
+
+
+#stok v3
+-- Function: storestokv3()
+
+-- DROP FUNCTION storestokv3();
+
+CREATE OR REPLACE FUNCTION storestokv3()
+  RETURNS trigger AS
+$BODY$
+begin
+  update t_stokobat set stokobat_jumlah = stokobat_jumlah + NEW.returjualdetail_jumlah where 
+  barang_barang_id =  NEW.barang_barang_id;
+
+  insert into log_stok(logstok_barang_id, logstok_jumlah, logstok_kadaluarsa, logstok_transaksi,logstok_tanggal)
+  values (NEW.barang_barang_id, NEW.returjualdet_jumlah, NEW.returjualdet_kadaluarsa, 'Retur Jual', NEW.returjualdet_created_date);
+
+  insert into kartustok(kartustok_keluar, kartustok_masuk, kartustok_tanggal, barang_barang_id)
+  values(0, NEW.returjualdetail_jumlah, NOW(), NEW.barang_barang_id);
+
+  return NEW;
+end;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION storestokv3()
+  OWNER TO postgres;
+
+
+#stokv4
+-- Function: storestokv4()
+
+-- DROP FUNCTION storestokv4();
+
+CREATE OR REPLACE FUNCTION storestokv4()
+  RETURNS trigger AS
+$BODY$
+begin
+  update t_stokobat set stokobat_jumlah = stokobat_jumlah + (NEW.returbelidetail_jumlah * -1) where
+  barang_barang_id = NEW.barang_barang_id;
+
+  insert into log_stok(logstok_barang_id, logstok_jumlah, logstok_kadaluarsa, logstok_transaksi,logstok_tanggal)
+  values (NEW.barang_barang_id, NEW.returbelidetail_jumlah * -1, NEW.returbelidetail_kadaluarsa, 'Retur Beli', NEW.returbelidetail_created_date);
+
+  insert into kartustok(kartustok_keluar, kartustok_masuk, kartustok_tanggal, barang_barang_id)
+  values(NEW.returbelidetail_jumlah, 0, NEW.returbelidetail_created_date, NEW.barang_barang_id);
+  
+  return NEW;
+end;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION storestokv4()
+  OWNER TO postgres;
