@@ -38,6 +38,10 @@ $('#add_terima').click(function(){
 
 $('#simpan-detail').click(function(){
     setTotalTransaksi();
+    setPPN();
+    setBiayaKirim();
+    setJumlahTagihan();
+
     var nama_barang, kadaluarsa, satuan, jumlah, harga, sub_total, mode, counter, id_row;
     var mode = $('#terima_mode').val();
 
@@ -107,6 +111,7 @@ function deleteDetail(id)
     tr = $('#terima_'+id);
     tr.remove();
 }
+
 function setTotal(){
     var harga = $('#terimaDetailHarga').val();
     var jumlah = $('#terimaDetailJumlah').val();
@@ -120,5 +125,44 @@ function setTotalTransaksi(){
 
     $('#terimaTotal').val('');
     $('#terimaTotal').val(TotalTransaksi);
+    console.log(TotalTransaksi);
+}
+
+function setPPN(){
+    var total = $('#terimaTotal').val();
+    var potongan = ($('#terimaCashback').val() == '') ? 0 : $('#terimaCashback').val();
+
+    var ppn = (parseInt(TotalTransaksi) - parseInt(potongan)) * 0.1;
+
+    $('#terimaTotalPPH').val(ppn);
+    console.log(ppn);
+}
+
+function setBiayaKirim(){
+    // var ppn = $('#terimaTotalPPH').val();
+
+    // var biayakirim = parseFloat(ppn) * 0.1;
+
+    // $('#terimaBiayaLain').val(biayakirim);
+    // console.log(biayakirim);
+}
+
+function setJumlahTagihan(){
+    // var total = $('#terimaTotal').val();
+    var ppn = $('#terimaTotalPPH').val();
+    var biayakirim = ($('#terimaBiayaLain').val() == '' ) ? 0 : $('#terimaBiayaLain').val();
+    var potongan = ($('#terimaCashback').val() == '') ? 0 : $('#terimaCashback').val();
+
+    var tagihan = parseInt(parseInt(TotalTransaksi) - parseInt(potongan)) + parseInt(ppn) + parseInt(biayakirim);
+
+    $('#terimaTotal').val('');
+    $('#terimaTotal').val(tagihan);   
+    console.log(tagihan);
+}
+
+function onchangenumber(){
+    setPPN();
+    setBiayaKirim();
+    setJumlahTagihan();
 }
 </script>

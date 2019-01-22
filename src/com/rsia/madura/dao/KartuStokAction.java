@@ -30,7 +30,7 @@ public class KartuStokAction implements KartuStokDAO {
 
 		String sql = "select sum(kartustok_id) as kartustok_id, kartustok_tanggal, " +
 					  "sum(kartustok_masuk) as kartustok_masuk, sum(kartustok_keluar) as kartustok_keluar,  barang_barang_id from kartustok " +
-					  "where kartustok_tanggal >= '2018-12-01' and kartustok_tanggal <= '2018-12-31' " +
+					  "where kartustok_tanggal >= '2019-01-01' and kartustok_tanggal <= '2019-01-31' " +
 					  "group by kartustok_tanggal, barang_barang_id";
 
 		SQLQuery query = current.createSQLQuery(sql);

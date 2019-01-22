@@ -28,7 +28,7 @@
                                      </select>
 								</div>
 								<div class="form-group">
-									<label for="exampleInputEmail1">No. Terima</label>
+									<label for="exampleInputEmail1">No. Faktur</label>
 									<form:input path="terimaNo" class="form-control boxed form-control-sm" />
 								</div>
 								
@@ -38,10 +38,10 @@
 		                         </div>
 
 
-		                         <div class="form-group">
+		                         <!-- <div class="form-group">
 		                            <label>Depo</label>
 		                            <form:input path="terimaDepoId" placeholder="Depo" class="form-control" />
-		                         </div>
+		                         </div> -->
 
 								<div class="form-group">
 									<label class="control-label">Supplier</label>
@@ -66,8 +66,8 @@
 								</div>
 
 								<div class="form-group">
-		                            <label>Surat Jalan</label>
-		                            <form:input path="terimaNoSuratJalan" placeholder="Masukan Nomer Surat Jalan" class="form-control" />
+		                            <label>Izin PBF</label>
+		                            <form:input path="terimaNoSuratJalan" placeholder="Masukan Izin PBF" class="form-control" />
 		                         </div>
 
 		                         <div class="form-group">
@@ -79,7 +79,7 @@
 
 							<div class="col-6">
 								
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label class="control-label">Pajak</label>
 									<form:select class="form-control boxed form-control-sm" path="terimaTotalPPN">
 											<option>Pilih..</option>
@@ -90,29 +90,36 @@
 											<option value="50">50%</option>
 											<option value="60">60%</option>
 										</form:select>
-								</div>
+								</div> -->
 								<!--  <div class="form-group">
 									<label for="exampleInputEmail1">Jumlah Item<span style="color:red">*</span></label>
 									<form:input class="form-control boxed form-control-sm" path=""/>
 								</div> -->
+								<label for="exampleInputEmail1">Potongan<span style="color:red">*</span></label>
+								<div class="input-group input-group-sm">
+									<span class="input-group-addon">Rp</span>
+									<form:input class="form-control" path="terimaCashback" onchange="onchangenumber()"/>
+									<span class="input-group-addon">,00</span>
+								</div>
+
 								<div class="form-group">
-		                            <label>Total PPH</label>
-		                            <form:input path="terimaTotalPPH" placeholder="Total PPH" class="form-control" />
+		                            <label>Total PPN</label>
+		                            <form:input path="terimaTotalPPH" placeholder="Total PPN" class="form-control" />
 		                         </div>
-		                         
-								<label for="exampleInputEmail1">Harga Total<span style="color:red">*</span></label>
+
+		                         <div class="form-group">
+		                            <label>Biaya Kirim</label>
+		                            <form:input path="terimaBiayaLain" placeholder="Biaya Kirim" class="form-control" />
+		                         </div>
+
+								<label for="exampleInputEmail1">Jumlah Tagihan<span style="color:red">*</span></label>
 								<div class="input-group input-group-sm">
 									<span class="input-group-addon">Rp</span>
 									<form:input class="form-control" path="terimaTotal" readonly = ""/>
 									<span class="input-group-addon">,00</span>
 								</div>
 
-								<label for="exampleInputEmail1">Cashback<span style="color:red">*</span></label>
-								<div class="input-group input-group-sm">
-									<span class="input-group-addon">Rp</span>
-									<form:input class="form-control" path="terimaCashback"/>
-									<span class="input-group-addon">,00</span>
-								</div>
+								
 							</div>
 						</div>
 						<div class="col col-12" style="padding:0">
@@ -188,7 +195,7 @@
                          </div>
                           <div class="form-group">
                              <label>Kadalursa</label>
-                             <input type="text" name="terimaDetailKadaluarsa" id="terimaDetailKadaluarsa">
+                             <input type="date" name="terimaDetailKadaluarsa" id="terimaDetailKadaluarsa">
                          </div>
                          <div class="form-group">
                              <label>Jumlah</label>
