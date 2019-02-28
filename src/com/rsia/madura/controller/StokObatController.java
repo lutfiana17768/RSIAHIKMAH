@@ -41,11 +41,13 @@ public class StokObatController {
 			@RequestParam(value="id", required=false, defaultValue="10") int id){
 		
 		List<MKartuStok> result = kartuStokService.getKartuStok(month, year, id);
+		List<MKartuStok> resultLast = kartuStokService.getKartuStokLast(month, year, id);
 		
 		model.addAttribute("result", result);
+		model.addAttribute("resultLast", resultLast);
 		
 		System.out.println(result);
-		return "/stok/kartustok";
+		return "/stok/kartustokprint";
 	}
 
 	@RequestMapping(method=RequestMethod.GET)
@@ -53,13 +55,14 @@ public class StokObatController {
 			@RequestParam(value="page", required=false, defaultValue="1") int page, 
 			@RequestParam(value="limit", required=false, defaultValue="10") int limit){
 		
-		List<MStokObat> result = stokObatService.getStokObats(page, limit);
-		String link = stokObatService.createLinks(page, limit);
+		List<MStokObat> result = stokObatService.getStokObats();
+		//String link = stokObatService.createLinks(page, limit);
 		
 		model.addAttribute("result", result);
-		model.addAttribute("link", link);
+		model.addAttribute("footerjs", "../stok/inc/footerjs.jsp");
+		//model.addAttribute("link", link);
 		
-		System.out.println(result);
+		//System.out.println(result);
 		return "/stok/index";
 	}
 

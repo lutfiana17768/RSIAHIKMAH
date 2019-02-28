@@ -91,6 +91,9 @@
 																		<li>
 																			<a href="/perusahaan/list/?page=1&limit=10"> Master Perusahaan</a>
 																		</li>
+																		<li>
+																			<a href="/stok-obat"> Stok Obat</a>
+																		</li>
 																	</ul>
 																</li>
 																<li>

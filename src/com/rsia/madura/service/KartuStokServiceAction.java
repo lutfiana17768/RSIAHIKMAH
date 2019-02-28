@@ -21,4 +21,11 @@ public class KartuStokServiceAction implements KartuStokService{
 		return this.kartuStokDAO.getKartuStok(month, year, barang_id);
 	}
 
+	@Override
+	@Transactional
+	public List<MKartuStok> getKartuStokLast(String month, String year, int barang_id) {
+		// TODO Auto-generated method stub
+		return this.kartuStokDAO.getKartuStokLast(month, year, barang_id);
+	}
+
 }

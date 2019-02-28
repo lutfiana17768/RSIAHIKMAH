@@ -134,7 +134,7 @@ public class PelayananController {
 
 	@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
 	public String UpdateFormView(Model model, @PathVariable int id){
-		MPendaftaran pelayananModel = pelayananService.getPelayanan(id);
+		MPendaftaran pendaftaranModel = pelayananService.getPelayanan(id);
 		List<MPasien> pasiens = pasienService.findAll();
 		List<MPegawai> pegawais = pegawaiService.getPegawai();
 		List<MKamar> kamars = kamarService.findAll();
@@ -152,12 +152,12 @@ public class PelayananController {
 		Principal principal = SecurityContextHolder.getContext().getAuthentication();
 		MUser user = userService.findByUserName(principal.getName());
 		
-		if (pelayananModel.getPaketID() != null) {
-			MPaket paket = paketService.getById(pelayananModel.getPaketID());
+		if (pendaftaranModel.getPaketID() != null) {
+			MPaket paket = paketService.getById(pendaftaranModel.getPaketID());
 			model.addAttribute("paket", paket);
 		}
 		
-		model.addAttribute("pelayananModel", pelayananModel);
+		model.addAttribute("pendaftaranModel", pendaftaranModel);
 		model.addAttribute("pasiens", pasiens);
 		model.addAttribute("pegawais", pegawais);
 		model.addAttribute("kamars", kamars);
@@ -185,6 +185,8 @@ public class PelayananController {
 		MPendaftaran dtPelayanan = pelayananService.getPelayanan(pendaftaranModel.getPendaftaranID());		
 
 		pendaftaranModel.setPaketID(0);
+
+		System.out.println("ini id pendaftaran : " + pendaftaranModel);
 
 		String UPLOAD_PATH = context.getRealPath(UPLOADED_FOLDER);
 		
