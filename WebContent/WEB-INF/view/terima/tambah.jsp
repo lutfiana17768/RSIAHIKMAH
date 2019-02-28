@@ -109,7 +109,7 @@
 
 		                         <div class="form-group">
 		                            <label>Biaya Kirim</label>
-		                            <form:input path="terimaBiayaLain" placeholder="Biaya Kirim" class="form-control" />
+		                            <form:input path="terimaBiayaLain" placeholder="Biaya Kirim" class="form-control" onchange="onchangenumber()" />
 		                         </div>
 
 								<label for="exampleInputEmail1">Jumlah Tagihan<span style="color:red">*</span></label>
